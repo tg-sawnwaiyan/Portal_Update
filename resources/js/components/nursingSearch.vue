@@ -29,7 +29,7 @@
                                 
                                     <!--end search input-->
                                 </div>
-                                <div class="col-lg-7 col-md-12 col-sm-12 float-right" >
+                                <div class="col-lg-7 col-md-12 col-sm-12 float-right align-center" >
                                     <maptag></maptag>
                                 </div>
                             </div>

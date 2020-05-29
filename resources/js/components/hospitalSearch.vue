@@ -16,7 +16,7 @@
           <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
-            <h2 class="map-header hospital-map-header" style="bottom: 120px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
+            <h2 class="map-header hospital-map-header" style="bottom: 155px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
 
             <!--search input-->
               <div class="wrap">
@@ -29,7 +29,7 @@
               </div>
             <!--end search input-->
             </div>
-        <div class="col-lg-7 col-md-12 col-sm-12 float-right">
+        <div class="col-lg-7 col-md-12 col-sm-12 float-right align-center">
             <maptag></maptag>
         </div>
           </div>

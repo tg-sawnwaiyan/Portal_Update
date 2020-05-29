@@ -28,7 +28,7 @@
           <!-- free word left wrapper--->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
               <!-- <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2> -->
-              <h2 class="map-header job-map-header" style="bottom: 120px;">あなたのやさしい<br/>手を求めてる老人<br/>ホーム・病院が見<br/>つかります。</h2>
+              <h2 class="map-header job-map-header" style="bottom: 155px;">あなたのやさしい<br/>手を求めてる老人<br/>ホーム・病院が見<br/>つかります。</h2>
 
 
               <!--search input-->
@@ -45,7 +45,7 @@
           <!--end free word left wrapper-->
 
           <!--map right wrapper-->
-          <div class="col-lg-7 col-sm-12 col-md-12 float-right">
+          <div class="col-lg-7 col-sm-12 col-md-12 float-right align-center">
             <maptag></maptag>
           </div>
           <!--end map right wrapper-->

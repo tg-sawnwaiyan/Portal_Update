@@ -50,7 +50,7 @@ body.all-bg {
 
 p {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.7em;
     color: #000;
@@ -199,6 +199,7 @@ body::-webkit-scrollbar-thumb {
 
 input[placeholder] {
     text-overflow: ellipsis;
+	font-size: 16px;
 }
 
 ::-moz-placeholder {
@@ -290,6 +291,7 @@ scrollbar-width: thin;*/
 
 label {
     margin-bottom: 0.2rem;
+	font-size: 16px;
 }
 
 .btn-file {
@@ -467,6 +469,9 @@ textarea:disabled::placeholder {
 
 .tab-pane {
     padding: 10px;
+}
+.tab-pane h5{
+    font-size: 18px;
 }
 
 ::-webkit-input-placeholder {
@@ -754,6 +759,7 @@ width: 100px; */
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
+	font-size: 16px;
 }
 
 .hos-fac-toggle-div {
@@ -1787,7 +1793,7 @@ border-radius: 3px;
 }
 
 .nosearch {
-    font-size: 14px;
+    font-size: 18px;
     color: #a5a5a5;
     font-weight: bold;
     margin: 20px 0;
@@ -1833,6 +1839,7 @@ border-radius: 3px;
 
 .wd-in p {
     min-height: 25px;
+	font-size: 16px;
 }
 
 .lds-ripple {
@@ -1971,6 +1978,7 @@ border-radius: 3px;
     justify-content: center;
     margin: 20px 0;
     color: #666a73;
+	font-size: 16px;
 }
 
 #nursing-search .card-carousel {
@@ -2420,6 +2428,10 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 .profile_subtit {
     position: relative;
     margin: 20px 0;
+	font-size: 16px;
+}
+.custom-bg-color{
+    font-size: 16px;
 }
 
 .profile_subtit:after {
@@ -2892,6 +2904,7 @@ border-top: 5px solid #e66527; */
 
 .error {
     color: #ff0000;
+	font-size: 16px;
     /* margin-bottom: 18px; */
 }
 
@@ -3091,6 +3104,7 @@ textarea {
 
 .form-control {
     background-color: #f5f5f5;
+	font-size: 16px;
 }
 
 .multi-step {
@@ -3221,10 +3235,10 @@ textarea {
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    font-size: 14.4px;
+    font-size: 16px;
     border: 1px solid #53c000;
     z-index: 4;
-    width: 160px;
+    min-width: 160px;
 }
 
 .bottom-fav-btn {
@@ -3237,9 +3251,9 @@ textarea {
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    font-size: 14.4px;
+    font-size: 16px;
     z-index: 4;
-    width: 175px;
+    min-width: 175px;
 }
 
 
@@ -4904,12 +4918,17 @@ ul.hospital-subject>li:before {
 .divisions {
     position: relative;
     z-index: 1;
+	display: inline-block;
     /* background: url(/images/img_map1.png) center top no-repeat; */
-    width: 850px;
+    /* width: 850px;*/
     /* min-width: 936px; */
     /* height: 532px; */
 }
 
+.align-center{
+    text-align: center;
+    padding: 0;
+}
 .map-leftwrapper {
     padding-left: 75px;
 }
@@ -4920,7 +4939,7 @@ ul.hospital-subject>li:before {
     font-size: 45px;
     line-height: 1.4;
     position: absolute;
-    bottom: 120px;
+    bottom: 155px;
 }
 
 .nursing-map-header {
@@ -4938,7 +4957,7 @@ ul.hospital-subject>li:before {
 
 .wrap {
     position: absolute;
-    bottom: 50px;
+    bottom: 85px;
     width: 100%;
 }
 
@@ -4949,6 +4968,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchTerm {
+	font-size: 16px;
     width: 70%;
     border: 3px solid #2980b9;
     border-right: none;
@@ -4999,6 +5019,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchButton {
+	font-size: 16px;
     width: 85px;
     height: 40px;
     /* border: 1px solid #2980b9;
@@ -5045,7 +5066,7 @@ ul.hospital-subject>li:before {
     /* border-radius: 10px; */
     -moz-border-radius: 10px;
     /* -webkit-border-radius: 10px; */
-    width: 65px;
+    width: 75px;
     /* box-shadow: 1px 1px 2px #868181;
 /* box-shadow: 1px 1px 2px #868181; */
 }
@@ -5372,21 +5393,22 @@ screen and (min-width: 750px) {
     .hokkaido-box {
         position: absolute;
         top: 11%;
-        right: 10%;
-        ;
+        right: -2%;
         z-index: 2;
+		padding: 0;
     }
     .tohoku-box {
         position: absolute;
         top: 26%;
-        right: 19%;
+        right: 10%;
         z-index: 2;
+		padding: 0;
     }
     .multiple-box {
-        width: 128px !important;
+        width: 153px !important;
     }
     .multiple-boxa {
-        width: 127px !important;
+        width: 152px !important;
     }
     .hokkaido-box .spanclass,
     .kanto-box .spanclass,
@@ -5396,50 +5418,58 @@ screen and (min-width: 750px) {
     .kanto-box {
         position: absolute;
         top: 56%;
-        right: 22%;
+        right: 13%;
         z-index: 2;
+        padding: 0;
     }
     .hokuriku-box {
         position: absolute;
-        top: 24%;
-        left: 52%;
+        top: 23%;
+        left: 55.5%;
         z-index: 2;
+        padding: 0;
     }
     .tokai-box {
         position: absolute;
-        bottom: 27%;
-        right: 31%;
+        bottom: 28%;
+        right: 30%;
         z-index: 2;
+        padding: 0;
     }
     .kinki-box {
         position: absolute;
-        top: 39%;
-        left: 35%;
+        top: 38%;
+        left: 30.5%;
         z-index: 2;
+        padding: 0;
     }
     .chugoku-box {
         position: absolute;
-        top: 29%;
-        left: 25%;
+        top: 27.5%;
+        left: 16%;
         z-index: 2;
+        padding: 0;
     }
     .shikoku-box {
         position: absolute;
-        left: 27%;
-        bottom: 22%;
+        left: 18%;
+        bottom: 23%;
         z-index: 2;
+        padding: 0;
     }
     .kyushu-box {
         position: absolute;
-        bottom: 66%;
-        left: 15%;
+        bottom: 69%;
+        left: -0.5%;
         z-index: 2;
+        padding: 0;
     }
     .okinawa-box {
         position: absolute;
-        bottom: 4%;
-        left: 25%;
+        bottom: 5%;
+        left: 16%;
         z-index: 2;
+        padding: 0;
     }
     /*end job search*/
     /*register form*/
@@ -6020,6 +6050,7 @@ top: 66px; */
 
 .m-l-10 {
     margin-left: 10px !important;
+	font-size: 16px;
 }
 
 .m-l-15 {
@@ -6199,6 +6230,7 @@ margin-right: 2% !important;
 }
 
 .all-btn {
+	font-size: 16px;
     color: #fff !important;
     border: none !important;
     min-width: 100px;
@@ -6257,6 +6289,7 @@ margin-right: 2% !important;
     background: #b7dad2;
     border-radius: 5px;
     padding: 10px;
+	font-size: 18px;
 }
 
 .invalid-feedback {
@@ -6264,7 +6297,7 @@ margin-right: 2% !important;
 }
 
 .fav-item {
-    font-size: 14px;
+    font-size: 16px;
     padding: 5px 10px;
     margin-bottom: 15px;
 }
@@ -6953,7 +6986,7 @@ color: #fff !important;
     padding: 0px 1rem !important;
     margin-bottom: 8px !important;
     background-color: transparent !important;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -6998,7 +7031,7 @@ color: #fff !important;
 /*footer*/
 
 .footer {
-    font-size: 12px;
+    font-size: 16px;
     /* padding-top: 15px;
     padding-bottom: 15px; */
     background: transparent;
@@ -7042,14 +7075,14 @@ color: #fff !important;
     font-weight: bold;
     text-align: center;
     padding: 5px;
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 1px;
     margin-left: 3px;
 }
 
 .spanclass {
-    width: 60px;
-    height: 30px;
+    width: 72px;
+    /*height: 30px;*/
     background-color: #fff;
     background-image: linear-gradient(to bottom, #ffffff, #f1f1f1);
     float: left;
@@ -7916,7 +7949,7 @@ button.confirmed {
 }
 
 .table tr {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .page-4 {
@@ -8285,10 +8318,12 @@ color: green;
     border-bottom: 3px solid #c40000;
     padding-bottom: 10px;
     margin-bottom: 10px;
+	font-size: 16px;
 }
 
 .form-wrap {
     padding-bottom: 10px;
+	font-size: 16px;
 }
 
 .form-wrap .form-tit {
@@ -8324,7 +8359,7 @@ color: green;
     margin: 0 5px;
     padding: 0 5px 0 5px;
     background: #F54336;
-    font-size: 0.8em;
+    font-size: 16px;
     color: #fff;
     font-weight: bold;
     border-radius: 3px;
@@ -8399,12 +8434,14 @@ color: green;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 5px;
+	font-size: 16px;
 }
 
 #nursing dl dd {
     width: 100%;
     text-align: left;
     padding-left: 10px;
+	font-size: 16px;
 }
 
 #nursing p {
@@ -8413,6 +8450,7 @@ color: green;
 
 .compare-wrap {
     padding: 0;
+	font-size: 16px;
 }
 
 .compare-wrap dl.favnur {
@@ -8433,7 +8471,7 @@ color: green;
     width: 70%;
     margin: 21px auto;
     color: #48555a !important;
-    font-size: 13px;
+    font-size: 16px;
     border: 1px solid #bdc8ca !important;
     text-shadow: 1px 1px 0 #fff, 1px 1px 1px #fff;
     border-radius: 5px;
@@ -8467,7 +8505,7 @@ color: green;
 
 .profile_price {
     width: 239px;
-    font-size: large;
+    font-size: 16px;
     /* color: #ff6117; */
     color: #fd0e0e;
     line-height: 1;
@@ -8552,6 +8590,7 @@ color: green;
     width: 65px;
     margin-right: 10px;
     color: #2980b9;
+	font-size: 16px;
 }
 
 .wd-in {
@@ -8561,7 +8600,7 @@ color: green;
 .item-fav {
     width: 100%;
     padding: 3px 10px;
-    font-size: 15px;
+    font-size: 16px;
     background-color: #fff;
     border: 1px solid #544e4e;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -8588,6 +8627,7 @@ color: green;
 
 .item-name a {
     color: #2980b9!important;
+	font-size: 16px;
 }
 
 .item-name img {
@@ -8611,7 +8651,7 @@ color: green;
     /* width: 40%; */
     padding: 2px 10px;
     /* margin-bottom: 10px; */
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     font-weight: bold;
     background: #0cc72c;
@@ -8628,14 +8668,14 @@ color: green;
     margin-right: 20px;
     /* background: #ff9563; */
     background: #2980b9;
-    font-size: 12px;
+    font-size: 16px;
     color: #fff;
     border-radius: 3px;
 }
 
 .address-tbl td {
     padding: 5px !important;
-    font-size: 11px;
+    font-size: 16px;
 }
 
 .address-tbl td p {
@@ -8657,11 +8697,11 @@ color: green;
 }
 
 .price-tbl td {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .price-tbl td span {
-    font-size: 20px;
+    font-size: 22px;
     /* color: #ff6117; */
     color: #fd0e0e;
     font-weight: bold;
@@ -8749,6 +8789,7 @@ font-weight: bold;
 .eg-txt {
     padding-left: 20px;
     width: 45%;
+	font-size: 16px;
 }
 
 .mail-txt {
@@ -8949,6 +8990,10 @@ dl.favnur dd {
     color: #000;
     text-align: center;
     overflow: hidden;
+}
+
+.profile_wd h6{
+    font-size: 16px;
 }
 
 #fav-history-page .card-carousel--nav__left,
@@ -9166,6 +9211,7 @@ border-bottom: none;
     color: #3490dc !important;
     text-decoration: underline;
     cursor: pointer;
+	font-size: 16px;
 }
 
 .pseudolink:hover {
@@ -9179,6 +9225,7 @@ border-bottom: none;
 /*for see more btn*/
 
 .seemore-btn {
+	font-size: 16px !important;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -9293,7 +9340,7 @@ border-bottom: none;
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 16px;
     margin-left: -2px!important;
     text-align: center;
 }
@@ -9304,7 +9351,7 @@ border-bottom: none;
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 16px;
     /* width: 65%; */
     margin-bottom: 11px;
     text-align: center;
@@ -9324,7 +9371,7 @@ border-bottom: none;
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .job_title_1 {
@@ -9428,6 +9475,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     height: 100%;
     border: 1px solid #63b7ff;
     border-radius: 5px;
+	font-size: 16px;
 }
 
 .hos-title {
@@ -9583,6 +9631,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     background: #63b7ff;
     color: #fff;
     padding: 10px;
+	font-size: 16px;
 }
 
 .nur_date {
@@ -10136,8 +10185,10 @@ font-size: 18px; */
 /*for inner checkbox*/
 
 .control {
+	font-size: 16px;
+    width: auto !important;
     position: relative;
-    padding-left: 20px;
+    padding-left: 30px;
     margin-left: 10px;
     /* margin-bottom: 15px;
 cursor: pointer;
@@ -10152,7 +10203,7 @@ font-size: 18px; */
 
 .controlinner__indicator {
     position: absolute;
-    top: 6px;
+    top: 10px;
     left: 50px;
     height: 16px;
     width: 16px;
@@ -10936,8 +10987,9 @@ padding: 11px;
         position: relative;
         z-index: 1;
         /* background: url(/images/img_map1.png) center top no-repeat; */
-        width: 779px;
-        height: 425px;
+        width: 100%;
+        max-width: 670px;
+        /*height: 425px;*/
     }
     .map-leftwrapper {
         padding-left: 15px;
@@ -10946,36 +10998,36 @@ padding: 11px;
     ul.hokkaido-wrap {
         left: 0px;
     }
-    .hokkaido-box {
-        right: 8%;
+    /*.hokkaido-box {
+        right: -2%;
     }
     .tohoku-box {
-        right: 18%;
+        right: 21%;
     }
     .kanto-box {
         right: 21%;
     }
     .hokuriku-box {
-        left: 52%;
+        left: 46.5%;
     }
     .tokai-box {
-        right: 31%;
+        right: 38%;
     }
     .kinki-box {
-        left: 34%;
-    }
-    .chugoku-box {
-        left: 23%;
-    }
-    .shikoku-box {
         left: 25%;
     }
-    .kyushu-box {
+    .chugoku-box {
         left: 12%;
     }
-    .okinawa-box {
-        left: 24%;
+    .shikoku-box {
+        left: 14%;
     }
+    .kyushu-box {
+        left: -3%;
+    }
+    .okinawa-box {
+        left: 12%;
+    }*/
     /*end job search*/
     /* job apply list */
     #job_apply .scroll_responsive {
@@ -11196,25 +11248,25 @@ padding: 0;
     }
     .hokkaido-box {
         position: absolute;
-        top: 11%;
+        /*top: 11%;*/
         right: 10%;
         z-index: 2;
     }
-    .tohoku-box {
+    /*.tohoku-box {
         right: 12%;
-    }
+    }*/
     .multiple-box {
-        width: 128px !important;
+        width: 156px !important;
     }
     .multiple-boxa {
-        width: 127px !important;
+        width: 156px !important;
     }
     .hokkaido-box .spanclass,
     .kanto-box .spanclass,
     .okinawa-box .spanclass {
         margin-right: 1px;
     }
-    .kanto-box {
+    /*.kanto-box {
         right: 12%;
     }
     .hokuriku-box {
@@ -11237,7 +11289,7 @@ padding: 0;
     }
     .okinawa-box {
         left: 13%;
-    }
+    }*/
     /*end job search*/
     /* profile publish */
     .gallery-list .gallery-item {
@@ -11258,7 +11310,7 @@ padding: 0;
     }
     .divisions {
         width: 550px;
-        height: 425px;
+        /*height: 425px;*/
     }
     /*news_start*/
     .t_card {
@@ -11309,7 +11361,7 @@ padding: 0;
     }
     .divisions {
         width: 550px;
-        height: 425px;
+        /*height: 425px;*/
     }
     .map-wrap {
         padding: 20px 10px;
@@ -11383,7 +11435,7 @@ padding: 0;
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px;
+        font-size: 16px;
         margin-bottom: 10px;
         display: inline-block;
         /* width: 60%; */
@@ -12017,7 +12069,7 @@ padding: 0;
 width: 18rem;
 } */
     .smallads-title {
-        font-size: 12px;
+        font-size: 16px;
         line-height: 1.357;
         color: #333;
         overflow: hidden;
@@ -13647,7 +13699,7 @@ transition: background-color .3s;
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px;
+        font-size: 16px;
     }
     .pc-9-180 {
         display: block;
@@ -14296,7 +14348,7 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px;
+        font-size: 14px;
         /* width: 71%; */
         margin-bottom: 11px;
         text-align: center;
@@ -14359,7 +14411,7 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px;
+        font-size: 16px;
         /* width: 22%; */
         margin-bottom: 11px;
         text-align: center;
@@ -14402,7 +14454,7 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px;
+        font-size: 16px;
         /* width: 31%; */
         margin-bottom: 11px;
         text-align: center;
@@ -14451,10 +14503,93 @@ strong {
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 16px;
     margin-bottom: 10px;
     /* width: 18%; */
     text-align: center;
     display: inline-block;
     /* float: left; */
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1179px){
+    .spanclass{
+        padding: 5px 3px;
+        width: 60px;
+    }
+    .map-leftwrapper {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1200px){
+    .map-wrap {
+        padding: 20px 10px;
+    }
+    .map-header{
+        font-size: 43px;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1114px){
+    .spanclass{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 1115px) and (max-width: 1179px){
+    .spanclass{
+        font-size: 14px;
+    }
+}
+
+.img-fluid {
+    max-width: 670px !important;
+    width: 100% !important;
+    height: auto;
+}
+
+
+@media (min-width: 991px) {
+  .navbar-expand-lg {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .navbar-expand-lg .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container-fluid,
+  .navbar-expand-lg > .container-sm,
+  .navbar-expand-lg > .container-md,
+  .navbar-expand-lg > .container-lg,
+  .navbar-expand-lg > .container-xl {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 991px) {
+  .map-wrap .col-lg-5 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 41.6666666667%;
+            flex: 0 0 41.6666666667%;
+    max-width: 40%;
+  }
+
+  .map-wrap .col-lg-7 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 58.3333333333%;
+            flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
 }
