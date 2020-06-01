@@ -14600,3 +14600,25 @@ strong {
     max-width: 58.3333333333%;
   }
 }
+
+#job_search .profile_header{
+    font-size: 20px;
+}
+#job_search .table tr{
+    font-size: 14px;
+}
+#job_search .form-control{
+    font-size: 14px;
+}
+#job_search .custom-select{
+    font-size: .9rem;
+}
+#job_search .control{
+    font-size: 14px;
+}
+#job_search .seemore-btn{
+    font-size: 14px !important;
+}
+#job_search .create-btn{
+    font-size: 14px;
+}
