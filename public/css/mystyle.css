@@ -3494,10 +3494,12 @@ width: 18rem;
 
 .ads-slider .slide-img {
     float: left;
-    width: 90px;
+    /*width: 90px;*/
     height: 65px;
-    margin-right: 18px;
+    /*margin-right: 18px;*/
     overflow: hidden;
+    width: 50%;
+    margin-right: 5%;
 }
 
 .ads-slider .adslist-card {
@@ -3512,6 +3514,11 @@ width: 18rem;
     /* width: 100px; */
     width: auto;
     height: 65px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ads-slider .ads-img {
@@ -12069,7 +12076,7 @@ padding: 0;
 width: 18rem;
 } */
     .smallads-title {
-        font-size: 16px;
+        font-size: 12px;
         line-height: 1.357;
         color: #333;
         overflow: hidden;
