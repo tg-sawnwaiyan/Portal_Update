@@ -56,6 +56,11 @@ p {
     color: #000;
 }
 
+a{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
 .txt-box p {
     line-height: 1.4em!important;
     height: 40px;
@@ -14621,4 +14626,12 @@ strong {
 }
 #job_search .create-btn{
     font-size: 14px;
+}
+
+.single-news-box >p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
