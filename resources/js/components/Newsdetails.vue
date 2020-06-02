@@ -115,6 +115,7 @@ export default {
     };
   },
   created() {
+    this.scrollToTop();
     this.noimage = false;
     //this.getLatestPostFromAllCat();
     if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
@@ -140,6 +141,9 @@ export default {
   },
 
   methods: {   
+    scrollToTop() {
+      window.scrollTo(0,0);
+    },
     imgUrlAlt(event) { 
       this.noimage = true;  
       event.target.src = "/images/noimage.jpg"
