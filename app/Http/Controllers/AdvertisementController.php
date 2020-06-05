@@ -43,25 +43,37 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        
         $imageName = $request->photo->getClientOriginalName();
         $imgname = str_replace(' ', '', $imageName);
         $imgname = strtolower($imgname);
         // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
-
+        
+        $pdfname = '';
+        
+        if(is_object($request->pdf)){
+            $pdfName = $request->pdf->getClientOriginalName();
+            $pdfname = str_replace(' ', '', $pdfName);
+            $pdfname = strtolower($pdfname);
+        }
+                
         $ads = new Advertisement();
         $ads->title = $request->input('title');
         $ads->description = $request->input('description');
         $ads->link=$request->input('link');
         $ads->location=$request->input('location');
+        $ads->pdf = $pdfname;
         $ads->photo = $imgname;
         $ads->user_id = 1;
 
-         $ads ->save();
+        $ads ->save();
 
-         $request->photo->move('./upload/advertisement/', $imgname);
-         //return $ads;
-         return response()->json('Success ');
+        $request->photo->move('./upload/advertisement/', $imgname);
+
+        if($pdfname != ''){
+            $request->pdf->move('./upload/static/', $pdfname);
+        }
+        //return $ads;
+        return response()->json('Success ');
 
     }
 
@@ -115,6 +127,15 @@ class AdvertisementController extends Controller
         } else {
             $imageName = $request->photo;
         }
+        if(is_object($request->pdf)) {
+            $pdfName = $request->pdf->getClientOriginalName();
+            $pdfName = str_replace(' ', '', $pdfName);
+            $pdfName = strtolower($pdfName);
+            // $request->pdf->move(public_path('/upload/advertisement'), $imageName);
+            $request->pdf->move('./upload/static/', $pdfName);
+        } else {
+            $pdfName = $request->pdf;
+        }
         //   $uploadData = array(
         //       'title' => $request->input('title'),
         //       'description' => $request->input('description'),
@@ -131,11 +152,18 @@ class AdvertisementController extends Controller
                    \File::delete($filename);
                 }
 
+            if(is_object($request->pdf)) {
+                $file= $ads->pdf;
+                $filename = './upload/static/'.$file;
+                \File::delete($filename);
+            }
+
             $ads->title = $request->input('title');
             $ads->description = $request->input('description');
             $ads->link=$request->input('link');
             $ads->location=$request->input('location');
             $ads->photo = $imageName;
+            $ads->pdf = $pdfName;
             $ads->user_id = 1;
             $ads->save();
             return response()->json('successfully updated');
@@ -156,6 +184,12 @@ class AdvertisementController extends Controller
         $filename = './upload/advertisement/'.$file;
         //$filename = public_path().'/upload/advertisement/'.$file;
         \File::delete($filename);
+
+        $pdffile= $ads->pdf;
+        $pdffilename = './upload/static/'.$pdffile;
+        //$filename = public_path().'/upload/advertisement/'.$file;
+        \File::delete($pdffilename);
+
         $ads->delete();
         $advertisements = Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($advertisements);
