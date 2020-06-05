@@ -6,7 +6,7 @@
           <li class="breadcrumb-item"><a href="/" class="router-link-active">ホーム</a></li>
           <li aria-current="page" class="breadcrumb-item active">求人詳細</li>
         </ol>
-        <a @click="$router.go(-1)" v-if="$route.params.id && $auth.check(2)" class="btn btn-danger all-btn submit float-right"><i class="fas fa-arrow-left"></i>&nbsp;戻る</a>
+        <a @click="$router.go(-1)" v-if="$route.params.id && $auth.check(2)" class="btn btn-danger all-btn submit float-right pc-990"><i class="fas fa-arrow-left"></i>&nbsp;戻る</a>
       </nav>
       
      
@@ -104,14 +104,28 @@
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico"><i class="fa fa-building"></i></span>施設名</label>
             </div>
-            <div class="col-md-10 col-sm-12 form-right">
-              <div v-if="jobDetail.type_id == 2">
-                <router-link :to="{ path:'/profile/hospital/'+jobDetail.profile_id }" class="pseudolink" style="font-weight:bold;color:#63b7ff !important">{{jobDetail.cusname}}</router-link>
+            <div class="col-md-10 col-sm-12 form-right">  
+                 
+              <div v-if="jobDetail.type_id == 2">   
+                  <div v-if="jobDetail.activate == 0">
+                    <span>{{jobDetail.cusname}}</span>
+                    <span class="disabledlink">施設詳細</span>
+                  </div>
+                  <div v-else>
+                      <span>{{jobDetail.cusname}}</span>
+                     <router-link  class="enabledlink" :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">施設詳細</router-link>                    
+                  </div>          
               </div>
-              <div v-else>
-                <router-link :to="{ path:'/profile/nursing/'+jobDetail.profile_id}" class="pseudolink" style="font-weight:bold;color:#63b7ff !important">{{jobDetail.cusname}}</router-link>
+              <div v-else> 
+                 <div v-if="jobDetail.activate == 0">
+                    <span>{{jobDetail.cusname}}</span>
+                    <span class="disabledlink">施設詳細</span>                     
+                  </div>
+                  <div v-else>
+                    <span>{{jobDetail.cusname}}</span>
+                    <router-link  class="enabledlink" :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">施設詳細</router-link>                    
+                  </div>    
               </div>
-
               
             </div>
           </div>
@@ -136,7 +150,8 @@ export default {
     return {
       job_details: [],
       job_id: "",
-      login_user: Boolean
+      login_user: Boolean,
+      active:0,
 
     };
   },

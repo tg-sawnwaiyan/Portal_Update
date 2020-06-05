@@ -16,7 +16,7 @@
           <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
-            <h2 class="map-header hospital-map-header" style="bottom: 120px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
+            <h2 class="map-header hospital-map-header" style="bottom: 155px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
 
             <!--search input-->
               <div class="wrap">
@@ -29,7 +29,7 @@
               </div>
             <!--end search input-->
             </div>
-        <div class="col-lg-7 col-md-12 col-sm-12 float-right">
+        <div class="col-lg-7 col-md-12 col-sm-12 float-right align-center">
             <maptag></maptag>
         </div>
           </div>
@@ -284,9 +284,9 @@
                                                 <span class="hos_phone pc-768"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span><span class="phone-no"><a :href="`tel:${hos.phone}`">{{hos.phone}}</a></span></span>
                                             </h5>
                                             
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                <tr class="first-row">
+                                            <table class="table table-bordered consultTable">                                                
+                                                <tbody>
+                                                 <tr class="first-row">
                                                     <th>日付</th>
                                                     <th>月</th>
                                                     <th>火</th>
@@ -296,18 +296,16 @@
                                                     <th>土</th>
                                                     <th>日</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
                                                 <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.hos_id" class="text-center">
-                                                    <td class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</td>
-                                                    <td class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.mon}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.tue}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.wed}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.thu}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.fri}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sat}}</td>
-                                                    <td style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sun}}</td>
+                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</th>
+                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.mon}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.tue}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.wed}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.thu}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.fri}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sat}}</th>
+                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sun}}</th>
                                                 </tr>
                                                 </tbody>
                                             </table>

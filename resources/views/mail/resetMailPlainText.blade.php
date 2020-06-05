@@ -2,7 +2,7 @@
 
 以下のリンクからパスワード再設定手続きにお進みください。
 
-パスワードを再設定する ->https://testikportal.management-partners.co.jp/resetpassword?code={{$checkmail[0]['role']}}
+パスワードを再設定する ->https://test.t-i-s.jp/resetpassword?code={{$checkmail[0]['role']}}
 
 ※再設定しない場合はこのメッセージを無視して下さい。
 ※パスワードは、上記から変更操作をしない限り変更されません。

@@ -2,15 +2,35 @@
         <div class="col-md-12 pad-free m-b-10">
               <div class="col-md-12 pad-free nursing-m-b-15">
                 <div class="col-md-12 pad-free postal-search">
-                    <div class="form-group row pl-3">
-                    <div class="col-md-12 p-0 "><label class="font-weight-bold"> 郵便番号 </label></div>
-                    <div class="col-md-12 p-0">
-                    <input type="text" v-model="comment.postal" v-on:keydown="postalNumber" name="postal" class="form-control white-bg-color float-left postal" id="postal" placeholder="郵便番号を入力してください。" maxlength="7"/>                    
-                    <span class="float-left submit1 btn main-bg-color continue all-btn submit m-l-10  m-l-480" @click="getPostal">郵便番号より住所を検索</span>
-                    <span class="float-left m-l-10 m-l-768">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank" class="pseudolink">郵便番号検索</a>)</span>
+                    <!-- <div class="form-group">
+                        <div class="col-md-12 p-0 "><label class="font-weight-bold"> 郵便番号 </label></div>
+                        <div class="col-md-12 row m-0 p-0">
+                        <div class="col-md-6 pad-free">
+                            <input type="text" v-model="comment.postal" v-on:keydown="postalNumber" name="postal" class="form-control white-bg-color" id="postal" placeholder="郵便番号を入力してください。" maxlength="7"/>                    
+                        </div>
+                        <div class="col-md-6 pad-free">
+                            <span class="float-left submit1 btn main-bg-color continue all-btn submit m-l-10  m-l-480" @click="getPostal">郵便番号より住所を検索</span>
+                            <span class="float-left m-l-10 m-l-768">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank" class="pseudolink">郵便番号検索</a>)</span>
+                        </div>                       
+                        </div>
+                        <span id="jsErrorMessage" class="m-t-8"></span>
+                  </div> -->
+                    <div class="col-md-12 row p-0 m-0 m-b-10">
+                        <div class="col-md-6 pad-free nursing-m-b-15 ">
+                            <div class="col-md-12 p-0 "><label class="font-weight-bold"> 郵便番号 </label></div>
+                            <div class="col-md-12 p-l-0 nursing_p-r-2">
+                                <input type="text" v-model="comment.postal" v-on:keydown="postalNumber" name="postal" class="form-control white-bg-color" id="postal" placeholder="郵便番号を入力してください。" maxlength="7"/>                    
+                            </div>
+                        </div>
+                        <div class="col-md-6 pad-free nursing-m-b-15">
+                            <!-- <div class="col-md-12 p-r-0"><label class="font-weight-bold"></label></div> -->
+                            <div class="col-md-12 p-r-0 nursing_map nursing_p-l-2">
+                                <span class="col-md-6 submit1 btn main-bg-color continue all-btn submit m-l-480" @click="getPostal">郵便番号より住所を検索</span>
+                                <span class="col-md-6 m-l-10 m-l-768">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank" class="pseudolink">郵便番号検索</a>)</span>
+                            </div>
+                        </div>
+                        <span id="jsErrorMessage" class="m-t-8"></span>
                     </div>
-                    <span id="jsErrorMessage" class="m-t-8"></span>
-                  </div>
                     <div class="col-md-12 row p-0 m-0">
                         <div class="col-md-6 pad-free nursing-m-b-15 ">
                             <div class="col-md-12 p-l-0 "><label class="font-weight-bold">  都道府県 <span class="error sp2">必須</span></label></div>
@@ -49,27 +69,31 @@
                       <!-- <div class="col-md-2">
                         <span class="btn news-post-btn all-btn" @click="searchAddress()">番地検索</span>
                       </div> -->
-                      <div class="col-md-2">
-                        <!-- <span class="btn news-post-btn all-btn" @click="searchAddress()">番地検索</span> -->
-                        <span id="submit" class="btn secondary-bg-color all-btn" style="width:100%;" @click="initMap('clickfun')">Geocode</span>
-                      </div>
+                      <!-- <div class="col-md-2">
+                        <span id="submit" class="btn secondary-bg-color all-btn" style="width:100%;" @click="initMap('clickfun')">住所より地図を検索</span>
+                      </div> -->
                     </div>
                     <p class="m-l-768">例）丸の内1-9-1　グラントウキョウノースタワー40階</p>
                   </div>
                 </div>
                 <div class="form-group">
-                  <h5 class="lbl-lat-lng">緯度経度の入力または地図のマーカを移動し施設の位置を指定してください。</h5>
-                    <div class="row">
-                      <div class="col-lg-4 col-md-12 hos_map_lbl">
+                  <h5 class="lbl-lat-lng">緯度経度や住所の指定または地図上のマーカの移動により施設の位置を指定してください</h5>
+                    <div class="row col-md-12 m-0 p-l-0">
+                      <div class="col-lg-3 col-md-12 hos_map_lbl p-r-0">
                         <label class="font-weight-bold">緯度 <span class="error sp2">必須</span></label>
                         <input type="text" class="form-control white-bg-color" name="new_lat" v-model="new_lat" id="new_lat" ref="new_lat">
                       </div>
-                      <div class="col-lg-4 col-md-12">
+                      <div class="col-lg-3 col-md-12 p-r-0">
                         <label class="font-weight-bold">経度 <span class="error sp2">必須</span></label>
                         <input type="text" class="form-control white-bg-color" name="new_long" v-model="new_long" id="new_long" ref="new_long">
                       </div>
-                      <div class="nursing_map col-lg-4 col-md-12">
-                        <span class="btn news-post-btn all-btn" @click="addressSelect(parseFloat(new_lat),parseFloat(new_long))">緯度経度から地図を検索</span>
+
+                      <div class="nursing_map col-lg-3 col-md-12">
+                        <span class="btn news-post-btn all-btn" style="width:100%;" @click="addressSelect(parseFloat(new_lat),parseFloat(new_long))">緯度経度より地図を検索</span>
+                      </div>
+
+                      <div class="nursing_map col-lg-3 col-md-12">
+                        <span id="submit" class="btn news-post-btn all-btn" style="width:100%;" @click="initMap('clickfun')">住所より地図を検索</span>
                       </div>
                     </div>
                   </div>

@@ -28,7 +28,7 @@
           <!-- free word left wrapper--->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
               <!-- <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2> -->
-              <h2 class="map-header job-map-header" style="bottom: 120px;">あなたのやさしい<br/>手を求めてる老人<br/>ホーム・病院が見<br/>つかります。</h2>
+              <h2 class="map-header job-map-header" style="bottom: 155px;">あなたのやさしい<br/>手を求めてる老人<br/>ホーム・病院が見<br/>つかります。</h2>
 
 
               <!--search input-->
@@ -45,7 +45,7 @@
           <!--end free word left wrapper-->
 
           <!--map right wrapper-->
-          <div class="col-lg-7 col-sm-12 col-md-12 float-right">
+          <div class="col-lg-7 col-sm-12 col-md-12 float-right align-center">
             <maptag></maptag>
           </div>
           <!--end map right wrapper-->
@@ -291,7 +291,7 @@
                   </td>
                 </tr>
 
-                <tr class="text-center">
+                <tr class="text-center" >
                   <td colspan="2" style="border:none;">
                      <button class="main-bg-color create-btn all-btn col-lg-2 col-md-4 col-sm-2" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
                   </td>
@@ -300,7 +300,7 @@
             </table>
             </div>
 
-             <span class="col-12" v-if="norecord_msg">
+             <span  class="col-12" v-if="norecord_msg">
                 <div class="container-fuid m-t-20">
                     <p class="nosearch-icon">
                         <svg x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:red;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#666666"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
@@ -309,7 +309,10 @@
                      <p class="nosearch">条件の変更を行い再度ご検索いだだくと見つかる可能性がございます。</p>
                 </div>
             </span>
-             <div class="col-12">
+            
+           
+            
+             <div id="scroll" class="col-12">
                 <div class="row pad-free m-b-10">
                    <div id="job_detail" class="col-lg-6 col-md-12" style="margin-top:20px;" v-for="(job,index) in displayItems" :key="index+'-'+job.title+'-'+job.jobid">
                      <div class="job-content">
@@ -327,7 +330,7 @@
                         <!-- <div class="col-4 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div> -->
-                        <div class="col-12 pad-free job-boxjob-box p0-480">
+                        <div class="col-12 pad-free job-box p0-480">
                           <table  class="table table-bordered  table-sm">
                             <tr>
                               <td><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>最寄り駅</td>
@@ -422,6 +425,29 @@ export default {
 
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
+    },
+    watch: {
+      
+      job_data(){
+
+          if(this.job_data.length >= 0){ 
+
+           
+
+             var elmnt = document.querySelector("#scroll");
+             elmnt.scrollIntoView({block: 'start', inline: 'start',offsetTop:200}); 
+          
+          
+            // const scrollToEl = document.querySelector("#scroll");
+            // scrollToEl.scrollIntoView({behavior: "smooth",block:"start"});
+            //   var scrollToEl = document.querySelector("#scroll");
+            //   const topOfElement = window.pageYOffset + scrollToEl.getBoundingClientRect().top - 10000;
+            //  topOfElement.scrollIntoView(true); 
+            //  var elmnt = document.querySelector("#scroll").offsetHeight;
+            // const topOfElement = window.pageYOffset + elmnt.getBoundingClientRect().top - headerHeight - buffer;       
+            //  elmnt.scrollIntoView({block:"start",offsetHeight:2000}); 
+          }
+      }    
     },
     mounted() {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');

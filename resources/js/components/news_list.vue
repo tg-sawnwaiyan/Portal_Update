@@ -274,7 +274,11 @@
                 });
             },
             getResults() {
-                this.$http.get('/api/news_list')
+                if(this.$route.params.status == 'update'){
+                    var page_no = this.$route.params.page_no;
+                    this.nextPaginate(page_no);
+               }else{
+                    this.$http.get('/api/news_list')
                     .then(response => {
 
                         this.news_list = response.data.news;
@@ -292,6 +296,7 @@
                         }
                         this.$loading(false);
                     });
+                }
             },
 
             deletePost(catid,id) {
@@ -383,6 +388,25 @@
                         // }else{
                         //     this.pagination = false;
                         // }
+                        if(this.norecord != 0) {
+                            this.nosearch_msg = false;
+                        }else{
+                            this.nosearch_msg = true;
+                        }
+                        localStorage.setItem('page_no',page);//set to editNewsPost.vue/updatepost()
+                    });
+                },
+                nextPaginate(num){
+                     
+                    let fd = new FormData();
+                    fd.append("postid",null);
+                    this.$loading(true);
+                    this.axios.post("/api/news_list/search?page="+num, fd).then(response => {
+                        this.$loading(false);
+                        this.news_list = response.data;
+
+                        this.norecord = this.news_list.data.length;
+                       
                         if(this.norecord != 0) {
                             this.nosearch_msg = false;
                         }else{

@@ -132,7 +132,7 @@ Vue.use(VueAxios, axios);
 
 Vue.use(VueGoogleMaps, {
     load: {
-        key: "javascript-map-api-key-here",
+        key: "key",
     }
 });
 

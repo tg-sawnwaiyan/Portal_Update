@@ -151,7 +151,7 @@
 <!-- Real map -->
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script> -->
 <!-- Test map -->
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
 <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
 <!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>

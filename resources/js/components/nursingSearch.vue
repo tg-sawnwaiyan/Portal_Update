@@ -29,7 +29,7 @@
                                 
                                     <!--end search input-->
                                 </div>
-                                <div class="col-lg-7 col-md-12 col-sm-12 float-right" >
+                                <div class="col-lg-7 col-md-12 col-sm-12 float-right align-center" >
                                     <maptag></maptag>
                                 </div>
                             </div>
@@ -533,7 +533,7 @@
                                                         <td>{{nus.name}}</td              >
                                                         </tr> -->
                                                         <tr>
-                                                            <td style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
+                                                            <td><span class="job_ico">&#xa5;</span>入居時費用</td>
                                                             <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
                                                             <td class="cash-lbl">
                                                                 <span v-if="Number(nus.moving_in_from) == 0">0円</span>
@@ -548,7 +548,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
+                                                            <td><span class="job_ico">&#xa5;</span>月額費用</td>
                                                             <td>
                                                                 <font class="cash-lbl">
                                                                     <span v-if="Number(nus.per_month_from) == 0">0円</span>
@@ -568,16 +568,16 @@
                                                         <td>{{nus.email}}</td>
                                                         </tr> -->
                                                         <tr>
-                                                        <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
+                                                        <td><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                                                         <td>{{nus.city_name}}{{nus.township_name}}{{nus.address}}</td>
                                                         </tr>
                                                         <tr>
-                                                        <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>アクセス</td>
+                                                        <td><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>アクセス</td>
                                                         <td><p v-html="nus.access"></p></td>
                                                         </tr>
                                                         <tr>
                                                            
-                                                        <td style="width:30%;"><span class="job_ico"><i class="fa fa-building"></i></span>運営事業者名 </td>
+                                                        <td><span class="job_ico"><i class="fa fa-building"></i></span>運営事業者名 </td>
                                                         <td>{{nus.cus_name}}</td>
                                                         </tr>
                                                         <!-- <tr>
@@ -1210,7 +1210,7 @@
                 var jsonfile = theCity+".json";
                 // https://t-i-s.jp
                 // https://testikportal.management-partners.co.jp/
-                this.axios.get("https://testikportal.management-partners.co.jp/json/cities/"+jsonfile).then(respon => {
+                this.axios.get("https://test.t-i-s.jp/json/cities/"+jsonfile).then(respon => {
                     this.coordinate = respon.data.reduce((acc, val) => acc.concat(val), []);
                     this.boundariesGoogleMap(lat,lng,this.coordinate);  
                 }); 
@@ -1219,7 +1219,7 @@
                 else{
                     var jsonfile = theCity+".json";
                     jsonfile = jsonfile.toLowerCase();
-                    this.axios.get('https://testikportal.management-partners.co.jp/json/Townships/'+jsonfile).then(res => {
+                    this.axios.get('https://test.t-i-s.jp/json/Townships/'+jsonfile).then(res => {
                      var township_coor = []
                      for(var i = 0; i < res.data.features.length; i++)
                      {

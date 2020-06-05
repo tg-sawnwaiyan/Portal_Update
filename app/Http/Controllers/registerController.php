@@ -106,9 +106,11 @@ class registerController extends Controller
 
             if($request->types == 2){
                 $customer->type = '病院';
+                $admin_email = 'partner@t-i-s.jp';
             }
             else{
                 $customer->type = '介護';
+                $admin_email = 'kaigo@t-i-s.jp';
             }
 
             // elseif($request->types == 4){
@@ -133,7 +135,6 @@ class registerController extends Controller
             // }
             //  $admin_email = 'mayphuekyawsoe123@gmail.com';
             // $admin_email = 'thuzar.ts92@gmail.com';
-            $admin_email = 'admin@t-i-s.jp';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success reg', "Special message goes here");

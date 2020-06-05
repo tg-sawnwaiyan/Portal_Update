@@ -48,7 +48,7 @@ class JobDetailController extends Controller
     public function show($id)
     {
        
-        $query = "SELECT jobs.*, ci.city_name as city_name,t.township_name,customers.type_id, (CASE customers.type_id WHEN 2 THEN hospital_profiles.name  ELSE nursing_profiles.name END) as cusname,
+        $query = "SELECT (CASE customers.type_id WHEN '2' THEN  hospital_profiles.activate ELSE  nursing_profiles.activate  END) as activate,jobs.*, ci.city_name as city_name,t.township_name,customers.type_id, (CASE customers.type_id WHEN 2 THEN hospital_profiles.name  ELSE nursing_profiles.name END) as cusname,
         (CASE customers.type_id WHEN '2' THEN CONCAT((200000+customers.id),'-',LPAD(hospital_profiles.pro_num, 4, '0'),'-',LPAD(jobs.id, 4, '0')) ELSE CONCAT((500000+customers.id),'-',LPAD(nursing_profiles.pro_num, 4, '0'),'-',LPAD(jobs.id, 4, '0')) END) as jobid
         FROM `jobs`
         JOIN customers ON jobs.customer_id = customers.id

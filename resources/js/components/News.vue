@@ -561,52 +561,38 @@
                             </div>
 
                             <div class="pad-new pattern-child" v-if="group[12]">
-                                <router-link v-for="(item,inx) in group.slice(12, 15)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                <router-link :to="'/newsdetails/'+group[12].pid">
 
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                    <div class="col-12 single-news-box">
 
-                                        <div class="col-4 img-box">
+                                        <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                            <transition name="fade">
 
-                                                <transition name="fade">
+                                                <img :src="'/upload/news/' + group[12].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
+                                            </transition>                                
 
-                                                </transition>
+                                            <transition name="fade" slot="placeholder">
 
-                                                <transition name="fade" slot="placeholder">
+                                            <div class="preloader">
 
-                                                <div class="preloader">
+                                                <div class="circle">
 
-                                                    <div class="circle">
-
-                                                    <div class="circle-inner"></div>
-
-                                                    </div>
+                                                <div class="circle-inner"></div>
 
                                                 </div>
 
-                                                </transition>
+                                            </div>
 
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
+                                            </transition>
+                                        </clazy-load>
+                                        <p> {{group[12].main_point}} </p>
                                     </div>
 
                                 </router-link>
 
-                            </div>                    
+                            </div>                  
                         </slick>
                     </div>
 

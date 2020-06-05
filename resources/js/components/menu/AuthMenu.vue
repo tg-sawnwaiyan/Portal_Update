@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div id="sp_adminheader" v-if="visit == 'false'">
+            <div id="sp_adminheader" v-if="visit == 'false'">                
                 <div class="admin_menu"  @click="toggle('sub')" >
                     <span>メニュー</span>&nbsp;<i :class="!isNav? open : close"></i>
                 </div>
@@ -257,7 +257,13 @@
                     </div>
                 </transition>
             </div>
-            <div id="sp_headerbar" class="login_nav" v-if="visit == 'true'">              
+            <div id="sp_headerbar" class="login_nav" v-if="visit == 'true'">   
+                 <span @click="$router.go(-1);" class="wt-admin">
+                    <span>
+                        <i class="fas fa-arrow-left"></i> 
+                    </span>
+                    <span style="color:#2980b9">戻る</span> 
+                </span>         
                 <ul class="menu" @click='isNav = !isNav'>
                     <li class="first-submenu">
                         <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" style="width:15px;" ></i>     
