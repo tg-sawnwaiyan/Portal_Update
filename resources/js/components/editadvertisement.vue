@@ -315,14 +315,17 @@ export default {
                                 height: 200,
                                 allowOutsideClick: false,
                             })
-                            this.$router.push({name: 'ads'});
+                            //this.$router.push({name: 'ads'});
+                            var num = localStorage.getItem('page_no');//get from adslist/searchAds()
+                            this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } })
+
                         }).catch(error=>{
                         if(error.response.status == 422){
                             this.errors = error.response.data.errors
                         }
                     })
                 });
-             
+                
 
             },
             add() {

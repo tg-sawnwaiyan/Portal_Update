@@ -106,17 +106,22 @@
                 //     this.isOpen = !this.isOpen;
                 // },
                 getAds(){
-                this.$loading(true);
-                this.axios.get("/api/advertisement/ads").then(response => {
-                    this.$loading(false);
-                    this.advertisements = response.data;
-                    this.norecord = this.advertisements.data.length;
-                    if(this.norecord != 0) {
-                        this.norecord_msg = false;
+                    if(this.$route.params.status == 'update'){
+                        var page_no = this.$route.params.page_no;
+                        this.nextPaginate(page_no);
                     }else{
-                        this.norecord_msg = true;
+                        this.$loading(true);
+                        this.axios.get("/api/advertisement/ads").then(response => {
+                            this.$loading(false);
+                            this.advertisements = response.data;
+                            this.norecord = this.advertisements.data.length;
+                            if(this.norecord != 0) {
+                                this.norecord_msg = false;
+                            }else{
+                                this.norecord_msg = true;
+                            }
+                        });
                     }
-                });
                 },
                 deleteAds(id) {
                         this.$swal({
@@ -179,6 +184,7 @@
                                 this.nosearch_msg = true;
                             }
                         });
+                        localStorage.setItem('page_no',page);//set to editads/updateAds()
                     },
                     imgUrlAlt(event) {
                         event.target.src = "/images/noimage.jpg"
@@ -223,6 +229,20 @@
                         this.$loading(false);                
                     });
                     
+                },
+                nextPaginate(num){
+                    
+                    this.$loading(true);
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    this.axios.post("/api/advertisement/search?page="+num).then(response => {
+                            this.$loading(false);
+                            this.advertisements = response.data;
+                            if(this.advertisements.data.length != 0){
+                                this.nosearch_msg = false;
+                            }else{
+                                this.nosearch_msg = true;
+                            }
+                        });
                 }
                 
             }
