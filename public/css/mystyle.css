@@ -939,6 +939,11 @@ span.video_txt {
     color: blue;
 }
 
+.show-flag {
+    padding-left: 2px;
+    padding-right: 15px;
+}
+
 #image_preview {
     /* border: 1px solid #ccc; */
     border-radius: 5px;
