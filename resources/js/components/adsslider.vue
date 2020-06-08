@@ -15,7 +15,7 @@
                     <div class="slide-img">
                         <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
                     </div>
-                    <h3 class="smallads-title pdf-link">{{adsList.pdf}}</h3>
+                    <h3 class="smallads-title pdf-link">{{adsList.title}}</h3>
                 </a>
             </div>       
         </div>

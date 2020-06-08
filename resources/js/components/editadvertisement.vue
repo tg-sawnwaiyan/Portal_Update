@@ -20,12 +20,12 @@
                                 <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>広告リンク  <span class="error sp2">必須</span></label>
+                                <label>広告リンク  <span class="error sp2" v-if="advertisement.show_flag == 'link'">必須</span></label>
                                 <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link" placeholder="広告リンクを入力してください。">
                                 <span v-if="errors.link" class="error">{{errors.link}}</span>
                             </div>
                             <div class="form-group" id="showpdf">
-                                <label>PDF ファイル<span class="error sp2">必須</span></label><br/>
+                                <label>PDF ファイル<span class="error sp2" v-if="advertisement.show_flag == 'pdf'">必須</span></label><br/>
                                 <div class="d-flex align-items-center">
                                     <span class="btn-file d-inline-block">PDF ファイルを選択        
                                         <input type="file" v-if="!showhide" ref="file" accept="application/pdf" id="upd_pdf" @change ="pdfFileSelected">
@@ -341,6 +341,7 @@ export default {
                             })
                             //this.$router.push({name: 'ads'});
                             var num = localStorage.getItem('ads_page_no');//get from adslist/searchAds()
+                            alert(num);
                             this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } })
 
                         }).catch(error=>{
