@@ -131,7 +131,11 @@ class SpecialFeatureController extends Controller
     public function search(Request $request,$type)
     {
         $request = $request->all();
-        $search_word = $request['search_word'];
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        }else{
+            $search_word = null;
+        }
 
         $special_feature = special_feature::where('type',$type)
                             ->where(function($query) use($search_word){

@@ -183,24 +183,29 @@
                 // this.countJobapplylist(this.job_id);
             },
             methods: {
-                   getAllJobs() {
-                    this.$loading(true);
-                    this.axios.get("/api/job/index/"+this.type+"/"+this.pro_id).then(response => {
-                        this.$loading(false);
-                        this.jobs = response.data.profilejob;
-                        this.customer_id = response.data.user;
-                        if(this.jobs.data){
-                            if(this.jobs.data.length != 0){
-                                this.norecord_msg = false;
+                   getAllJobs() { 
+                    if(this.$route.params.status == 'update'){
+                        var page_no = this.$route.params.page_no;
+                        this.nextPaginate(page_no);
+                    }else{
+                        this.$loading(true);
+                        this.axios.get("/api/job/index/"+this.type+"/"+this.pro_id).then(response => {
+                            this.$loading(false);
+                            this.jobs = response.data.profilejob;
+                            this.customer_id = response.data.user;
+                            if(this.jobs.data){
+                                if(this.jobs.data.length != 0){
+                                    this.norecord_msg = false;
+                                }else{
+                                    this.norecord_msg = true;
+                                }
                             }else{
                                 this.norecord_msg = true;
                             }
-                        }else{
-                            this.norecord_msg = true;
-                        }
-                        
+                            
 
-                    });
+                        });
+                    }
                 },
                 jobToggle(id) {
                         var class_by_id = $('#icon' + id).attr('class');
@@ -307,7 +312,24 @@
                                 this.nosearch_msg = true;
                             }
                         });
+                        localStorage.setItem('page_no',page);
                     },
+                    nextPaginate(num){
+                        let fd = new FormData();
+                        fd.append('type',this.type);                 
+                        this.$loading(true);
+                        this.axios.post("/api/job/search?page="+num,fd).then(response => {
+                            this.$loading(false);
+                            this.jobs = response.data.jobsearch;
+                           
+                            if(this.jobs.data.length != 0){
+                                this.nosearch_msg = false;
+                            }else{
+                                this.nosearch_msg = true;
+                            }
+                        });
+                    },
+    
             }
     };
 </script>

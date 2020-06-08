@@ -170,7 +170,7 @@ export default {
 
            },
            updateSubject() {
-
+ 
                 this.$swal({
                         //   title: "確認",
                             text: "診療科目を登録してよろしいでしょうか。",
@@ -203,9 +203,10 @@ export default {
                             height: 200,
                             allowOutsideClick: false,
                         })
-                        // this.name = ''
-                        //   alert('Successfully Updated!')
-                        this.$router.push({name: 'subjectlist'});
+                         
+                            var num = localStorage.getItem('page_no');//comment get from Subjectlist/searchSubject()
+                            this.$router.push({ name: 'subjectlist', params: { status: 'update','page_no':num } })
+
                     }).catch(error=>{
 
                     if(error.response.status == 422){

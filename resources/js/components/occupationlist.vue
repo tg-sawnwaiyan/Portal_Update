@@ -85,19 +85,25 @@
                 }
             },
             created() {
-                this.$loading(true);
-                this.axios
-                    .get('/api/occupation/type')
-                    .then(response => {
-                        this.$loading(false);
-                        this.occupation = response.data;
-                        this.norecord = this.occupation.data.length;
-                        if (this.norecord != 0) {
-                            this.norecord_msg = false;
-                        }else {
-                            this.norecord_msg = true;
-                        }
-                    });
+
+                if(this.$route.params.status == 'update'){
+                    var page_no = this.$route.params.page_no;
+                    this.nextPaginate(page_no);
+                }else{ 
+                    this.$loading(true);
+                    this.axios
+                        .get('/api/occupation/type')
+                        .then(response => {
+                            this.$loading(false);
+                            this.occupation = response.data;
+                            this.norecord = this.occupation.data.length;
+                            if (this.norecord != 0) {
+                                this.norecord_msg = false;
+                            }else {
+                                this.norecord_msg = true;
+                            }
+                        });
+                    }
             },
             methods: {
 
@@ -178,7 +184,21 @@
                                 this.nosearch_msg = true;
                             }
                         });
+                        localStorage.setItem('page_no',page);//comment set to pccupation/updateType()
                     },
+                    nextPaginate(num){
+                     
+                        this.$loading(true);
+                        this.axios.post("/api/occupation/search?page="+num).then(response => {
+                            this.$loading(false);
+                            this.occupation = response.data;
+                            if(this.occupation.data.length != 0) {
+                                this.nosearch_msg = false;
+                            }else{
+                                this.nosearch_msg = true;
+                            }
+                        });
+                    },  
             }
     }
 </script>

@@ -532,9 +532,23 @@ class JobController extends Controller
 
           
             $request = $request->all();
-            $search_word = $request['search_word'];
-            $type = $request['type'];
-            $pro_id = $request['pro_id'];
+            if(isset($request['search_word'])) {
+                $search_word = $request['search_word'];
+            }else{
+                $search_word = null;
+            }
+            if(isset($request['type'])) {
+                $type = $request['type'];
+            }else{
+                $type = null;
+            }
+            if(isset($request['pro_id'])) {
+                $pro_id = $request['pro_id'];
+            }else{
+                $pro_id = null;
+            }
+            // $type = $request['type'];
+            // $pro_id = $request['pro_id'];
             $customer_id = auth()->user()->customer_id;
             if($type == "admin")
             {
