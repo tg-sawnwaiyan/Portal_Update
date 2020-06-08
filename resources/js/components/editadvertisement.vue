@@ -341,7 +341,10 @@ export default {
                             })
                             //this.$router.push({name: 'ads'});
                             var num = localStorage.getItem('page_no');//get from adslist/searchAds()
-                            this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } })
+                            // this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } });
+                            this.$router.push({
+                                name: 'ads'
+                            });
 
                         }).catch(error=>{
                         if(error.response.status == 422){
