@@ -43,11 +43,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group pdf_update" v-if="!update_pdf" id="x-pdf" >
+                            <div class="form-group pdf_update" v-if="!update_pdf && advertisement.pdf" id="x-pdf" >
                                 <div class="row" >
                                     <div v-if="!showhide" id='x-pdf' class='col-md-12 col-6'>
-                                        <span class='pdf-close-btn' v-on:click='closePDFBtnMethod(advertisement.pdf)'>X</span><br>
-                                        <input type="text" v-model="advertisement.pdf"  class='show-pdf form-control box'>                                        
+                                        <input type="text" v-model="advertisement.pdf"  class='show-pdf form-control box' readonly> 
+                                        <span class='pdf-close-btn' v-on:click='closePDFBtnMethod(advertisement.pdf)'>削除</span>                                       
                                     </div>
                                 </div>
                             </div>
@@ -64,9 +64,10 @@
                                         <input type="file" v-if="!showhide" ref="file" accept="image/*" id="upd_img" @change ="fileSelected">
                                         <input type="file" v-if="showhide" id="upload" accept="image/*" @change="uploadImage"> 
                                     </span> 
-                                    <span class="btn-file d-inline-block" @click="selectLogoImage()">TISのロゴを使用する
-                                        
+                                    <span class="btn-file d-inline-block" v-if="!showhide" @click="selectLogoImage()">TISのロゴを使用 
                                     </span> 
+                                    <span class="btn-file d-inline-block" v-if="showhide" id="upload" @click="uploadLogoImage()">TISのロゴを使用 
+                                    </span>
                                     <span class="pl-4 text-wrap w-75">{{img_name}}</span>
                                 </div>
                                 <span v-if="errors.photo" class="error">{{errors.photo}}</span>
@@ -140,7 +141,6 @@ export default {
                 header : '',
                 img_name : '',
                 pdf_name : '',
-                select_logo: false
             }
         },
         created() {
@@ -185,6 +185,12 @@ export default {
                 this.update_img = true;
                 const file =event.target.files[0];
                 this.img_name = file.name;
+            },
+            selectLogoImage () {
+                this.advertisement.photo = "logo.png";
+                this.upload_img = "/images/logo.png";
+                this.update_img = true;
+                this.img_name = "logo.png";
             },
             pdfFileSelected(){
                 this.advertisement.pdf = event.target.files[0];
@@ -271,6 +277,12 @@ export default {
                 this.advertisement.photo = event.target.files[0];
                 const file =event.target.files[0];
                 this.img_name = file.name;
+            },
+            uploadLogoImage() {
+                $('.image_preview').html("<div class='col-md-2'><img src='images/logo.png' class='show-img'></div>");
+                this.advertisement.photo = "logo.png";
+                this.img_name = "logo.png";
+                
             },
             uploadPDF() {    
                 $('.file_preview').html("<div class='col-md-2'></div>");
@@ -461,15 +473,6 @@ export default {
                     this.add();
                 }
             },
-            selectLogoImage() {
-                this.select_logo = true;
-                
-                $('.image_preview').html("<div class='col-md-2'><img src='images/logo.png' class='show-img'></div>");
-                this.advertisement.photo = "logo.png";
-                this.img_name = "logo.png";
-                
-            }
-
         }
 }
 </script>

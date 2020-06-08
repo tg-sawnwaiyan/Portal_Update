@@ -98,6 +98,13 @@ class AdvertisementController extends Controller
 
     }
 
+    public function getLogoImage(Request $request) 
+    { 
+        $logofile = new File();
+        $logofile = public_path().'\images\logo.png';
+        return response('logofile')->json('Success ');
+    }
+
 
     /**
      * Display the specified resource.
