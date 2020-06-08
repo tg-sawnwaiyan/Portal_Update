@@ -165,8 +165,11 @@ class AdvertisementController extends Controller
     public function search(Request $request)
     {
         $request = $request->all();
-
-        $search_word = $request['search_word'];
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        }else{
+            $search_word = null;
+        }
         $advertisement = Advertisement::query()
                             ->where('title', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')

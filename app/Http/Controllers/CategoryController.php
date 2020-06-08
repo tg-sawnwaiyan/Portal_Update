@@ -128,7 +128,11 @@ class CategoryController extends Controller
 
     public function search(Request $request) {
         $request = $request->all();
-        $search_word = $request['search_word'];
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        }else{
+            $search_word = null;
+        }
 
         $search_categories = Category::query()
                             ->where('name', 'LIKE', "%{$search_word}%")

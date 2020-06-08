@@ -56,7 +56,7 @@ Some changes in ```node_modules```
 
 ### RUN
 - ```npm run watch```
-- ```php artisan serve --host ip-address --port 8000```
+- ```php artisan serve --host 192.168.100.13 --port 8000```
 - In browser ip-address:8000 => Project is running.
 
 ### Project Structure

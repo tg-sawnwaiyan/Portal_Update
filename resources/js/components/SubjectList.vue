@@ -84,19 +84,25 @@
                 }
             },
             created() {
-                this.$loading(true);
-                this.axios
-                    .get('/api/subjects/subject')
-                    .then(response => {
-                        this.$loading(false);
-                        this.subjects = response.data;
-                        this.norecord = this.subjects.data.length;
-                        if (this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else {
-                            this.norecord_msg = true;
-                        }
-                    });
+                if(this.$route.params.status == 'update'){
+                    var page_no = this.$route.params.page_no;
+                    this.nextPaginate(page_no);
+                }else{ 
+
+                    this.$loading(true);
+                    this.axios
+                        .get('/api/subjects/subject')
+                        .then(response => {
+                            this.$loading(false);
+                            this.subjects = response.data;
+                            this.norecord = this.subjects.data.length;
+                            if (this.norecord != 0){
+                                this.norecord_msg = false;
+                            }else {
+                                this.norecord_msg = true;
+                            }
+                        });
+                }
             },
             methods: {
                 deleteSubject(id) {
@@ -173,7 +179,21 @@
                             this.nosearch_msg = true;
                         }
                         });
+                        localStorage.setItem('page_no',page);//comment set to Subject/updateSubject()
                     },
+                    nextPaginate(num){
+                        this.$loading(true);
+                        this.axios.post("/api/subjects/search?page="+num).then(response => {
+                        this.$loading(false);
+                        this.subjects = response.data;
+                        if(this.subjects.data.length != 0) {
+                            this.nosearch_msg = false;
+                        }else{
+                            this.nosearch_msg = true;
+                        }
+                        });
+                    },
+
             }
     }
 </script>
