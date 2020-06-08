@@ -2,7 +2,7 @@
 <div class="ads-slider">
     <slick ref="slick" :options="slickOptions" v-if="ads_list.length > 0">  
         <div class="list-group-item adslist-card" v-for="adsList in ads_list" :key="adsList.id">
-            <div v-if="adsList.link">
+            <div v-if="adsList.link && adsList.show_flag == 'link'">
                 <a :href="adsList.link" target="_blank">
                     <div class="slide-img">
                         <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>

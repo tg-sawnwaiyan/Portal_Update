@@ -51,6 +51,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>please checked you want to show link</label><br>
+                                <input type="radio"   v-model="advertisement.show_flag" id="ads"  value="link" >広告リンク
+                                <input type="radio"   v-model="advertisement.show_flag" id="pdf" value="pdf"  >PDFリンク 
+                            </div>
                             <input type="hidden" v-model="old_pdf" >
                             <div class="form-group" id="showimage">
                                 <label>写真 <span class="error sp2">必須</span></label><br/>
@@ -109,6 +114,7 @@ export default {
                     photo:"",
                     link:"",
                     pdf:"",
+                    
                 },
                 advertisement: {
                     title: '',
@@ -121,6 +127,7 @@ export default {
                     location:'',
                     photo:'',
                     pdf:'',
+                    show_flag:"link",
                 },
                 ischeck:'',
                 old_photo: "",
@@ -147,6 +154,7 @@ export default {
                     this.advertisement.link = response.data.link == null ? '':response.data.link;
                     //this.advertisement.link = response.data.link;
                     this.advertisement.pdf = response.data.pdf;
+                    this.advertisement.show_flag = response.data.show_flag;
                     this.advertisement.location = "topbar";
                     // this.ischeck = response.data.location;
                     // this.updateCheck(this.ischeck);
@@ -160,6 +168,7 @@ export default {
                 this.advertisement.description = '';
                 this.advertisement.link = '';
                 this.advertisement.pdf = '';
+                this.advertisement.show_flag = 'link';
                 this.ischeck = '';
                 this.advertisement.photo='';     
                 this.header = '広告新規作成';
@@ -296,6 +305,7 @@ export default {
                         adsData.append('description',this.advertisement.description)
                         adsData.append('link',this.advertisement.link)
                         adsData.append('pdf',this.advertisement.pdf)
+                        adsData.append('show_flag',this.advertisement.show_flag)
                         adsData.append('photo',this.advertisement.photo)
                         adsData.append('old_photo',this.old_photo)
                         adsData.append('old_pdf',this.old_pdf)
@@ -353,6 +363,7 @@ export default {
                             adsData.append('location', this.advertisement.location)
                             adsData.append('photo', this.advertisement.photo)
                             adsData.append('pdf', this.advertisement.pdf)
+                            adsData.append('show_flag', this.advertisement.show_flag)
                             this.$loading(true);
                         this.axios.post('/api/advertisement/add', adsData)
                               .then((response) => {
@@ -414,7 +425,8 @@ export default {
                 // {    
                 //     this.errors.link = "広告リンクは必須です。";
                 // }
-                if((this.advertisement.pdf) && (this.advertisement.link))
+
+               /* if((this.advertisement.pdf) && (this.advertisement.link))
                 {
                     this.errors.link = "";
                     this.errors.pdf = "";     
@@ -428,7 +440,18 @@ export default {
                 {
                     this.errors.link = "「広告リンク」または「PDF ファイル」を入力してください。";
                     this.errors.pdf = "「広告リンク」または「PDF ファイル」を入力してください。"; 
+                }*/
+                if(!(this.advertisement.link) && (this.advertisement.show_flag == "link")){
+                this.errors.link = "広告リンク ファイルを入力してください。";
+                this.errors.pdf = "";  
+                }else if(!(this.advertisement.pdf) && (this.advertisement.show_flag == "pdf")){
+                    this.errors.pdf = "PDF ファイルを入力してください。";
+                    this.errors.link = "";
+                }else{
+                    this.errors.link = "";
+                    this.errors.pdf = ""; 
                 }
+                
 
                 if(!this.errors.link && !this.errors.title && !this.errors.photo && !this.errors.pdf && this.$route.params.id)
                 {

@@ -75,6 +75,7 @@ class AdvertisementController extends Controller
         $ads->link=$request->input('link');
         $ads->location=$request->input('location');
         $ads->pdf = $pdfname;
+        $ads->show_flag = $request->input('show_flag');
         $ads->photo = $imgname;
         $ads->user_id = 1;
 
@@ -194,6 +195,7 @@ class AdvertisementController extends Controller
             $ads->location=$request->input('location');
             $ads->photo = $imageName;
             $ads->pdf = $pdfName;
+            $ads->show_flag = $request->input('show_flag');
             $ads->user_id = 1;
             $ads->save();
             return response()->json('successfully updated');
