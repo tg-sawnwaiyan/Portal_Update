@@ -204,7 +204,7 @@ export default {
                             allowOutsideClick: false,
                         })
                          
-                            var num = localStorage.getItem('page_no');//comment get from Subjectlist/searchSubject()
+                            var num = localStorage.getItem('subject_page_no');//comment get from Subjectlist/searchSubject()
                             this.$router.push({ name: 'subjectlist', params: { status: 'update','page_no':num } })
 
                     }).catch(error=>{

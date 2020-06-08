@@ -340,7 +340,7 @@ export default {
                                 allowOutsideClick: false,
                             })
                             //this.$router.push({name: 'ads'});
-                            var num = localStorage.getItem('page_no');//get from adslist/searchAds()
+                            var num = localStorage.getItem('ads_page_no');//get from adslist/searchAds()
                             this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } })
 
                         }).catch(error=>{

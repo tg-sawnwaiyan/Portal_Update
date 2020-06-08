@@ -135,7 +135,7 @@ export default {
                             allowOutsideClick: false,
                         })
                         //this.$router.push({name: 'categorylist'});
-                        var num = localStorage.getItem('page_no');//comment get from categorylist/searchbyCategory()
+                        var num = localStorage.getItem('category_page_no');//comment get from categorylist/searchbyCategory()
                         this.$router.push({ name: 'categorylist', params: { status: 'update','page_no':num } });
                     }).catch(error=>{
 
