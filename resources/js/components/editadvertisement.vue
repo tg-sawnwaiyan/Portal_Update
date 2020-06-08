@@ -52,9 +52,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>please checked you want to show link</label><br>
-                                <input type="radio"   v-model="advertisement.show_flag" id="ads"  value="link" >広告リンク
-                                <input type="radio"   v-model="advertisement.show_flag" id="pdf" value="pdf"  >PDFリンク 
+                                <label>トップページに表示したいリンクを選択</label><br>
+                                <input type="radio"   v-model="advertisement.show_flag" id="ads"  value="link" >
+                                <span class="show-flag">広告リンク</span>
+                                <input type="radio"   v-model="advertisement.show_flag" id="pdf" value="pdf"  >
+                                <span class="show-flag">PDFリンク </span>
                             </div>
                             <input type="hidden" v-model="old_pdf" >
                             <div class="form-group" id="showimage">
@@ -454,10 +456,10 @@ export default {
                     this.errors.pdf = "「広告リンク」または「PDF ファイル」を入力してください。"; 
                 }*/
                 if(!(this.advertisement.link) && (this.advertisement.show_flag == "link")){
-                this.errors.link = "広告リンク ファイルを入力してください。";
+                this.errors.link = "広告リンクは必須です。";
                 this.errors.pdf = "";  
                 }else if(!(this.advertisement.pdf) && (this.advertisement.show_flag == "pdf")){
-                    this.errors.pdf = "PDF ファイルを入力してください。";
+                    this.errors.pdf = "PDF ファイルは必須です。";
                     this.errors.link = "";
                 }else{
                     this.errors.link = "";
