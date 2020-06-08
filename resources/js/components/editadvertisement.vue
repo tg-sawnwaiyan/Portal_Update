@@ -58,10 +58,16 @@
                                     <span class="btn-file d-inline-block">画像を選択        
                                         <input type="file" v-if="!showhide" ref="file" accept="image/*" id="upd_img" @change ="fileSelected">
                                         <input type="file" v-if="showhide" id="upload" accept="image/*" @change="uploadImage"> 
-                                    </span>
+                                    </span> 
+                                    <span class="btn-file d-inline-block" @click="selectLogoImage()">TISのロゴを使用する
+                                        
+                                    </span> 
                                     <span class="pl-4 text-wrap w-75">{{img_name}}</span>
                                 </div>
                                 <span v-if="errors.photo" class="error">{{errors.photo}}</span>
+                                <div class="col-md-12" id="par">
+                                    <div class="row image_preview" id="x-logo"></div>
+                                </div>
                             </div>
                             <div class="image_show" v-if="update_img && upload_img">
                                 <div class='col-md-2'>
@@ -127,6 +133,7 @@ export default {
                 header : '',
                 img_name : '',
                 pdf_name : '',
+                select_logo: false
             }
         },
         created() {
@@ -428,6 +435,15 @@ export default {
                     this.add();
                 }
             },
+            selectLogoImage() {
+                this.select_logo = true;
+                
+                $('.image_preview').html("<div class='col-md-2'><img src='images/logo.png' class='show-img'></div>");
+                this.advertisement.photo = "logo.png";
+                this.img_name = "logo.png";
+                
+            }
+
         }
 }
 </script>

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Advertisement;
+use Carbon\Carbon;
+use File;
+// use Illuminate\Http\File;
+// use Illuminate\Support\Facades\Storage;
 
 class AdvertisementController extends Controller
 {
@@ -43,13 +47,22 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        $imageName = $request->photo->getClientOriginalName();
-        $imgname = str_replace(' ', '', $imageName);
-        $imgname = strtolower($imgname);
-        // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
-        
+        $logo_imgname = '';
         $pdfname = '';
-        
+
+        if(is_object($request->photo)){
+            $imageName = $request->photo->getClientOriginalName();
+            $imgname = str_replace(' ', '', $imageName);
+            $imgname = strtolower($imgname);
+        }
+        else{
+            $logo_imgname = $request->photo;
+            // $current_time = Carbon::now();
+            $string = str_replace(' ', '-', Carbon::now());
+            $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+            $imgname = 'logo_'.$string.'.png';
+        }
+
         if(is_object($request->pdf)){
             $pdfName = $request->pdf->getClientOriginalName();
             $pdfname = str_replace(' ', '', $pdfName);
@@ -67,7 +80,14 @@ class AdvertisementController extends Controller
 
         $ads ->save();
 
-        $request->photo->move('./upload/advertisement/', $imgname);
+        if($logo_imgname != 'logo.png') {
+            $request->photo->move('./upload/advertisement/', $imgname);
+        }
+        else{
+            $old_path = public_path().'\images\logo.png';
+            $new_path = public_path().'\upload\advertisement\logo_'.$string.'.png';
+            $move = File::copy($old_path, $new_path);
+        }
 
         if($pdfname != ''){
             $request->pdf->move('./upload/static/', $pdfname);
@@ -117,16 +137,26 @@ class AdvertisementController extends Controller
         //     'title' => 'required',
         //     'location'=>'required',
         // ]);
-
+        // if($request->photo != 'logo.png') {
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
             // $request->photo->move(public_path('/upload/advertisement'), $imageName);
             $request->photo->move('./upload/advertisement/', $imageName);
-        } else {
-            $imageName = $request->photo;
+        } 
+        // }
+        else {
+            $logo_imgname = $request->photo;
+            // $current_time = Carbon::now();
+            $string = str_replace(' ', '-', Carbon::now());
+            $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+            $imageName = 'logo_'.$string.'.png';
+            $old_path = public_path().'\images\logo.png';
+            $new_path = public_path().'\upload\advertisement\logo_'.$string.'.png';
+            $move = File::copy($old_path, $new_path);
         }
+        
         if(is_object($request->pdf)) {
             $pdfName = $request->pdf->getClientOriginalName();
             $pdfName = str_replace(' ', '', $pdfName);
