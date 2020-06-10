@@ -20,6 +20,13 @@
                                 <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
                             </div>
                             <div class="form-group">
+                                <label>トップページに表示したいリンクを選択</label><br>
+                                <input type="radio"   v-model="advertisement.show_flag" id="ads"  value="link" >
+                                <span class="show-flag">広告リンク</span>
+                                <input type="radio"   v-model="advertisement.show_flag" id="pdf" value="pdf"  >
+                                <span class="show-flag">PDFリンク </span>
+                            </div>
+                            <div class="form-group">
                                 <label>広告リンク  <span class="error sp2" v-if="advertisement.show_flag == 'link'">必須</span></label>
                                 <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link" placeholder="広告リンクを入力してください。">
                                 <span v-if="errors.link" class="error">{{errors.link}}</span>
@@ -51,13 +58,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>トップページに表示したいリンクを選択</label><br>
-                                <input type="radio"   v-model="advertisement.show_flag" id="ads"  value="link" >
-                                <span class="show-flag">広告リンク</span>
-                                <input type="radio"   v-model="advertisement.show_flag" id="pdf" value="pdf"  >
-                                <span class="show-flag">PDFリンク </span>
-                            </div>
+                            
                             <input type="hidden" v-model="old_pdf" >
                             <div class="form-group" id="showimage">
                                 <label>写真 <span class="error sp2">必須</span></label><br/>
