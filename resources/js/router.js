@@ -26,6 +26,8 @@ import subject from "./components/Subject";
 import subjectlist from "./components/SubjectList";
 import advertisementlist from "./components/advertisementlist";
 import editadvertisement from "./components/editadvertisement";
+import linkedNews from "./components/LinkedNewslist";
+import editlinkedNews from "./components/EditLinkedNews";
 import comment from "./components/Comment";
 import commentlist from "./components/commentlist";
 import featurelist from "./components/FeatureList";
@@ -565,7 +567,31 @@ const routes = [
     name: '404', 
     path: "*", 
     component: NotFound 
-  }
+  },
+  {
+    name: "linkedNews",
+    path: "/linkedNews",
+    component: linkedNews,
+    meta: {
+        auth: { roles: 2, redirect: { name: 'login' }, forbiddenRedirect: '/Unauthorized' }
+    }
+  },
+  {
+    name: "addLinkedNews",
+    path: "/addLinkedNews",
+    component: editlinkedNews,
+    meta: {
+        auth: { roles: 2, redirect: { name: 'login' }, forbiddenRedirect: '/Unauthorized' }
+    }
+},
+  {
+    name: "editadvertisement",
+    path: "/editads/:id",
+    component: editlinkedNews,
+    meta: {
+        auth: {roles: 2, redirect: {name: 'login'}, forbiddenRedirect: '/Unauthorized'}
+    }
+  },
 ]
 const router = new VueRouter({
     history: true,
