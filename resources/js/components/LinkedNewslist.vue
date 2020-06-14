@@ -39,42 +39,32 @@
                     
                     <div v-else class="container-fuid">
                         <table  class="table List_tbl">
-                            <tr  v-for="ads in advertisements.data" :key="ads.id">
+                            <tr  v-for="news in news.data" :key="news.id">
                                 <td class="p-3">
-                                    <div>
-                                        <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads" @error="imgUrlAlt" />
-                                    </div>
+                                   <h5 class="font-weight-bold">{{news.post_date}}</h5>
                                 </td>
                                 <td class="p-3">
-                                    <!-- <h5  class="mb-2"><strong>タイトル</strong></h5> -->
-                                    <h5 class="font-weight-bold">{{ads.title}}</h5>
-                                    <div class="mt-4">
-                                    <span class="card-title-rightwrapper model-7">                                                 
-                                        <div class="checkbox">
-                                            <input type='checkbox' :id="ads.id" v-if="ads.recordstatus == 1" @click="changeActivate(ads.id,ads.recordstatus)" checked/>
-                                            <input type='checkbox' :id="ads.id" v-if="ads.recordstatus == 0" @click="changeActivate(ads.id,ads.recordstatus)"/>
-                                            <label for="checkbox"></label>
-                                            <div  class="on" v-if="ads.recordstatus == 1">公開中</div>
-                                            <div class="on"  v-if="ads.recordstatus == 0">非公開</div>
-                                        </div>                                                                                             
-                                    </span>
-                                    <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->
-                                    <div class="d-flex mt-4">
-                                        <router-link :to="{path: '/editads/'+ads.id}" class="btn edit-borderbtn">編集</router-link>
-                                        <button class="btn delete-borderbtn ml-2" @click="deleteAds(ads.id)">削除</button>
-                                        <!-- <button class="btn delete-borderbtn" @click="toggleModal">削除</button>                                 -->
-                                    </div>
-                                    </div>
+                                   <h5 class="font-weight-bold">{{news.type}}</h5>
+                                </td>
+                                <td class="p-3">
+                                   <h5 class="font-weight-bold">{{news.status}}</h5>
+                                </td>
+                                <td class="p-3">
+                                   <h5 class="font-weight-bold">{{news.description}}</h5>
+                                </td>
+                                <td class="p-3">
+                                    <router-link :to="{path: '/editnews/'+news.id}" class="btn edit-borderbtn">編集</router-link>
+                                    <button class="btn delete-borderbtn ml-2" @click="deleteAds(news.id)">削除</button>
                                 </td>
                             </tr>
                         </table>
                         
                     </div>
                     <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment"></pagination> -->
-                    <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
+                    <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
-                    </pagination>
+                    </pagination> -->
                 </div>
             </div>
         </div>
@@ -90,7 +80,7 @@
         },
         data() {
                 return {
-                    advertisements: [],
+                    news: [],
                     isOpen: false,
                     norecord: 0,
                     items: [],
@@ -99,21 +89,22 @@
                 };
             },
             created() {
-                this.getAds();
+                this.getNews();
             },
             methods: {
                 // toggleModal() {
                 //     this.isOpen = !this.isOpen;
                 // },
-                getAds(){
+                getNews(){
                     if(this.$route.params.status == 'update'){
                         var page_no = this.$route.params.page_no;
                         this.nextPaginate(page_no);
                     }else{
                         this.$loading(true);
-                        this.axios.get("/api/advertisement/ads").then(response => {
+                        this.axios.get("/api/news/news").then(response => {
                             this.$loading(false);
-                            this.advertisements = response.data;
+                            console.log(response.data);
+                            this.news = response.data;
                             this.norecord = this.advertisements.data.length;
                             if(this.norecord != 0) {
                                 this.norecord_msg = false;
@@ -141,8 +132,8 @@
                             allowOutsideClick: false,
                         }).then(response => {
                             this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
-                                this.advertisements = response.data;
-                                this.norecord = this.advertisements.data.length;
+                                this.news = response.data;
+                                this.norecord = this.news.data.length;
                                 if(this.norecord != 0) {
                                     this.norecord_msg = false;
                                 }else{
@@ -216,7 +207,7 @@
                     }).then(response => {
                         this.axios.get("/api/advertisement/activate/"+id).then(response => {
                            
-                                this.getAds();
+                                this.getNews();
                         });
                     
                     }).catch(error =>{

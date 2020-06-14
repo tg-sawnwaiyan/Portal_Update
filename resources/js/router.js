@@ -584,14 +584,14 @@ const routes = [
         auth: { roles: 2, redirect: { name: 'login' }, forbiddenRedirect: '/Unauthorized' }
     }
 },
-  {
-    name: "editadvertisement",
-    path: "/editads/:id",
+{
+    name: "editnews",
+    path: "/editnews/:id",
     component: editlinkedNews,
     meta: {
         auth: {roles: 2, redirect: {name: 'login'}, forbiddenRedirect: '/Unauthorized'}
     }
-  },
+},
 ]
 const router = new VueRouter({
     history: true,

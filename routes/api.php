@@ -64,6 +64,28 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Category
 
+    // News category
+
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('categories', 'CategoryController@index');
+        
+        Route::post('add', 'CategoryController@add');
+        Route::get('edit/{id}', 'CategoryController@edit');
+        Route::post('update/{id}', 'CategoryController@update');
+        Route::delete('delete/{id}', 'CategoryController@destroy');
+        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
+    });
+    Route::group(['prefix' => 'news'], function () {
+        Route::post('add', 'NewsByCatController@add');
+        Route::get('edit/{id}', 'NewsByCatController@edit');
+        Route::get('news', 'NewsByCatController@index');
+        Route::post('update/{id}', 'NewsByCatController@update');
+        // Route::delete('delete/{id}','AdvertisementController@destroy');
+        // Route::get('activate/{id}','AdvertisementController@activate');
+
+    });
+    // End Advertisement
+
     // Station
     Route::group(['prefix' => 'station'], function () {
         Route::get('stations', 'StationController@index');
@@ -184,6 +206,8 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     });
     // End Advertisement
+
+    
 
 
     //SpecialFeature
