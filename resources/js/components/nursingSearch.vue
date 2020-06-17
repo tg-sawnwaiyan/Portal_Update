@@ -644,228 +644,32 @@
         </div>
     </div>
 </div>
-<div class="container container_news">
+<div v-if="linkednews.length > 0" class="container_news">
   <div class="row-2">
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year">
+    <!-- <div class="button-year">
         <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">2020年</button>
         <button type="button" class="btn btn-outline-dark btn-lg btn-2019">2019年</button>
-    </div>
+    </div> -->
     <div class="scroll-year">
         <div class="year-2020">
-          <article class="row text-body">
+          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id">
             <div class="new-1">
               <div class="day">
-                  2020年05月26日
+                  {{linked_news.post_date}}
               </div>
-              <div class="categories p-categories color-3">ニュースリリース</div>
+              <div>
+                <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
+                <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
+                <span v-else class="categories p-categories color-1">お知らせ</span>
+              </div>
             </div>
             <div class="new-2">
-              <p>
-                医師の非常勤求人に特化したサービス「<a href="https://b-doctor.biz" target="_blank">ドクターズバイト</a>」を開始いたしました。<br><span>詳細は<a href="/images/pdf/20200526_bdoctor.pdf" target="_blank">こちら</a>からご覧ください。</span>
-                </p> 
+              <p v-html="linked_news.description"></p> 
               </div>
           </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年05月26日
-                  </div>
-                  <div class="categories p-categories color-3">ニュースリリース</div>
-              </div>
-              <div class="new-2">
-               <p>
-                「新卒紹介サービス」 のサービス名称を「<a href="https://www.trust-growth.co.jp/newgraduate/" target="_blank">就活my map</a>」へ変更いたしました。<br>
-                <span>
-                    サービス名変更に伴いロゴデザインを一新、マイページもリニューアルしております。<br>詳細は<a href="/images/pdf/20200526_mymap.pdf" target="_blank">こちら</a>からご確認ください。
-                </span>    
-                </p> 
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年05月18日
-                  </div>
-                  <div class="categories p-categories color-2">メディア掲載</div>
-              </div>
-              <div class="new-2">
-                  <p>『<a href="https://kaigohack.com/trustgrowth/" target="_blank">介護士リクルート</a>』に医療福祉サービスに関する内容が掲載されました。
-              <br><span>介護士リクルートは、介護業界で働いている方向けに転職・派遣・働き方に関する<br>情報を掲載してるメディアです。</span></p> 
-              </div>
-          </article>
-          <article class="row text-body">
-            <div class="new-1">
-                <div class="day">
-                    2020年03月18日
-                </div>
-                <div class="categories p-categories color-2">メディア掲載</div>
-            </div>
-            <div class="new-2">
-                <p>『<a href="https://hrog.net/knowledge/map/83611/?fbclid=IwAR1N23EHxgGRGg8DZBtt9U9DS7LV7c9NHMXQRuy8Cyfb1DudoZH-okk6KfY" target="_blank">HRog</a>』に新卒紹介サービスに関する内容が掲載されました。</p>
-            </div>
-          </article>
-          <article class="row text-body">
-            <div class="new-1">
-                <div class="day">
-                    2020年03月10日
-                </div>
-                <div class="categories p-categories color-2">メディア掲載</div>
-            </div>
-            <div class="new-2">
-                <p>『<a href="https://hrnote.jp/contents/a-contents-saiyo-14syokaimatome-180517/?fbclid=IwAR0QYn6_yckjoWL3nYTmuDmEdZMBqLCOlLbsxrZoKHRnk5M6ItQGs0530_M" target="_blank">HR NOTE</a>』に新卒紹介サービスに関する内容が掲載されました。</p>
-            </div>
-          </article>
-          <article class="row text-body">
-            <div class="new-1">
-                <div class="day">
-                    2020年03月06日
-                </div>
-                <div class="categories p-categories color-2">メディア掲載</div>
-            </div>
-            <div class="new-2">
-                <p>『<a href="https://renn-ai.com/archives/746?fbclid=IwAR3ssm9EEbOYHgNYBeQuyockL0lawal63uV28GHG1VEfVKV9osNGDEZAPJw" target="_blank">就活は恋愛だ。</a>』に新卒紹介サービスに関する内容が掲載されました。</p>
-            </div>
-          </article>
-          <article class="row text-body">
-            <div class="new-1">
-                <div class="day">
-                    2020年01月28日
-                </div>
-                <div class="categories p-categories color-2">メディア掲載</div>
-            </div>
-            <div class="new-2">               
-                <p>『<a href="https://reashu.com/trust-growth/" target="_blank">就活の教科書</a>』に新卒紹介サービスに関する内容が掲載されました。</p>
-            </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月16日 
-                  </div>
-                  <div class="categories p-categories color-2">メディア掲載</div>
-              </div>
-              <div class="new-2">
-                  <p>『<a href="https://videotopics.yahoo.co.jp/video/oriconnews/395433" target="_blank">Yahoo! 映像トピックス</a>』にWebCMに関する内容が掲載されました。</p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月16日
-                  </div>
-                  <div class="categories p-categories color-2">メディア掲載</div>
-              </div>
-              <div class="new-2">
-                  <p>『<a href="https://www.sankei.com/economy/news/200106/prl2001060363-n1.html" target="_blank">産経ニュース</a>』にWebCMに関する内容が掲載されました。</p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月16日
-                  </div>
-                  <div class="categories p-categories color-2">メディア掲載</div>
-              </div>
-              <div class="new-2">
-                  <p>『<a href="https://youtu.be/LuNIo57wfvo" target="_blank">MAiDiGiTV</a>』YouTubeチャンネルにWebCMが掲載されました。</p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月16日
-                  </div>
-                  <div class="categories p-categories color-2">メディア掲載</div>
-              </div>
-              <div class="new-2">
-                  <p>『<a href="https://youtu.be/yng05vQGmy4" target="_blank">ORICON NEWS</a>』YouTubeチャンネルにWebCMが掲載されました。</p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月06日
-                  </div>
-                  <div class="categories p-categories color-3">ニュースリリース</div>
-              </div>
-              <div class="new-2">
-                  <p>当社公式YouTubeチャンネルに、<br>『あなたには、パートナーがいる 篇・面接会場 篇』メイキングを公開いたしました。<br>
-                      <span><a href="https://www.youtube.com/watch?v=A3itlvsiaTw" target="_blank">こちら</a>からご覧ください。</span>
-                  </p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月01日
-                  </div>
-                  <div class="categories p-categories color-3">ニュースリリース</div>
-              </div>
-              <div class="new-2">
-                  <p>2020年度のアンバサダーに女優、創作あーちすと・のんさんが就任いたしました！<br>
-                      <span>詳細は<a href="/images/pdf/TG_HP_2020.pdf" target="_blank">こちら</a>（PDF）からご覧ください。</span>
-                  </p>
-              </div>
-          </article>
-          <article class="row text-body">
-              <div class="new-1">
-                  <div class="day">
-                      2020年01月01日
-                  </div>
-                  <div class="categories p-categories color-1">お知らせ</div>
-              </div>
-              <div class="new-2">
-                  <p>
-                      新年あけましておめでとうございます。<br>
-                      <span>本年もご愛顧のほどよろしくお願い申し上げます。</span>
-                  </p>
-              </div>
-          </article>
-        </div>
-        <div class="year-2019">
-            <article class="row text-body">
-            <div class="new-1">
-                <div class="day">
-                    2019年12月23日
-                </div>
-                <div class="categories p-categories color-1">お知らせ</div>
-            </div>
-            <div class="new-2">
-                <p>年末年始休業のお知らせ。</p>
-                <span>誠に勝手ながら2019年12月28日（土）から2020年1月5日（日）の間は休業いたします。<br>
-                休業期間中のお問い合わせにつきましては1月6日以降に順次対応させていただきます。<br>
-                ご了承のほどよろしくお願い申し上げます。</span>
-            </div>
-            </article>
-            <article class="row text-body">
-                <div class="new-1">
-                    <div class="day">
-                        2019年09月17日
-                    </div>
-                    <div class="categories p-categories color-1">お知らせ</div>
-                </div>
-                <div class="new-2">
-                    <p>支社が移転いたしました。</p>
-                    <span>関西支社と東北支社が移転いたしました。詳細は<a href="/company/" target="_blank">会社概要</a>をご確認ください。</span>
-                </div>
-            </article>
-            <article class="row text-body">
-                <div class="new-1">
-                    <div class="day">
-                        2019年07月30日
-                    </div>
-                    <div class="categories p-categories color-1">お知らせ</div>
-                </div>
-                <div class="new-2">
-                    <p>ホームページをリニューアルいたしました。</p>
-                    <span>平素は株式会社トラストグロースのサービスをご利用いただき、誠にありがとうございます。<br>
-                        この度、当社ホームページをリニューアルいたしました。今後も利便性の向上に努めてまいります。<br>
-                        引き続き、ご愛顧のほどよろしくお願い申し上げます。</span>
-                </div>
-            </article> 
         </div>
     </div>
   </div>
@@ -890,11 +694,15 @@
 
         data() {
             return {
+                linkednews: [],
                 cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: [], townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
             }
         },
 
         created(){
+             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
+                this.linkednews = response.data;
+            });
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
             if(this.window.width >= 320 && this.window.width < 360) {
