@@ -44,13 +44,19 @@
                                    <h5 class="font-weight-bold">{{news.post_date}}</h5>
                                 </td>
                                 <td class="p-3">
-                                   <h5 class="font-weight-bold">{{news.type}}</h5>
+                                   <!-- <h5 class="font-weight-bold">{{news.type}}</h5> -->
+                                    <span v-if="news.type == 1">介護施設検索</span>
+                                    <span v-else-if="news.type == 2">病院検索</span>
+                                    <span v-else>求人検索</span>
                                 </td>
                                 <td class="p-3">
-                                   <h5 class="font-weight-bold">{{news.status}}</h5>
+                                    <span v-if="news.status == 1">ニュースリリース</span>
+                                    <span v-else-if="news.status == 2">メディア掲載</span>
+                                    <span v-else>お知らせ</span>
                                 </td>
                                 <td class="p-3">
-                                   <h5 class="font-weight-bold">{{news.description}}</h5>
+                                   <!-- <h5 class="font-weight-bold">{{news.description}}</h5> -->
+                                   <p v-html="news.description"></p> 
                                 </td>
                                 <td class="p-3">
                                     <router-link :to="{path: '/editnews/'+news.id}" class="btn edit-borderbtn">編集</router-link>
