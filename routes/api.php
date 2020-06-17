@@ -67,15 +67,6 @@ Route::group(['middleware' => ['auth:api']], function() {
     // News category
 
     Route::group(['prefix' => 'news'], function () {
-        Route::get('categories', 'CategoryController@index');
-        
-        Route::post('add', 'CategoryController@add');
-        Route::get('edit/{id}', 'CategoryController@edit');
-        Route::post('update/{id}', 'CategoryController@update');
-        Route::delete('delete/{id}', 'CategoryController@destroy');
-        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
-    });
-    Route::group(['prefix' => 'news'], function () {
         Route::post('add', 'NewsByCatController@add');
         Route::get('edit/{id}', 'NewsByCatController@edit');
         Route::get('news', 'NewsByCatController@index');

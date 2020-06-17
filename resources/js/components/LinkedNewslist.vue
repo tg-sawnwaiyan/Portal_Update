@@ -7,7 +7,7 @@
                         <i class="fa fa-exclamation"></i>
                     </p>                   
                     <p class="record-txt01">広告が登録されていません。</p>
-                    <router-link to="/addLinkedNews" class="main-bg-color create-btn all-btn">
+                    <router-link to="/editnews" class="main-bg-color create-btn all-btn">
                         <i class="fas fa-plus-circle"></i> 広告新規作成
                     </router-link>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="d-flex header pb-3 admin_header">
                         <h5>広告一覧</h5>
                         <div class="ml-auto" v-if="!norecord_msg">
-                            <router-link to="/addLinkedNews" class="main-bg-color create-btn all-btn">
+                            <router-link to="/editnews" class="main-bg-color create-btn all-btn">
                                 <i class="fas fa-plus-circle"></i> <span class="first_txt">広告</span><span class="dinone">新規作成</span>
                             </router-link>
                         </div>
@@ -54,13 +54,13 @@
                                     <span v-else-if="news.status == 2">メディア掲載</span>
                                     <span v-else>お知らせ</span>
                                 </td>
-                                <td class="p-3">
+                                <td class="p-3 desc">
                                    <!-- <h5 class="font-weight-bold">{{news.description}}</h5> -->
                                    <p v-html="news.description"></p> 
                                 </td>
                                 <td class="p-3">
                                     <router-link :to="{path: '/editnews/'+news.id}" class="btn edit-borderbtn">編集</router-link>
-                                    <button class="btn delete-borderbtn ml-2" @click="deleteAds(news.id)">削除</button>
+                                    <button class="btn delete-borderbtn ml-2" @click="deleteLinkedNews(news.id)">削除</button>
                                 </td>
                             </tr>
                         </table>
@@ -120,7 +120,7 @@
                         });
                     }
                 },
-                deleteAds(id) {
+                deleteLinkedNews(id) {
                         this.$swal({
                             // title: "確認",
                             text: "広告を削除してよろしいでしょうか。",
@@ -137,7 +137,7 @@
                             cancelButtonClass: "all-btn",
                             allowOutsideClick: false,
                         }).then(response => {
-                            this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
+                            this.axios.delete("/api/news/delete/"+id).then(response => {
                                 this.news = response.data;
                                 this.norecord = this.news.data.length;
                                 if(this.norecord != 0) {
@@ -187,46 +187,6 @@
                         event.target.src = "/images/noimage.jpg"
                     },
 
-                changeActivate(id, recordstatus){
-                    if(recordstatus == 1)
-                    {
-                    this.activate_text = "広告を非公開にしてよろしいでしょうか。";
-                    }
-                    else{
-                        this.activate_text = "広告を公開してよろしいでしょうか。";
-                    }
-                    this.$loading(true);
-                    this.$swal({
-                        allowOutsideClick: false,
-                        text: this.activate_text,
-                        type: "warning",
-                        width: 350,
-                        height: 200,
-                        showCancelButton: true,
-                        confirmButtonColor: "#eea025",
-                        cancelButtonColor: "#b1abab",
-                        cancelButtonTextColor: "#000",
-                        confirmButtonText: "はい",
-                        cancelButtonText: "キャンセル",
-                        confirmButtonClass: "all-btn",
-                        cancelButtonClass: "all-btn"
-                    }).then(response => {
-                        this.axios.get("/api/advertisement/activate/"+id).then(response => {
-                           
-                                this.getNews();
-                        });
-                    
-                    }).catch(error =>{
-
-                        if(recordstatus == 1){
-                            $("#"+id).prop("checked", true);
-                        }else{
-                            $("#"+id).prop("checked", false);
-                        }
-                        this.$loading(false);                
-                    });
-                    
-                },
                 nextPaginate(num){
                     
                     this.$loading(true);
@@ -245,3 +205,8 @@
             }
     }
 </script>
+<style>
+.desc {
+    max-width: 268px;
+}
+</style>

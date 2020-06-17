@@ -577,11 +577,11 @@ const routes = [
     }
   },
   {
-    name: "addLinkedNews",
-    path: "/addLinkedNews",
+    name: "editnews",
+    path: "/editnews/",
     component: editlinkedNews,
     meta: {
-        auth: { roles: 2, redirect: { name: 'login' }, forbiddenRedirect: '/Unauthorized' }
+        auth: {roles: 2, redirect: {name: 'login'}, forbiddenRedirect: '/Unauthorized'}
     }
 },
 {

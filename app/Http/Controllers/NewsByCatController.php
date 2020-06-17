@@ -133,22 +133,11 @@ class NewsByCatController extends Controller
      */
     public function destroy($id)
     { 
-        //
-        $ads = Advertisement::find($id);
-        $file= $ads->photo;
-        $filename = './upload/advertisement/'.$file;
-        //$filename = public_path().'/upload/advertisement/'.$file;
-        \File::delete($filename);
 
-        $pdffile= $ads->pdf;
-        $pdffilename = './upload/static/'.$pdffile;
-        //$filename = public_path().'/upload/advertisement/'.$file;
-        \File::delete($pdffilename);
-
-        $ads->delete();
-        $advertisements = Advertisement::orderBy('id', 'DESC')->paginate(20);
-        return response()->json($advertisements);
-        // return response()->json('The successfully deleted');
+        $news = NewsByCat::find($id);
+        $news->delete();
+        $linked_news_list = NewsByCat::orderBy('id', 'DESC')->paginate(20);
+        return response()->json($linked_news_list);
     }
 
     public function search(Request $request)
