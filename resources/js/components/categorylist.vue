@@ -90,17 +90,22 @@
             },
 
             created() {
-                this.$loading(true);
-                this.axios.get("/api/category/categories").then(response => {
-                    this.$loading(false);
-                    this.categories = response.data;
-                    this.norecord = this.categories.data.length;
-                    if (this.norecord != 0) {
-                        this.norecord_msg = false;
-                    }else {
-                        this.norecord_msg = true;
-                    }
-                });
+                if(this.$route.params.status == 'update'){
+                    var page_no = this.$route.params.page_no;
+                    this.nextPaginate(page_no);
+                }else{
+                    this.$loading(true);
+                    this.axios.get("/api/category/categories").then(response => {
+                        this.$loading(false);
+                        this.categories = response.data;
+                        this.norecord = this.categories.data.length;
+                        if (this.norecord != 0) {
+                            this.norecord_msg = false;
+                        }else {
+                            this.norecord_msg = true;
+                        }
+                    });
+                }
             },
             methods: {
                 deleteCategory(id) {
@@ -178,6 +183,20 @@
                         this.$loading(true);
                         $("html, body").animate({ scrollTop: 0 }, "slow");
                         this.axios.post("/api/category/search?page="+page, fd).then(response => {
+                            this.$loading(false);
+                            this.categories = response.data;
+                            if (this.categories.data.length != 0) {
+                                this.nosearch_msg = false;
+                            }else {
+                                this.nosearch_msg = true;
+                            }
+                        });
+                        localStorage.setItem('page_no',page);//comment set to createcategory/updateCategory()
+
+                    },
+                    nextPaginate(num){
+                        this.$loading(true);
+                        this.axios.post("/api/category/search?page="+num).then(response => {
                             this.$loading(false);
                             this.categories = response.data;
                             if (this.categories.data.length != 0) {

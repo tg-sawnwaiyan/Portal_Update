@@ -924,6 +924,31 @@ span.video_txt {
     color: blue;
 }
 
+.show-pdf{
+    width: 93.75%;
+    float: left;
+}
+.pdf-close-btn {
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #aaa;
+    border-radius: 3px;
+    background: white;
+    color: red;
+    font-size: 0.9em;
+    padding: 8.25px 15.2px;
+    float: right;
+}
+
+.pdf-close-btn:hover {
+    color: blue;
+}
+
+.show-flag {
+    padding-left: 2px;
+    padding-right: 15px;
+}
+
 #image_preview {
     /* border: 1px solid #ccc; */
     border-radius: 5px;
@@ -3537,6 +3562,11 @@ width: 18rem;
     margin-right: 0.6rem;
     vertical-align: middle;
 }
+
+.pdf-link:hover {
+    text-decoration: underline;
+}
+
 
 .source-wrapper {
     /* bottom: 17.6px; */

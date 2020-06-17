@@ -134,6 +134,9 @@ export default {
                             height: 200,
                             allowOutsideClick: false,
                         })
+                        //this.$router.push({name: 'categorylist'});
+                        var num = localStorage.getItem('page_no');//comment get from categorylist/searchbyCategory()
+                        // this.$router.push({ name: 'categorylist', params: { status: 'update','page_no':num } });
                         this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
 

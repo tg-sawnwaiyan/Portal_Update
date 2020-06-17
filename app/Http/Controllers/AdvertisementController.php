@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Advertisement;
+use Carbon\Carbon;
+use File;
+// use Illuminate\Http\File;
+// use Illuminate\Support\Facades\Storage;
 
 class AdvertisementController extends Controller
 {
@@ -43,26 +47,62 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $imageName = $request->photo->getClientOriginalName();
-        $imgname = str_replace(' ', '', $imageName);
-        $imgname = strtolower($imgname);
-        // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
+        $logo_imgname = '';
+        $pdfname = '';
 
+        if(is_object($request->photo)){
+            $imageName = $request->photo->getClientOriginalName();
+            $imgname = str_replace(' ', '', $imageName);
+            $imgname = strtolower($imgname);
+        }
+        else{
+            $logo_imgname = $request->photo;
+            // $current_time = Carbon::now();
+            $string = str_replace(' ', '-', Carbon::now());
+            $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+            $imgname = 'logo_'.$string.'.png';
+        }
+
+        if(is_object($request->pdf)){
+            $pdfName = $request->pdf->getClientOriginalName();
+            $pdfname = str_replace(' ', '', $pdfName);
+            $pdfname = strtolower($pdfname);
+        }
+                
         $ads = new Advertisement();
         $ads->title = $request->input('title');
         $ads->description = $request->input('description');
         $ads->link=$request->input('link');
         $ads->location=$request->input('location');
+        $ads->pdf = $pdfname;
+        $ads->show_flag = $request->input('show_flag');
         $ads->photo = $imgname;
         $ads->user_id = 1;
 
-         $ads ->save();
+        $ads ->save();
 
-         $request->photo->move('./upload/advertisement/', $imgname);
-         //return $ads;
-         return response()->json('Success ');
+        if($logo_imgname != 'logo.png') {
+            $request->photo->move('./upload/advertisement/', $imgname);
+        }
+        else{
+            $old_path = 'images/logo.png';
+            $new_path = 'upload/advertisement/logo_'.$string.'.png';
+            $move = File::copy($old_path, $new_path);
+        }
 
+        if($pdfname != ''){
+            $request->pdf->move('./upload/static/', $pdfname);
+        }
+        //return $ads;
+        return response()->json('Success ');
+
+    }
+
+    public function getLogoImage(Request $request) 
+    { 
+        $logofile = new File();
+        $logofile = public_path().'\images\logo.png';
+        return response('logofile')->json('Success ');
     }
 
 
@@ -105,15 +145,34 @@ class AdvertisementController extends Controller
         //     'title' => 'required',
         //     'location'=>'required',
         // ]);
-
+        // if($request->photo != 'logo.png') {
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
             // $request->photo->move(public_path('/upload/advertisement'), $imageName);
             $request->photo->move('./upload/advertisement/', $imageName);
+        } 
+        // }
+        else {
+            $logo_imgname = $request->photo;
+            // $current_time = Carbon::now();
+            $string = str_replace(' ', '-', Carbon::now());
+            $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+            $imageName = 'logo_'.$string.'.png';
+            $old_path = 'images/logo.png';
+            $new_path = 'upload/advertisement/logo_'.$string.'.png';
+            $move = File::copy($old_path, $new_path);
+        }
+        
+        if(is_object($request->pdf)) {
+            $pdfName = $request->pdf->getClientOriginalName();
+            $pdfName = str_replace(' ', '', $pdfName);
+            $pdfName = strtolower($pdfName);
+            // $request->pdf->move(public_path('/upload/advertisement'), $imageName);
+            $request->pdf->move('./upload/static/', $pdfName);
         } else {
-            $imageName = $request->photo;
+            $pdfName = $request->pdf;
         }
         //   $uploadData = array(
         //       'title' => $request->input('title'),
@@ -131,11 +190,19 @@ class AdvertisementController extends Controller
                    \File::delete($filename);
                 }
 
+            if(is_object($request->pdf)) {
+                $file= $ads->pdf;
+                $filename = './upload/static/'.$file;
+                \File::delete($filename);
+            }
+
             $ads->title = $request->input('title');
             $ads->description = $request->input('description');
             $ads->link=$request->input('link');
             $ads->location=$request->input('location');
             $ads->photo = $imageName;
+            $ads->pdf = $pdfName;
+            $ads->show_flag = $request->input('show_flag');
             $ads->user_id = 1;
             $ads->save();
             return response()->json('successfully updated');
@@ -156,6 +223,12 @@ class AdvertisementController extends Controller
         $filename = './upload/advertisement/'.$file;
         //$filename = public_path().'/upload/advertisement/'.$file;
         \File::delete($filename);
+
+        $pdffile= $ads->pdf;
+        $pdffilename = './upload/static/'.$pdffile;
+        //$filename = public_path().'/upload/advertisement/'.$file;
+        \File::delete($pdffilename);
+
         $ads->delete();
         $advertisements = Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($advertisements);
@@ -165,8 +238,11 @@ class AdvertisementController extends Controller
     public function search(Request $request)
     {
         $request = $request->all();
-
-        $search_word = $request['search_word'];
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        }else{
+            $search_word = null;
+        }
         $advertisement = Advertisement::query()
                             ->where('title', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')

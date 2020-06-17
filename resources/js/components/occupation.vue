@@ -198,6 +198,9 @@ export default {
                             height: 200,
                             allowOutsideClick: false,
                         })
+                        var num = localStorage.getItem('page_no');//comment get from occupationlist.vue/searchOccupation()
+                        // this.$router.push({ name: 'occupationlist', params: { status: 'update','page_no':num } })
+
                         this.$router.push({name: 'occupationlist'});
                     }).catch(error=>{
 

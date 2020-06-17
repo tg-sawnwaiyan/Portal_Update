@@ -461,7 +461,7 @@
                         </label>
                     </h4>
                 
-                    <div  :id="'newsChangeLink' + index" class="row m-lr-0" v-if="group[0].pattern == 1">
+                    <div  :id="'newsChangeLink' + index" class="row m-lr-0" v-if="group[0].pattern == 1 || group[0].pattern == 2 || group[0].pattern == 3">
                         <slick :options="slickOptions" class="news-slider-width">                  
                             <div class="pad-new pattern-child" v-if="group[0]">
                                 <router-link :to="'/newsdetails/'+group[0].pid">
@@ -561,350 +561,38 @@
                             </div>
 
                             <div class="pad-new pattern-child" v-if="group[12]">
-                                <router-link v-for="(item,inx) in group.slice(12, 15)" :key="inx" :to="'/newsdetails/'+item.pid">
-
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-
-                                        <div class="col-4 img-box">
-
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
-
-                                                <transition name="fade">
-
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
-
-                                                </transition>
-
-                                                <transition name="fade" slot="placeholder">
-
-                                                <div class="preloader">
-
-                                                    <div class="circle">
-
-                                                    <div class="circle-inner"></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                                </transition>
-
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>                    
-                        </slick>
-                    </div>
-
-                    <div :id="'newsChangeLink' + index" class="row m-lr-0" v-if="group[0].pattern == 2">
-                        <slick :options="slickOptions" class="news-slider-width"> 
-                            <div class="pad-new pattern-child" v-if="group[0]">
-
-                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
-
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-
-                                        <div class="col-4 img-box">
-
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
-
-                                                <transition name="fade">
-
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
-
-                                                </transition>
-
-                                                <transition name="fade" slot="placeholder">
-
-                                                    <div class="preloader">
-
-                                                        <div class="circle">
-
-                                                        <div class="circle-inner"></div>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                </transition>
-
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>                    
-
-                            <div class="pad-new pattern-child" v-if="group[3]">
-
-                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
-                                    <p class="text-truncate news-list-display">
-
-                                        <i class="fas fa-building"></i> {{item.main_point}}
-
-                                    </p>
-
-                                </router-link>
-
-                            </div>
-
-                            <div class="pad-new pattern-child" v-if="group[11]">
-
-                                <router-link v-for="(item,inx) in group.slice(11, 14)" :key="inx" :to="'/newsdetails/'+item.pid">
-
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-
-                                        <div class="col-4 img-box">
-
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
-
-                                                <transition name="fade">
-
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
-
-                                                </transition>
-
-                                                <transition name="fade" slot="placeholder">
-
-                                                    <div class="preloader">
-
-                                                        <div class="circle">
-
-                                                        <div class="circle-inner"></div>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                </transition>
-
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>
-
-                            <div class="pad-new pattern-child" v-if="group[14]">
-
-                                <router-link v-for="(item,inx) in group.slice(14, 22)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
-                                    <p class="text-truncate news-list-display">
-
-                                        <i class="fas fa-building"></i> {{item.main_point}}
-
-                                    </p>
-
-                                </router-link>
-
-                            </div>
-                        </slick>
-                    </div>
-
-                    <div :id="'newsChangeLink' + index" class="row m-lr-0" v-if="group[0].pattern == 3">
-                        <slick :options="slickOptions" class="news-slider-width"> 
-                            <div class="pad-new pattern-child" v-if="group[0]">
-
-                                <router-link :to="'/newsdetails/'+group[0].pid">
+                                <router-link :to="'/newsdetails/'+group[12].pid">
 
                                     <div class="col-12 single-news-box">
 
-                                        <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index">
+                                        <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                             <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                <img :src="'/upload/news/' + group[12].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                            </transition>
+                                            </transition>                                
 
                                             <transition name="fade" slot="placeholder">
-                                                <div class="preloader">
-                                                    <div class="circle">
-                                                    <div class="circle-inner"></div>
-                                                    </div>
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
                                                 </div>
-                                            </transition>    
+
+                                            </div>
+
+                                            </transition>
                                         </clazy-load>
-                                        <p>{{group[0].main_point}}</p>
+                                        <p> {{group[12].main_point}} </p>
                                     </div>
 
                                 </router-link>
 
-                            </div>
-
-                            <div class="pad-new pattern-child" v-if="group[1]">
-
-                                <router-link v-for="(item,inx) in group.slice(1, 4)" :key="inx" :to="'/newsdetails/'+item.pid">
-
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-
-                                        <div class="col-4 img-box">
-
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
-
-                                            <transition name="fade">
-
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
-
-                                            </transition>
-
-                                            <transition name="fade" slot="placeholder">
-
-                                                <div class="preloader">
-
-                                                    <div class="circle">
-
-                                                    <div class="circle-inner"></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </transition>
-
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>
-
-                            <div class="pad-new pattern-child" v-if="group[4]">
-
-                                <router-link v-for="(item,inx) in group.slice(4, 7)" :key="inx" :to="'/newsdetails/'+item.pid">
-
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-
-                                        <div class="col-4 img-box">
-
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
-
-                                            <transition name="fade">
-
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
-
-                                            </transition>
-
-                                            <transition name="fade" slot="placeholder">
-
-                                                <div class="preloader">
-
-                                                    <div class="circle">
-
-                                                    <div class="circle-inner"></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </transition>
-
-                                            </clazy-load>
-
-                                        </div>
-
-
-
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                            <p>{{item.main_point}}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>
-
-                            <div class="pad-new pattern-child" v-if="group[7]">
-
-                                <router-link :to="'/newsdetails/'+group[7].pid" v-if="group[7]">
-
-                                    <div class="col-12 single-news-box">
-
-                                        <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index">
-
-                                            <transition name="fade">
-
-                                                <img v-bind:src="'/upload/news/' + group[7].photo" class="fit-image img-fluid" @error="imgUrlAlt">
-
-                                            </transition>
-
-                                            <transition name="fade" slot="placeholder">
-
-                                                <div class="preloader">
-
-                                                    <div class="circle">
-
-                                                    <div class="circle-inner"></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </transition>                                  
-
-                                        </clazy-load>
-                                        <p>{{group[7].main_point}}</p>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>
+                            </div>                  
                         </slick>
                     </div>
                     

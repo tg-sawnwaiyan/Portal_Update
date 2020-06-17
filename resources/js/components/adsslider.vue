@@ -2,12 +2,22 @@
 <div class="ads-slider">
     <slick ref="slick" :options="slickOptions" v-if="ads_list.length > 0">  
         <div class="list-group-item adslist-card" v-for="adsList in ads_list" :key="adsList.id">
-            <a :href="adsList.link" target="_blank">
-                <div class="slide-img">
-                    <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
-                </div>
-                <h3 class="smallads-title">{{adsList.title}}</h3>
-            </a>       
+            <div v-if="adsList.link && adsList.show_flag == 'link'">
+                <a :href="adsList.link" target="_blank">
+                    <div class="slide-img">
+                        <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
+                    </div>
+                    <h3 class="smallads-title">{{adsList.title}}</h3>
+                </a>
+            </div>
+            <div v-else>
+                <a @click="showPDF($event, adsList.pdf)" style="cursor: pointer;">
+                    <div class="slide-img">
+                        <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
+                    </div>
+                    <h3 class="smallads-title pdf-link">{{adsList.title}}</h3>
+                </a>
+            </div>       
         </div>
     </slick>
 </div>
@@ -88,6 +98,11 @@ export default {
          imgUrlAlt(event) 
         {
             event.target.src = "/images/noimage.jpg"
+        },
+        showPDF:function(event, pdf_name)
+        {
+            var show_pdf = '../upload/static/'+pdf_name;
+            open(show_pdf);
         }
     }
    
