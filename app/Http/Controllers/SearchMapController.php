@@ -1053,5 +1053,18 @@ class SearchMapController extends Controller
     
         return response()->json($jsonArray);
     }
+
+    /**
+     * @desc linked news
+     * Show linked news
+     * @author may thiri htet @ 2020-06-16
+     * @param $show_type 
+     * @return json_encoded array
+     */
+    public function getLinkedNews($show_type)
+    {
+        $linkednews = DB::table('news_for_category')->where('type', $show_type)->get();
+        return response()->json($linkednews);
+    }
     
 }

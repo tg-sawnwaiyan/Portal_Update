@@ -370,6 +370,36 @@
   </div>
 </div>
 </div>
+<div v-if="linkednews.length > 0" class="container_news">
+  <div class="row-2">
+    <div class="text-new">
+        <span>News</span>
+    </div>
+    <!-- <div class="button-year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">2020年</button>
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2019">2019年</button>
+    </div> -->
+    <div class="scroll-year">
+        <div class="year-2020">
+          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id">
+            <div class="new-1">
+              <div class="day">
+                  {{linked_news.post_date}}
+              </div>
+              <div>
+                <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
+                <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
+                <span v-else class="categories p-categories color-1">お知らせ</span>
+              </div>
+            </div>
+            <div class="new-2">
+              <p v-html="linked_news.description"></p> 
+              </div>
+          </article>
+        </div>
+    </div>
+  </div>
+</div>
 </layout>
 </template>
 
@@ -388,11 +418,14 @@ import bulcomponent from './bulcomponent.vue'
 
     data() {
       return {
+        linkednews: [],
         id: '', timetable:[], hos_data:[], townshipID: [], township_id: [], cities: [], getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
       }
     },
     created(){
-
+        this.axios.get('/api/getLinkedNews/'+2).then((response) => { 
+            this.linkednews = response.data;
+        });
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
     },

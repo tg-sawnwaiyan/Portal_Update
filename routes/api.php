@@ -65,12 +65,23 @@ Route::group(['middleware' => ['auth:api']], function() {
     // End Category
 
     // News category
+
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('categories', 'CategoryController@index');
+        
+        Route::post('add', 'CategoryController@add');
+        Route::get('edit/{id}', 'CategoryController@edit');
+        Route::post('update/{id}', 'CategoryController@update');
+        Route::delete('delete/{id}', 'CategoryController@destroy');
+        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
+    });
     Route::group(['prefix' => 'news'], function () {
         Route::post('add', 'NewsByCatController@add');
         Route::get('edit/{id}', 'NewsByCatController@edit');
         Route::get('news', 'NewsByCatController@index');
         Route::post('update/{id}', 'NewsByCatController@update');
         Route::delete('delete/{id}','NewsByCatController@destroy');
+        // Route::delete('delete/{id}','AdvertisementController@destroy');
         // Route::get('activate/{id}','AdvertisementController@activate');
 
     });
@@ -232,6 +243,9 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');
     Route::get('townshipJson/{township_name}','SearchMapController@townshipJson');
+    /*added by maythirihtet to display linked news*/
+    Route::get('getLinkedNews/{show_type}','SearchMapController@getLinkedNews');
+    /** **/
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('nursing/{cusid}','ProfilePublishController@nursingProfile');

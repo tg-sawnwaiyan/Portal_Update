@@ -391,7 +391,37 @@
       </div>
     </div>
   </div>
+</div>
+<div v-if="linkednews.length > 0" class="container_news job_container_news">
+  <div class="row-2">
+    <div class="text-new">
+        <span>News</span>
+    </div>
+    <!-- <div class="button-year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">2020年</button>
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2019">2019年</button>
+    </div> -->
+    <div class="scroll-year">
+        <div class="year-2020">
+          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id">
+            <div class="new-1">
+              <div class="day">
+                  {{linked_news.post_date}}
+              </div>
+              <div>
+                <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
+                <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
+                <span v-else class="categories p-categories color-1">お知らせ</span>
+              </div>
+            </div>
+            <div class="new-2">
+              <p v-html="linked_news.description"></p> 
+              </div>
+          </article>
+        </div>
+    </div>
   </div>
+</div>
 </layout>
 </template>
 
@@ -410,11 +440,14 @@ export default {
     //props: ['initOpen'],
     data(){
       return{
+        linkednews: [],
         id:'', townshipID:[], township_id:[], cities:[], getCity:[], township_id:-1, moving_in:-1, per_month:-1, getTownships:[], special_features:[], fac_types:[], fac_id:[], medical_acceptance:[], subjects:[], occupationID:[], occupations:[], occupation:[], toggleCheck: true, toggleCheck_1: false, empstatus:[], job_data:[], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, locast:'', company:[], open:false, norecord_msg: false, window:{ width: 0, height: 0 }, w_width: $(window).width(), testclass:'', array_len: 0, searchword:'', stateclick:false, count:false, clicksearch: false, ci: false, isActive: true, isActivePreNext:true,
       }
     },
     created() {
-
+        this.axios.get('/api/getLinkedNews/'+2).then((response) => { 
+            this.linkednews = response.data;
+        });
         this.axios.get('/api/user').then(response => {
                 this.pro_id = response.data.lat_lng[0].id;
                 this.loginuser = 'true';
@@ -878,6 +911,26 @@ $(document).click(function(e) {
   if(e.target.nodeName == 'BODY')
     $('#checkboxes').hide();
 });
+
+// for .container_news
+$(document).ready(function(){
+    $('.button-year').find('.btn-2020').addClass('active');
+    $('.year-2019').addClass('hidden');
+});
+
+$(document).on('click','.btn-2020',function(){
+    $(this).addClass('active');
+    $(this).parent().find('.btn-2019').removeClass('active');
+    $('.year-2019').addClass('hidden');
+    $('.year-2020').removeClass('hidden');
+});
+$(document).on('click','.btn-2019',function(){
+    $(this).addClass('active');
+    $(this).parent().find('.btn-2020').removeClass('active');
+    $('.year-2020').addClass('hidden');
+    $('.year-2019').removeClass('hidden');
+});
+// end of .container_news
 
 </script>
 
