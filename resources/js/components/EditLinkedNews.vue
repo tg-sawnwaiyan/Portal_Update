@@ -124,7 +124,7 @@ export default {
             }
         },
         created() {
-            if(this.$route.name == "editnews"){
+            if(this.$route.params.id){
                  this.showhide = false;
                  this.axios
                 .get(`/api/news/edit/${this.$route.params.id}`)
@@ -134,7 +134,7 @@ export default {
                     this.newsByCat.status = response.data.status;
                     this.newsByCat.description = response.data.description;
                 });
-                this.header = '広告編集';
+                this.header = 'Edit News';
             }
             else{
                 this.showhide = true;
@@ -142,7 +142,7 @@ export default {
                 this.newsByCat.type = '';
                 this.newsByCat.status = '';
                 this.newsByCat.description = '';
-                this.header = '広告新規作成';
+                this.header = 'Create News';
             }
            
         },

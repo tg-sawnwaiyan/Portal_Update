@@ -12,15 +12,15 @@
                     </router-link>
                 </div>
                 <div v-else class="container-fuid">
-                    <h4 class="main-color mb-3">広告検索</h4>
+                    <!-- <h4 class="main-color mb-3">広告検索</h4>
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="広告検索" id="search-item" @keyup="searchAdvertisment()" />
                         </div>
                     </div>
-                    <hr />
+                    <hr /> -->
                     <div class="d-flex header pb-3 admin_header">
-                        <h5>広告一覧</h5>
+                        <h5>News</h5>
                         <div class="ml-auto" v-if="!norecord_msg">
                             <router-link to="/editnews" class="main-bg-color create-btn all-btn">
                                 <i class="fas fa-plus-circle"></i> <span class="first_txt">広告</span><span class="dinone">新規作成</span>
