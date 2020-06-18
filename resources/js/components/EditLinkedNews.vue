@@ -11,9 +11,9 @@
                         <div class="col-md-12">
                             <form @submit.prevent="updateAds" autocomplete="off">
                             <div class="form-group">
-                                <label style="width:20%;">日付（日付を選択してください） <span class="error sp2">必須</span></label>
-                                    <date-picker class=""  :lang="lang" valueType="format" v-model="newsByCat.post_date"  style="width:60%"></date-picker>
-                                    <!-- <span v-if="errors.title" class="error">{{errors.title}}</span> -->
+                                <label style="width:20%;">日付<span class="error sp2">必須</span></label>
+                                    <date-picker class=""  :lang="lang" valueType="format" v-model="newsByCat.post_date"  style="width:60%" placeholder="（日付を選択してください）"></date-picker>
+                                    <span v-if="errors.post_date" class="error">{{errors.post_date}}</span>
                             </div>
 
                             <div class="form-group">
@@ -24,7 +24,7 @@
                                     <option value="2">病院検索</option>
                                     <option value="3">求人検索</option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
+                                <span v-if="errors.type" class="error">{{errors.type}}</span>
                             </div>
 
                             <div class="form-group">
@@ -35,13 +35,13 @@
                                     <option value="2">メディア掲載</option>
                                     <option value="3">お知らせ</option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
+                                <span v-if="errors.status" class="error">{{errors.status}}</span>
                             </div>
 
                             <div class="form-group">
                                 <label>内容 <span class="error sp2">必須</span></label>
                                 <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="newsByCat.description" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
-                                <span v-if="errors.body" class="error">{{errors.body}}</span>
+                                <span v-if="errors.description" class="error">{{errors.description}}</span>
                             </div>
                             
                             <div class="form-group">
@@ -287,7 +287,7 @@ export default {
                     this.errors.description = "写真は必須です。";
                 }
 
-                if(!this.errors.link && !this.errors.title && !this.errors.photo && !this.errors.pdf && this.$route.params.id)
+                if(!this.errors.post_date && !this.errors.type && !this.errors.status && !this.errors.description && this.$route.params.id)
                 {
                     // console.log('update');
                 this.updateAds();
