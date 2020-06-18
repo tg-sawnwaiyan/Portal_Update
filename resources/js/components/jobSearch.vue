@@ -458,6 +458,7 @@ export default {
                 this.yeararr = response.data.yeararr;
             });
         /**end of added by maythirihtet */
+
         this.axios.get('/api/user').then(response => {
                 this.pro_id = response.data.lat_lng[0].id;
                 this.loginuser = 'true';

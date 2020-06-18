@@ -148,11 +148,11 @@ class NewsByCatController extends Controller
         }else{
             $search_word = null;
         }
-        $advertisement = Advertisement::query()
-                            ->where('title', 'LIKE', "%{$search_word}%")
+        $news = NewsByCat::query()
+                            ->where('description', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->paginate(20);
-        return response()->json($advertisement);
+        return response()->json($news);
 
     }
 

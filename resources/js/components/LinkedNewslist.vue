@@ -12,13 +12,13 @@
                     </router-link>
                 </div>
                 <div v-else class="container-fuid">
-                    <!-- <h4 class="main-color mb-3">広告検索</h4>
+                    <h4 class="main-color mb-3">広告検索</h4>
                     <div class="row mb-4">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="広告検索" id="search-item" @keyup="searchAdvertisment()" />
+                            <input type="text" class="form-control" placeholder="広告検索" id="search-item" @keyup="searchLinkedNewws()" />
                         </div>
                     </div>
-                    <hr /> -->
+                    <hr />
                     <div class="d-flex header pb-3 admin_header">
                         <h5>News</h5>
                         <div class="ml-auto" v-if="!norecord_msg">
@@ -111,7 +111,7 @@
                             this.$loading(false);
                             console.log(response.data);
                             this.news = response.data;
-                            this.norecord = this.advertisements.data.length;
+                            this.norecord = this.news.data.length;
                             if(this.norecord != 0) {
                                 this.norecord_msg = false;
                             }else{
@@ -163,7 +163,7 @@
 
                     },
 
-                    searchAdvertisment(page) {
+                    searchLinkedNewws(page) {
                         if(typeof page === "undefined"){
                             page = 1;
                         }
@@ -172,10 +172,10 @@
                         fd.append("search_word", search_word);
                         this.$loading(true);
                         $("html, body").animate({ scrollTop: 0 }, "slow");
-                        this.axios.post("/api/advertisement/search?page="+page, fd).then(response => {
+                        this.axios.post("/api/news/search?page="+page, fd).then(response => {
                             this.$loading(false);
-                            this.advertisements = response.data;
-                            if(this.advertisements.data.length != 0){
+                            this.news = response.data;
+                            if(this.news.data.length != 0){
                                 this.nosearch_msg = false;
                             }else{
                                 this.nosearch_msg = true;
@@ -191,10 +191,10 @@
                     
                     this.$loading(true);
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    this.axios.post("/api/advertisement/search?page="+num).then(response => {
+                    this.axios.post("/api/news/search?page="+num).then(response => {
                             this.$loading(false);
-                            this.advertisements = response.data;
-                            if(this.advertisements.data.length != 0){
+                            this.news = response.data;
+                            if(this.news.data.length != 0){
                                 this.nosearch_msg = false;
                             }else{
                                 this.nosearch_msg = true;
