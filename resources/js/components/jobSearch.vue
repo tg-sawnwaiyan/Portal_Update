@@ -445,7 +445,7 @@ export default {
       }
     },
     created() {
-        this.axios.get('/api/getLinkedNews/'+2).then((response) => { 
+        this.axios.get('/api/getLinkedNews/'+3).then((response) => { 
             this.linkednews = response.data;
         });
         this.axios.get('/api/user').then(response => {
