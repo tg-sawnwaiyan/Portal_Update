@@ -72,8 +72,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('news', 'NewsByCatController@index');
         Route::post('update/{id}', 'NewsByCatController@update');
         Route::delete('delete/{id}','NewsByCatController@destroy');
-        // Route::delete('delete/{id}','AdvertisementController@destroy');
-        // Route::get('activate/{id}','AdvertisementController@activate');
+        Route::post('search', 'NewsByCatController@search');
 
     });
     // End Advertisement
