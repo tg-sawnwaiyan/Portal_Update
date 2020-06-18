@@ -644,36 +644,38 @@
         </div>
     </div>
 </div>
+<!-- linked news added by maythirihtet-->
 <div v-if="linkednews.length > 0" class="container_news">
   <div class="row-2">
     <div class="text-new">
         <span>News</span>
     </div>
-    <!-- <div class="button-year">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">2020年</button>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-2019">2019年</button>
-    </div> -->
+    <div class="button-year" v-for="(year_arr, index) in yeararr" :key="index">
+        <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button>
+    </div>
+
     <div class="scroll-year">
         <div class="year-2020">
-          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id">
-            <div class="new-1">
-              <div class="day">
-                  {{linked_news.post_date}}
-              </div>
-              <div>
-                <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
-                <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
-                <span v-else class="categories p-categories color-1">お知らせ</span>
-              </div>
-            </div>
-            <div class="new-2">
-              <p v-html="linked_news.description"></p> 
-              </div>
+          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id" v-if="(linked_news.post_date.includes(c_year))">
+                <div class="new-1">
+                    <div class="day">
+                        {{linked_news.post_date}}
+                    </div>
+                    <div>
+                        <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
+                        <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
+                        <span v-else class="categories p-categories color-1">お知らせ</span>
+                    </div>
+                </div>
+                <div class="new-2">
+                    <p v-html="linked_news.description"></p> 
+                </div>
           </article>
         </div>
     </div>
   </div>
 </div>
+<!-- end linked news added by maythirihtet-->
 </layout>
 </template>
 
@@ -694,15 +696,23 @@
 
         data() {
             return {
+                /**added by maythirihtet */
+                c_year:new Date().getFullYear(),
+                vactive:true,
                 linkednews: [],
+                yeararr: [],
+                /**end of added by maythirihtet */
                 cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: [], townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
             }
         },
 
         created(){
-             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
-                this.linkednews = response.data;
+            /**added by maythirihtet*/
+            this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
+                this.linkednews = response.data.linkednews,
+                this.yeararr = response.data.yeararr;
             });
+            /**end of added by maythirihtet */
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
             if(this.window.width >= 320 && this.window.width < 360) {
@@ -803,6 +813,11 @@
         },
 
         methods: {
+            /**added by maythirihtet */
+            showDataByYear(year) {
+                this.c_year = year;
+            },
+            /**end of added by maythirihtet */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
