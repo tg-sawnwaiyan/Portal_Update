@@ -175,8 +175,8 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
                         },
                         {
                             href: '/linkednews',
-                            title: 'News',
-                            icon: 'fa fa-globe',
+                            title: 'お知らせ・ニュース',
+                            icon: 'fa fa-file-alt',
                         },
                     ]
                 },

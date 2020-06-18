@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                             <form @submit.prevent="updateAds" autocomplete="off">
                             <div class="form-group">
-                                <label style="width:20%;">広告タイトル <span class="error sp2">必須</span></label>
+                                <label style="width:20%;">日付（日付を選択してください） <span class="error sp2">必須</span></label>
                                     <date-picker class=""  :lang="lang" valueType="format" v-model="newsByCat.post_date"  style="width:60%"></date-picker>
                                     <!-- <span v-if="errors.title" class="error">{{errors.title}}</span> -->
                             </div>
@@ -19,10 +19,10 @@
                             <div class="form-group">
                                 <label>カテゴリー <span class="error sp2">必須</span></label>
                                 <select v-model="newsByCat.type" class="form-control" @change='getstates()' style="display:inline-block;width:50%;">
-                                    <option value="">事業者のタイプを選択してください(介護又は病院)</option>
-                                    <option value="1">介護</option>
-                                    <option value="2">病院</option>
-                                    <option value="3">Recruit</option>
+                                    <option value="">カテゴリー（表示されたい部分を選びください）</option>
+                                    <option value="1">介護施設検索</option>
+                                    <option value="2">病院検索</option>
+                                    <option value="3">求人検索</option>
                                 </select>
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label>Status <span class="error sp2">必須</span></label>
                                 <select v-model="newsByCat.status" class="form-control" @change='getstates()' style="display:inline-block;width:50%;">
-                                    <option value="">事業者のタイプを選択してください(介護又は病院)</option>
+                                    <option value="">表示されたいタイプ（表示されたいタイプを選びください）</option>
                                     <option value="1">ニュースリリース</option>
                                     <option value="2">メディア掲載</option>
                                     <option value="3">お知らせ</option>
@@ -132,7 +132,7 @@ export default {
                     this.newsByCat.status = response.data.status;
                     this.newsByCat.description = response.data.description;
                 });
-                this.header = 'Edit News';
+                this.header = 'お知らせ・ニュース編集';
             }
             else{
                 this.showhide = true;
@@ -140,7 +140,7 @@ export default {
                 this.newsByCat.type = '';
                 this.newsByCat.status = '';
                 this.newsByCat.description = '';
-                this.header = 'Create News';
+                this.header = 'お知らせ・ニュース新規作成';
             }
            
         },
