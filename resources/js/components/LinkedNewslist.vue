@@ -8,11 +8,11 @@
                     </p>                   
                     <p class="record-txt01">広告が登録されていません。</p>
                     <router-link to="/editnews" class="main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> 広告新規作成
+                        <i class="fas fa-plus-circle"></i> お知らせ・ニュース新規作成
                     </router-link>
                 </div>
                 <div v-else class="container-fuid">
-                    <h4 class="main-color mb-3">広告検索</h4>
+                    <h4 class="main-color mb-3">ニュース・お知らせ</h4>
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="広告検索" id="search-item" @keyup="searchLinkedNewws()" />
@@ -20,7 +20,7 @@
                     </div>
                     <hr />
                     <div class="d-flex header pb-3 admin_header">
-                        <h5>News</h5>
+                        <h5>お知らせ・ニュース</h5>
                         <div class="ml-auto" v-if="!norecord_msg">
                             <router-link to="/editnews" class="main-bg-color create-btn all-btn">
                                 <i class="fas fa-plus-circle"></i> <span class="first_txt">広告</span><span class="dinone">新規作成</span>
