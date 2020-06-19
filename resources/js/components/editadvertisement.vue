@@ -190,10 +190,10 @@ export default {
                 this.img_name = file.name;
             },
             selectLogoImage () {
-                this.advertisement.photo = "logo.png";
-                this.upload_img = "/images/logo.png";
+                this.advertisement.photo = "tis_advertisement_logo.png";
+                this.upload_img = "/images/tis_advertisement_logo.png";
                 this.update_img = true;
-                this.img_name = "logo.png";
+                this.img_name = "tis_advertisement_logo.png";
             },
             pdfFileSelected(){
                 this.advertisement.pdf = event.target.files[0];
@@ -282,9 +282,9 @@ export default {
                 this.img_name = file.name;
             },
             uploadLogoImage() {
-                $('.image_preview').html("<div class='col-md-2'><img src='images/logo.png' class='show-img'></div>");
-                this.advertisement.photo = "logo.png";
-                this.img_name = "logo.png";
+                $('.image_preview').html("<div class='col-md-2'><img src='images/tis_advertisement_logo.png' class='show-img'></div>");
+                this.advertisement.photo = "tis_advertisement_logo.png";
+                this.img_name = "tis_advertisement_logo.png";
                 
             },
             uploadPDF() {    
