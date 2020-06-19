@@ -11,15 +11,15 @@
                         <div class="col-md-12">
                             <form @submit.prevent="updateAds" autocomplete="off">
                             <div class="form-group">
-                                <label style="width:20%;">日付<span class="error sp2">必須</span></label>
-                                    <date-picker class=""  :lang="lang" valueType="format" v-model="newsByCat.post_date"  style="width:60%" placeholder="（日付を選択してください）"></date-picker>
+                                <label style="width:20%;">日付&nbsp;<span class="error sp2">必須</span></label><br>
+                                    <date-picker class=""  :lang="lang" valueType="format" v-model="newsByCat.post_date"  style="width:485px;" placeholder="日付を選択してください"></date-picker>
                                     <span v-if="errors.post_date" class="error">{{errors.post_date}}</span>
                             </div>
 
                             <div class="form-group">
-                                <label>カテゴリー <span class="error sp2">必須</span></label>
+                                <label>カテゴリー &nbsp;<span class="error sp2">必須</span></label><br>
                                 <select v-model="newsByCat.type" class="form-control" @change='getstates()' style="display:inline-block;width:50%;">
-                                    <option value="">カテゴリー（表示されたい部分を選びください）</option>
+                                    <option value="">表示されたい部分を選びください</option>
                                     <option value="1">介護施設検索</option>
                                     <option value="2">病院検索</option>
                                     <option value="3">求人検索</option>
@@ -28,9 +28,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Status <span class="error sp2">必須</span></label>
+                                <label>表示されたいタイプ &nbsp;<span class="error sp2">必須</span></label><br>
                                 <select v-model="newsByCat.status" class="form-control" @change='getstates()' style="display:inline-block;width:50%;">
-                                    <option value="">表示されたいタイプ（表示されたいタイプを選びください）</option>
+                                    <option value="">表示されたいタイプを選びください</option>
                                     <option value="1">ニュースリリース</option>
                                     <option value="2">メディア掲載</option>
                                     <option value="3">お知らせ</option>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>内容 <span class="error sp2">必須</span></label>
+                                <label>内容 &nbsp;<span class="error sp2">必須</span></label>
                                 <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="newsByCat.description" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                                 <span v-if="errors.description" class="error">{{errors.description}}</span>
                             </div>
