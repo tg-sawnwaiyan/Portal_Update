@@ -15,7 +15,7 @@
                     <h4 class="main-color mb-3">ニュース・お知らせ</h4>
                     <div class="row mb-4">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="広告検索" id="search-item" @keyup="searchLinkedNewws()" />
+                            <input type="text" class="form-control" placeholder="お知らせ・ニュース検索" id="search-item" @keyup="searchLinkedNewws()" />
                         </div>
                     </div>
                     <hr />
@@ -23,7 +23,7 @@
                         <h5>お知らせ・ニュース</h5>
                         <div class="ml-auto" v-if="!norecord_msg">
                             <router-link to="/editnews" class="main-bg-color create-btn all-btn">
-                                <i class="fas fa-plus-circle"></i> <span class="first_txt">広告</span><span class="dinone">新規作成</span>
+                                <i class="fas fa-plus-circle"></i> <span class="first_txt">お知らせ・ニュース</span><span class="dinone">新規作成</span>
                             </router-link>
                         </div>
                     </div>
