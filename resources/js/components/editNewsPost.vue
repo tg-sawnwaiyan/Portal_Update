@@ -63,6 +63,17 @@
                             </select>
                         <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                     </div>
+
+                    <div class="form-group">
+                        <label>ブロック</label>
+                            <select v-model="block_id" class="form-control" @change='getblock()'>
+                                <option v-bind:value="0">選択してください。</option>
+                                <option v-bind:value="1">左の大きなブロック</option>
+                                <option v-bind:value="4">右の大きなブロック</option>
+                                <option v-bind:value="2">中型ブロック</option>
+                                <option v-bind:value="3">小さなブロックサイズ</option>
+                            </select>
+                    </div>
                
                      <div v-if="selectedValue == 26" class="form-group">
                         <div class="row">
@@ -183,6 +194,7 @@ import {quillEditor} from 'vue-quill-editor'
                         }
                     },
                     selectedValue: 0,
+                    block_id: 0,
                     status:0,
                     arr: [],
                     errors: {
@@ -221,6 +233,7 @@ import {quillEditor} from 'vue-quill-editor'
                         mainPoint: '',
                         body: '',
                         category_id: '',
+                        block_id:'',
                         category_name: '',
                         related_news: '',
                         photo: '',
@@ -293,6 +306,7 @@ import {quillEditor} from 'vue-quill-editor'
                                     this.old_photo = '';
                                 }
                                 this.selectedValue = this.news.category_id;
+                                this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
                         this.getPostsByCatId();
                         this.getSearchPostsByCatId();
@@ -380,6 +394,7 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
+                            fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
                             fData.append('old_photo',this.old_photo)
                             this.$loading(true);
@@ -433,6 +448,7 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
+                            fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
                             this.$loading(true);
                         this.axios.post('/api/new/add', fData)
@@ -462,6 +478,9 @@ import {quillEditor} from 'vue-quill-editor'
                         this.news.category_id = this.selectedValue;
                         this.news.from_date = '';
                         this.news.to_date = '';
+                    },
+                    getblock: function() {
+                        this.news.block_id = this.block_id;
                     },
                     getPostsByCatId: function(page) {
                         if (typeof page === 'undefined') {
