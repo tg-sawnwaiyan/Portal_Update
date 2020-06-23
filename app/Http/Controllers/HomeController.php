@@ -222,33 +222,71 @@ class HomeController extends Controller
         // $sql = "SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id order by posts.created_at desc LIMIT 100";
         // $sql = "SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.created_at > date_sub(now(), interval 1 month) order by posts.created_at desc";
 
-        $sql = "";
-        if($search_word == 'all_news_search'){
-            $wh = '';
-        }
-        else{
-            $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
-        }
+        // $sql = "";
+        // if($search_word == 'all_news_search'){
+        //     $wh = '';
+        // }
+        // else{
+        //     $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
+        // }
 
-        $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
-        if(count($cat) == 0)
-        {
-            $posts = [];
-            return response()->json($posts);
-        }
-        else{
-            for($i = 0; $i < count($cat); $i++) {
-                $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION ";
-            }
-            $sql = trim($sql,' UNION ');
+        // $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
+        // if(count($cat) == 0)
+        // {
+        //     $posts = [];
+        //     return response()->json($posts);
+        // }
+        // else{
+        //     for($i = 0; $i < count($cat); $i++) {
+        //         $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION ";
+        //     }
+        //     $sql = trim($sql,' UNION ');
 
-            $posts = DB::select($sql);
+        //     $posts = DB::select($sql);
     
-            return response()->json($posts);
-        }
-       
+        //     return response()->json($posts);
+        // }
 
-      
+        //added by thetthirisan
+        $dateS = Carbon\Carbon::now()->startOfMonth()->subMonth(6);
+        $dateE = Carbon\Carbon::now()->startOfMonth();
+
+        $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get()->toArray();
+
+        $aryCatId = array_column($cat, 'id');
+
+        $sql = DB::table('categories')
+        ->select('categories.name','categories.pattern','categories.id','posts.id as pid','posts.title','posts.created_at','posts.photo','posts.main_point','block_id')
+        ->join('posts', 'categories.id', '=', 'posts.category_id')
+        ->where('posts.recordstatus', 1)
+        ->where('posts.block_id', '!=' ,0)
+        ->whereIn('categories.id',$aryCatId);
+
+        if($search_word != 'all_news_search'){
+            $sql->where(function($sql) use ($search_word) {
+                $sql->where("posts.title", 'like', '%' . $search_word . '%')
+                ->orWhere("posts.main_point", 'like', '%' . $search_word . '%')
+                ->orWhere("posts.body", 'like', '%' . $search_word . '%');        
+                });
+        }
+
+        $aryPosts = $sql->orderByDesc('posts.created_at')->whereBetween('posts.created_at',[$dateS,$dateE])->get()->toArray();   
+
+        foreach($aryPosts as $aryPosts)
+        {
+        $tmp[$aryPosts->id.",".$aryPosts->name][] = $aryPosts;
+        }
+
+        $aryResults = array();
+
+        foreach ($tmp as $key => $item) {
+            foreach($item as $item){
+                $aryResults[$key][$item->block_id][] = $item;
+            }
+        }
+        ksort($aryResults, SORT_NUMERIC);
+
+        return response()->json($aryResults);
     }
 }
 
