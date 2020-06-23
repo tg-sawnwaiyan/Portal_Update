@@ -393,7 +393,7 @@
   </div>
 </div>
 <!-- linked news added by maythirihtet-->
-<div v-if="linkednews.length > 0" class="container_news">
+<div v-if="linkednews.length > 0" class="container_news job_container_news">
   <div class="row-2">
     <div class="text-new">
         <span>News</span>

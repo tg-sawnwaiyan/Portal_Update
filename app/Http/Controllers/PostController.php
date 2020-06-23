@@ -62,6 +62,7 @@ class PostController extends Controller
             $post->body=$request->input('body');
             $post->photo = $imageName;
             $post->category_id=$request->input('category_id');
+            $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
             $post->user_id = 1;
             // $post->recordstatus=1;
@@ -226,6 +227,7 @@ class PostController extends Controller
             $post->body=$request->input('body');
             $post->photo = $imageName;
             $post->category_id=$request->input('category_id');
+            $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');

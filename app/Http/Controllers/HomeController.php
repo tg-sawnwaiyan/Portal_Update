@@ -231,24 +231,35 @@ class HomeController extends Controller
         }
 
         $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
-        if(count($cat) == 0)
-        {
+
+        if(count($cat) == 0){
             $posts = [];
+
             return response()->json($posts);
-        }
-        else{
+        }else{
             for($i = 0; $i < count($cat); $i++) {
-                $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION ";
+
+                $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc) UNION ";
+
             }
             $sql = trim($sql,' UNION ');
 
             $posts = DB::select($sql);
-    
-            return response()->json($posts);
-        }
-       
 
-      
+            foreach($posts as $aryPosts){
+                $tmp[$aryPosts->id.",".$aryPosts->name][] = $aryPosts;
+            }
+
+            $aryResults = array();
+
+            foreach ($tmp as $key => $item) {
+                foreach($item as $item){
+                    $aryResults[$key][$item->block_id][] = $item;
+                }
+            }
+
+            return response()->json($aryResults);
+        }
     }
 }
 
