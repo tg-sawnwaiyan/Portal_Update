@@ -716,18 +716,6 @@
             w_width: $(window).width(),
             norecord_msg: false,
             cat_box_width: null,
-
-            slickOptions: {
-                slidesToShow: 4,
-                responsive: [
-                    {
-                    breakpoint: 481,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                ]
-            }
             // w_width: $(window).width() + 16,
         }
     },
@@ -827,7 +815,12 @@
                                 slidesToScroll:1,
                                 infinite: false
                             }
-                    }]                    
+                    },{
+                    breakpoint: 481,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }]                    
                 }
             }
     },

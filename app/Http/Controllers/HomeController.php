@@ -247,6 +247,7 @@ class HomeController extends Controller
         //     return response()->json($posts);
         // }
 
+        //added by thetthirisan
         $dateS = Carbon\Carbon::now()->startOfMonth()->subMonth(6);
         $dateE = Carbon\Carbon::now()->startOfMonth();
 
