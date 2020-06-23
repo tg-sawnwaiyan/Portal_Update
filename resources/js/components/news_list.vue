@@ -274,29 +274,30 @@
                 });
             },
             getResults() {
-                if(this.$route.params.status == 'update'){
-                    var page_no = this.$route.params.page_no;
-                    this.nextPaginate(page_no);
-               }else{
-                    this.$http.get('/api/news_list')
-                    .then(response => {
+                this.$http.get('/api/news_list')
+                .then(response => {
 
-                        this.news_list = response.data.news;
-                        this.categories = response.data.category;
-                        this.norecord = this.news_list.data.length                       
-                        // if(this.norecord > this.size) {
-                        //     this.pagination = true;
-                        // } else {
-                        //     this.pagination = false;
-                        // }
-                        if(this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;
-                        }
-                        this.$loading(false);
-                    });
-                }
+                    this.news_list = response.data.news;
+                    this.categories = response.data.category;
+                    this.norecord = this.news_list.data.length                       
+                    // if(this.norecord > this.size) {
+                    //     this.pagination = true;
+                    // } else {
+                    //     this.pagination = false;
+                    // }
+                    if(this.norecord != 0){
+                        this.norecord_msg = false;
+                    }else{
+                        this.norecord_msg = true;
+                    }
+                    this.$loading(false);
+
+                    if(this.$route.params.status == 'update'){
+                        var page_no = this.$route.params.page_no;
+                        this.nextPaginate(page_no);
+                    }
+                });
+                    
             },
 
             deletePost(catid,id) {
