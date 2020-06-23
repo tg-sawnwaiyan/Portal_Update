@@ -501,7 +501,7 @@
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 2">
-                                    <router-link v-for="(item,inx) in value.slice(0, 4)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                    <router-link v-for="(item,inx) in value.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
 
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
 
@@ -551,7 +551,7 @@
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 3">
-                                    <router-link v-for="(item,inx) in value.slice(0,12)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+                                    <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
                                         <p class="text-truncate news-list-display">
 

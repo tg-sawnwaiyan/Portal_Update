@@ -248,9 +248,6 @@ class HomeController extends Controller
         // }
 
         //added by thetthirisan
-        $dateS = Carbon\Carbon::now()->startOfMonth()->subMonth(6);
-        $dateE = Carbon\Carbon::now()->startOfMonth();
-
         $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get()->toArray();
 
         $aryCatId = array_column($cat, 'id');
@@ -270,7 +267,7 @@ class HomeController extends Controller
                 });
         }
 
-        $aryPosts = $sql->orderByDesc('posts.created_at')->whereBetween('posts.created_at',[$dateS,$dateE])->get()->toArray();   
+        $aryPosts = $sql->orderByDesc('posts.created_at')->get()->toArray();   
 
         foreach($aryPosts as $aryPosts)
         {
