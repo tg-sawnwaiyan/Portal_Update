@@ -246,6 +246,8 @@ class HomeController extends Controller
 
             $posts = DB::select($sql);
 
+            $tmp = array();
+
             foreach($posts as $aryPosts){
                 $tmp[$aryPosts->id.",".$aryPosts->name][] = $aryPosts;
             }
@@ -287,6 +289,8 @@ class HomeController extends Controller
             $sql = trim($sql,' UNION ');
 
             $posts = DB::select($sql);
+
+            $tmp = array();
 
             foreach($posts as $aryPosts){
                 $tmp[$aryPosts->block_id][] = $aryPosts;
