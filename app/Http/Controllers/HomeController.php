@@ -293,21 +293,22 @@ class HomeController extends Controller
             $tmp = array();
 
             foreach($posts as $aryPosts){
-                $tmp[$aryPosts->block_id][] = $aryPosts;
+                $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
 
             $aryResults = array();
 
             foreach ($tmp as $k => $v) {
+                foreach($v as $j){
+                    if($k == 1)
+                    $aryResults[] = $j[0];
 
-                if($k == 1)
-                $aryResults[] = $v[0];
+                    if($k == 2)
+                    $aryResults[] = $j;
 
-                if($k == 2)
-                $aryResults[] = $v;
-
-                if($k == 3)
-                $aryResults[] = $v;                
+                    if($k == 3)
+                    $aryResults[] = $j;
+                }
             }
 
             $mobile = array();
