@@ -464,7 +464,7 @@
                     </h4>    
 
                     <div  :id="'newsChangeLink' + index" class="row m-lr-0">
-                        <slick :options="slickOptions" class="news-slider-width"> 
+                        <slick :options="slickOptions" class="news-slider-width" v-if="w_width > 480"> 
                             <div v-for="(value, block_id, i) in group" :key="i">                  
                                 <div class="pad-new pattern-child" v-if="block_id == 1 && value[0]">
                                     <router-link :to="'/newsdetails/'+value[0].pid">
@@ -598,6 +598,71 @@
                                 </div> 
                             </div>                 
                         </slick>
+                        <slick :options="slickOptions" class="news-slider-width" v-else>
+                                <div class="pad-new pattern-child" v-if="group[0]">
+
+                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+
+                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+
+                                        <div class="col-4 img-box">
+
+                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
+
+                                                <transition name="fade">
+
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                                </transition>
+
+                                                <transition name="fade" slot="placeholder">
+
+                                                    <div class="preloader">
+
+                                                        <div class="circle">
+
+                                                        <div class="circle-inner"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </transition>
+
+                                            </clazy-load>
+
+                                        </div>
+
+
+
+                                        <div class="col-8 pattern-txt-box">
+                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+
+                                            <p>{{item.main_point}}</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </router-link>
+
+                            </div>                    
+
+                            <div class="pad-new pattern-child" v-if="group[3]">
+
+                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+
+                                    <p class="text-truncate news-list-display">
+
+                                        <i class="fas fa-building"></i> {{item.main_point}}
+
+                                    </p>
+
+                                </router-link>
+
+                            </div>
+                                               
+                        </slick>
                     </div>
                     
                 </div>
@@ -725,7 +790,7 @@
             eventCategory: 'トップページ',
             eventAction: '-',
         })
-        // console.log("role",this.$auth.user().customer_id)
+        
         this.$nextTick(() => {
             if(this.$refs.infoBox){
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
@@ -862,7 +927,6 @@
             getAllCat: function() {
                 this.axios .get('/api/home') 
                 .then(response => {
-                    console.log("cats",response.data);
                         this.cats = response.data;
                         var total_word = 0;
                         $.each(this.cats, function(key,value) {
@@ -916,24 +980,44 @@
                 } else {
                     var searchword = this.search_word;
                 }
-                // console.log(searchword);
 
-                this.axios
-                .get('/api/get_latest_posts_by_catId/'+searchword)
-                .then(response => {
-                    length = Object.keys(response.data).length;
-                    this.$loading(false);
-                    if(length>0) {
-                        this.post_groups = response.data;
-                    } else {
-                        this.post_groups = [];                         
-                    }                  
-                    if(this.post_groups.length != 0){
-                        this.norecord_msg = false;
-                    }else{
-                        this.norecord_msg = true;                        
-                    }
-                });
+                if($(window).width() > 480){
+
+                    this.axios
+                    .get('/api/get_latest_posts_by_catId/'+searchword)
+                    .then(response => {
+                        length = Object.keys(response.data).length;
+                        this.$loading(false);
+                        if(length>0) {
+                            this.post_groups = response.data;
+                        } else {
+                            this.post_groups = [];                         
+                        }                  
+                        if(this.post_groups.length != 0){
+                            this.norecord_msg = false;
+                        }else{
+                            this.norecord_msg = true;                        
+                        }
+                    });
+
+                }else{
+                    this.axios
+                    .get('/api/get_latest_posts_by_catId_mobile/'+searchword)
+                    .then(response => {
+                        length = Object.keys(response.data).length;
+                        this.$loading(false);
+                        if(length>0) {
+                            this.post_groups = this.groupBy(response.data, 'name');
+                        } else {
+                            this.post_groups = [];                         
+                        }                  
+                        if(this.post_groups.length != 0){
+                            this.norecord_msg = false;
+                        }else{
+                            this.norecord_msg = true;                        
+                        }
+                    });
+                }
             },
 
 
@@ -956,7 +1040,6 @@
                 this.categoryId = cat_id;
                 this.axios.post("/api/posts", fd)
                     .then(response => {
-                        console.log("posts ",response.data)
                         this.posts = response.data;
                     });
             },
@@ -989,7 +1072,6 @@
                     var cat_id = this.cats[0].id;
 
                 }
-                console.log("this cats",this.cats[0].id)
 
                 let fd = new FormData();
 
@@ -1023,7 +1105,6 @@
                     .get('/api/get_latest_post_all_cat')
 
                     .then(response => {
-                        console.log("bk",response.data)
                     
                         this.$loading(false);
                         this.latest_post_all_cats = response.data;
@@ -1039,7 +1120,6 @@
                     this.status = 1;
 
                     this.search_word = $('#search-free-word').val();
-                    //console.log("word",this.search_word);
                     this.getLatestPostsByCatID();                 
 
                 }

@@ -261,5 +261,79 @@ class HomeController extends Controller
             return response()->json($aryResults);
         }
     }
+
+    public function getLatestPostsByAllCatIdForMobile($search_word) {
+        
+        $sql = "";
+        if($search_word == 'all_news_search'){
+            $wh = '';
+        }
+        else{
+            $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
+        }
+
+        $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
+
+        if(count($cat) == 0){
+            $posts = [];
+
+            return response()->json($posts);
+        }else{
+            for($i = 0; $i < count($cat); $i++) {
+
+                $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 50) UNION ";
+
+            }
+            $sql = trim($sql,' UNION ');
+
+            $posts = DB::select($sql);
+
+            foreach($posts as $aryPosts){
+                $tmp[$aryPosts->block_id][] = $aryPosts;
+            }
+
+            $aryResults = array();
+
+            foreach ($tmp as $k => $v) {
+
+                if($k == 1)
+                $aryResults[] = $v[0];
+
+                if($k == 2)
+                $aryResults[] = $v;
+
+                if($k == 3)
+                $aryResults[] = $v;                
+            }
+
+            $mobile = array();
+
+            foreach($aryResults as $key => $value){
+                if(is_array($value)){
+                    foreach($value as $v){
+                        $mobile[$v->block_id][] = $v;
+                    }
+                }else{
+                    $mobile[$value->block_id][] = $value;
+                }
+                
+            }           
+
+            sort($mobile, SORT_REGULAR);
+
+            $aryNewsMobile = array();
+
+            foreach($mobile as $mobile){
+                foreach($mobile as $m){
+                $aryNewsMobile[] = $m;
+                }
+            
+            }          
+
+        return response()->json($aryNewsMobile);
+        }
+    }
+
+    
 }
 
