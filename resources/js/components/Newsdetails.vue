@@ -114,6 +114,38 @@ export default {
       noimage:false,
     };
   },
+  head: {
+    // To use "this" in the component, it is necessary to return the object through a function
+    title: function () {
+     // alert(this.title);
+      return {
+        inner: "title here"
+      }
+    },
+    meta: [
+      { name: 'application-name', content: 'Name of my application' },
+      { name: 'description', content: 'A description of the page', id: 'desc' }, // id to replace intead of create element
+      // ...
+      // Twitter
+      { name: 'twitter:card', content: 'Summary' },
+      { name: 'twitter:url', content: 'https://davidwalsh.name/twitter-cards' },
+      { name: 'twitter:title', content: 'Content Title' },
+      { name: 'twitter:description', content: 'View the album on Flickr.' },
+      // with shorthand
+      { n: 'twitter:description', c: 'Content description less than 200 characters'},
+      // ...
+      // Google+ / Schema.org
+      { itemprop: 'name', content: 'Content Title' },
+      { itemprop: 'description', content: 'Content Title' },
+      // ...
+      // Facebook / Open Graph
+      { property: 'fb:app_id', content: '123456789' },
+      { property: 'og:title', content: 'Content Title' },
+      // with shorthand
+      { p: 'og:image', c: 'https://example.com/image.jpg' },
+      // ...
+    ],
+  },
   created() {
     this.scrollToTop();
     this.noimage = false;
