@@ -173,6 +173,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}/{cat_id}', 'PostController@delete');
         // Route::post('getPostsByCatId', 'PostController@getPostById');
         Route::post('getPostsByCatId/{id}/{post_id}', 'PostController@getPostById');
+        Route::post('getNewsCountByMonth', 'PostController@getMonthCount');
     });
     // End News
 

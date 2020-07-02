@@ -9,7 +9,7 @@
                     </p>
                     <p class="record-txt01">ニュースが登録されていません。</p>
                     <router-link to="/create_news" class="main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> ニュース新規作成
+                        <i class="fas fa-plus-circle"></i>ニュース新規作成
                     </router-link>
                 </div>
                 <div v-else class="container-fuid">
@@ -25,6 +25,24 @@
                                     <option selected="selected" value>全体</option>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
                                 </select>
+                            </div>
+                            <div id="date_picker" class=" d-flex  justify-content-md-end align-items-center my-3" @click="changeCalendarHeader">
+                                <label style="width:20%;">日付</label><br>
+                                    <!-- added by maythirihtet -->
+                                    <date-picker class="" @change="showDate"  :lang="en" valueType="format" v-model="select_date"  style="width:300px;" placeholder="日付を選択してください"></date-picker>
+                                    <!-- added by maythirihtet -->
+                            </div>
+                            <div v-if="news_list.total !=0 && date_flag==false" class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
+                            </div>
+                            <div v-else-if="month_count !=0 && select_date!=''" class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">{{month_count}}ニュースが登録されています</p>                                  
+                            </div>
+                            <div v-else-if="month_count ==0 && select_date!='' &&date_flag ==true" class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">ニュースが登録されていません</p>                                  
+                            </div>
+                            <div v-else-if="news_list.total !=0 && date_flag==true" class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
                             </div>
                         </div>
                     </div>
@@ -227,6 +245,9 @@
                 items: [],
                 pagination: false,
                 activate_text: '',
+                select_date:null,
+                month_count:0,
+                date_flag:false,
             };
         },
         created() {
@@ -235,6 +256,30 @@
 
         },
         methods: {
+            /** added by maythirihtet */
+            changeCalendarHeader(){
+
+                $('div.mx-calendar-content table thead tr th:nth-child(2)').text('月');
+                $('div.mx-calendar-content table thead tr th:nth-child(3)').text('火');
+                $('div.mx-calendar-content table thead tr th:nth-child(4)').text('水');
+                $('div.mx-calendar-content table thead tr th:nth-child(5)').text('木');
+                $('div.mx-calendar-content table thead tr th:nth-child(6)').text('金');
+                $('div.mx-calendar-content table thead tr th:nth-child(7)').text('土');
+
+            },
+            showDate (select_date) {
+                this.select_date = select_date;
+                this.date_flag = true;
+                let fd = new FormData();
+                fd.append("select_date", select_date);
+                
+                this.axios.post("/api/new/getNewsCountByMonth", fd).then(response => {
+                    this.month_count = response.data;
+                    console.log(this.month_count);
+                });
+
+            },
+            /** end of added by maythirihtet */
             changeActivate(catid,id,activate, $event){
                 
                 if(activate == 1)

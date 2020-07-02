@@ -337,6 +337,19 @@ class PostController extends Controller
         $posts = $posts->orderBy('created_at','DESC')->paginate(20);
         return response()->json($posts);
     }
+     /** added by maythirihtet */
+     public function getMonthCount (Request $request) {
+        if(isset($request->select_date)){
+            $select_date = $request->select_date;
+            $post = Post::where('created_at', 'like', '%' . $select_date . '%')->get();
+            // $q->whereMonth('created_at', '=', date('m'));
+            $postCount = $post->count();
+        }
+        
+
+        return response()->json($postCount);
+    }
+    /** end of added by maythirihtet */
 
     public function changeRecordstatus($id)
     {
