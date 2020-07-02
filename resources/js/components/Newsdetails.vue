@@ -129,10 +129,9 @@ export default {
       // Twitter
       { name: 'twitter:card', content: 'Summary' },
       { name: 'twitter:url', content: 'https://davidwalsh.name/twitter-cards' },
-      { name: 'twitter:title', content: 'Content Title' },
+      { name: 'twitter:title', content: 'Content Title Title' },
       { name: 'twitter:description', content: 'View the album on Flickr.' },
       // with shorthand
-      { n: 'twitter:description', c: 'Content description less than 200 characters'},
       // ...
       // Google+ / Schema.org
       { itemprop: 'name', content: 'Content Title' },

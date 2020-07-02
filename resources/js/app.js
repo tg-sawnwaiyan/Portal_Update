@@ -14,6 +14,7 @@ import DatePicker from 'vue2-datepicker';
 import { BulmaAccordion, BulmaAccordionItem } from "vue-bulma-accordion";
 import Slick from 'vue-slick'; //vue slick
 import VueAnalytics from 'vue-analytics'
+import VueHead from 'vue-head'
 
 Vue.use(VueAnalytics, {
     id: 'UA-164662727-1',
@@ -21,7 +22,7 @@ Vue.use(VueAnalytics, {
 })
 // id: 'UA-164662727-1',
 // id: 'UA-161193570-2',
-
+Vue.use(VueHead);
 Vue.use(Slick);
 Vue.use(BulmaAccordion, BulmaAccordionItem)
 Vue.use(Vuex);
@@ -141,6 +142,8 @@ window.Vue = Vue
     // Set Vue router
 Vue.router = router
 Vue.use(VueRouter)
+
+
     // Set Vue authentication
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = `${process.env.MIX_APP_URL}`
