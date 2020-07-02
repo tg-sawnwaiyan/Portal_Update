@@ -26,10 +26,11 @@
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
                                 </select>
                             </div>
-                            <div class=" d-flex  justify-content-md-end align-items-center my-3">
+                            <div id="date_picker" class=" d-flex  justify-content-md-end align-items-center my-3" @click="changeCalendarHeader">
                                 <label style="width:20%;">日付</label><br>
-                                    <date-picker class="" @change="showDate"  :lang="lang" valueType="format" v-model="select_date"  style="width:300px;" placeholder="日付を選択してください"></date-picker>
-                                    <!-- <span v-if="errors.post_date" class="error">{{errors.post_date}}</span> -->
+                                    <!-- added by maythirihtet -->
+                                    <date-picker class="" @change="showDate"  :lang="en" valueType="format" v-model="select_date"  style="width:300px;" placeholder="日付を選択してください"></date-picker>
+                                    <!-- added by maythirihtet -->
                             </div>
                             <div v-if="news_list.total !=0 && date_flag==false" class="">
                                 <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
@@ -255,6 +256,17 @@
 
         },
         methods: {
+            /** added by maythirihtet */
+            changeCalendarHeader(){
+
+                $('div.mx-calendar-content table thead tr th:nth-child(2)').text('月');
+                $('div.mx-calendar-content table thead tr th:nth-child(3)').text('火');
+                $('div.mx-calendar-content table thead tr th:nth-child(4)').text('水');
+                $('div.mx-calendar-content table thead tr th:nth-child(5)').text('木');
+                $('div.mx-calendar-content table thead tr th:nth-child(6)').text('金');
+                $('div.mx-calendar-content table thead tr th:nth-child(7)').text('土');
+
+            },
             showDate (select_date) {
                 this.select_date = select_date;
                 this.date_flag = true;
@@ -267,7 +279,7 @@
                 });
 
             },
-
+            /** end of added by maythirihtet */
             changeActivate(catid,id,activate, $event){
                 
                 if(activate == 1)
