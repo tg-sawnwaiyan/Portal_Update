@@ -6,6 +6,15 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="user" content="Auth::user()">
+@if(isset($tweetData))
+<meta name="twitter:card" content="summary" />
+<meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
+<meta property="og:title" content="{{ $tweetData->title }}" />
+<meta property="og:description" content="{{ $tweetData->body }}" />
+@if(!empty($tweetData->photo))
+<meta property="og:image" content="{{ Config::get('app.url') }}{{ '/upload/news/'.$tweetData->photo }}" />
+@endif
+@endif
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
