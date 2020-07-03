@@ -7,6 +7,7 @@ use App\Category;
 use App\PostView;
 use Illuminate\Http\Request;
 use DB;
+use Carbon;
 
 class PostController extends Controller
 {
@@ -278,12 +279,10 @@ class PostController extends Controller
 
     public function search(Request $request)
     {
-      
         $request = $request->all();
 
         $query = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name');
      
-
         if(isset($request['selected_category'])) {
             $category_id = $request['selected_category'];
             if($request['postid'] != null){
@@ -294,7 +293,14 @@ class PostController extends Controller
             }
            
         }
-
+        if(isset($request['selected_date'])) {
+            $selected_date = $request['selected_date'];
+            $from = Carbon\Carbon::parse($request['selected_date'])->startOfDay();
+            $to = Carbon\Carbon::parse($request['selected_date'])->endOfDay();
+             $query = $query->where(function($qu) use ($from, $to){
+                $qu->whereBetween('posts.created_at', [$from, $to]);
+            });
+        }
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
 
@@ -303,16 +309,18 @@ class PostController extends Controller
                                 ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
                         });
         }
+        
         $query = $query->orderBy('posts.created_at','DESC')
                         ->paginate(20);
-
+        $postCount = $query->count();
         foreach ($query as $com) {
             $splitTimeStamp = explode(" ",$com->from_date);
             $com->from_date = $splitTimeStamp[0];
             $splitTimeStamp1 = explode(" ",$com->to_date);
             $com->to_date = $splitTimeStamp1[0];
         }
-        return  response()->json($query);
+        return  response()->json(array('query'=>$query, 'postCount'=>$postCount));
+
         
     }
 
@@ -337,19 +345,6 @@ class PostController extends Controller
         $posts = $posts->orderBy('created_at','DESC')->paginate(20);
         return response()->json($posts);
     }
-     /** added by maythirihtet */
-     public function getMonthCount (Request $request) {
-        if(isset($request->select_date)){
-            $select_date = $request->select_date;
-            $post = Post::where('created_at', 'like', '%' . $select_date . '%')->get();
-            // $q->whereMonth('created_at', '=', date('m'));
-            $postCount = $post->count();
-        }
-        
-
-        return response()->json($postCount);
-    }
-    /** end of added by maythirihtet */
 
     public function changeRecordstatus($id)
     {
