@@ -368,14 +368,12 @@ class CustomerController extends Controller
         }
         if($request['status'] != 'empty' && $request['recordstatus'] == 'empty')
         {
-            $query .= " and $sta = 0 ";
+            $query .= " and $sta in (".$request['status']." )";
         }
         if($request['status'] != 'empty' && $request['recordstatus'] != 'empty' )
         {
-             $query .= " and (($sta = 1 && $rec in (".$request['recordstatus'].")) or $sta = 0 )";
+             $query .= " and (($sta = 1 && $rec in (".$request['recordstatus'].")) or $sta in (".$request['status']." ))";
         }
-     
-
         $query .= " order by created_at desc";
       
 
@@ -391,8 +389,7 @@ class CustomerController extends Controller
                                 $size, 
                                 $page
                             );
-
- 
+                            
         return response()->json($search_customer);
     }
 

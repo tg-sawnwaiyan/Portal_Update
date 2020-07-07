@@ -11,12 +11,12 @@
                 <div v-else class="container-fuid">
                     <h4 class="main-color mb-3">事業者検索 </h4>
                     <div class="row mb-4 advanced-search">
-                        <div class="col-xl-8 col-md-12">                      
+                        <div class="col-xl-7 col-md-11">                      
                             <autocomplete id="cusname"  placeholder="事業者名で検索" input-class="form-control" :source=customerList :results-display="formattedDisplay" @clear="clearcustomer()"  @selected="getselected($event)">
                             </autocomplete>                           
                         </div> 
                        
-                        <div class="col-xl-4 col-md-12 p-t-1024 form-check form-check-inline choose-item m-t-10">                          
+                        <div class="col-xl-5 col-md-13 p-t-1024 form-check form-check-inline choose-item m-t-10">                          
                             <label class="form-check-label control control--checkbox"  style="padding-left:5px;">
                             <input type="checkbox" class="form-check-input" value="1"   v-model="recordstatus" @change="searchCustomer()">
                             有効
@@ -24,16 +24,22 @@
                             </label>
                             <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
                             <input type="checkbox" class="form-check-input" value="0" v-model="recordstatus"  >
-                                無効
+                            無効
                             <div class="control__indicator"></div>
                             </label>
                             <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
-                            <input  type="checkbox" class="form-check-input" value="2" v-model="status" >
+                            <input type="checkbox" class="form-check-input" value="2" v-model="status"  >
+                            未承認
+                            <div class="control__indicator"></div>
+                            </label>
+                            <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
+                            <input  type="checkbox" class="form-check-input" value="0" v-model="status" >
                             登録承認審査中
                             <div class="control__indicator"></div>
                             </label>                            
                         </div>
-                    </div>                        
+                    </div> 
+                    検索結果：{{this.norecord}}件が該当しました                       
                       
                     <div v-if="nosearch_msg" class="card card-default card-wrap no_search_data">
                         <p class="record-ico">
@@ -311,6 +317,7 @@
                         this.axios.post("/api/customer/search?page="+page, fd).then(response => {
                             this.$loading(false);
                             this.customers = response.data;
+                            this.norecord = this.customers.data.length; 
                          
                             if(this.customers.data.length != 0) {
                                 this.nosearch_msg = false;
