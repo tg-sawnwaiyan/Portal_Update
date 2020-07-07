@@ -141,6 +141,8 @@ window.Vue = Vue
     // Set Vue router
 Vue.router = router
 Vue.use(VueRouter)
+
+
     // Set Vue authentication
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = `${process.env.MIX_APP_URL}`

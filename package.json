@@ -54,6 +54,7 @@
         "vue-fullpage.js": "^0.1.5",
         "vue-gallery": "^2.0.1",
         "vue-google-maps": "^0.1.21",
+        "vue-head": "^2.2.0",
         "vue-moment": "^4.1.0",
         "vue-my-photos": "^1.0.4",
         "vue-nprogress": "^0.1.5",
