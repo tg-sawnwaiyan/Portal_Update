@@ -94,7 +94,8 @@
                                                     <span v-if="customer.status == 1 && customer.recordstatus == 0" class="btn confirm-disable-orangebtn mr-2 mb-2"><i class="fa fa-list"></i> 施設一覧</span>
                                                     <router-link :to="{ path:'/accountlist/'+ type +'/'+ customer.id}" v-if="customer.status == 1 && customer.recordstatus == 1" class="btn confirm-orangebtn mr-2 mb-2"><i class="fa fa-list"></i> 施設一覧</router-link>
                                                     <router-link :to="{ path:'/profiledit/'+ type +'/'+ customer.id}" v-if="customer.status == 1" class="btn confirm-orangebtn mb-2"><i class="fa fa-edit"></i> プロフィール設定</router-link>
-                                                    <p class="mt-2" style="color: #81ad3b;font-weight: bold;"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録承認済です。</p>
+                                                    <p class="mt-2" style="color: #81ad3b;font-weight: bold;" v-if="customer.status == 1"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録承認済です。</p>
+                                                    <p class="mt-2" style="color: #7bbcdc;font-weight: bold;" v-if="customer.status == 2"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録不許可です。</p>
                                                     </span>                                                    
                                                 </div>
                                             </div>

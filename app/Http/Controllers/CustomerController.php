@@ -232,7 +232,6 @@ class CustomerController extends Controller
 
     public function destroy($id,$type)
     {
-        //
         $customer = Customer::find($id);
         if($type == 'delete'){
             $user = User::where('customer_id',$id)->first();
@@ -274,12 +273,13 @@ class CustomerController extends Controller
                 jobs_log::insert($getjobarr);
                 Job::where(['customer_id'=>$id])->delete();
             }
+            $customer->delete();
             
         }
         else{
-            \Mail::to($customer->email)->send(new deleteSentMail($customer));            
-        }   
-        $customer->delete(); 
+            \Mail::to($customer->email)->send(new deleteSentMail($customer));     
+            Customer::where('id',$id)->update(['status' => 2]);       
+        }       
 
         $customers = Customer::all();
         $data = array("status"=>"deleted", "customers"=>$customers);
