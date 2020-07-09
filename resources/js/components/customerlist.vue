@@ -38,8 +38,10 @@
                             <div class="control__indicator"></div>
                             </label>                            
                         </div>
-                    </div> 
-                    検索結果：{{this.norecord}}件が該当しました                       
+                    </div>
+                    <p v-if="this.norecord != 0" class="">
+                    検索結果：{{this.norecord}}件が該当しました
+                    </p>                      
                       
                     <div v-if="nosearch_msg" class="card card-default card-wrap no_search_data">
                         <p class="record-ico">
