@@ -172,9 +172,7 @@
                         }
                     }
                     else if(this.$route.path == "/hoscustomerlist"){
-                        alert(this.status);
-                        alert(this.recordstatus);
-                        alert(this.cusid);
+                        
                         if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
                             this.searchCustomer();
                         }else{
