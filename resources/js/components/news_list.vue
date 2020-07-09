@@ -411,7 +411,9 @@
                     let fd = new FormData();
                     fd.append("search_word", search_word);
                     fd.append("selected_category", selected_category);
-                    fd.append("selected_date", this.select_date);//added by maythirihtet
+                    if(this.select_date != null){
+                        fd.append("selected_date", this.select_date);//added by maythirihtet
+                    }
                     fd.append("postid",null);
                     this.$loading(true);
                     $("html, body").animate({ scrollTop: 0 }, "slow");
