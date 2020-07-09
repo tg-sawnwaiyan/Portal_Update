@@ -152,7 +152,11 @@
             },
             methods: {               
                 initialCall(){
+                    
                     if(this.$route.path == "/nuscustomerlist"){
+                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                            this.searchCustomer();
+                        }else{
                         this.type = "nursing";
                         this.title = "介護施設事業者一覧";
                         this.axios.get("/api/customers/3").then(response => {
@@ -165,8 +169,15 @@
                                 this.norecord_msg = true;
                             }
                         });
+                        }
                     }
                     else if(this.$route.path == "/hoscustomerlist"){
+                        alert(this.status);
+                        alert(this.recordstatus);
+                        alert(this.cusid);
+                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                            this.searchCustomer();
+                        }else{
                         this.type = "hospital";
                         this.title = "病院事業者一覧";
                         this.axios.get("/api/customers/2").then(response => {
@@ -179,6 +190,7 @@
                                 this.norecord_msg = true;
                             }
                         });
+                        }
                     }
                 },
                 getselected($event){                  
@@ -298,7 +310,6 @@
 
                     searchCustomer(page) {
 
-                     
                         if(typeof page === "undefined"){
                             page = 1;
                         }
