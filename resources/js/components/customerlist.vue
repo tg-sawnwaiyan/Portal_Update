@@ -39,9 +39,9 @@
                             </label>                            
                         </div>
                     </div>
-                    <p v-if="this.norecord != 0" class="">
-                    検索結果：{{this.norecord}}件が該当しました
-                    </p>                      
+                    <p v-if="customers.total != 0" class="">
+                    検索結果：{{customers.total}}件が該当しました
+                    </p>                          
                       
                     <div v-if="nosearch_msg" class="card card-default card-wrap no_search_data">
                         <p class="record-ico">
