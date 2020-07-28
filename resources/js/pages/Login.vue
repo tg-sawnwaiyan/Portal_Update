@@ -131,56 +131,56 @@
             var redirect = this.$auth.redirect()
             var _this = this
             this.$loading(true);
-            if(this.$route.path == "/admin_login"){     
-            this.$auth.loginAdmin({
-            params: {
-              email: _this.email,
-              password: _this.password,
-            },
-            success: function() {
-              this.$loading(false);
-              this.visit = 'false';
-              this.loginuser = 'true';
-              this.logintoken = 'admin';
-              localStorage.setItem('visit', this.visit);
-              localStorage.setItem('loginuser', this.loginuser);
-              // handle redirection
-              const redirectTo = this.$auth.user().role === 2 ? 'news_list' : '/'
-              this.$router.push({name: redirectTo})
-            },
-            error: function(e) {
-              this.$loading(false);
-           
-              _this.has_error = true
-            },
-            rememberMe: true,
-            fetchUser: true
-          })
+            if(this.$route.path == "/admin_login"){
+              this.$auth.loginAdmin({
+                params: {
+                  email: _this.email,
+                  password: _this.password,
+                },
+                success: function() {
+                  this.$loading(false);
+                  this.visit = 'false';
+                  this.loginuser = 'true';
+                  this.logintoken = 'admin';
+                  localStorage.setItem('visit', this.visit);
+                  localStorage.setItem('loginuser', this.loginuser);
+                  // handle redirection
+                  const redirectTo = this.$auth.user().role === 2 ? 'news_list' : '/'
+                  this.$router.push({name: redirectTo})
+                },
+                error: function(e) {
+                  this.$loading(false);
+              
+                  _this.has_error = true
+                },
+                rememberMe: true,
+                fetchUser: true
+              })
           }else{
             this.$auth.login({
-            params: {
-              email: _this.email,
-              password: _this.password
-            },
-            success: function() {
-              this.$loading(false);
-              this.visit = 'false';
-              this.loginuser = 'true';
-              this.logintoken = 'customer';
-              localStorage.setItem('visit', this.visit);
-              localStorage.setItem('loginuser', this.loginuser);
-              // handle redirection
-              const redirectTo = this.$auth.user().role === 1 ? (this.$auth.user().type_id == 2 ? '/profiledit/hospital/'+ this.$auth.user().customer_id : '/profiledit/nursing/'+ this.$auth.user().customer_id ) : '/news_list'
-              this.$router.push({path: redirectTo})
-            },
-            error: function(e) {
-              this.$loading(false);
-           
-              _this.has_error = true
-            },
-            rememberMe: true,
-            fetchUser: true
-          })
+              params: {
+                email: _this.email,
+                password: _this.password
+              },
+              success: function() {
+                this.$loading(false);
+                this.visit = 'false';
+                this.loginuser = 'true';
+                this.logintoken = 'customer';
+                localStorage.setItem('visit', this.visit);
+                localStorage.setItem('loginuser', this.loginuser);
+                // handle redirection
+                const redirectTo = this.$auth.user().role === 1 ? (this.$auth.user().type_id == 2 ? '/profiledit/hospital/'+ this.$auth.user().customer_id : '/profiledit/nursing/'+ this.$auth.user().customer_id ) : '/news_list'
+                this.$router.push({path: redirectTo})
+              },
+              error: function(e) {
+                this.$loading(false);
+            
+                _this.has_error = true
+              },
+              rememberMe: true,
+              fetchUser: true
+            })
           }
         }
        

@@ -76,7 +76,8 @@ Vue.mixin({
         },
         logintoken: {
             get: function() { return globalData.$data.logintoken },
-            set: function(newVal) { globalData.$data.logintoken = newVal; }
+            set: function(newVal) { 
+                globalData.$data.logintoken = newVal; }
         }
     }
 })

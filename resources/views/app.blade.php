@@ -15,6 +15,12 @@
 <meta property="og:image" content="{{ Config::get('app.url') }}{{ '/upload/news/'.$tweetData->photo }}" />
 @endif
 @endif
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
 <script src="{{ asset('js/manifest.js') }}" defer></script> 

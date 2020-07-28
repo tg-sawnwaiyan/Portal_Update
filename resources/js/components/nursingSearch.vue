@@ -1270,8 +1270,8 @@
                     jsonfile = jsonfile.toLowerCase();
                     this.axios.get('https://test.t-i-s.jp/json/Townships/'+jsonfile).then(res => {
                      var township_coor = []
-                     for(var i = 0; i < res.data.features.length; i++)
-                     {
+                    for(var i = 0; i < res.data.features.length; i++)
+                    {
                       
                          if(res.data.features[i]['properties']['N03_007'] == township_name)
                          {

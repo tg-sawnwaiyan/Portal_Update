@@ -338,6 +338,7 @@ created() {
             if(item.title == 'ログアウト'){
                 this.loginuser = 'false';
                 localStorage.setItem('loginuser', this.loginuser);
+                localStorage.setItem('logintoken', '');
                 if(this.$auth.check(2)){
                     this.$auth.logoutAdmin();
                 }
