@@ -656,20 +656,23 @@
 
     <div class="scroll-year">
         <div class="year-2020">
-          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id" v-if="(linked_news.post_date.includes(c_year))">
-                <div class="new-1">
-                    <div class="day">
-                        {{linked_news.post_date}}
+          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id">
+                <div v-if="(linked_news.post_date.includes(c_year))">
+                    <div class="new-1">
+                        <div class="day">
+                            {{linked_news.post_date}}
+                        </div>
+                        <div>
+                            <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
+                            <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
+                            <span v-else class="categories p-categories color-1">お知らせ</span>
+                        </div>
                     </div>
-                    <div>
-                        <span v-if="linked_news.status == 1" class="categories p-categories color-3">ニュースリリース</span>
-                        <span v-else-if="linked_news.status == 2" class="categories p-categories color-2">メディア掲載</span>
-                        <span v-else class="categories p-categories color-1">お知らせ</span>
+                    <div class="new-2">
+                        <p v-html="linked_news.description"></p> 
                     </div>
                 </div>
-                <div class="new-2">
-                    <p v-html="linked_news.description"></p> 
-                </div>
+                
           </article>
         </div>
     </div>
