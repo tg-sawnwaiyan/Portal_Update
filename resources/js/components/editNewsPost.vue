@@ -94,6 +94,14 @@
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
+                    <div class="form-group">
+                        <label>担当者 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
+                    </div>
+                    <div class="form-group">
+                        <label>会社 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="会社名を入力してください。" v-model="news.created_by_company">
+                    </div>
                     <div v-if="selectedValue != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
@@ -239,6 +247,8 @@ import {quillEditor} from 'vue-quill-editor'
                         photo: '',
                         from_date:'',
                         to_date:'',
+                        created_by:'',
+                        created_by_company:'',
 
                     },
                     categories: {
@@ -391,6 +401,8 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('from_date', this.news.from_date)
                             fData.append('to_date', this.news.to_date)
                             fData.append('title', this.news.title)
+                            fData.append('created_by', this.news.created_by)
+                            fData.append('created_by_company', this.news.created_by_company)
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
@@ -445,6 +457,8 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('from_date', this.news.from_date)
                             fData.append('to_date', this.news.to_date)
                             fData.append('title', this.news.title)
+                            fData.append('created_by', this.news.created_by)
+                            fData.append('created_by_company', this.news.created_by_company)
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
