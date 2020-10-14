@@ -33,8 +33,8 @@
                     <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
                     <br>
-                    <span style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
-                      {{news.created_by}},
+                    <span v-if="news.created_by || news.created_by_company" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                      {{news.created_by}}
                       {{news.created_by_company}}
                     </span>
                   </h4>  
