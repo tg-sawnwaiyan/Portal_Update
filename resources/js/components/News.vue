@@ -92,35 +92,32 @@
 
                         </slick>
                        <!-- slider -->
+                        <div class="card-header tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 1.65rem 1.65rem 0.4rem;">
+                            <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                            <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item nav-line"><a class="nav-link" href="">トップ</a></li>
+                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+
+                                        <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+
+                                       {{ cat.name }}</a>
+
+                                        <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+
+                                        {{ cat.name }}</a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        </div>
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
                             <div class="card col-md-12 col-lg-6 pad-new d-none d-sm-block first-child" style="border:0px!important;">
-
-                                <div class="card-header tab-card-header clearfix cat-nav infoBox" ref="infoBox">
-                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                                    <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-                                        <ul class="nav nav-tabs" role="tablist">
-                              
-                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
-
-                                                <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-
-                                               {{ cat.name }}</a>
-
-                                                <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-
-                                                {{ cat.name }}</a>
-
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                                </div>
-
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
 
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
