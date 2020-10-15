@@ -30,9 +30,16 @@
                 <div class="col-md-12" >
                   
                   <h4 class="header news_detail_tit">                  
-                    <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span>                      -->
+                    <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
+                    <br>
+                    <span v-if="news.created_by || news.created_by_company" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                      {{news.created_by}}
+                      <span v-if="news.created_by && news.created_by_company">,</span>
+                      {{news.created_by_company}}
+                    </span>
                   </h4>  
+                    
                   <div class="set-date">
                     <p :class="news.cat_id == 26 ? 'title26':'title'+(5-(Math.floor(news.cat_id%5)))">
                      <span>{{news.cat_name}}</span>
