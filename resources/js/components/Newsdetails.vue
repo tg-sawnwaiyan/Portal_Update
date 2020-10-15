@@ -28,18 +28,18 @@
             <div class="row m-lr-0 mb-3" v-for="news in newdetails" :key="news.id">
              
                 <div class="col-md-12" >
-                  
                   <h4 class="header news_detail_tit">                  
                     <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
-                    <br>
-                    <span v-if="news.created_by || news.created_by_company" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                  </h4>  
+                  <div style="text-align: center;margin-bottom: 20px;">
+                    <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-right:2rem;margin-top: .5rem;">
                       {{news.created_by}}
-                      <span v-if="news.created_by && news.created_by_company">,</span>
+                    </span>
+                    <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
                       {{news.created_by_company}}
                     </span>
-                  </h4>  
-                    
+                  </div>
                   <div class="set-date">
                     <p :class="news.cat_id == 26 ? 'title26':'title'+(5-(Math.floor(news.cat_id%5)))">
                      <span>{{news.cat_name}}</span>
