@@ -1007,7 +1007,7 @@
                         length = Object.keys(response.data).length;
                         this.$loading(false);
                         if(length>0) {
-                            this.post_groups = this.groupBy(response.data, 'name');
+                            this.post_groups = response.data;
                         } else {
                             this.post_groups = [];                         
                         }                  
