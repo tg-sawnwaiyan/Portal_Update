@@ -298,8 +298,6 @@ class HomeController extends Controller
 
             $aryResults = array();
 
-            
-
             foreach ($tmp as $k => $v) {
                 foreach($v as $j){
                     if($k == 1)
@@ -312,7 +310,7 @@ class HomeController extends Controller
                     $aryResults[] = $j;
 
                     if($k == 4)
-                    $aryResults[] = $j;
+                    $aryResults[] = $j[0];
                 }
             }
 
@@ -336,8 +334,7 @@ class HomeController extends Controller
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
                 $aryNewsMobile[$m->id.",".$m->name][] = $m;
-                }
-            
+                }            
             }    
 
         return response()->json($aryNewsMobile);

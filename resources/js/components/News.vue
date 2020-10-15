@@ -497,7 +497,6 @@
                                         </div>
 
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 2">
@@ -545,22 +544,16 @@
                                             </div>
 
                                         </div>
-
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 3">
                                     <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
                                         <p class="text-truncate news-list-display">
-
                                             <i class="fas fa-building"></i> {{item.main_point}}
-
                                         </p>
-
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 4 && value[0]">
@@ -594,74 +587,62 @@
                                         </div>
 
                                     </router-link>
-
                                 </div> 
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
+                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                            <div class="col-4 img-box">
 
-                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
 
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                                    <transition name="fade">
 
-                                        <div class="col-4 img-box">
+                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
+                                                    </transition>
 
-                                                <transition name="fade">
+                                                    <transition name="fade" slot="placeholder">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                        <div class="preloader">
 
-                                                </transition>
+                                                            <div class="circle">
 
-                                                <transition name="fade" slot="placeholder">
+                                                            <div class="circle-inner"></div>
 
-                                                    <div class="preloader">
-
-                                                        <div class="circle">
-
-                                                        <div class="circle-inner"></div>
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                    </transition>
 
-                                                </transition>
+                                                </clazy-load>
 
-                                            </clazy-load>
+                                            </div>
 
+                                            <div class="col-8 pattern-txt-box">
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+
+                                                <p>{{item.main_point}}</p>
+
+                                            </div>
                                         </div>
+                                    </router-link>
+                                </div>                    
 
+                                <div class="pad-new pattern-child" v-if="group[3]">
+                                    <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
+                                        <p class="text-truncate news-list-display">
 
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                            <i class="fas fa-building"></i> {{item.main_point}}
 
-                                            <p>{{item.main_point}}</p>
+                                        </p>
 
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>                    
-
-                            <div class="pad-new pattern-child" v-if="group[3]">
-
-                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
-                                    <p class="text-truncate news-list-display">
-
-                                        <i class="fas fa-building"></i> {{item.main_point}}
-
-                                    </p>
-
-                                </router-link>
-
-                            </div>
-                                               
+                                    </router-link>
+                                </div>                                               
                         </slick>
                     </div>
                     
