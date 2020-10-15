@@ -133,10 +133,65 @@ class PostController extends Controller
     public function getNewsByCategory($id)
     {
         $cat_name = Category::where('id',$id)->select('name')->value('name');
-        $newslist = Post::where('category_id',$id)->get();
-        return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
+
+        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('created_at', 'DESC')->get()->toArray();
+
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = [];
+
+        //divide array new list by block
+        foreach ($newslist as $value) {
+            $tmp[$value['block_id']][] = $value;
+        }
+
+        //separted divied block array
+        foreach ($tmp as $key => $value) {
+            if($key == 1){
+                $newarray1 = array_chunk($value, 1);
+            }elseif($key == 2){
+                $newarray2 = array_chunk($value, 3);
+            }elseif($key == 3){
+                $newarray3 = array_chunk($value, 8);
+            }elseif($key == 4){
+                $newarray4 = array_chunk($value, 1);
+            }
+        }
+
+        $lenght[] = count($newarray1);
+        $lenght[] = count($newarray2);
+        $lenght[] = count($newarray3);
+        $lenght[] = count($newarray4); 
+                
+        for ($i=0; $i <= max($lenght); $i++) { 
+            if(isset($newarray1[$i])){
+                array_push($aryPush, $newarray1[$i]);
+            }else{
+                array_push($aryPush, $aryEmpty);
+            }
+
+            if(isset($newarray2[$i])){
+                array_push($aryPush, $newarray2[$i]);
+            }else{
+                array_push($aryPush, $aryEmpty);
+            }
+
+            if(isset($newarray3[$i])){
+                array_push($aryPush, $newarray3[$i]);
+            }else{
+                array_push($aryPush, $aryEmpty);
+            }
+
+            if(isset($newarray4[$i])){
+                array_push($aryPush, $newarray4[$i]);
+            }else{
+                array_push($aryPush, $aryEmpty);
+            }
+        }
+               
+        $aryResults = array_chunk($aryPush, 4);
+
+        return response()->json(array('cat_name'=> $cat_name,'newslist'=>$aryResults));
     }
-    
+
     public function show_related($id) {
     
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
