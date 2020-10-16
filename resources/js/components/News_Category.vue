@@ -47,9 +47,8 @@
                      <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
                 </div>
     </div>     
-    <div v-else-if="block" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">
-        
-        <slick :options="slickOptions" class="news-slider-width" v-if="w_width > 480">             
+    <div v-else-if="block && w_width > 480" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">        
+        <slick :options="slickOptions" class="news-slider-width">             
             <div class="pad-new pattern-child" v-if="group[0]">
                 <div v-for="(value,index) in group[0]" :key="index">
                     <router-link :to="'/newsdetails/'+value.id">
@@ -172,43 +171,42 @@
                 </div>
             </div>                    
         </slick>
-         <div v-else class="row col-12 m-lr-0 p-0">
-    <router-link v-for="(item,index) in news" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
-    <div class="col-md-12 row adslist-card news-3-card m-0">
+    </div>
+    <div v-else-if="block && w_width <= 480" class="row col-12 m-lr-0 p-0">
+            <router-link v-for="(item,index) in news" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+                <div class="col-md-12 row adslist-card news-3-card m-0">
 
-        <div class="col-4 img-box">
+                    <div class="col-4 img-box">
 
-            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
 
-                <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
+                            <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
-                <transition name="fade">
+                            <transition name="fade">
 
-                    <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
-                </transition>
+                            </transition>
 
-                <transition name="fade" slot="placeholder">
+                            <transition name="fade" slot="placeholder">
 
-                <div class="preloader">
+                            <div class="preloader">
 
-                    <div class="circle">
+                                <div class="circle">
 
-                    <div class="circle-inner"></div>
+                                <div class="circle-inner"></div>
 
+                                </div>
+
+                            </div>
+                            </transition>
+                        </clazy-load>
                     </div>
-
+                    <div class="col-8 pattern-txt-box">
+                        <p> {{item.main_point}} </p>
+                    </div>
                 </div>
-                </transition>
-            </clazy-load>
-        </div>
-        <div class="col-8 pattern-txt-box">
-            <p> {{item.main_point}} </p>
-        </div>
-    </div>
-    </router-link>
-    </div>
-
+            </router-link>
     </div>
     <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
         <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
