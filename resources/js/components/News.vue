@@ -6,7 +6,7 @@
                     <div class="col-md-12 m-lr-0 p-0">
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
                             <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
-                                <div class="col-sm-12 pad-new col-lg-6 m-b-15 newssearch-width">
+                                <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                      <!--search input-->
                                     <div class="search-input">
                                         <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
@@ -97,16 +97,20 @@
                             <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item nav-line"><a class="nav-link" href="">トップ</a></li>
+                                    <li class="nav-item nav-line"><a class="nav-link active" href="">トップ</a></li>
+                                    <!-- <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth"> -->
                                     <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
 
-                                        <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                        <!-- <a class="nav-link" href="/newscategory/1" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
 
-                                       {{ cat.name }}</a>
+                                        
 
-                                        <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                       {{ cat.name }}</a> -->
+                                       <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
 
-                                        {{ cat.name }}</a>
+                                        <!-- <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+
+                                        {{ cat.name }}</a> -->
 
                                     </li>
 
