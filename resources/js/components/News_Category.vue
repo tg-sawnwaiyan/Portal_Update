@@ -353,6 +353,18 @@ export default {
         }
     },
    methods:{
+            next() {
+                this.$refs.slick.next();
+            },
+            prev() {
+                this.$refs.slick.prev();
+            },
+            reInit() {
+                // Helpful if you have to deal with v-for to update dynamic lists
+                this.$nextTick(() => {
+                    this.$refs.slick.reSlick();
+                });
+            },
             imgUrlAlt(event) {
                             event.target.src = "/images/noimage.jpg"
                 },
@@ -432,5 +444,8 @@ export default {
 
 .bordertop-color5 {
     border-top: 0px solid #63b7ff !important;
+}
+.news-slider-width{
+    width: 100%;
 }
 </style>
