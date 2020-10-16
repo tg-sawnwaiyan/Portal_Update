@@ -330,7 +330,7 @@ class HomeController extends Controller
 
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
-                $aryNewsMobile[] = $m;
+                    $aryNewsMobile[$m->id.",".$m->name][] = $m;
                 }
             
             }          
