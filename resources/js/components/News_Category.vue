@@ -448,4 +448,33 @@ export default {
 .news-slider-width{
     width: 100%;
 }
+.news-list-display{
+    /* border: 1px solid #f7f7f7; */
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    background: #f7f7f7;
+    /* box-shadow: 0px 0px 1px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+}
+.news-3-card {
+    background-color: #f7f7f7;
+    /* box-shadow: 0 0 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+}
+
+.news-3-card .img-box{
+    padding-left: 10px;
+}
+
+.single-news-box {
+    background: #f7f7f7;
+    height: 310px;
+    padding: 10px;
+    /* box-shadow: 0px 0px 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    overflow: hidden;
+}
 </style>
