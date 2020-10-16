@@ -308,6 +308,9 @@ class HomeController extends Controller
 
                     if($k == 3)
                     $aryResults[] = $j;
+
+                    // if($k == 4)
+                    // $aryResults[] = $j[0];
                 }
             }
 
@@ -322,18 +325,17 @@ class HomeController extends Controller
                     $mobile[$value->block_id][] = $value;
                 }
                 
-            }           
+            } 
 
             sort($mobile, SORT_REGULAR);
-
+            
             $aryNewsMobile = array();
 
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
-                $aryNewsMobile[] = $m;
-                }
-            
-            }          
+                $aryNewsMobile[$m->id.",".$m->name][] = $m;
+                }            
+            }    
 
         return response()->json($aryNewsMobile);
         }

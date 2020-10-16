@@ -21,10 +21,11 @@
         </h4>
         
     </div>       
-       
+    
+    <div class="clearfix">
     <div class="col-sm-12 col-md-9 col-lg-6 pad-new m-b-15 mt-750-10 float-right">
         
-        <!--search input-->
+       
         <div class="search-input m-b-10">
             <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
             <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
@@ -32,7 +33,8 @@
                 <i class="fas fa-search"></i> 検索
             </button>
         </div>
-        <!--end search input-->  
+         
+    </div>
     </div>
 
     <div v-if="norecord_msg">
@@ -44,8 +46,133 @@
                      <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
                      <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
                 </div>
-    </div>
-    <div v-else class="row col-12 m-lr-0 p-0">
+    </div>     
+    <div v-else-if="block" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">
+        
+        <slick :options="slickOptions" class="news-slider-width" v-if="w_width > 480">             
+            <div class="pad-new pattern-child" v-if="group[0]">
+                <div v-for="(value,index) in group[0]" :key="index">
+                    <router-link :to="'/newsdetails/'+value.id">
+                        <div class="col-12 single-news-box">
+
+                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                <transition name="fade">
+
+                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                </transition>                                
+
+                                <transition name="fade" slot="placeholder">
+
+                                    <div class="preloader">
+
+                                        <div class="circle">
+
+                                        <div class="circle-inner"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                </transition>
+                            </clazy-load>
+                            <p>  {{value.main_point}} </p>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+
+            <div class="pad-new pattern-child" v-if="group[1]">
+                <div v-for="(value,index) in group[1]" :key="index">
+                    <router-link :to="'/newsdetails/'+value.id"> 
+                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+
+                            <div class="col-4 img-box">
+
+                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                    <transition name="fade">
+
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                    </transition>
+
+                                    <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </transition>
+                                </clazy-load>
+
+                            </div>
+                            <div class="col-8 pattern-txt-box">
+                              
+
+                                <p>{{value.main_point}}</p>
+
+                            </div>
+
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+
+            <div class="pad-new pattern-child" v-if="group[2]">
+                <router-link v-for="(value,inx) in group[2]" :key="inx" :to="'/newsdetails/'+value.id" style="color:#333;">  
+                    <p class="text-truncate news-list-display">
+
+                        <i class="fas fa-building"></i> {{value.main_point}}
+
+                    </p>
+                </router-link>
+            </div>
+
+            <div class="pad-new pattern-child" v-if="group[3]">    
+                <div v-for="(value,index) in group[3]" :key="index">
+                    <router-link :to="'/newsdetails/'+value.id">
+
+                        <div class="col-12 single-news-box">
+
+                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index">
+
+                                <transition name="fade">
+
+                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                </transition>
+
+                                <transition name="fade" slot="placeholder">
+
+                                    <div class="preloader">
+
+                                        <div class="circle">
+
+                                        <div class="circle-inner"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                </transition>                                  
+
+                            </clazy-load>
+                            <p>{{value.main_point}}</p>
+
+                        </div>
+
+                    </router-link>
+                </div>
+            </div>                    
+        </slick>
+         <div v-else class="row col-12 m-lr-0 p-0">
     <router-link v-for="(item,index) in news" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
     <div class="col-md-12 row adslist-card news-3-card m-0">
 
@@ -81,27 +208,73 @@
     </div>
     </router-link>
     </div>
+
+    </div>
+    <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
+        <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+            <div class="col-md-12 row adslist-card news-3-card m-0">
+
+                <div class="col-4 img-box">
+
+                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                        <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
+
+                        <transition name="fade">
+
+                            <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+
+                        </transition>
+
+                        <transition name="fade" slot="placeholder">
+
+                        <div class="preloader">
+
+                            <div class="circle">
+
+                            <div class="circle-inner"></div>
+
+                            </div>
+
+                        </div>
+                        </transition>
+                    </clazy-load>
+                </div>
+                <div class="col-8 pattern-txt-box">
+                    <p> {{item.main_point}} </p>
+                </div>
+            </div>
+        </router-link>
+    </div>
 </div>
 </layout>
 </template>
 
 <script>
     import layout from '../components/home.vue'
+    import Slick from 'vue-slick'
 export default {
 
  components: {
-    layout
+    layout,
+    Slick
   },
    data() {
 
         return {
             news:[],
+            searchnews:[],
             cat_name:'',
+            cat_id:'',
             search_word:null,
             norecord_msg:false,
+            block:false,
+            nonblock:false,
+            w_width: $(window).width(),
         }
    },
    created(){
+    if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
             if(response.data.newslist.length == 0)
@@ -109,12 +282,78 @@ export default {
                  this.norecord_msg = true;
             }
             else{
+                 this.block = true;
+                 this.norecord_msg = false;
+            }
+            this.cat_id = response.data.cat_id;
+            this.cat_name = response.data.cat_name;
+          
+      });
+    }else{
+        this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
+            this.news = response.data.newslist;
+            if(response.data.newslist.length == 0)
+            {
+                 this.norecord_msg = true;
+            }
+            else{
+                 this.block = true;
                  this.norecord_msg = false;
             }
             this.cat_name = response.data.cat_name;
           
       });
+    }
    },
+    computed:{  
+        slickOptions() {
+                return {
+                slidesToShow: 4,
+                infinite: false,
+                accessibility: true,
+                adaptiveHeight: false,
+                arrows: true,
+                dots: true,
+                draggable: true,
+                edgeFriction: 0.30,
+                swipe: true,
+                responsive: [{
+                    breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,                           
+                            slidesToScroll: 1,  
+                            infinite:false 
+                        }
+                    }, {
+                    breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1, 
+                            infinite: false                           
+                        }
+                    },{
+                    breakpoint: 770,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1, 
+                            infinite: false                           
+                        }
+                    },{
+                        breakpoint: 420,
+                            settings:{
+                                slidesToShow: 1,
+                                slidesToScroll:1,
+                                infinite: false
+                            }
+                    },{
+                    breakpoint: 481,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }]                    
+                }
+        }
+    },
    methods:{
             imgUrlAlt(event) {
                             event.target.src = "/images/noimage.jpg"
@@ -133,13 +372,18 @@ export default {
             getlatestpost()
             {
                   if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+                        this.nonblock = false;
+                        this.block = true;
                         var searchword = 'all_news_search';                
-                    } else {
+                    } else {                        
+                        this.block = false;
+                        this.nonblock = true;
                         var searchword = this.search_word;
+                        this.searchnews = [];
                     }
                     this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
                     this.$loading(false);
-                    this.news = response.data;
+                    this.searchnews = response.data;
                     if(response.data.length == 0)
                     {
                         this.norecord_msg = true;
@@ -164,5 +408,31 @@ export default {
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
+}
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+.bordertop-color1 {
+    border-top: 0px solid #a3774a !important;
+}
+
+.bordertop-color2 {
+    border-top: 0px solid #9579ef !important;
+}
+
+.bordertop-color3 {
+    border-top: 0px solid #21d1de !important;
+}
+
+.bordertop-color4 {
+    border-top: 0px solid #d1291d !important;
+}
+
+.bordertop-color5 {
+    border-top: 0px solid #63b7ff !important;
 }
 </style>
