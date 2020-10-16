@@ -28,7 +28,7 @@
             <div class="row m-lr-0 mb-3" v-for="news in newdetails" :key="news.id">
              
                 <div class="col-md-12" >
-                  <h4 class="header news_detail_tit">                  
+                  <h4 class="header news_detail_tit" style="margin-bottom: 0px;">                  
                     <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
                   </h4>  
