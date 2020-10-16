@@ -309,8 +309,8 @@ class HomeController extends Controller
                     if($k == 3)
                     $aryResults[] = $j;
 
-                    if($k == 4)
-                    $aryResults[] = $j[0];
+                    // if($k == 4)
+                    // $aryResults[] = $j[0];
                 }
             }
 
