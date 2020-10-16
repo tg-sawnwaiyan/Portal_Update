@@ -194,10 +194,10 @@ class PostController extends Controller
         return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults));
     }
 
-    public function getNewsByCategoryForMobile($id)
+     public function getNewsByCategoryForMobile($id)
     {
         $cat_name = Category::where('id',$id)->select('name')->value('name');
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('block_id', 'ASC')->orderBy('created_at', 'DESC')->get()->toArray();
+        $newslist = Post::where('category_id',$id)->get();
         return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
     }
 
