@@ -197,7 +197,7 @@ class HomeController extends Controller
             $query = "SELECT * from posts where category_id = $id ";
         }
         else{
-            $query = "SELECT * from posts where category_id = $id and (title like '%".$search_word."%' or body like '%".$search_word."%')";
+            $query = "SELECT * from posts where category_id = $id and block_id != 0 and (title like '%".$search_word."%' or body like '%".$search_word."%')";
         }
        
         $newslist = DB::select($query);

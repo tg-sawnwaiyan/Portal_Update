@@ -360,6 +360,7 @@ Route::group(['middleware' => $middleware], function() {
 
     Route::get('newdetails/{id}', 'PostController@show');
     Route::get('newscategory/{id}', 'PostController@getNewsByCategory');
+    Route::get('newscategorymobile/{id}', 'PostController@getNewsByCategoryForMobile');
     Route::get('relatednews/{id}', 'PostController@show_related');
     // Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 

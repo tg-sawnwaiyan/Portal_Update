@@ -47,8 +47,9 @@
                      <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
                 </div>
     </div>     
-    <div v-else-if="block" v-for="(group,index) in news" :key="index" class="row m-lr-0">
-        <slick :options="slickOptions" class="news-slider-width">                  
+    <div v-else-if="block" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">
+        
+        <slick :options="slickOptions" class="news-slider-width" v-if="w_width > 480">             
             <div class="pad-new pattern-child" v-if="group[0]">
                 <div v-for="(value,index) in group[0]" :key="index">
                     <router-link :to="'/newsdetails/'+value.id">
@@ -171,6 +172,43 @@
                 </div>
             </div>                    
         </slick>
+         <div v-else class="row col-12 m-lr-0 p-0">
+    <router-link v-for="(item,index) in news" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+    <div class="col-md-12 row adslist-card news-3-card m-0">
+
+        <div class="col-4 img-box">
+
+            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
+
+                <transition name="fade">
+
+                    <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+
+                </transition>
+
+                <transition name="fade" slot="placeholder">
+
+                <div class="preloader">
+
+                    <div class="circle">
+
+                    <div class="circle-inner"></div>
+
+                    </div>
+
+                </div>
+                </transition>
+            </clazy-load>
+        </div>
+        <div class="col-8 pattern-txt-box">
+            <p> {{item.main_point}} </p>
+        </div>
+    </div>
+    </router-link>
+    </div>
+
     </div>
     <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
         <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
@@ -227,14 +265,32 @@ export default {
             news:[],
             searchnews:[],
             cat_name:'',
+            cat_id:'',
             search_word:null,
             norecord_msg:false,
             block:false,
             nonblock:false,
+            w_width: $(window).width(),
         }
    },
    created(){
+    if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
+            this.news = response.data.newslist;
+            if(response.data.newslist.length == 0)
+            {
+                 this.norecord_msg = true;
+            }
+            else{
+                 this.block = true;
+                 this.norecord_msg = false;
+            }
+            this.cat_id = response.data.cat_id;
+            this.cat_name = response.data.cat_name;
+          
+      });
+    }else{
+        this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
             if(response.data.newslist.length == 0)
             {
@@ -247,6 +303,7 @@ export default {
             this.cat_name = response.data.cat_name;
           
       });
+    }
    },
     computed:{  
         slickOptions() {
@@ -358,5 +415,24 @@ export default {
    display: block; 
    height: 0; 
    clear: both;
+}
+.bordertop-color1 {
+    border-top: 0px solid #a3774a !important;
+}
+
+.bordertop-color2 {
+    border-top: 0px solid #9579ef !important;
+}
+
+.bordertop-color3 {
+    border-top: 0px solid #21d1de !important;
+}
+
+.bordertop-color4 {
+    border-top: 0px solid #d1291d !important;
+}
+
+.bordertop-color5 {
+    border-top: 0px solid #63b7ff !important;
 }
 </style>
