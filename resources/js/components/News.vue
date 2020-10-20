@@ -102,16 +102,12 @@
                                     <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
 
                                         <!-- <a class="nav-link" href="/newscategory/1" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-
-                                        
-
                                        {{ cat.name }}</a> -->
                                        <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
 
                                         <!-- <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
 
                                         {{ cat.name }}</a> -->
-
                                     </li>
 
                                 </ul>
@@ -172,7 +168,7 @@
 
                                                 <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
 
-                                                    <li  class="list-group-item" style="padding:6px 0px 4px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
 
                                                         <router-link :to="{path:'/newsdetails/'+post.id}">
 

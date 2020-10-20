@@ -47,7 +47,7 @@ class HomeController extends Controller
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(9)->get();
+        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
         // if(isset($request['search_word'])) {
         //     $search_word = $request['search_word'];
         //     $posts = $posts->where(function($qu) use ($search_word){

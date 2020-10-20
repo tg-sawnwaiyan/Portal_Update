@@ -4286,7 +4286,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 #myTabContent {
     border: 1px solid #ccc;
-    height: 374px;
+    height: 410px;
 }
 
 .nav-tabs .nav-link {
@@ -5243,6 +5243,10 @@ ul.hokkaido-wrap {
     z-index: 2;
 }
 
+#myTab .nav-tabs .nav-item .nav-link:focus{
+    /* background-color: yellow !important; */
+}
+
 @media print,
 screen and (min-width: 750px) {
     #nursingView .top-fixed-btn:hover {
@@ -5604,7 +5608,7 @@ screen and (min-width: 750px) {
 /* News Tab */
 
 .news-wrapper {
-    height: 350px;
+    height: 375px;
     overflow-y: auto;
     scrollbar-width: thin;
 }

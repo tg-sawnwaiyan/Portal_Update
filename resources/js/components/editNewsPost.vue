@@ -98,10 +98,10 @@
                         <label>担当者 </label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>会社 </label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="会社名を入力してください。" v-model="news.created_by_company">
-                    </div>
+                    </div> -->
                     <div v-if="selectedValue != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
