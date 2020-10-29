@@ -18,6 +18,11 @@
                         <span v-if="errors.title" class="error">{{errors.title}}</span>
                     </div>
 
+                    <div class="form-group">
+                        <label>担当者 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
+                    </div>
+
                     <div class="form-group" id="showimage">
                         <label class="">写真</label>
                         <!-- <div class="custom-file">
@@ -94,10 +99,7 @@
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
-                    <div class="form-group">
-                        <label>担当者 </label>
-                        <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
-                    </div>
+                    
                     <!-- <div class="form-group">
                         <label>会社 </label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="会社名を入力してください。" v-model="news.created_by_company">
