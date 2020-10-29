@@ -404,7 +404,9 @@
 
     <div class="scroll-year">
         <div class="year-2020">
-          <article class="row text-body" v-for="linked_news in linkednews" :key="linked_news.id" v-if="(linked_news.post_date.includes(c_year))">
+          <div v-for="linked_news in linkednews" :key="linked_news.id">
+            <div v-if="(linked_news.post_date.includes(c_year))">
+              <article class="row text-body">
                 <div class="new-1">
                     <div class="day">
                         {{linked_news.post_date}}
@@ -418,7 +420,9 @@
                 <div class="new-2">
                     <p v-html="linked_news.description"></p> 
                 </div>
-          </article>
+              </article>
+            </div>
+          </div>
         </div>
     </div>
   </div>

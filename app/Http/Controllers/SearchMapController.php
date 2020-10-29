@@ -1069,13 +1069,13 @@ class SearchMapController extends Controller
         (array)$yeararr = [];
         if(!empty($arr)){
             foreach($arr as $linkednews) {
-                $year = (int)date('Y', strtotime($linkednews->post_date));
+                $year = (string)date('Y', strtotime($linkednews->post_date));
                 if($yeararr == null){
                     $yeararr[$total_year] =(string) $year;
                 }
-                else if($yeararr[$total_year] != $year){
+                if( !in_array($year, $yeararr)) {
                     $total_year++;
-                    $yeararr[$total_year] =(string) $year;
+                    $yeararr[$total_year] =$year;
                 }
             }
         }

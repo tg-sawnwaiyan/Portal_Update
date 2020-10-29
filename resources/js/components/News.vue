@@ -6,7 +6,7 @@
                     <div class="col-md-12 m-lr-0 p-0">
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
                             <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
-                                <div class="col-sm-12 pad-new col-lg-6 m-b-15 newssearch-width">
+                                <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                      <!--search input-->
                                     <div class="search-input">
                                         <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
@@ -92,35 +92,32 @@
 
                         </slick>
                        <!-- slider -->
+                        <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                            <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                            <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item nav-line"><a class="nav-link active" href="">トップ</a></li>
+                                    <!-- <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth"> -->
+                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+
+                                        <!-- <a class="nav-link" href="/newscategory/1" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                       {{ cat.name }}</a> -->
+                                       <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+
+                                        <!-- <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+
+                                        {{ cat.name }}</a> -->
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        </div>
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
                             <div class="card col-md-12 col-lg-6 pad-new d-none d-sm-block first-child" style="border:0px!important;">
-
-                                <div class="card-header tab-card-header clearfix cat-nav infoBox" ref="infoBox">
-                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                                    <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-                                        <ul class="nav nav-tabs" role="tablist">
-                              
-                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
-
-                                                <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-
-                                               {{ cat.name }}</a>
-
-                                                <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-
-                                                {{ cat.name }}</a>
-
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                                </div>
-
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
 
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
@@ -171,7 +168,7 @@
 
                                                 <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
 
-                                                    <li  class="list-group-item" style="padding:6px 0px 4px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
 
                                                         <router-link :to="{path:'/newsdetails/'+post.id}">
 
@@ -497,7 +494,6 @@
                                         </div>
 
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 2">
@@ -545,22 +541,16 @@
                                             </div>
 
                                         </div>
-
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 3">
                                     <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
                                         <p class="text-truncate news-list-display">
-
                                             <i class="fas fa-building"></i> {{item.main_point}}
-
                                         </p>
-
                                     </router-link>
-
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 4 && value[0]">
@@ -594,74 +584,62 @@
                                         </div>
 
                                     </router-link>
-
                                 </div> 
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
+                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                            <div class="col-4 img-box">
 
-                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
 
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                                    <transition name="fade">
 
-                                        <div class="col-4 img-box">
+                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
+                                                    </transition>
 
-                                                <transition name="fade">
+                                                    <transition name="fade" slot="placeholder">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                        <div class="preloader">
 
-                                                </transition>
+                                                            <div class="circle">
 
-                                                <transition name="fade" slot="placeholder">
+                                                            <div class="circle-inner"></div>
 
-                                                    <div class="preloader">
-
-                                                        <div class="circle">
-
-                                                        <div class="circle-inner"></div>
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                    </transition>
 
-                                                </transition>
+                                                </clazy-load>
 
-                                            </clazy-load>
+                                            </div>
 
+                                            <div class="col-8 pattern-txt-box">
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+
+                                                <p>{{item.main_point}}</p>
+
+                                            </div>
                                         </div>
+                                    </router-link>
+                                </div>                    
 
+                                <div class="pad-new pattern-child" v-if="group[3]">
+                                    <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
+                                        <p class="text-truncate news-list-display">
 
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                            <i class="fas fa-building"></i> {{item.main_point}}
 
-                                            <p>{{item.main_point}}</p>
+                                        </p>
 
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>                    
-
-                            <div class="pad-new pattern-child" v-if="group[3]">
-
-                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
-                                    <p class="text-truncate news-list-display">
-
-                                        <i class="fas fa-building"></i> {{item.main_point}}
-
-                                    </p>
-
-                                </router-link>
-
-                            </div>
-                                               
+                                    </router-link>
+                                </div>                                               
                         </slick>
                     </div>
                     

@@ -2566,7 +2566,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     border-bottom: 1px dashed #2980b9;
     width: 100%;
     padding: 5px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .bnews-header {
@@ -4286,7 +4286,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 #myTabContent {
     border: 1px solid #ccc;
-    height: 374px;
+    height: 410px;
 }
 
 .nav-tabs .nav-link {
@@ -5049,7 +5049,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchNews {
-    width: 80%;
+    width: 73%;
     border: 3px solid #75b777;
     border-right: none;
     padding: 5px;
@@ -5057,6 +5057,7 @@ ul.hospital-subject>li:before {
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #495057;
+    max-width:580px;
 }
 
 .searchNews:focus {
@@ -5240,6 +5241,10 @@ ul.hokkaido-wrap {
     bottom: 4%;
     left: 31%;
     z-index: 2;
+}
+
+#myTab .nav-tabs .nav-item .nav-link:focus{
+    /* background-color: yellow !important; */
 }
 
 @media print,
@@ -5603,7 +5608,7 @@ screen and (min-width: 750px) {
 /* News Tab */
 
 .news-wrapper {
-    height: 350px;
+    height: 375px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -14783,4 +14788,5 @@ strong {
     .container_news .new-2{
         width: 100%;
     }
+}
 /*end of .container_news*/
