@@ -2,7 +2,7 @@
 <layout>   
 <div>    
     <div class="col-12">
-        <div class="pc-991-1880">
+        <!-- <div class="pc-991-1880">
             <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
                 <span class="btn btn-danger all-btn submit">
                     <i class="fas fa-arrow-left"></i> 
@@ -10,32 +10,18 @@
                 </span> 
             </span>                
             
-        </div>
+        </div> -->
         <h4 class="profile-tit">{{cat_name}}
-        <span @click="$router.go(-1);" class="backbtn pc-2000" style="cursor:pointer;top: 0px;">
+       <!--  <span @click="$router.go(-1);" class="backbtn pc-2000" style="cursor:pointer;top: 0px;">
             <span class="btn btn-danger all-btn submit">
                 <i class="fas fa-arrow-left"></i> 
                 <span>戻る</span> 
             </span>  
-        </span>         
+        </span>   -->       
         </h4>
         
     </div>       
     
-    <div class="clearfix">
-    <div class="col-sm-12 col-md-9 col-lg-6 pad-new m-b-15 mt-750-10 float-right">
-        
-       
-        <div class="search-input m-b-10">
-            <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
-            <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
-            <button type="submit" class="searchButtonNews" @click="searchCategory()">
-                <i class="fas fa-search"></i> 検索
-            </button>
-        </div>
-         
-    </div>
-    </div>
 
     <div v-if="norecord_msg">
         <div class="container-fuid no_search_data">
