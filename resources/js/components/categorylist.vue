@@ -192,7 +192,7 @@
                                 this.nosearch_msg = true;
                             }
                         });
-                        localStorage.setItem('category_page_no',page);//comment set to createcategory/updateCategory()
+                        localStorage.setItem('page_no',page);//comment set to createcategory/updateCategory()
 
                     },
                     nextPaginate(num){
