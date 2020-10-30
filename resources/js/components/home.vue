@@ -299,7 +299,11 @@ export default {
 }
  
 $(document).ready(function(){
-    $("#top_a").addClass("active");
+    // $("#top_a").addClass("active");
+    var url      = window.location.href; 
+    if(url.indexOf('category') == -1){
+        $("#top_a").addClass("active");
+    }
 });
 </script>
 <style>
@@ -416,7 +420,7 @@ $(document).ready(function(){
 
     .right-arr-btn {
         position: relative;      
-        right: -46px;
+        right: -47px;
         width: 2%;
     }
 
@@ -465,6 +469,14 @@ $(document).ready(function(){
         position: relative;      
         right: -40px;
         width: 2%;
+    }
+
+    #top {
+        border-left: 1px solid #fff;
+    }
+
+    .nav-tabs{
+        border-bottom: none;
     }
 </style>
 
