@@ -1163,14 +1163,15 @@
 
 
 .center{
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
     /* float: left;
     width: 38.9%;
     border: 1px solid black;
     margin: 1px; */
     /* width: 95%; */
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
+    
     /* max-width: 100%; */
 }
 .right{
