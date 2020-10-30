@@ -17,23 +17,74 @@
             </li>
         </ul>
         
-        <div class="tabs upper-tab" id="upper-tab">
-            <div class="tab-pane" id="tab1">
-                    <main>
-                        <slot />
-                    </main>
+            <div class="tabs upper-tab" id="upper-tab">
+                <div class="tab-pane" id="tab1">
+                    <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+                        <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
+                         <!--search input-->
+                            <div class="search-input">
+                                <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                                <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
+                                <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                                    <i class="fas fa-search"></i> 検索
+                                </button>
+                            </div>                                    
+                        </div>
+                    </div>
+                <!-- </form> -->
+
+               <!-- slider -->
+                    <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                <main>
+                    <slot />
+                </main>
             </div>
         </div>
         <!--end menu tabs-->
+
     </div>
     <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
 export default {
+    async mounted() {
+            
+            this.getAllCat();
+
+        },
     data(){
         return {
+            cats: [],
+            categoryId: 1,
             othersDetails: true,
+            status:'0',
+            search_word:null,
+            post_groups : [],
+            norecord_msg: false,
+            is_cat_overflow: false,
+            is_cat_slided: false,
+            computed_width: '100%',
+            cat_box_width: null,
+
         }
     },
     created() {
@@ -43,11 +94,220 @@ export default {
         else{
             this.othersDetails = true;
         }
+        this.$nextTick(() => {
+            if(this.$refs.infoBox){
+                this.cat_box_width = this.$refs.infoBox.clientWidth;
+            }            
+        }) 
+    },
+    methods: {
+        getAllCat: function() {
+           
+                this.axios .get('/api/home') 
+                .then(response => {
+                        this.cats = response.data;
+               
+         
+                        var total_word = 0;
+                        $.each(this.cats, function(key,value) {
+                            total_word += value.name.length;
+                        });
+ 
+                        if(this.cat_box_width/total_word < 26){
+                            this.is_cat_overflow = true;
+                            this.computed_width = '98.2%';
+                        }
+ 
+                        // if(total_word > 32) {
+                        //     this.is_cat_overflow = true;
+                        //     this.computed_width = '99%';
+                        // }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
+
+                        this.getPostByCatID();
+
+                        this.getLatestPostByCatID();
+
+                    });
+
+        },
+        searchCategory() {
+            this.$loading(true);
+            if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                this.clearSearch();
+            } else {
+
+                this.status = 1;
+
+                this.search_word = $('#search-free-word').val();
+                this.getLatestPostsByCatID();                 
+
+            }
+        },
+        clearSearch() {
+
+            this.status = 0;
+
+            this.search_word = '';
+
+            this.getLatestPostsByCatID();
+
+        },
+        getPostByCatID: function(catId = this.cats[0].id) {
+                if ($('#search-free-word').val() != null) {
+                    var search_word = $('#search-free-word').val();
+                } else {
+                    var search_word = null;
+                }
+
+                if (catId !== undefined) {
+                    var cat_id = catId;
+                } else {
+                    var cat_id = this.cats[0].id;
+                }
+                let fd = new FormData();
+                fd.append('search_word', search_word);
+                fd.append('category_id', cat_id);
+                $('.search-item').css('display', 'none');
+                this.categoryId = cat_id;
+                this.axios.post("/api/posts", fd)
+                    .then(response => {
+                        this.posts = response.data;
+                    });
+        },
+        getLatestPostByCatID: function(catId) {
+
+                if ($('#search-free-word').val()) {
+
+                    var search_word = $('#search-free-word').val();
+                } else {
+
+                    var search_word = null;
+
+                }
+
+                if (catId) {
+
+                    var cat_id = catId;
+
+                } else {
+
+                    var cat_id = this.cats[0].id;
+
+                }
+
+                let fd = new FormData();
+
+                fd.append('search_word', search_word)
+
+                fd.append('category_id', cat_id)
+
+                $('.search-item').css('display', 'none');
+
+                this.categoryId = cat_id;
+
+                this.axios.post("/api/get_latest_post" , fd)
+
+                .then(response => {
+
+                    this.latest_post = response.data;
+                    if(Object.keys(this.latest_post).length == 0){
+                        this.latest_post_null = true;
+                    }
+                    else{
+                        this.latest_post_null = false;
+                    }
+                });
+
+        },
+        
+        swipeLeft() {
+            const content = this.$refs.content;
+            this.scrollTo(content, -300, 800);
+        },
+
+        swipeRight() {
+            const content = this.$refs.content;
+            this.scrollTo(content, 300, 800);
+            this.is_cat_slided = true;
+            this.computed_width = '93%';
+        },
+        scrollTo(element, scrollPixels, duration) {
+
+                const scrollPos = element.scrollLeft;
+
+                // Condition to check if scrolling is required
+
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
+
+                {
+
+                    // Get the start timestamp
+
+                    const startTime =
+
+                    "now" in window.performance
+
+                        ? performance.now()
+
+                        : new Date().getTime();
+
+
+
+                    function scroll(timestamp) {
+
+                    //Calculate the timeelapsed
+
+                    const timeElapsed = timestamp - startTime;
+
+                    //Calculate progress
+
+                    const progress = Math.min(timeElapsed / duration, 1);
+
+                    //Set the scrolleft
+
+                    element.scrollLeft = scrollPos + scrollPixels * progress;
+
+                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
+
+                    if (timeElapsed < duration) {
+
+                        //Request for animation
+
+                        window.requestAnimationFrame(scroll);
+
+                    } else {
+
+                        return;
+
+                    }
+
+                    }
+
+                    //Call requestAnimationFrame on scroll function first time
+
+                    window.requestAnimationFrame(scroll);
+
+                }
+
+        },
+
+
     }
 }
+ 
+$(document).ready(function(){
+    $("#top_a").addClass("active");
+});
 </script>
-
 <style>
+    #myTab ul li {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+    }
     
     .hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;
