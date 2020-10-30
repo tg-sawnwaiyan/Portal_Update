@@ -76,7 +76,8 @@ Vue.mixin({
         },
         logintoken: {
             get: function() { return globalData.$data.logintoken },
-            set: function(newVal) { globalData.$data.logintoken = newVal; }
+            set: function(newVal) { 
+                globalData.$data.logintoken = newVal; }
         }
     }
 })
@@ -141,6 +142,8 @@ window.Vue = Vue
     // Set Vue router
 Vue.router = router
 Vue.use(VueRouter)
+
+
     // Set Vue authentication
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = `${process.env.MIX_APP_URL}`

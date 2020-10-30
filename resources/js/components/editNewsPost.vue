@@ -18,6 +18,11 @@
                         <span v-if="errors.title" class="error">{{errors.title}}</span>
                     </div>
 
+                    <div class="form-group">
+                        <label>担当者 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
+                    </div>
+
                     <div class="form-group" id="showimage">
                         <label class="">写真</label>
                         <!-- <div class="custom-file">
@@ -63,6 +68,17 @@
                             </select>
                         <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                     </div>
+
+                    <div class="form-group">
+                        <label>ブロック</label>
+                            <select v-model="block_id" class="form-control" @change='getblock()'>
+                                <option v-bind:value="0">選択してください。</option>
+                                <option v-bind:value="1">左の大きなブロック</option>
+                                <option v-bind:value="4">右の大きなブロック</option>
+                                <option v-bind:value="2">中型ブロック</option>
+                                <option v-bind:value="3">小さなブロックサイズ</option>
+                            </select>
+                    </div>
                
                      <div v-if="selectedValue == 26" class="form-group">
                         <div class="row">
@@ -83,6 +99,11 @@
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
+                    
+                    <!-- <div class="form-group">
+                        <label>会社 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="会社名を入力してください。" v-model="news.created_by_company">
+                    </div> -->
                     <div v-if="selectedValue != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
@@ -183,6 +204,7 @@ import {quillEditor} from 'vue-quill-editor'
                         }
                     },
                     selectedValue: 0,
+                    block_id: 0,
                     status:0,
                     arr: [],
                     errors: {
@@ -221,11 +243,14 @@ import {quillEditor} from 'vue-quill-editor'
                         mainPoint: '',
                         body: '',
                         category_id: '',
+                        block_id:'',
                         category_name: '',
                         related_news: '',
                         photo: '',
                         from_date:'',
                         to_date:'',
+                        created_by:'',
+                        created_by_company:'',
 
                     },
                     categories: {
@@ -293,6 +318,7 @@ import {quillEditor} from 'vue-quill-editor'
                                     this.old_photo = '';
                                 }
                                 this.selectedValue = this.news.category_id;
+                                this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
                         this.getPostsByCatId();
                         this.getSearchPostsByCatId();
@@ -377,9 +403,12 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('from_date', this.news.from_date)
                             fData.append('to_date', this.news.to_date)
                             fData.append('title', this.news.title)
+                            fData.append('created_by', this.news.created_by)
+                            fData.append('created_by_company', this.news.created_by_company)
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
+                            fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
                             fData.append('old_photo',this.old_photo)
                             this.$loading(true);
@@ -430,9 +459,12 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('from_date', this.news.from_date)
                             fData.append('to_date', this.news.to_date)
                             fData.append('title', this.news.title)
+                            fData.append('created_by', this.news.created_by)
+                            fData.append('created_by_company', this.news.created_by_company)
                             fData.append('main_point', this.news.main_point)
                             fData.append('body', this.news.body)
                             fData.append('category_id', this.news.category_id)
+                            fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
                             this.$loading(true);
                         this.axios.post('/api/new/add', fData)
@@ -462,6 +494,9 @@ import {quillEditor} from 'vue-quill-editor'
                         this.news.category_id = this.selectedValue;
                         this.news.from_date = '';
                         this.news.to_date = '';
+                    },
+                    getblock: function() {
+                        this.news.block_id = this.block_id;
                     },
                     getPostsByCatId: function(page) {
                         if (typeof page === 'undefined') {

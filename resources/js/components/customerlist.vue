@@ -11,12 +11,12 @@
                 <div v-else class="container-fuid">
                     <h4 class="main-color mb-3">事業者検索 </h4>
                     <div class="row mb-4 advanced-search">
-                        <div class="col-xl-8 col-md-12">                      
+                        <div class="col-xl-7 col-md-11">                      
                             <autocomplete id="cusname"  placeholder="事業者名で検索" input-class="form-control" :source=customerList :results-display="formattedDisplay" @clear="clearcustomer()"  @selected="getselected($event)">
                             </autocomplete>                           
                         </div> 
                        
-                        <div class="col-xl-4 col-md-12 p-t-1024 form-check form-check-inline choose-item m-t-10">                          
+                        <div class="col-xl-5 col-md-13 p-t-1024 form-check form-check-inline choose-item m-t-10">                          
                             <label class="form-check-label control control--checkbox"  style="padding-left:5px;">
                             <input type="checkbox" class="form-check-input" value="1"   v-model="recordstatus" @change="searchCustomer()">
                             有効
@@ -24,16 +24,24 @@
                             </label>
                             <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
                             <input type="checkbox" class="form-check-input" value="0" v-model="recordstatus"  >
-                                無効
+                            無効
                             <div class="control__indicator"></div>
                             </label>
                             <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
-                            <input  type="checkbox" class="form-check-input" value="2" v-model="status" >
+                            <input type="checkbox" class="form-check-input" value="2" v-model="status"  >
+                            未承認
+                            <div class="control__indicator"></div>
+                            </label>
+                            <label class="form-check-label control control--checkbox" style="padding-left:5px;" @change="searchCustomer()">
+                            <input  type="checkbox" class="form-check-input" value="0" v-model="status" >
                             登録承認審査中
                             <div class="control__indicator"></div>
                             </label>                            
                         </div>
-                    </div>                        
+                    </div>
+                    <p v-if="customers.total != 0" class="">
+                    検索結果：{{customers.total}}件が該当しました
+                    </p>                          
                       
                     <div v-if="nosearch_msg" class="card card-default card-wrap no_search_data">
                         <p class="record-ico">
@@ -94,7 +102,8 @@
                                                     <span v-if="customer.status == 1 && customer.recordstatus == 0" class="btn confirm-disable-orangebtn mr-2 mb-2"><i class="fa fa-list"></i> 施設一覧</span>
                                                     <router-link :to="{ path:'/accountlist/'+ type +'/'+ customer.id}" v-if="customer.status == 1 && customer.recordstatus == 1" class="btn confirm-orangebtn mr-2 mb-2"><i class="fa fa-list"></i> 施設一覧</router-link>
                                                     <router-link :to="{ path:'/profiledit/'+ type +'/'+ customer.id}" v-if="customer.status == 1" class="btn confirm-orangebtn mb-2"><i class="fa fa-edit"></i> プロフィール設定</router-link>
-                                                    <p class="mt-2" style="color: #81ad3b;font-weight: bold;"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録承認済です。</p>
+                                                    <p class="mt-2" style="color: #81ad3b;font-weight: bold;" v-if="customer.status == 1"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録承認済です。</p>
+                                                    <p class="mt-2" style="color: #7bbcdc;font-weight: bold;" v-if="customer.status == 2"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;この事業者は登録不許可です。</p>
                                                     </span>                                                    
                                                 </div>
                                             </div>
@@ -143,7 +152,11 @@
             },
             methods: {               
                 initialCall(){
+                    
                     if(this.$route.path == "/nuscustomerlist"){
+                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                            this.searchCustomer();
+                        }else{
                         this.type = "nursing";
                         this.title = "介護施設事業者一覧";
                         this.axios.get("/api/customers/3").then(response => {
@@ -156,8 +169,13 @@
                                 this.norecord_msg = true;
                             }
                         });
+                        }
                     }
                     else if(this.$route.path == "/hoscustomerlist"){
+                        
+                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                            this.searchCustomer();
+                        }else{
                         this.type = "hospital";
                         this.title = "病院事業者一覧";
                         this.axios.get("/api/customers/2").then(response => {
@@ -170,6 +188,7 @@
                                 this.norecord_msg = true;
                             }
                         });
+                        }
                     }
                 },
                 getselected($event){                  
@@ -289,7 +308,6 @@
 
                     searchCustomer(page) {
 
-                     
                         if(typeof page === "undefined"){
                             page = 1;
                         }
@@ -310,6 +328,7 @@
                         this.axios.post("/api/customer/search?page="+page, fd).then(response => {
                             this.$loading(false);
                             this.customers = response.data;
+                            this.norecord = this.customers.data.length; 
                          
                             if(this.customers.data.length != 0) {
                                 this.nosearch_msg = false;

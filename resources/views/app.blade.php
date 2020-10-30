@@ -6,12 +6,27 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="user" content="Auth::user()">
+@if(isset($tweetData))
+<meta name="twitter:card" content="summary" />
+<meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
+<meta property="og:title" content="{{ $tweetData->title }}" />
+<meta property="og:description" content="{{ $tweetData->body }}" />
+@if(!empty($tweetData->photo))
+<meta property="og:image" content="{{ Config::get('app.url') }}{{ '/upload/news/'.$tweetData->photo }}" />
+@endif
+@endif
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
-
+<script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
 <!-- <script src="/js/manifest.js"></script> -->
 <!-- <script src="/js/vendor.js"></script> -->
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>

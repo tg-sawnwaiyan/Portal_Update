@@ -38,7 +38,7 @@ class CustomerController extends Controller
      */
     public function index($type)
     {
-        $customer =Customer::select("*",DB::raw("(CASE type_id WHEN '2' THEN CONCAT((200000+id)) ELSE CONCAT((500000+id)) END) as cusnum"))->where('type_id',$type)->orderBy('created_at', 'desc')->paginate(20);
+        $customer =Customer::select("*",DB::raw("(CASE type_id WHEN '2' THEN CONCAT((200000+id)) ELSE CONCAT((500000+id)) END) as cusnum"))->where('type_id',$type)->orderBy('created_at', 'desc')->paginate(12);
         return response()->json($customer);
     }
     public function nusaccount($id) {
@@ -232,7 +232,6 @@ class CustomerController extends Controller
 
     public function destroy($id,$type)
     {
-        //
         $customer = Customer::find($id);
         if($type == 'delete'){
             $user = User::where('customer_id',$id)->first();
@@ -274,12 +273,13 @@ class CustomerController extends Controller
                 jobs_log::insert($getjobarr);
                 Job::where(['customer_id'=>$id])->delete();
             }
+            $customer->delete();
             
         }
         else{
-            \Mail::to($customer->email)->send(new deleteSentMail($customer));            
-        }   
-        $customer->delete(); 
+            \Mail::to($customer->email)->send(new deleteSentMail($customer));     
+            Customer::where('id',$id)->update(['status' => 2]);       
+        }       
 
         $customers = Customer::all();
         $data = array("status"=>"deleted", "customers"=>$customers);
@@ -368,14 +368,12 @@ class CustomerController extends Controller
         }
         if($request['status'] != 'empty' && $request['recordstatus'] == 'empty')
         {
-            $query .= " and $sta = 0 ";
+            $query .= " and $sta in (".$request['status']." )";
         }
         if($request['status'] != 'empty' && $request['recordstatus'] != 'empty' )
         {
-             $query .= " and (($sta = 1 && $rec in (".$request['recordstatus'].")) or $sta = 0 )";
+             $query .= " and (($sta = 1 && $rec in (".$request['recordstatus'].")) or $sta in (".$request['status']." ))";
         }
-     
-
         $query .= " order by created_at desc";
       
 
@@ -391,8 +389,7 @@ class CustomerController extends Controller
                                 $size, 
                                 $page
                             );
-
- 
+                            
         return response()->json($search_customer);
     }
 

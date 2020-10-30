@@ -64,6 +64,19 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Category
 
+    // News category
+
+    Route::group(['prefix' => 'news'], function () {
+        Route::post('add', 'NewsByCatController@add');
+        Route::get('edit/{id}', 'NewsByCatController@edit');
+        Route::get('news', 'NewsByCatController@index');
+        Route::post('update/{id}', 'NewsByCatController@update');
+        Route::delete('delete/{id}','NewsByCatController@destroy');
+        Route::post('search', 'NewsByCatController@search');
+
+    });
+    // End Advertisement
+
     // Station
     Route::group(['prefix' => 'station'], function () {
         Route::get('stations', 'StationController@index');
@@ -185,6 +198,8 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Advertisement
 
+    
+
 
     //SpecialFeature
     Route::group(['prefix' => 'feature'], function () {
@@ -218,6 +233,9 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');
     Route::get('townshipJson/{township_name}','SearchMapController@townshipJson');
+    /*added by maythirihtet to display linked news*/
+    Route::get('getLinkedNews/{show_type}','SearchMapController@getLinkedNews');
+    /** **/
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('nursing/{cusid}','ProfilePublishController@nursingProfile');
@@ -335,12 +353,14 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
     Route::post('search', 'HomeController@search');
     Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
+    Route::get('get_latest_posts_by_catId_mobile/{searchword}', 'HomeController@getLatestPostsByAllCatIdForMobile');
     Route::get('get_news_by_catId/{searchword}/{id}', 'HomeController@get_news_by_catId');
     Route::get('get_cat_random', 'HomeController@getCategoryRandom');
 
 
     Route::get('newdetails/{id}', 'PostController@show');
     Route::get('newscategory/{id}', 'PostController@getNewsByCategory');
+    Route::get('newscategorymobile/{id}', 'PostController@getNewsByCategoryForMobile');
     Route::get('relatednews/{id}', 'PostController@show_related');
     // Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 

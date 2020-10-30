@@ -1053,5 +1053,32 @@ class SearchMapController extends Controller
     
         return response()->json($jsonArray);
     }
-    
+
+    /**
+     * @desc linked news
+     * Show linked news
+     * @author may thiri htet @ 2020-06-16
+     * @param $show_type 
+     * @return json_encoded array
+     */
+    public function getLinkedNews($show_type)
+    {
+        $arr = DB::table('news_for_category')->where('type', $show_type)->get();
+        $current_year = (int)date('Y');
+        $total_year = 0;
+        (array)$yeararr = [];
+        if(!empty($arr)){
+            foreach($arr as $linkednews) {
+                $year = (string)date('Y', strtotime($linkednews->post_date));
+                if($yeararr == null){
+                    $yeararr[$total_year] =(string) $year;
+                }
+                if( !in_array($year, $yeararr)) {
+                    $total_year++;
+                    $yeararr[$total_year] =$year;
+                }
+            }
+        }
+        return response()->json(array('linkednews'=>$arr,'yeararr'=>$yeararr));
+    }
 }

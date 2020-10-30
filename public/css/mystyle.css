@@ -56,6 +56,11 @@ p {
     color: #000;
 }
 
+a{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
 .txt-box p {
     line-height: 1.4em!important;
     height: 40px;
@@ -2561,7 +2566,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     border-bottom: 1px dashed #2980b9;
     width: 100%;
     padding: 5px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .bnews-header {
@@ -3504,6 +3509,7 @@ width: 18rem;
     /* width: 128px; */
     width: 80px;
     margin-right: 19.2px;
+    width:65px;
 }
 
 .ads-slider {
@@ -4280,7 +4286,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 #myTabContent {
     border: 1px solid #ccc;
-    height: 374px;
+    height: 410px;
 }
 
 .nav-tabs .nav-link {
@@ -4956,6 +4962,8 @@ ul.hospital-subject>li:before {
     position: relative;
     z-index: 1;
 	display: inline-block;
+    width: 100%;
+    max-width: 670px;
     /* background: url(/images/img_map1.png) center top no-repeat; */
     /* width: 850px;*/
     /* min-width: 936px; */
@@ -5041,7 +5049,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchNews {
-    width: 80%;
+    width: 73%;
     border: 3px solid #75b777;
     border-right: none;
     padding: 5px;
@@ -5049,6 +5057,7 @@ ul.hospital-subject>li:before {
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #495057;
+    max-width:580px;
 }
 
 .searchNews:focus {
@@ -5232,6 +5241,10 @@ ul.hokkaido-wrap {
     bottom: 4%;
     left: 31%;
     z-index: 2;
+}
+
+#myTab .nav-tabs .nav-item .nav-link:focus{
+    /* background-color: yellow !important; */
 }
 
 @media print,
@@ -5595,7 +5608,7 @@ screen and (min-width: 750px) {
 /* News Tab */
 
 .news-wrapper {
-    height: 350px;
+    height: 375px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -14652,3 +14665,128 @@ strong {
 #job_search .create-btn{
     font-size: 14px;
 }
+
+.single-news-box >p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*.container_news*/
+.color-1{
+    background: #52a2da;
+}
+.color-2{
+    background: #dcb01c;
+}
+.color-3{
+    background: #d7787d;
+}
+.container_news{
+    margin: 0 auto 40px auto;
+}
+.container_news .row-2{
+    width: 90%;
+    margin: 0 auto;
+}
+.container_news .text-new{
+    width: 100%;
+    border-left: 6px #63b7ff solid;
+    background: #edf3f7;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+.job_container_news .text-new{
+    width: 100%;
+    border-left: 6px #828282 solid;
+    background-color: rgb(236, 236, 236);
+    padding-left: 10px;
+    margin-top: 30px;
+}
+.container_news .text-new span{
+    font-size: 30px;
+    color: #63b7ff;
+    margin-left: 5px;
+    line-height: 50px;
+}
+.job_container_news .text-new span{
+    color: #828282;
+}
+.container_news .button-year{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display:inline-block;
+}
+.container_news .button-year button{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.container_news .scroll-year{
+    overflow-y: auto;
+    height: 320px;
+    margin-top: 10px;
+}
+.container_news .text-body{
+    width: 100%;
+    border-bottom: 1px gray solid;
+    padding: 20px 0px 10px 10px;
+    margin: 0;
+}
+.container_news .new-1{
+    width: 280px;
+    display: flex;
+}
+.container_news .day{
+    width: 120px;
+    font-size: 16px;
+}
+.container_news .categories{
+    color: #fff;
+    padding: 5px 0px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+.container_news .p-categories{
+    width: 150px;
+    margin: 0px 8px;
+    float: right;
+}
+.container_news .new-2{
+    width: calc(100% - 280px);
+    display: flex;
+}
+.container_news .text-body p{
+    margin-bottom: 0.1rem;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.container_news .hidden{
+    display: none;
+}
+.container_news .btn-outline-dark:hover,
+.container_news .btn-outline-dark.active{
+    background-color: #aaa !important;
+    color: #000 !important;
+    border-color: #aaa !important;
+}
+.container_news .btn-outline-dark:not(:disabled):not(.disabled).active:focus{
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+@media (max-width: 768px){
+    .container_news .new-1{
+        margin-bottom: 10px;
+    }
+    .container_news .new-2{
+        width: 100%;
+    }
+}
+/*end of .container_news*/

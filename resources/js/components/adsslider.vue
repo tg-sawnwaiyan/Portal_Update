@@ -11,7 +11,7 @@
                 </a>
             </div>
             <div v-else>
-                <a @click="showPDF($event, adsList.pdf)">
+                <a @click="showPDF($event, adsList.pdf)" style="cursor: pointer;">
                     <div class="slide-img">
                         <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
                     </div>

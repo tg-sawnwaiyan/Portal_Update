@@ -41,7 +41,8 @@
                 <div class="d-flex">
                     <ul class="navbar-nav ml-auto pc  d-flex justify-content-end">
                         <li class="nav-item" v-if="!$auth.check()">
-                            <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>事業者 ログイン</span></router-link>
+                            <button class="nav-link pad-free btn_login" @click="removeAllSess()"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>事業者 ログイン</span></button>
+                            <!-- <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>事業者 ログイン</span></router-link> -->
                         </li>
                         <li class="nav-item  m-l-10" v-if="!$auth.check()">
                             <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>事業者 登録</span></router-link>
@@ -240,6 +241,11 @@
   transform: translateX(-100%);
   transition: all 0.5s ease-in 0s;
 }
+
+.btn_login {
+    border: 0;
+    background-color: #fff;
+}
 </style>
 <script>
   export default {
@@ -307,5 +313,13 @@
             $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
         }
     },
+    methods: {
+        removeAllSess: function() {
+            localStorage.setItem('visit', '');
+            localStorage.setItem('loginuser', '');
+            localStorage.setItem('logintoken', '');
+            this.$router.push('/login');
+        },
+    }
 }
 </script>

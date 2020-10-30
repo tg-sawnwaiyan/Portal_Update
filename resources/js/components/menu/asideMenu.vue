@@ -173,6 +173,11 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
                             title: '広告',
                             icon: 'fa fa-globe',
                         },
+                        {
+                            href: '/linkednews',
+                            title: 'お知らせ・ニュース',
+                            icon: 'fa fa-file-alt',
+                        },
                     ]
                 },
                 {
@@ -333,6 +338,7 @@ created() {
             if(item.title == 'ログアウト'){
                 this.loginuser = 'false';
                 localStorage.setItem('loginuser', this.loginuser);
+                localStorage.setItem('logintoken', '');
                 if(this.$auth.check(2)){
                     this.$auth.logoutAdmin();
                 }

@@ -9,7 +9,7 @@
                     </p>
                     <p class="record-txt01">ニュースが登録されていません。</p>
                     <router-link to="/create_news" class="main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> ニュース新規作成
+                        <i class="fas fa-plus-circle"></i>ニュース新規作成
                     </router-link>
                 </div>
                 <div v-else class="container-fuid">
@@ -26,6 +26,19 @@
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
                                 </select>
                             </div>
+                            <!-- added by maythirihtet -->
+                            <div id="date_picker" @click="changeCalendarHeader" class=" d-flex  justify-content-md-end align-items-center my-3">
+                                <label style="width:20%;">日付</label><br>
+                                <input type="hidden" id="hidden_select_date" v-bind:value="select_date">
+                                <date-picker @change="showDate" class="" :lang="lang" v-model="select_date" valueType="format" style="width:300px;" placeholder="日付を選択してください"></date-picker>
+                            </div>
+                            <div v-if="news_list.total" class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
+                            </div>
+                            <div v-else class="">
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索条件当てはまるデータはありません</p>                                  
+                            </div>
+                            <!-- added by maythirihtet -->
                         </div>
                     </div>
                     <hr />
@@ -187,8 +200,8 @@
                             </tr>
                         </table>
                         <!-- <pagination :data="news_list" @pagination-change-page="searchbyCategory"></pagination> -->
-                         <div>
-                              <pagination :data="news_list" @pagination-change-page="searchbyCategory" :limit="limitpc">
+                         <div>               
+                            <pagination :data="news_list" @pagination-change-page="searchbyCategory" :limit="limitpc">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                                 <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                             </pagination>
@@ -203,6 +216,7 @@
 </template>
 
 <script>
+
     export default {
         components: {
         },
@@ -227,6 +241,9 @@
                 items: [],
                 pagination: false,
                 activate_text: '',
+                select_date:null,
+                month_count:0,
+                date_flag:false,
             };
         },
         created() {
@@ -235,6 +252,19 @@
 
         },
         methods: {
+            /** added by maythirihtet */
+            changeCalendarHeader(){
+
+                $('div.mx-calendar-content table thead tr th:nth-child(2)').text('月');
+                $('div.mx-calendar-content table thead tr th:nth-child(3)').text('火');
+                $('div.mx-calendar-content table thead tr th:nth-child(4)').text('水');
+                $('div.mx-calendar-content table thead tr th:nth-child(5)').text('木');
+                $('div.mx-calendar-content table thead tr th:nth-child(6)').text('金');
+                $('div.mx-calendar-content table thead tr th:nth-child(7)').text('土');
+
+            },
+            
+            /** end of added by maythirihtet */
             changeActivate(catid,id,activate, $event){
                 
                 if(activate == 1)
@@ -274,29 +304,30 @@
                 });
             },
             getResults() {
-                if(this.$route.params.status == 'update'){
-                    var page_no = this.$route.params.page_no;
-                    this.nextPaginate(page_no);
-               }else{
-                    this.$http.get('/api/news_list')
-                    .then(response => {
+                this.$http.get('/api/news_list')
+                .then(response => {
 
-                        this.news_list = response.data.news;
-                        this.categories = response.data.category;
-                        this.norecord = this.news_list.data.length                       
-                        // if(this.norecord > this.size) {
-                        //     this.pagination = true;
-                        // } else {
-                        //     this.pagination = false;
-                        // }
-                        if(this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;
-                        }
-                        this.$loading(false);
-                    });
-                }
+                    this.news_list = response.data.news;
+                    this.categories = response.data.category;
+                    this.norecord = this.news_list.data.length                       
+                    // if(this.norecord > this.size) {
+                    //     this.pagination = true;
+                    // } else {
+                    //     this.pagination = false;
+                    // }
+                    if(this.norecord != 0){
+                        this.norecord_msg = false;
+                    }else{
+                        this.norecord_msg = true;
+                    }
+                    this.$loading(false);
+
+                    if(this.$route.params.status == 'update'){
+                        var page_no = this.$route.params.page_no;
+                        this.nextPaginate(page_no);
+                    }
+                });
+                    
             },
 
             deletePost(catid,id) {
@@ -370,24 +401,26 @@
                     if (typeof page === 'undefined') {
                         page = 1;
                     }
+
                     var search_word = $("#search-item").val();
 
                     var selected_category = document.getElementById("selectBox").value;
+                    
+                    //var selected_date = document.getElementById("hidden_select_date").value;//added by maythirihtet
+
                     let fd = new FormData();
                     fd.append("search_word", search_word);
                     fd.append("selected_category", selected_category);
+                    if(this.select_date != null){
+                        fd.append("selected_date", this.select_date);//added by maythirihtet
+                    }
                     fd.append("postid",null);
                     this.$loading(true);
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     this.axios.post("/api/news_list/search?page="+page, fd).then(response => {
                         this.$loading(false);
-                        this.news_list = response.data;
-                        this.norecord = this.news_list.data.length;
-                        // if(this.news_list.length > this.size){
-                        //     this.pagination = true;
-                        // }else{
-                        //     this.pagination = false;
-                        // }
+                        this.news_list = response.data.query;
+                        this.norecord = response.data.postCount;
                         if(this.norecord != 0) {
                             this.nosearch_msg = false;
                         }else{
@@ -396,6 +429,12 @@
                         localStorage.setItem('page_no',page);//set to editNewsPost.vue/updatepost()
                     });
                 },
+                /** added by maythirihtet */
+                showDate(select_date){
+                    this.select_date = select_date;
+                    this.searchbyCategory();
+                },
+                /** end of added by maythirihtet */
                 nextPaginate(num){
                      
                     let fd = new FormData();
@@ -403,9 +442,9 @@
                     this.$loading(true);
                     this.axios.post("/api/news_list/search?page="+num, fd).then(response => {
                         this.$loading(false);
-                        this.news_list = response.data;
+                        this.news_list = response.data.query;
 
-                        this.norecord = this.news_list.data.length;
+                        this.norecord = response.data.postCount;
                        
                         if(this.norecord != 0) {
                             this.nosearch_msg = false;

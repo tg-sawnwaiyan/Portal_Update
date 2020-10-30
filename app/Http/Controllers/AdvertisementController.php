@@ -81,12 +81,12 @@ class AdvertisementController extends Controller
 
         $ads ->save();
 
-        if($logo_imgname != 'logo.png') {
+        if($logo_imgname != 'tis_advertisement_logo.png') {
             $request->photo->move('./upload/advertisement/', $imgname);
         }
         else{
-            $old_path = public_path().'\images\logo.png';
-            $new_path = public_path().'\upload\advertisement\logo_'.$string.'.png';
+            $old_path = 'images/tis_advertisement_logo.png';
+            $new_path = 'upload/advertisement/logo_'.$string.'.png';
             $move = File::copy($old_path, $new_path);
         }
 
@@ -160,8 +160,8 @@ class AdvertisementController extends Controller
             $string = str_replace(' ', '-', Carbon::now());
             $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
             $imageName = 'logo_'.$string.'.png';
-            $old_path = public_path().'\images\logo.png';
-            $new_path = public_path().'\upload\advertisement\logo_'.$string.'.png';
+            $old_path = 'images/tis_advertisement_logo.png';
+            $new_path = 'upload/advertisement/logo_'.$string.'.png';
             $move = File::copy($old_path, $new_path);
         }
         

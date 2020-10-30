@@ -1501,8 +1501,8 @@
                                     </tr>
                                     <tr>
                                         <th class="custom-bg-color"> メールアドレス</th>
-                                        <td v-if="m.website">{{m.email}}</td>
-                                        <td v-else> - </td>
+                                        <td>{{m.email}}</td>
+                                        <!-- <td v-else> - </td> -->
                                     </tr>
                                     <tr>
                                         <th class="custom-bg-color"> アクセス</th>

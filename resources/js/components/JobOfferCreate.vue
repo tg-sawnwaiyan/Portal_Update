@@ -764,10 +764,10 @@ import Autocomplete from 'vuejs-auto-complete'
                                     confirmButtonColor: "#31cd38",
                                      allowOutsideClick: false,
                                 });
-                                var num = localStorage.getItem('job_page_no'); 
-                                this.$router.push({ name: 'jobofferlist', params: { status: 'update','page_no':num } })
+                                var num = localStorage.getItem('page_no'); 
+                                // this.$router.push({ name: 'jobofferlist', params: { status: 'update','page_no':num } })
 
-                                //this.$router.go(-1);
+                                this.$router.go(-1);
                             })
                             .catch(error => {
                                 if (error.response.status == 422) {
