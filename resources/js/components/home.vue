@@ -115,7 +115,7 @@ export default {
  
                         if(this.cat_box_width/total_word < 26){
                             this.is_cat_overflow = true;
-                            this.computed_width = '98.2%';
+                            this.computed_width = '99.8%';
                         }
  
                         // if(total_word > 32) {
@@ -232,7 +232,7 @@ export default {
             const content = this.$refs.content;
             this.scrollTo(content, 300, 800);
             this.is_cat_slided = true;
-            this.computed_width = '93%';
+            this.computed_width = '98%';
         },
         scrollTo(element, scrollPixels, duration) {
 
@@ -397,7 +397,75 @@ $(document).ready(function(){
         /* border: 1px solid #ff9563 !important; */
          border: 1px solid #63b7ff !important;
     }
-  
+
+    .arr-btn {
+        cursor: pointer;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flex;
+        background:transparent;
+        padding: 5px 1px 4px;
+        font-size: 25px;
+    }
+
+    .left-arr-btn {
+        position: relative;     
+        left: -20px;
+        width: 2%;
+    }
+
+    .right-arr-btn {
+        position: relative;      
+        right: -46px;
+        width: 2%;
+    }
+
+    #myTab ul li {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+    }
+
+    .nav {
+        flex-wrap: nowrap;
+    }
+
+    .center{
+        /* float: left;
+        width: 38.9%;
+        border: 1px solid black;
+        margin: 1px; */
+        /* width: 95%; */
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        /* max-width: 100%; */
+    }
+
+    .card-header-tabs {
+        margin-right: -1.65rem;
+        /* margin-bottom: 0rem; */
+        margin-left: -1.65rem;
+        border-bottom: 0;
+    }
+    .cat-nav {
+        padding-bottom: 0;
+        height: 36px;
+        display: flex;
+        padding-left: 1.65rem !important;
+    }
+    
+    .left-arr-btn {
+        position: relative;     
+        left: -20px;
+        width: 2%;
+    }
+
+    .right-arr-btn {
+        position: relative;      
+        right: -40px;
+        width: 2%;
+    }
 </style>
 
 
