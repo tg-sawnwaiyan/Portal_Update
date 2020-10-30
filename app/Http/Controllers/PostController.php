@@ -296,7 +296,12 @@ class PostController extends Controller
             $post->related_news=$request->input('related_news');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
-            $post->created_by = $request->input('created_by');
+            if (is_null($request->input('created_by'))) {
+                $post->created_by = '';
+            }
+            else {
+                $post->created_by = $request->input('created_by');
+            }
             $post->created_by_company = $request->input('created_by_company');
             $post->user_id = 1;
             // $post->recordstatus=1;
