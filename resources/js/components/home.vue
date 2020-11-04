@@ -34,24 +34,25 @@
                 <!-- </form> -->
 
                <!-- slider -->
-                    <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+                    <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                             <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
                                 
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
-
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-
                                 </li>
 
                             </ul>
-
+                            
                         </div>
-                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
                     </div>
+
 
                 <main>
                     <slot />
@@ -221,6 +222,11 @@ export default {
                     }
                 });
 
+        },
+        changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
         },
         
         swipeLeft() {
@@ -478,6 +484,129 @@ $(document).ready(function(){
     .nav-tabs{
         border-bottom: none;
     }
+
+    @media only screen and (max-width: 767px){    
+    #myTab {
+        overflow-x: auto;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .cat-nav {
+        margin: 0 auto 15px auto !important;
+        padding-left: 0 !important;
+        max-height: 43px;
+        position: relative;
+        }
+    .no-scrollbar {
+        scrollbar-width: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .card-header {
+        padding: 0 0 3px 0 !important;
+    }
+
+    .tab-color0 {        
+        height: auto;
+        border-left: 5px solid #0066CC;
+        background-color: #0066CC;
+    }
+
+    .tab-color1 {
+        height: auto;
+        border-left: 5px solid #a3774a;
+        background-color: #a3774a;
+    }
+
+    .tab-color2 {
+        height: auto;
+        border-left: 5px solid #9579ef;
+        background-color: #9579ef;
+    }
+
+    .tab-color3 {
+        height: auto;
+        border-left: 5px solid #21d1de;
+        background-color: #21d1de;
+    }
+
+    .tab-color4 {
+        height: auto;
+        border-left: 5px solid #d1291d;
+        background-color: #d1291d;
+    }
+
+    .tab-color5 {
+        height: auto;
+        border-left: 5px solid #63b7ff;
+        background-color: #63b7ff;
+    }
+
+    .nav-tabs .router-link-exact-active,
+    #myTab .nav-link.active {
+        background-color: transparent !important;
+        padding: 0.5rem 1rem 0.3rem 1rem;
+        height: auto;
+    }
+
+    #myTab ul li {
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+
+    #myTab .nav-link.active {
+        background-color: #0066CC !important;
+        border-top-right-radius: 8px !important;
+        border-top-left-radius: 8px !important;
+    }
+
+    #myTab .nav-link {
+        color: #fff;
+    }
+
+    .tab-card-header {
+        background-color: transparent !important;
+    }
+
+    .nav-link {
+        padding: 0.3rem 1rem;
+    }
+    .cat-nav{
+        height: auto;
+        margin: 0 auto 15px auto !important;
+    }
+    .nav {
+        display: -webkit-box;
+    }
+    .bg_color{
+        width: 100%;
+        height: 3px;
+        background-color: #0066CC;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    #top {
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+    #navtab {
+        left: 0px;
+        bottom: 0px;
+        z-index: 99;
+        width: 100%;
+        position: fixed;
+    }
+    .maintab-content {
+    padding: 7px 7px 42px 7px;
+    }
+
+    }
+
 </style>
 
 
