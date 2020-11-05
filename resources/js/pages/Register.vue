@@ -190,12 +190,10 @@
         changeContractStatus(){
             this.contract_status = 1;
             this.disable_color = '#2C3E50';
-            var show_docs = '../upload/TIS_業務委託契約書(案様).doc';
+            var show_docs = '../upload/contract/TIS_業務委託契約書(案様).doc';
             open(show_docs);
         },
         check(){
-            // this.contract_chk=1;
-            console.log(this.contract_chk);
             if(this.contract_chk != '')
             {
                 this.errors.contract_chk = ''
