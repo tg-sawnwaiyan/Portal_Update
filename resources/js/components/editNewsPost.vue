@@ -19,8 +19,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>担当者 </label>
-                        <input type="text" autocomplete="off" class="form-control" placeholder="担当者名を入力してください。" v-model="news.created_by">
+                        <label>記者名・通信社名等 </label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="記者名を入力してください。" v-model="news.created_by_company">
+                    </div>
+
+                    <div class="form-group">
+                        <label>信用者</label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="信用者を入力してください。" v-model="news.created_by">
                     </div>
 
                     <div class="form-group" id="showimage">
@@ -100,10 +105,6 @@
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
                     
-                    <!-- <div class="form-group">
-                        <label>会社 </label>
-                        <input type="text" autocomplete="off" class="form-control" placeholder="会社名を入力してください。" v-model="news.created_by_company">
-                    </div> -->
                     <div v-if="selectedValue != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
