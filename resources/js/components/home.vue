@@ -496,6 +496,8 @@ $(document).ready(function(){
         padding-left: 0 !important;
         max-height: 43px;
         position: relative;
+        height: auto;
+        margin: 0 auto 15px auto !important;
         }
     .no-scrollbar {
         scrollbar-width: none;
@@ -574,10 +576,6 @@ $(document).ready(function(){
     .nav-link {
         padding: 0.3rem 1rem;
     }
-    .cat-nav{
-        height: auto;
-        margin: 0 auto 15px auto !important;
-    }
     .nav {
         display: -webkit-box;
     }
@@ -604,7 +602,21 @@ $(document).ready(function(){
     .maintab-content {
     padding: 7px 7px 42px 7px;
     }
-
+    .nursing-tabColor li.subtab2 > .router-link-active,
+    .news-tabColor li.subtab1 > .router-link-active,
+    .job-tabColor li.subtab4 > .router-link-active,
+    .hospital-tabColor li.subtab3 > .router-link-active {
+        padding: 0;
+        height: 42px !important;
+    }
+    #upper-tab {
+    margin-top: 5px;
+    }
+    }
+    @media (max-width: 320px){
+    #upper-tab {
+    margin-top: 33px;
+    }
     }
 
 </style>
