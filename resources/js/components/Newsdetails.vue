@@ -34,18 +34,15 @@
                   </h4>  
                   <div style="text-align: center;margin-bottom: 20px;">
                     <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
-                      {{news.created_by}}
-                    </span>
-                    <!-- <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
                       {{news.created_by_company}}
-                    </span> -->
+                    </span>
                   </div>
                   <div class="set-date">
                     <p :class="news.cat_id == 26 ? 'title26':'title'+(5-(Math.floor(news.cat_id%5)))">
                      <span>{{news.cat_name}}</span>
                      <small style="color:#aaa;"  v-if="news.cat_name != 'PR'" >
-                      <i class="fa fa-calendar-alt"></i>
-                      &nbsp;&nbsp;{{news.created_at}}
+                       <i class="fa fa-calendar-alt"></i>
+                       &nbsp;&nbsp;{{news.created_at}}
                     </small>
                     </p>   
                   </div>
@@ -63,6 +60,9 @@
                     <p class="p5 mb-2 text-justify" v-html="news.body"></p>
                   </div>
                 </div>
+                <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin: 1rem auto 0;">
+                  {{news.created_by}}
+                </span>
                 
             </div>
             
