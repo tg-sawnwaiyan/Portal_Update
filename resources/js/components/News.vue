@@ -1122,6 +1122,7 @@
     $(document).ready(function(){
         // $("#top_a").addClass("active");
         var url      = window.location.href; 
+        console.log(url);
         if(url.indexOf('category') == -1){
             $("#top_a").addClass("active");
         }
@@ -1309,6 +1310,13 @@
 
 .nav-tabs{
     border-bottom: none;
+}
+
+.router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282 !important;
+    border: none !important;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {

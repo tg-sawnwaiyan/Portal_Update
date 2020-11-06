@@ -682,4 +682,10 @@ export default {
     .nav-tabs{
         border-bottom: none;
     }
+.router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282 !important;
+    border: none !important;
+}
 </style>
