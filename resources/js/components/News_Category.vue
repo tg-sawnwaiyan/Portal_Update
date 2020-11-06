@@ -770,6 +770,7 @@ export default {
 @media only screen and (max-width:767px)  {
     .cat-nav {
         padding-left: 0 !important;
+        height: auto !important;
     }
 }
 </style>
