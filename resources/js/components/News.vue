@@ -19,24 +19,24 @@
                         </div>
                         <!-- </form> -->
                         <!-- slider -->
-                        <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                            <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                            <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+                         <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li id="top" class="nav-item nav-line"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
-                                    
-                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                </li>
 
-                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                            <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                            </ul>
+                            
                         </div>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
+                    </div>
                         <!-- end of slider -->
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
@@ -1115,13 +1115,19 @@
                 this.scrollTo(content, 300, 800);
                 this.is_cat_slided = true;
                 this.computed_width = '98%';
-            }         
+            },
+             changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
+        },         
 
         }
     }
     $(document).ready(function(){
         // $("#top_a").addClass("active");
         var url      = window.location.href; 
+        console.log(url);
         if(url.indexOf('category') == -1){
             $("#top_a").addClass("active");
         }
@@ -1310,6 +1316,13 @@
 .nav-tabs{
     border-bottom: none;
 }
+
+#myTab .router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282 !important;
+    border: none !important;
+}
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1400,4 +1413,7 @@
         width: 100%;
     }
 }
+</style>
+<style scoped>
+@import '../../../public/css/categorymenu.css';
 </style>
