@@ -1312,7 +1312,7 @@
     border-bottom: none;
 }
 
-.router-link-exact-active {
+#myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
     background-color: #828282 !important;
