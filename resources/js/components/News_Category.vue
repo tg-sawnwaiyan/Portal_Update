@@ -1,6 +1,40 @@
 <template>
 <layout>   
 <div>    
+    <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+                            <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
+                                <!--search input-->
+                                <div class="search-input">
+                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                                    <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
+                                    <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                                        <i class="fas fa-search"></i> 検索
+                                    </button>
+                                </div>                                    
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                        <!-- slider -->
+                        <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                </li>
+
+                            </ul>
+                            
+                        </div>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
+                    </div>
+                        <!-- end of slider -->
     <div class="col-12">
         <!-- <div class="pc-991-1880">
             <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
@@ -247,6 +281,7 @@ export default {
 
         return {
             news:[],
+            cats: [],
             searchnews:[],
             cat_name:'',
             cat_id:'',
@@ -255,8 +290,17 @@ export default {
             block:false,
             nonblock:false,
             w_width: $(window).width(),
+            is_cat_overflow: false,
+            is_cat_slided: false,
+            computed_width: '100%',
+            w_width: $(window).width(),
+            norecord_msg: false,
+            cat_box_width: null,
         }
-   },
+    },
+    mounted() {
+        this.getAllCat();
+    },
    created(){
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
@@ -339,6 +383,34 @@ export default {
         }
     },
    methods:{
+            getAllCat: function() {
+                this.axios .get('/api/home') 
+                .then(response => {
+                        this.cats = response.data;
+                        var total_word = 0;
+                        $.each(this.cats, function(key,value) {
+                            total_word += value.name.length;
+                        });
+
+                        if(this.cat_box_width/total_word < 23){
+                            this.is_cat_overflow = true;
+                        }
+
+                        // if(total_word > 32) {
+                        //     this.is_cat_overflow = true;
+                        //     this.computed_width = '99%';
+                        // }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
+
+                        this.getPostByCatID();
+
+                        this.getLatestPostByCatID();
+
+                    });
+
+            },
             next() {
                 this.$refs.slick.next();
             },
@@ -363,6 +435,73 @@ export default {
                         this.search_word = $('#search-free-word').val();          
                     }
                     this.getlatestpost();
+
+            },
+            getPostByCatID: function(catId = this.cats[0].id) {
+                if ($('#search-free-word').val() != null) {
+                    var search_word = $('#search-free-word').val();
+                } else {
+                    var search_word = null;
+                }
+
+                if (catId !== undefined) {
+                    var cat_id = catId;
+                } else {
+                    var cat_id = this.cats[0].id;
+                }
+                let fd = new FormData();
+                fd.append('search_word', search_word);
+                fd.append('category_id', cat_id);
+                $('.search-item').css('display', 'none');
+                this.categoryId = cat_id;
+                this.axios.post("/api/posts", fd)
+                    .then(response => {
+                        this.posts = response.data;
+                    });
+            },
+            getLatestPostByCatID: function(catId) {
+
+                if ($('#search-free-word').val()) {
+
+                    var search_word = $('#search-free-word').val();
+                } else {
+
+                    var search_word = null;
+
+                }
+
+                if (catId) {
+
+                    var cat_id = catId;
+
+                } else {
+
+                    var cat_id = this.cats[0].id;
+
+                }
+
+                let fd = new FormData();
+
+                fd.append('search_word', search_word)
+
+                fd.append('category_id', cat_id)
+
+                $('.search-item').css('display', 'none');
+
+                this.categoryId = cat_id;
+
+                this.axios.post("/api/get_latest_post" , fd)
+
+                .then(response => {
+
+                    this.latest_post = response.data;
+                    if(Object.keys(this.latest_post).length == 0){
+                        this.latest_post_null = true;
+                    }
+                    else{
+                        this.latest_post_null = false;
+                    }
+                });
 
             },
             getlatestpost()
@@ -396,10 +535,89 @@ export default {
                 this.getlatestpost();
 
             },
+            swipeLeft() {
+            const content = this.$refs.content;
+            this.scrollTo(content, -300, 800);
+        },
+
+        swipeRight() {
+            const content = this.$refs.content;
+            this.scrollTo(content, 300, 800);
+            this.is_cat_slided = true;
+            this.computed_width = '98%';
+        },
+        scrollTo(element, scrollPixels, duration) {
+
+                const scrollPos = element.scrollLeft;
+
+                // Condition to check if scrolling is required
+
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
+
+                {
+
+                    // Get the start timestamp
+
+                    const startTime =
+
+                    "now" in window.performance
+
+                        ? performance.now()
+
+                        : new Date().getTime();
+
+
+
+                    function scroll(timestamp) {
+
+                    //Calculate the timeelapsed
+
+                    const timeElapsed = timestamp - startTime;
+
+                    //Calculate progress
+
+                    const progress = Math.min(timeElapsed / duration, 1);
+
+                    //Set the scrolleft
+
+                    element.scrollLeft = scrollPos + scrollPixels * progress;
+
+                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
+
+                    if (timeElapsed < duration) {
+
+                        //Request for animation
+
+                        window.requestAnimationFrame(scroll);
+
+                    } else {
+
+                        return;
+
+                    }
+
+                    }
+
+                    //Call requestAnimationFrame on scroll function first time
+
+                    window.requestAnimationFrame(scroll);
+
+                }
+
+        },
+         changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
+        },
    }
     
 }
 </script>
+
+<style scoped>
+@import '../../../public/css/categorymenu.css';
+</style>
 <style scoped>
 .pad-new{
     padding-left: 5px !important;
@@ -462,5 +680,96 @@ export default {
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
     overflow: hidden;
+}
+
+.arr-btn {
+    cursor: pointer;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    background:transparent;
+    padding: 5px 1px 4px;
+    font-size: 25px;
+}
+
+.left-arr-btn {
+    position: relative;     
+    left: -20px;
+    width: 2%;
+}
+
+.right-arr-btn {
+    position: relative;      
+    right: -47px;
+    width: 2%;
+}
+
+#myTab ul li {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+}
+
+.nav {
+    flex-wrap: nowrap;
+}
+
+.center{
+    /* float: left;
+    width: 38.9%;
+    border: 1px solid black;
+    margin: 1px; */
+    /* width: 95%; */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    /* max-width: 100%; */
+}
+
+.card-header-tabs {
+    margin-right: -1.65rem;
+    /* margin-bottom: 0rem; */
+    margin-left: -1.65rem;
+    border-bottom: 0;
+}
+.cat-nav {
+    padding-bottom: 0;
+    height: 36px;
+    display: flex;
+    padding-left: 1.65rem !important;
+}
+    
+.left-arr-btn {
+    position: relative;     
+    left: -20px;
+    width: 2%;
+}
+
+.right-arr-btn {
+    position: relative;      
+    right: -40px;
+    width: 2%;
+}
+
+#top {
+    border-left: 1px solid #fff;
+}
+
+.nav-tabs{
+    border-bottom: none;
+}
+
+#myTab .router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282;
+    border: none !important;
+}
+
+
+@media only screen and (max-width:767px)  {
+    .cat-nav {
+        padding-left: 0 !important;
+    }
 }
 </style>

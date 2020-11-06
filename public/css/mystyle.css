@@ -1466,6 +1466,7 @@ border-radius: 3px;
 
 .form_content {
     padding: 70px 30px 40px 30px;
+    overflow: hidden;
 }
 
 #psd_reset_form .reset_form {
@@ -1761,6 +1762,25 @@ border-radius: 3px;
 /* ::-webkit-file-upload-button:after{
     content: "Testing";
 } */
+
+.disable_btn:disabled {
+    background: #999 !important;
+    color: #F5F5F5!important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0.25rem;
+    border-color: transparent;
+    margin-left: 5em;
+}
+.disable_btn {
+    background: #2980B9 !important;
+    color:  #F5F5F5!important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0.25rem;
+    border-color: transparent;
+    margin-left: 5em;
+}
 
 .register_btn {
     color: white !important;
@@ -4606,6 +4626,9 @@ overflow-y: auto;
 }
 
 .nav-tabs .router-link-exact-active {
+    color: #fff !important;
+    background-color: #828282 !important;
+    border: none !important; 
     /* background-color: rgba(0, 0, 0, 0.1); */
     /*border-left-color: #ff9563;
     font-weight: bold;
@@ -4614,10 +4637,16 @@ overflow-y: auto;
     /*color: #23a2f5 !important;*/
     /* color: #2980b9 !important; */
     /*font-weight: bold;*/
-    color: #fff !important;
-    background-color: #828282 !important;
-    border: none !important;
-    height: 36px;
+    /* height: 36px; */
+
+    /* old css */
+    /* border-left-color: #ff9563;
+     font-weight: bold;
+     border-radius: 0px !important;
+     color: #23a2f5 !important;
+     font-weight: bold;*/
+     /* color: #fff !important; */
+     /* color: #2980b9 !important; */
 }
 
 #headerbar {

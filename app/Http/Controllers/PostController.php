@@ -188,8 +188,12 @@ class PostController extends Controller
                 array_push($aryPush, $aryEmpty);
             }
         }
-               
-        $aryResults = array_chunk($aryPush, 4);
+
+        if(array_filter($aryPush)){            
+            $aryResults = array_chunk($aryPush, 4);
+        }else{
+            $aryResults = [];
+        }
 
         return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults));
     }

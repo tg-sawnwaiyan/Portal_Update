@@ -4,7 +4,41 @@
             <div class="">
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
-                             
+                        <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+                            <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
+                                <!--search input-->
+                                <div class="search-input">
+                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                                    <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
+                                    <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                                        <i class="fas fa-search"></i> 検索
+                                    </button>
+                                </div>                                    
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                        <!-- slider -->
+                         <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                </li>
+
+                            </ul>
+                            
+                        </div>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
+                    </div>
+                        <!-- end of slider -->
+                        
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
                             <div class="card col-md-12 col-lg-6 pad-new d-none d-sm-block first-child" style="border:0px!important;">
@@ -572,7 +606,7 @@
 
             $('#upper-tab').addClass('news-borderColor');
 
-            // this.getAllCat();
+            this.getAllCat();
 
             this.getLatestPostsByCatID();
 
@@ -792,34 +826,34 @@
             log() {
                 // console.log()
             },
-            // getAllCat: function() {
-            //     this.axios .get('/api/home') 
-            //     .then(response => {
-            //             this.cats = response.data;
-            //             var total_word = 0;
-            //             $.each(this.cats, function(key,value) {
-            //                 total_word += value.name.length;
-            //             });
+            getAllCat: function() {
+                this.axios .get('/api/home') 
+                .then(response => {
+                        this.cats = response.data;
+                        var total_word = 0;
+                        $.each(this.cats, function(key,value) {
+                            total_word += value.name.length;
+                        });
 
-            //             if(this.cat_box_width/total_word < 23){
-            //                 this.is_cat_overflow = true;
-            //             }
+                        if(this.cat_box_width/total_word < 23){
+                            this.is_cat_overflow = true;
+                        }
 
-            //             // if(total_word > 32) {
-            //             //     this.is_cat_overflow = true;
-            //             //     this.computed_width = '99%';
-            //             // }
-            //             // else{
-            //             //       this.is_cat_overflow = false;
-            //             // }
+                        // if(total_word > 32) {
+                        //     this.is_cat_overflow = true;
+                        //     this.computed_width = '99%';
+                        // }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
 
-            //             this.getPostByCatID();
+                        this.getPostByCatID();
 
-            //             this.getLatestPostByCatID();
+                        this.getLatestPostByCatID();
 
-            //         });
+                    });
 
-            // },
+            },
 
             groupBy(array, key) {
 
@@ -889,28 +923,28 @@
             },
 
 
-            // getPostByCatID: function(catId = this.cats[0].id) {
-            //     if ($('#search-free-word').val() != null) {
-            //         var search_word = $('#search-free-word').val();
-            //     } else {
-            //         var search_word = null;
-            //     }
+            getPostByCatID: function(catId = this.cats[0].id) {
+                if ($('#search-free-word').val() != null) {
+                    var search_word = $('#search-free-word').val();
+                } else {
+                    var search_word = null;
+                }
 
-            //     if (catId !== undefined) {
-            //         var cat_id = catId;
-            //     } else {
-            //         var cat_id = this.cats[0].id;
-            //     }
-            //     let fd = new FormData();
-            //     fd.append('search_word', search_word);
-            //     fd.append('category_id', cat_id);
-            //     $('.search-item').css('display', 'none');
-            //     this.categoryId = cat_id;
-            //     this.axios.post("/api/posts", fd)
-            //         .then(response => {
-            //             this.posts = response.data;
-            //         });
-            // },
+                if (catId !== undefined) {
+                    var cat_id = catId;
+                } else {
+                    var cat_id = this.cats[0].id;
+                }
+                let fd = new FormData();
+                fd.append('search_word', search_word);
+                fd.append('category_id', cat_id);
+                $('.search-item').css('display', 'none');
+                this.categoryId = cat_id;
+                this.axios.post("/api/posts", fd)
+                    .then(response => {
+                        this.posts = response.data;
+                    });
+            },
 
             getCategoryRandomValue(){
 
@@ -920,51 +954,51 @@
 
             },
 
-            // getLatestPostByCatID: function(catId) {
+            getLatestPostByCatID: function(catId) {
 
-            //     if ($('#search-free-word').val()) {
+                if ($('#search-free-word').val()) {
 
-            //         var search_word = $('#search-free-word').val();
-            //     } else {
+                    var search_word = $('#search-free-word').val();
+                } else {
 
-            //         var search_word = null;
+                    var search_word = null;
 
-            //     }
+                }
 
-            //     if (catId) {
+                if (catId) {
 
-            //         var cat_id = catId;
+                    var cat_id = catId;
 
-            //     } else {
+                } else {
 
-            //         var cat_id = this.cats[0].id;
+                    var cat_id = this.cats[0].id;
 
-            //     }
+                }
 
-            //     let fd = new FormData();
+                let fd = new FormData();
 
-            //     fd.append('search_word', search_word)
+                fd.append('search_word', search_word)
 
-            //     fd.append('category_id', cat_id)
+                fd.append('category_id', cat_id)
 
-            //     $('.search-item').css('display', 'none');
+                $('.search-item').css('display', 'none');
 
-            //     this.categoryId = cat_id;
+                this.categoryId = cat_id;
 
-            //     this.axios.post("/api/get_latest_post" , fd)
+                this.axios.post("/api/get_latest_post" , fd)
 
-            //     .then(response => {
+                .then(response => {
 
-            //         this.latest_post = response.data;
-            //         if(Object.keys(this.latest_post).length == 0){
-            //             this.latest_post_null = true;
-            //         }
-            //         else{
-            //             this.latest_post_null = false;
-            //         }
-            //     });
+                    this.latest_post = response.data;
+                    if(Object.keys(this.latest_post).length == 0){
+                        this.latest_post_null = true;
+                    }
+                    else{
+                        this.latest_post_null = false;
+                    }
+                });
 
-            // },
+            },
 
             getLatestPostFromAllCat: function() {
                 // this.$loading(true);
@@ -979,34 +1013,34 @@
                     });
             },
 
-            // searchCategory() {
-            //     this.$loading(true);
-            //     if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-            //         this.clearSearch();
-            //     } else {
+            searchCategory() {
+                this.$loading(true);
+                if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                    this.clearSearch();
+                } else {
 
-            //         this.status = 1;
+                    this.status = 1;
 
-            //         this.search_word = $('#search-free-word').val();
-            //         this.getLatestPostsByCatID();                 
+                    this.search_word = $('#search-free-word').val();
+                    this.getLatestPostsByCatID();                 
 
-            //     }
-            // },
-            // clearSearch() {
+                }
+            },
+            clearSearch() {
 
-            //     this.status = 0;
+                this.status = 0;
 
-            //     this.search_word = '';
+                this.search_word = '';
 
-            //     this.getLatestPostsByCatID();
+                this.getLatestPostsByCatID();
 
-            // },
+            },
 
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
 
-           /* scrollTo(element, scrollPixels, duration) {
+            scrollTo(element, scrollPixels, duration) {
 
                 const scrollPos = element.scrollLeft;
 
@@ -1081,11 +1115,23 @@
                 this.scrollTo(content, 300, 800);
                 this.is_cat_slided = true;
                 this.computed_width = '98%';
-            }*/           
+            },
+             changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
+        },         
 
         }
     }
-
+    $(document).ready(function(){
+        // $("#top_a").addClass("active");
+        var url      = window.location.href; 
+        console.log(url);
+        if(url.indexOf('category') == -1){
+            $("#top_a").addClass("active");
+        }
+    });
  </script>
 
 <style>
@@ -1200,8 +1246,6 @@
     background:transparent;
     padding: 5px 1px 4px;
     font-size: 25px;
-    /* padding-top: 5px;
-    padding-bottom: 4px; */
 }
 .nav-tabs{
     border-bottom: none;
@@ -1210,13 +1254,13 @@
 .left-arr-btn {
     position: relative;     
     left: -20px;
-    width: 4%;
+    width: 2%;
 }
 
 .right-arr-btn {
     position: relative;      
-    right: -40px;
-    width: 6%;
+    right: -47px;
+    width: 2%;
 }
 .left-arr-btn .fas, .right-arr-btn .fas {
     color:#828282;
@@ -1263,6 +1307,21 @@
 }
 .news-slider-width{
     width: 100%;
+}
+
+#top {
+    border-left: 1px solid #fff;
+}
+
+.nav-tabs{
+    border-bottom: none;
+}
+
+#myTab .router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282 !important;
+    border: none !important;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
@@ -1354,4 +1413,7 @@
         width: 100%;
     }
 }
+</style>
+<style scoped>
+@import '../../../public/css/categorymenu.css';
 </style>
