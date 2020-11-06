@@ -1078,6 +1078,12 @@ class SearchMapController extends Controller
                     $yeararr[$total_year] =$year;
                 }
             }
+            $compare_function = function($a,$b) {
+                $a_timestamp = strtotime($a); 
+                $b_timestamp = strtotime($b);
+                return $b_timestamp <=> $a_timestamp;
+            };
+            usort($yeararr, $compare_function);
         }
         return response()->json(array('linkednews'=>$arr,'yeararr'=>$yeararr));
     }

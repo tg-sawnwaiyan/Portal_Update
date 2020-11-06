@@ -108,23 +108,23 @@
                             </div>
                         </div>
                         <!-- <div id="jsErrorMessage" class="error"></div> -->
+                        <!-- 契約書 追加 -->
                         <div class="form-group col-12 text-center">
                             <a v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
                         </div>
-                        <div style="position:relative;float:right;">
-                            <div class="input-group">
-                                <span>
-                                    <label class="control-label">
-                                        <input class="checkbox" type="checkbox" value=1 v-model="contract_chk" @change="check($event)" :disabled="contract_status == 0">
-                                        <span :style="{color:disable_color}">
-                                            本システムを使用するにあたり、上記契約書に同意する
-                                        </span>
-                                    </label>
+                        <div class="contract-group">
+                            <div class="contract-label">
+                                <span class="contract-checkbox">
+                                    <input type="checkbox" value=1 v-model="contract_chk" @change="check($event)" :disabled="contract_status == 0">
+                                    本システムを使用するにあたり、上記契約書に同意する
                                 </span>
+                                <span v-if="errors.contract_chk" class="contract-error">{{errors.contract_chk}}</span>
+                            </div>
+                            <div class="contract-btn">
                                 <button type="submit" class="disable_btn" :disabled="contract_status == 0">登録</button>
-                                <span v-if="errors.contract_chk" class="error">{{errors.contract_chk}}</span>
                             </div>
                         </div>
+                        <!-- 契約書 追加 -->
                     </form>
                 </div>
             </div>
@@ -444,4 +444,46 @@
 {
     text-align: left;
 }
+/*  契約書 追加  */
+.contract-group {
+    float: right;
+}
+.contract-label {
+    display: inline-block;
+}
+.contract-btn {
+    float: right;
+}
+.contract-error {
+    color: #ff0000;
+    font-size: 16px;
+    border: 1px solid;
+    width: 100%;
+    display: inline-block;
+    line-height: 0.8;
+    padding: 2px 5px;
+}
+.contract-checkbox::after {
+    content: '\A';
+    white-space: pre;
+}
+.disable_btn:disabled {
+    background: #999 !important;
+    color: #F5F5F5!important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0.25rem;
+    border-color: transparent;
+    margin-left: 5em;
+}
+.disable_btn {
+    background: #2980B9 !important;
+    color:  #F5F5F5!important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0.25rem;
+    border-color: transparent;
+    margin-left: 5em;
+}
+ /* 契約書 追加  */
 </style>
