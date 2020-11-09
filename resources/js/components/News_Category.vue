@@ -16,24 +16,24 @@
                         </div>
                         <!-- </form> -->
                         <!-- slider -->
-                        <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                            <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                            <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+                        <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li id="top" class="nav-item nav-line"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
-                                    
-                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                </li>
 
-                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                            <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                            </ul>
+                            
                         </div>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
+                    </div>
                         <!-- end of slider -->
     <div class="col-12">
         <!-- <div class="pc-991-1880">
@@ -437,6 +437,73 @@ export default {
                     this.getlatestpost();
 
             },
+            getPostByCatID: function(catId = this.cats[0].id) {
+                if ($('#search-free-word').val() != null) {
+                    var search_word = $('#search-free-word').val();
+                } else {
+                    var search_word = null;
+                }
+
+                if (catId !== undefined) {
+                    var cat_id = catId;
+                } else {
+                    var cat_id = this.cats[0].id;
+                }
+                let fd = new FormData();
+                fd.append('search_word', search_word);
+                fd.append('category_id', cat_id);
+                $('.search-item').css('display', 'none');
+                this.categoryId = cat_id;
+                this.axios.post("/api/posts", fd)
+                    .then(response => {
+                        this.posts = response.data;
+                    });
+            },
+            getLatestPostByCatID: function(catId) {
+
+                if ($('#search-free-word').val()) {
+
+                    var search_word = $('#search-free-word').val();
+                } else {
+
+                    var search_word = null;
+
+                }
+
+                if (catId) {
+
+                    var cat_id = catId;
+
+                } else {
+
+                    var cat_id = this.cats[0].id;
+
+                }
+
+                let fd = new FormData();
+
+                fd.append('search_word', search_word)
+
+                fd.append('category_id', cat_id)
+
+                $('.search-item').css('display', 'none');
+
+                this.categoryId = cat_id;
+
+                this.axios.post("/api/get_latest_post" , fd)
+
+                .then(response => {
+
+                    this.latest_post = response.data;
+                    if(Object.keys(this.latest_post).length == 0){
+                        this.latest_post_null = true;
+                    }
+                    else{
+                        this.latest_post_null = false;
+                    }
+                });
+
+            },
             getlatestpost()
             {
                   if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
@@ -538,10 +605,19 @@ export default {
                 }
 
         },
+         changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
+        },
    }
     
 }
 </script>
+
+<style scoped>
+@import '../../../public/css/categorymenu.css';
+</style>
 <style scoped>
 .pad-new{
     padding-left: 5px !important;
@@ -607,79 +683,94 @@ export default {
 }
 
 .arr-btn {
-        cursor: pointer;
-        display: inline-flex;
-        display: -webkit-inline-flex;
-        display: -ms-inline-flex;
-        background:transparent;
-        padding: 5px 1px 4px;
-        font-size: 25px;
-    }
+    cursor: pointer;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    background:transparent;
+    padding: 5px 1px 4px;
+    font-size: 25px;
+}
 
-    .left-arr-btn {
-        position: relative;     
-        left: -20px;
-        width: 2%;
-    }
+.left-arr-btn {
+    position: relative;     
+    left: -20px;
+    width: 2%;
+}
 
-    .right-arr-btn {
-        position: relative;      
-        right: -47px;
-        width: 2%;
-    }
+.right-arr-btn {
+    position: relative;      
+    right: -47px;
+    width: 2%;
+}
 
-    #myTab ul li {
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        display: -webkit-inline-flex;
-    }
+#myTab ul li {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+}
 
-    .nav {
-        flex-wrap: nowrap;
-    }
+.nav {
+    flex-wrap: nowrap;
+}
 
-    .center{
-        /* float: left;
-        width: 38.9%;
-        border: 1px solid black;
-        margin: 1px; */
-        /* width: 95%; */
-        overflow: hidden;
-        white-space: nowrap;
-        display: inline-block;
-        /* max-width: 100%; */
-    }
+.center{
+    /* float: left;
+    width: 38.9%;
+    border: 1px solid black;
+    margin: 1px; */
+    /* width: 95%; */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    /* max-width: 100%; */
+}
 
-    .card-header-tabs {
-        margin-right: -1.65rem;
-        /* margin-bottom: 0rem; */
-        margin-left: -1.65rem;
-        border-bottom: 0;
-    }
-    .cat-nav {
-        padding-bottom: 0;
-        height: 36px;
-        display: flex;
-        padding-left: 1.65rem !important;
-    }
+.card-header-tabs {
+    margin-right: -1.65rem;
+    /* margin-bottom: 0rem; */
+    margin-left: -1.65rem;
+    border-bottom: 0;
+}
+.cat-nav {
+    padding-bottom: 0;
+    height: 36px;
+    display: flex;
+    padding-left: 1.65rem !important;
+}
     
-    .left-arr-btn {
-        position: relative;     
-        left: -20px;
-        width: 2%;
-    }
+.left-arr-btn {
+    position: relative;     
+    left: -20px;
+    width: 2%;
+}
 
-    .right-arr-btn {
-        position: relative;      
-        right: -40px;
-        width: 2%;
-    }
+.right-arr-btn {
+    position: relative;      
+    right: -40px;
+    width: 2%;
+}
 
-    #top {
-        border-left: 1px solid #fff;
-    }
+#top {
+    border-left: 1px solid #fff;
+}
 
-    .nav-tabs{
-        border-bottom: none;
+.nav-tabs{
+    border-bottom: none;
+}
+
+#myTab .router-link-exact-active {
+    height: 36px;
+    color: #fff !important;
+    background-color: #828282;
+    border: none !important;
+}
+
+
+@media only screen and (max-width:767px)  {
+    .cat-nav {
+        padding-left: 0 !important;
+        height: auto !important;
     }
+}
 </style>

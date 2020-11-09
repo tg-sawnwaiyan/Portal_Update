@@ -188,8 +188,12 @@ class PostController extends Controller
                 array_push($aryPush, $aryEmpty);
             }
         }
-               
-        $aryResults = array_chunk($aryPush, 4);
+
+        if(array_filter($aryPush)){            
+            $aryResults = array_chunk($aryPush, 4);
+        }else{
+            $aryResults = [];
+        }
 
         return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults));
     }
@@ -300,7 +304,7 @@ class PostController extends Controller
                 $post->created_by_company = '';
             }
             else {
-                $post->created_by = $request->input('created_by');
+                $post->created_by_company = $request->input('created_by_company');
             }
             if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
                 $post->created_by = '';
@@ -308,7 +312,7 @@ class PostController extends Controller
             else {
                 $post->created_by = $request->input('created_by');
             }
-            $post->created_by_company = $request->input('created_by_company');
+            // $post->created_by_company = $request->input('created_by_company');
             $post->user_id = 1;
             // $post->recordstatus=1;
             $post->save();
