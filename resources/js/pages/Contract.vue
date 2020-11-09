@@ -3,20 +3,20 @@
         <h2 class="contract-fee-header" style="color:#636b6f;">業務委託契約書</h2>
         <div class="container pad-free-750">
             <div class="contract-container">
-                <p>
+                <div class="contract-ul-list">
+                    <p>
                     （以下甲という）と株式会社（以下乙という）とは、甲の運営する有料老
                     人ホーム（以下施設という） に対する入居希望者（以下顧客という）を、
                     乙が甲に紹介斡旋することについて次のとおり契約を締結する。
-                </p>
-                <div class="contract-ul-list">
+                    </p>
                     <dl>
-                        <dt>第1条（業務）</dt>
+                        <dt>第 1 条（業務）</dt>
                         <dd>
                             甲は、甲の運営する施設に対する顧客の紹介斡旋を乙に委託し、乙はこれを受託した。甲は、紹介に必要なパンフレット・画像・詳細データ等を乙へ提供するものとする。
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第2条（期間）</dt>
+                        <dt>第 2 条（期間）</dt>
                         <dd>
                             本契約の有効期間は、2020年7月15日から2021年8月31日までの１年間とする。
                             ただし、期間満了の3ヶ月前までに甲乙いずれからも異議のない場合には、さらに
@@ -24,13 +24,13 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第3条（紹介手数料等）</dt>
+                        <dt>第 3 条（紹介手数料等）</dt>
                         <dd>
                             紹介手数料の支払い方法については、別に定めるものとする。また、紹介手数料については、別に定める覚書にて取り交わすものとする。
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第4条（顧客紹介の通知および適用除外等）</dt>
+                        <dt>第 4 条（顧客紹介の通知および適用除外等）</dt>
                         <dd style="margin-left:0px">
                             <ol class="contract-ol">
                                 <li>
@@ -50,7 +50,7 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第5条（遵守事項）</dt>
+                        <dt>第 5 条（遵守事項）</dt>
                         <dd style="margin-left:0px">
                             <ol class="contract-ol-circle">
                                 <li>
@@ -63,7 +63,7 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第6条（解除及び損害賠償）</dt>
+                        <dt>第 6 条（解除及び損害賠償）</dt>
                         <dd style="margin-left:0px">
                             <ol class="contract-ol-circle">
                                 <li>
@@ -76,13 +76,13 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第7条（入居契約以降の責任）</dt>
+                        <dt>第 7 条（入居契約以降の責任）</dt>
                         <dd>
                             甲と顧客との入居契約締結以降における甲と顧客との間のトラブルについては、甲が自己の責任において解決するものとし、乙は一切その責任を負わないものとする。
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第8条（反社会的勢力の排除）</dt>
+                        <dt>第 8 条（反社会的勢力の排除）</dt>
                         <dd>
                             甲及び乙は、それぞれの相手方に対し、次の各事項を確約するものとする。
                             <ol style="margin-left:-40px;" class="contract-ol-circle">
@@ -122,70 +122,68 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第9条（協議事項）</dt>
+                        <dt>第 9 条（協議事項）</dt>
                         <dd>
                             本契約に定めのない事項または本契約の内容に疑義が生じた場合は、その都度甲乙協議の上、信義誠実を旨として解決するものとする。
                         </dd>
                     </dl>
                     <dl>
-                        <dt>第10条（管轄裁判所）</dt>
+                        <dt>第 10 条（管轄裁判所）</dt>
                         <dd>
                             本契約に起因し又は関連する一切の紛争については、原告側の本所在地を管轄する地方裁判所を第一審の専属的合意裁判所とする。
                         </dd>
                     </dl>
-
-                    <h2 class="contract-fee-header">紹介手数料等の定め</h2>
-                    <p>
-                        甲は、乙から紹介された顧客との間で入居契約が成立するに至った場合、次の条件に
-                        従って、乙に対し紹介手数料を支払います。
-                    </p>
-                    <ol class="fee-ol">
-                        <li>
-                            紹介手数料
-                            <ol class="contract-ol-circle" style="padding-left:6%">
-                                <li>
-                                    入居金1000万円以上の場合は、1件につき入居金の3％とする。
-                                </li>
-                                <li>
-                                    入居金1000万円以内の場合は、1件につき30万円とする。
-                                </li>
-                                <li>
-                                    消費税は外税とし、10円未満は切り上げとする。
-                                </li>
-                                <li>
-                                    振込手数料は甲が負担するものとする。
-                                </li>
-                                <li>
-                                    乙が紹介した顧客が甲の定める入居金返還期間（入居開始日より90日以内）に死亡もしくは退去した場合、甲は書面にて乙に退去予定日などの内容を通知した上で、以下に定めるとおり紹介手数料の返還をするものとする。
-                                     入居契約起算日から90日以内退去の場合、以下の計算式に応じて返還する
-                                    ものとする。
-                                </li>
-                                <p style="text-indent:-30px;">
-                                返還金＝（90－入居日数）×（紹介手数料÷90）＊100円未満は切り捨てとする
-                                </p>
-                                <li>返還時の振込手数料は乙の負担とする</li>
-                            </ol>
-                        </li>
-                        <li>
-                            支払時期
-                            <p>
-                                契約月の末日締請求、翌月末支払いとする
+                </div>  
+                <h2 class="contract-fee-header">紹介手数料等の定め</h2>
+                <p>
+                    甲は、乙から紹介された顧客との間で入居契約が成立するに至った場合、次の条件に
+                    従って、乙に対し紹介手数料を支払います。
+                </p>
+                <ol class="fee-ol">
+                    <li>
+                        紹介手数料
+                        <ol class="contract-ol-circle" style="padding-left:6%">
+                            <li>
+                                入居金1000万円以上の場合は、1件につき入居金の3％とする。
+                            </li>
+                            <li>
+                                入居金1000万円以内の場合は、1件につき30万円とする。
+                            </li>
+                            <li>
+                                消費税は外税とし、10円未満は切り上げとする。
+                            </li>
+                            <li>
+                                振込手数料は甲が負担するものとする。
+                            </li>
+                            <li>
+                                乙が紹介した顧客が甲の定める入居金返還期間（入居開始日より90日以内）に死亡もしくは退去した場合、甲は書面にて乙に退去予定日などの内容を通知した上で、以下に定めるとおり紹介手数料の返還をするものとする。
+                                    入居契約起算日から90日以内退去の場合、以下の計算式に応じて返還する
+                                ものとする。
+                            </li>
+                            <p style="text-indent:-30px;">
+                            返還金＝（90－入居日数）×（紹介手数料÷90）＊100円未満は切り捨てとする
                             </p>
-                        </li>
-                        <li>
-                            支払方法
-                            <p>
-                                乙の下記預金口座に振り込んで行う。
-                            </p>
-                            <ul class="fee-ul">
-                                <li>三菱UFJ銀行新宿中央支店</li>
-                                <li>普通</li>
-                                <li>株式会社</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-                        
+                            <li>返還時の振込手数料は乙の負担とする</li>
+                        </ol>
+                    </li>
+                    <li>
+                        支払時期
+                        <p>
+                            契約月の末日締請求、翌月末支払いとする
+                        </p>
+                    </li>
+                    <li>
+                        支払方法
+                        <p>
+                            乙の下記預金口座に振り込んで行う。
+                        </p>
+                        <ul class="fee-ul">
+                            <li>三菱UFJ銀行新宿中央支店</li>
+                            <li>普通</li>
+                            <li>株式会社</li>
+                        </ul>
+                    </li>
+                </ol>       
             </div>
         </div>  
     </div>
@@ -193,21 +191,31 @@
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+.contract-fee-header {
+    position: relative;
+    margin: 30px 0;
+    font-weight: bold;
+    line-height: 2;
+    text-align: center;
+}
 .contract-container {
     font-size: 15px;
     color: #212529;
+}
+.contract-ul-list {
+    padding: 20px;
 }
 .contract-container p {
     text-indent: 70px;
     color: #212529;
 }
+.contract-container dt {
+    padding:20px 0px 5px 0px;
+    font-weight: 500;
+}
 .contract-container dd {
     margin-left: 40px;
     line-height: 1.7;
-    font-weight: 500;
-}
-.contract-container dt {
-    padding:15px 0px 5px 0px;
 }
 .contract-title {
     font-weight: 500;
@@ -271,12 +279,5 @@
 .fee-ul {
     list-style: none;
     padding-left: 15%;
-}
-.contract-fee-header {
-    position: relative;
-    margin: 30px 0;
-    font-weight: bold;
-    line-height: 2;
-    text-align: center;
 }
 </style>
