@@ -110,7 +110,7 @@
                         <!-- <div id="jsErrorMessage" class="error"></div> -->
                         <!-- 契約書 追加 -->
                         <div class="form-group col-12 text-center">
-                            <a v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
+                            <a href="/contract" v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
                         </div>
                         <div class="contract-group">
                             <div class="contract-label">
@@ -190,8 +190,6 @@
         changeContractStatus(){
             this.contract_status = 1;
             this.disable_color = '#2C3E50';
-            var show_docs = '../upload/contract/TIS_業務委託契約書(案様).doc';
-            open(show_docs);
         },
         check(){
             if(this.contract_chk != '')
@@ -469,12 +467,6 @@
 }
 .disable_btn:disabled {
     background: #999 !important;
-    color: #F5F5F5!important;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0.25rem;
-    border-color: transparent;
-    margin-left: 5em;
 }
 .disable_btn {
     background: #2980B9 !important;
