@@ -15,25 +15,39 @@
                             </div>
                         </div>
                         <!-- </form> -->
-                        <!-- slider -->
-                        <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
-                                
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                </li>
-
-                            </ul>
-                            
+                        <!-- new slider -->
+                        <div class="d-sm-block tab-card-header clearfix cat-nav infoBox cat_slider" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                            <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                            <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                        <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                         </div>
+                        <!-- end new slider -->
+                        <!-- slider -->
+                        <!-- <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                            <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                            <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                    
+                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                    </li>
+
+                                </ul>
+                                
+                            </div>
                        
-                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        <div class="bg_color"></div>
-                    </div>
+                            <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                            <div class="bg_color"></div>
+                        </div> -->
                         <!-- end of slider -->
     <div class="col-12">
         <!-- <div class="pc-991-1880">
@@ -394,6 +408,7 @@ export default {
 
                         if(this.cat_box_width/total_word < 23){
                             this.is_cat_overflow = true;
+                            this.computed_width = '97%';
                         }
 
                         // if(total_word > 32) {
@@ -544,7 +559,7 @@ export default {
             const content = this.$refs.content;
             this.scrollTo(content, 300, 800);
             this.is_cat_slided = true;
-            this.computed_width = '98%';
+            this.computed_width = '95%';
         },
         scrollTo(element, scrollPixels, duration) {
 
@@ -727,28 +742,47 @@ export default {
 }
 
 .card-header-tabs {
-    margin-right: -1.65rem;
-    /* margin-bottom: 0rem; */
     margin-left: -1.65rem;
     border-bottom: 0;
+    /* margin-right: -1.65rem; */
+    /* margin-bottom: 0rem; */
 }
+.cat_slider {
+    width: 99%;
+    margin: 0 auto 1.65rem;
+    padding-left: 0!important;
+}
+
+.cat_slider #myTab {
+    margin: 0 auto;
+}
+
 .cat-nav {
     padding-bottom: 0;
     height: 36px;
     display: flex;
-    padding-left: 1.65rem !important;
+    /* padding-left: 1.65rem !important; */
+}
+
+.cat_slider .nav-tabs .nav-item .nav-link {
+     padding: 0.3rem 1rem;
 }
     
 .left-arr-btn {
-    position: relative;     
-    left: -20px;
-    width: 2%;
+    width: 1.5%;
+    position: relative;
+    left: 4px;
+    bottom: 10px;
+    /* left: -20px; */
+   
 }
 
 .right-arr-btn {
     position: relative;      
-    right: -40px;
-    width: 2%;
+    width: 1.5%;
+    left: 10px;
+    bottom: 10px;
+    /* right: -47px; */
 }
 
 #top {
