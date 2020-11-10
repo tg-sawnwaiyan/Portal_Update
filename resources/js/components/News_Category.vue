@@ -316,6 +316,12 @@ export default {
         this.getAllCat();
     },
    created(){
+    this.$nextTick(() => {
+        if(this.$refs.infoBox){
+            console.log(this.$refs.infoBox);
+            this.cat_box_width = this.$refs.infoBox.clientWidth;
+        }            
+    })
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
@@ -407,6 +413,8 @@ export default {
                         });
 
                         if(this.cat_box_width/total_word < 23){
+                            console.log(this.cat_box_width);
+                            console.log(this.cat_box_width/total_word);
                             this.is_cat_overflow = true;
                             this.computed_width = '97%';
                         }
