@@ -18,39 +18,26 @@
                             </div>
                         </div>
                         <!-- </form> -->
-
-                        <!-- new slider -->
-                        <div class="d-sm-block tab-card-header clearfix cat-nav infoBox cat_slider" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                            <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                            <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
-                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                        <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                    </li>
-                                </ul>
-                            </div>
-                            <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        </div>
-                        <!-- end new slider -->
-                        
                         <!-- slider -->
-                        <!-- <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                            <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                            <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
-                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                    </li>
-                                </ul>
-                            </div>
-                            <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                            <div class="bg_color"></div>
-                        </div> -->
-                        <!-- end of slider -->
+                         <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox d-none" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
-                        
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                </li>
+
+                            </ul>
+                            
+                        </div>
+                       
+                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <div class="bg_color"></div>
+                    </div>
+                        <!-- end of slider -->
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
@@ -526,57 +513,68 @@
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
-                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
-                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
-                                            <div class="col-4 img-box">
 
-                                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
+                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
 
-                                                    <transition name="fade">
+                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
 
-                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                        <div class="col-4 img-box">
 
-                                                    </transition>
+                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
 
-                                                    <transition name="fade" slot="placeholder">
+                                                <transition name="fade">
 
-                                                        <div class="preloader">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                                            <div class="circle">
+                                                </transition>
 
-                                                            <div class="circle-inner"></div>
+                                                <transition name="fade" slot="placeholder">
 
-                                                            </div>
+                                                    <div class="preloader">
+
+                                                        <div class="circle">
+
+                                                        <div class="circle-inner"></div>
 
                                                         </div>
 
-                                                    </transition>
+                                                    </div>
 
-                                                </clazy-load>
+                                                </transition>
 
-                                            </div>
+                                            </clazy-load>
 
-                                            <div class="col-8 pattern-txt-box">
-                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
-
-                                                <p>{{item.main_point}}</p>
-
-                                            </div>
                                         </div>
-                                    </router-link>
-                                </div>                    
 
-                                <div class="pad-new pattern-child" v-if="group[3]">
-                                    <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
-                                        <p class="text-truncate news-list-display">
 
-                                            <i class="fas fa-building"></i> {{item.main_point}}
+                                        <div class="col-8 pattern-txt-box">
+                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
 
-                                        </p>
+                                            <p>{{item.main_point}}</p>
 
-                                    </router-link>
-                                </div>                                               
+                                        </div>
+
+                                    </div>
+
+                                </router-link>
+
+                            </div>                    
+
+                            <div class="pad-new pattern-child" v-if="group[3]">
+
+                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+
+                                    <p class="text-truncate news-list-display">
+
+                                        <i class="fas fa-building"></i> {{item.main_point}}
+
+                                    </p>
+
+                                </router-link>
+
+                            </div>
+                                               
                         </slick>
                     </div>
                     
@@ -708,7 +706,6 @@
         
         this.$nextTick(() => {
             if(this.$refs.infoBox){
-                console.log(this.$refs.infoBox);
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
         })  
@@ -739,13 +736,7 @@
                 localStorage.setItem('date',todaydate);
                 this.getCategoryRandomValue();
             }
-        };
-        
-        var url      = window.location.href;
-        
-        if(url.indexOf('category') == -1){
-            $("#top_a").addClass("active");
-        }
+        };    
     },
     computed:{  
 
@@ -856,11 +847,7 @@
                         });
 
                         if(this.cat_box_width/total_word < 23){
-                            // console.log(this.cat_box_width);
-                            // console.log(total_word);
-                            // console.log(this.cat_box_width/total_word);
                             this.is_cat_overflow = true;
-                            this.computed_width = '97%';
                         }
 
                         // if(total_word > 32) {
@@ -1138,25 +1125,23 @@
                 const content = this.$refs.content;
                 this.scrollTo(content, 300, 800);
                 this.is_cat_slided = true;
-                this.computed_width = '95%';
+                this.computed_width = '98%';
             },
-             changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },         
+            // changeBgColor(no) {
+            //     console.log(no);
+            //     const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            //     $('.bg_color').css('background-color', color_ary[no]);
+            // },         
 
         }
     }
     $(document).ready(function(){
         // $("#top_a").addClass("active");
-        // alert(111);
-        // var url      = window.location.href; 
-        
-        // if(url.indexOf('category') == -1 || url == 'http://192.168.100.12:8000'){
-        //     alert(2222);
-        //     $("#top_a").addClass("active");
-        // }
+        var url      = window.location.href; 
+        // console.log(url);
+        if(url.indexOf('category') == -1 || url == "https://t-i-s.jp/"){
+            $("#top_a").addClass("active");
+        }
     });
  </script>
 
@@ -1210,32 +1195,10 @@
     overflow: hidden;
 }
 
-.cat_slider {
-    width: 99%;
-    margin: 0 auto 1.65rem;
-    padding-left: 0!important;
-}
-
-.cat_slider #myTab {
-    margin: 0 auto;
-}
-
-.cat-nav {
-    padding-bottom: 0;
-    height: 36px;
-    display: flex;
-    /* padding-left: 1.65rem !important; */
-}
-
 .news-tabColor .nav-link {
     background: #75b777 !important;
     color: #fff;
     border-right: 1px solid #fff;
-    padding: 0.5rem 1rem;
-}
-
-.cat_slider .nav-tabs .nav-item .nav-link {
-     padding: 0.3rem 1.12rem;
 }
 
 .news-borderColor {
@@ -1273,15 +1236,18 @@
     width: 30%;
     /* border: 1px solid black; */
 }
+.cat-nav {
+    padding-bottom: 0;
+    height: 36px;
+    display: flex;
+    padding-left: 1.65rem !important;
+}
 
 .card-header-tabs {
-   /* margin-right: -1.65rem; */
+   margin-right: -1.65rem;
     /* margin-bottom: 0rem; */
     margin-left: -1.65rem;
     border-bottom: 0;
-}
-#top {
-    border-left: 1px solid #fff;
 }
 .arr-btn {
     cursor: pointer;
@@ -1297,20 +1263,15 @@
 }
 
 .left-arr-btn {
-    width: 1.5%;
-    position: relative;
-    left: 4px;
-    bottom: 10px;
-    /* left: -20px; */
-   
+    position: relative;     
+    left: -20px;
+    width: 2%;
 }
 
 .right-arr-btn {
     position: relative;      
-    width: 1.5%;
-    left: 10px;
-    bottom: 10px;
-    /* right: -47px; */
+    right: -47px;
+    width: 2%;
 }
 .left-arr-btn .fas, .right-arr-btn .fas {
     color:#828282;
@@ -1359,6 +1320,10 @@
     width: 100%;
 }
 
+#top {
+    border-left: 1px solid #fff;
+}
+
 .nav-tabs{
     border-bottom: none;
 }
@@ -1369,7 +1334,6 @@
     background-color: #828282 !important;
     border: none !important;
 }
-
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1457,10 +1421,7 @@
 }
 @media only screen and (max-width: 414px){
     .news-slider-width{
-        width: 100%;
+        /* width: 100%; */
     }
 }
-</style>
-<style scoped>
-@import '../../../public/css/categorymenu.css';
 </style>

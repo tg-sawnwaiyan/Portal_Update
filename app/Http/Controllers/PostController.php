@@ -67,8 +67,6 @@ class PostController extends Controller
             $post->related_news=$request->input('related_news');
             $post->user_id = 1;
             // $post->recordstatus=1;
-            $post->created_by = $request->input('created_by');
-            $post->created_by_company = $request->input('created_by_company');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
         
@@ -135,76 +133,10 @@ class PostController extends Controller
     public function getNewsByCategory($id)
     {
         $cat_name = Category::where('id',$id)->select('name')->value('name');
-
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('created_at', 'DESC')->get()->toArray();
-
-        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = [];
-
-        //divide array new list by block
-        foreach ($newslist as $value) {
-            $tmp[$value['block_id']][] = $value;
-        }
-
-        //separted divied block array
-        foreach ($tmp as $key => $value) {
-            if($key == 1){
-                $newarray1 = array_chunk($value, 1);
-            }elseif($key == 2){
-                $newarray2 = array_chunk($value, 3);
-            }elseif($key == 3){
-                $newarray3 = array_chunk($value, 8);
-            }elseif($key == 4){
-                $newarray4 = array_chunk($value, 1);
-            }
-        }
-
-        $lenght[] = count($newarray1);
-        $lenght[] = count($newarray2);
-        $lenght[] = count($newarray3);
-        $lenght[] = count($newarray4); 
-                
-        for ($i=0; $i <= max($lenght); $i++) { 
-            if(isset($newarray1[$i])){
-                array_push($aryPush, $newarray1[$i]);
-            }else{
-                array_push($aryPush, $aryEmpty);
-            }
-
-            if(isset($newarray2[$i])){
-                array_push($aryPush, $newarray2[$i]);
-            }else{
-                array_push($aryPush, $aryEmpty);
-            }
-
-            if(isset($newarray3[$i])){
-                array_push($aryPush, $newarray3[$i]);
-            }else{
-                array_push($aryPush, $aryEmpty);
-            }
-
-            if(isset($newarray4[$i])){
-                array_push($aryPush, $newarray4[$i]);
-            }else{
-                array_push($aryPush, $aryEmpty);
-            }
-        }
-
-        if(array_filter($aryPush)){            
-            $aryResults = array_chunk($aryPush, 4);
-        }else{
-            $aryResults = [];
-        }
-
-        return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults));
-    }
-
-     public function getNewsByCategoryForMobile($id)
-    {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('block_id', 'ASC')->orderBy('created_at', 'DESC')->get()->toArray();
+        $newslist = Post::where('category_id',$id)->get();
         return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
     }
-
+    
     public function show_related($id) {
     
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
@@ -300,19 +232,6 @@ class PostController extends Controller
             $post->related_news=$request->input('related_news');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
-            if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
-                $post->created_by_company = '';
-            }
-            else {
-                $post->created_by_company = $request->input('created_by_company');
-            }
-            if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
-                $post->created_by = '';
-            }
-            else {
-                $post->created_by = $request->input('created_by');
-            }
-            // $post->created_by_company = $request->input('created_by_company');
             $post->user_id = 1;
             // $post->recordstatus=1;
             $post->save();
