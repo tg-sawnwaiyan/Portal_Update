@@ -67,6 +67,8 @@ class PostController extends Controller
             $post->related_news=$request->input('related_news');
             $post->user_id = 1;
             // $post->recordstatus=1;
+            $post->created_by = $request->input('created_by');
+            $post->created_by_company = $request->input('created_by_company');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
         
@@ -233,6 +235,18 @@ class PostController extends Controller
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
             $post->user_id = 1;
+            if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
+                $post->created_by_company = '';
+            }
+            else {
+                $post->created_by_company = $request->input('created_by_company');
+            }
+            if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
+                $post->created_by = '';
+            }
+            else {
+                $post->created_by = $request->input('created_by');
+            }
             // $post->recordstatus=1;
             $post->save();
 
