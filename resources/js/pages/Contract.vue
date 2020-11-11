@@ -1,6 +1,6 @@
 <template>
   <div>
-        <h2 class="contract-fee-header" style="color:#636b6f;">業務委託契約書</h2>
+        <h2 class="contract-fee-header header-color">業務委託契約書</h2>
         <div class="container pad-free-750">
             <div class="contract-container">
                 <div class="contract-ul-list">
@@ -31,7 +31,7 @@
                     </dl>
                     <dl>
                         <dt>第 4 条（顧客紹介の通知および適用除外等）</dt>
-                        <dd style="margin-left:0px">
+                        <dd class="margin-0">
                             <ol class="contract-ol">
                                 <li>
                                     乙は、顧客を紹介する旨の通知をFAXまたは電子メールにより、甲の指定する業務担当者宛に行うものとする。
@@ -51,7 +51,7 @@
                     </dl>
                     <dl>
                         <dt>第 5 条（遵守事項）</dt>
-                        <dd style="margin-left:0px">
+                        <dd class="margin-0">
                             <ol class="contract-ol-circle">
                                 <li>
                                     甲も乙も本契約に関連して知り得た顧客の情報並びに甲乙相互の業務上の機密事項を一切他に漏洩してはならない。本契約終了後もまた同様とする。
@@ -64,7 +64,7 @@
                     </dl>
                     <dl>
                         <dt>第 6 条（解除及び損害賠償）</dt>
-                        <dd style="margin-left:0px">
+                        <dd class="margin-0">
                             <ol class="contract-ol-circle">
                                 <li>
                                     甲又は乙が本契約の履行を怠り、または協力をしないとき、その他本契約に背徳する行為があったときは、相手方は書面での催告の後も改善が見られない場合、本契約を解除することができる。
@@ -85,7 +85,7 @@
                         <dt>第 8 条（反社会的勢力の排除）</dt>
                         <dd>
                             甲及び乙は、それぞれの相手方に対し、次の各事項を確約するものとする。
-                            <ol style="margin-left:-40px;" class="contract-ol-circle">
+                            <ol class="contract-ol-circle margin-40">
                                 <li>
                                     自らが、暴力団、暴力関係企業、総会屋若しくはこれに順ずるもの又はその構成員
                                     （以下「反社会的勢力」という）ではないこと。
@@ -142,7 +142,7 @@
                 <ol class="fee-ol">
                     <li>
                         紹介手数料
-                        <ol class="contract-ol-circle" style="padding-left:6%">
+                        <ol class="contract-ol-circle padding-6">
                             <li>
                                 入居金1000万円以上の場合は、1件につき入居金の3％とする。
                             </li>
@@ -160,7 +160,7 @@
                                     入居契約起算日から90日以内退去の場合、以下の計算式に応じて返還する
                                 ものとする。
                             </li>
-                            <p style="text-indent:-30px;">
+                            <p class="p-indent-30">
                             返還金＝（90－入居日数）×（紹介手数料÷90）＊100円未満は切り捨てとする
                             </p>
                             <li>返還時の振込手数料は乙の負担とする</li>
@@ -197,6 +197,9 @@
     font-weight: bold;
     line-height: 2;
     text-align: center;
+}
+.header-color {
+    color:#636b6f;
 }
 .contract-container {
     font-size: 15px;
@@ -238,14 +241,14 @@
     margin-left: -20px;
 }
 .contract-ol-circle {
-  counter-reset: my-awesome-counter;
-  list-style: none;
+    counter-reset: my-awesome-counter;
+    list-style: none;
 }
 .contract-ol-circle li {
-  margin: 0 0 0.5rem 0;
-  counter-increment: my-awesome-counter;
-  position: relative;
-  clear:left;
+    margin: 0 0 0.5rem 0;
+    counter-increment: my-awesome-counter;
+    position: relative;
+    clear:left;
 }
 .contract-ol-circle li::before {
     content: counter(my-awesome-counter);
@@ -279,5 +282,17 @@
 .fee-ul {
     list-style: none;
     padding-left: 15%;
+}
+.margin-0 {
+    margin-left:0px;
+}
+.margin-40 {
+    margin-left:40px;
+}
+.padding-6 {
+    padding-left:6%;
+}
+.p-indent-30 {
+    text-indent:-30px;
 }
 </style>
