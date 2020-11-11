@@ -135,10 +135,10 @@
                     </dl>
                 </div>  
                 <h2 class="contract-fee-header">紹介手数料等の定め</h2>
-                <p>
+                <dd>
                     甲は、乙から紹介された顧客との間で入居契約が成立するに至った場合、次の条件に
                     従って、乙に対し紹介手数料を支払います。
-                </p>
+                </dd>
                 <ol class="fee-ol">
                     <li>
                         紹介手数料
@@ -201,6 +201,8 @@
 .contract-container {
     font-size: 15px;
     color: #212529;
+    width:75%;
+    margin:0 auto;
 }
 .contract-ul-list {
     padding: 20px;
@@ -268,7 +270,7 @@
     list-style-position: inside;
 }
 .fee-ol {
-    padding-left: 6%;
+    padding-left: 4.5%;
 }
 .fee-ol li {
     padding-top: 20px;
