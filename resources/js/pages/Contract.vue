@@ -1,7 +1,7 @@
 <template>
   <div>
         <h2 class="contract-fee-header" style="color:#636b6f;">業務委託契約書</h2>
-        <div class="container pad-free-750">
+        <div class="container pad-free-750 contract-bottom" >
             <div class="contract-container">
                 <div class="contract-ul-list">
                     <p>
@@ -168,15 +168,16 @@
                     </li>
                     <li>
                         支払時期
-                        <p>
+                        <p class="p-indent-30">
                             契約月の末日締請求、翌月末支払いとする
                         </p>
                     </li>
                     <li>
                         支払方法
-                        <p>
+                        <p class="p-indent-30">
                             乙の下記預金口座に振り込んで行う。
                         </p>
+                        <br>
                         <ul class="fee-ul">
                             <li>三菱UFJ銀行新宿中央支店</li>
                             <li>普通</li>
@@ -281,5 +282,11 @@
 .fee-ul {
     list-style: none;
     padding-left: 15%;
+}
+.p-indent-30 {
+    text-indent:18px !important;
+}
+.contract-bottom  {
+    border-bottom: 1px solid #333 !important;
 }
 </style>
