@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router'
 // Pages
 import Register from './pages/Register'
+import Contract from './pages/Contract'
 import Login from './pages/Login'
 import PasswordResetMail from './pages/Passwordreset'
 import PasswordResetForm from './pages/Passwordresetform'
@@ -85,6 +86,11 @@ const routes = [
             auth: false
         }
     },
+    {
+        name: 'Contract',
+        path: '/contract',
+        component: Contract,
+      },
     {
         path: '/login',
         name: 'login',
