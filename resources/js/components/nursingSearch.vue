@@ -1263,7 +1263,7 @@
                 var jsonfile = theCity+".json";
                 // https://t-i-s.jp
                 // https://testikportal.management-partners.co.jp/
-                this.axios.get("https://test.t-i-s.jp/json/cities/"+jsonfile).then(respon => {
+                this.axios.get("https://t-i-s.jp/json/cities/"+jsonfile).then(respon => {
                     this.coordinate = respon.data.reduce((acc, val) => acc.concat(val), []);
                     this.boundariesGoogleMap(lat,lng,this.coordinate);  
                 }); 
@@ -1272,7 +1272,7 @@
                 else{
                     var jsonfile = theCity+".json";
                     jsonfile = jsonfile.toLowerCase();
-                    this.axios.get('https://test.t-i-s.jp/json/Townships/'+jsonfile).then(res => {
+                    this.axios.get('https://t-i-s.jp/json/Townships/'+jsonfile).then(res => {
                      var township_coor = []
                     for(var i = 0; i < res.data.features.length; i++)
                     {

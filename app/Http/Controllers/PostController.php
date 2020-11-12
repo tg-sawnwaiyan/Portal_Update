@@ -135,7 +135,7 @@ class PostController extends Controller
     public function getNewsByCategory($id)
     {
         $cat_name = Category::where('id',$id)->select('name')->value('name');
-        $newslist = Post::where('category_id',$id)->get();
+        $newslist = Post::where('category_id',$id)->orderBy('created_at', 'DESC')->get();
         return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
     }
     
