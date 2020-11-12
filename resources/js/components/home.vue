@@ -136,6 +136,3 @@ export default {
          border: 1px solid #63b7ff !important;
     }
 </style>
-<style scoped>
-@import '../../../public/css/categorymenu.css';
-</style>
