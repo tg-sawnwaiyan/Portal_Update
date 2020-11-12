@@ -48,7 +48,7 @@ class PostController extends Controller
     {
        
         if(is_object($request->photo)){
-            $imageName = $request->photo->getClientOriginalName();
+            $imageName = uniqid().$request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
             $request->photo->move('upload/news/', $imageName);
@@ -57,11 +57,23 @@ class PostController extends Controller
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
         }
+
+        if(is_object($request->quill_photo)){
+            $quill_imageName =  uniqid().$request->quill_photo->getClientOriginalName();
+            $quill_imageName = str_replace(' ', '', $quill_imageName);
+            $quill_imageName = strtolower($quill_imageName);
+            $request->quill_photo->move('upload/news/', $quill_imageName);
+        }else {
+            $quill_imageName =$request->quill_photo;
+            $quill_imageName = str_replace(' ', '', $quill_imageName);
+            $quill_imageName = strtolower($quill_imageName);
+        } 
         $post = new Post() ;
             $post->title = $request->input('title');
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
             $post->photo = $imageName;
+            $post->quill_photo = $quill_imageName;
             $post->category_id=$request->input('category_id');
             $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
@@ -253,7 +265,7 @@ class PostController extends Controller
                 $file= $post->photo;
                 $filename = './upload/news/'.$file;
                 \File::delete($filename);
-                $imageName = $request->photo->getClientOriginalName();
+                $imageName = uniqid().$request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
                 $imageName = strtolower($imageName);
                 $request->photo->move('upload/news/', $imageName);
@@ -268,7 +280,7 @@ class PostController extends Controller
                 $file= $post->photo;
                 $filename ='./upload/news/'.$file;
                 \File::delete($filename);
-                $imageName = $request->photo->getClientOriginalName();
+                $imageName = uniqid().$request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
                 $imageName = strtolower($imageName);
                 $request->photo->move('upload/news/', $imageName);
@@ -279,6 +291,39 @@ class PostController extends Controller
                 $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = '';
+            }
+        }
+
+        if($request->old_quill_photo == ' ' || $request->old_quill_photo == null ){
+            if(is_object($request->quill_photo)) {
+                $file= $post->quill_photo;
+                $filename = './upload/news/'.$file;
+                \File::delete($filename);
+                $quill_imageName = uniqid().$request->quill_photo->getClientOriginalName();
+                $quill_imageName = str_replace(' ', '', $quill_imageName);
+                $quill_imageName = strtolower($quill_imageName);
+                $request->quill_photo->move('upload/news/', $quill_imageName);
+            }
+            else {
+                $file= $post->quill_photo;
+                $quill_imageName = $file;
+            }
+        }
+        else {
+            if(is_object($request->quill_photo)) {
+                $file= $post->quill_photo;
+                $filename ='./upload/news/'.$file;
+                \File::delete($filename);
+                $quill_imageName = uniqid().$request->quill_photo->getClientOriginalName();
+                $quill_imageName = str_replace(' ', '', $quill_imageName);
+                $quill_imageName = strtolower($quill_imageName);
+                $request->quill_photo->move('upload/news/', $quill_imageName);
+            }
+            else {
+                $file= $post->quill_photo;
+                $filename ='./upload/news/'.$file;
+                \File::delete($filename);
+                $quill_imageName = '';
             }
         }
         // $formData = array(
@@ -295,11 +340,13 @@ class PostController extends Controller
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
             $post->photo = $imageName;
+            $post->quill_photo = $quill_imageName;
             $post->category_id=$request->input('category_id');
             $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
+
             if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
                 $post->created_by_company = '';
             }
@@ -313,6 +360,7 @@ class PostController extends Controller
                 $post->created_by = $request->input('created_by');
             }
             // $post->created_by_company = $request->input('created_by_company');
+            //$post->created_by_company = $request->input('created_by_company');
             $post->user_id = 1;
             // $post->recordstatus=1;
             $post->save();

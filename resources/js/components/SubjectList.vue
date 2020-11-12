@@ -179,7 +179,7 @@
                             this.nosearch_msg = true;
                         }
                         });
-                        localStorage.setItem('page_no',page);//comment set to Subject/updateSubject()
+                        localStorage.setItem('subject_page_no',page);//comment set to Subject/updateSubject()
                     },
                     nextPaginate(num){
                         this.$loading(true);
