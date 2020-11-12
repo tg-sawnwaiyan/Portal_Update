@@ -3,12 +3,12 @@
 <div>    
     <div class="col-12">
         <div class="pc-991-1880">
-            <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
+            <a href="/" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
                 <span class="btn btn-danger all-btn submit">
                     <i class="fas fa-arrow-left"></i> 
                     <span>戻る</span> 
                 </span> 
-            </span>                
+            </a>                
             
         </div>
         <h4 class="profile-tit">{{cat_name}}
