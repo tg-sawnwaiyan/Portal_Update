@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>信用者</label>
-                        <input type="text" autocomplete="off" class="form-control" placeholder="信用者を入力してください。" v-model="news.created_by">
+                        <label>プロフィル</label>
+                        <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
 
                     <div class="form-group" id="showimage">

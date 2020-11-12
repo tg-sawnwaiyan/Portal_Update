@@ -33,7 +33,7 @@
                     {{news.title}}
                   </h4>  
                   <div style="text-align: center;margin-bottom: 20px;">
-                    <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                    <span v-if="news.created_by_company" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
                       {{news.created_by_company}}
                     </span>
                   </div>
