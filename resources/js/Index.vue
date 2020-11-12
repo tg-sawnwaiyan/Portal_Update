@@ -4,6 +4,7 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
+            <CategoryMenu v-if="!$auth.check() & w_width <= 560"></CategoryMenu>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -159,6 +160,7 @@
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
   import AuthHeaderMenu from './components/menu/AuthMenu.vue'
+  import CategoryMenu from './components/menu/CategoryMenu.vue'
   import asideMenu from './components/menu/asideMenu.vue'
   import adsslider from './components/adsslider'
   export default {
@@ -180,11 +182,12 @@
     components: {
       HeaderMenu,
       AuthHeaderMenu,
+      CategoryMenu,
       asideMenu,
       adsslider
     }, 
     created() {
-         window.addEventListener('resize', this.handleResize)
+        window.addEventListener('resize', this.handleResize)
         this.handleResize();
         if(this.window.width <= 1440) {
             $(document).scroll(function() {　　　　
@@ -316,8 +319,8 @@
             }
         },
         onCollapse (collapsed) {
-      this.collapsed = collapsed
-    }
+            this.collapsed = collapsed
+        }
     }
 
 
