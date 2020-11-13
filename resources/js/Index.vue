@@ -200,7 +200,6 @@
         document.addEventListener('scroll', this.handleScroll);
         
         axios.interceptors.response.use((response) => {
-        console.log("token status",response.data.status)
         if((response.data.status == "Token is Expired" || response.data.status == "Token is Invalid") && this.status == false ){
         this.status = true;        
         this.visit = 'true';

@@ -1477,8 +1477,9 @@
     }
 }
 @media only screen and (max-width: 560px){
-    .cat-nav{
-        padding-left: 0px !important;
+    .cat-nav {
+        height: auto !important;
+        padding: 0 !important;
     }
 }
 </style>

@@ -21,9 +21,9 @@
                         <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                             <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
                                 
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" ref="itemWidth">
                                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                                 </li>
 
@@ -301,7 +301,7 @@ export default {
     mounted() {
         this.getAllCat();
     },
-   created(){
+    created(){
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
@@ -616,9 +616,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../../../public/css/categorymenu.css';
-</style>
-<style scoped>
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
@@ -773,4 +770,8 @@ export default {
         height: auto !important;
     }
 }
+</style>
+
+<style scoped>
+@import '../../../public/css/categorymenu.css';
 </style>
