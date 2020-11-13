@@ -1,4 +1,7 @@
-@media only screen and (max-width: 767px){    
+@media only screen and (max-width: 560px){   
+    #app {
+        position: relative;
+    } 
     #myTab {
         overflow-x: auto;
         width: 100% !important;
@@ -13,9 +16,9 @@
         padding-left: 0 !important;
         max-height: 43px;
         position: relative;
-        height: auto;
+        height: auto !important;
         margin: 0 auto 15px auto !important;
-        }
+    }
     .no-scrollbar {
         scrollbar-width: none;
         margin-bottom: 0;
@@ -24,7 +27,12 @@
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
-    .card-header {
+    .infoBox {
+        position: absolute;
+        top: 191px;
+        z-index: 1;
+        left: 2.5%;
+        right: 2.5%;
         padding: 0 0 3px 0 !important;
     }
     .tab-color0 {        
@@ -58,6 +66,7 @@
         background-color: #63b7ff;
     }
     .nav-tabs .router-link-exact-active,
+    #myTab .router-link-exact-active,    
     #myTab .nav-link.active {
         background-color: transparent !important;
         padding: 0.5rem 1rem 0.3rem 1rem;
@@ -118,6 +127,13 @@
     }
     .d-none-sp {
         display: none !important;
+    }
+    .newssearch-width {
+        margin-bottom: 69px;
+    }
+    .pad-free {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     }
     @media (max-width: 320px){

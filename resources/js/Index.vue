@@ -4,6 +4,7 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
+            <CategoryMenu v-if="!$auth.check() & w_width <= 560"></CategoryMenu>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -105,7 +106,6 @@
 .fade-leave-active {
   transition: opacity 1s ease-in;
 }
-
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -121,7 +121,6 @@
    transition-timing-function: ease-in;
    transition: transform 0.5s ease;
 }
-
 .slide-leave-active {
    -moz-transition-duration: 0.3s;
    -webkit-transition-duration: 0.3s;
@@ -132,26 +131,22 @@
    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
-
 .slide-enter-to, .slide-leave {
    max-height: 100vh;
    overflow: hidden;
 }
-
 .slide-enter, .slide-leave-to {
    overflow: hidden;
    max-height: 100vh;
   transform: translateX(-100%);
   transition: all 0.5s ease-in 0s;
 }
-
 /* .sidebar-scroll {
     padding-left: 280px;
 } */
 .content-all.collapsed {
     padding-left: 50px;
 }
-
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
 }
@@ -159,6 +154,7 @@
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
   import AuthHeaderMenu from './components/menu/AuthMenu.vue'
+  import CategoryMenu from './components/menu/CategoryMenu.vue'
   import asideMenu from './components/menu/asideMenu.vue'
   import adsslider from './components/adsslider'
   export default {
@@ -180,11 +176,12 @@
     components: {
       HeaderMenu,
       AuthHeaderMenu,
+      CategoryMenu,
       asideMenu,
       adsslider
     }, 
     created() {
-         window.addEventListener('resize', this.handleResize)
+        window.addEventListener('resize', this.handleResize)
         this.handleResize();
         if(this.window.width <= 1440) {
             $(document).scroll(function() {　　　　
@@ -214,7 +211,6 @@
         }
         
         return response
-
         })
     },
     destroyed() {
@@ -280,9 +276,7 @@
             $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
             $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
         }
-
     },
-
     methods: {
         handleResize() {
             this.window.width = window.innerWidth;
@@ -301,7 +295,7 @@
         },
         topFunction() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
-	        return false;
+            return false;
         },
         onItemClick(event, item){
             if(item.title == 'ログアウト'){
@@ -316,13 +310,8 @@
             }
         },
         onCollapse (collapsed) {
-      this.collapsed = collapsed
+            this.collapsed = collapsed
+        }
     }
-    }
-
-
   }
 </script>
-
-
-

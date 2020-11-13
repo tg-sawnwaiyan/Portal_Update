@@ -19,8 +19,8 @@
                         </div>
                         <!-- </form> -->
                         <!-- slider -->
-                         <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                         <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                         <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                             <ul class="nav nav-tabs" role="tablist">
@@ -34,10 +34,73 @@
                             
                         </div>
                        
-                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                         <div class="bg_color"></div>
                     </div>
                         <!-- end of slider -->
+                        <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
+
+                            <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
+                                 <router-link :to="{path:'/newsdetails/'+latest_post_all_cat.id}">
+                                    <div class="slide-img" style="border:1px solid #eee;">
+                                       <div class="col-sm-6 pad-free" >
+
+                                            <div class="col-md-12 row m-0 pad-free">
+
+                                                <div class="hovereffect fit-image">
+
+                                                <div class="wrapper-1" @load="log"  src="/images/noimage.jpg" :key="latest_post_all_cat.id">
+
+                                                    <transition name="fade">
+
+                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
+
+                                                    </transition>
+
+                                                    <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
+
+                                                    <!-- <transition name="fade" slot="placeholder">
+                                                    <div class="preloader">
+                                                        <div class="circle">
+                                                        <div class="circle-inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    </transition> -->
+
+                                                </div>
+
+                                                    <!-- <div class="overlay">
+                                                        <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                    </div> -->
+
+                                                    <div class="info">
+
+                                                        <div class="col-12" style="border:none;">
+
+                                                            <p class=" p_3">
+                                                                <span v-if="latest_post_all_cat.category_id == 26" class="breaking-tip">PR</span>
+
+                                                                {{ latest_post_all_cat.main_point }}
+
+                                                            </p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                 </router-link>   
+                            </div>
+
+                        </slick>
+                       <!-- slider -->
+
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
@@ -1320,7 +1383,7 @@
 #myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
-    background-color: #828282 !important;
+    background-color: #828282;
     border: none !important;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
@@ -1411,6 +1474,11 @@
 @media only screen and (max-width: 414px){
     .news-slider-width{
         width: 100%;
+    }
+}
+@media only screen and (max-width: 560px){
+    .cat-nav{
+        padding-left: 0px !important;
     }
 }
 </style>
