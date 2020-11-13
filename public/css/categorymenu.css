@@ -140,4 +140,7 @@
     #upper-tab {
     margin-top: 33px;
     }
+    .infoBox {
+        top: 215px !important;
+    }
     }
