@@ -23,9 +23,9 @@
 <meta http-equiv="Expires" content="0" />
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
-<script src="{{ mix('js/manifest.js') }}" defer></script>
-<script src="{{ mix('js/vendor.js') }}" defer></script>
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ asset('js/manifest.js') }}" defer></script>
+<script src="{{ asset('js/vendor.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
 <!-- <script src="/js/manifest.js"></script> -->
 <!-- <script src="/js/vendor.js"></script> -->

@@ -42,8 +42,7 @@ require('laravel-mix-bundle-analyzer');
 
 mix.js('resources/js/app.js', 'public/js')
    .extract(['vue','bootstrap', 'quill'])
-   .sass('resources/sass/app.scss', 'public/css')
-   .version();
+   .sass('resources/sass/app.scss', 'public/css');
 // mix.css('resources/css/mystyle.css', 'public/css').version(); //V
 
 
