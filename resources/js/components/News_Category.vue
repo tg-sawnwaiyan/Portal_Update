@@ -307,6 +307,10 @@ export default {
             this.cat_box_width = this.$refs.infoBox.clientWidth;
         }            
     })
+        var url      = window.location.href; 
+        if(url.indexOf('category') != -1){
+            $("#top_a").removeClass("active");
+        }
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;

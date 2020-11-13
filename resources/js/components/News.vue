@@ -1190,7 +1190,6 @@
     $(document).ready(function(){
         // $("#top_a").addClass("active");
         var url      = window.location.href; 
-        console.log(url);
         if(url.indexOf('category') == -1){
             $("#top_a").addClass("active");
         }
