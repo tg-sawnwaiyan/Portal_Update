@@ -27,7 +27,7 @@
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
-    .card-header {
+    .infoBox {
         position: absolute;
         top: 191px;
         z-index: 1;

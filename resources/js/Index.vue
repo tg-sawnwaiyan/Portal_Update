@@ -4,7 +4,7 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
-            <CategoryMenu v-if="!$auth.check() & w_width <= 560"></CategoryMenu>
+            <CategoryMenu v-if="!$auth.check() && w_width <= 560"></CategoryMenu>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -206,7 +206,6 @@
         document.addEventListener('scroll', this.handleScroll);
         
         axios.interceptors.response.use((response) => {
-        console.log("token status",response.data.status)
         if((response.data.status == "Token is Expired" || response.data.status == "Token is Invalid") && this.status == false ){
         this.status = true;        
         this.visit = 'true';
