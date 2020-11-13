@@ -302,6 +302,11 @@ export default {
         this.getAllCat();
     },
     created(){
+    this.$nextTick(() => {
+        if(this.$refs.infoBox){
+            this.cat_box_width = this.$refs.infoBox.clientWidth;
+        }            
+    })
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
