@@ -53,7 +53,7 @@ class PostController extends Controller
             $imageName = strtolower($imageName);
             $request->photo->move('upload/news/', $imageName);
         }else {
-            $imageName =$request->photo;
+            $imageName = uniqid().$request->photo;
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
         }
