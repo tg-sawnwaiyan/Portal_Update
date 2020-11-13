@@ -59,9 +59,9 @@
                   <div>
                     <p class="p5 mb-2 text-justify" v-html="news.body"></p>
                     <!--for quill upload image (@author: pzo) -->
-                    <div class="img-wrap mb-2" v-if="news.quill_photo" >
+                    <!-- <div class="img-wrap mb-2" v-if="news.quill_photo" >
                       <img :src="'/upload/news/'+ news.quill_photo"  class="img-responsive img_2" alt="img" @error="imgUrlAlt" style="max-width:100%;"  />
-                    </div>
+                    </div> -->
                     <!-- end quill image -->
                   </div>
                 </div>

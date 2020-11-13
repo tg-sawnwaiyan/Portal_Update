@@ -58,22 +58,11 @@ class PostController extends Controller
             $imageName = strtolower($imageName);
         }
 
-        if(is_object($request->quill_photo)){
-            $quill_imageName =  uniqid().$request->quill_photo->getClientOriginalName();
-            $quill_imageName = str_replace(' ', '', $quill_imageName);
-            $quill_imageName = strtolower($quill_imageName);
-            $request->quill_photo->move('upload/news/', $quill_imageName);
-        }else {
-            $quill_imageName =$request->quill_photo;
-            $quill_imageName = str_replace(' ', '', $quill_imageName);
-            $quill_imageName = strtolower($quill_imageName);
-        } 
         $post = new Post() ;
             $post->title = $request->input('title');
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
             $post->photo = $imageName;
-            $post->quill_photo = $quill_imageName;
             $post->category_id=$request->input('category_id');
             $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
@@ -160,20 +149,20 @@ class PostController extends Controller
         //separted divied block array
         foreach ($tmp as $key => $value) {
             if($key == 1){
-                $newarray1 = array_chunk($value, 1);
+                $newarray1 = array_chunk($value, 2);
             }elseif($key == 2){
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
-                $newarray3 = array_chunk($value, 8);
-            }elseif($key == 4){
+                $newarray3 = array_chunk($value, 13);
+            }/*elseif($key == 4){
                 $newarray4 = array_chunk($value, 1);
-            }
+            }*/
         }
 
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-        $lenght[] = count($newarray4); 
+        //$lenght[] = count($newarray4); 
                 
         for ($i=0; $i <= max($lenght); $i++) { 
             if(isset($newarray1[$i])){
@@ -194,15 +183,15 @@ class PostController extends Controller
                 array_push($aryPush, $aryEmpty);
             }
 
-            if(isset($newarray4[$i])){
+           /* if(isset($newarray4[$i])){
                 array_push($aryPush, $newarray4[$i]);
             }else{
                 array_push($aryPush, $aryEmpty);
-            }
+            }*/
         }
 
         if(array_filter($aryPush)){            
-            $aryResults = array_chunk($aryPush, 4);
+            $aryResults = array_chunk($aryPush, 3);
         }else{
             $aryResults = [];
         }
@@ -271,7 +260,7 @@ class PostController extends Controller
                 $request->photo->move('upload/news/', $imageName);
             }
             else {
-                $file= $post->photo;
+                $file = $post->photo;
                 $imageName = $file;
             }
         }
@@ -294,38 +283,7 @@ class PostController extends Controller
             }
         }
 
-        if($request->old_quill_photo == ' ' || $request->old_quill_photo == null ){
-            if(is_object($request->quill_photo)) {
-                $file= $post->quill_photo;
-                $filename = './upload/news/'.$file;
-                \File::delete($filename);
-                $quill_imageName = uniqid().$request->quill_photo->getClientOriginalName();
-                $quill_imageName = str_replace(' ', '', $quill_imageName);
-                $quill_imageName = strtolower($quill_imageName);
-                $request->quill_photo->move('upload/news/', $quill_imageName);
-            }
-            else {
-                $file= $post->quill_photo;
-                $quill_imageName = $file;
-            }
-        }
-        else {
-            if(is_object($request->quill_photo)) {
-                $file= $post->quill_photo;
-                $filename ='./upload/news/'.$file;
-                \File::delete($filename);
-                $quill_imageName = uniqid().$request->quill_photo->getClientOriginalName();
-                $quill_imageName = str_replace(' ', '', $quill_imageName);
-                $quill_imageName = strtolower($quill_imageName);
-                $request->quill_photo->move('upload/news/', $quill_imageName);
-            }
-            else {
-                $file= $post->quill_photo;
-                $filename ='./upload/news/'.$file;
-                \File::delete($filename);
-                $quill_imageName = '';
-            }
-        }
+        
         // $formData = array(
         //     'title' => $request->input('title'),
         //     'main_point' => $request->input('main_point'),
@@ -340,7 +298,6 @@ class PostController extends Controller
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
             $post->photo = $imageName;
-            $post->quill_photo = $quill_imageName;
             $post->category_id=$request->input('category_id');
             $post->block_id=$request->input('block_id');
             $post->related_news=$request->input('related_news');
@@ -502,4 +459,4 @@ class PostController extends Controller
     //     return $posts;
     // }
 
-}
+}   

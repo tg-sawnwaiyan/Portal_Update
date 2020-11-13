@@ -2,38 +2,38 @@
 <layout>   
 <div>    
     <!-- <form class="col-lg-12 mb-2 pad-free"> -->
-                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
-                            <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
-                                <!--search input-->
-                                <div class="search-input">
-                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
-                                    <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
-                                    <button type="submit" class="searchButtonNews" @click="searchCategory()">
-                                        <i class="fas fa-search"></i> 検索
-                                    </button>
-                                </div>                                    
-                            </div>
-                        </div>
-                        <!-- </form> -->
-                        <!-- slider -->
-                        <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+    <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+        <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
+            <!--search input-->
+            <div class="search-input">
+                <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
+                <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                    <i class="fas fa-search"></i> 検索
+                </button>
+            </div>                                    
+        </div>
+    </div>
+    <!-- </form> -->
+    <!-- slider -->
+    <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
-                                
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                </li>
+            <ul class="nav nav-tabs" role="tablist">
+                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                
+                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                </li>
 
-                            </ul>
-                            
-                        </div>
-                       
-                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        <div class="bg_color"></div>
-                    </div>
+            </ul>
+            
+        </div>
+       
+        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+        <div class="bg_color"></div>
+    </div>
                         <!-- end of slider -->
     <div class="col-12">
         <!-- <div class="pc-991-1880">
@@ -55,22 +55,22 @@
         </h4>
         
     </div>       
-    
-
     <div v-if="norecord_msg">
         <div class="container-fuid no_search_data">
- 
-                    <p class="nosearch-icon">
-                        <svg x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:red;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#666666"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
-                    </p>
-                     <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
-                     <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
-                </div>
-    </div>     
+            <p class="nosearch-icon">
+                <svg x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:red;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#666666"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
+            </p>
+            <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
+             <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
+        </div>
+    </div>
+    <!-- news layout design change (@author:pzo) -->
     <div v-else-if="block && w_width > 480" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">        
-        <slick :options="slickOptions" class="news-slider-width">             
-            <div class="pad-new pattern-child" v-if="group[0]">
-                <div v-for="(value,index) in group[0]" :key="index">
+        <slick :options="slickOptions" class="news-slider-width" >             
+            <div class="pad-new pattern-child group-0">
+
+                <div class="large-b0 m-b-5" v-for="(value,index) in group[0]" :key="index" v-if="index === 0">
+
                     <router-link :to="'/newsdetails/'+value.id">
                         <div class="col-12 single-news-box">
 
@@ -100,12 +100,23 @@
                         </div>
                     </router-link>
                 </div>
+                <div class="small" v-for="(value,index) in group[2]" :key="index">
+                    <div class="small-b0" v-if="index === 0">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                </div>
             </div>
 
-            <div class="pad-new pattern-child" v-if="group[1]">
-                <div v-for="(value,index) in group[1]" :key="index">
+            <div class="pad-new pattern-child group-1"   >
+ 
+                <div class="medium-b1" v-for="(value,index) in group[1]" :key="index" v-if="index === 0">
                     <router-link :to="'/newsdetails/'+value.id"> 
-                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                        <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
 
                             <div class="col-4 img-box">
 
@@ -142,31 +153,78 @@
                         </div>
                     </router-link>
                 </div>
+                <div class="small" v-for="(value,index) in group[2]" :key="index">
+                    <div class="small-b1"  v-if="index === 1">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 2">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 3">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 4">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 5">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 6">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b1"  v-if="index === 7">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                </div>                                
             </div>
 
-            <div class="pad-new pattern-child" v-if="group[2]">
-                <router-link v-for="(value,inx) in group[2]" :key="inx" :to="'/newsdetails/'+value.id" style="color:#333;">  
-                    <p class="text-truncate news-list-display">
-
-                        <i class="fas fa-building"></i> {{value.main_point}}
-
-                    </p>
-                </router-link>
-            </div>
-
-            <div class="pad-new pattern-child" v-if="group[3]">    
-                <div v-for="(value,index) in group[3]" :key="index">
+            <div class="pad-new pattern-child group-2"  >
+                <div class="large-b2 m-b-5"  v-for="(value,index) in group[0]" :key="index" v-if="index === 1">
                     <router-link :to="'/newsdetails/'+value.id">
-
                         <div class="col-12 single-news-box">
 
-                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index">
+                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                 <transition name="fade">
 
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                </transition>
+                                </transition>                                
 
                                 <transition name="fade" slot="placeholder">
 
@@ -180,18 +238,145 @@
 
                                     </div>
 
-                                </transition>                                  
-
+                                </transition>
                             </clazy-load>
-                            <p>{{value.main_point}}</p>
+                            <p>  {{value.main_point}} </p>
+                        </div>
+                    </router-link>
+                </div>       
+                <div class="small" v-for="(value,index) in group[2]" :key="index">        
+                    <div class="small-b2" v-if="index === 8">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="pad-new pattern-child group-3"  >    
+                 
+                <div class="medium" v-for="(value,index) in group[1]" :key="index" >
+                    <div class="medium-b3" v-if="index === 1">
+                        <router-link :to="'/newsdetails/'+value.id"> 
+                        <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
+
+                            <div class="col-4 img-box">
+
+                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                    <transition name="fade">
+
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                    </transition>
+
+                                    <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </transition>
+                                </clazy-load>
+
+                            </div>
+                            <div class="col-8 pattern-txt-box">
+                              
+
+                                <p>{{value.main_point}}</p>
+
+                            </div>
 
                         </div>
+                        </router-link>
+                    </div>
+                    <div class="medium-b3" v-if="index === 2">
+                        <router-link :to="'/newsdetails/'+value.id"> 
+                        <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
 
-                    </router-link>
+                            <div class="col-4 img-box">
+
+                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                    <transition name="fade">
+
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                    </transition>
+
+                                    <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </transition>
+                                </clazy-load>
+
+                            </div>
+                            <div class="col-8 pattern-txt-box">
+                              
+
+                                <p>{{value.main_point}}</p>
+
+                            </div>
+
+                        </div>
+                        </router-link>
+                    </div>
+                </div>
+                <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
+                    <div class="small-b3"  v-if="index === 9">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display news-list-display03">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b3"  v-if="index === 10">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display news-list-display03">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b3"  v-if="index === 11">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display news-list-display03">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
+                    <div class="small-b3"  v-if="index === 12">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                        <p class="text-truncate news-list-display news-list-display03">
+
+                            <i class="fas fa-building"></i> {{value.main_point}}
+                        </p>
+                        </router-link>
+                    </div>
                 </div>
             </div>                    
         </slick>
-    </div>
+    </div>    
+    <!-- end layout design -->
+   
     <div v-else-if="block && w_width <= 480" class="row col-12 m-lr-0 p-0">
             <router-link v-for="(item,index) in news" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
                 <div class="col-md-12 row adslist-card news-3-card m-0">
@@ -655,11 +840,14 @@ export default {
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     background: #f7f7f7;
     /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
+}
+.news-list-display03{
+    padding: 5.7px 10px;
 }
 .news-3-card {
     background-color: #f7f7f7;
@@ -773,4 +961,19 @@ export default {
         height: auto !important;
     }
 }
+
+
+
+/*.group-1 .medium-b1 .adslist-card{
+    height: 194px;
+}
+.group-3 .medium-b3 .adslist-card{
+    height: 194px;
+}*/
+/*.group-2  .news-list-display{
+    height: 80px !important;
+}
+.small-b2  .news-list-display{
+    height: 80px !important;
+}*/
 </style>
