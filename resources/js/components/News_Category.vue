@@ -2,38 +2,38 @@
 <layout>   
 <div>    
     <!-- <form class="col-lg-12 mb-2 pad-free"> -->
-                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
-                            <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
-                                <!--search input-->
-                                <div class="search-input">
-                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
-                                    <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
-                                    <button type="submit" class="searchButtonNews" @click="searchCategory()">
-                                        <i class="fas fa-search"></i> 検索
-                                    </button>
-                                </div>                                    
-                            </div>
-                        </div>
-                        <!-- </form> -->
-                        <!-- slider -->
-                        <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+    <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+        <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
+            <!--search input-->
+            <div class="search-input">
+                <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
+                <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                    <i class="fas fa-search"></i> 検索
+                </button>
+            </div>                                    
+        </div>
+    </div>
+    <!-- </form> -->
+    <!-- slider -->
+    <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+    <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
-                                
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" ref="itemWidth">
-                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                </li>
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
+            
+            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" ref="itemWidth">
+               <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+            </li>
 
-                            </ul>
-                            
-                        </div>
-                       
-                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        <div class="bg_color"></div>
-                    </div>
+        </ul>
+        
+    </div>
+   
+    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+    <div class="bg_color"></div>
+</div>
                         <!-- end of slider -->
     <div class="col-12">
         <!-- <div class="pc-991-1880">
@@ -69,35 +69,37 @@
         <slick :options="slickOptions" class="news-slider-width" >             
             <div class="pad-new pattern-child group-0">
 
-                <div class="large-b0 m-b-5" v-for="(value,index) in group[0]" :key="index" >
-                    <router-link :to="'/newsdetails/'+value.id" v-if="index === 0">
-                        <div class="col-12 single-news-box">
+                <div class="large" v-for="(value,index) in group[0]" :key="index" >
+                    <div class="large-b0 m-b-5" v-if="index === 0">
+                        <router-link :to="'/newsdetails/'+value.id" >
+                            <div class="col-12 single-news-box">
 
-                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+                                <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
-                                <transition name="fade">
+                                    <transition name="fade">
 
-                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                </transition>                                
+                                    </transition>                                
 
-                                <transition name="fade" slot="placeholder">
+                                    <transition name="fade" slot="placeholder">
 
-                                    <div class="preloader">
+                                        <div class="preloader">
 
-                                        <div class="circle">
+                                            <div class="circle">
 
-                                        <div class="circle-inner"></div>
+                                            <div class="circle-inner"></div>
+
+                                            </div>
 
                                         </div>
 
-                                    </div>
-
-                                </transition>
-                            </clazy-load>
-                            <p>  {{value.main_point}} </p>
-                        </div>
-                    </router-link>
+                                    </transition>
+                                </clazy-load>
+                                <p>  {{value.main_point}} </p>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>
                 <div class="small" v-for="(value,index) in group[2]" :key="index">
                     <div class="small-b0" v-if="index === 0">
@@ -213,35 +215,37 @@
             </div>
 
             <div class="pad-new pattern-child group-2"  >
-                <div class="large-b0 m-b-5"  v-for="(value,index) in group[0]" :key="index">
-                    <router-link :to="'/newsdetails/'+value.id" v-if="index === 1">
-                        <div class="col-12 single-news-box">
+                <div class="large"  v-for="(value,index) in group[0]" :key="index">
+                    <div class="large-b0 m-b-5" v-if="index === 1">
+                        <router-link :to="'/newsdetails/'+value.id" >
+                            <div class="col-12 single-news-box">
 
-                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+                                <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
-                                <transition name="fade">
+                                    <transition name="fade">
 
-                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                </transition>                                
+                                    </transition>                                
 
-                                <transition name="fade" slot="placeholder">
+                                    <transition name="fade" slot="placeholder">
 
-                                    <div class="preloader">
+                                        <div class="preloader">
 
-                                        <div class="circle">
+                                            <div class="circle">
 
-                                        <div class="circle-inner"></div>
+                                            <div class="circle-inner"></div>
+
+                                            </div>
 
                                         </div>
 
-                                    </div>
-
-                                </transition>
-                            </clazy-load>
-                            <p>  {{value.main_point}} </p>
-                        </div>
-                    </router-link>
+                                    </transition>
+                                </clazy-load>
+                                <p>  {{value.main_point}} </p>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>       
                 <div class="small" v-for="(value,index) in group[2]" :key="index">        
                     <div class="small-b2" v-if="index === 8">

@@ -79,7 +79,7 @@
                             <select v-model="block_id" class="form-control" @change='getblock()'>
                                 <option v-bind:value="0">選択してください。</option>
                                 <option v-bind:value="1">左の大きなブロック</option>
-                                <option v-bind:value="4">右の大きなブロック</option>
+                               <!--  <option v-bind:value="4">右の大きなブロック</option> -->
                                 <option v-bind:value="2">中型ブロック</option>
                                 <option v-bind:value="3">小さなブロックサイズ</option>
                             </select>
