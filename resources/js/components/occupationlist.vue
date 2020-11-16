@@ -184,7 +184,7 @@
                                 this.nosearch_msg = true;
                             }
                         });
-                        localStorage.setItem('page_no',page);//comment set to pccupation/updateType()
+                        localStorage.setItem('occ_page_no',page);//comment set to pccupation/updateType()
                     },
                     nextPaginate(num){
                      

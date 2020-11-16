@@ -184,7 +184,7 @@
                                 this.nosearch_msg = true;
                             }
                         });
-                        localStorage.setItem('page_no',page);//set to editads/updateAds()
+                        localStorage.setItem('ads_page_no',page);//set to editads/updateAds()
                     },
                     imgUrlAlt(event) {
                         event.target.src = "/images/noimage.jpg"
