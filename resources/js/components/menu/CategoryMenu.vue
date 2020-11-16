@@ -627,7 +627,7 @@ $(document).ready(function(){
 
 </style>
 <style scoped>
-@import '../../../../public/css/categorymenu.css';
+@import "../../../../public/css/categorymenu.css?{{ Config::get('version.date') }}";
 </style>
 
 
