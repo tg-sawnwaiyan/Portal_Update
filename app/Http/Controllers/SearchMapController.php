@@ -244,6 +244,13 @@ class SearchMapController extends Controller
 
     }
 
+    public function getCities() {
+        $city  = DB::table('cities')->get();
+         return response()->json([
+            'city' => $city,
+        ]);
+    }
+
     
 
     public function getNursingSearch($searchword)
