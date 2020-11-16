@@ -8,7 +8,7 @@
                         <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
                             <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                 <!--search input-->
-                                <div class="search-input">
+                                <div class="search-input" style="display: none;">
                                     <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
                                     <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
                                     <button type="submit" class="searchButtonNews" @click="searchCategory()">
