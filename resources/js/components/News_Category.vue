@@ -2,6 +2,7 @@
 <layout>   
 <div>    
     <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+
     <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
         <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
             <!--search input-->
@@ -16,14 +17,14 @@
     </div>
     <!-- </form> -->
     <!-- slider -->
-    <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+    <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
         <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
             <ul class="nav nav-tabs" role="tablist">
-                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
                 
-                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
+                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" ref="itemWidth">
                    <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                 </li>
 
@@ -31,7 +32,7 @@
             
         </div>
        
-        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
         <div class="bg_color"></div>
     </div>
                         <!-- end of slider -->
@@ -486,7 +487,16 @@ export default {
     mounted() {
         this.getAllCat();
     },
-   created(){
+    created(){
+    this.$nextTick(() => {
+        if(this.$refs.infoBox){
+            this.cat_box_width = this.$refs.infoBox.clientWidth;
+        }            
+    })
+        var url      = window.location.href; 
+        if(url.indexOf('category') != -1){
+            $("#top_a").removeClass("active");
+        }
     if($(window).width() > 480){
          this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
             this.news = response.data.newslist;
@@ -801,9 +811,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../../../public/css/categorymenu.css';
-</style>
-<style scoped>
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
@@ -962,18 +969,8 @@ export default {
     }
 }
 
+</style>
 
-
-/*.group-1 .medium-b1 .adslist-card{
-    height: 194px;
-}
-.group-3 .medium-b3 .adslist-card{
-    height: 194px;
-}*/
-/*.group-2  .news-list-display{
-    height: 80px !important;
-}
-.small-b2  .news-list-display{
-    height: 80px !important;
-}*/
+<style scoped>
+@import '../../../public/css/categorymenu.css';
 </style>
