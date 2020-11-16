@@ -7,10 +7,15 @@
         width: 100% !important;
         margin: 0 auto !important;
     }
+    #myTab .nav-link {
+        border-left: 0 !important;
+        border-right: 0 !important;
+    }
     #myTab .router-link-exact-active {
     height: auto !important;
     background-color: transparent !important;
     }
+
     .cat-nav {
         margin: 0 auto 15px auto !important;
         padding-left: 0 !important;
