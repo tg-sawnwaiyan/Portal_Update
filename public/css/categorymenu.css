@@ -15,7 +15,9 @@
     height: auto !important;
     background-color: transparent !important;
     }
-
+    #top {
+        border-left: none !important; 
+    }
     .cat-nav {
         margin: 0 auto 15px auto !important;
         padding-left: 0 !important;

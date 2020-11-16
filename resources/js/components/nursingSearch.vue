@@ -1190,6 +1190,7 @@
                 })
                 .then((response) => {
                     $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
+                    $(".profile_header").css("display", "block");
                     $("#nursing-search").css("display", "block");
                     $("#filtertable").css("display", "block");
                     this.changeMap(response,2)
@@ -1963,5 +1964,8 @@ div#holder {
 .offset{
   width: 500px !important;
   margin: 20px auto;
+}
+.profile_header {
+    display: none;
 }
 </style>
