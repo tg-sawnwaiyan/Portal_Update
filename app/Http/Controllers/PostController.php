@@ -57,6 +57,7 @@ class PostController extends Controller
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
         }
+
         $post = new Post() ;
             $post->title = $request->input('title');
             $post->main_point = $request->input('main_point');
@@ -148,20 +149,20 @@ class PostController extends Controller
         //separted divied block array
         foreach ($tmp as $key => $value) {
             if($key == 1){
-                $newarray1 = array_chunk($value, 1);
+                $newarray1 = array_chunk($value, 2);
             }elseif($key == 2){
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
-                $newarray3 = array_chunk($value, 8);
-            }elseif($key == 4){
+                $newarray3 = array_chunk($value, 13);
+            }/*elseif($key == 4){
                 $newarray4 = array_chunk($value, 1);
-            }
+            }*/
         }
 
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-        $lenght[] = count($newarray4); 
+        //$lenght[] = count($newarray4); 
                 
         for ($i=0; $i <= max($lenght); $i++) { 
             if(isset($newarray1[$i])){
@@ -182,15 +183,15 @@ class PostController extends Controller
                 array_push($aryPush, $aryEmpty);
             }
 
-            if(isset($newarray4[$i])){
+           /* if(isset($newarray4[$i])){
                 array_push($aryPush, $newarray4[$i]);
             }else{
                 array_push($aryPush, $aryEmpty);
-            }
+            }*/
         }
 
         if(array_filter($aryPush)){            
-            $aryResults = array_chunk($aryPush, 4);
+            $aryResults = array_chunk($aryPush, 3);
         }else{
             $aryResults = [];
         }
@@ -259,7 +260,7 @@ class PostController extends Controller
                 $request->photo->move('upload/news/', $imageName);
             }
             else {
-                $file= $post->photo;
+                $file = $post->photo;
                 $imageName = $file;
             }
         }
@@ -281,6 +282,8 @@ class PostController extends Controller
                 $imageName = '';
             }
         }
+
+        
         // $formData = array(
         //     'title' => $request->input('title'),
         //     'main_point' => $request->input('main_point'),
@@ -300,11 +303,12 @@ class PostController extends Controller
             $post->related_news=$request->input('related_news');
             $post->from_date = $request->input('from_date');
             $post->to_date = $request->input('to_date');
+
             if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
                 $post->created_by_company = '';
             }
             else {
-                $post->created_by_company = $request->input('created_by_company');
+                $post->created_by_company = $request->input('created_by');
             }
             if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
                 $post->created_by = '';
@@ -312,7 +316,7 @@ class PostController extends Controller
             else {
                 $post->created_by = $request->input('created_by');
             }
-            // $post->created_by_company = $request->input('created_by_company');
+            //$post->created_by_company = $request->input('created_by_company');
             $post->user_id = 1;
             // $post->recordstatus=1;
             $post->save();
@@ -455,4 +459,4 @@ class PostController extends Controller
     //     return $posts;
     // }
 
-}
+}   

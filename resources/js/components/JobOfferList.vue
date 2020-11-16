@@ -312,7 +312,7 @@
                                 this.nosearch_msg = true;
                             }
                         });
-                        localStorage.setItem('page_no',page);
+                        localStorage.setItem('job_page_no',page);
                     },
                     nextPaginate(num){
                         let fd = new FormData();
