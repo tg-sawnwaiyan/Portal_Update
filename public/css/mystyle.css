@@ -204,7 +204,7 @@ body::-webkit-scrollbar-thumb {
 
 input[placeholder] {
     text-overflow: ellipsis;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 ::-moz-placeholder {
@@ -296,7 +296,7 @@ scrollbar-width: thin;*/
 
 label {
     margin-bottom: 0.2rem;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .btn-file {
@@ -473,7 +473,7 @@ textarea:disabled::placeholder {
 }
 
 .tab-pane {
-    padding: 17px;
+    padding: 10px;
 }
 .tab-pane h5{
     font-size: 18px;
@@ -764,7 +764,7 @@ width: 100px; */
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .hos-fac-toggle-div {
@@ -1870,7 +1870,7 @@ border-radius: 3px;
 
 .wd-in p {
     min-height: 25px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .lds-ripple {
@@ -2009,7 +2009,7 @@ border-radius: 3px;
     justify-content: center;
     margin: 20px 0;
     color: #666a73;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing-search .card-carousel {
@@ -2459,7 +2459,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 .profile_subtit {
     position: relative;
     margin: 20px 0;
-	font-size: 16px;
+    font-size: 16px;
 }
 .custom-bg-color{
     font-size: 16px;
@@ -2877,7 +2877,6 @@ border-top: 5px solid #e66527; */
 
 .main-content {
     /* padding: 0px;*/
-    overflow-y: hidden;
     width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
@@ -2936,7 +2935,7 @@ border-top: 5px solid #e66527; */
 
 .error {
     color: #ff0000;
-	font-size: 16px;
+    font-size: 16px;
     /* margin-bottom: 18px; */
 }
 
@@ -3136,7 +3135,7 @@ textarea {
 
 .form-control {
     background-color: #f5f5f5;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .multi-step {
@@ -3757,6 +3756,10 @@ ul.sub-ul li {
 
 .p-r-0 {
     padding-right: 0px !important;
+}
+
+.pad-free {
+    padding: 0px;
 }
 
 .pad-10 {
@@ -4972,7 +4975,7 @@ ul.hospital-subject>li:before {
 .divisions {
     position: relative;
     z-index: 1;
-	display: inline-block;
+    display: inline-block;
     width: 100%;
     max-width: 670px;
     /* background: url(/images/img_map1.png) center top no-repeat; */
@@ -5024,7 +5027,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchTerm {
-	font-size: 16px;
+    font-size: 16px;
     width: 70%;
     border: 3px solid #2980b9;
     border-right: none;
@@ -5076,7 +5079,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchButton {
-	font-size: 16px;
+    font-size: 16px;
     width: 85px;
     height: 40px;
     /* border: 1px solid #2980b9;
@@ -5456,14 +5459,14 @@ screen and (min-width: 750px) {
         top: 11%;
         right: -2%;
         z-index: 2;
-		padding: 0;
+        padding: 0;
     }
     .tohoku-box {
         position: absolute;
         top: 26%;
         right: 10%;
         z-index: 2;
-		padding: 0;
+        padding: 0;
     }
     .multiple-box {
         width: 153px !important;
@@ -6111,7 +6114,7 @@ top: 66px; */
 
 .m-l-10 {
     margin-left: 10px !important;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .m-l-15 {
@@ -6291,7 +6294,7 @@ margin-right: 2% !important;
 }
 
 .all-btn {
-	font-size: 16px;
+    font-size: 16px;
     color: #fff !important;
     border: none !important;
     min-width: 100px;
@@ -6350,7 +6353,7 @@ margin-right: 2% !important;
     background: #b7dad2;
     border-radius: 5px;
     padding: 10px;
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .invalid-feedback {
@@ -6676,7 +6679,7 @@ a:hover {
 }
 
 #navtab .nav-item {
-    margin-bottom: -3px;
+    margin-bottom: -3px !important;
     /* border-left: 1px solid #fff !important; */
 }
 
@@ -8379,12 +8382,12 @@ color: green;
     border-bottom: 3px solid #c40000;
     padding-bottom: 10px;
     margin-bottom: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .form-wrap {
     padding-bottom: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .form-wrap .form-tit {
@@ -8495,14 +8498,14 @@ color: green;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 5px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing dl dd {
     width: 100%;
     text-align: left;
     padding-left: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing p {
@@ -8511,7 +8514,7 @@ color: green;
 
 .compare-wrap {
     padding: 0;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .compare-wrap dl.favnur {
@@ -8651,7 +8654,7 @@ color: green;
     width: 65px;
     margin-right: 10px;
     color: #2980b9;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .wd-in {
@@ -8688,7 +8691,7 @@ color: green;
 
 .item-name a {
     color: #2980b9!important;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .item-name img {
@@ -8850,7 +8853,7 @@ font-weight: bold;
 .eg-txt {
     padding-left: 20px;
     width: 45%;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .mail-txt {
@@ -9272,7 +9275,7 @@ border-bottom: none;
     color: #3490dc !important;
     text-decoration: underline;
     cursor: pointer;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .pseudolink:hover {
@@ -9286,7 +9289,7 @@ border-bottom: none;
 /*for see more btn*/
 
 .seemore-btn {
-	font-size: 16px !important;
+    font-size: 16px !important;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -9536,7 +9539,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     height: 100%;
     border: 1px solid #63b7ff;
     border-radius: 5px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .hos-title {
@@ -9692,7 +9695,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     background: #63b7ff;
     color: #fff;
     padding: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .nur_date {
@@ -10246,7 +10249,7 @@ font-size: 18px; */
 /*for inner checkbox*/
 
 .control {
-	font-size: 16px;
+    font-size: 16px;
     width: auto !important;
     position: relative;
     padding-left: 30px;
@@ -11539,11 +11542,8 @@ padding: 0;
     .ads-slider {
         top: 30px;
     }
-   /* .tab {
+    .tab {
         margin-top: 20px;
-    }*/
-    .maintab-content {
-        margin: 22px 0 0 0;
     }
     #myTabContent {
         margin-bottom: 10px;
@@ -12285,9 +12285,9 @@ width: 18rem;
         width: 100%;
         margin: -85px auto 0;
     }
-    /*.tab {
+    .tab {
         margin-top: 20px;
-    }*/
+    }
     .newsDetail_leftwrapper {
         max-width: 320px;
     }
@@ -14801,6 +14801,9 @@ strong {
     }
     .container_news .new-2{
         width: 100%;
+    }
+    .maintab-content {
+        margin: 16px 0 0 0;
     }
 }
 /*end of .container_news*/

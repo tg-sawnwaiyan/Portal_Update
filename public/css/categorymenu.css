@@ -42,7 +42,7 @@
     }
     .infoBox {
         position: absolute;
-        top: 54px;
+        top: 64px;
         z-index: 1;
         left: -0.5%;
         /*right: 2.5%;*/
@@ -150,6 +150,6 @@
         margin-top: 16px;
     }
     .infoBox {
-        top: 57px !important;
+        top: 63px !important;
     }
     }
