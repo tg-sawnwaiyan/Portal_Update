@@ -1577,6 +1577,25 @@ border-radius: 3px;
     text-align: center;
 }
 
+.color-c40000 {
+    color:#c40000!important;
+}
+.color-aaa {
+    color:#aaa !important;
+}
+.mix-blend-mode-normal {
+    mix-blend-mode: normal !important;
+}
+.border-none {
+    border:none !important;
+}
+.text-align-right {
+    text-align:right !important;
+}
+.margin-bottom-0 {
+    margin-bottom:0px !important;
+}
+
 @media only screen and (max-device-width: 990px) and (orientation: landscape) {
     .successful-resetpwd {
         width: 100% !important;
@@ -13573,6 +13592,9 @@ transition: background-color .3s;
     .nursing_cost {
         padding: 0px;
         margin-left: 16px;
+        font-weight:bold !important;
+        font-size:1.5em !important;
+        margin-bottom:7px !important;
     }
     .nursing_title_lbl {
         display: block;

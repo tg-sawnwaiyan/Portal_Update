@@ -90,13 +90,13 @@
                             <label class="col-12 col-lg-3 col-md-4 control-label">看護種類</label>
                             <div class="input-group-append " id="nursing">
                             </div>
-                            <div class="error error-margin" id="radioerror">必須</div>
+                            <div class="error register-err-margin" id="radioerror">必須</div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">電話番号</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
-                                <span class="number-color">※ 数字のみ </span>
+                                <span class="color-999">※ 数字のみ </span>
                                 <div class="input-group">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
@@ -416,11 +416,11 @@ export default {
 .tl{
     text-align: left;
 }
-.error-margin {
+.register-err-margin {
     margin-bottom: 6px;
     margin-left: 210px;
 }
-.number-color {
+.color-999 {
     color:#999;
 }
 /*  契約書 追加  */

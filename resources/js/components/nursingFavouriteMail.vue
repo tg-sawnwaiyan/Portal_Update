@@ -1,4 +1,3 @@
-
 <template>
     <div>
         <div class="tab-content job-detail">
@@ -14,7 +13,6 @@
                     </nav>
                 </div>
                 <div class="col-12 m-b-10">
-
                 </div>
                 <div class="col-md-12 register_box" v-if="type == 'register'">
                     <ul class="multi-step">
@@ -26,7 +24,10 @@
                     <form class="col-md-12 form-wrap" autocomplete="off">
                         <h4 class="form-tit">資料請求される方について</h4>
                         <!-- <h4 class="nursing-info">資料請求される方について</h4> -->
-                        <p class="require-txt"><span class="error sp1" style="margin-left:0px;">必須</span> のついた項目は全て入力してくださいますようお願いいたします。</p>
+                        <p class="require-txt">
+                            <span class="error sp1 margin-left-0">必須</span> 
+                            のついた項目は全て入力してくださいますようお願いいたします。
+                        </p>
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"><label><strong>お名前 </strong><span class="error sp1">必須</span></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
@@ -40,60 +41,59 @@
                             <div class="col-md-9 col-sm-12 form-right">
                                 <div class="col-md-12 pad-free">
                                     <!-- <div class="col-md-9 pad-free"> -->
-                                        <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="フリガナを入力してください。" v-model="comments.furigana" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
+                                    <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="フリガナを入力してください。" v-model="comments.furigana" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
                                     <!-- </div>
                                     <div class="col-md-3"> -->
-                                         <span class="float-left eg-txt"> 例）サガシタロウ</span>
-                                        <span class="error m-l-30" v-if="furigana_focus " >※入力は必須です。</span>
-
+                                    <span class="float-left eg-txt"> 例）サガシタロウ</span>
+                                    <span class="error m-l-30" v-if="furigana_focus " >※入力は必須です。</span>
                                     <!-- </div> -->
-
                                 </div>
-                                 <span class="float-left error p-l-30" v-if="charErr">※カタカナで入力してください。</span>
-
+                                <span class="float-left error p-l-30" v-if="charErr">※カタカナで入力してください。</span>
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"> <label><strong>生年月日</strong> </label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <!-- <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/> -->
-                                <date-picker class="" :lang="lang" valueType="format" v-model="comments.bdate" style="margin-left: 20px;"></date-picker>
+                                <date-picker class="margin-left-20" :lang="lang" valueType="format" v-model="comments.bdate"></date-picker>
                                 <!-- <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span> -->
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                                <div class="col-md-3 col-sm-12 form-left"><label><strong>性別</strong> </label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">
-                                    <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
-                                         <div class="control__indicator"></div>
-                                    </label>
-                                    <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div class="control__indicator"></div>
-                                    </label>
-                                    <label class="control control--radio">
-                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
-                                        <div class="control__indicator"></div>
-                                    </label>
-
-                                </div>
+                            <div class="col-md-3 col-sm-12 form-left"><label><strong>性別</strong> </label></div>
+                            <div class="col-md-9 col-sm-12 form-right pl-4">
+                                <label class="control control--radio">
+                                    <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">
+                                    &nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
+                                    <div class="control__indicator"></div>
+                                </label>
+                                <label class="control control--radio">
+                                    <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性" v-model="comments.sex1">
+                                    &nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="control__indicator"></div>
+                                </label>
+                                <label class="control control--radio">
+                                    <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦" v-model="comments.sex1">
+                                    &nbsp;夫婦
+                                    <div class="control__indicator"></div>
+                                </label>
                             </div>
+                        </div>
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"> 
-                            <div class="row col-12 m-0 p-0">
-                                <div class="col-xl-3 col-lg-3 col-12 p-0">
-                                    <label class="subtitle"><strong>ご住所</strong></label>
-                                </div>               
-                                <div class="col-xl-9 col-lg-9 col-12 p-0 stepper-form">                                                                   
-                                    <div class="form-left-child form-group pc-750"><label> <strong>郵便番号 </strong></label></div>
-                                    <div class="form-left-child form-group pc-750"><label><strong>都道府県</strong><span class="error sp1">必須</span></label></div>
-                                    <div class="form-left-child form-group pc-750"><label><strong>市区町村</strong> <span class="error sp1">必須</span></label></div>
-                                    <div class="form-left-child form-group pc-750"><label><strong>番地（建物名)</strong><span class="error sp1">必須</span></label></div>                                    
-                                </div>           
-                            </div>    
+                                <div class="row col-12 m-0 p-0">
+                                    <div class="col-xl-3 col-lg-3 col-12 p-0">
+                                        <label class="subtitle"><strong>ご住所</strong></label>
+                                    </div>               
+                                    <div class="col-xl-9 col-lg-9 col-12 p-0 stepper-form">                                                                   
+                                        <div class="form-left-child form-group pc-750"><label> <strong>郵便番号 </strong></label></div>
+                                        <div class="form-left-child form-group pc-750"><label><strong>都道府県</strong><span class="error sp1">必須</span></label></div>
+                                        <div class="form-left-child form-group pc-750"><label><strong>市区町村</strong> <span class="error sp1">必須</span></label></div>
+                                        <div class="form-left-child form-group pc-750"><label><strong>番地（建物名)</strong><span class="error sp1">必須</span></label></div>                                    
+                                    </div>           
+                                </div>    
                             </div>                           
                             <div class="col-md-9 col-sm-12 form-right stepper-form">
                                 <div class="form-group  rightwrap row pl-3">
@@ -117,7 +117,6 @@
                                         <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
                                     </div>
                                 </div>
-
                                  <div class="form-group row pl-3">                             
                                     <div class="col-md-12 sp-750"><label>  <strong>市区町村 </strong><span class="error sp1">必須</span></label></div>
                                     <div class="col-md-12 p-0">
@@ -133,7 +132,7 @@
                                 <div class="form-group row pl-3 m-b-0">
                                     <div class="col-md-12 sp-750"><label><strong>番地（建物名)</strong><span class="error sp1">必須</span></label></div>
                                     <div class="col-md-12 p-0">
-                                         <input type="text" id="city" name="city" class="city form-control float-left" placeholder="番地を入力してください。" v-model="comments.city" @change="aggreBtn" @keyup="focusCity">
+                                        <input type="text" id="city" name="city" class="city form-control float-left" placeholder="番地を入力してください。" v-model="comments.city" @change="aggreBtn" @keyup="focusCity">
                                         <span class="float-left eg-txt">例）区丸の内1-9-1 グラントウキョウノースタワー40階</span>
                                     </div>
                                 </div>
@@ -142,12 +141,11 @@
                         <div class="form-group m-0 row bd-all">
                             <div class="col-md-3 col-sm-12 form-left"><label class="pl-0"><strong>電話番号</strong></label></div>
                             <div class="col-md-9 col-sm-12 form-right p-b-0">
-                            <div class="row pl-3">
+                                <div class="row pl-3">
                                     <div class="col-md-12 p-0">
                                         <label class="col-md-12">※ 電話番号またはメールアドレス必須 <span class="error sp1">必須</span></label>
                                         <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone"   @keyup="focusPhone" @change="aggreBtn" maxlength="13">
-                                        <!-- v-on:keyup="isNumberOnly" -->
-                                                                               
+                                        <!-- v-on:keyup="isNumberOnly" -->                                                                               
                                         <span class="float-left eg-txt">例）0312345678（半角）</span>
                                         <!-- <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>                                        -->
                                     </div>
@@ -158,13 +156,12 @@
                             <div class="form-group m-0 row bd-all"> -->
                             <div class="col-md-3 col-sm-12 form-left"><label class="pl-0"><strong>メールアドレス </strong></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
-                            <div class="row pl-3">
-                                <div class="col-md-12 p-0">
+                                <div class="row pl-3">
+                                    <div class="col-md-12 p-0">
                                         <input type="email" id="mail" name="mail" class="form-control float-left" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="aggreBtn" @keyup="focusMail">                          
-                                        <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
-                                       
+                                        <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>                                       
                                     </div>
-                                     <span class="error m-l-30" v-if="mail_focus && this.comments.mail !=''">※メールアドレスが正しくありません。もう一度入力してください。</span>
+                                    <span class="error m-l-30" v-if="mail_focus && this.comments.mail !=''">※メールアドレスが正しくありません。もう一度入力してください。</span>
                                 </div>
                             </div>
                         </div>
@@ -173,17 +170,16 @@
                             <div class="col-md-9 col-sm-12 form-right pl-4">
                                 <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する
                             </div>
-                        </div> -->
-                       
-
+                        </div> -->                     
                         <div class="btn-list mt-5 clearfix">
-                             <div class="mt-1 submit txt-err" v-if="btn_disable">
-                            <div class="error">※未入力の必須項目がございます。</div>
-                        </div>
+                            <div class="mt-1 submit txt-err" v-if="btn_disable">
+                                <div class="error">※未入力の必須項目がございます。</div>
+                            </div>
                             <ul>
                                 <!-- <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li> -->
-                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()">確認ページに進む</button></li>
-                                
+                                <li> 
+                                    <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()">確認ページに進む</button>
+                                </li>                                
                             </ul>
                         </div>
                         <!--next_form-->
@@ -216,13 +212,13 @@
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label><strong>性別</strong></label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
-                                     <label class=" control control--radio">
+                                    <label class=" control control--radio">
                                         <input type="radio" class="custom-radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="control__indicator"></div>
-                                     </label>
+                                    </label>
                                     <label class="control control--radio">
-                                         <input type="radio" class="custom-radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                          <div class="control__indicator"></div>
+                                        <input type="radio" class="custom-radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="control__indicator"></div>
                                     </label>
                                    <label class="control control--radio">
                                        <input type="radio" class="custom-radio" id="sex" name="sex" value="夫婦"   v-model="comments.sex">&nbsp;夫婦
@@ -338,9 +334,9 @@
                                          <input type="radio" class="custom-radio" id="fect" name="fect" value="なし"  v-model="comments.fect">&nbsp;なし&nbsp;&nbsp;&nbsp;&nbsp;
                                          <div class="control__indicator"></div>
                                     </label>
-                                   <label class="control control--radio">
-                                    <input type="radio" class="custom-radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <div class="control__indicator"></div>
+                                    <label class="control control--radio">
+                                        <input type="radio" class="custom-radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="control__indicator"></div>
                                     </label>
                                 </div>
                             </div>
@@ -360,19 +356,19 @@
                                     <textarea name="hope" id="hope" class="form-control m-0"   v-model="comments.hope" ></textarea>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>                        
                         <div class="btn-list mt-5 clearfix">
                             <div class="mt-1 submit txt-err" v-if="btn_disable">
-                            <div class="error">※未入力の必須項目がございます。</div>
+                                <div class="error">※未入力の必須項目がございます。</div>
                             </div>
                             <ul>
                                 <!-- <li class="m-r-15"> -->
                                 <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
                                 <!-- <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
                                 </li> -->
-                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" >確認ページに進む</button></li>
-                               
+                                <li>
+                                    <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" >確認ページに進む</button>
+                                </li>                               
                             </ul>
                         </div>
                     </form>
@@ -386,14 +382,13 @@
        data() {
             return {
                 lang:{
-                days: ['日', '月', '火', '水', '木', '金', '土'],
-                months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                placeholder: {
-                //date: new Date().toISOString().slice(0,10),
-                date: '年 - 月 - 日',
-
-                }
-            },
+                    days: ['日', '月', '火', '水', '木', '金', '土'],
+                    months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                    placeholder: {
+                        //date: new Date().toISOString().slice(0,10),
+                        date: '年 - 月 - 日',
+                    }
+                },
                 type:'register',
                 comments: {
                     name: '',
@@ -422,8 +417,7 @@
                     arr_document: [{}],
                     selectedValue: 0,
                     township:0,
-                    townships_list:[],
-                 
+                    townships_list:[],                 
                 },
                 errors: [],
                 fav_nursing: [],
@@ -463,61 +457,57 @@
                 this.selectedValue = this.bk_postal;
             }
             this.axios.get('/api/hospital/citiesList')        
-                .then(response => {
-                    this.city_list = response.data;
-                });
+            .then(response => {
+                this.city_list = response.data;
+            });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.selectedValue != 0 && this.comments.township != 0 && this.comments.city != '' && (this.comments.phone != '' || this.comments.mail != '')){
-                    this.btn_disable=false;
-                }else{
-                    this.btn_disable=true;
-                }
+                this.btn_disable=false;
+            }else{
+                this.btn_disable=true;
+            }
         },
         methods: {
             getPostal: function(event) {    
                 if (this.comments.postal.length > 5) {
                     var postal = this.comments.postal;
                     this.axios
-                        .post('/api/hospital/postList/' + postal)
-                        .then(response => {
-                            var post_data = response.data.postal_list;
-                            var length = response.data.postal_list.length;
-                            if (length > 0) {
-                                var pref = post_data[0]['city_id'];
-                                this.comments.selectedValue = pref;
-                                this.getTownship(1);
-                                this.comments.township = response.data.township_id[0]['id'];  
-                                this.comments.city = post_data[0]["street"];                               
-                                this.comments.division = pref;
-                              
-                                 $('#jsErrorMessage').html('<div class="error"></div>');
-                            } else {
-
-                                this.comments.selectedValue = 0;
-                                this.comments.township = 0;
-                                this.comments.city = '';
-                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
-                            }
-                            this.aggreBtn();    
-                        });
+                    .post('/api/hospital/postList/' + postal)
+                    .then(response => {
+                        var post_data = response.data.postal_list;
+                        var length = response.data.postal_list.length;
+                        if (length > 0) {
+                            var pref = post_data[0]['city_id'];
+                            this.comments.selectedValue = pref;
+                            this.getTownship(1);
+                            this.comments.township = response.data.township_id[0]['id'];  
+                            this.comments.city = post_data[0]["street"];                               
+                            this.comments.division = pref;                            
+                            $('#jsErrorMessage').html('<div class="error"></div>');
+                        } else {
+                            this.comments.selectedValue = 0;
+                            this.comments.township = 0;
+                            this.comments.city = '';
+                            $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                        }
+                        this.aggreBtn();    
+                    });
                 }
             },
-            getTownship(town_id){
-            
-            this.axios.get('/api/auth/township',{
-                params:{
-                city:this.comments.selectedValue
-                },
-            }).then((response)=>{
-                if(town_id == 2)
-                {
-                this.comments.city = ''
-                // this.comments.postal = '';
-                    this.comments.township = 0;
-                }
-                this.comments.townships_list = response.data.townships
-                this.aggreBtn();
-            })
-            
+            getTownship(town_id){            
+                this.axios.get('/api/auth/township',{
+                    params:{
+                    city:this.comments.selectedValue
+                    },
+                }).then((response)=>{
+                    if(town_id == 2)
+                    {
+                        this.comments.city = ''
+                        // this.comments.postal = '';
+                        this.comments.township = 0;
+                    }
+                    this.comments.townships_list = response.data.townships
+                    this.aggreBtn();
+                })            
             },
             // getLocation(){
 
@@ -540,7 +530,6 @@
                         this.comments.fav_id.push(this.all_mail[i].id);
                         this.comments.fav_name.push(this.all_mail[i].name);
                     }
-
                     // this.comments.arr_reserve = this.reservation;
                     this.comments.arr_document = this.documentation;
                     this.comments.division = this.comments.selectedValue;
@@ -549,16 +538,12 @@
                     this.$router.push({
                         name: 'nursingMailConfirm',
                     });
-                }
-                
-                
+                }               
             },
             aggreBtn: function(){
                 if(($('#furigana').val().length > 0 && !this.charErr) && this.comments.name != '' && this.comments.selectedValue != 0 && this.comments.township != 0 && this.comments.city != '' && ((this.mail_reg.test(this.comments.mail) || (!this.ph_length && this.comments.phone != '' ) ) && (!this.ph_length && !this.mail_focus))){
-                  
                     this.btn_disable=false;
-                }else{
-                  
+                }else{                  
                     this.btn_disable=true;
                 }
             },
@@ -568,7 +553,7 @@
                     this.aggreBtn();
                 }else{
                     this.comment_focus=true;
-                     this.btn_disable = true;
+                    this.btn_disable = true;
                     document.getElementById('tbname').style.backgroundColor = black;
                 }
             },
@@ -608,8 +593,7 @@
                 }
                 else{
                     this.mail_focus = false;
-                }
-               
+                }               
                 this.aggreBtn();
                 // var input_data = $('#phone').val();
                 // var code = 0;
@@ -619,26 +603,21 @@
                 // }else{
                 //     this.ph_error = true;
                 // }
-
             },
-
             focusPhone: function(e) {
-
                if(this.comments.phone != '' )
-               {
+                {
                     if( (this.phone_reg).test(this.comments.phone) && (this.comments.phone.length >= 10 && this.comments.phone.length <= 13))
-                    {
-                    
-                        this.ph_length = false;
-                    
+                    {                    
+                        this.ph_length = false;                    
                     }
                     else{
                         this.ph_length = true;
                     }
-               }
-               else{
-                        this.ph_length = false;
-               }
+                }
+                else{
+                    this.ph_length = false;
+                }
             
                 this.aggreBtn();
                 // var input_data = this.comments.phone;
@@ -719,21 +698,19 @@
                     if (!(code > 12448 && code < 12543)) {
                         //$('.char-err').text('ひらがなで入力してください!');
                         _this.btn_disable = true;
-                        _this.charErr = true;
-                    
+                        _this.charErr = true;                    
                     }  
                 });    
-                 if(input_val == ''){
+                if(input_val == ''){
                     if(this.comments.furigana != ''){
-                    this.furigana_focus=false;                    
+                        this.furigana_focus=false;                    
                     }else{
                         this.furigana_focus=true;
                     }
                 }else{            
                     this.furigana_focus=false;　
                 } 
-                this.aggreBtn(); 
-
+                this.aggreBtn();
             },
 
             // isNumberOnly: function(event) {
@@ -765,3 +742,11 @@
         }
     }
 </script>
+<style>
+.margin-left-0 {
+    margin-left:0px;
+}
+.margin-left-20 {
+    margin-left: 20px;
+}
+</style>

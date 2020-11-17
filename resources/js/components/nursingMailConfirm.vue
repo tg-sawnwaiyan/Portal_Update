@@ -21,9 +21,11 @@
                         <h4 class="form-tit">資料請求される方について</h4>
                         <div class="mb-5">
                             <p class="require-txt">
-                                <span style="color: red; font-weight: bold; font-size: 15px;">※</span> ご入力いただいた内容に誤りがないかどうか、ご確認ください。
+                                <span class="nus-mail-confirm">※</span>
+                                ご入力いただいた内容に誤りがないかどうか、ご確認ください。
                                 <br/>
-                                <span style="color: red; font-weight: bold; font-size: 15px;">※</span> こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。
+                                <span class="nus-mail-confirm">※</span> 
+                                こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。
                             </p>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left">
@@ -59,18 +61,17 @@
                             </div>
                             <div class="form-group m-0 row bd">                               
                                 <div class="col-md-3 col-sm-12 form-left">                                   
-                                <div class="row col-12 m-0 p-0">
-                                <div class="col-xl-3 col-lg-3 col-12 p-0">
-                                     <label class="subtitle"><strong>ご住所</strong></label>
-                                </div>               
-                                <div class="col-xl-9 col-lg-9 col-12 p-0 text-bold form-result">                                                                   
-                                        <div class="form-left-child form-group pc-750"><label>郵便番号 </label></div>
-                                        <div class="form-left-child form-group pc-750"><label>都道府県</label></div>
-                                        <div class="form-left-child form-group pc-750"><label>市区町村</label></div>
-                                        <div class="form-left-child form-group pc-750"><label>番地（建物名)</label></div>
-                                    
-                                </div>           
-                                </div>    
+                                    <div class="row col-12 m-0 p-0">
+                                        <div class="col-xl-3 col-lg-3 col-12 p-0">
+                                            <label class="subtitle"><strong>ご住所</strong></label>
+                                        </div>               
+                                        <div class="col-xl-9 col-lg-9 col-12 p-0 text-bold form-result">                                                                   
+                                            <div class="form-left-child form-group pc-750"><label>郵便番号 </label></div>
+                                            <div class="form-left-child form-group pc-750"><label>都道府県</label></div>
+                                            <div class="form-left-child form-group pc-750"><label>市区町村</label></div>
+                                            <div class="form-left-child form-group pc-750"><label>番地（建物名)</label></div>                                    
+                                        </div>           
+                                    </div>    
                                 </div>
                                 <div class="col-md-9 col-sm-12 form-right stepper-result-form">
                                     <div class="form-group  rightwrap row pl-3">
@@ -78,8 +79,8 @@
                                             <label for=""><strong>郵便番号 </strong></label>
                                         </div>
                                         <div class="col-md-9 p-0">
-                                          <!-- <input type="text" name="outputpostal" id="outputpostal" class="mailbox m-b-10" disabled v-model="comments.postal" /> -->
-                                          <label class="mailbox pl-2 label-result">{{comments.postal}}</label>
+                                            <!-- <input type="text" name="outputpostal" id="outputpostal" class="mailbox m-b-10" disabled v-model="comments.postal" /> -->
+                                            <label class="mailbox pl-2 label-result">{{comments.postal}}</label>
                                         </div>
                                     </div>
                                     <div class="form-group row pl-4">
@@ -126,22 +127,13 @@
                                 <div class="col-md-9 col-sm-12 form-right">
                                     <input type="email" name="outputmail" id="outputmail" class="mailbox" disabled v-model="comments.mail" />
                                 </div>
-                            </div>
+                            </div>                            
                             <!-- <div class="form-group m-0 row bd-all">
-                <div class="col-md-3 col-sm-12 form-left">
-                  プレゼントのご希望
-                </div>
-                <div class="col-md-9 col-sm-12 form-right">
-                  <input
-                    type="text"
-                    name="outputpresent"
-                    id="outputpresent"
-                    class="mailbox"
-                    disabled
-                    v-model="comments.present"
-                  />
-                </div>
-              </div> -->
+                                <div class="col-md-3 col-sm-12 form-left">プレゼントのご希望</div>
+                                <div class="col-md-9 col-sm-12 form-right">
+                                    <input type="text" name="outputpresent" id="outputpresent" class="mailbox" disabled v-model="comments.present"/>
+                                </div>
+                            </div> -->
                         </div>
                         <div class="mb-5">
                             <h3 class="form-tit" v-if="type !== 'completed'">入居対象者様について</h3>
@@ -223,7 +215,7 @@
                         <!-- <p>今後ともどうぞよろしくお願い申し上げます。</p>                         -->
                     </div>               
                     <div class="multi-step mt-5">
-                         <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
+                        <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
                     </div>    
                 </div>
             </div>
@@ -279,51 +271,44 @@
             //   this.comments.present = "しない";
             // }
             this.axios.get("/api/hospital/citiesList").then(response => {
-                this.city_list = response.data;
-             
+                this.city_list = response.data;             
                 for (var i = 0; i < this.city_list.length; i++) {
                     if (this.comments.division == this.city_list[i].id) {
                         this.comments.division = this.city_list[i].city_name;
                     }
                 }
             });
-
-             this.axios.get("/api/hospital/townshipList").then(response => {
-                this.town_list = response.data;
-              
+            this.axios.get("/api/hospital/townshipList").then(response => {
+                this.town_list = response.data;              
                 for (var i = 0; i < this.town_list.length; i++) {
                     if (this.comments.township == this.town_list[i].id) {
                         this.comments.townshipname = this.town_list[i].township_name;
                     }
                 }
-            });
-
-
-
-           
+            });           
         },
         methods: {
             add() {
-                    this.comments.fav_name_copy = [];
-                    this.$loading(true);
-                    this.axios
-                        .post("/api/nurse/add", this.comments)
-                        .then(response => {
-                            this.$loading(false);
-                            //   alert("Mail Sent Successfully !");
-                            //   location.href = "favouriteNursing";
-                            this.type = "completed";
-                        })
-                        .catch(error => {
-                            if (error.response.status == 422) {
-                                this.errors = error.response.data.errors;
-                            }
-                        });
-                    localStorage.removeItem("item");
-                    localStorage.removeItem("inputValue");
-                    // localStorage.removeItem("reserve");
-                    localStorage.removeItem("document");
-                }
+                this.comments.fav_name_copy = [];
+                this.$loading(true);
+                this.axios
+                    .post("/api/nurse/add", this.comments)
+                    .then(response => {
+                        this.$loading(false);
+                        //   alert("Mail Sent Successfully !");
+                        //   location.href = "favouriteNursing";
+                        this.type = "completed";
+                    })
+                    .catch(error => {
+                        if (error.response.status == 422) {
+                            this.errors = error.response.data.errors;
+                        }
+                    });
+                localStorage.removeItem("item");
+                localStorage.removeItem("inputValue");
+                // localStorage.removeItem("reserve");
+                localStorage.removeItem("document");
+            }
                 // back() {
                 //     this.$router.push({
                 //             name: 'nursingFavouriteMail',
@@ -334,3 +319,10 @@
         }
     };
 </script>
+<style>
+.nus-mail-confirm {
+    color: red !important; 
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+</style>
