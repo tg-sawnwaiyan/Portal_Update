@@ -33,29 +33,29 @@
                             <maptag></maptag>
                         </div>
                     </div>
-                   <!--  <section id="map-responsive"> -->
-                      <!--   <div class="freeword-responsive"> -->
-                            <!-- <h3 class="map-resicon">
-                            <div class="map-text-wrapper"> -->
-                                <!-- <div>
+                    <section id="map-responsive">
+                        <div class="freeword-responsive">
+                            <h3 class="map-resicon">
+                            <div class="map-text-wrapper">
+                              <!--   <div>
                                 <i class="fa icon map-fa-icon map-fa-icon-nursing"></i>
                                 </div> -->
-                                <!-- <div>
+                                <div>
                                 <p class="text-left nursing-map-header"> &nbsp;あなたらしい暮らしができる。そん<br class="pc-768"/>な老人ホームが見つかります。</p>
                                 </div>
                             </div>
-                            </h3> -->
+                            </h3>
                             <!--search input-->
-                            <!-- <div class="search nursing-search-box">
+                            <div class="search nursing-search-box">
                                 <input type="text" class="searchTerm" id="search-free-word-res" placeholder="地名、施設名などを入力">
                                 <button type="submit" class="searchButton" @click="searchfreeword">
                                     <i class="fas fa-search"></i> 検索
                                 </button>
-                            </div> -->
+                            </div>
                             <!--end search input-->
-                        <!-- </div> -->
-                    <!--     <bulcomponent v-if="!clicksearch && (!ci || (ci && nus_data.length < 1))"></bulcomponent> -->
-                   <!--  </section> -->
+                        </div>
+                        <bulcomponent v-if="!clicksearch && (!ci || (ci && nus_data.length < 1))"></bulcomponent>
+                    </section>
                     <!-- search city , township  -->
                     
                     <div id="scroll-responsive">
@@ -1965,11 +1965,14 @@ div#holder {
   width: 500px !important;
   margin: 20px auto;
 }
-@media only screen and (max-width: 990px){
+@media only screen and (max-width: 767px){
 .select {
     display: block;
 }
 .profile_header, #searchMap {
+    display: none;
+}
+#map-responsive {
     display: none;
 }
 }
