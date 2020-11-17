@@ -539,9 +539,11 @@
                                         </p>
                                     </router-link>
                                 </div>
+                            </div>
+                            <div v-for="(value, block_id, i) in group" :key="i">    
+                                <div class="pad-new pattern-child" v-if="block_id == 1 && value[1]">
 
-                                <div class="pad-new pattern-child" v-if="block_id == 4 && value[0]">
-                                    <router-link :to="'/newsdetails/'+value[0].pid">
+                                    <router-link :to="'/newsdetails/'+value[1].pid">
 
                                         <div class="col-12 single-news-box">
 
@@ -549,7 +551,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                                 </transition>                                
 
@@ -567,7 +569,7 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[0].main_point}} </p>
+                                            <p> {{value[1].main_point}} </p>
                                         </div>
 
                                     </router-link>
@@ -1481,6 +1483,12 @@
         padding: 0 !important;
     }
 }
+@media only screen and (min-width: 769px){
+   .slick-arrow{   
+    display: none !important;   
+    } 
+}
+
 </style>
 <style scoped>
 @import "../../../public/css/categorymenu.css?{{ Config::get('version.date') }}";
