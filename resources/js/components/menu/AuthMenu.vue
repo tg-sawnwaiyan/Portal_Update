@@ -309,183 +309,182 @@
     </div>
 </template>
 <style>
-    .logo-text img{
-        width:215px;
-        height:auto;
-    }
-    .admin_logo1{
-        color:#fff;
-        font-size:20px;
-        width:230px;
-        text-align:center;
-        background: rgb(36, 84, 113); 
-    }
-    .admin_logo1 img{
-        width:230px;
-        height:auto;
-    }
-    .user_data_id1 label{
-        color:#2980b9;
-        font-weight:bold;
-        text-shadow: 2px 2px #dcdcdc;
-    }
-    .user_data_id2{
-        color:#2980b9;
-    }
-    .user_data_id2 label{
-        color:#2980b9;
-        font-weight:bold;
-        text-shadow: 2px 2px #dcdcdc;
-    }
-    .band_register{
-        border-bottom:1px solid #8c9090;
-    }
-    .first-submenu i{
-        width:15px;
-    }
-    .slide-enter-active {
-       -moz-transition-duration: 0.3s;
-       -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-       transition-duration: 0.3s;
-       -moz-transition-timing-function: ease-in;
-       -webkit-transition-timing-function: ease-in;
-       -o-transition-timing-function: ease-in;
-       transition-timing-function: ease-in;
-       transition: transform 0.3s ease;
-    }
-    .slide-leave-active {
-       -moz-transition-duration: 0.3s;
-       -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-       transition-duration: 0.3s;
-       -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    }
-    .slide-enter-to, .slide-leave {
-       max-height: 100vh;
-       overflow: hidden;
-    }
-    .slide-enter, .slide-leave-to {
-       overflow: hidden;
-       max-height: 100vh;
-      transform: translateX(-100%);
-      transition: all 0.3s ease-in 0s;
-    }
-    .slideup-enter-active {
-       -moz-transition-duration: 1s;
-       -webkit-transition-duration: 1s;
-       -o-transition-duration: 1s;
-       transition-duration: 1s;
-       -moz-transition-timing-function: ease-in;
-       -webkit-transition-timing-function: ease-in;
-       -o-transition-timing-function: ease-in;
-       transition-timing-function: ease-in;
-    }
-    .slideup-leave-active {
-       -moz-transition-duration: 1s;
-       -webkit-transition-duration: 1s;
-       -o-transition-duration: 1s;
-       transition-duration: 1s;
-       -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    }
-    .slideup-enter-to, .slideup-leave {
-       max-height: 600px;
-       overflow: hidden;
-    }
-    .slideup-enter, .slideup-leave-to {
-       overflow: hidden;
-       max-height: 0;
-    }
+.logo-text img{
+    width:215px;
+    height:auto;
+}
+.admin_logo1{
+    color:#fff;
+    font-size:20px;
+    width:230px;
+    text-align:center;
+    background: rgb(36, 84, 113); 
+}
+.admin_logo1 img{
+    width:230px;
+    height:auto;
+}
+.user_data_id1 label{
+    color:#2980b9;
+    font-weight:bold;
+    text-shadow: 2px 2px #dcdcdc;
+}
+.user_data_id2{
+    color:#2980b9;
+}
+.user_data_id2 label{
+    color:#2980b9;
+    font-weight:bold;
+    text-shadow: 2px 2px #dcdcdc;
+}
+.band_register{
+    border-bottom:1px solid #8c9090;
+}
+.first-submenu i{
+    width:15px;
+}
+.slide-enter-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+   transition: transform 0.3s ease;
+}
+.slide-leave-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.slide-enter-to, .slide-leave {
+   max-height: 100vh;
+   overflow: hidden;
+}
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 100vh;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in 0s;
+}
+.slideup-enter-active {
+   -moz-transition-duration: 1s;
+   -webkit-transition-duration: 1s;
+   -o-transition-duration: 1s;
+   transition-duration: 1s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+}
+.slideup-leave-active {
+   -moz-transition-duration: 1s;
+   -webkit-transition-duration: 1s;
+   -o-transition-duration: 1s;
+   transition-duration: 1s;
+   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.slideup-enter-to, .slideup-leave {
+   max-height: 600px;
+   overflow: hidden;
+}
+.slideup-enter, .slideup-leave-to {
+   overflow: hidden;
+   max-height: 0;
+}
 </style>
 <script>
-    export default {
-        data(){
-          return{
-            user:'',
-            isFav : false,
-            isHistory: false,
-            isNav: false,
-            isMenu: false,
-            open : 'fa fa-bars' ,
-            close : 'fa fa-times',
-            main_header : 'main-header',
-            admin_header :'admin-header',
-            container : 'container',
-            // isSubmenu : [{show:false},{show:false},{show:false},{show:false},{show:false}],
-            isSubmenu : localStorage.getItem("isSubmenu")? JSON.parse(localStorage.getItem("isSubmenu")):[{show:false},{show:false},{show:false},{show:false},{show:false}],
-            isActive: localStorage.getItem("isActive")? Number(localStorage.getItem("isActive")):null,
-            isRotate : localStorage.getItem("isRotate")? Number(localStorage.getItem("isRotate")):null,
-          }
-        },
-        mounted() {
-            
-            if(localStorage.getItem("visit")){
-                this.visit = localStorage.getItem("visit");
+export default {
+    data(){
+      return{
+        user:'',
+        isFav : false,
+        isHistory: false,
+        isNav: false,
+        isMenu: false,
+        open : 'fa fa-bars' ,
+        close : 'fa fa-times',
+        main_header : 'main-header',
+        admin_header :'admin-header',
+        container : 'container',
+        // isSubmenu : [{show:false},{show:false},{show:false},{show:false},{show:false}],
+        isSubmenu : localStorage.getItem("isSubmenu")? JSON.parse(localStorage.getItem("isSubmenu")):[{show:false},{show:false},{show:false},{show:false},{show:false}],
+        isActive: localStorage.getItem("isActive")? Number(localStorage.getItem("isActive")):null,
+        isRotate : localStorage.getItem("isRotate")? Number(localStorage.getItem("isRotate")):null,
+      }
+    },
+    mounted() {
+        
+        if(localStorage.getItem("visit")){
+            this.visit = localStorage.getItem("visit");
+        }
+        else{
+            if(this.$auth.check()){
+                localStorage.setItem('visit', false);
             }
             else{
-                if(this.$auth.check()){
-                    localStorage.setItem('visit', false);
-                }
-                else{
-                    localStorage.setItem('visit', true);
-                }
+                localStorage.setItem('visit', true);
             }
-            this.user = this.$auth.watch._data;
+        }
+        this.user = this.$auth.watch._data;
+    },
+    methods: {
+        gotoDash() {
+            this.visit = 'false';
+            localStorage.setItem('visit', this.visit);
+            const redirectTo = this.$auth.user().role === 1 ? (this.$auth.user().type_id == 2 ? '/accountlist/hospital/'+ this.$auth.user().customer_id : '/accountlist/nursing/'+ this.$auth.user().customer_id ) : '/news_list'
+            this.$router.push({path: redirectTo})
         },
-        methods: {
-            gotoDash() {
-                this.visit = 'false';
-                localStorage.setItem('visit', this.visit);
-                const redirectTo = this.$auth.user().role === 1 ? (this.$auth.user().type_id == 2 ? '/accountlist/hospital/'+ this.$auth.user().customer_id : '/accountlist/nursing/'+ this.$auth.user().customer_id ) : '/news_list'
-                this.$router.push({path: redirectTo})
-            },
-             toggle(para = null) {    
-                if(para != 'sub'){
-                    this.isRotate = null;
-                    this.isActive = null;
-                    for(var i = 0; i < 5; i++) { 
-                        this.isSubmenu[i].show = false;              
-                    }
-                    localStorage.removeItem('isSubmenu');
-                    localStorage.removeItem('isRotate');
-                    localStorage.removeItem('isActive');
-                }       
-                this.isNav = !this.isNav;
-                // $(".content-all").css ({"opacity": "0.9","background":"#000015"});
-            },
-             subMenu: function (n) {   
-                if(this.isSubmenu[n].show){
-                    this.isSubmenu[n].show = false;  
-                    this.isRotate = null;
-                }else{
-                    for(var i = 0; i < 5; i++) { 
-                        this.isSubmenu[i].show = false;              
-                    }
-                    this.isSubmenu[n].show = true; 
-                    this.isRotate = n;
+         toggle(para = null) {    
+            if(para != 'sub'){
+                this.isRotate = null;
+                this.isActive = null;
+                for(var i = 0; i < 5; i++) { 
+                    this.isSubmenu[i].show = false;              
                 }
-                this.isActive = n;
-                localStorage.setItem('isSubmenu', JSON.stringify(this.isSubmenu));
-                localStorage.setItem('isRotate', this.isRotate);
-                localStorage.setItem('isActive', this.isActive);
-            },
-            logout(){              
-                this.loginuser = 'false';
-                localStorage.setItem('loginuser', this.loginuser);
-                if(this.$auth.check(2)){
-                    this.$auth.logoutAdmin();
+                localStorage.removeItem('isSubmenu');
+                localStorage.removeItem('isRotate');
+                localStorage.removeItem('isActive');
+            }       
+            this.isNav = !this.isNav;
+            // $(".content-all").css ({"opacity": "0.9","background":"#000015"});
+        },
+         subMenu: function (n) {   
+            if(this.isSubmenu[n].show){
+                this.isSubmenu[n].show = false;  
+                this.isRotate = null;
+            }else{
+                for(var i = 0; i < 5; i++) { 
+                    this.isSubmenu[i].show = false;              
                 }
-                else{
-                    this.$auth.logout();
-                }
-                
+                this.isSubmenu[n].show = true; 
+                this.isRotate = n;
+            }
+            this.isActive = n;
+            localStorage.setItem('isSubmenu', JSON.stringify(this.isSubmenu));
+            localStorage.setItem('isRotate', this.isRotate);
+            localStorage.setItem('isActive', this.isActive);
+        },
+        logout(){              
+            this.loginuser = 'false';
+            localStorage.setItem('loginuser', this.loginuser);
+            if(this.$auth.check(2)){
+                this.$auth.logoutAdmin();
+            }
+            else{
+                this.$auth.logout();
             }
         }
     }
+}
 </script>

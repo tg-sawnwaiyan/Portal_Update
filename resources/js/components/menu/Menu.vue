@@ -147,7 +147,7 @@
                 </div>    
                 <ul class="menu" @click='isNav = !isNav'>
                 <li class="first-submenu">
-                    <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close first_submenu_i"></i>   
+                    <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" class="first_submenu_i"></i>   
                 </li>
                 <transition name="slide">  
                     <div class="sp_nav"  v-if="isNav">    
@@ -194,174 +194,174 @@
     </div>
 </template>
 <style>
-    .img-logo{
-        width:215px;
-        height:auto; 
-    }
-    .name_label{
-        color:#2980b9;
-        font-weight:bold;
-    }
-    .user_data_id2{
-        color:#2980b9;
-    }
-    .menu_btn_svg{
-        fill:#000000;
-    }
-    .hearderbar_g{
-        mix-blend-mode: normal;
-    }
-    .span_color{
-        color:#2981cc;
-    }
-    .span_color_black{
-        color:#000;
-    }
-    .left_arw{
-        margin-left:10px;
-    }
-    .first_submenu_i{
-        width:15px;
-    }
-    .fav_drop_span{
-        margin-left:-7px;
-    }
-    #sp_headerbar .dropdown-menu {
-        background: transparent!important;
-        border: 0px!important;
-    }
-    #sp_headerbar .fav-item {
-        color: #fff !important;
-        border: none !important;
-        border: 1px solid #544e4e !important;
-        cursor: pointer;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
-        border-radius: 5px;
-    }
-    .fav-dropdown{
-        background-color: #fff;
-        border: 1px solid #544e4e !important;
-        border-radius: 5px;
-        margin: 10px 0 0 15px;
-        padding: 1px 10px;
-        cursor:pointer;
-    }
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity .2s ease ;  
-    }
-    .fade-enter,
-    .fade-leave-to {   
-      opacity: 0;
-    }
-    .slide-enter-active {
-       -moz-transition-duration: 0.3s;
-       -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-       transition-duration: 0.3s;
-       -moz-transition-timing-function: ease-in;
-       -webkit-transition-timing-function: ease-in;
-       -o-transition-timing-function: ease-in;
-       transition-timing-function: ease-in;
-       transition: transform 0.5s ease;
-    }
-    .slide-leave-active {
-       -moz-transition-duration: 0.3s;
-       -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-       transition-duration: 0.3s;
-       -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    }
-    .slide-enter-to, .slide-leave {
-       max-height: 100vh;
-       overflow: hidden;
-    }
-    .slide-enter, .slide-leave-to {
-       overflow: hidden;
-       max-height: 100vh;
-      transform: translateX(-100%);
-      transition: all 0.5s ease-in 0s;
-    }
-    .btn_login {
-        border: 0;
-        background-color: #fff;
-    }
+.img-logo{
+    width:215px;
+    height:auto; 
+}
+.name_label{
+    color:#2980b9;
+    font-weight:bold;
+}
+.user_data_id2{
+    color:#2980b9;
+}
+.menu_btn_svg{
+    fill:#000000;
+}
+.hearderbar_g{
+    mix-blend-mode: normal;
+}
+.span_color{
+    color:#2981cc;
+}
+.span_color_black{
+    color:#000;
+}
+.left_arw{
+    margin-left:10px;
+}
+.first_submenu_i{
+    width:15px;
+}
+.fav_drop_span{
+    margin-left:-7px;
+}
+#sp_headerbar .dropdown-menu {
+    background: transparent!important;
+    border: 0px!important;
+}
+#sp_headerbar .fav-item {
+    color: #fff !important;
+    border: none !important;
+    border: 1px solid #544e4e !important;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    border-radius: 5px;
+}
+.fav-dropdown{
+    background-color: #fff;
+    border: 1px solid #544e4e !important;
+    border-radius: 5px;
+    margin: 10px 0 0 15px;
+    padding: 1px 10px;
+    cursor:pointer;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .2s ease ;  
+}
+.fade-enter,
+.fade-leave-to {   
+  opacity: 0;
+}
+.slide-enter-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+   transition: transform 0.5s ease;
+}
+.slide-leave-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.slide-enter-to, .slide-leave {
+   max-height: 100vh;
+   overflow: hidden;
+}
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 100vh;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in 0s;
+}
+.btn_login {
+    border: 0;
+    background-color: #fff;
+}
 </style>
 <script>
-    export default {
-        data(){
-          return{
-            user:'',
-            isFav : false,
-            isHistory: false,
-            isNav: false,
-            isMenu: false,
-            open : 'fa fa-bars' , 
-            close : 'fa fa-times',
-            cusName : '',
-            cusType :'',
-          }
-        },
-        mounted() {
-            if(localStorage.getItem("visit")){
-                this.visit = localStorage.getItem("visit");
-            }
-            else{
-                if(this.$auth.check()){
-                    localStorage.setItem('visit', 'false');
-                }
-                else{
-                    localStorage.setItem('visit', 'true');
-                }
-            }
-            this.user = this.$auth.watch._data;
-            if(localStorage.getItem("hospital_history")){
-                this.hosHis = localStorage.getItem("hospital_history").split(",").length;
-                $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
-            }
-            else{
-                this.hosHis = 0;
-                $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
-                $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
-            }
-            if(localStorage.getItem("nursing_history")){
-                this.nusHis = localStorage.getItem("nursing_history").split(",").length;
-                $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
-            }
-            else{
-                this.nusHis = 0;
-                $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
-                $( '.his-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
-            }
-            if(localStorage.getItem("hospital_fav")){
-                this.hosFav = localStorage.getItem("hospital_fav").split(",").length;
-                $('.fav-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
-            }
-            else{
-                this.hosFav = 0;
-                $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
-                $( '.fav-hospital-link-box>a').parent('div').css({'cursor':'not-allowed'});
-            }
-            if(localStorage.getItem("nursing_fav")){            
-                this.nusFav = localStorage.getItem("nursing_fav").split(",").length;
-                $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
-            }
-            else{
-                this.nusFav = 0;
-                $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
-                $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
-            }
-        },
-        methods: {
-            removeAllSess: function() {
-                localStorage.setItem('visit', '');
-                localStorage.setItem('loginuser', '');
-                localStorage.setItem('logintoken', '');
-                this.$router.push('/login');
-            },
+export default {
+    data(){
+      return{
+        user:'',
+        isFav : false,
+        isHistory: false,
+        isNav: false,
+        isMenu: false,
+        open : 'fa fa-bars' , 
+        close : 'fa fa-times',
+        cusName : '',
+        cusType :'',
+      }
+    },
+    mounted() {
+        if(localStorage.getItem("visit")){
+            this.visit = localStorage.getItem("visit");
         }
+        else{
+            if(this.$auth.check()){
+                localStorage.setItem('visit', 'false');
+            }
+            else{
+                localStorage.setItem('visit', 'true');
+            }
+        }
+        this.user = this.$auth.watch._data;
+        if(localStorage.getItem("hospital_history")){
+            this.hosHis = localStorage.getItem("hospital_history").split(",").length;
+            $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
+        }
+        else{
+            this.hosHis = 0;
+            $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+            $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
+        }
+        if(localStorage.getItem("nursing_history")){
+            this.nusHis = localStorage.getItem("nursing_history").split(",").length;
+            $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
+        }
+        else{
+            this.nusHis = 0;
+            $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+            $( '.his-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
+        }
+        if(localStorage.getItem("hospital_fav")){
+            this.hosFav = localStorage.getItem("hospital_fav").split(",").length;
+            $('.fav-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
+        }
+        else{
+            this.hosFav = 0;
+            $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+            $( '.fav-hospital-link-box>a').parent('div').css({'cursor':'not-allowed'});
+        }
+        if(localStorage.getItem("nursing_fav")){            
+            this.nusFav = localStorage.getItem("nursing_fav").split(",").length;
+            $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
+        }
+        else{
+            this.nusFav = 0;
+            $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+            $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
+        }
+    },
+    methods: {
+        removeAllSess: function() {
+            localStorage.setItem('visit', '');
+            localStorage.setItem('loginuser', '');
+            localStorage.setItem('logintoken', '');
+            this.$router.push('/login');
+        },
     }
+}
 </script>
