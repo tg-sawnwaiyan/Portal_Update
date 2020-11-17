@@ -3,8 +3,9 @@
     .nursing-tabColor .nav-link,
     .hospital-tabColor .nav-link,
     .job-tabColor .nav-link {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        height: 60px;
+        padding-top: 13px;
+        padding-bottom: 10px;
     }
     #app {
         position: relative;
@@ -129,7 +130,7 @@
     .news-tabColor li.subtab1 > .router-link-active,
     .job-tabColor li.subtab4 > .router-link-active,
     .hospital-tabColor li.subtab3 > .router-link-active {
-        padding-top: 7px !important;
+        padding-top: 13px !important;
     }
     #upper-tab {
     margin-top: 5px;

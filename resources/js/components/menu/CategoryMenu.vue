@@ -611,7 +611,7 @@ $(document).ready(function(){
     .job-tabColor li.subtab4 > .router-link-active,
     .hospital-tabColor li.subtab3 > .router-link-active {
         padding: 0;
-        height: 50px !important;
+        height: 60px !important;
     }
     #upper-tab {
     margin-top: 5px;
