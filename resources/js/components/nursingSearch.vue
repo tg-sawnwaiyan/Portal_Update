@@ -1969,7 +1969,7 @@ div#holder {
 .select {
     display: block;
 }
-.profile_header {
+.profile_header, #searchMap {
     display: none;
 }
 }
