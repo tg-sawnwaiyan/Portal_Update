@@ -2,7 +2,7 @@
 <layout>   
 <div>    
     <!-- <form class="col-lg-12 mb-2 pad-free"> -->
-    <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+    <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null" style="display: none;">
         <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
             <!--search input-->
             <div class="search-input">

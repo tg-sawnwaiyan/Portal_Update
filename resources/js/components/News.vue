@@ -5,10 +5,10 @@
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
-                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+                        <div style="display: none;" class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
                             <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                 <!--search input-->
-                                <div class="search-input" style="display: none;">
+                                <div class="search-input">
                                     <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
                                     <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
                                     <button type="submit" class="searchButtonNews" @click="searchCategory()">
@@ -38,7 +38,7 @@
                         <div class="bg_color"></div>
                     </div>
                         <!-- end of slider -->
-                        <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
+                        <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none slider-margin">  
 
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                  <router-link :to="{path:'/newsdetails/'+latest_post_all_cat.id}">
@@ -1479,6 +1479,9 @@
     .cat-nav {
         height: auto !important;
         padding: 0 !important;
+    }
+    .slider-margin {
+        margin-top: 39px;
     }
 }
 </style>

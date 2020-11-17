@@ -19,7 +19,6 @@
         border-left: none !important; 
     }
     .cat-nav {
-        margin: 0 auto 15px auto !important;
         padding-left: 0 !important;
         max-height: 43px;
         position: relative;
@@ -36,7 +35,7 @@
     }
     .infoBox {
         position: absolute;
-        top: 191px;
+        top: 130px;
         z-index: 1;
         left: 2.5%;
         right: 2.5%;
@@ -141,12 +140,15 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    .profile-tit {
+        margin-top: 41px;
+    }
     }
     @media (max-width: 320px){
     #upper-tab {
-    margin-top: 33px;
+        margin-top: 33px;
     }
     .infoBox {
-        top: 215px !important;
+        top: 159px !important;
     }
     }
