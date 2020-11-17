@@ -1896,7 +1896,7 @@
   height: 400px;
 }
 .select {
-    /*display: none;*/
+    display: none;
 }
 .toBeToggled {
     display: block;
@@ -1965,7 +1965,12 @@ div#holder {
   width: 500px !important;
   margin: 20px auto;
 }
-.profile_header {
+@media only screen and (max-width: 560px){
+.select {
+    display: block;
+}
+.profile_header, #searchMap {
     display: none;
+}
 }
 </style>
