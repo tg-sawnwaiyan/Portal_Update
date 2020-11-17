@@ -611,15 +611,10 @@ $(document).ready(function(){
     .job-tabColor li.subtab4 > .router-link-active,
     .hospital-tabColor li.subtab3 > .router-link-active {
         padding: 0;
-        height: 42px !important;
+        height: 50px !important;
     }
     #upper-tab {
     margin-top: 5px;
-    }
-    }
-    @media (max-width: 320px){
-    #upper-tab {
-    margin-top: 33px;
     }
     }
 

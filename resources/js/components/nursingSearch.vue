@@ -1965,7 +1965,7 @@ div#holder {
   width: 500px !important;
   margin: 20px auto;
 }
-@media only screen and (max-width: 560px){
+@media only screen and (max-width: 990px){
 .select {
     display: block;
 }
