@@ -14812,4 +14812,10 @@ strong {
     .maintab-content {
         margin: 16px 0 0 0;
     }
+    #myBtn {
+        bottom: 64px;
+    }
+    .footer {
+        padding: 16px;
+    }
 }
