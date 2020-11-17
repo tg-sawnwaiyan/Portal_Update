@@ -13909,6 +13909,9 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         overflow: visible;
     }
+    .maintab-content {
+        margin: 36px 0 0 0;
+    }
 }
 
 
@@ -14802,8 +14805,11 @@ strong {
     .container_news .new-2{
         width: 100%;
     }
+}
+/*end of .container_news*/
+
+@media (max-width: 767px){
     .maintab-content {
         margin: 16px 0 0 0;
     }
 }
-/*end of .container_news*/
