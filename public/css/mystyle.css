@@ -473,7 +473,7 @@ textarea:disabled::placeholder {
 }
 
 .tab-pane {
-    padding: 10px;
+    padding: 17px;
 }
 .tab-pane h5{
     font-size: 18px;
@@ -2877,6 +2877,7 @@ border-top: 5px solid #e66527; */
 
 .main-content {
     /* padding: 0px;*/
+    overflow-y: hidden;
     width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
@@ -3756,10 +3757,6 @@ ul.sub-ul li {
 
 .p-r-0 {
     padding-right: 0px !important;
-}
-
-.pad-free {
-    padding: 0px;
 }
 
 .pad-10 {
@@ -6679,7 +6676,7 @@ a:hover {
 }
 
 #navtab .nav-item {
-    margin-bottom: -3px !important;
+    margin-bottom: -3px;
     /* border-left: 1px solid #fff !important; */
 }
 
@@ -11542,8 +11539,11 @@ padding: 0;
     .ads-slider {
         top: 30px;
     }
-    .tab {
+   /* .tab {
         margin-top: 20px;
+    }*/
+    .maintab-content {
+        margin: 22px 0 0 0;
     }
     #myTabContent {
         margin-bottom: 10px;
@@ -12285,9 +12285,9 @@ width: 18rem;
         width: 100%;
         margin: -85px auto 0;
     }
-    .tab {
+    /*.tab {
         margin-top: 20px;
-    }
+    }*/
     .newsDetail_leftwrapper {
         max-width: 320px;
     }

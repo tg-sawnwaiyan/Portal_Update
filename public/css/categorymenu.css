@@ -1,4 +1,11 @@
-@media only screen and (max-width: 560px){   
+@media only screen and (max-width: 768px){
+    .news-tabColor .nav-link,
+    .nursing-tabColor .nav-link,
+    .hospital-tabColor .nav-link,
+    .job-tabColor .nav-link {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
     #app {
         position: relative;
     } 
@@ -23,7 +30,7 @@
         max-height: 43px;
         position: relative;
         height: auto !important;
-        margin: 0 auto 15px auto !important;
+     /*   margin: 0 auto 15px auto !important;*/
     }
     .no-scrollbar {
         scrollbar-width: none;
@@ -35,10 +42,10 @@
     }
     .infoBox {
         position: absolute;
-        top: 130px;
+        top: 54px;
         z-index: 1;
-        left: 2.5%;
-        right: 2.5%;
+        left: -0.5%;
+        /*right: 2.5%;*/
         padding: 0 0 3px 0 !important;
     }
     .tab-color0 {        
@@ -118,14 +125,11 @@
         width: 100%;
         position: fixed;
     }
-    .maintab-content {
-    padding: 7px 7px 42px 7px;
-    }
     .nursing-tabColor li.subtab2 > .router-link-active,
     .news-tabColor li.subtab1 > .router-link-active,
     .job-tabColor li.subtab4 > .router-link-active,
     .hospital-tabColor li.subtab3 > .router-link-active {
-        padding-top: 7px;
+        padding-top: 7px !important;
     }
     #upper-tab {
     margin-top: 5px;
@@ -140,15 +144,12 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    .profile-tit {
-        margin-top: 41px;
-    }
     }
     @media (max-width: 320px){
     #upper-tab {
-        margin-top: 33px;
+        margin-top: 16px;
     }
     .infoBox {
-        top: 159px !important;
+        top: 57px !important;
     }
     }
