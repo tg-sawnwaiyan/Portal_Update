@@ -4,7 +4,7 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
             <li role="presentation" class="subtab1 nav-item">
-                <router-link  :to="{ name: 'News' }"  class="nav-link"><i class="fas fa-newspaper"></i> ニュース</router-link>
+                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
             </li>
             <li role="presentation" class="subtab2 nav-item"  >
                 <router-link :to="{ name: 'nursingSearch' }"  class="nav-link"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -52,6 +52,11 @@ export default {
             }            
         }) 
     },
+    methods: {
+        activeTopMenu(){
+             $("#top_a").addClass("active");
+        }
+    }
 }
 </script>
 <style>
