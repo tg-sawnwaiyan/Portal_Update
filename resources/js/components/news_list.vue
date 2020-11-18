@@ -26,7 +26,7 @@
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
                                 </select>
                             </div>
-                            <!-- added by maythirihtet -->
+                            <!-- linked news -->
                             <div id="date_picker" @click="changeCalendarHeader" class=" d-flex  justify-content-md-end align-items-center my-3">
                                 <label class="width-20">日付</label><br>
                                 <input type="hidden" id="hidden_select_date" v-bind:value="select_date">
@@ -38,7 +38,7 @@
                             <div v-else class="">
                                 <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索条件当てはまるデータはありません</p>                                  
                             </div>
-                            <!-- added by maythirihtet -->
+                            <!-- end of linked news -->
                         </div>
                     </div>
                     <hr />
@@ -50,7 +50,6 @@
                             </router-link>
                         </div>
                     </div>                    
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">データが見つかりません。</div> -->
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -69,22 +68,8 @@
                                 <td class="p-3">                             
                                     <!--posting period-->
                                     <div class="row col-12 posting-per justify-content-end m-b-10 pc-414">
-                                        <!-- <div class="set-date"  v-if="newsList.cat_name != 'PR'" >
-                                            <p :class="'title'+ newsList.category_id ">
-                                                <span> {{newsList.cat_name}}</span>
-                                                <small style="color:#aaa;" >
-                                                    <i class="fa fa-calendar-alt"></i>
-                                                    &nbsp;&nbsp;{{newsList.created_at}}
-                                                </small>
-                                            </p>   
-                                        </div> -->
                                         <table class="table table-borderless text-right m-b-0 posting-per cmt">
                                             <tr v-if="newsList.cat_name != 'PR'">
-                                                <!-- <td>
-                                                    <th :class="'title'+ newsList.category_id " style="float:right;">
-                                                        <span> {{newsList.cat_name}}</span> 
-                                                    </th> 
-                                                </td> -->
                                                 <td class="width-auto">
                                                     <th :class="'title'+(5-(Math.floor(newsList.category_id%5)))">
                                                         <span> {{newsList.cat_name}}</span>
@@ -182,7 +167,6 @@
                                 </td>
                             </tr>
                         </table>
-                        <!-- <pagination :data="news_list" @pagination-change-page="searchbyCategory"></pagination> -->
                         <div>               
                             <pagination :data="news_list" @pagination-change-page="searchbyCategory" :limit="limitpc">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -231,7 +215,7 @@
             this.getResults();
         },
         methods: {
-            /** added by maythirihtet */
+            /** linked news */
             changeCalendarHeader(){
                 $('div.mx-calendar-content table thead tr th:nth-child(2)').text('月');
                 $('div.mx-calendar-content table thead tr th:nth-child(3)').text('火');
@@ -240,7 +224,7 @@
                 $('div.mx-calendar-content table thead tr th:nth-child(6)').text('金');
                 $('div.mx-calendar-content table thead tr th:nth-child(7)').text('土');
             },            
-            /** end of added by maythirihtet */
+            /** end of linked news */
             changeActivate(catid,id,activate, $event){                
                 if(activate == 1)
                 {                    
@@ -367,12 +351,12 @@
                 }
                 var search_word = $("#search-item").val();
                 var selected_category = document.getElementById("selectBox").value;                    
-                //var selected_date = document.getElementById("hidden_select_date").value;//added by maythirihtet
+                //var selected_date = document.getElementById("hidden_select_date").value;//linked news
                 let fd = new FormData();
                 fd.append("search_word", search_word);
                 fd.append("selected_category", selected_category);
                 if(this.select_date != null){
-                    fd.append("selected_date", this.select_date);//added by maythirihtet
+                    fd.append("selected_date", this.select_date);//linked news
                 }
                 fd.append("postid",null);
                 this.$loading(true);
@@ -389,12 +373,12 @@
                     localStorage.setItem('page_no',page);//set to editNewsPost.vue/updatepost()
                 });
             },
-            /** added by maythirihtet */
+            /** linked news */
             showDate(select_date){
                 this.select_date = select_date;
                 this.searchbyCategory();
             },
-            /** end of added by maythirihtet */
+            /** end of linked news */
             nextPaginate(num){                     
                 let fd = new FormData();
                 fd.append("postid",null);

@@ -79,7 +79,6 @@
                                             <label for=""><strong>郵便番号 </strong></label>
                                         </div>
                                         <div class="col-md-9 p-0">
-                                            <!-- <input type="text" name="outputpostal" id="outputpostal" class="mailbox m-b-10" disabled v-model="comments.postal" /> -->
                                             <label class="mailbox pl-2 label-result">{{comments.postal}}</label>
                                         </div>
                                     </div>
@@ -88,7 +87,6 @@
                                              <strong>都道府県</strong>
                                         </div>
                                         <div class="col-md-9 p-0">
-                                            <!-- <input type="text" name="outputdivision" id="outputdivision" class="mailbox m-b-15" disabled v-model="comments.division" /> -->
                                             <label class="mailbox pl-2 label-result" >{{comments.division}}</label>
                                         </div>
                                     </div>
@@ -97,7 +95,6 @@
                                              <strong>市区町村</strong>
                                         </div>
                                         <div class="col-md-9 p-0">
-                                            <!-- <input type="text" name="outputcity" id="outputcity" class="mailbox" disabled v-model="comments.city" /> -->
                                             <label class="mailbox pl-2 label-result">{{comments.townshipname}}</label>
                                         </div>
                                     </div>
@@ -106,7 +103,6 @@
                                              <strong>番地（建物名）</strong>
                                         </div>
                                         <div class="col-md-9 p-0">
-                                            <!-- <input type="text" name="outputcity" id="outputcity" class="mailbox" disabled v-model="comments.city" /> -->
                                             <label class="mailbox pl-2 label-result" >{{comments.city}}</label>
                                         </div>
                                     </div>
@@ -128,12 +124,6 @@
                                     <input type="email" name="outputmail" id="outputmail" class="mailbox" disabled v-model="comments.mail" />
                                 </div>
                             </div>                            
-                            <!-- <div class="form-group m-0 row bd-all">
-                                <div class="col-md-3 col-sm-12 form-left">プレゼントのご希望</div>
-                                <div class="col-md-9 col-sm-12 form-right">
-                                    <input type="text" name="outputpresent" id="outputpresent" class="mailbox" disabled v-model="comments.present"/>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="mb-5">
                             <h3 class="form-tit" v-if="type !== 'completed'">入居対象者様について</h3>
@@ -212,7 +202,6 @@
                     <div class="row col-12 stepper-success-form text-center">                       
                         <p>この度は「TIS ティーズ」をご利用いただきましてありがとうございました。</p>
                         <p>お申込みいただいた資料の送付およびお問い合わせいただいた内容につきましては、各施設よりご対応させていただきます。</p>
-                        <!-- <p>今後ともどうぞよろしくお願い申し上げます。</p>                         -->
                     </div>               
                     <div class="multi-step mt-5">
                         <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
@@ -309,13 +298,13 @@
                 // localStorage.removeItem("reserve");
                 localStorage.removeItem("document");
             }
-                // back() {
-                //     this.$router.push({
-                //             name: 'nursingFavouriteMail',
-                //             params: { input_data: this.comments, bk_postal: this.comments.selectedValue},
-                //             props: true
-                //         });
-                // },
+            // back() {
+            //     this.$router.push({
+            //             name: 'nursingFavouriteMail',
+            //             params: { input_data: this.comments, bk_postal: this.comments.selectedValue},
+            //             props: true
+            //         });
+            // },
         }
     };
 </script>

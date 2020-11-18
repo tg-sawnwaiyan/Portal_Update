@@ -5,10 +5,6 @@
       <i class="fas fa-arrow-left"></i>
       &nbsp;戻る
     </button>
-    <!-- <span v-if="loginuser=='false' || visit == 'true'">
-      <h4 v-if="type == 'nursing'" class="public-nurheader" style="background:transparent;"><i class="fas fa-user-md"></i> ページ</h4>
-      <h4 v-if="type == 'hospital'" class="public-hosheader" style="background:transparent;"><i class="fas fa-briefcase-medical"></i> ページ</h4>
-    </span> -->
     <div>
       <ul class="nav nav-tabs" :class="type == 'nursing'? 'nursing-tabColor': 'hospital-tabColor'" role="tablist" v-if="$auth.check() && visit == 'false'" id="profilenav" v-bind:style="{width:width}" >
         <li role="presentation" class="subtab1 nav-item" v-if="loginuser=='true' && visit == 'false'">
@@ -22,7 +18,6 @@
           <label for="nursing" class="typelabel nav-link" id="nursing-lbl">
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
             <span ><i class="fas fa-search　preview-font-size"></i>&nbsp;プレビュー</span>
-            <!-- <span v-if="loginuser=='false'"></span> -->
           </label>
         </li>
       </ul>
@@ -43,9 +38,7 @@
 
 <script>
 import hospitalProfile from "./HospitalProfile.vue";
-
 import nursingProfile from "./NursingProfile.vue";
-
 import profilePublish from "./ProfilePublish.vue";
 
 export default {

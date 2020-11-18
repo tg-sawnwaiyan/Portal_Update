@@ -10,7 +10,6 @@
             <div class="user_card" id="altrole">
                 <div class="login_link">
                     <a href="/" class="home_link">ホーム</a>
-                    <!-- <router-link to="/register" class="reg_link  ml-auto">登録</router-link>       -->
                 </div>
                 <div class="form_content">
                     <form autocomplete="off" @submit.prevent="resetPass" method="post">
@@ -34,8 +33,7 @@
                                 <input type="password" class="form-control input_user" id="confirm_pass" @keyup="password_validate()" name="confirm_pass" value="" v-model="confirm_pass"  autofocus placeholder="もう一度入力してください。">
                                 <span class="invalid-feedback" role="alert">
                                     <strong></strong>
-                                </span>
-                                
+                                </span>                                
                             </div>
                             <span v-if="errors.confirmPassword" class="error"><small>{{errors.confirmPassword}}</small></span>
                         </div>

@@ -245,7 +245,6 @@
                                             <slick :options="slickOptions" ref="slickSetting1">
                                                 <div>
                                                     <h2>
-                                                        <!-- <img :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="img-fluid" @error="imgUrlAlt"/> -->
                                                         <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120" :draggable="true"></Pannellum>
                                                     </h2>
                                                 </div>
@@ -266,12 +265,10 @@
                             </div>
                         </div>
                         <!--end responsive with gallery and panorama -->
-                        <!-- <div  v-for="image in  images"  :key="image.id"></div> -->
                     </div>
                     <!--end for slide image-->
                     <!--for address-->
                     <div class="col-md-7 detail_profile_right col-slg-12 pad-free-750">
-                        <!-- <span class="top-mail-btn-res btn sp-414" @click="documentPost()" v-if="loginuser=='false' && !$auth.check()"><i data-v-b65423c6="" class="far fa-envelope" style="font-size: 15px;font-weight: bold;;"></i>&nbsp;資料請求</span> -->
                         <div class="m-lr-0 pro-heading">
                             <div class="col-12 pad-free pc-1024">
                                 <h5 class="profile_header">
@@ -835,7 +832,6 @@
                                     <img :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  @error="imgUrlAlt">
                                 </div>
                                 <span class="img_txt">{{image.title}}</span>
-                                <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
                         </div>
@@ -905,7 +901,6 @@
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                         </div>
                         <div class="form-group">
-                            <!-- <label for="">備考</label> -->
                             <p v-html="nus_pro.acceptance_remark"></p>
                         </div>
                     </div>
@@ -930,7 +925,6 @@
                                     </tbody>
                                 </table>
                                 <div class="form-group">
-                                    <!-- <label for="">備考</label> -->
                                     <p v-html="st.remarks"></p>
                                 </div>
                             </div>
@@ -1011,10 +1005,6 @@
                                     <td v-if="m.access"><p v-html="m.access"></p></td> 
                                     <td v-else> - </td>
                                 </tr>
-                                <!-- <tr>
-                                    <th class="custom-bg-color">住所 </th>
-                                    <td v-if="m.address">{{m.address}}</td> <td v-else> - </td>
-                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -1022,18 +1012,6 @@
             </div>
             <div class="ele m-lr-0" id="element6">
                 <h5 class="profile_header col-12">口コミ</h5>
-                    <!--fav and mail btn-->
-                <!-- <div class="d-block float-right m-b-20" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                        </div>
-                    <div class="float-right"><span class=" pc-414" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div> -->
-                <!--end fav and mail btn-->
-                <!-- <div style="min-height:300px;"> -->
                 <div class="col-lg-12 col-md-12 col-sm-12 pad-0-res m-0"  v-if="displayItems.length>0">
                     <div class="card mb-4 col-12 p-0" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
@@ -1041,9 +1019,6 @@
                                 <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
                             <div class="d-flex d-block">
-                                <!-- <p class="card-title font-weight-bold">{{comment.email}}</p>
-                                <p class="comment-age" v-if="comment.year != null">{{ new Date().getFullYear() - comment.year}}年代</p>
-                                <p class="comment-age" v-else></p> -->
                                 <p class="comment-date">
                                     <i class="fa fa-calendar-alt" aria-hidden="true"></i>
                                     {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 
@@ -1063,7 +1038,6 @@
                             <span>口コミを投稿する</span>
                         </router-link>
                     </div>
-
                 </div>
                 <div v-else class="row col-12 m-0 p-0">
                     <div class="col-12 m-b-768">
@@ -1076,7 +1050,6 @@
                         </router-link>
                     </div>
                 </div>
-                <!-- </div> -->
                 <div class="col-12" v-if="pagination">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
@@ -1119,9 +1092,6 @@
                 <button v-scroll-to="{ el: '#element9' }" class="top-fixed-btn" @click="activate(9)" :class="{ active : active_el == 9 }">
                     口コミ
                 </button>
-                <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-                    求人応募
-                </button> -->
             </div>
             <div class="ele m-lr-0 pt-2" id="element7">
                 <!-- ee-->
@@ -1420,7 +1390,6 @@
                         </div>
                         <span class="img_txt">{{image.title}}</span>
                         <br>
-                        <!-- <span>{{image.photo}}</span> -->
                     </div>
                     <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
                 </div>
@@ -1510,7 +1479,6 @@
                             <tr>
                                 <th class="custom-bg-color"> メールアドレス</th>
                                 <td>{{m.email}}</td>
-                                <!-- <td v-else> - </td> -->
                             </tr>
                             <tr>
                                 <th class="custom-bg-color"> アクセス</th>
@@ -1522,11 +1490,6 @@
                                 <td v-if="m.congestion">{{m.congestion}}</td>
                                 <td v-else> - </td>
                             </tr>
-                            <!-- <tr>
-                                <th class="custom-bg-color">住所 </th>
-                                <td v-if="m.address">{{m.address}}</td>
-                                <td v-else> - </td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -1540,9 +1503,6 @@
                                 <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
                             <div class="d-flex">
-                                <!-- <p class="card-title font-weight-bold">{{comment.email}}</p>
-                                <p class="comment-age" v-if="comment.year != null">{{ new Date().getFullYear() - comment.year}}年代</p>
-                                <p class="comment-age" v-else></p> -->
                                 <p class="comment-date">
                                     <i class="fa fa-calendar-alt" aria-hidden="true"></i> 
                                     {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 
@@ -1598,19 +1558,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="bottom-fixed-btn" v-if="loginuser=='false'">
-            <div class="row justify-content-center">
-                <div class="col-6 col-md-3 col-lg-3 col-xl-2 p0-480">
-                    <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                    <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3 col-xl-2 pc-414" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                    <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                </div>
-            </div>       
-        </div> -->
-        <!-- <span class="btn fav-profile fav-item fav-color" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-        <span class="btn fav-profile fav-item fav-color" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
     </div>
 </template>
 
@@ -1943,8 +1890,7 @@ export default {
                             'title': this.images[i]['title']
                         })
                     }
-                }               
-
+                }
                 this.panoimages = response.data.panoimages;
                 this.videos = response.data.videos;
                 // console.log(this.panoimages);return;
@@ -2268,8 +2214,7 @@ export default {
                             el[index].style.top = "unset";
                             el[index].style.display = "none";
                         }     
-                    } 
-                
+                    }                 
                 } else {
                     var el = document.querySelectorAll('.el');
                     var el2 = document.querySelectorAll('.el2');
@@ -2555,7 +2500,6 @@ h3 img{
     /* width: 1336px; */
     overflow: hidden;
 }
-
 /*slick carousel*/
 #pano-slider-page .card-carousel-wrapper {
     display: flex;
@@ -2564,23 +2508,19 @@ h3 img{
     margin: 20px 0 40px;
     color: #666a73;
 }
-
 #pano-slider-page .card-carousel-comment {
     display: flex;
     justify-content: center;
     /* width: 1145px; */
 }
-
 #pano-slider-page .card-carousel-comment .card {
     margin: 0px 10px 0px 0px;
 }
-
 #pano-slider-page .card-carousel--overflow-container {
     color: #000;
     text-align: left;
     overflow: hidden;
 }
-
 #pano-slider-page .card-carousel--nav__left,
 #pano-slider-page .card-carousel--nav__right {
     display: inline-block;
@@ -2596,28 +2536,23 @@ h3 img{
     margin: 10px;
     transition: transform 150ms linear;
 }
-
 #pano-slider-page .card-carousel--nav__left[disabled],
 #pano-slider-page .card-carousel--nav__right[disabled] {
     opacity: 0.2;
     border-color: black;
 }
-
 .nav-box[disabled] {
     opacity: 0.2;
 }
-
 #pano-slider-page .nav-box[disabled] .card-carousel--nav__left,
 #pano-slider-page .nav-box[disabled] .card-carousel--nav__right {
     border-top: 5px solid #000;
     border-right: 5px solid #000;
 }
-
 #pano-slider-page .nav-box[disabled] .nav-content {
     border: 2px solid #000;
     background: #fff
 }
-
 .nav-content {
     width: 40px;
     height: 40px;
@@ -2629,29 +2564,23 @@ h3 img{
     border-radius: 50%;
     text-align: center;
 }
-
 #pano-slider-page .card-carousel--nav__left {
     transform: rotate(-135deg);
 }
-
 #pano-slider-page .card-carousel--nav__left:active {
     transform: rotate(-135deg) scale(0.9);
 }
-
 #pano-slider-page .card-carousel--nav__right {
     transform: rotate(45deg);
 }
-
 #pano-slider-page .card-carousel--nav__right:active {
     transform: rotate(45deg) scale(0.9);
 }
-
 #pano-slider-page .card-carousel-cards {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
@@ -2661,15 +2590,12 @@ h3 img{
     z-index: 3;
     margin-bottom: 2px;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card:first-child {
     margin-left: 0;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card:last-child {
     margin-right: 0;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card img {
     vertical-align: bottom;
     border-top-left-radius: 4px;
@@ -2677,15 +2603,12 @@ h3 img{
     transition: opacity 150ms linear;
     user-select: none;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card img:hover {
     opacity: 0.5;
 }
-
 .pannellum{
     height: 500px;
 }
-
 .cost_tb{
     /* border: 1px solid #ccc; */
     border-left: 0px;
@@ -2695,7 +2618,6 @@ h3 img{
      /* padding: 10px; */
     /* padding-bottom: 20px; */
 }
-
 .cost_table{
     width: 100%;
     /* height: 81px; */
@@ -2703,7 +2625,6 @@ h3 img{
     border-bottom: 1px solid #ccc;
     /* margin-top: 15px; */
 }
-
 /* .cost_table label {
     border-left: 6px solid #b7dad2;
     padding-left: 10px;
@@ -2713,7 +2634,6 @@ h3 img{
      margin-top: 30px;
     padding-top: 2px;
 } */
-
 .cost_heading_lbl{
     /* border-left: 5px solid rgb(249, 121, 60); */
     border-left: 5px solid #2980b9;
@@ -2740,14 +2660,12 @@ h3 img{
     font-weight: bold;
     font-size: 0.8rem;
 }
-
 .cost_heading_lbl_mini i{
     border-radius: 3px;    
     /* color: #d2571c; */
     color: #3498db;
     font-size: 1em;
 }
-
 .cost_table th{
     border: 1px solid #ccc;
     padding: 8px 10px;
@@ -2758,7 +2676,6 @@ h3 img{
     vertical-align: top;
     min-width: 100px;
 }
-
 .cost_table td{
     /* border: 1px solid #ccc;*/
     padding: 8px 10px;
@@ -2766,12 +2683,10 @@ h3 img{
     line-height: 1.7;
     background: #fff;
 
-}
-.main-cost-table td{
+}.main-cost-table td{
     padding: 10px !important;
     vertical-align: middle;
 }
-
 .cost_btnwrapper{
     float: right;
     width: 158px;
@@ -2779,13 +2694,11 @@ h3 img{
     align-self: center;
     /* padding-top: 21px; */
 }
-
 .aa th:last-child, .aa td:last-child {
     width: 108px;
     font-size: 88.2%;
     white-space: nowrap;
 }
-
 .comment-wrapper{
     background-color: #fff;
     padding: 5px;
@@ -2798,7 +2711,6 @@ h3 img{
     font-weight: 700;
     padding-bottom: 10px;
 }
-
 .card-text{
     color: #777;
 }
@@ -2839,7 +2751,6 @@ h3 img{
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
 
 } */
-
 .thumbnail-img{
     width: 100%;
     padding: 20px;
@@ -2851,7 +2762,6 @@ h3 img{
     margin: 0 auto 20px;
     text-align: center;
 }
-
 .thumbnail-img img {
     width: 100%;
 }
@@ -2904,7 +2814,6 @@ h3 img{
     cursor: pointer;
     margin-bottom: -1px;
 }
-
 .thumbnail-image > img {
     /* width:  100px;
     height: auto;
@@ -2923,7 +2832,6 @@ h3 img{
     max-width: 103px;
     border: 3px solid transparent;
 }
-
 .thumbnail-image:hover > img,
 .thumbnail-image.active > img {
     opacity: 0.6;
@@ -2951,7 +2859,6 @@ h3 img{
     justify-content: space-between;
     color: #585858;
 }
-
 .actions > span {
     cursor: pointer;
     transition: all 250ms;
@@ -3032,7 +2939,6 @@ h3 img{
     margin-right: 7px;
     font-weight: bold;
 }
-
 .method-name {
     font-weight: bold;
     font-size: 1em;
@@ -3043,7 +2949,6 @@ h3 img{
     font-size: 0.8em;
     /* margin-bottom: 10px; */
 }
-
 .cash-lbl-mini {
     font-size: 1.4em !important;
     color: #fd0e0e;
@@ -3058,12 +2963,10 @@ h3 img{
     display: flex;
     justify-content: center;
 }
-
 .cash-unit {
     color: #333;
     font-size: 0.8em;
 }
-
 .top-mail-btn {
     position: absolute;
     right: 175px;
@@ -3147,47 +3050,38 @@ h3 img{
     margin: 0 auto;
     text-align: center;
 }
-
 .profile-publish-1 {
     cursor:pointer !important;
     right:0!important;
     top:0!important;
     text-align:right!important;
 }
-
 .profile-publish-2 {
     cursor:pointer !important;
     right:0 !important;
     top:1% !important;
     position:relative !important;
 }
-
 .profile-publish-3 {
     padding:0px !important;
     border:none !important;
 }
-
 .profile-publish-4 {
     background:#fff !important;
 }
-
 .color-fff {
     color: #fff  !important;
     font-size: 15px !important;
 }
-
 .color-fill {
     fill:#000000 !important;
 }
-
 .width-100 {
     width:100% !important;
 }
-
 .height-135 {
     height:135px !important;
 }
-
 @media only screen and (max-width: 375px) and (min-width: 320px) {
     #pano-slider-page .card-carousel {
         width: 200px!important;
@@ -3266,7 +3160,6 @@ h3 img{
        margin-right: -35px;
     }
 }
-
 @media only screen and (max-width: 768px) and (min-width: 451px) {
     #pano-slider-page .card-carousel {
         width: 415px!important;
@@ -3275,7 +3168,6 @@ h3 img{
         font-size: 10px;
     }
 }
-
 @media only screen and (max-width: 992px) and (min-width: 769px) {
     #pano-slider-page .card-carousel {
         width: 720px!important;
@@ -3295,20 +3187,17 @@ h3 img{
         font-size: 10px;
     }
 }
-
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 1024px) and (min-width: 993px) {
     #pano-slider-page .card-carousel {
         width: 823px!important;
     }
 }
-
 @media only screen and (max-width: 1200px) and (min-width: 1025px) {
     #pano-slider-page .card-carousel {
         width: 930px!important;
     }
 }
-
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1440px) and (min-width: 1201px) {
     #pano-slider-page .card-carousel {
@@ -3318,7 +3207,6 @@ h3 img{
         width: 1000px;
     }
 }
-
 @media only screen and (max-width: 1880px) and (min-width: 1440px) {
     #pano-slider-page .card-carousel {
         width: 1033px!important;
@@ -3331,7 +3219,6 @@ h3 img{
         margin-left: 15px;
     }
 }
-
 .hideimg{
     display: none!important;
 }

@@ -395,7 +395,7 @@
     </div>
   </div>
 </div>
-<!-- linked news added by maythirihtet-->
+<!-- linked news-->
 <div v-if="linkednews.length > 0" class="container_news job_container_news">
   <div class="row-2">
     <div class="text-new">
@@ -429,7 +429,7 @@
     </div>
   </div>
 </div>
-<!-- end linked news added by maythirihtet-->
+<!-- end linked news-->
 </layout>
 </template>
 
@@ -447,22 +447,22 @@ export default {
   //props: ['initOpen'],
   data(){
     return{
-      /**added by maythirihtet */
+      /**linked news */
       c_year:new Date().getFullYear(),
       vactive:true,
       linkednews: [],
       yeararr: [],
-      /**end of added by maythirihtet */
+      /**end of linked news */
       id:'', townshipID:[], township_id:[], cities:[], getCity:[], township_id:-1, moving_in:-1, per_month:-1, getTownships:[], special_features:[], fac_types:[], fac_id:[], medical_acceptance:[], subjects:[], occupationID:[], occupations:[], occupation:[], toggleCheck: true, toggleCheck_1: false, empstatus:[], job_data:[], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, locast:'', company:[], open:false, norecord_msg: false, window:{ width: 0, height: 0 }, w_width: $(window).width(), testclass:'', array_len: 0, searchword:'', stateclick:false, count:false, clicksearch: false, ci: false, isActive: true, isActivePreNext:true,
     }
   },
   created() {
-    /**added by maythirihtet*/
+    /**linked news*/
     this.axios.get('/api/getLinkedNews/'+3).then((response) => {
       this.linkednews = response.data.linkednews,
       this.yeararr = response.data.yeararr;
     });
-    /**end of added by maythirihtet */
+    /**end of linked news */
     this.axios.get('/api/user').then(response => {
       this.pro_id = response.data.lat_lng[0].id;
       this.loginuser = 'true';
@@ -496,11 +496,11 @@ export default {
     $('#upper-tab').addClass('job-borderColor');
   },
   methods:{
-    /**added by maythirihtet */
+    /**linked news */
     showDataByYear(year) {
       this.c_year = year;
     },
-    /**end of added by maythirihtet */
+    /**end of linked news */
     stopTheEvent:function(e){
       $('.dropdown-menu').on('click', function(e) {
         if($(this).hasClass('dropdown-menu-form')) {

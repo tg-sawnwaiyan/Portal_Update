@@ -18,19 +18,13 @@
                             </span>
                             <br>
                         </div>
-                        <!-- <div class="col-md-12">
-                            <h4 class="page-header header">プロフィール設定 <span v-if="!$auth.check(2) && customer_info.recordstatus != 1" style="color: red; font-size: 0.8em; margin-left: 20px; font-weight: normal;">このアカウントは現在無効となっています</span> <a v-if="$auth.check(2)" @click="$router.go(-1)" class="btn bt-red all-btn submit float-right"><i class="fas fa-arrow-left"></i>&nbsp;戻る</a></h4>
-                            <br>
-                        </div> -->
                         <form class="col-md-8" autocomplete="off">
                             <div class="card card-default m-b-20 col-md-11">
                                 <div class="card-body">
-                                    <!-- <div class="header2"> -->
                                     <h5 class=" clearfix">
                                         事業者番号 
                                         <span class="color-clearfix">{{customer_info.cusnum}}</span>
                                     </h5>
-                                    <!-- </div> -->
                                 </div>
                             </div>
                             <!--card-->
@@ -96,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>                        
-                             <div class="card card-default m-b-20 col-md-11" v-if="$auth.check(2)">
+                            <div class="card card-default m-b-20 col-md-11" v-if="$auth.check(2)">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12 m-t-8">

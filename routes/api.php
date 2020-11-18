@@ -233,7 +233,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');
     Route::get('townshipJson/{township_name}','SearchMapController@townshipJson');
-    /*added by maythirihtet to display linked news*/
+    /*added to display linked news*/
     Route::get('getLinkedNews/{show_type}','SearchMapController@getLinkedNews');
     /** **/
 

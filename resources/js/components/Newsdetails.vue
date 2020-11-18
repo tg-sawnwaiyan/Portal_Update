@@ -14,7 +14,6 @@
               <li class="breadcrumb-item active" aria-current="page">ニュース詳細</li>
             </ol>
           </nav>
-          <!-- <span v-else>Back</span> -->
           <div v-else class="d-flex justify-content-end mb-4">
             <router-link to="/news_list" class="mr-2 btn btn-danger all-btn submit"><i class="fas fa-arrow-left"></i>&nbsp;戻る</router-link>
             <router-link v-if="getData"  :to="{ path:'/editPost/'+ newdetails[0].id}" class="btn edit-borderbtn">編集</router-link>&nbsp;
@@ -25,7 +24,6 @@
             <div class="row m-lr-0 mb-3" v-for="news in newdetails" :key="news.id">             
               <div class="col-md-12" >
                 <h4 class="header news_detail_tit margin-bottom-0">                  
-                  <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                   {{news.title}}
                 </h4>  
                 <div class="news-createdby-com">

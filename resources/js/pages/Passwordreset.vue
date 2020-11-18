@@ -9,7 +9,6 @@
       <div class="user_card">
         <div class="login_link">
           <a href="/" class="home_link">ホーム</a>
-          <!-- <router-link to="/register" class="reg_link  ml-auto">登録</router-link>       -->
         </div>
         <form class="reset_form" autocomplete="off" @submit.prevent="resetPass" method="post">
           <h3 for="" class="user_name h3-margin">事業者パスワード再設定</h3>
@@ -74,8 +73,7 @@
         }else{        
             this.errors.email ='※メールアドレスを入力してください。';         
             // this.errors.email ='※メールアドレスが必須です。';         
-        }    
-
+        }
         if(this.errors.email == '')
         {
           this.$loading(true);

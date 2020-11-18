@@ -370,7 +370,7 @@
     </div>
   </div>
 </div>
-<!-- linked news added by maythirihtet-->
+<!-- linked news-->
 <div v-if="linkednews.length > 0" class="container_news">
   <div class="row-2">
     <div class="text-new">
@@ -404,7 +404,7 @@
     </div>
   </div>
 </div>
-<!-- end linked news added by maythirihtet-->
+<!-- end linked news-->
 </layout>
 </template>
 
@@ -420,22 +420,22 @@ import bulcomponent from './bulcomponent.vue'
     },
     data() {
       return {
-        /**added by maythirihtet */
+        /**linked news */
         c_year:new Date().getFullYear(),
         vactive:true,
         linkednews: [],
         yeararr: [],
-        /**end of added by maythirihtet */
+        /**end of linked news */
         id: '', timetable:[], hos_data:[], townshipID: [], township_id: [], cities: [], getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
       }
     },
     created(){
-      /**added by maythirihtet*/
+      /**linked news*/
       this.axios.get('/api/getLinkedNews/'+2).then((response) => { 
         this.linkednews = response.data.linkednews,
         this.yeararr = response.data.yeararr;
       });
-      /**end of added by maythirihtet */
+      /**end of linked news */
       window.addEventListener('resize', this.handleResize);
       this.handleResize();
     },
@@ -446,11 +446,11 @@ import bulcomponent from './bulcomponent.vue'
       $('#upper-tab').addClass('hospital-borderColor');
     },
     methods: {
-      /**added by maythirihtet */
+      /**linked news */
       showDataByYear(year) {
         this.c_year = year;
       },
-      /**end of added by maythirihtet */
+      /**end of linked news */
       stopTheEvent:function(e){
         $('.dropdown-menu').on('click', function(e) {
           if($(this).hasClass('dropdown-menu-form')) {

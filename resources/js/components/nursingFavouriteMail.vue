@@ -23,7 +23,6 @@
                     <!--inputform-->
                     <form class="col-md-12 form-wrap" autocomplete="off">
                         <h4 class="form-tit">資料請求される方について</h4>
-                        <!-- <h4 class="nursing-info">資料請求される方について</h4> -->
                         <p class="require-txt">
                             <span class="error sp1 margin-left-0">必須</span> 
                             のついた項目は全て入力してくださいますようお願いいたします。
@@ -40,13 +39,9 @@
                             <div class="col-md-3 col-sm-12 form-left"> <label><strong>フリガナ </strong><span class="error sp1">必須</span></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <div class="col-md-12 pad-free">
-                                    <!-- <div class="col-md-9 pad-free"> -->
                                     <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="フリガナを入力してください。" v-model="comments.furigana" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
-                                    <!-- </div>
-                                    <div class="col-md-3"> -->
                                     <span class="float-left eg-txt"> 例）サガシタロウ</span>
                                     <span class="error m-l-30" v-if="furigana_focus " >※入力は必須です。</span>
-                                    <!-- </div> -->
                                 </div>
                                 <span class="float-left error p-l-30" v-if="charErr">※カタカナで入力してください。</span>
                             </div>
@@ -54,9 +49,7 @@
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"> <label><strong>生年月日</strong> </label></div>
                             <div class="col-md-9 col-sm-12 form-right">
-                                <!-- <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/> -->
                                 <date-picker class="margin-left-20" :lang="lang" valueType="format" v-model="comments.bdate"></date-picker>
-                                <!-- <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span> -->
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
@@ -164,19 +157,12 @@
                                     <span class="error m-l-30" v-if="mail_focus && this.comments.mail !=''">※メールアドレスが正しくありません。もう一度入力してください。</span>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="form-group m-0 row bd-all">
-                            <div class="col-md-3 col-sm-12 form-left"><label>プレゼントのご希望:</label></div>
-                            <div class="col-md-9 col-sm-12 form-right pl-4">
-                                <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する
-                            </div>
-                        </div> -->                     
+                        </div>                   
                         <div class="btn-list mt-5 clearfix">
                             <div class="mt-1 submit txt-err" v-if="btn_disable">
                                 <div class="error">※未入力の必須項目がございます。</div>
                             </div>
                             <ul>
-                                <!-- <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li> -->
                                 <li> 
                                     <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()">確認ページに進む</button>
                                 </li>                                
@@ -340,16 +326,6 @@
                                     </label>
                                 </div>
                             </div>
-                            <!-- <div class="form-group m-0 row bd">
-                                <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">
-                                    <input type="radio" id="desire" name="desire" value="できるだけ早く"  v-model="comments.desire">&nbsp;できるだけ早く<br>
-                                    <input type="radio" id="desire" name="desire" value="３ヶ月以内"  v-model="comments.desire">&nbsp;３ヶ月以内<br>
-                                    <input type="radio" id="desire" name="desire" value="半年以内"  v-model="comments.desire">&nbsp;半年以内<br>
-                                    <input type="radio" id="desire" name="desire" value="1年以内"  v-model="comments.desire">&nbsp;1年以内<br>
-                                    <input type="radio" id="desire" name="desire" value="未定"  v-model="comments.desire">&nbsp;未定
-                                </div>
-                            </div> -->
                             <div class="form-group m-0 row bd-all">
                                 <div class="col-md-3 col-sm-12 form-left"><label><strong>ご要望や、お困りごと、その他お問い合わせ</strong></label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
@@ -362,10 +338,6 @@
                                 <div class="error">※未入力の必須項目がございます。</div>
                             </div>
                             <ul>
-                                <!-- <li class="m-r-15"> -->
-                                <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
-                                <!-- <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
-                                </li> -->
                                 <li>
                                     <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" >確認ページに進む</button>
                                 </li>                               
@@ -509,12 +481,6 @@
                     this.aggreBtn();
                 })            
             },
-            // getLocation(){
-
-            //     // this.comments.postal = '';
-            //     this.comments.city = '';
-            //     this.aggreBtn();
-            // },
             add() {
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
                 // this.reservation = JSON.parse(localStorage.getItem("reserve"));
@@ -556,22 +522,7 @@
                     this.btn_disable = true;
                     document.getElementById('tbname').style.backgroundColor = black;
                 }
-            },
-            // focusFuri: function(event) {
-            //     if(this.comments.furigana != ''){
-            //         this.furigana_focus=false;
-            //         this.aggreBtn();
-            //     }else{
-            //         this.furigana_focus=true;
-            //     }
-            // },
-            // focusbdate: function(event) {
-            //     if(this.comments.bdate != ''){
-            //         this.bdate_focus = false;
-            //     }else{
-            //         this.bdate_focus = true;
-            //     }
-            // },
+            },            
             focusCity: function(event) {
                 if(this.comments.city != 0){
                     this.city_focus=false;
@@ -666,25 +617,7 @@
                 // }
             
             },
-
-            // focusPhone(){
-
-            // //   var input_data = $('#phone').val(); 
-            // //   console.log(input_data.length)
-                
-            //   if(this.comments.phone.charAt(this.comments.phone.length - 1) != '-' && this.comments.phone.charAt(0) != '-' && ((this.comments.phone.length >= 10 && this.comments.phone.length <= 14) || this.comments.phone.length == 0))
-            //   {  
-            //       this.ph_num = false;
-            //       this.ph_length = false; 
-            //       this.aggreBtn();    
-            //   }
-            //   else{
-            //       this.ph_num = true;
-            //       this.ph_length = true;
-            //       this.btn_disable = true;
-            //   }
-                    
-            // },
+            
             ChekChar: function(event) {
                 var _this = this;
                // $('.char-err').text('');
@@ -712,7 +645,48 @@
                 } 
                 this.aggreBtn();
             },
-
+            postalNumber: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            },
+            // getLocation(){
+            //     // this.comments.postal = '';
+            //     this.comments.city = '';
+            //     this.aggreBtn();
+            // },
+            // focusFuri: function(event) {
+            //     if(this.comments.furigana != ''){
+            //         this.furigana_focus=false;
+            //         this.aggreBtn();
+            //     }else{
+            //         this.furigana_focus=true;
+            //     }
+            // },
+            // focusbdate: function(event) {
+            //     if(this.comments.bdate != ''){
+            //         this.bdate_focus = false;
+            //     }else{
+            //         this.bdate_focus = true;
+            //     }
+            // },
+            // focusPhone(){
+            // //   var input_data = $('#phone').val(); 
+            // //   console.log(input_data.length)                
+            //   if(this.comments.phone.charAt(this.comments.phone.length - 1) != '-' && this.comments.phone.charAt(0) != '-' && ((this.comments.phone.length >= 10 && this.comments.phone.length <= 14) || this.comments.phone.length == 0))
+            //   {  
+            //       this.ph_num = false;
+            //       this.ph_length = false; 
+            //       this.aggreBtn();    
+            //   }
+            //   else{
+            //       this.ph_num = true;
+            //       this.ph_length = true;
+            //       this.btn_disable = true;
+            //   }                    
+            // },
             // isNumberOnly: function(event) {
             //     // var input_data = $('#phone').val();
             //     var code = 0;
@@ -732,13 +706,6 @@
             //         // console.log('d')
             //     }
             // },
-            postalNumber: function(event) {
-                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-                {
-                    event.preventDefault();
-                }
-            },
         }
     }
 </script>

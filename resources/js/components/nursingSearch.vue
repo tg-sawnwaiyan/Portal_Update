@@ -25,8 +25,7 @@
                                         <i class="fas fa-search"></i> 検索
                                     </button>
                                 </div>                                        
-                            </div>
-                        
+                            </div>                        
                             <!--end search input-->
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 float-right align-center" >
@@ -37,9 +36,6 @@
                         <div class="freeword-responsive">
                             <h3 class="map-resicon">
                             <div class="map-text-wrapper">
-                                <!-- <div>
-                                <i class="fa icon map-fa-icon map-fa-icon-nursing"></i>
-                                </div> -->
                                 <div>
                                     <p class="text-left nursing-map-header"> &nbsp;あなたらしい暮らしができる。そん<br class="pc-768"/>な老人ホームが見つかります。</p>
                                 </div>
@@ -90,7 +86,6 @@
                                                 <div class="col-lg-6">
                                                     <select name="" id="" class="form-control custom-select bg-fff" @change="nursingSearchData()" v-model="moving_in">
                                                         <option data-price-type="" value="-1" >▼入居一時金</option>
-                                                        <!-- <option data-price-type="" value="0">一時金なし</option> -->
                                                         <option data-price-type="" value="500000">50万円以下</option>
                                                         <option data-price-type="" value="1000000">100万円以下</option>
                                                         <option data-price-type="" value="2000000">200万円以下</option>
@@ -647,7 +642,7 @@
         </div>
     </div>
 </div>
-<!-- linked news added by maythirihtet-->
+<!-- linked news-->
 <div v-if="linkednews.length > 0" class="container_news">
     <div class="row-2">
         <div class="text-new">
@@ -681,7 +676,7 @@
         </div>
     </div>
 </div>
-<!-- end linked news added by maythirihtet-->
+<!-- end linked news-->
 </layout>
 </template>
 
@@ -700,22 +695,22 @@
         },
         data() {
             return {
-                /**added by maythirihtet */
+                /**linked news */
                 c_year:new Date().getFullYear(),
                 vactive:true,
                 linkednews: [],
                 yeararr: [],
-                /**end of added by maythirihtet */
+                /**end of linked news */
                 cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: [], townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
             }
         },
         created(){
-            /**added by maythirihtet*/
+            /**linked news*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
                 this.linkednews = response.data.linkednews,
                 this.yeararr = response.data.yeararr;
             });
-            /**end of added by maythirihtet */
+            /**end of linked news */
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
             if(this.window.width >= 320 && this.window.width < 360) {
@@ -813,11 +808,11 @@
             }
         },
         methods: {
-            /**added by maythirihtet */
+            /**linked news */
             showDataByYear(year) {
                 this.c_year = year;
             },
-            /**end of added by maythirihtet */
+            /**end of linked news */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
@@ -829,7 +824,6 @@
                 this.township_id = -1;
                 this.moving_in = -1;
                 this.per_month = -1;
-
                 // if(this.townshipID == null || this.townshipID == '')
                 // {
                 // this.townshipID[0] = 0;
@@ -850,7 +844,6 @@
                 {
                     this.MoveID[0] = 0;
                 }
-
                 if ($('#search-free-word').val() != '')
                 {
                     this.id = -1;
@@ -867,27 +860,25 @@
                     var search_word = 'all';
                     this.searchword = 'all';
                 }
-
                 if(localStorage.getItem("nursing_fav") == null){
                     this.locast = 0;
                 }
                 else{
                     this.locast = localStorage.getItem("nursing_fav");
                 }
-
                 this.axios.get('/api/getnursingsearch/'+search_word,{
-                params:{                
-                    id: this.id,
-                    townshipID:this.township_id,
-                    Moving_in:this.moving_in,
-                    Per_month:this.per_month,
-                    local:this.locast,
-                    // townshipID:this.townshipID,
-                    SpecialFeatureID:this.SpecialFeatureID,
-                    MedicalAcceptanceID:this.MedicalAcceptanceID,
-                    FacTypeID:this.FacTypeID,
-                    MoveID:this.MoveID,
-                },
+                    params:{                
+                        id: this.id,
+                        townshipID:this.township_id,
+                        Moving_in:this.moving_in,
+                        Per_month:this.per_month,
+                        local:this.locast,
+                        // townshipID:this.townshipID,
+                        SpecialFeatureID:this.SpecialFeatureID,
+                        MedicalAcceptanceID:this.MedicalAcceptanceID,
+                        FacTypeID:this.FacTypeID,
+                        MoveID:this.MoveID,
+                    },
                 })
                 .then((response) => {                      
                     $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
@@ -928,7 +919,6 @@
                 this.MoveID = [];
                 this.MedicalAcceptanceID = [];
                 this.nus_data = [];
-
                 $('#searchMap').removeClass('select');
                 $('#showSearchMap').addClass('select');
                 $('#filter').addClass('select');
@@ -945,7 +935,6 @@
                     this.currentOffset += this.paginationFactor;
                 }
             },
-
             //  google map  function start========================================
             parentGetStateClick(e,parentVue) {                             
                 var _this = parentVue;
@@ -962,8 +951,7 @@
                 _this.township_id= -1;
                 _this.moving_in = -1;
                 _this.per_month = -1;
-                $("#nursing-search").css("display", "block");
-                
+                $("#nursing-search").css("display", "block");                
                 if(e.target.id == ''){
                     var id = $('#selectCity').val();
                 }else{
@@ -976,10 +964,8 @@
                 else{
                     _this.locast = localStorage.getItem("nursing_fav");
                 }
-                _this.searchword = '';
-             
-                // _this.$loading(true);
-                
+                _this.searchword = '';             
+                // _this.$loading(true);                
                 _this.axios.get('/api/getmap',{
                     params:{
                     id: _this.id,
@@ -1036,19 +1022,17 @@
                 }else{
                     this.show_paginate = false;  
                 }
-
                 var mmarker = new Array();
                 var item = [];
                 for (var i = 0; i < this.markers.length; i++) {
                     mmarker.push([this.markers[i]['alphabet'], this.markers[i]['lat'], this.markers[i]['lng']])
                     item.push(this.markers[i])
                 }
-
                 if(this.getCity.length > 0)
                 {
-                      var theCity = response.data.getCity[0]['city_eng'].trim();
-                      var lat = response.data.getCity[0]['latitude']
-                      var lng = response.data.getCity[0]['longitude']
+                    var theCity = response.data.getCity[0]['city_eng'].trim();
+                    var lat = response.data.getCity[0]['latitude']
+                    var lng = response.data.getCity[0]['longitude']
                 }
                 else{
                     var lat = 38.2682;
@@ -1191,16 +1175,14 @@
                         }                    
                     }
                 }
-
                 var township_name = townshipName;
                 // this.coordinate = []; 
                 // this.coordinate = [
                 //     {"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"MultiPolygon"}}]}
                 // ]
-
                 if(this.ci == true && (this.townshipID[0] == "-1" || this.townshipID.length == 0))
                 {              
-                        this.loading = false;                    
+                    this.loading = false;                    
                 }
                 else if(this.ci == false && (this.townshipID[0] == 0 || this.townshipID[0] == "-1" || this.townshipID.length == 0)){ 
                     var newresult=[];
@@ -1317,23 +1299,20 @@
                     var bounds = new google.maps.LatLngBounds();
                     this.markerHover = [];
                     var infoWindow = new google.maps.InfoWindow(),marker, i;
-                }
-              
+                }              
                 if(this.marker.length)
                 {
                    for (let index = 0; index < this.marker.length; index++) {
                        this.marker[index].setMap(null);
                    }
-                }
-            
+                }            
                 var marker = [];
                 var markers = [];
                 markers = mmarker;
                 var bounds = new google.maps.LatLngBounds();
                 this.markerHover = [];
                 var infoWindow = [];
-                infoWindow = new google.maps.InfoWindow();
-               
+                infoWindow = new google.maps.InfoWindow();               
                 var i = [];
                 for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
@@ -1558,7 +1537,6 @@
                 }
             },
             //  google map  function end========================================
-
             features(e) {
                 if (e.target.checked) {
                 }
@@ -1608,7 +1586,6 @@
                     }
                 }
             },
-
             first() {
                 this.currentPage = 0;
                 const page = Math.ceil(this.nus_data.length / this.size);

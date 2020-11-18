@@ -45,7 +45,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -53,11 +52,11 @@ export default {
       errors: {
         name:"",
       },
-        Userdrp: "選択してください。",
-                    categories: {
-                        id: '',
-                        name: ''
-                    },
+      Userdrp: "選択してください。",
+      categories: {
+        id: '',
+        name: ''
+      },
       Type: {
         name: "",
         parent: "",
@@ -119,29 +118,29 @@ export default {
           allowOutsideClick: false,
         }).then(response => {
           this.axios
-            .post("/api/types/add", this.Type)
-            .then(response => {
-              this.name = "";
-              this.$swal({
-                position: "top-end",
-                type: "作成済",
-                title: "作成されました",
-                text: "事業者の種類を作成されました。",
-                type: "success",
-                width: 350,
-                height: 200,
-                confirmButtonText: "はい",
-                confirmButtonColor: "#6cb2eb",
-                allowOutsideClick: false,
-              });
-              // alert('Successfully Created')
-              this.$router.push({ name: "typelist" });
-            })
-            .catch(error => {
-              if (error.response.status == 422) {
-                this.errors = error.response.data.errors;
-              }
+          .post("/api/types/add", this.Type)
+          .then(response => {
+            this.name = "";
+            this.$swal({
+              position: "top-end",
+              type: "作成済",
+              title: "作成されました",
+              text: "事業者の種類を作成されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#6cb2eb",
+              allowOutsideClick: false,
             });
+            // alert('Successfully Created')
+            this.$router.push({ name: "typelist" });
+          })
+          .catch(error => {
+            if (error.response.status == 422) {
+              this.errors = error.response.data.errors;
+            }
+          });
         });
       }
     },
@@ -195,21 +194,18 @@ export default {
           });
       });
     },
-      checkValidate() {
-                     if (this.Type.name) {
-                        // console.log('exist');
-                        this.errors.name = "";
-                    } else {
-                        // console.log('null');
-                        this.errors.name = " 事業者の種類は必須です。";
-                    }
-                   if (
-                        !this.errors.name
-                        
-                    ) {
-                        this.add();
-                    }
-                }
+    checkValidate() {
+      if (this.Type.name) {
+        // console.log('exist');
+        this.errors.name = "";
+      } else {
+        // console.log('null');
+        this.errors.name = " 事業者の種類は必須です。";
+      }
+      if (!this.errors.name) {
+        this.add();
+      }
+    }
   }
 };
 </script>

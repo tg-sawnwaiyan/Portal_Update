@@ -25,19 +25,14 @@
                     <span class="font-weight-bold"> 最近見た介護施設リスト</span>
                     &nbsp;
                     <span class ="job_count"> {{his_nus}}件</span>
-                    <!-- &nbsp;<span style="color:#000;">件</span> -->
                 </div>
             </div>
-
             <!--modal-->
             <div class="modal fade bd-example-modal-google googlecheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">交通アクセス／{{custname}}</h5>
-                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <button class="btn btn-secondary">閉じる&times;</button>
-                            </button> -->
                              <button type="button" data-dismiss="modal" aria-label="Close" class="close">
                                 <button class="btn btn-secondary pc-480">×</button> 
                                 <button class="btn btn-secondary close-480"><span>×</span></button>
@@ -64,16 +59,12 @@
                     </div>
                 </div>
             </div>
-
             <!--monthly cost and expense cost -->
             <div class="modal fade bd-example-modal-cost costcheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">料金プラン</h5>
-                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <button class="btn btn-secondary">閉じる&times;</button>
-                            </button> -->
                              <button type="button" data-dismiss="modal" aria-label="Close" class="close">
                                 <button class="btn btn-secondary pc-480">×</button>
                                 <button class="btn btn-secondary close-480">

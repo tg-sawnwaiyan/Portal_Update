@@ -3,7 +3,6 @@
       @mousedown="startDrag" @touchstart="startDrag"
       @mousemove="onDrag" @touchmove="onDrag"
       @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
-
     <div class="error" v-if="error"><span>{{ error }}</span></div>
     <template v-else>
       <div class="controls" ref="controls">
@@ -11,7 +10,6 @@
           <button class="zoomin" ref="zoomin" @click="zoomin">+</button>
           <button class="zoomout" ref="zoomout" @click="zoomout">-</button>
         </div>
-
         <div class="campas">
           <div class="direction" v-bind:style="{ transform: 'rotate(' + (-phi) + 'deg)' }" @click="reset">
             <div class="north"></div>
@@ -19,16 +17,13 @@
           </div>
         </div>
       </div>
-
       <h3 class="title">{{ title }}</h3>
-
       <div class="handle toggle-fullscreen" v-show="fullscreen.element">
         <button @click="toggleFullscreen"></button>
       </div>
       <canvas ref="canvas"></canvas>
       <div class="debug" v-show="debug">fov: {{ fov }}, theta: {{ theta }}, phi: {{ phi }}</div>
     </template>
-
   </div>
 </template>
 
@@ -132,16 +127,16 @@ export default {
       if (!(canvas && viewport))
         return
       if (width) {
-          canvas.style.width = viewport.style.width = width
+        canvas.style.width = viewport.style.width = width
       } else {
-          viewport.style.width = '100vw'
-          canvas.style.width = '100%'
+        viewport.style.width = '100vw'
+        canvas.style.width = '100%'
       }
       if (height) {
-          canvas.style.height = viewport.style.height = height
+        canvas.style.height = viewport.style.height = height
       } else {
-          viewport.style.height = '100vh'
-          canvas.style.height = '100%'
+        viewport.style.height = '100vh'
+        canvas.style.height = '100%'
       }
       canvas.width = canvas.clientWidth * ratio
       canvas.height = canvas.clientHeight * ratio
@@ -185,7 +180,7 @@ export default {
           }
           img.onerror = reject
           img.src = url
-        }))
+      }))
       Promise.all(tasks).then(images => {
       }).catch(e => {
         this.error = 'Unable to load all images'

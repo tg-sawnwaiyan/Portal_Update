@@ -33,7 +33,6 @@
                 <span v-show="!showPass"  class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 <span v-show="showPass" class="fa fa-fw fa-eye-slash"></span>
               </span>
-              <!-- <input type="password" class="form-control input_pass" name="password" value=""  id="password" v-model="password" placeholder="パスワード" @keyup="focusPassword" > -->
               <span v-if="errors.password" class="error"><small>{{errors.password}}</small></span>
             </div>
             <div class="d-flex justify-content-center mt-3">

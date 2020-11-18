@@ -29,7 +29,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">                           
                             <label class="col-12 col-lg-3 col-md-4 control-label">メールアドレス </label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -42,7 +41,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">パスワード </label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -55,7 +53,6 @@
                                 </div>
                             </div>
                          </div>
-
                          <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">パスワード確認</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -68,7 +65,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">事業者タイプ</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -85,7 +81,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="input-group hide form-check form-check-inline" id="showHideActionNursing">
                             <label class="col-12 col-lg-3 col-md-4 control-label">看護種類</label>
                             <div class="input-group-append " id="nursing">
@@ -107,7 +102,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div id="jsErrorMessage" class="error"></div> -->
                         <!-- 契約書 追加 -->
                         <div class="form-group col-12 text-center">
                             <a href="/contract" v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
@@ -386,7 +380,6 @@ export default {
             {
                 this.errors.ph_num = '';
             }
-
             if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13))
             {
                 this.errors.ph_length = '';
@@ -394,13 +387,11 @@ export default {
             else{
                 this.errors.ph_length = '※電話番号を確認してください。';
             }
-
             if(this.phone == '' || this.phone == null)
             {
                 this.errors.ph_length = '';
             }
-        },   
-    
+        },    
     },
 
   }
