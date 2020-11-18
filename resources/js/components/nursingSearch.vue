@@ -21,7 +21,7 @@
                             <div class="wrap">
                                 <div class="search">
                                     <input type="text"  id="search-free-word" class="searchTerm term-border" placeholder="地名、施設名などを入力"> 
-                                    <button class="searchButton nursing-search-btn" @click="searchfreeword">
+                                    <button class="searchButton search-btn" @click="searchfreeword">
                                         <i class="fas fa-search"></i> 検索
                                     </button>
                                 </div>                                        
@@ -1850,8 +1850,8 @@ div#holder {
     right:15px;
 }
 .offset{
-  width: 500px !important;
-  margin: 20px auto;
+    width: 500px !important;
+    margin: 20px auto;
 }
 .nursing-search {
     border-bottom: 1px dashed #2980b9 !important;
@@ -1861,18 +1861,8 @@ div#holder {
 .map-color {
     color:#2980b9 !important;
 }
-.term-border {    
-    border: 3px solid #63b7ff;
-}
-.nursing-search-btn {
-    border: 1px solid #63b7ff;
-    background: #63b7ff;
-}
 .select-justify {
     justify-content:space-between !important;
-}
-.profile-header-border {
-    border-left: 5px solid #63b7ff;
 }
 .bg-fff {
     background-color: #fff;
@@ -1913,16 +1903,6 @@ div#holder {
 .move-in-condition {
     padding:10px;
 }
-.search-dropdown {
-    width:100% !important;
-    text-align:left !important;
-}
-.fill-red {
-    fill:red !important;
-}
-.margin-top-20 {
-    margin-top:20px;
-}
 .nur_date span {
     font-weight:bold !important;
     color:green !important;
@@ -1936,6 +1916,6 @@ div#holder {
     padding-bottom:0px !important;
 }
 .padding-top-0 {
-    padding-top:0px;
+    padding-top:0px !important;
 }
 </style>

@@ -225,7 +225,4 @@ export default {
 .related-news {
   border-left: 5px solid #2980b9 !important;
 }
-.cursor-pointer {
-  cursor: pointer !important;
-}
 </style>

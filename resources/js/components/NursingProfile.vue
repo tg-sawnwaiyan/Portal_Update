@@ -1326,9 +1326,6 @@ export default {
 .padding-left-5 {
     padding-left:5px !important;
 }
-.min-width-0 {
-    min-width: 0px !important;
-}
 .nus-profile-err {
     margin-top:0px !important;
     margin-bottom:10px !important;

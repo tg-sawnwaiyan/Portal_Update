@@ -8,23 +8,17 @@
         </ol>
         <a @click="$router.go(-1)" v-if="$route.params.id && $auth.check(2)" class="btn btn-danger all-btn submit float-right pc-990"><i class="fas fa-arrow-left"></i>&nbsp;戻る</a>
       </nav>
-      
-     
     </div>
-      <div class="col-12 m-b-15" v-if="job_details.length>0">
-        <h5 class="subtitle" style=""><strong>施設名:</strong> {{job_details[0].cusname}} </h5>
-      </div>
-    
-    <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
-     
+    <div class="col-12 m-b-15" v-if="job_details.length>0">
+      <h5 class="subtitle"><strong>施設名:</strong> {{job_details[0].cusname}} </h5>
+    </div>    
+    <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">     
       <div class="col-12 p0-480">
         <h4 class="job-title-color">{{jobDetail.title}} </h4>
-        <label class="job_id" style="color:#000;">求人番号: {{jobDetail.jobid}}</label>
-
+        <label class="job_id color-000">求人番号: {{jobDetail.jobid}}</label>
       </div>
       <div class="col-xl-10 col-md-12 col-12 offset-xl-1 p0-480">
         <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
-
         <div class="form-wrap mt-3 mb-3">
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
@@ -56,7 +50,6 @@
             </div>
             <div class="col-md-10 col-sm-12 form-right"><pre>{{jobDetail.location}}</pre></div>
           </div>
-
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico"><i class="fa fa-map-signs"></i></span>最寄り駅</label>
@@ -104,29 +97,27 @@
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico"><i class="fa fa-building"></i></span>施設名</label>
             </div>
-            <div class="col-md-10 col-sm-12 form-right">  
-                 
+            <div class="col-md-10 col-sm-12 form-right">                   
               <div v-if="jobDetail.type_id == 2">   
-                  <div v-if="jobDetail.activate == 0">
+                <div v-if="jobDetail.activate == 0">
+                  <span>{{jobDetail.cusname}}</span>
+                  <span class="disabledlink">施設詳細</span>
+                </div>
+                <div v-else>
                     <span>{{jobDetail.cusname}}</span>
-                    <span class="disabledlink">施設詳細</span>
-                  </div>
-                  <div v-else>
-                      <span>{{jobDetail.cusname}}</span>
-                     <router-link  class="enabledlink" :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">施設詳細</router-link>                    
-                  </div>          
+                    <router-link  class="enabledlink" :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">施設詳細</router-link>                    
+                </div>          
               </div>
               <div v-else> 
-                 <div v-if="jobDetail.activate == 0">
-                    <span>{{jobDetail.cusname}}</span>
-                    <span class="disabledlink">施設詳細</span>                     
-                  </div>
-                  <div v-else>
-                    <span>{{jobDetail.cusname}}</span>
-                    <router-link  class="enabledlink" :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">施設詳細</router-link>                    
-                  </div>    
-              </div>
-              
+                <div v-if="jobDetail.activate == 0">
+                  <span>{{jobDetail.cusname}}</span>
+                  <span class="disabledlink">施設詳細</span>                     
+                </div>
+                <div v-else>
+                  <span>{{jobDetail.cusname}}</span>
+                  <router-link  class="enabledlink" :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">施設詳細</router-link>                    
+                </div>    
+              </div>              
             </div>
           </div>
           <!-- <h4 style="padding:3px;"></h4> -->
@@ -152,22 +143,20 @@ export default {
       job_id: "",
       login_user: Boolean,
       active:0,
-
     };
   },
   created() {
     this.axios
-      .get(`/api/job_details/${this.$route.params.id}`)
-      .then(response => {
-        this.job_details = response.data;
-        // console.log("res",response.data);
-        var catname = this.job_details[0].type_id == 2? '病院':'介護';
-
-        this.$ga.event({
-          eventCategory: '求人',
-          eventAction: catname+'/'+this.job_details[0].jobid+'/'+this.job_details[0].title,
-        }) 
-      });
+    .get(`/api/job_details/${this.$route.params.id}`)
+    .then(response => {
+      this.job_details = response.data;
+      // console.log("res",response.data);
+      var catname = this.job_details[0].type_id == 2? '病院':'介護';
+      this.$ga.event({
+        eventCategory: '求人',
+        eventAction: catname+'/'+this.job_details[0].jobid+'/'+this.job_details[0].title,
+      }) 
+    });
     this.job_id = this.$route.params.id;
   },
 };

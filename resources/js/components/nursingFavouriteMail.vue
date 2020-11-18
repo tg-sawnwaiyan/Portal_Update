@@ -742,11 +742,3 @@
         }
     }
 </script>
-<style>
-.margin-left-0 {
-    margin-left:0px;
-}
-.margin-left-20 {
-    margin-left: 20px;
-}
-</style>
