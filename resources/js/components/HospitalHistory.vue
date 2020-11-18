@@ -269,15 +269,11 @@ export default {
                 this.currentOffset += this.paginationFactor;
             }
         },
-        // changeRoute(){
-        //     this.$router.push({name:'home', params: {page:'subtab2'}});
-        // },
         getAllCustomer: function(local_storage) {
             this.axios
             .post("/api/hospital_history/" + local_storage)
             .then(response => {
                 this.$loading(false);  
-                // if(response.data.length<this.his_hos && response.data.length > 0) {
                 this.hos_profiles = response.data;
                 if(response.data.length<this.his_hos && response.data.length > 0) { 
                     this.$swal({
@@ -310,16 +306,10 @@ export default {
                         type: 'info',
                         width: 400,
                         height: 200,
-                        // showCancelButton: true,
                         showConfirmButton: true,
-                        // confirmButtonColor: "#dc3545",
-                        // cancelButtonColor: "#b1abab",
-                        // cancelButtonTextColor: "#000",
                         confirmButtonText: "閉じる",
-                        // cancelButtonText: "キャンセル",
                         confirmButtonClass: "all-btn",
                         allowOutsideClick: false,
-                        // cancelButtonClass: "all-btn"
                     }).then(response => {
                         localStorage.setItem('hospital_history','');
                         this.local_sto = localStorage.getItem("hospital_history");
@@ -329,7 +319,6 @@ export default {
                         });
                     });
                 }
-                // }
             });
         },
         deleteLocalSto: function(id) {

@@ -157,12 +157,10 @@ export default {
             }).then(response => {
                 this.errors = [];
                 let newsData = new FormData();
-                // this.advertisement.location = "topbar";
                 newsData.append('post_date',this.newsByCat.post_date)
                 newsData.append('type',this.newsByCat.type)
                 newsData.append('status',this.newsByCat.status)
                 newsData.append('description',this.newsByCat.description)
-                // console.log(newsData);
                 console.log('yyyy');
                 this.$loading(true);
                 this.axios.post(`/api/news/update/${this.$route.params.id}`, newsData)
@@ -178,7 +176,6 @@ export default {
                         height: 200,
                         allowOutsideClick: false,
                     })
-                    //this.$router.push({name: 'ads'});
                     var num = localStorage.getItem('page_no');//get from adslist/searchAds()
                     // this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } });
                     this.$router.push({

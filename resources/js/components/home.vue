@@ -73,32 +73,11 @@ export default {
                     this.is_cat_overflow = true;
                     this.computed_width = '99.8%';
                 }
-                // if(total_word > 32) {
-                //     this.is_cat_overflow = true;
-                //     this.computed_width = '99%';
-                // }
-                // else{
-                //       this.is_cat_overflow = false;
-                // }
                 this.getPostByCatID();
                 this.getLatestPostByCatID();
             });
         },
-        searchCategory() {
-            this.$loading(true);
-            if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                this.clearSearch();
-            } else {
-                this.status = 1;
-                this.search_word = $('#search-free-word').val();
-                this.getLatestPostsByCatID();                 
-            }
-        },
-        clearSearch() {
-            this.status = 0;
-            this.search_word = '';
-            this.getLatestPostsByCatID();
-        },
+      
         getPostByCatID: function(catId = this.cats[0].id) {
             if ($('#search-free-word').val() != null) {
                 var search_word = $('#search-free-word').val();
@@ -146,46 +125,8 @@ export default {
                     this.latest_post_null = false;
                 }
             });
-        },
-        swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
-        scrollTo(element, scrollPixels, duration) {
-            const scrollPos = element.scrollLeft;
-            // Condition to check if scrolling is required
-            if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-            {
-                // Get the start timestamp
-                const startTime =
-                "now" in window.performance
-                ? performance.now()
-                : new Date().getTime();
-                function scroll(timestamp) {
-                    //Calculate the timeelapsed
-                    const timeElapsed = timestamp - startTime;
-                    //Calculate progress
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    //Set the scrolleft
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-                    if (timeElapsed < duration) {
-                        //Request for animation
-                        window.requestAnimationFrame(scroll);
-                    } else {
-                        return;
-                    }
-                }
-                //Call requestAnimationFrame on scroll function first time
-                window.requestAnimationFrame(scroll);
-            }
-        },
+        }
+
     }
 }
 $(document).ready(function(){
@@ -203,7 +144,6 @@ $(document).ready(function(){
     border-bottom-color: transparent !important;
     border-top: 3px solid #63b7ff !important;
     border-bottom: 0px !important;
-    /* border-left: 1px solid #63b7ff !important; */
 }
 .hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
     color: #63b7ff !important;
@@ -226,7 +166,6 @@ $(document).ready(function(){
     color: #75b777 !important;
 }
 .nursing-tabColor .nav-link {
-    /* background: #ff9563 !important; */
     background: #63b7ff !important;
     color: #fff;
     border-right: 1px solid #fff;
@@ -234,16 +173,12 @@ $(document).ready(function(){
 }
 .nursing-tabColor li.subtab2 > .router-link-active{
     background: #fff!important;
-    /* color: #ff9563 !important; */
     color: #63b7ff !important;
     border-bottom-color: transparent !important;
-    /* border-top: 3px solid #ff9563 !important; */
     border-top: 3px solid #63b7ff !important;
     border-bottom: 0px !important;
-    /* border-left: 1px solid #ff9563 !important; */
 }
 .nursing-tabColor li.subtab2 > .router-link-exact-active>i.fa, .nursing-tabColor li.subtab2 > .router-link-active>i.fas {
-    /* color: #ff9563 !important; */
     color: #63b7ff !important;
 }
 .job-tabColor .nav-link {
@@ -257,7 +192,6 @@ $(document).ready(function(){
     color: #828282 !important;
     border-bottom-color: transparent !important;
     border-top: 3px solid #828282 !important;
-    /* border-left: 1px solid #828282 !important; */
     border-right: 1px solid #828282 !important;
     border-bottom: 0px !important;
 }
@@ -274,7 +208,6 @@ $(document).ready(function(){
     border: 1px solid #63b7ff !important;
 }
 .nursing-borderColor {
-    /* border: 1px solid #ff9563 !important; */
     border: 1px solid #63b7ff !important;
 }
 </style>

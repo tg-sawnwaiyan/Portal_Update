@@ -18,9 +18,6 @@
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="ニュースカテゴリー検索" id="search-item" @keyup="searchCategory()" />
                         </div>
-                        <!-- <div class="col-md-2 text-right">
-                        <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
-                        </div>-->
                     </div>
                     <hr />
                     <div class="d-flex header pb-3 admin_header">
@@ -32,8 +29,7 @@
                             </router-link>
                         </div>
                     </div>
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデータが消える。</div> -->
-                    <div v-if="nosearch_msg" class="card card-default card-wrap">
+                       <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
                         </p>

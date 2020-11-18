@@ -71,12 +71,7 @@
                                                 <router-link :to="{ path:'/jobapplicantlist/nursing/profile/'+ nursingprofiles.id}" class="acc_router_link">
                                                 <i class="vsm--icon fa fa-list i_color"></i>求人応募者一覧</router-link>
                                             </p>
-                                            <!-- <p v-else>
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                <i class="vsm--icon fa fa-edit fa-fw" style="color: #ccc;"></i>求人編集</a>&nbsp;&nbsp;
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                <i class="vsm--icon fa fa-list" style="color: #ccc;"></i>求人応募者一覧</a>
-                                            </p> -->
+                                            
                                         </div>
                                         <div class="card-read-more">
                                             <router-link :to="{ path:'/profile/nursing/'+ nursingprofiles.id}" class="btn edit-borderbtn btn_routerlink">施設情報編集</router-link>
@@ -114,12 +109,7 @@
                                                     <i class="vsm--icon fa fa-list fa-fw i_color"></i>求人応募者一覧
                                                 </router-link>
                                             </p>
-                                            <!-- <p v-else>
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                    <i class="vsm--icon fa fa-edit fa-fw" style="color: #ccc;"></i>求人編集</a>&nbsp;&nbsp;
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                    <i class="vsm--icon fa fa-list fa-fw" style="color: #ccc;"></i>求人応募者一覧</a>
-                                            </p> -->
+                                            
                                         </div>
                                         <div class="card-read-more">
                                             <router-link :to="{ path:'/profile/hospital/'+ hospitalprofiles.id}" class="btn edit-borderbtn btn_routerlink">病院情報編集</router-link>
@@ -205,24 +195,7 @@ export default {
                 });
             }  
         },
-        CancelNew(){
-            this.createNew = false;
-            this.nursing_data.city_id = 0;
-            this.nursing_data.town_id = 0;
-            this.errors.city = '';
-            this.errors.township = '';
-        },
-        getTownship(){
-            this.errors.city = '';
-            this.nursing_data.town_id = 0;
-            this.axios.get('/api/auth/township',{
-                params:{
-                    city:this.nursing_data.city_id
-                },
-            }).then((response)=>{
-                this.town_list = response.data.townships
-            })
-        },
+       
         getAccountList(){
             this.cusid = this.$route.params.id;
             this.type = this.$route.params.type;
@@ -318,7 +291,26 @@ export default {
                     this.getAccountList();
                 });                   
             });
+        },
+        getTownship(){
+            this.errors.city = '';
+            this.nursing_data.town_id = 0;
+            this.axios.get('/api/auth/township',{
+                params:{
+                    city:this.nursing_data.city_id
+                },
+            }).then((response)=>{
+                this.town_list = response.data.townships
+            })
         }
+        /* CancelNew(){
+            this.createNew = false;
+            this.nursing_data.city_id = 0;
+            this.nursing_data.town_id = 0;
+            this.errors.city = '';
+            this.errors.township = '';
+        },
+        */
     }
 }
 </script>
