@@ -5,7 +5,7 @@
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="user" content="Auth::user()">
+<meta name="user" content="{{ Auth::user() }}">
 @if(isset($tweetData))
 <meta name="twitter:card" content="summary" />
 <meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
