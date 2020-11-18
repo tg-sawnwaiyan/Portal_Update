@@ -36,7 +36,6 @@
                             </span>
                         </h5>
                     </div>                    
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">データが見つかりません。</div> -->
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -53,7 +52,6 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-5 text-right choose-item">
-                                        <!-- <button :class="'btn drop-bg-color changeLink'+job.id"  @click="jobToggle(job.id)">
                                         <i :id="'icon' + job.id" class="fas fa-sort-down animate rotate"></i> 詳細</button> -->
                                         <p class="job-no">応募者数:
                                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
@@ -87,7 +85,6 @@
                                         </ul>
                                     </div>
                                     <div class=" col-6">                                        
-                                        <!-- <p class="float-right">応募者数:
                                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
                                         </p> -->
                                     </div>
@@ -153,7 +150,6 @@
             }).catch((error) => {
                 this.loginuser = 'false';
             })
-            // this.countJobapplylist(this.job_id);
         },
         methods: {
             getAllJobs() { 

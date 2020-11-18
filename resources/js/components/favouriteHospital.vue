@@ -33,7 +33,6 @@
                 </svg>
                 &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
                 &nbsp; <span class="job_count">{{fav_hos}}件</span>
-                <!-- &nbsp;<span style="color:#000;">件</span> -->
             </div>
         </div>
         <div class="row m-0">

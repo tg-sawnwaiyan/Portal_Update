@@ -22,14 +22,12 @@
             </div>
             <div class="form-group form-group-wrapper d-flex">
               <label class="heading-lbl col-md-2 col-12 pad-free">メールアドレス<p class="error sp3 sp-t2">必須</p></label>
-              <!-- <label class="col-md-10 col-12 customer-email"> {{hospital_info.email}} </label> -->
               <input type="text" class="form-control customer-email col-md-10 col-12 nursing_input" placeholder="メールアドレスを入力してください。" v-model="hospital_info.email" @change="aggreBtn" @keyup="focusMail">
             </div>                          
             <span class="error pro-1" v-if="mail_focus || hospital_info.email =='' || hospital_info.email == null">※メールアドレスが正しくありません。</span>                            
             <div class="form-group form-group-wrapper d-flex">
               <label class="heading-lbl col-md-2 col-12 pad-free">電話番号 </label>                            
               <input type="text" class="form-control customer-phone col-md-10 col-12 nursing_input" id="phone" placeholder="電話番号を入力してください。" v-model="hospital_info.phone"  @keyup="focusPhone"  maxlength="13">
-              <!-- v-on:keyup="isNumberOnly" -->
             </div>                  
             <span class="error pro-1" v-if="ph_length || ph_num">※電話番号が正しくありません。もう一度入力してください。</span>          
           </div>
@@ -80,10 +78,7 @@
             </td>
           </tr>
         </table>
-        <!-- <div class="form-group">
-          <label class="heading-lbl">診療科目<span class="error">*</span></label>
-          <textarea name="subject" class="form-control"></textarea>
-        </div>-->
+        
         <table class="table table-bordered table-wrapper">
           <tr>
             <td>
@@ -469,10 +464,8 @@
                 <div class="col-md-12">
                   <span class="error pro-1 prefecture-err" v-if="loc == true">※都道府県と市区町村をを入力してください。</span>
                   <GoogleMap  :address="address_show" :township="hospital_info.townships_id" :latnum='hospital_info.latitude' :lngnum='hospital_info.longitude' :city="city_id" :township_list="township_list"></GoogleMap>
-                  <!-- <GoogleMap :address="hospital_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="hospital_info.latitude == 0"></GoogleMap> -->
                   <div class="form-group">
                     <label>交通 / アクセス</label>
-                    <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                     <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="hospital_info.access"/>
                   </div>
                 </div>
@@ -673,9 +666,7 @@ export default {
     featureCheck(check_id) {
       $('.feature-'+check_id).attr('checked','true');
     },
-    stationCheck(check_id) {
-      $('.station-'+check_id).attr('checked','true');
-    },
+   
     subjectCheck(check_id) {
       $('.subject-'+check_id).attr('checked','true');
     },
@@ -746,11 +737,7 @@ export default {
     },
     galleryVideoAdd() {
       this.video_arr.push({title:'',description:'',url:''});
-    },
-    StationAdd() {
-      $(".station-toggle-div").toggle('medium');
-      this.isRotate4 = !this.isRotate4;
-    },
+    },  
     Create_Profile () {    
       if($('#new_lat').val() == "" || $('#new_lat').val() == 0 || $('#new_long').val() == "" || $('#new_long').val() == 0 || $('#gmaptownship').val() == 0 ){
         this.loc = true;
@@ -773,15 +760,8 @@ export default {
           this.btn_disable = true;
         }
       }
-      // if($('#new_lat').val() == "" || $('#new_long').val() == "" || $('#gmaptownship').val() == 0 || this.mail_focus == true || this.ph_num == true )
-      // {
-      //   this.btn_disable = true;
-      // }
-      // else{
-      //   this.btn_disable = false;
-      // }      
+         
       if(this.btn_disable){      
-        // console.log("mail");
         this.$swal({
           html: "保存できません。<br/>必須項目を確認してください。",
           type: "error",
@@ -789,12 +769,9 @@ export default {
           height: 200,
           showCancelButton: false,
           confirmButtonColor: "#FF5462",
-          // cancelButtonColor: "#b1abab",
           cancelButtonTextColor: "#000",
           confirmButtonText: "閉じる",
-          // cancelButtonText: "キャンセル",
           confirmButtonClass: "all-btn",
-          // cancelButtonClass: "all-btn",
           allowOutsideClick: false,
         })  
         this.hospital_info.townships_id = $('#gmaptownship').val();
@@ -843,10 +820,7 @@ export default {
             pt.append(i ,file )
           }            
         }
-        // if(logo){
-        //     this.hospital_info.logo = logo.name;
-        //     pt.append('logo', logo)
-        // }
+       
         for(var i =this.video_arr.length-1;i>=0;i--)
         {
           this.video_arr[i]['type'] = 'video';
@@ -932,6 +906,13 @@ export default {
         this.ph_length = false;
       }          
     }
+     /*stationCheck(check_id) {
+      $('.station-'+check_id).attr('checked','true');
+    },
+    StationAdd() {
+      $(".station-toggle-div").toggle('medium');
+      this.isRotate4 = !this.isRotate4;
+    },*/
   },
 
 }

@@ -29,7 +29,6 @@
                             </router-link>
                         </div>
                     </div>
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -57,19 +56,16 @@
                                                 <div class="on"  v-if="ads.recordstatus == 0">非公開</div>
                                             </div>
                                         </span>
-                                        <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->
                                         <div class="d-flex mt-4">
                                             <router-link :to="{path: '/editads/'+ads.id}" class="btn edit-borderbtn">編集</router-link>
                                             <button class="btn delete-borderbtn ml-2" @click="deleteAds(ads.id)">削除</button>
-                                            <!-- <button class="btn delete-borderbtn" @click="toggleModal">削除</button>                                 -->
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment"></pagination> -->
-                    <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
+                     <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                     </pagination>
@@ -100,9 +96,7 @@ export default {
         this.getAds();
     },
     methods: {
-        // toggleModal() {
-        //     this.isOpen = !this.isOpen;
-        // },
+       
         getAds(){
             if(this.$route.params.status == 'update'){
                 var page_no = this.$route.params.page_no;
@@ -234,6 +228,9 @@ export default {
                 }
             });
         }
+         // toggleModal() {
+        //     this.isOpen = !this.isOpen;
+        // },
     }
 }
 </script>

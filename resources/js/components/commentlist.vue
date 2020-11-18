@@ -19,7 +19,6 @@
                     </div>
                     <hr />               
                     <h5 class="header">{{title}}</h5>
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">データが見つかりません。</div> -->
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -57,7 +56,6 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-2 col-xl-3 text-right cmt3 pc-414">
-                                        <!-- <button class="'btn btn all-btn main-bg-color changeLink'+payment.id" type="button" @click="commentToggle(comment.id)"><span  :id="'icon' + comment.id"  class="fas fa-sort-down animate rotate"></span></button> -->
                                         <button :class="'btn drop-bg-color changeLink'+comment.id" class="btn_style" @click="commentToggle(comment.id)">詳細 <i :id="'icon' + comment.id" class="fas fa-sort-down animate rotate"></i>
                                         </button>
                                     </div>
@@ -76,7 +74,6 @@
                                 </div>
                                 <!--comment-->
                                 <div class="collapse change_link" :id="'changeLink' + comment.id">   
-                                    <!-- <div class="cmt"><span><i class="fa fa-calendar"></i>&nbsp;{{comment.created_date | moment("YYYY年MM月DD日") }}投稿</span> <span><i class="fa fa-clock"></i>&nbsp;{{comment.created_time}}</span></div>-->
                                     <table class="table table-bordered">
                                         <tr>
                                             <td  class="w-50">

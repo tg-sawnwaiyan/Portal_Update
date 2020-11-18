@@ -27,7 +27,6 @@
                             </router-link>
                         </div>
                     </div>                     
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -41,7 +40,6 @@
                                    <h5 class="font-weight-bold">{{news.post_date}}</h5>
                                 </td>
                                 <td class="p-3">
-                                   <!-- <h5 class="font-weight-bold">{{news.type}}</h5> -->
                                     <span v-if="news.type == 1">介護施設検索</span>
                                     <span v-else-if="news.type == 2">病院検索</span>
                                     <span v-else>求人検索</span>
@@ -52,7 +50,6 @@
                                     <span v-else>お知らせ</span>
                                 </td>
                                 <td class="p-3 desc">
-                                   <!-- <h5 class="font-weight-bold">{{news.description}}</h5> -->
                                    <p v-html="news.description"></p> 
                                 </td>
                                 <td class="p-3">
@@ -61,12 +58,7 @@
                                 </td>
                             </tr>
                         </table>                        
-                    </div>
-                    <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment"></pagination> -->
-                    <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
-                        <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
-                        <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
-                    </pagination> -->
+                    </div>                   
                 </div>
             </div>
         </div>

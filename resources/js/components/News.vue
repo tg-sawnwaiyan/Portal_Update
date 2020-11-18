@@ -569,13 +569,7 @@
                     if(this.cat_box_width/total_word < 23){
                         this.is_cat_overflow = true;
                     }
-                    // if(total_word > 32) {
-                    //     this.is_cat_overflow = true;
-                    //     this.computed_width = '99%';
-                    // }
-                    // else{
-                    //       this.is_cat_overflow = false;
-                    // }
+                   
                     this.getPostByCatID();
                     this.getLatestPostByCatID();
                 });
@@ -760,7 +754,6 @@
         }
     }
     $(document).ready(function(){
-        // $("#top_a").addClass("active");
         var url      = window.location.href; 
         console.log(url);
         if(url.indexOf('category') == -1){

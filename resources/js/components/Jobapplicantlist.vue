@@ -24,7 +24,6 @@
                         </div>    
                     </div>
                 </div>                    
-                <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">求人応募者が登録されていません</div> -->
                 <div v-if="nosearch_msg" class="card card-default card-wrap">
                     <p class="record-ico">
                         <i class="fa fa-exclamation"></i>
@@ -44,7 +43,6 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="joboffer-tit clearfix">
-                                        <!-- <span class="job_id_1"><span>求人番号 :</span>{{jobapply.jobid}}</span> -->
                                         <router-link class="job_title_1 pseudolink" :to="{path:'/job_details/'+jobapply.job_id}">{{jobapply.job_title}} </router-link>
                                     </div>
                                 </div>
@@ -68,7 +66,6 @@
                                 </div>
                                 <div class="col-xl-11 col-lg-10 col-md-8"><span class="pc-414-inline">: &nbsp;</span>{{jobapply.last_name}}</div>
                             </div>                           
-                            <!-- <p><span class="font-weight-bold">メールアドレス:&nbsp;</span><span>{{jobapply.email}}</span></p> -->
                             <div class="collapse" :id="'changeLink' + jobapply.id">                                    
                                 <table class="table table-bordered jobapp-tb">
                                     <tr>
@@ -76,7 +73,6 @@
                                             <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="fa fa-calendar-alt" aria-hidden="true"></i></span>生年月日:&nbsp;</span><span class=""> {{jobapply.birthday}}</span></p>
                                         </td>
                                         <td class="w-50">
-                                            <!-- <p><span class="font-weight-bold">性別:</span><span>{{jobapply.gender}}</span></p>   -->
                                             <p class="mb-2"><span class="text-orange"><span class="job_ico">〒</span> 郵便番号:&nbsp;</span><span class=""> {{jobapply.postal}}</span></p>
                                         </td>
                                     </tr>

@@ -25,9 +25,6 @@
                     </div>
                     <div class="form-group" id="showimage">
                         <label class="">写真</label>
-                        <!-- <div class="custom-file">
-                        <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                        </div> -->
                         <div class="d-flex align-items-center">
                             <span class="btn-file d-inline-block">画像を選択        
                             <input type="file" ref="file" accept="image/*" @change="fileSelected">
@@ -37,7 +34,6 @@
                     </div>                    
                     <div class="image_show" v-if="upload_img ">
                         <div class='col-md-2'>
-                            <!-- <span class='img-close-btn test' v-on:click="removeUpload()" v-if='status == 1'>X</span> -->
                             <img :src="upload_img" class='show-img' @error="imgUrlAlt">
                         </div>
                     </div>  
@@ -134,9 +130,6 @@
                                     </p>
                                     <p class="record-txt01">データが見つかりません。</p>
                                 </div> 
-                                <!-- <div class="row">
-                                <pagination :data="related_news" @pagination-change-page="getPostsByCatId"></pagination>
-                                </div> -->
                                 <div>
                                     <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
                                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -303,44 +296,7 @@ export default {
             const file =event.target.files[0];
             this.img_name = file.name;
         },
-        removeUpload(e) {
-            this.$swal({
-                // title: "確認",
-                text: "削除してよろしいでしょうか。",
-                type: "warning",
-                width: 350,
-                height: 200,
-                showCancelButton: true,
-                confirmButtonColor: "#eea025",
-                cancelButtonColor: "#b1abab",
-                cancelButtonTextColor: "#000",
-                confirmButtonText: "はい",
-                cancelButtonText: "キャンセル",
-                confirmButtonClass: "all-btn",
-                cancelButtonClass: "all-btn",
-                allowOutsideClick: false,
-            }).then(response => {
-                this.$swal({
-                    text: "画像を削除しました。",
-                    type: "success",
-                    width: 350,
-                    height: 200,
-                    confirmButtonText: "閉じる",
-                    confirmButtonColor: "#31cd38",
-                    allowOutsideClick: false,
-                });
-            }).then(response => {
-                this.img_name = '';
-            });
-            this.news.photo = '';
-            this.upload_img = '';
-            this.reset();
-        },
-        reset() {
-            const input = this.$refs.file;
-            input.type = 'text';
-            input.type = 'file';
-        },
+        
         onDetailInfoEditorChange({ editor, html, text }) {
             this.news['body'] = html
         },
@@ -635,6 +591,44 @@ export default {
             this.noimage = 1;
             event.target.src = "/images/noimage.jpg"
         },
+        /*removeUpload(e) {
+            this.$swal({
+                // title: "確認",
+                text: "削除してよろしいでしょうか。",
+                type: "warning",
+                width: 350,
+                height: 200,
+                showCancelButton: true,
+                confirmButtonColor: "#eea025",
+                cancelButtonColor: "#b1abab",
+                cancelButtonTextColor: "#000",
+                confirmButtonText: "はい",
+                cancelButtonText: "キャンセル",
+                confirmButtonClass: "all-btn",
+                cancelButtonClass: "all-btn",
+                allowOutsideClick: false,
+            }).then(response => {
+                this.$swal({
+                    text: "画像を削除しました。",
+                    type: "success",
+                    width: 350,
+                    height: 200,
+                    confirmButtonText: "閉じる",
+                    confirmButtonColor: "#31cd38",
+                    allowOutsideClick: false,
+                });
+            }).then(response => {
+                this.img_name = '';
+            });
+            this.news.photo = '';
+            this.upload_img = '';
+            this.reset();
+        },
+        reset() {
+            const input = this.$refs.file;
+            input.type = 'text';
+            input.type = 'file';
+        },*/
     }
 }
 </script>

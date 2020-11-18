@@ -31,8 +31,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 pad-free scrolldiv p0-480">
-                        <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
-                        <div v-if="nosearch_msg" class="card card-default card-wrap">
+                         <div v-if="nosearch_msg" class="card card-default card-wrap">
                             <p class="record-ico">
                                 <i class="fa fa-exclamation"></i>
                             </p>
@@ -44,7 +43,6 @@
                                     <tr>
                                         <th>特長名</th>
                                         <th>略語</th>
-                                        <!-- <th>カテゴリー</th> -->
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -52,10 +50,8 @@
                                     <tr v-for="feature in features.data" :key="feature.id">
                                         <td>{{feature.name}}</td>
                                         <td>{{feature.short_name}}</td>
-                                        <!-- <td>{{feature.type}}</td> -->
                                         <td class="text-right">
-                                            <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
-                                            <router-link :to="{name:'specialfeature', params:{id : feature.id}}" class="btn edit-borderbtn">編集</router-link>
+                                             <router-link :to="{name:'specialfeature', params:{id : feature.id}}" class="btn edit-borderbtn">編集</router-link>
                                             <button class="btn text-danger delete-borderbtn" @click="deleteFeature(feature.id,feature.type)">削除</button>
                                         </td>
                                     </tr>

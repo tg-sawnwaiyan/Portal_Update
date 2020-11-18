@@ -403,37 +403,7 @@ export default {
             } else 
             {    
                 this.errors.photo = "写真は必須です。";
-            }
-            // if(this.advertisement.pdf)
-            // {
-            //     this.errors.pdf = "";     
-            // } else 
-            // {    
-            //     this.errors.pdf = "PDF ファイルは必須です。";
-            // }
-
-            // if(this.advertisement.link)
-            // {
-            //     this.errors.link = "";     
-            // } else 
-            // {    
-            //     this.errors.link = "広告リンクは必須です。";
-            // }
-            /* if((this.advertisement.pdf) && (this.advertisement.link))
-            {
-            this.errors.link = "";
-            this.errors.pdf = "";     
             } 
-            else if ((this.advertisement.pdf) || (this.advertisement.link))
-            {    
-            this.errors.link = "";
-            this.errors.pdf = "";  
-            }
-            else
-            {
-            this.errors.link = "「広告リンク」または「PDF ファイル」を入力してください。";
-            this.errors.pdf = "「広告リンク」または「PDF ファイル」を入力してください。"; 
-            }*/
             if(!(this.advertisement.link) && (this.advertisement.show_flag == "link")){
                 this.errors.link = "広告リンクは必須です。";
                 this.errors.pdf = "";  
