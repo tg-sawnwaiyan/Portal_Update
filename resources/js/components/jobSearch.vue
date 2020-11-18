@@ -2,19 +2,17 @@
 <layout>
 <div id="job-search-ui">
   <div class="col-md-12 map-search">
-    <h5 class="font-weight-bold">
-      <i class="fas fa-map color-828282"></i>
-      &nbsp;地図検索  
-      <span v-if="count == false  && searchword != '' && searchword == 'all' && job_data.length && !stateclick "> 「<span class="result-span">全国</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
-      <span v-if="count == false && searchword != '' && searchword != 'all' && job_data.length && !stateclick "> 「<span class="result-span">{{searchword}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
-      <span v-if="count == false && id != '-1' && job_data.length  && stateclick"> 「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
-      <span v-if="count == true && job_data.length ">「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
-      <span v-if="job_data.length && searchword != '' && searchword == 'all' && id == '-1'"> 「<span class="result-span">求人</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-      <span v-if="job_data.length && searchword != '' && searchword != 'all' && id == '-1'"> 「<span class="result-span">{{searchword}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-      <span v-if="job_data.length && searchword != '' && searchword == 'all' && id != '-1'"> 「<span class="result-span">求人 , {{job_data[0].city_name}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-      <span v-if="job_data.length && searchword != '' && searchword != 'all' && id != '-1'"> 「<span class="result-span">{{searchword}} , {{job_data[0].city_name}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span> -->
+     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#828282;"></i>&nbsp;地図検索  
+
+        <span v-if="count == false  && searchword != '' && searchword == 'all' && job_data.length && !stateclick "> 「<span class="result-span">全国</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
+        <span v-if="count == false && searchword != '' && searchword != 'all' && job_data.length && !stateclick "> 「<span class="result-span">{{searchword}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
+        <span v-if="count == false && id != '-1' && job_data.length  && stateclick"> 「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
+        <span v-if="count == true && job_data.length ">「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
     </h5>
   </div>
+
+
+
   <div class="search-map card-body" @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
@@ -128,25 +126,6 @@
                         </div>
                       </td>
                     </tr>
-                    <!--test-->
-                        <th class="pc-414-table sp-768-block">職種</th>
-                        <td class="sp-768-block sp-414-table">
-                            <div v-for="(v,i) in array_len" :key="i">
-                                <div class="hospital-subject" v-for="(occupation,index) in occupations.slice((i*3),((i*3)+3))" :key="index">
-                                    <div class="row col-12">
-                                        <strong class="table-innertitle row col-12">{{occupation.name}}</strong>
-                                        <div class="col-6" v-for="ch in occupation.child" :key="ch.id+1">
-                                            <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                            <input  class="form-check-input" type="checkbox" :id="ch.id" v-model="occupationID" :value="ch.id">
-                                                {{ch.name}}
-                                            <div class="control__indicator"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr> -->
                     <tr>
                       <th class="pc-414-table sp-768-block">職種</th>
                       <td class="sp-768-block sp-414-table">
@@ -323,7 +302,6 @@
                       </div>
                       <div class="job-body d-flex clearfix">
                           <img src="/upload/news/nursing.JPG"  alt="">
-                        </div> -->
                         <div class="col-12 pad-free job-box p0-480">
                           <table  class="table table-bordered  table-sm">
                             <tr>
