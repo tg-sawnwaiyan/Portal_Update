@@ -42,7 +42,6 @@
         </div>
         <div class="col-sm-2 kanto-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background-color:#71d5cb">関東</div> -->
                 <div class="division-box">
                     <ul class="multiple-box">
                         <a data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
@@ -75,7 +74,6 @@
         </div>
         <div class="col-sm-3 hokuriku-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background-color:#75b777">北陸</div> -->
                 <div class="division-box">
                     <ul class="">
                         <a data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
@@ -99,7 +97,6 @@
         </div>
         <div class="col-sm-3 tokai-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
                 <div class="division-box">
                     <ul class="multiple-boxa">
                         <a data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
@@ -120,7 +117,6 @@
         </div>
         <div class="col-sm-4 kinki-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
                 <div class="division-box">
                     <ul class="multiple-boxa">
                         <a data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
@@ -147,7 +143,6 @@
         </div>
         <div class="col-sm-3 chugoku-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
                 <div class="division-box">
                     <ul class="">
                         <a data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
@@ -171,7 +166,6 @@
         </div>
         <div class="col-sm-3 shikoku-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
                 <div class="division-box">
                     <ul class="multiple-boxa">
                         <a data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
@@ -192,7 +186,6 @@
         </div>
         <div class="col-sm-2 kyushu-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                 <div class="division-box">
                     <ul class="">
                         <a data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
@@ -222,7 +215,6 @@
         </div>
         <div class="col-sm-2 okinawa-box">
             <div class="mb-3">
-                <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                 <div class="division-box">
                     <ul class="">
                         <a data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">

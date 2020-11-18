@@ -73,13 +73,12 @@
           <tr>
             <th class="nursing_table pc-414-table sp-768-block border-none"> <label class="heading-lbl hos_lbl pad-free">医院からのお知らせ </label></th>
             <td class="nursing_table1 pc-414-table sp-768-block border-none">
+              <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
               <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" @change="onDetailInfoEditorChange($event)" v-model="hospital_info.details_info" :options="editorOption"/>
             </td>
           </tr>
         </table>
-          <label class="heading-lbl">診療科目<span class="error">*</span></label>
-          <textarea name="subject" class="form-control"></textarea>
-        </div>-->
+        
         <table class="table table-bordered table-wrapper">
           <tr>
             <td>
@@ -489,11 +488,16 @@
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
+// import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue'
+// import { timeout } from 'q'
 export default {
   components: {
     GoogleMap,
     quillEditor,
+    // Button,
+    // Input,
+    // Select,
     email:''
   },
   data() {
@@ -662,6 +666,7 @@ export default {
     featureCheck(check_id) {
       $('.feature-'+check_id).attr('checked','true');
     },
+   
     subjectCheck(check_id) {
       $('.subject-'+check_id).attr('checked','true');
     },
@@ -732,7 +737,7 @@ export default {
     },
     galleryVideoAdd() {
       this.video_arr.push({title:'',description:'',url:''});
-    },
+    },  
     Create_Profile () {    
       if($('#new_lat').val() == "" || $('#new_lat').val() == 0 || $('#new_long').val() == "" || $('#new_long').val() == 0 || $('#gmaptownship').val() == 0 ){
         this.loc = true;
@@ -755,15 +760,8 @@ export default {
           this.btn_disable = true;
         }
       }
-      // if($('#new_lat').val() == "" || $('#new_long').val() == "" || $('#gmaptownship').val() == 0 || this.mail_focus == true || this.ph_num == true )
-      // {
-      //   this.btn_disable = true;
-      // }
-      // else{
-      //   this.btn_disable = false;
-      // }      
+         
       if(this.btn_disable){      
-        // console.log("mail");
         this.$swal({
           html: "保存できません。<br/>必須項目を確認してください。",
           type: "error",
@@ -771,12 +769,9 @@ export default {
           height: 200,
           showCancelButton: false,
           confirmButtonColor: "#FF5462",
-          // cancelButtonColor: "#b1abab",
           cancelButtonTextColor: "#000",
           confirmButtonText: "閉じる",
-          // cancelButtonText: "キャンセル",
           confirmButtonClass: "all-btn",
-          // cancelButtonClass: "all-btn",
           allowOutsideClick: false,
         })  
         this.hospital_info.townships_id = $('#gmaptownship').val();
@@ -825,10 +820,7 @@ export default {
             pt.append(i ,file )
           }            
         }
-        // if(logo){
-        //     this.hospital_info.logo = logo.name;
-        //     pt.append('logo', logo)
-        // }
+       
         for(var i =this.video_arr.length-1;i>=0;i--)
         {
           this.video_arr[i]['type'] = 'video';
@@ -913,10 +905,11 @@ export default {
       if(this.hospital_info.phone == '' || this.hospital_info.phone == null){          
         this.ph_length = false;
       }          
-    }/*
-    stationCheck(check_id) {
+    }
+     /*stationCheck(check_id) {
       $('.station-'+check_id).attr('checked','true');
-    },StationAdd() {
+    },
+    StationAdd() {
       $(".station-toggle-div").toggle('medium');
       this.isRotate4 = !this.isRotate4;
     },*/

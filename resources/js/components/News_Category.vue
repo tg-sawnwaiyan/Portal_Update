@@ -33,7 +33,6 @@
     </div>
     <!-- end of slider -->
     <div class="col-12">
-        <!-- <div class="pc-991-1880">
             <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
                 <span class="btn btn-danger all-btn submit">
                     <i class="fas fa-arrow-left"></i> 
@@ -43,7 +42,6 @@
         </div> -->
         <h4 class="profile-tit">
             {{cat_name}}
-            <!-- <span @click="$router.go(-1);" class="backbtn pc-2000" style="cursor:pointer;top: 0px;">
                 <span class="btn btn-danger all-btn submit">
                     <i class="fas fa-arrow-left"></i> 
                     <span>戻る</span> 
@@ -75,7 +73,6 @@
                 </svg>
             </p>
             <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
-            <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
         </div>
     </div>     
     <div v-else-if="block && w_width > 480" v-for="(group,index) in news" :key="index" class="row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">        
@@ -161,7 +158,6 @@
             <div class="col-md-12 row adslist-card news-3-card m-0">
                 <div class="col-4 img-box">
                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
-                        <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
                         <transition name="fade">
                             <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
                         </transition>
@@ -185,7 +181,6 @@
             <div class="col-md-12 row adslist-card news-3-card m-0">
                 <div class="col-4 img-box">
                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
-                        <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
                         <transition name="fade">
                             <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
                         </transition>
@@ -330,13 +325,7 @@
                     if(this.cat_box_width/total_word < 23){
                         this.is_cat_overflow = true;
                     }
-                    // if(total_word > 32) {
-                    //     this.is_cat_overflow = true;
-                    //     this.computed_width = '99%';
-                    // }
-                    // else{
-                    //       this.is_cat_overflow = false;
-                    // }
+                   
                     this.getPostByCatID();
                     this.getLatestPostByCatID();
                 });

@@ -12,9 +12,7 @@
         </ol>
       </nav> -->
       </div>
-      <!-- <div class="col-12 text-center p-3 jt1 mb-4">
         <h4>求人応募フォーム</h4>
-      </div> -->
       <div class="col-12 m-b-10 jop-apply-tit-wrap">
         <h4 class="job-apply-color">{{Job.title}}</h4>
       </div>
@@ -39,7 +37,6 @@
               <input type="text" class="form-control float-left" id="first_name" placeholder="お名前を入力してください。" v-model="jobApply.first_name" @focusout="focusName" @keyup="focusName" @change="aggreBtn"/>
               <span class="float-left eg-txt">例）探し太郎</span>
               <span class="error m-l-30" v-if="focus_name">※入力は必須です。</span>
-              <!-- <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div> -->
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -55,9 +52,7 @@
               <div class="col-md-12 pad-free">
                 <input type="text" class="form-control float-left" id="furigana" placeholder="フリガナを入力してください。" v-model="jobApply.last_name" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
                 <span class="float-left eg-txt"> 例）サガシタロウ</span>
-                <!-- <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span> -->
                 <span class="error m-l-30" v-if="jobApply.furigana_focus   ">※入力は必須です。</span>
-                <!-- <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div> -->
               </div>
               <span class="float-left text-danger p-l-30" v-if="charErr">カタカナで入力してください!</span>
             </div>
@@ -147,8 +142,6 @@
                   <input type="text" class="city form-control float-left" id="str_address" v-model="jobApply.str_address" placeholder="番地を入力してください。"/>
                   <span class="float-left eg-txt">例）丸の内1-9-1 グラントウキョウノースタワー40階</span>
                   <br>
-                  <!-- <span class="error m-l-30" v-if="focus_city">※入力は必須です。</span> -->
-                  <!-- <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div> -->
                 </div>
               </div>
             </div>
@@ -160,15 +153,11 @@
                 <div class="col-md-12 p-0">
                   <label class="col-md-12">※ 電話番号またはメールアドレス必須 <span class="error sp1">必須</span></label>
                   <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @keyup="focusPhone"  @change="aggreBtn"  maxlength="13"/>
-                  <!-- <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span> -->
                   <span class="float-left eg-txt">例）0312345678（半角）</span>
-                  <!-- <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>                                        -->
                 </div>
                 <span class="error m-l-30" v-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
               </div>
             </div>
-            <!-- </div>
-            <div class="form-group m-0 row bd-all"> -->
             <div class="col-md-3 col-sm-12 form-left"><strong>メールアドレス </strong></div>
             <div class="col-md-9 col-sm-12 form-right">
               <div class="row pl-3">
@@ -519,11 +508,6 @@ export default {
         this.aggreBtn();    
       })
     },
-    //   getLocation(){
-    //       // this.comments.postal = '';
-    //       this.comments.city = '';
-    //       this.aggreBtn();    
-    //   },
     apply() {
       this.$loading(true);
       // $("#loader").css("display", "block");      
@@ -570,23 +554,6 @@ export default {
         this.aggreBtn();
       }else{
         this.focus_name=true;
-        this.btn_disable = true;
-      }
-    },
-    focusLname: function(event) {
-      if(this.jobApply.last_name != ''){
-        this.focus_lname=false;
-      }else{
-        this.focus_lname=true;
-        this.btn_disable = true;
-      }
-    },
-    focusCity: function(event) {
-      if(this.jobApply.str_address != ''){
-        this.focus_city=false;
-        this.aggreBtn();
-      }else{
-        this.focus_city=true;
         this.btn_disable = true;
       }
     },
@@ -664,6 +631,23 @@ export default {
         event.preventDefault();
       }
     },
+      /*focusLname: function(event) {
+      if(this.jobApply.last_name != ''){
+        this.focus_lname=false;
+      }else{
+        this.focus_lname=true;
+        this.btn_disable = true;
+      }
+    },
+    focusCity: function(event) {
+      if(this.jobApply.str_address != ''){
+        this.focus_city=false;
+        this.aggreBtn();
+      }else{
+        this.focus_city=true;
+        this.btn_disable = true;
+      }
+    },*/
   }
 };
 </script>
