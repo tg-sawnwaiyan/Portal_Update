@@ -456,7 +456,6 @@
                 }
             },
             changeBgColor(no) {
-                console.log(no);
                 const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
                 $('.bg_color').css('background-color', color_ary[no]);
             },

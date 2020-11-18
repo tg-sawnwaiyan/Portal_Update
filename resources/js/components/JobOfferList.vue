@@ -51,8 +51,7 @@
                                             <p class="job_id_1 mt-0  d-flex align-items-center">求人番号：{{job.jobid}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-5 text-right choose-item">
-                                        <i :id="'icon' + job.id" class="fas fa-sort-down animate rotate"></i> 詳細</button> -->
+                                    <div class="col-12 col-md-5 text-right choose-item">                                       
                                         <p class="job-no">応募者数:
                                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
                                         </p>
@@ -84,10 +83,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class=" col-6">                                        
-                                            <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
-                                        </p> -->
-                                    </div>
+                                     
                                 </div>                               
                             </div>
                         </div>                        
@@ -150,6 +146,7 @@
             }).catch((error) => {
                 this.loginuser = 'false';
             })
+            // this.countJobapplylist(this.job_id);
         },
         methods: {
             getAllJobs() { 
