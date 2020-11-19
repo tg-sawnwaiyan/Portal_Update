@@ -2,7 +2,7 @@
 
 return [
 
-    'date' => date("Ymd"),
+    'date' => date("Ymd1"),
 
 ];
 ?>
