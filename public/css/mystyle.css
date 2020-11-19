@@ -12868,9 +12868,13 @@ width: 18rem;
     .ads-slider {
         top: 10px;
     }
+    .news-3-card .img-box {
+        padding: 0 5px;
+    }
     .wrapper-4 img {
-        width: 95px;
-        float: left;
+        width: auto;
+        left: 0;
+        right: 0;
     }
     .txt-box {
         /* padding-left: 110px !important;
