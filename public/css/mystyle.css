@@ -12878,7 +12878,8 @@ width: 18rem;
         margin: 0 auto;
     }
     .wrapper-4 {
-        border: 1px solid #f5f5f5;
+        border: 1px solid #fff;
+        background-color: #fff;
     }
     .txt-box {
         /* padding-left: 110px !important;
