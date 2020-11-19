@@ -44,7 +44,6 @@
                                     </div>
                                 </td>
                                 <td class="p-3">
-                                    <!-- <h5  class="mb-2"><strong>タイトル</strong></h5> -->
                                     <h5 class="font-weight-bold">{{ads.title}}</h5>
                                     <div class="mt-4">
                                         <span class="card-title-rightwrapper model-7">
@@ -140,7 +139,6 @@ export default {
                         }else{
                             this.norecord_msg = true;
                         }
-                        //alert("Delete Successfully!");
                         //   let a = this.advertisements.map(item => item.id).indexOf(id);
                         //   this.advertisements.splice(a, 1);
                         this.$swal({

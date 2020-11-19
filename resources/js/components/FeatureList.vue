@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 pad-free scrolldiv p0-480">
-                         <div v-if="nosearch_msg" class="card card-default card-wrap">
+                        <div v-if="nosearch_msg" class="card card-default card-wrap">
                             <p class="record-ico">
                                 <i class="fa fa-exclamation"></i>
                             </p>
