@@ -12872,7 +12872,7 @@ width: 18rem;
         padding: 0 5px;
     }
     .wrapper-4 img {
-        width: auto;
+        width: auto !important;
         left: 0;
         right: 0;
     }
