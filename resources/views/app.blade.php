@@ -6,6 +6,11 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="user" content="{{ Auth::user() }}">
+<?php 
+header("Cache-Control:no-cache,no-store,must-revalidate,max-age=0");
+header("Cache-Control:pre-check=0,post-check=0,false");
+header("Pragma:no-cache");
+?>
 @if(isset($tweetData))
 <meta name="twitter:card" content="summary" />
 <meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
