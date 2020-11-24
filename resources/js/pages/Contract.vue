@@ -25,7 +25,7 @@
                     </dl>
                     
                     <dl>
-                        <dt>第 3 条（紹介手数料等</dt>
+                        <dt>第 3 条（紹介手数料等)</dt>
                             <ol class="fee-ol"> 
                                 <li><br>
                                     <dd style="margin-left:24px">
@@ -66,8 +66,8 @@
                                         <br>
                                         <ul class="fee-ul">
                                             <li>三菱UFJ銀行新宿中央支店</li>
-                                            <li>普通</li>
-                                            <li>株式会社</li>
+                                            <li>普通5797132</li>
+                                            <li>カ)トラストエステート</li>
                                         </ul>
                                 </li>
                             </ol>
@@ -173,21 +173,14 @@
                         </dd>
                     </dl>
                 </div>  
-                <br><br><br>
-                <dd>
-                    本契約の成立を証するため、本書2通作成し、甲乙記名押印の上、各1通を保有する。
-                </dd>
-                <br><br><br>
-                <dd style="margin-left:0px">
+                <br> 
+                <dd style="margin-left:140px">
                     <ul style="list-style: none;">
-                        <li>　2020 年　　月　　日</li>
-                            <br><br><br>
-                        <li>　　　　　　甲　　</li>
-                            <br><br><br><br><br>
-                        <li>　　　　　　乙　　東京都　</li>
-                        <li>　　　　　　  　　　　　　階　</li>
-                        <li>　　　　　　  　　　株式会社　</li>
-                        <li>　　　　　　  　　　代表取締役　</li>
+                        <li>　〒164-0003　東京都中野区東中野1-59-9　リックビル2階</li>
+                        <li>　　　　　　  
+　　　　　　　　　　　株式会社トラストエステート</li>
+                        <li>　　　　　　  
+　　　　　　　　　　　　　　　代表取締役　庄司芳則</li>
                     </ul>
                 </dd>
                 <br><br><br>
