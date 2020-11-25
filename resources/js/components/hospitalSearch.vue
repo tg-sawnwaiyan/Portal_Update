@@ -430,10 +430,35 @@ import bulcomponent from './bulcomponent.vue'
         linkednews: [],
         yeararr: [],
         /**end of added by maythirihtet */
-        id: '', timetable:[], hos_data:[], townshipID: [], township_id: [], cities: [], getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
+        id: -1, timetable:[], hos_data:[], townshipID: [], township_id: [], cities: '', getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
       }
     },
     created(){
+
+
+        this.axios.get('api/getmap',{
+            params:{
+            id: this.id,
+            township_id:-1,
+            moving_in:-1,
+            per_month:-1,
+            local:0,
+            feature:'hospital',
+            SpecialFeatureID:[0],
+            MedicalAcceptanceID:[0],
+            FacTypeID:[0],
+            MoveID:[0],
+        },
+        })
+        .then((response) => {
+            this.showOne = false;
+            this.cities = response.data.city
+            this.getCity = response.data.getCity
+            this.getTownships = response.data.getTownships
+            this.special_features = response.data.special_features
+            this.subjects = response.data.subjects;
+        })
+
         /**added by maythirihtet*/
         this.axios.get('/api/getLinkedNews/'+2).then((response) => { 
             this.linkednews = response.data.linkednews,
@@ -732,7 +757,6 @@ import bulcomponent from './bulcomponent.vue'
         else{
             this.locast = localStorage.getItem("hospital_fav");
         }
-
         this.axios.get('api/getmap',{
             params:{
             id: this.id,
@@ -983,4 +1007,14 @@ import bulcomponent from './bulcomponent.vue'
 	},
   };
 </script>
+<style type="text/css">
+@media only screen and (max-width: 560px){
+  #hos_search {
+      display: block;
+  }
+  #map-responsive {
+    display: none;
+  }
 
+}
+</style>
