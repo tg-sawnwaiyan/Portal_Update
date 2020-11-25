@@ -23,25 +23,13 @@ class NewsByCatController extends Controller
      */
     public function index()
     {
-
         $news =NewsByCat::orderBy('id', 'DESC')->paginate(20);
         return response()->json($news);
     }
     public function slider()
     {
-
         $ads =Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->get();
         return response()->json($ads);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -57,9 +45,7 @@ class NewsByCatController extends Controller
         $news->type = $request->input('type');
         $news->status=$request->input('status');
         $news->description=$request->input('description');
-
         $news ->save();
-
         // $newsByCat = new NewsByCat();
         // $newsByCat->post_date = $request->input('post_date');
         // $newsByCat->type = $request->input('type');
@@ -68,7 +54,6 @@ class NewsByCatController extends Controller
         // // return($request->input('type'));exit;
         // $newsByCat ->save();
         return response()->json('Success ');
-
     }
 
     public function getLogoImage(Request $request) 
@@ -76,18 +61,6 @@ class NewsByCatController extends Controller
         $logofile = new File();
         $logofile = public_path().'\images\logo.png';
         return response('logofile')->json('Success ');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -99,9 +72,8 @@ class NewsByCatController extends Controller
     public function edit($id)
     {
         //
-         $news = NewsByCat::find($id);
-
-         return response()->json($news);
+        $news = NewsByCat::find($id);
+        return response()->json($news);
     }
 
     /**
@@ -112,16 +84,14 @@ class NewsByCatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($id,Request $request)
-
     {
-            $news = NewsByCat::find($id);
-
-            $news->post_date = $request->input('post_date');
-            $news->type = $request->input('type');
-            $news->status = $request->input('status');
-            $news->description=$request->input('description');
-            $news->save();
-            return response()->json('successfully updated');
+        $news = NewsByCat::find($id);
+        $news->post_date = $request->input('post_date');
+        $news->type = $request->input('type');
+        $news->status = $request->input('status');
+        $news->description=$request->input('description');
+        $news->save();
+        return response()->json('successfully updated');
         //return response()->json($ads);
     }
 
@@ -132,8 +102,7 @@ class NewsByCatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    { 
-
+    {
         $news = NewsByCat::find($id);
         $news->delete();
         $linked_news_list = NewsByCat::orderBy('id', 'DESC')->paginate(20);
@@ -153,13 +122,11 @@ class NewsByCatController extends Controller
                             ->orderBy('id','DESC')
                             ->paginate(20);
         return response()->json($news);
-
     }
 
     public function activate($id)
     {
         $ads = Advertisement::find($id);
-
         if($ads->recordstatus == 0 ) {
             $ads->recordstatus =1;
         }

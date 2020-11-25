@@ -24,46 +24,19 @@ class StationController extends Controller
 
     public function add(Request $request)
     {
-
         $request->validate([
             'name' => 'required|unique:stations',
-
-        ],
-        [
-            'name.unique' => 'Unique Name'
-        ]
-    );
-
+            ],
+            [
+                'name.unique' => 'Unique Name'
+            ]
+        );
         $station = new Station();
         $station->name = $request->input('name');
         $station->user_id = 1;
         $station->recordstatus = 1;
-
         $station->save();
         return $station;
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -96,7 +69,6 @@ class StationController extends Controller
         $station->user_id = 1;
         $station->recordstatus = 1;
         $station -> save();
-
         return response()->json('The Station successfully updated');
     }
 
@@ -115,7 +87,8 @@ class StationController extends Controller
         // return response()->json('The Station successfully deleted');
     }
 
-    public function search(Request $request) {
+    public function search(Request $request) 
+    {
         $request = $request->all();
         $search_word = $request['search_word'];
 
@@ -127,11 +100,10 @@ class StationController extends Controller
         return $search_stations;
     }
 
-    public function getStationbyCustomerId($customer_id) {
-       
+    public function getStationbyCustomerId($customer_id) 
+    {       
         $station_list = Station::all()->toArray();
         $nursing_station = StationJunctions::query()->where('profile_id','=',$customer_id)->get()->toArray();
-        
         for($indx = 0; $indx<count($nursing_station); $indx++) {
             for($sec_indx = 0; $sec_indx<count($station_list); $sec_indx++) {
                 if($nursing_station[$indx]['station_id'] == $station_list[$sec_indx]['id']) {

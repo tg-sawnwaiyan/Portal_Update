@@ -19,35 +19,13 @@ class JobDetailController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\JobDetail  $jobDetail
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-       
+    {       
         $query = "SELECT (CASE customers.type_id WHEN '2' THEN  hospital_profiles.activate ELSE  nursing_profiles.activate  END) as activate,jobs.*, ci.city_name as city_name,t.township_name,customers.type_id, (CASE customers.type_id WHEN 2 THEN hospital_profiles.name  ELSE nursing_profiles.name END) as cusname,
         (CASE customers.type_id WHEN '2' THEN CONCAT((200000+customers.id),'-',LPAD(hospital_profiles.pro_num, 4, '0'),'-',LPAD(jobs.id, 4, '0')) ELSE CONCAT((500000+customers.id),'-',LPAD(nursing_profiles.pro_num, 4, '0'),'-',LPAD(jobs.id, 4, '0')) END) as jobid
         FROM `jobs`
@@ -57,42 +35,7 @@ class JobDetailController extends Controller
         join townships as t on t.id = jobs.township_id 
         join cities as ci on ci.id = t.city_id
         WHERE customers.recordstatus=1 and jobs.id = $id";
-        $selectedJob = DB::select($query);
-        
+        $selectedJob = DB::select($query);        
         return $selectedJob;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\JobDetail  $jobDetail
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(JobDetail $jobDetail)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\JobDetail  $jobDetail
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, JobDetail $jobDetail)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\JobDetail  $jobDetail
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(JobDetail $jobDetail)
-    {
-        //
     }
 }

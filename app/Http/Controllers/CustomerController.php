@@ -41,6 +41,7 @@ class CustomerController extends Controller
         $customer =Customer::select("*",DB::raw("(CASE type_id WHEN '2' THEN CONCAT((200000+id)) ELSE CONCAT((500000+id)) END) as cusnum"))->where('type_id',$type)->orderBy('created_at', 'desc')->paginate(12);
         return response()->json($customer);
     }
+
     public function nusaccount($id) {
         // NursingProfile::where('customer_id',$id)->where("email",'=',NULL,'OR')->where('townships_id','=',0)->delete();  
         $del = "DELETE FROM nursing_profiles WHERE customer_id=$id AND ISNULL(email)";
@@ -50,6 +51,7 @@ class CustomerController extends Controller
         // $status = NursingProfile::join('customers','customers.id','=','nursing_profiles.customer_id')->where(['customers.recordstatus'=>1,'nursing_profiles.customer_id'=>$id])->count();
         return response()->json(array("nuscustomer"=>$nuscustomer,"status"=>$status));
     }
+    
     public function hosaccount($id) {
         $del = "DELETE FROM hospital_profiles WHERE customer_id=$id AND ISNULL(email)";
         DB::delete($del);
@@ -61,31 +63,25 @@ class CustomerController extends Controller
     }
 
     public function changeActivate($id,$type)
-    {
-       
+    {       
         if($type == "nursing")
         {
             $changeActivate =  NursingProfile::find($id);
         }
         else{
             $changeActivate =  HospitalProfile::find($id);
-        }
-        
-       if($changeActivate->activate == 0 ) {
+        }        
+        if($changeActivate->activate == 0 ) {
 
             $changeActivate->activate =1;
-       }
-       else {
-
+        }
+        else {
             $changeActivate->activate =0;
-       }
-
-       $changeActivate->save();
-       $data = array("changeActivate"=> $changeActivate, "success");
-       return response()->json($data);
+        }
+        $changeActivate->save();
+        $data = array("changeActivate"=> $changeActivate, "success");
+        return response()->json($data);
     }
-
-
 
     public function profileDelete($id,$type)
     {
@@ -111,10 +107,8 @@ class CustomerController extends Controller
             $Comment = Comment::where('profile_id',$id)->where('type',$type)->delete();
             $profileDelete = HospitalProfile::find($id);
         }
-
         $getJob = JOB::select('jobs.*')->join('customers','jobs.customer_id','=','customers.id')->where(['jobs.profile_id'=>$id,'customers.type_id'=>$t_id])->get();
-        $getjobarr = $getJob->toarray();
-        
+        $getjobarr = $getJob->toarray();        
         if(count($getJob) > 0){                
             foreach ($getJob as $getJobs) {     
                 $getJobApply= JobApply::where('job_id',$getJobs->id)->get()->toarray();
@@ -124,9 +118,7 @@ class CustomerController extends Controller
             jobs_log::insert($getjobarr);
             Job::join('customers','jobs.customer_id','=','customers.id')->where(['jobs.profile_id'=>$id,'customers.type_id'=>$t_id])->delete();                
         }
-
-        $profileDelete->delete();
-        
+        $profileDelete->delete();        
         return response()->json('successfully Delete!');
     }
 
@@ -135,7 +127,6 @@ class CustomerController extends Controller
         $request = $request->all();
         $video_file = $request['file'];
         $video_name = $request['name'];
-
         $destination = 'upload/videos/'.$video_name;
         if (move_uploaded_file($video_file, $destination)) {
             return response()->json(['success'=>'Done!']);
@@ -148,10 +139,8 @@ class CustomerController extends Controller
     {
         $request = $request->all();
         $file_path = $request['fiel_path'];
-
         unlink($file_path);
         return response()->json(['success'=>'Done!']);
-
     }
 
     public function add(Request $request)
@@ -179,42 +168,20 @@ class CustomerController extends Controller
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
             'recordstatus' => 2
-
-
         ]);
         $customer ->save();
         return response()->json(['success'=>'Done!']);
-
     }
-
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(Customer $customer)
-    {
-        //
-    }
-
 
     public function edit($id)
     {
         $sql = "SELECT *, (CASE c.type_id WHEN '2' THEN CONCAT((200000+c.id)) ELSE CONCAT((500000+c.id)) END) as cusnum FROM customers as c WHERE c.id = ".$id;
         $customer = DB::select($sql);
-
         return response()->json($customer[0]);
     }
 
     public function getCustomerInfo($id) {
         $customer = Customer::find($id);
-
         return response()->json($customer);
     }
 
@@ -238,7 +205,6 @@ class CustomerController extends Controller
             if($user !== null){
                 $user->delete();
             }
-
             $nursing = NursingProfile::where('customer_id',$id)->first();
             if($nursing !== null){
                 $Cooperate_Medical = Cooperate_Medical::where('profile_id',$nursing->id)->delete();
@@ -250,7 +216,6 @@ class CustomerController extends Controller
                 $Comment = Comment::where('profile_id',$nursing->id)->where('type',$type)->delete();
                 $nursing->delete();
             }
-
             $hospital = HospitalProfile::where('customer_id',$id)->first();
             if($hospital !== null){
                 $SubjectJunctions = SubjectJunctions::where('profile_id',$hospital->id)->delete();
@@ -260,10 +225,8 @@ class CustomerController extends Controller
                 $Comment = Comment::where('profile_id',$hospital->id)->where('type','hospital')->delete();
                 $hospital->delete();
             }
-
             $getJob = Job::select('*')->where('customer_id',$id)->get();
             $getjobarr = $getJob->toarray();
-
             if(count($getJob) > 0){                 
                 foreach ($getJob as $getJobs) {
                     $getJobApply= JobApply::where('job_id',$getJobs->id)->get()->toarray();
@@ -273,14 +236,12 @@ class CustomerController extends Controller
                 jobs_log::insert($getjobarr);
                 Job::where(['customer_id'=>$id])->delete();
             }
-            $customer->delete();
-            
+            $customer->delete();            
         }
         else{
             \Mail::to($customer->email)->send(new deleteSentMail($customer));     
             Customer::where('id',$id)->update(['status' => 2]);       
-        }       
-
+        }
         $customers = Customer::all();
         $data = array("status"=>"deleted", "customers"=>$customers);
         return response()->json($data);
@@ -288,7 +249,6 @@ class CustomerController extends Controller
 
     public function confirm($id)
     {
-
         $getCustomer = Customer::findOrFail($id);
         if($getCustomer->type_id == 3)
         {
@@ -297,16 +257,13 @@ class CustomerController extends Controller
         else{
             $getCustomer->cusnum = 200000 + $getCustomer->id;
         }
-
-        $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');
-    
+        $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');    
         $comfirmUser =  Auth::user()->id;
         // $comfirmUser =  auth('api')->user()->id;
         if(!empty($checkUser)){
             return response()->json('already');
         }else{
             \Mail::to($getCustomer->email)->send(new SendMailable($getCustomer));
-
             $data = array(
                 'name'=>$getCustomer->name,
                 'email'=>$getCustomer->email,
@@ -315,56 +272,43 @@ class CustomerController extends Controller
                 'type_id' => $getCustomer->type_id,
                 'customer_id' =>$getCustomer->id
             );
-            DB::table('users')->insert($data);
-           
+            DB::table('users')->insert($data);           
             $lastid = User::where('email',$getCustomer->email)->select('id')->value('id'); //user table last id
             // $model_has_roles = array(
             //     'role_id'=>2,
             //     'model_type'=> 'App\User',
             //     'model_id'=> $lastid,
             // );
-
-           
-        //    DB::table('model_has_roles')->insert($model_has_roles);
-
+            //    DB::table('model_has_roles')->insert($model_has_roles);
             $cus = Customer::find($id);
             $cus->status = 1;
             $cus->confirm_user_id = $comfirmUser;
             $cus->user_id = $lastid;
             $cus->save();
-
             $customers = Customer::all();
             $data = array("status"=>"success", "customers"=>$customers);
             return response()->json($data);
         }
     }
 
-
     public function search(Request $request)
-    {
-     
+    {     
         $request = $request->all();
         $search_word = $request['cusid'];
         if($request['recordstatus'] == null)
         {
             $request['recordstatus'] = 'empty';
         }
-
         if($request['status'] == null)
         {
             $request['status'] = 'empty';
-        }
-       
-     
+        }      
         $rec = "recordstatus"; $sta = "status";
-
         $query = "SELECT *,(CASE type_id WHEN '2' THEN CONCAT((200000+id)) ELSE CONCAT((500000+id)) END) as cusnum 
                     from customers where name like '%".$search_word."%' and type_id = ".$request['type']  ;
-
         if($request['recordstatus'] != 'empty'  && $request['status'] == 'empty')
         {
             $query .= " and $rec in (".$request['recordstatus'].") and $sta = 1";
-        
         }
         if($request['status'] != 'empty' && $request['recordstatus'] == 'empty')
         {
@@ -375,59 +319,48 @@ class CustomerController extends Controller
              $query .= " and (($sta = 1 && $rec in (".$request['recordstatus'].")) or $sta in (".$request['status']." ))";
         }
         $query .= " order by created_at desc";
-      
-
         $search_customers = DB::select($query);
         $page = Input::get('page', 1);
         $size = 12;
         $data = collect($search_customers);
-       
-
         $search_customer = new LengthAwarePaginator(
                                 $data->forPage($page, $size),
                                 $data->count(), 
                                 $size, 
                                 $page
                             );
-                            
         return response()->json($search_customer);
     }
 
     public function accountStatusUpdate(Request $request)
-   {
-    
-       $request = $request->all();
-    //    $user = User::find(auth('api')->user()->id);
-       $cusId = $request['cus_id'];
-    //    if(auth()->user()->role == 2) {
-    //        $customer = Customer::find($cusId);
-    //        $user = User::find($customer['user_id']);
-    //    }else{
-    //        $user = User::find(auth('api')->user()->id);
-    //    }
-
-    //    $customer = Customer::find($user['customer_id']);
+    {
+        $request = $request->all();
+        //    $user = User::find(auth('api')->user()->id);
+        $cusId = $request['cus_id'];
+        //    if(auth()->user()->role == 2) {
+        //        $customer = Customer::find($cusId);
+        //        $user = User::find($customer['user_id']);
+        //    }else{
+        //        $user = User::find(auth('api')->user()->id);
+        //    }
+        //    $customer = Customer::find($user['customer_id']);
        $customer = Customer::find($cusId);
        $table_name = $customer->type_id == 2 ? 'hospital_profiles': 'nursing_profiles';
-
-        if($request['status'] == '1') { //de
-           
+        if($request['status'] == '1') { //de           
             $customer->recordstatus = '0';    
             $sql = "UPDATE $table_name SET activate = (CASE activate WHEN 1 THEN 2 ELSE 0 END) WHERE $table_name.customer_id = $cusId";
             $sql1 = "UPDATE users SET recordstatus = 0 where customer_id = ".$cusId;
             DB::update($sql1);
             DB::update($sql);           
         }
-        if($request['status'] == '0') { //ac
-         
+        if($request['status'] == '0') { //ac         
             $customer->recordstatus = '1';
             $sql = "UPDATE $table_name SET activate = (CASE activate WHEN 2 THEN 1 ELSE 0 END) WHERE $table_name.customer_id = $cusId";
             $sql1 = "UPDATE users SET recordstatus = 1 where customer_id = ".$cusId;
             DB::update($sql1);
             DB::update($sql);  
         }
-        $customer->save();            
-
+        $customer->save();
        return response()->json($customer);
-   }
+    }
 }

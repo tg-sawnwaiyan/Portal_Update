@@ -15,7 +15,8 @@ class ScheduleController extends Controller
      
     }
 
-    // public function update($customer_id,Request $request) {
+    // public function update($customer_id,Request $request) 
+    // {
     //     $request = $request->all();
 
     //     $schedule = Schedule::where('customer_id', $customer_id)
@@ -40,15 +41,13 @@ class ScheduleController extends Controller
     //     }
     // }
 
-    public function getSchedulebyCustomerId($customer_id) {
-
+    public function getSchedulebyCustomerId($customer_id) 
+    {
         $schedule_am = Schedule::where('profile_id', $customer_id)
                             ->where('part', '=', 'am')
                             ->get()
-                            ->toArray();
-        
+                            ->toArray();        
         if($schedule_am) {
-
             $tmp_arr = explode('-',$schedule_am[0]['mon']);
             $am['am_mon_from'] = $tmp_arr[0];
             $am['am_mon_to'] = $tmp_arr[1];
@@ -77,42 +76,32 @@ class ScheduleController extends Controller
             $am['am_sun_from'] = $tmp_arr[0];
             $am['am_sun_to'] = $tmp_arr[1];
         
-        } else {
-           
+        } else {           
             $am['mon_from'] = '';
             $am['mon_to'] = '';
-
            
             $am['tue_from'] = '';
             $am['tue_to'] = '';
-
             
             $am['wed_from'] = '';
             $am['wed_to'] = '';
-
             
             $am['thu_from'] = '';
             $am['thu_to'] = '';
-
             
             $am['fri_from'] = '';
             $am['fri_to'] = '';
-
             
             $am['sat_from'] = '';
             $am['sat_to'] = '';
-
             
             $am['sun_from'] = '';
             $am['sun_to'] = '';
         }
-
-
         $schedule_pm = Schedule::where('profile_id', $customer_id)
                                 ->where('part', '=', 'pm')
                                 ->get()
-                                ->toArray();
-      
+                                ->toArray();      
         if($schedule_pm) {
             $tmp_arr = explode('-',$schedule_pm[0]['mon']);
             $pm['pm_mon_from'] = $tmp_arr[0];
@@ -142,38 +131,29 @@ class ScheduleController extends Controller
             $pm['pm_sun_from'] = $tmp_arr[0];
             $pm['pm_sun_to'] = $tmp_arr[1];
 
-        } else {
-           
+        } else {           
             $pm['mon_from'] = '';
             $pm['mon_to'] = '';
-
             
             $pm['tue_from'] = '';
             $pm['tue_to'] = '';
             
             $pm['wed_from'] = '';
             $pm['wed_to'] = '';
-
             
             $pm['thu_from'] = '';
             $pm['thu_to'] = '';
-
             
             $pm['fri_from'] ='';
             $pm['fri_to'] = '';
-
            
             $pm['sat_from'] = '';
             $pm['sat_to'] = '';
-
             
             $pm['sun_from'] = '';
             $pm['sun_to'] = '';
         }
-
         $schedule = array_merge($am,$pm);
-
         return $schedule;
-
     }
 }

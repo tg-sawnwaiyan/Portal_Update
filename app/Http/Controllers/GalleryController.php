@@ -9,24 +9,17 @@ use File;
 
 class GalleryController extends Controller
 {
-    public function index()
-    {
-       
-    }
-    
     public function getPhotobyCustomerId($profile_id,$type) {
         if($type == 'hospital')
         {
             $photo_list = DB::select("SELECT g.id,g.title,g.photo,g.description,  CONCAT('/upload/hospital_profile/',g.photo)  as src 
                                     FROM galleries as g INNER JOIN hospital_profiles as h ON g.profile_id = h.id WHERE g.type='photo' AND g.profile_id = ".$profile_id);
-        
         }
         else{
             $photo_list = DB::select("SELECT g.id,g.title,g.photo,g.description,  CONCAT('/upload/nursing_profile/',g.photo)  as src 
                                 FROM galleries as g INNER JOIN nursing_profiles as n ON g.profile_id = n.id WHERE g.type='photo' AND g.profile_id = ".$profile_id);
         }
-        return $photo_list; 
-        
+        return $photo_list;        
     }
 
     public function getVideobyCustomerId($customer_id,$type) {
@@ -44,8 +37,7 @@ class GalleryController extends Controller
                             ->join('nursing_profiles','nursing_profiles.id','=','galleries.profile_id')
                             ->get()
                             ->toArray();
-        }
-        
+        }        
         return $video_list;
     }
 
@@ -67,10 +59,8 @@ class GalleryController extends Controller
         }
         else{
             $file = 'upload/hospital_profile/'.$request['photo'];
-        }
-        
+        }        
         File::delete($file);
         Gallery::where(['id'=> $request['id']])->delete(); 
     }
-
 }
