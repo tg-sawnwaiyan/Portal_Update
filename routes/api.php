@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'CategoryController@add');
         Route::get('edit/{id}', 'CategoryController@edit');
         Route::post('update/{id}', 'CategoryController@update');
-        Route::delete('delete/{id}', 'CategoryController@destroy');
+        Route::delete('delete/{id}', 'CategoryController@delete');
         // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
     });
     // End Category
@@ -188,11 +188,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Advertisement
     Route::group(['prefix' => 'advertisement'], function () {
-        Route::post('add', 'AdvertisementController@store');
+        Route::post('add', 'AdvertisementController@add');
         Route::get('edit/{id}', 'AdvertisementController@edit');
         Route::get('ads', 'AdvertisementController@index');
         Route::post('update/{id}', 'AdvertisementController@update');
-        Route::delete('delete/{id}','AdvertisementController@destroy');
+        Route::delete('delete/{id}','AdvertisementController@delete');
         Route::get('activate/{id}','AdvertisementController@activate');
 
     });
