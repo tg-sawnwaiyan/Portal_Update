@@ -37,7 +37,7 @@
                         <div class="freeword-responsive">
                             <h3 class="map-resicon">
                             <div class="map-text-wrapper">
-                                <!-- <div>
+                              <!--   <div>
                                 <i class="fa icon map-fa-icon map-fa-icon-nursing"></i>
                                 </div> -->
                                 <div>
@@ -706,11 +706,14 @@
                 linkednews: [],
                 yeararr: [],
                 /**end of added by maythirihtet */
-                cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: [], townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
+                cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: '-1', townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
             }
         },
 
         created(){
+            this.axios('/api/cities').then((response) => {
+                this.cities = response.data.city;
+            })
             /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
                 this.linkednews = response.data.linkednews,
@@ -1186,6 +1189,10 @@
 
                 })
                 .then((response) => {
+                    $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
+                    $(".profile_header").css("display", "block");
+                    $("#nursing-search").css("display", "block");
+                    $("#filtertable").css("display", "block");
                     this.changeMap(response,2)
                   
                 })
@@ -1957,5 +1964,16 @@ div#holder {
 .offset{
   width: 500px !important;
   margin: 20px auto;
+}
+@media only screen and (max-width: 767px){
+.select {
+    display: block;
+}
+.profile_header, #searchMap {
+    display: none;
+}
+#map-responsive {
+    display: none;
+}
 }
 </style>
