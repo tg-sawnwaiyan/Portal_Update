@@ -81,7 +81,7 @@ class CategoryController extends Controller
         return response()->json('The Facility successfully updated');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $category = Category::find($id);
         $post = "SELECT * from posts where category_id =" .$id;

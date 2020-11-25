@@ -21,6 +21,7 @@ class AdvertisementController extends Controller
         $ads =Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($ads);
     }
+    
     public function slider()
     {
         $ads =Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->get();
@@ -33,7 +34,7 @@ class AdvertisementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $logo_imgname = '';
         $pdfname = '';
@@ -188,7 +189,7 @@ class AdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     { 
         //
         $ads = Advertisement::find($id);

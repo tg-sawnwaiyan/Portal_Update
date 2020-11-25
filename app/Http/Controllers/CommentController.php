@@ -211,7 +211,7 @@ class CommentController extends Controller
     }
     
     public function confirm($id,$type,$pro_id)
-     {
+    {
         $comment =Comment::find($id);
         $comment->status =1;
         $comment->save();
