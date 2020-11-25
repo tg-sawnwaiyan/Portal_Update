@@ -4,6 +4,7 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
+            <CategoryMenu v-if="w_width <= 560"></CategoryMenu>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -43,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="navbar-nav pad-free" id="headerbar" v-if="!$auth.check()">
+            <ul class="navbar-nav pad-free" id="headerbar" v-if="!$auth.check()" style="display: none;">
                 <li class="fav-item fav-color btn all-btn m-r-10" style="color: #000 !important;">
                     <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g id="original-icon" fill="#c40000" opacity="0" visibility="hidden"><path d="M50.16667,78.83333h107.5v14.33333h-107.5zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h107.5v14.33333h-107.5zM21.5,75.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,118.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,32.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"></path></g><g id="subtracted-icon" fill="#c40000"><path d="M50.16667,78.83333h107.5l0,10.81336c-1.5126,0.69131 -2.92913,1.65951 -4.17264,2.90462l-0.6155,0.61535h-102.71186zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h24.29256c-1.88479,4.7147 -1.16582,10.22759 2.1569,14.33333h-26.44946zM32.25,86c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,129c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,43c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM123.60062,122.43755l-0.6045,-0.60422l1.20887,0z"></path></g><g><g id="Filled_3_" fill="#c40000"><path d="M123.60062,162.99169l-35.82908,-35.82908l10.13652,-10.13652l25.69256,25.69256l40.02993,-40.02993l10.13652,10.13652z"></path></g><g id="Filled_3_" fill="#000000" opacity="0"><path d="M183.90358,122.96087l-50.16644,50.16644c-2.79579,2.80295 -6.46615,4.20085 -10.13652,4.20085c-3.67037,0 -7.34073,-1.39789 -10.13652,-4.20085l-35.82908,-35.82908c-5.59874,-5.59874 -5.59874,-14.67429 0,-20.27304l10.13652,-10.13652c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l15.55604,15.54887l29.89341,-29.88624c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l10.13652,10.13652c5.59874,5.59874 5.59874,14.67429 0,20.27304z"></path></g></g></g></svg>
 
@@ -105,7 +106,6 @@
 .fade-leave-active {
   transition: opacity 1s ease-in;
 }
-
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -121,7 +121,6 @@
    transition-timing-function: ease-in;
    transition: transform 0.5s ease;
 }
-
 .slide-leave-active {
    -moz-transition-duration: 0.3s;
    -webkit-transition-duration: 0.3s;
@@ -132,26 +131,22 @@
    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
-
 .slide-enter-to, .slide-leave {
    max-height: 100vh;
    overflow: hidden;
 }
-
 .slide-enter, .slide-leave-to {
    overflow: hidden;
    max-height: 100vh;
   transform: translateX(-100%);
   transition: all 0.5s ease-in 0s;
 }
-
 /* .sidebar-scroll {
     padding-left: 280px;
 } */
 .content-all.collapsed {
     padding-left: 50px;
 }
-
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
 }
@@ -159,6 +154,7 @@
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
   import AuthHeaderMenu from './components/menu/AuthMenu.vue'
+  import CategoryMenu from './components/menu/CategoryMenu.vue'
   import asideMenu from './components/menu/asideMenu.vue'
   import adsslider from './components/adsslider'
   export default {
@@ -180,11 +176,12 @@
     components: {
       HeaderMenu,
       AuthHeaderMenu,
+      CategoryMenu,
       asideMenu,
       adsslider
     }, 
     created() {
-         window.addEventListener('resize', this.handleResize)
+        window.addEventListener('resize', this.handleResize)
         this.handleResize();
         if(this.window.width <= 1440) {
             $(document).scroll(function() {　　　　
@@ -203,7 +200,6 @@
         document.addEventListener('scroll', this.handleScroll);
         
         axios.interceptors.response.use((response) => {
-        console.log("token status",response.data.status)
         if((response.data.status == "Token is Expired" || response.data.status == "Token is Invalid") && this.status == false ){
         this.status = true;        
         this.visit = 'true';
@@ -214,7 +210,6 @@
         }
         
         return response
-
         })
     },
     destroyed() {
@@ -280,9 +275,7 @@
             $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
             $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
         }
-
     },
-
     methods: {
         handleResize() {
             this.window.width = window.innerWidth;
@@ -301,7 +294,7 @@
         },
         topFunction() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
-	        return false;
+            return false;
         },
         onItemClick(event, item){
             if(item.title == 'ログアウト'){
@@ -316,13 +309,8 @@
             }
         },
         onCollapse (collapsed) {
-      this.collapsed = collapsed
+            this.collapsed = collapsed
+        }
     }
-    }
-
-
   }
 </script>
-
-
-

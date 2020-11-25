@@ -5,7 +5,7 @@
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
-                        <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
+                        <div style="display: none;" class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null">
                             <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                 <!--search input-->
                                 <div class="search-input">
@@ -19,8 +19,8 @@
                         </div>
                         <!-- </form> -->
                         <!-- slider -->
-                         <div class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox d-none" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                         <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                         <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                             <ul class="nav nav-tabs" role="tablist">
@@ -34,15 +34,12 @@
                             
                         </div>
                        
-                        <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
+                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                         <div class="bg_color"></div>
                     </div>
                         <!-- end of slider -->
-
-                        <!-- slider -->
-                      
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
-                        
+
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                  <router-link :to="{path:'/newsdetails/'+latest_post_all_cat.id}">
                                     <div class="slide-img" style="border:1px solid #eee;">
@@ -97,12 +94,13 @@
 
                                         </div>
                                     </div>
-                                   
+
                                  </router-link>   
                             </div>
 
                         </slick>
                        <!-- slider -->
+
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
@@ -541,9 +539,11 @@
                                         </p>
                                     </router-link>
                                 </div>
+                            </div>
+                            <div v-for="(value, block_id, i) in group" :key="i">    
+                                <div class="pad-new pattern-child" v-if="block_id == 1 && value[1]">
 
-                                <div class="pad-new pattern-child" v-if="block_id == 4 && value[0]">
-                                    <router-link :to="'/newsdetails/'+value[0].pid">
+                                    <router-link :to="'/newsdetails/'+value[1].pid">
 
                                         <div class="col-12 single-news-box">
 
@@ -551,7 +551,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                                 </transition>                                
 
@@ -569,7 +569,7 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[0].main_point}} </p>
+                                            <p> {{value[1].main_point}} </p>
                                         </div>
 
                                     </router-link>
@@ -578,68 +578,57 @@
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
+                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                            <div class="col-4 img-box">
 
-                                <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                                <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
 
-                                    <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                                    <transition name="fade">
 
-                                        <div class="col-4 img-box">
+                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                            <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
+                                                    </transition>
 
-                                                <transition name="fade">
+                                                    <transition name="fade" slot="placeholder">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                        <div class="preloader">
 
-                                                </transition>
+                                                            <div class="circle">
 
-                                                <transition name="fade" slot="placeholder">
+                                                            <div class="circle-inner"></div>
 
-                                                    <div class="preloader">
-
-                                                        <div class="circle">
-
-                                                        <div class="circle-inner"></div>
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                    </transition>
 
-                                                </transition>
+                                                </clazy-load>
 
-                                            </clazy-load>
+                                            </div>
 
+                                            <div class="col-8 pattern-txt-box">
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+
+                                                <p>{{item.main_point}}</p>
+
+                                            </div>
                                         </div>
+                                    </router-link>
+                                </div>                    
 
+                                <div class="pad-new pattern-child" v-if="group[3]">
+                                    <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
+                                        <p class="text-truncate news-list-display">
 
-                                        <div class="col-8 pattern-txt-box">
-                                            <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                            <i class="fas fa-building"></i> {{item.main_point}}
 
-                                            <p>{{item.main_point}}</p>
+                                        </p>
 
-                                        </div>
-
-                                    </div>
-
-                                </router-link>
-
-                            </div>                    
-
-                            <div class="pad-new pattern-child" v-if="group[3]">
-
-                                <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
-                                    <p class="text-truncate news-list-display">
-
-                                        <i class="fas fa-building"></i> {{item.main_point}}
-
-                                    </p>
-
-                                </router-link>
-
-                            </div>
-                                               
+                                    </router-link>
+                                </div>                                               
                         </slick>
                     </div>
                     
@@ -1192,19 +1181,18 @@
                 this.is_cat_slided = true;
                 this.computed_width = '98%';
             },
-            // changeBgColor(no) {
-            //     console.log(no);
-            //     const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            //     $('.bg_color').css('background-color', color_ary[no]);
-            // },         
+             changeBgColor(no) {
+            console.log(no);
+            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            $('.bg_color').css('background-color', color_ary[no]);
+        },         
 
         }
     }
     $(document).ready(function(){
         // $("#top_a").addClass("active");
         var url      = window.location.href; 
-        // console.log(url);
-        if(url.indexOf('category') == -1 || url == "https://t-i-s.jp/"){
+        if(url.indexOf('category') == -1){
             $("#top_a").addClass("active");
         }
     });
@@ -1396,7 +1384,7 @@
 #myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
-    background-color: #828282 !important;
+    background-color: #828282;
     border: none !important;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
@@ -1486,7 +1474,19 @@
 }
 @media only screen and (max-width: 414px){
     .news-slider-width{
-        /* width: 100%; */
+        width: 100%;
     }
 }
+@media only screen and (max-width: 560px){
+    .cat-nav {
+        height: auto !important;
+        padding: 0 !important;
+    }
+}
+@media only screen and (min-width: 769px){
+   .slick-arrow{   
+    display: none !important;   
+    } 
+}
+
 </style>

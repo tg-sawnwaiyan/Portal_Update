@@ -4,7 +4,7 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
             <li role="presentation" class="subtab1 nav-item">
-                <router-link  :to="{ name: 'News' }"  class="nav-link"><i class="fas fa-newspaper"></i> ニュース</router-link>
+                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
             </li>
             <li role="presentation" class="subtab2 nav-item"  >
                 <router-link :to="{ name: 'nursingSearch' }"  class="nav-link"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -32,21 +32,9 @@
 
 <script>
 export default {
-    async mounted() {
-            
-            this.getAllCat();
-        },
     data(){
         return {
-            cats: [],
-            categoryId: 1,
             othersDetails: true,
-            status:'0',
-            search_word:null,
-            post_groups : [],
-            norecord_msg: false,
-            is_cat_overflow: false,
-            is_cat_slided: false,
             computed_width: '100%',
             cat_box_width: null,
         }
@@ -65,147 +53,11 @@ export default {
         }) 
     },
     methods: {
-        getAllCat: function() {
-           
-                this.axios .get('/api/home') 
-                .then(response => {
-                        this.cats = response.data;
-               
-         
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
- 
-                        if(this.cat_box_width/total_word < 26){
-                            this.is_cat_overflow = true;
-                            this.computed_width = '99.8%';
-                        }
- 
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
-                        this.getPostByCatID();
-                        this.getLatestPostByCatID();
-                    });
-        },
-        searchCategory() {
-            this.$loading(true);
-            if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                this.clearSearch();
-            } else {
-                this.status = 1;
-                this.search_word = $('#search-free-word').val();
-                this.getLatestPostsByCatID();                 
-            }
-        },
-        clearSearch() {
-            this.status = 0;
-            this.search_word = '';
-            this.getLatestPostsByCatID();
-        },
-        getPostByCatID: function(catId = this.cats[0].id) {
-                if ($('#search-free-word').val() != null) {
-                    var search_word = $('#search-free-word').val();
-                } else {
-                    var search_word = null;
-                }
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.cats[0].id;
-                }
-                let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
-                this.axios.post("/api/posts", fd)
-                    .then(response => {
-                        this.posts = response.data;
-                    });
-        },
-        getLatestPostByCatID: function(catId) {
-                if ($('#search-free-word').val()) {
-                    var search_word = $('#search-free-word').val();
-                } else {
-                    var search_word = null;
-                }
-                if (catId) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.cats[0].id;
-                }
-                let fd = new FormData();
-                fd.append('search_word', search_word)
-                fd.append('category_id', cat_id)
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
-                this.axios.post("/api/get_latest_post" , fd)
-                .then(response => {
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
-                        this.latest_post_null = true;
-                    }
-                    else{
-                        this.latest_post_null = false;
-                    }
-                });
-        },
-        
-        swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
-        scrollTo(element, scrollPixels, duration) {
-                const scrollPos = element.scrollLeft;
-                // Condition to check if scrolling is required
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-                {
-                    // Get the start timestamp
-                    const startTime =
-                    "now" in window.performance
-                        ? performance.now()
-                        : new Date().getTime();
-                    function scroll(timestamp) {
-                    //Calculate the timeelapsed
-                    const timeElapsed = timestamp - startTime;
-                    //Calculate progress
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    //Set the scrolleft
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-                    if (timeElapsed < duration) {
-                        //Request for animation
-                        window.requestAnimationFrame(scroll);
-                    } else {
-                        return;
-                    }
-                    }
-                    //Call requestAnimationFrame on scroll function first time
-                    window.requestAnimationFrame(scroll);
-                }
-        },
+        activeTopMenu(){
+             $("#top_a").addClass("active");
+        }
     }
 }
- 
-$(document).ready(function(){
-    // $("#top_a").addClass("active");
-    var url      = window.location.href; 
-    if(url.indexOf('category') == -1){
-        $("#top_a").addClass("active");
-    }
-});
 </script>
 <style>
     .hospital-tabColor li.subtab3 > .router-link-active{

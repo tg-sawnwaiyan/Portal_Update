@@ -6,6 +6,11 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="user" content="{{ Auth::user() }}">
+<?php 
+header("Cache-Control:no-cache,no-store,must-revalidate,max-age=0");
+header("Cache-Control:pre-check=0,post-check=0,false");
+header("Pragma:no-cache");
+?>
 @if(isset($tweetData))
 <meta name="twitter:card" content="summary" />
 <meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
@@ -23,9 +28,9 @@
 <meta http-equiv="Expires" content="0" />
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
-<script src="{{ asset('js/manifest.js') }}" defer></script>
+<script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
 <script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
 <!-- <script src="/js/manifest.js"></script> -->
 <!-- <script src="/js/vendor.js"></script> -->
@@ -35,8 +40,9 @@
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/mystyle.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
