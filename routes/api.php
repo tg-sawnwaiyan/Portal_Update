@@ -159,7 +159,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
         Route::post('account_update','CustomerController@accountStatusUpdate');
-        Route::delete('delete/{id}/{type}','CustomerController@destroy');
+        Route::delete('delete/{id}/{type}','CustomerController@delete');
     });
     // End Customer
 
@@ -387,17 +387,17 @@ Route::group(['middleware' => $middleware], function() {
         Route::get('citiesList', 'HospitalProfileController@getCitiesName');
         Route::get('townshipList', 'HospitalProfileController@getTownshipName');
         Route::get('favourite_list', 'HospitalProfileController@index');
-        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+        Route::delete('delete/{id}', 'HospitalProfileController@delete');
     });
 
     Route::group(['prefix' => 'comments'], function () {
-        Route::post('add', 'CommentController@store');
+        Route::post('add', 'CommentController@add');
         Route::get('edit/{id}', 'CommentController@edit');
         Route::get('comment/{type}', 'CommentController@index');
         Route::get('getCustomComment/{type}/{profileid}', 'CommentController@getCustomComment');
         Route::get('confirm/{id}/{type}/{pro_id}','CommentController@confirm');
         Route::post('update/{id}', 'CommentController@update');
-        Route::delete('delete/{id}/{type}/{pro_id}','CommentController@destroy');
+        Route::delete('delete/{id}/{type}/{pro_id}','CommentController@delete');
         Route::post('search','CommentController@search');
         //Route::get('getcommentlist/{cusid}','CommentController@getCommentList');
         Route::get('comment_list','CommentController@list');

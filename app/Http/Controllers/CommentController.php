@@ -110,7 +110,7 @@ class CommentController extends Controller
     //     // return $commentList;
     // }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         // $request->validate([
         //     'title' => 'required',
@@ -168,7 +168,7 @@ class CommentController extends Controller
         \Mail::to($admin_email)->send(new SendMailComment($getComment));
     }
 
-    public function destroy($id,$type,$pro_id)
+    public function delete($id,$type,$pro_id)
     {
         //
         $comment = Comment::find($id);
