@@ -759,6 +759,7 @@
         })
         
         this.$nextTick(() => {
+            $("#top_a").addClass("active");
             if(this.$refs.infoBox){
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
