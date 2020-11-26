@@ -66,7 +66,7 @@
                             <td class="sp-768-block sp-414-table">
                             <div class="row mt-2 mb-2">
                             <div class="col-lg-9 col-md-8 col-sm-12 m-b-8">
-                            <select id="selectCity" class="form-control custom-select" v-model="id" @change="ChangeTownship">
+                            <select id="selectCity" class="form-control custom-select" v-model="id" @change="ChangeTownship();search();">
                                 <option value="-1" >▼市区町村</option>
                                 <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                             </select>
