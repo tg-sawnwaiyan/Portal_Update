@@ -2,7 +2,7 @@
 
 return [
 
-    'date' => date("Ymd1"),
+    'date' => '20201126',
 
 ];
 ?>
