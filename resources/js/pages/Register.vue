@@ -114,8 +114,8 @@
                         </div> -->
                         <div class="contract-group">
                             <div class="contract-label">
+                                <input type="checkbox" value=1 v-model="contract_chk" @change="check($event)" :disabled="contract_status == 0">
                                 <span class="contract-checkbox">
-                                    <input type="checkbox" value=1 v-model="contract_chk" @change="check($event)" :disabled="contract_status == 0">
                                     [ <a href="/contract" v-on:click="changeContractStatus()" class="contract_link" target="_blank">契約書</a> ]
                                     本システムを使用するにあたり、上記契約書に同意する
                                 </span>
@@ -465,6 +465,11 @@
     display: inline-block;
     line-height: 0.8;
     padding: 2px 5px;
+    text-align: left;
+}
+.contract-checkbox {
+    position: relative;
+    top: -2px;
 }
 .contract-checkbox::after {
     content: '\A';
