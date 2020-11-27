@@ -103,10 +103,10 @@ Route::group(['middleware' => ['auth:api']], function() {
        Route::group(['prefix' => 'occupation'], function () {
         Route::get('occupationList', 'OccupationsController@typeList');
         Route::get('type', 'OccupationsController@index');
-        Route::post('add', 'OccupationsController@store');
+        Route::post('add', 'OccupationsController@add');
         Route::get('edit/{id}', 'OccupationsController@edit');
         Route::post('update/{id}', 'OccupationsController@update');
-        Route::delete('delete/{id}', 'OccupationsController@destroy');
+        Route::delete('delete/{id}', 'OccupationsController@delete');
         Route::post('search', 'OccupationsController@search');
     });
 
@@ -275,7 +275,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getStatus/{token}','registerController@getStatus');
     Route::post('reset','registerController@reset');
     Route::post('resetpassword','registerController@resetpassword');
-    Route::post('register','registerController@store');
+    Route::post('register','registerController@add');
     // Route::get('getskill', 'JobApplyController@getSkills');
     Route::get('getjobtitle/{jobs_id}', 'JobApplyController@getJobTitle');
     Route::get('skill', 'JobController@getSkill');

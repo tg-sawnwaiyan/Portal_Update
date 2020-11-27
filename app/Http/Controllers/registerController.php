@@ -55,7 +55,7 @@ class registerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $request->validate( [
             "file('img')" => 'image|mimes:jpeg,png,jpg|max:2048',

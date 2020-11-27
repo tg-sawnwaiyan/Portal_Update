@@ -38,7 +38,7 @@ class OccupationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $request->validate([
             'name' => 'required|unique:occupation',
@@ -116,7 +116,7 @@ class OccupationsController extends Controller
      * @param  \App\Occupations  $occupations
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $occupation = Occupations::find($id);
         $query = "SELECT * FROM jobs WHERE jobs.occupation_id = $id";
