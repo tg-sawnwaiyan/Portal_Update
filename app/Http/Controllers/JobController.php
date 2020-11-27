@@ -91,7 +91,7 @@ class JobController extends Controller
         return $township_id;
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         // $request->validate([
         //     'title' => 'required',
@@ -365,7 +365,7 @@ class JobController extends Controller
         return response()->json("Success");
     }
 
-    public function destroy($id,$type,$pro_id)
+    public function delete($id,$type,$pro_id)
     {
         $job = Job::find($id);
         $getJob = Job::where('id',$id)->get()->toarray();

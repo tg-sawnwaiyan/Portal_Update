@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'NewsByCatController@edit');
         Route::get('news', 'NewsByCatController@index');
         Route::post('update/{id}', 'NewsByCatController@update');
-        Route::delete('delete/{id}','NewsByCatController@destroy');
+        Route::delete('delete/{id}','NewsByCatController@delete');
         Route::post('search', 'NewsByCatController@search');
 
     });
@@ -128,12 +128,12 @@ Route::group(['middleware' => ['auth:api']], function() {
     // Job
     Route::group(['prefix' => 'job'], function () {
         Route::get('confirm/{id}','JobController@confirm');
-        Route::post('add', 'JobController@store');
+        Route::post('add', 'JobController@add');
         Route::get('index/{type}/{proid}', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
         Route::get('occupationlist', 'JobController@getOccupationList');
         Route::post('update/{id}', 'JobController@update');
-        Route::delete('delete/{id}/{type}/{pro_id}', 'JobController@destroy');
+        Route::delete('delete/{id}/{type}/{pro_id}', 'JobController@delete');
         Route::post('search', 'JobController@search');
         Route::get('customerList/{type}', 'JobController@getCustomerList');
         Route::post('profileList/{cId}', 'JobController@getProfileList');
@@ -365,7 +365,7 @@ Route::group(['middleware' => $middleware], function() {
     // Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 
 
-    Route::post('jobapply','JobApplyController@store');
+    Route::post('jobapply','JobApplyController@add');
     // Route::get('jobapplylist/{jobs_id}','JobApplyController@getJobapplies');
     // Route::post('jobapplylist/search','JobApplyController@search');
     // Route::get('job_details', 'JobDetailController@index');

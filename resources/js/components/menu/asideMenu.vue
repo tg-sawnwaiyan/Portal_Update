@@ -176,19 +176,19 @@ data() {
                 hidden: this.$auth.check(1),
                 child: [
                     {
-                    href: '/nuscustomerlist',
-                    title: '事業者一覧',
-                    icon: 'fa fa-user'
+                        href: '/nuscustomerlist',
+                        title: '事業者一覧',
+                        icon: 'fa fa-user'
                     },
                     {
-                    href: '/nusfeaturelist',
-                    title: '特長設定',
-                    icon: 'fa fa-list'
+                        href: '/nusfeaturelist',
+                        title: '特長設定',
+                        icon: 'fa fa-list'
                     },
                     {
-                    href: '/nuscommentlist',
-                    title: '口コミ一覧',
-                    icon: 'fa fa-list'
+                        href: '/nuscommentlist',
+                        title: '口コミ一覧',
+                        icon: 'fa fa-list'
                     }
                 ]
             },
@@ -198,29 +198,29 @@ data() {
                 hidden: this.$auth.check(1),
                 child: [
                     {
-                    href: '/hoscustomerlist',
-                    title: '事業者一覧',
-                    icon: 'fa fa-user'
+                        href: '/hoscustomerlist',
+                        title: '事業者一覧',
+                        icon: 'fa fa-user'
                     },
                     {
-                    href: '/facilitieslist',
-                    title: '院内施設設定',
-                    icon: 'fa fa-list'
+                        href: '/facilitieslist',
+                        title: '院内施設設定',
+                        icon: 'fa fa-list'
                     },
                     {
-                    href: '/hosfeaturelist',
-                    title: '特長設定',
-                    icon: 'fa fa-list'
+                        href: '/hosfeaturelist',
+                        title: '特長設定',
+                        icon: 'fa fa-list'
                     },
                     {
-                    href: '/subjectlist',
-                    title: '診療科目設定',
-                    icon: 'fa fa-list'
+                        href: '/subjectlist',
+                        title: '診療科目設定',
+                        icon: 'fa fa-list'
                     },
                     {
-                    href: '/hoscommentlist',
-                    title: '口コミ一覧',
-                    icon: 'fa fa-list'
+                        href: '/hoscommentlist',
+                        title: '口コミ一覧',
+                        icon: 'fa fa-list'
                     }
                 ]
             },
