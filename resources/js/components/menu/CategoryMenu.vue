@@ -5,8 +5,10 @@
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li><li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                           <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                        <!-- <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li> -->
+                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
+                           <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
 
                     </ul>                            
@@ -55,11 +57,14 @@ export default {
         }) 
     },
     methods: {
-        getAllCat: function() {
-           
+        getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
+                        const topic = new Array();
+                        topic['name'] = "トップ";
+                    
                         this.cats = response.data;
+                        this.cats = [topic].concat(this.cats);
                
          
                         var total_word = 0;
@@ -215,7 +220,7 @@ export default {
 
         },
         changeBgColor(no) {
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
+            const color_ary = ['#287db4','#a3774a','#9579ef','#20d1de','#d1281c'];
             $('.bg_color').css('background-color', color_ary[no]);
         },
         
@@ -307,14 +312,6 @@ export default {
 
     }
 }
- 
-$(document).ready(function(){
-    // $("#top_a").addClass("active");
-    var url      = window.location.href; 
-    if(url.indexOf('category') == -1){
-        $("#top_a").addClass("active");
-    }
-});
 </script>
 <style>
     #myTab ul li {
@@ -517,8 +514,8 @@ $(document).ready(function(){
 
     .tab-color0 {        
         height: auto;
-        border-left: 5px solid #0066CC;
-        background-color: #0066CC;
+        border-left: 5px solid #287db4;
+        background-color: #287db4;
     }
 
     .tab-color1 {
@@ -535,20 +532,14 @@ $(document).ready(function(){
 
     .tab-color3 {
         height: auto;
-        border-left: 5px solid #21d1de;
-        background-color: #21d1de;
+        border-left: 5px solid #20d1de;
+        background-color: #20d1de;
     }
 
     .tab-color4 {
         height: auto;
-        border-left: 5px solid #d1291d;
-        background-color: #d1291d;
-    }
-
-    .tab-color5 {
-        height: auto;
-        border-left: 5px solid #63b7ff;
-        background-color: #63b7ff;
+        border-left: 5px solid #d1281c;
+        background-color: #d1281c;
     }
 
     .nav-tabs .router-link-exact-active,
@@ -564,7 +555,7 @@ $(document).ready(function(){
     }
 
     #myTab .nav-link.active {
-        background-color: #0066CC !important;
+        background-color: #287db4 !important;
         border-top-right-radius: 8px !important;
         border-top-left-radius: 8px !important;
     }
@@ -586,7 +577,7 @@ $(document).ready(function(){
     .bg_color{
         width: 100%;
         height: 3px;
-        background-color: #0066CC;
+        background-color: #287db4;
         position: absolute;
         bottom: 0;
         left: 0;
