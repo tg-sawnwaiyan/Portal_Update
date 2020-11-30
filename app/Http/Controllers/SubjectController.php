@@ -38,7 +38,7 @@ class SubjectController extends Controller
         return $Subjectlist;
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -95,7 +95,7 @@ class SubjectController extends Controller
         return response()->json('The Subject successfully updated');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $Subject = Subject::find($id);
         $sub_junction = "SELECT * FROM subject_junctions WHERE subject_junctions.subject_id = $id";

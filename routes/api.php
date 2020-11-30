@@ -117,10 +117,10 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::group(['prefix' => 'subjects'], function () {
         Route::get('subjectlist', 'SubjectController@SubjectList');
         Route::get('subject', 'SubjectController@index');
-        Route::post('add', 'SubjectController@store');
+        Route::post('add', 'SubjectController@add');
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
-        Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::delete('delete/{id}', 'SubjectController@delete');
         Route::post('search', 'SubjectController@search');
     });
     //End Subject
@@ -203,12 +203,12 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     //SpecialFeature
     Route::group(['prefix' => 'feature'], function () {
-        Route::post('add', 'SpecialFeatureController@store');
+        Route::post('add', 'SpecialFeatureController@add');
         Route::get('edit/{id}', 'SpecialFeatureController@edit');
         Route::get('featurelist/{type}', 'SpecialFeatureController@index');
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
-        Route::delete('delete/{id}/{type}','SpecialFeatureController@destroy');
+        Route::delete('delete/{id}/{type}','SpecialFeatureController@delete');
         Route::post('search/{type}','SpecialFeatureController@search');
     });
     //End SpecialFeature

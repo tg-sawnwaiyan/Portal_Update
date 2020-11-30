@@ -30,7 +30,7 @@ class SpecialFeatureController extends Controller
         return $cooperate_list;
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         // $request->validate([
         //     'name' => 'required|unique:special_features',
@@ -79,7 +79,7 @@ class SpecialFeatureController extends Controller
         return response()->json('The Feature successfully updated');
     }
 
-    public function destroy($id,$type)
+    public function delete($id,$type)
     {
         $feature = special_feature::find($id);
         if($type == 'nursing') {

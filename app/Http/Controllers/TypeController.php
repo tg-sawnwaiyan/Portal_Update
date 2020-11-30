@@ -20,12 +20,6 @@ class TypeController extends Controller
         return response()->json($typelist);
     }
 
-    // public function getParent()
-    // {
-    //     $typelist = Type::select('id','name')->get()->toArray();
-    //     return $typelist;
-    // }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -105,4 +99,10 @@ class TypeController extends Controller
                             ->toArray();
         return $search_categories;
     }
+
+    // public function getParent()
+    // {
+    //     $typelist = Type::select('id','name')->get()->toArray();
+    //     return $typelist;
+    // }
 }

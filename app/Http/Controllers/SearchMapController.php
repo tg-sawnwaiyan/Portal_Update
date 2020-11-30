@@ -717,6 +717,86 @@ class SearchMapController extends Controller
         return response()->json(array('job'=>$job_data,'city'=>$city,'occupations'=>$occupations));
     }
 
+    public function getCity(Request $request)
+    {
+        $id = $request->id;
+        $getTownships = DB::table('townships')->where('city_id', $id)->get();
+        return response()->json($getTownships);
+    }
+
+    function file_get_contents_chunked($file,$chunk_size,$callback)
+    {
+        try
+        {
+            $handle = fopen($file, "r");
+            $i = 0;
+            while (!feof($handle))
+            {
+                call_user_func_array($callback,array(fread($handle,$chunk_size),&$handle,$i));
+                $i++;
+            }    
+            fclose($handle);    
+        }
+        catch(Exception $e)
+        {
+            trigger_error("file_get_contents_chunked::" . $e->getMessage(),E_USER_NOTICE);
+            return false;
+        }    
+        return true;
+    }
+
+    public function townshipJson($township_name)
+    {
+        $postalCode = explode(",",$township_name);
+        $path = base_path().('/google-map-json/japan-cities_5percent.json');
+        $json = file_get_contents($path);
+        ini_set('memory_limit','-1');
+        $obj = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $json), true );
+        $forLoop = $obj['features'];    
+            for ($i=0; $i <count($postalCode) ; $i++) { 
+                for ($j=0; $j <count($forLoop) ; $j++) { 
+                    if($forLoop[$j]['properties']['N03_007'] === $postalCode[$i]){
+                        $jsonArray[] = $forLoop[$j];
+                    }
+                }
+            }    
+        return response()->json($jsonArray);
+    }
+
+    /**
+     * @desc linked news
+     * Show linked news
+     * @author may thiri htet @ 2020-06-16
+     * @param $show_type 
+     * @return json_encoded array
+     */
+    public function getLinkedNews($show_type)
+    {
+        $arr = DB::table('news_for_category')->where('type', $show_type)->get();
+        $current_year = (int)date('Y');
+        $total_year = 0;
+        (array)$yeararr = [];
+        if(!empty($arr)){
+            foreach($arr as $linkednews) {
+                $year = (string)date('Y', strtotime($linkednews->post_date));
+                if($yeararr == null){
+                    $yeararr[$total_year] =(string) $year;
+                }
+                if( !in_array($year, $yeararr)) {
+                    $total_year++;
+                    $yeararr[$total_year] =$year;
+                }
+            }
+            $compare_function = function($a,$b) {
+                $a_timestamp = strtotime($a); 
+                $b_timestamp = strtotime($b);
+                return $b_timestamp <=> $a_timestamp;
+            };
+            usort($yeararr, $compare_function);
+        }
+        return response()->json(array('linkednews'=>$arr,'yeararr'=>$yeararr));
+    }
+
     // public function getJobStation($id)
     // {
     //     $com_query = "SELECT c.company_cd,company_name,'' as line FROM s_companies as c
@@ -753,34 +833,6 @@ class SearchMapController extends Controller
     //     // $line = DB::select($line_query);  
     //     return response()->json(array('company'=>$company));        
     // }
-
-    public function getCity(Request $request)
-    {
-        $id = $request->id;
-        $getTownships = DB::table('townships')->where('city_id', $id)->get();
-        return response()->json($getTownships);
-    }
-
-    function file_get_contents_chunked($file,$chunk_size,$callback)
-    {
-        try
-        {
-            $handle = fopen($file, "r");
-            $i = 0;
-            while (!feof($handle))
-            {
-                call_user_func_array($callback,array(fread($handle,$chunk_size),&$handle,$i));
-                $i++;
-            }    
-            fclose($handle);    
-        }
-        catch(Exception $e)
-        {
-            trigger_error("file_get_contents_chunked::" . $e->getMessage(),E_USER_NOTICE);
-            return false;
-        }    
-        return true;
-    }
 
     // public function cityJson($theCity)
     // {
@@ -850,56 +902,4 @@ class SearchMapController extends Controller
     //     //   return response()->json($obj);
     //       return response()->json($jsonArray);       
     // }
-
-    public function townshipJson($township_name)
-    {
-        $postalCode = explode(",",$township_name);
-        $path = base_path().('/google-map-json/japan-cities_5percent.json');
-        $json = file_get_contents($path);
-        ini_set('memory_limit','-1');
-        $obj = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $json), true );
-        $forLoop = $obj['features'];    
-            for ($i=0; $i <count($postalCode) ; $i++) { 
-                for ($j=0; $j <count($forLoop) ; $j++) { 
-                    if($forLoop[$j]['properties']['N03_007'] === $postalCode[$i]){
-                        $jsonArray[] = $forLoop[$j];
-                    }
-                }
-            }    
-        return response()->json($jsonArray);
-    }
-
-    /**
-     * @desc linked news
-     * Show linked news
-     * @author may thiri htet @ 2020-06-16
-     * @param $show_type 
-     * @return json_encoded array
-     */
-    public function getLinkedNews($show_type)
-    {
-        $arr = DB::table('news_for_category')->where('type', $show_type)->get();
-        $current_year = (int)date('Y');
-        $total_year = 0;
-        (array)$yeararr = [];
-        if(!empty($arr)){
-            foreach($arr as $linkednews) {
-                $year = (string)date('Y', strtotime($linkednews->post_date));
-                if($yeararr == null){
-                    $yeararr[$total_year] =(string) $year;
-                }
-                if( !in_array($year, $yeararr)) {
-                    $total_year++;
-                    $yeararr[$total_year] =$year;
-                }
-            }
-            $compare_function = function($a,$b) {
-                $a_timestamp = strtotime($a); 
-                $b_timestamp = strtotime($b);
-                return $b_timestamp <=> $a_timestamp;
-            };
-            usort($yeararr, $compare_function);
-        }
-        return response()->json(array('linkednews'=>$arr,'yeararr'=>$yeararr));
-    }
 }
