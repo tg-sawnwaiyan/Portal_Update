@@ -19,24 +19,30 @@
                         </div>
                         <!-- </form> -->
                         <!-- slider -->
-                         <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
+                        <!--  <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;"> -->
+                        <!-- <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span> -->
+                        <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }" id="menuCategory">
+<div id="widthmenu">
+                            <ul id="ul_menu_category" class="nav nav-tabs clearfix" role="tablist">
+                                <!-- <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li> -->
                                 
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                <li v-for="(cat,index) in cats" :key="cat.id" class="menucategory nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="changeBgColor((Math.floor(index%5)));" ref="itemWidth">
+                                   <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                                    <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                                 </li>
+                               <!--  <li class="menucategory nav-item nav-line">Questions</li>   
+    <li class="menucategory nav-item nav-line">Tags</li>   
+    <li class="menucategory nav-item nav-line">Users</li> --> 
+                                <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
 
                             </ul>
+                        </div>
                             
                         </div>
                        
-                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        <div class="bg_color"></div>
-                    </div>
+                        <!-- <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span> -->
+                        <!-- <div class="bg_color"></div>
+                    </div> -->
                         <!-- end of slider -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
 
@@ -671,7 +677,17 @@
 
             $('#upper-tab').addClass('news-borderColor');
 
-            this.getAllCat();
+           this.getAllCat();
+//             var test = document.querySelectorAll("li");
+// console.log(test);
+// var $ul = $("ul");
+// alert($ul.width())
+    
+// var ulWidth = 0;
+// $("#ul_menu_category li").each(function() {
+//     ulWidth = ulWidth + $(this).width()
+// });
+// alert(ulWidth);
 
             this.getLatestPostsByCatID();
 
@@ -748,11 +764,16 @@
             w_width: $(window).width(),
             norecord_msg: false,
             cat_box_width: null,
+            menuWrapperSize: '',
+            itemSize: '',
+            li_width: 0,
             // w_width: $(window).width() + 16,
         }
     },
 
     created() {
+      
+
         this.$ga.event({
             eventCategory: 'トップページ',
             eventAction: '-',
@@ -760,6 +781,11 @@
         
         this.$nextTick(() => {
             $("#top_a").addClass("active");
+            this.menuWrapperSize = $('.menu_category').outerWidth();
+
+             this.itemSize = $('.nav-item').outerWidth(true);
+
+            
             if(this.$refs.infoBox){
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
@@ -791,7 +817,9 @@
                 localStorage.setItem('date',todaydate);
                 this.getCategoryRandomValue();
             }
-        };    
+        };  
+
+//       
     },
     computed:{  
 
@@ -896,12 +924,48 @@
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
+                        const topic = new Array();
+                        topic['name'] = "トップ";
+                    
+                        this.cats = response.data;
+                        this.cats = [topic].concat(this.cats);
+                       // var li_width = 0;
+                       var liWidth = 0;
+ // $('.menu_category #ul_menu_category li').each(function() {
+ //     $('#ul_menu_category').find('li').each(function(){
+ //    //console.log($(this))
+ // liWidth.push($(this).outerWidth(true));
+ //  });
+ 
+ var test = document.querySelector("#widthmenu").width;
+ console.log(test);
+var $ul = $("#widthmenu");
+console.log($ul.outerWidth());
+    
+
+//console.log(ulWidth);
+   // var ul = document.querySelectorAll('.menucategory');
+   // console.log(ul);
+  // var li = ul[0];
+
+// lis.forEach(function(element) {
+//     //const childrenElems = element.querySelectorAll('li');
+//     console.log(element);
+//     liWidth = $(element).outerWidth(true);
+//   //liWidth.push($(element).outerWidth());
+// });
+//console.log(liWidth);
+//liWidth.reduce((li_width, product) => this.li_width += product, 0)
+var menuSize = this.itemSize * this.cats.length;
+//console.log(liWidth);
+console.log(this.menuWrapperSize);
+
                         var total_word = 0;
                         $.each(this.cats, function(key,value) {
                             total_word += value.name.length;
                         });
 
-                        if(this.cat_box_width/total_word < 23){
+                        if(liWidth > this.menuWrapperSize){
                             this.is_cat_overflow = true;
                         }
 
@@ -1489,5 +1553,17 @@
     display: none !important;   
     } 
 }
+#widthmenu{
+    display: inline-block;
+
+}
+/*#ul_menu_category{
+    display: inline-block;
+
+}
+#ul_menu_category li{
+    float: left;
+}*/
+
 
 </style>
