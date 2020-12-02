@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <div class="m-lr-0 justify-content-md-center category_margin">
+        <div class="m-lr-0 justify-content-md-center  category_margin">
             <div class="">
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
@@ -18,7 +18,6 @@
                             </div>
                         </div>
                         <!-- </form> -->
-                        <!-- end of slider -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
 
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
@@ -643,33 +642,12 @@
       async mounted() {
             this.visit = 'true';
             localStorage.setItem('visit', this.visit);
-
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
-
             $('#navtab').addClass('news-tabColor');
-
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-
             $('#upper-tab').addClass('news-borderColor');
-
-           this.getAllCat();
-//             var test = document.querySelectorAll("li");
-// console.log(test);
-// var $ul = $("ul");
-// alert($ul.width())
-    
-// var ulWidth = 0;
-// $("#ul_menu_category li").each(function() {
-//     ulWidth = ulWidth + $(this).width()
-// });
-// alert(ulWidth);
-
+            this.getAllCat();
             this.getLatestPostsByCatID();
-
-            
-
-            
-
             this.getLatestPostFromAllCat();
             
             // this.axios.get('/api/auth/user') 
@@ -747,8 +725,6 @@
     },
 
     created() {
-      
-
         this.$ga.event({
             eventCategory: 'トップページ',
             eventAction: '-',
@@ -764,7 +740,7 @@
             if(this.$refs.infoBox){
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
-        })  
+        })
         var today = new Date();
         var month =(String) (today.getMonth()+1);
         var date = (String) (today.getDate());
@@ -792,9 +768,7 @@
                 localStorage.setItem('date',todaydate);
                 this.getCategoryRandomValue();
             }
-        };  
-
-//       
+        };    
     },
     computed:{  
 
@@ -899,48 +873,12 @@
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
-                        this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);
-                       // var li_width = 0;
-                       var liWidth = 0;
- // $('.menu_category #ul_menu_category li').each(function() {
- //     $('#ul_menu_category').find('li').each(function(){
- //    //console.log($(this))
- // liWidth.push($(this).outerWidth(true));
- //  });
- 
- var test = document.querySelector("#widthmenu").width;
- console.log(test);
-var $ul = $("#widthmenu");
-console.log($ul.outerWidth());
-    
-
-//console.log(ulWidth);
-   // var ul = document.querySelectorAll('.menucategory');
-   // console.log(ul);
-  // var li = ul[0];
-
-// lis.forEach(function(element) {
-//     //const childrenElems = element.querySelectorAll('li');
-//     console.log(element);
-//     liWidth = $(element).outerWidth(true);
-//   //liWidth.push($(element).outerWidth());
-// });
-//console.log(liWidth);
-//liWidth.reduce((li_width, product) => this.li_width += product, 0)
-var menuSize = this.itemSize * this.cats.length;
-//console.log(liWidth);
-console.log(this.menuWrapperSize);
-
                         var total_word = 0;
                         $.each(this.cats, function(key,value) {
                             total_word += value.name.length;
                         });
 
-                        if(liWidth > this.menuWrapperSize){
+                        if(this.cat_box_width/total_word < 23){
                             this.is_cat_overflow = true;
                         }
 
@@ -1539,6 +1477,5 @@ console.log(this.menuWrapperSize);
 #ul_menu_category li{
     float: left;
 }*/
-
 
 </style>
