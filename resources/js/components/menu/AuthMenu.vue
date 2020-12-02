@@ -37,17 +37,17 @@
                     </li>
 
                     <li v-if="visit == 'true'">
-                        <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"> ニュース（ホーム）</router-link>
+                        <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
                     </li>
 
                     <li v-if="visit == 'true'">
-                        <router-link :to="{ name: 'nursingSearch' }">介護施設検索</router-link>
+                        <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
                     </li>
                     <li v-if="visit == 'true'">
-                        <router-link :to="{ name: 'hospital_search' }"> 病院検索</router-link>
+                        <router-link :to="{ name: 'hospital_search' }"> <i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
                     </li>
                     <li v-if="visit == 'true'">
-                        <router-link :to="{ name: 'jobSearch' }">求人検索</router-link>
+                        <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
                     </li>
                 </ul>
 
