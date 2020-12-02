@@ -18,31 +18,6 @@
                             </div>
                         </div>
                         <!-- </form> -->
-                        <!-- slider -->
-                        <!--  <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;"> -->
-                        <!-- <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span> -->
-                        <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }" id="menuCategory">
-<div id="widthmenu">
-                            <ul id="ul_menu_category" class="nav nav-tabs clearfix" role="tablist">
-                                <!-- <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li> -->
-                                
-                                <li v-for="(cat,index) in cats" :key="cat.id" class="menucategory nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="changeBgColor((Math.floor(index%5)));" ref="itemWidth">
-                                   <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                    <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
-                                </li>
-                               <!--  <li class="menucategory nav-item nav-line">Questions</li>   
-    <li class="menucategory nav-item nav-line">Tags</li>   
-    <li class="menucategory nav-item nav-line">Users</li> --> 
-                                <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-
-                            </ul>
-                        </div>
-                            
-                        </div>
-                       
-                        <!-- <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span> -->
-                        <!-- <div class="bg_color"></div>
-                    </div> -->
                         <!-- end of slider -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
 

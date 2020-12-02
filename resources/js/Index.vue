@@ -5,6 +5,7 @@
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
             <CategoryMenu v-if="w_width <= 560"></CategoryMenu>
+            <CategoryMenuPc v-if="w_width > 560"></CategoryMenuPc>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -155,6 +156,7 @@
   import HeaderMenu from './components/menu/Menu.vue'
   import AuthHeaderMenu from './components/menu/AuthMenu.vue'
   import CategoryMenu from './components/menu/CategoryMenu.vue'
+  import CategoryMenuPc from './components/menu/CategoryMenuPc.vue'
   import asideMenu from './components/menu/asideMenu.vue'
   import adsslider from './components/adsslider'
   export default {
@@ -177,6 +179,7 @@
       HeaderMenu,
       AuthHeaderMenu,
       CategoryMenu,
+      CategoryMenuPc,
       asideMenu,
       adsslider
     }, 

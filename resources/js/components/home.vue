@@ -2,7 +2,7 @@
     <div>
         <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
-        <ul class="nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
+        <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
             <li role="presentation" class="subtab1 nav-item">
                 <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
             </li>
@@ -131,7 +131,7 @@ export default {
         border: 1px solid #828282 !important;
     }
     .news-borderColor {
-        border: 1px solid #75b777 !important;
+        border: 1px solid #2980b9 !important;
     }
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;
