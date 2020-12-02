@@ -472,7 +472,7 @@ textarea:disabled::placeholder {
     opacity: 1;
 }
 
-.tab-pane {
+.tab-pane{
     padding: 10px;
 }
 .tab-pane h5{
@@ -6453,7 +6453,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    border: 1px solid #75b777;
+    border: 1px solid #2980b9;
     background: #fff;
 }
 

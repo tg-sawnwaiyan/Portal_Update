@@ -1239,6 +1239,10 @@ console.log(this.menuWrapperSize);
  </script>
 
 <style>
+.tab-pane{
+    margin: 68px auto 0 auto;
+    padding: 10px;
+}
 .list-label{
     float: right; 
     color: #999; 
@@ -1295,7 +1299,7 @@ console.log(this.menuWrapperSize);
 }
 
 .news-borderColor {
-    border: 1px solid #75b777 !important;
+    border: 1px solid #2980b9 !important;
 }
 
 

@@ -187,9 +187,6 @@ export default {
         padding: 0;
         width: auto;
     }
-    .tab-pane{
-        margin: 68px auto 0 auto;
-    }
     .left-arr-btn .fas,
     .right-arr-btn .fas{
         color: #2980b9 !important;

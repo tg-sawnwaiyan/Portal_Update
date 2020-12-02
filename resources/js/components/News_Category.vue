@@ -798,7 +798,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+.tab-pane{
+    margin: 68px auto 0 auto;
+    padding: 10px;
+}
+.profile-tit{
+    margin-top: 0;
+}
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
