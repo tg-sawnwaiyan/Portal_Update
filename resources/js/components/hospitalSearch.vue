@@ -1,6 +1,6 @@
 <template>
   <layout>
-<div>
+<div class="tab_pane_02">
   <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索 
         <span v-if="count == false  && searchword != '' && searchword == 'all' && hos_data.length && !stateclick "> 「<span class="result-span">全国</span>の病院 <span class="result-span"> {{hos_data.length}} </span>件」 </span>

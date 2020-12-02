@@ -1,6 +1,6 @@
 <template>
 <layout>
-<div id="job-search-ui">
+<div id="job-search-ui" class="tab_pane_02">
   
  
    <div class="col-md-12" style="border-bottom: 1px dashed #828282;padding-bottom: 10px; margin-bottom: 20px;">

@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <div class="m-lr-0 justify-content-md-center">
+        <div class="m-lr-0 justify-content-md-center category_margin">
             <div class="">
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
@@ -1239,10 +1239,6 @@ console.log(this.menuWrapperSize);
  </script>
 
 <style>
-.tab-pane{
-    margin: 68px auto 0 auto;
-    padding: 10px;
-}
 .list-label{
     float: right; 
     color: #999; 

@@ -14841,6 +14841,7 @@ strong {
     /*align-items: center;
     justify-content: center;*/
     flex-wrap: nowrap;
+    border-bottom: none;
 }
 #ul_menu_category li{
     text-align: center;
@@ -14892,6 +14893,17 @@ strong {
 }
 .gNav .router-link-exact-active>i.fas{
     color: #2980b9 !important;
+}
+.category_margin{
+    margin: 68px 0 0 0;
+}
+.tab_pane_02{
+    margin-top: 10px;
+}
+@media only screen and (max-width: 560px){
+    .category_margin{
+        margin: 0;
+    }
 }
 /*end of menu_category*/
 

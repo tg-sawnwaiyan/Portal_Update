@@ -1,6 +1,6 @@
 <template>
 <layout>
-<div>
+<div class="tab_pane_02">
     <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
         <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索 
             <span v-if="nus_data.length && !ci &&  MoveID == 0 &&  SpecialFeatureID ==0  && FacTypeID == 0 && MedicalAcceptanceID == 0 && township_id == -1 && moving_in == -1  && per_month == -1">「<span class="result-span">{{nus_data[0].city_name}}</span>の介護施設 <span class="result-span">{{nus_data.length}}</span> 件」</span>

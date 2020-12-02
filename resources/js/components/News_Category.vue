@@ -1,6 +1,6 @@
 <template>
 <layout>   
-<div>    
+<div class="category_margin">    
     <!-- <form class="col-lg-12 mb-2 pad-free"> -->
     <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null" style="display: none;">
         <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
@@ -799,10 +799,6 @@ export default {
 </script>
 
 <style>
-.tab-pane{
-    margin: 68px auto 0 auto;
-    padding: 10px;
-}
 .profile-tit{
     margin-top: 0;
 }
