@@ -151,6 +151,12 @@ export default {
     // alert(this.$route.params.id);e
     this.relatedNews(this.$route.params.id);
   },
+  updated:function(){
+        $(".gNav .router-link-active").addClass("router-link-exact-active");
+    },
+  beforeDestroy:function(){
+        $(".gNav .router-link-active").removeClass("router-link-exact-active");
+    },
 
   methods: {   
     scrollToTop() {

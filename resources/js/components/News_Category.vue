@@ -468,18 +468,9 @@ export default {
         }
     },
     mounted() {
-        this.getAllCat();
+        //this.getAllCat();
     },
     created(){
-        this.$nextTick(() => {
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        })
-        var url      = window.location.href; 
-        if(url.indexOf('category') != -1){
-            $("#top_a").removeClass("active");
-        }
         if($(window).width() > 480){
              this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
                 this.news = response.data.newslist;
@@ -506,8 +497,7 @@ export default {
                      this.block = true;
                      this.norecord_msg = false;
                 }
-                this.cat_name = response.data.cat_name;
-              
+                this.cat_name = response.data.cat_name;              
           });
         }
     },
@@ -568,7 +558,7 @@ export default {
     },
    methods:{
             getAllCat: function() {
-                this.axios .get('/api/home') 
+                this.axios.get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
 
@@ -703,81 +693,6 @@ export default {
                 this.getlatestpost();
 
             },
-            swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
-        scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-        },
-         changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },
    }
     
 }
