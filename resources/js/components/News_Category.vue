@@ -512,9 +512,10 @@ export default {
         }
     },
     updated:function(){
-    this.$nextTick(function () {
-            $(".gNav .router-link-active").addClass("router-link-exact-active");
-        })
+        $(".gNav .router-link-active").addClass("router-link-exact-active");
+    },
+    beforeDestroy:function(){
+        $(".gNav .router-link-active").removeClass("router-link-exact-active");
     },
     computed:{  
         slickOptions() {
