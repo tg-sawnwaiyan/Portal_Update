@@ -204,7 +204,7 @@ body::-webkit-scrollbar-thumb {
 
 input[placeholder] {
     text-overflow: ellipsis;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 ::-moz-placeholder {
@@ -296,7 +296,7 @@ scrollbar-width: thin;*/
 
 label {
     margin-bottom: 0.2rem;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .btn-file {
@@ -472,7 +472,7 @@ textarea:disabled::placeholder {
     opacity: 1;
 }
 
-.tab-pane {
+.tab-pane{
     padding: 10px;
 }
 .tab-pane h5{
@@ -764,7 +764,7 @@ width: 100px; */
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .hos-fac-toggle-div {
@@ -1942,7 +1942,7 @@ border-radius: 3px;
 
 .wd-in p {
     min-height: 25px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .lds-ripple {
@@ -2081,7 +2081,7 @@ border-radius: 3px;
     justify-content: center;
     margin: 20px 0;
     color: #666a73;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing-search .card-carousel {
@@ -2531,7 +2531,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 .profile_subtit {
     position: relative;
     margin: 20px 0;
-	font-size: 16px;
+    font-size: 16px;
 }
 .custom-bg-color{
     font-size: 16px;
@@ -3007,7 +3007,7 @@ border-top: 5px solid #e66527; */
 
 .error {
     color: #ff0000;
-	font-size: 16px;
+    font-size: 16px;
     /* margin-bottom: 18px; */
 }
 
@@ -3207,7 +3207,7 @@ textarea {
 
 .form-control {
     background-color: #f5f5f5;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .multi-step {
@@ -5047,7 +5047,7 @@ ul.hospital-subject>li:before {
 .divisions {
     position: relative;
     z-index: 1;
-	display: inline-block;
+    display: inline-block;
     width: 100%;
     max-width: 670px;
     /* background: url(/images/img_map1.png) center top no-repeat; */
@@ -5099,7 +5099,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchTerm {
-	font-size: 16px;
+    font-size: 16px;
     width: 70%;
     border: 3px solid #2980b9;
     border-right: none;
@@ -5151,7 +5151,7 @@ ul.hospital-subject>li:before {
 }
 
 .searchButton {
-	font-size: 16px;
+    font-size: 16px;
     width: 85px;
     height: 40px;
     /* border: 1px solid #2980b9;
@@ -5531,14 +5531,14 @@ screen and (min-width: 750px) {
         top: 11%;
         right: -2%;
         z-index: 2;
-		padding: 0;
+        padding: 0;
     }
     .tohoku-box {
         position: absolute;
         top: 26%;
         right: 10%;
         z-index: 2;
-		padding: 0;
+        padding: 0;
     }
     .multiple-box {
         width: 153px !important;
@@ -6186,7 +6186,7 @@ top: 66px; */
 
 .m-l-10 {
     margin-left: 10px !important;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .m-l-15 {
@@ -6366,7 +6366,7 @@ margin-right: 2% !important;
 }
 
 .all-btn {
-	font-size: 16px;
+    font-size: 16px;
     color: #fff !important;
     border: none !important;
     min-width: 100px;
@@ -6425,7 +6425,7 @@ margin-right: 2% !important;
     background: #b7dad2;
     border-radius: 5px;
     padding: 10px;
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .invalid-feedback {
@@ -6525,7 +6525,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    border: 1px solid #75b777;
+    border: 1px solid #2980b9;
     background: #fff;
 }
 
@@ -8454,12 +8454,12 @@ color: green;
     border-bottom: 3px solid #c40000;
     padding-bottom: 10px;
     margin-bottom: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .form-wrap {
     padding-bottom: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .form-wrap .form-tit {
@@ -8570,14 +8570,14 @@ color: green;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 5px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing dl dd {
     width: 100%;
     text-align: left;
     padding-left: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #nursing p {
@@ -8586,7 +8586,7 @@ color: green;
 
 .compare-wrap {
     padding: 0;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .compare-wrap dl.favnur {
@@ -8726,7 +8726,7 @@ color: green;
     width: 65px;
     margin-right: 10px;
     color: #2980b9;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .wd-in {
@@ -8763,7 +8763,7 @@ color: green;
 
 .item-name a {
     color: #2980b9!important;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .item-name img {
@@ -8925,7 +8925,7 @@ font-weight: bold;
 .eg-txt {
     padding-left: 20px;
     width: 45%;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .mail-txt {
@@ -9347,7 +9347,7 @@ border-bottom: none;
     color: #3490dc !important;
     text-decoration: underline;
     cursor: pointer;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .pseudolink:hover {
@@ -9361,7 +9361,7 @@ border-bottom: none;
 /*for see more btn*/
 
 .seemore-btn {
-	font-size: 16px !important;
+    font-size: 16px !important;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -9611,7 +9611,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     height: 100%;
     border: 1px solid #63b7ff;
     border-radius: 5px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .hos-title {
@@ -9767,7 +9767,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     background: #63b7ff;
     color: #fff;
     padding: 10px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .nur_date {
@@ -10321,7 +10321,7 @@ font-size: 18px; */
 /*for inner checkbox*/
 
 .control {
-	font-size: 16px;
+    font-size: 16px;
     width: auto !important;
     position: relative;
     padding-left: 30px;
@@ -11757,7 +11757,7 @@ padding: 0;
         padding-right: 10px;
         position: absolute;
         right: 110px;
-        top: 22px;
+        top: 14px;
         font-size: 14px;
         cursor: pointer;
     }
@@ -11770,7 +11770,7 @@ padding: 0;
     .sp_nav {
         display: block;
         position: fixed;
-        top: 98px;
+        top: 59px;
         right: 0;
         width: 100%;
         height: 100%;
@@ -12940,9 +12940,18 @@ width: 18rem;
     .ads-slider {
         top: 10px;
     }
+    .news-3-card .img-box {
+        padding: 0 5px !important;
+    }
     .wrapper-4 img {
-        width: 95px;
-        float: left;
+        width: auto !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .wrapper-4 {
+        border: 1px solid #fff;
+        background-color: #fff;
     }
     .txt-box {
         /* padding-left: 110px !important;
@@ -13964,7 +13973,7 @@ transition: background-color .3s;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 990px) {
     .form-wrap .form-left-child {
         padding: 10px 15px 5px 15px;
         margin-top: 25px;
@@ -13983,6 +13992,9 @@ transition: background-color .3s;
     }
     #fav-history-page .card-carousel {
         overflow: visible;
+    }
+    .maintab-content {
+        margin: 36px 0 0 0;
     }
 }
 
@@ -14879,3 +14891,99 @@ strong {
     }
 }
 /*end of .container_news*/
+
+@media (max-width: 767px){
+    .maintab-content {
+        margin: 34px 0 0 0;
+    }
+    #myBtn {
+        bottom: 64px;
+    }
+    .footer{
+        padding: 16px;
+    }
+}
+
+/*menu_category*/
+.menu_category{
+    margin: 5px 0 25px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 92% !important;
+    margin: 0 auto;
+}
+#ul_menu_category{
+    /*align-items: center;
+    justify-content: center;*/
+    flex-wrap: nowrap;
+    border-bottom: none;
+}
+#ul_menu_category li{
+    text-align: center;
+    margin: 0 1px 0 0;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    align-self: flex-end;
+}
+#ul_menu_category li a{
+    color: #fff;
+    border: none !important;
+}
+.tab-color0{
+    background-color: #287db4;
+}
+
+.tab-color1{
+    background-color: #a3774a;
+}
+
+.tab-color2 {
+    background-color: #9579ef;
+}
+
+.tab-color3 {
+    background-color: #20d1de;
+}
+
+.tab-color4 {
+    background-color: #d1281c;
+}
+.menu_category .nav-tabs .router-link-exact-active{
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 0.75rem 1rem 0.5rem 1rem;
+    font-weight: bold;
+}
+.menu_category .nav-tabs .nav-link:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
+}
+.h-tel{
+    display: none;
+}
+.gNav{
+    border-left: 1px solid #ccc;
+}
+.gNav .router-link-exact-active>i.fas{
+    color: #2980b9 !important;
+}
+.category_margin{
+    margin: 68px 0 0 0;
+}
+.tab_pane_02{
+    margin-top: 10px;
+}
+@media only screen and (max-width: 560px){
+    .category_margin{
+        margin: 0;
+    }
+}
+/*end of menu_category*/
+
+@media only screen and (min-width: 991px) and (max-width: 1000px) {
+    .maintab-content {
+        margin: 80px 0 0 0;
+    }
+}

@@ -229,6 +229,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch/{searchword}','SearchMapController@getNursingSearch');
     Route::get('getmap','SearchMapController@getMap');
+    Route::get('cities','SearchMapController@getCities');
     Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');
