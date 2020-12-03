@@ -64,13 +64,8 @@ export default {
         var ulWidth = 0;
         $("#ul_menu_category > li").each(function() {
         ulWidth = ulWidth + $(this).width();
-        console.log(ulWidth);
         });
         this.menu_width = ulWidth;
-        console.log(this.menu_width);
-        console.log(this.cat_box_width);
-
-
         if(ulWidth > this.cat_box_width){
         this.is_cat_overflow = true;
         this.computed_width = '99.8%';

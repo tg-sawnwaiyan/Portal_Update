@@ -798,7 +798,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .profile-tit{
     margin-top: 0;
 }

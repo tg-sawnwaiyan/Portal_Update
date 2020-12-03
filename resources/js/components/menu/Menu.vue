@@ -18,7 +18,7 @@
             
             <ul class="gNav">
                 <li>
-                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
+                <router-link :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
                 </li>
                 <li>
                 <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -135,7 +135,7 @@
                     <div class="sp_nav"  v-if="isNav">    
                     <ul class="menu_list child">
                         <li>
-                        <router-link v-on:click.native="activeTopMenu"  :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
+                        <router-link :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
                         </li>
                         <li>
                         <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -319,9 +319,6 @@
             localStorage.setItem('loginuser', '');
             localStorage.setItem('logintoken', '');
             this.$router.push('/login');
-        },
-        activeTopMenu(){
-             $("#top_a").addClass("active");
         },
     }
 }
