@@ -471,46 +471,51 @@ export default {
         this.getAllCat();
     },
     created(){
-    this.$nextTick(() => {
-        if(this.$refs.infoBox){
-            this.cat_box_width = this.$refs.infoBox.clientWidth;
-        }            
-    })
+        this.$nextTick(() => {
+            if(this.$refs.infoBox){
+                this.cat_box_width = this.$refs.infoBox.clientWidth;
+            }            
+        })
         var url      = window.location.href; 
         if(url.indexOf('category') != -1){
             $("#top_a").removeClass("active");
         }
-    if($(window).width() > 480){
-         this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_id = response.data.cat_id;
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }else{
-        this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }
-   },
+        if($(window).width() > 480){
+             this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_id = response.data.cat_id;
+                this.cat_name = response.data.cat_name;
+              
+          });
+        }else{
+            this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_name = response.data.cat_name;
+              
+          });
+        }
+    },
+    updated:function(){
+    this.$nextTick(function () {
+            $(".gNav .router-link-active").addClass("router-link-exact-active");
+        })
+    },
     computed:{  
         slickOptions() {
                 return {
@@ -565,27 +570,6 @@ export default {
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
-                        this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
-
-                        if(this.cat_box_width/total_word < 23){
-                            this.is_cat_overflow = true;
-                        }
-
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
 
                         this.getPostByCatID();
 
