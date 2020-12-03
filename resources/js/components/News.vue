@@ -714,7 +714,7 @@
             is_cat_slided: false,
 
             computed_width: '100%',
-            w_width: $(window).width(),
+            w_width: window.innerWidth,
             norecord_msg: false,
             cat_box_width: null,
             menuWrapperSize: '',
