@@ -4,7 +4,7 @@
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
+                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:style="{ color: cat.color_code}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
                            <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>

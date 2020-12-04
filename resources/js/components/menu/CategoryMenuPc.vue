@@ -5,8 +5,8 @@
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
-                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" ref="itemWidth">
-                           <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
+                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
                     </ul>                                             
@@ -56,11 +56,8 @@ export default {
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
-                        this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);  
+
+                    this.cats = response.data; 
 
                     });
 
@@ -123,6 +120,11 @@ export default {
 }
 </script>
 <style>
+    .tab_color{
+        height: auto;
+        border-left: 5px solid var(--bkgColor);
+        background-color: var(--bkgColor);
+    }
     .menu_tab_category{
         position: absolute;
         max-width: 1500px;

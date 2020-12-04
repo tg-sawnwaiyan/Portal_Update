@@ -16,11 +16,11 @@
                 </div>
                 <div class="form-group">
                     <label>新しい色の登録</label><br>
-                    <label for="company">
+                    <label for="color_name">
                     <span>色名</span>
                     <input type="text" class="form-control"  v-model="category.color_name">
                     </label>
-                    <label for="contact">
+                    <label for="color_code">
                     <span>カラーコード</span>
                     <input type="text" class="form-control"  v-model="category.color_code">
                     </label>

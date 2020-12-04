@@ -80,7 +80,6 @@
 
                         </slick>
                        <!-- slider -->
-
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
@@ -212,7 +211,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,7 +266,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>                                                
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
 
                                                 </div>
 
@@ -331,7 +330,7 @@
                                             <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                     </div>
 
                                 </div>
@@ -386,7 +385,7 @@
                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
+                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
 
                                     </div>
 
@@ -396,9 +395,7 @@
                     </div>
                     <!-- end category bottom -->
                 </div>
-
             </div>
-
         </div>
 
         <!-- </div> -->
@@ -417,10 +414,9 @@
             </span>
             <span v-else>
   
-                <div v-for="(group,name,index) in post_groups" :key="index" class="col-md-12 category_box" id="view-1024-pattern" :class="'bordertop-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))" >
-                    
-                    <h4  class="category_news_title" :class="'h-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))"> 
-                        <router-link :to="'/newscategory/'+name.slice(0, name.indexOf(','))"><span >{{name.slice(name.lastIndexOf(',')+1)}} </span> </router-link>
+                <div v-for="(group,name,index) in post_groups" :key="index" class="bordertop-color col-md-12 category_box" id="view-1024-pattern" :style="{'--color': name.slice(name.lastIndexOf(',')+1)}">
+                    <h4  class="category_news_title h-color" :style="{'--color': name.split(',')[2]}">
+                        <router-link :to="'/newscategory/'+name.split(',')[0]"><span >{{name.split(',')[1]}} </span> </router-link>
                         <label class="list-label" for="">新着ニュース一覧</label>
                         <label class="list-label sp-414">                         
                                 <p :class="'newsChangeLink'+index" @click="newsToggle(index)" ><i :id="'newstogg' + index" class="fas fa-sort-down"></i></p>                      
@@ -515,7 +511,7 @@
                                     <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
                                         <p class="text-truncate news-list-display">
-                                            <i class="fas fa-building"></i> {{item.main_point}}
+                                            <i class="fas fa-building"></i>{{item.main_point}}
                                         </p>
                                     </router-link>
                                 </div>
@@ -649,17 +645,6 @@
             this.getAllCat();
             this.getLatestPostsByCatID();
             this.getLatestPostFromAllCat();
-            
-            // this.axios.get('/api/auth/user') 
-            // .then(response => {
-            //     if(response.data.error == 'Unauthorized'){
-            //         $('#fav-box').css('display','block');                 
-            //     }
-            //     else{
-            //         $('#fav-box').css('display','none');
-            //     } 
-            // })
-
         },
 
     data() {
@@ -720,6 +705,7 @@
             menuWrapperSize: '',
             itemSize: '',
             li_width: 0,
+            latest_catId: 0,
             // w_width: $(window).width() + 16,
         }
     },
@@ -873,24 +859,14 @@
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
 
-                        if(this.cat_box_width/total_word < 23){
-                            this.is_cat_overflow = true;
+                        if(this.cats[0].name == "トップ"){
+                            this.latest_catId = this.cats[1].id;
+                        }else{
+                            this.latest_catId = this.cats[0].id;
                         }
 
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
-
-                        this.getPostByCatID();
+                        //this.getPostByCatID();
 
                         this.getLatestPostByCatID();
 
@@ -966,7 +942,7 @@
             },
 
 
-            getPostByCatID: function(catId = this.cats[0].id) {
+            getPostByCatID: function(catId = this.latest_catId) {
                 if ($('#search-free-word').val() != null) {
                     var search_word = $('#search-free-word').val();
                 } else {
@@ -976,7 +952,7 @@
                 if (catId !== undefined) {
                     var cat_id = catId;
                 } else {
-                    var cat_id = this.cats[0].id;
+                    var cat_id = this.latest_catId;
                 }
                 let fd = new FormData();
                 fd.append('search_word', search_word);
@@ -1014,7 +990,7 @@
 
                 } else {
 
-                    var cat_id = this.cats[0].id;
+                    var cat_id = this.latest_catId;
 
                 }
 
@@ -1082,98 +1058,8 @@
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
-
-            scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-            },
-
-            swipeLeft() {
-
-                const content = this.$refs.content;
-
-                this.scrollTo(content, -300, 800);
-              
-
-
-            },
-
-            swipeRight() {
-                const content = this.$refs.content;
-                this.scrollTo(content, 300, 800);
-                this.is_cat_slided = true;
-                this.computed_width = '98%';
-            },
-             changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },         
-
         }
     }
-    $(document).ready(function(){
-        // $("#top_a").addClass("active");
-        var url      = window.location.href; 
-        if(url.indexOf('category') == -1){
-            $("#top_a").addClass("active");
-        }
-    });
  </script>
 
 <style>
@@ -1470,12 +1356,21 @@
     display: inline-block;
 
 }
-/*#ul_menu_category{
-    display: inline-block;
-
+.tab_title_color{
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 4px 0px 4px;
+    font-size: 13px;
+    background-color: var(--bkgColor);
 }
-#ul_menu_category li{
-    float: left;
-}*/
-
+.bordertop-color{
+    border-top: 2px solid var(--color);
+}
+.h-color span {
+    border-left: 5px solid var(--color);
+    color: var(--color);
+}
+.bordertop-color i {
+    color: var(--color);
+}
 </style>

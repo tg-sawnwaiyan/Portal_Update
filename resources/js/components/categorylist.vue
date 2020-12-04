@@ -47,9 +47,8 @@
                             <div class="card card-default m-b-20" v-for="category in categories.data" :key="category.id">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-8 m-t-8" v-if="category.name == 'トップ'">{{category.name}}</div>
-                                        <div class="col-md-6 col-sm-8 m-t-8" v-if="category.name != 'トップ'">{{category.name}} ({{category.order_number}})</div>
-                                        <div  v-if="category.name != 'PR' && category.name != 'トップ'" class="col-md-6 col-sm-4 text-right admin_page_edit">
+                                        <div class="col-md-6 col-sm-8 m-t-8">{{category.name}} ({{category.order_number}})</div>
+                                        <div  v-if="category.name != 'PR'" class="col-md-6 col-sm-4 text-right admin_page_edit">
                                             <router-link :to="{name:'editcategory', params:{id : category.id}}" class="btn edit-borderbtn">編集</router-link>
                                             <button class="btn text-danger delete-borderbtn" @click="deleteCategory(category.id)" >削除</button>
                                         </div>
