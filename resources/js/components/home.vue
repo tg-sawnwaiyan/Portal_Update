@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
         <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
             <li role="presentation" class="subtab1 nav-item">

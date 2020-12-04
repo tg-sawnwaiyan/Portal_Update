@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'CategoryController@add');
         Route::get('edit/{id}', 'CategoryController@edit');
         Route::post('update/{id}', 'CategoryController@update');
-        Route::delete('delete/{id}', 'CategoryController@destroy');
+        Route::delete('delete/{id}', 'CategoryController@delete');
         // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
     });
     // End Category
@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'NewsByCatController@edit');
         Route::get('news', 'NewsByCatController@index');
         Route::post('update/{id}', 'NewsByCatController@update');
-        Route::delete('delete/{id}','NewsByCatController@destroy');
+        Route::delete('delete/{id}','NewsByCatController@delete');
         Route::post('search', 'NewsByCatController@search');
 
     });
@@ -103,10 +103,10 @@ Route::group(['middleware' => ['auth:api']], function() {
        Route::group(['prefix' => 'occupation'], function () {
         Route::get('occupationList', 'OccupationsController@typeList');
         Route::get('type', 'OccupationsController@index');
-        Route::post('add', 'OccupationsController@store');
+        Route::post('add', 'OccupationsController@add');
         Route::get('edit/{id}', 'OccupationsController@edit');
         Route::post('update/{id}', 'OccupationsController@update');
-        Route::delete('delete/{id}', 'OccupationsController@destroy');
+        Route::delete('delete/{id}', 'OccupationsController@delete');
         Route::post('search', 'OccupationsController@search');
     });
 
@@ -117,10 +117,10 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::group(['prefix' => 'subjects'], function () {
         Route::get('subjectlist', 'SubjectController@SubjectList');
         Route::get('subject', 'SubjectController@index');
-        Route::post('add', 'SubjectController@store');
+        Route::post('add', 'SubjectController@add');
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
-        Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::delete('delete/{id}', 'SubjectController@delete');
         Route::post('search', 'SubjectController@search');
     });
     //End Subject
@@ -128,12 +128,12 @@ Route::group(['middleware' => ['auth:api']], function() {
     // Job
     Route::group(['prefix' => 'job'], function () {
         Route::get('confirm/{id}','JobController@confirm');
-        Route::post('add', 'JobController@store');
+        Route::post('add', 'JobController@add');
         Route::get('index/{type}/{proid}', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
         Route::get('occupationlist', 'JobController@getOccupationList');
         Route::post('update/{id}', 'JobController@update');
-        Route::delete('delete/{id}/{type}/{pro_id}', 'JobController@destroy');
+        Route::delete('delete/{id}/{type}/{pro_id}', 'JobController@delete');
         Route::post('search', 'JobController@search');
         Route::get('customerList/{type}', 'JobController@getCustomerList');
         Route::post('profileList/{cId}', 'JobController@getProfileList');
@@ -159,7 +159,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
         Route::post('account_update','CustomerController@accountStatusUpdate');
-        Route::delete('delete/{id}/{type}','CustomerController@destroy');
+        Route::delete('delete/{id}/{type}','CustomerController@delete');
     });
     // End Customer
 
@@ -188,11 +188,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Advertisement
     Route::group(['prefix' => 'advertisement'], function () {
-        Route::post('add', 'AdvertisementController@store');
+        Route::post('add', 'AdvertisementController@add');
         Route::get('edit/{id}', 'AdvertisementController@edit');
         Route::get('ads', 'AdvertisementController@index');
         Route::post('update/{id}', 'AdvertisementController@update');
-        Route::delete('delete/{id}','AdvertisementController@destroy');
+        Route::delete('delete/{id}','AdvertisementController@delete');
         Route::get('activate/{id}','AdvertisementController@activate');
 
     });
@@ -203,12 +203,12 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     //SpecialFeature
     Route::group(['prefix' => 'feature'], function () {
-        Route::post('add', 'SpecialFeatureController@store');
+        Route::post('add', 'SpecialFeatureController@add');
         Route::get('edit/{id}', 'SpecialFeatureController@edit');
         Route::get('featurelist/{type}', 'SpecialFeatureController@index');
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
-        Route::delete('delete/{id}/{type}','SpecialFeatureController@destroy');
+        Route::delete('delete/{id}/{type}','SpecialFeatureController@delete');
         Route::post('search/{type}','SpecialFeatureController@search');
     });
     //End SpecialFeature
@@ -234,7 +234,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');
     Route::get('townshipJson/{township_name}','SearchMapController@townshipJson');
-    /*added by maythirihtet to display linked news*/
+    /*added to display linked news*/
     Route::get('getLinkedNews/{show_type}','SearchMapController@getLinkedNews');
     /** **/
 
@@ -276,7 +276,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('getStatus/{token}','registerController@getStatus');
     Route::post('reset','registerController@reset');
     Route::post('resetpassword','registerController@resetpassword');
-    Route::post('register','registerController@store');
+    Route::post('register','registerController@add');
     // Route::get('getskill', 'JobApplyController@getSkills');
     Route::get('getjobtitle/{jobs_id}', 'JobApplyController@getJobTitle');
     Route::get('skill', 'JobController@getSkill');
@@ -366,7 +366,7 @@ Route::group(['middleware' => $middleware], function() {
     // Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 
 
-    Route::post('jobapply','JobApplyController@store');
+    Route::post('jobapply','JobApplyController@add');
     // Route::get('jobapplylist/{jobs_id}','JobApplyController@getJobapplies');
     // Route::post('jobapplylist/search','JobApplyController@search');
     // Route::get('job_details', 'JobDetailController@index');
@@ -388,17 +388,17 @@ Route::group(['middleware' => $middleware], function() {
         Route::get('citiesList', 'HospitalProfileController@getCitiesName');
         Route::get('townshipList', 'HospitalProfileController@getTownshipName');
         Route::get('favourite_list', 'HospitalProfileController@index');
-        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+        Route::delete('delete/{id}', 'HospitalProfileController@delete');
     });
 
     Route::group(['prefix' => 'comments'], function () {
-        Route::post('add', 'CommentController@store');
+        Route::post('add', 'CommentController@add');
         Route::get('edit/{id}', 'CommentController@edit');
         Route::get('comment/{type}', 'CommentController@index');
         Route::get('getCustomComment/{type}/{profileid}', 'CommentController@getCustomComment');
         Route::get('confirm/{id}/{type}/{pro_id}','CommentController@confirm');
         Route::post('update/{id}', 'CommentController@update');
-        Route::delete('delete/{id}/{type}/{pro_id}','CommentController@destroy');
+        Route::delete('delete/{id}/{type}/{pro_id}','CommentController@delete');
         Route::post('search','CommentController@search');
         //Route::get('getcommentlist/{cusid}','CommentController@getCommentList');
         Route::get('comment_list','CommentController@list');

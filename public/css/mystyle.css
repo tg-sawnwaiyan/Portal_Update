@@ -1577,6 +1577,78 @@ border-radius: 3px;
     text-align: center;
 }
 
+.color-c40000 {
+    color:#c40000!important;
+}
+.color-aaa {
+    color:#aaa !important;
+}
+.color-333 {
+    color: #333 !important;
+}
+.color-000 {
+    color: #000 !important;
+}
+.mix-blend-mode-normal {
+    mix-blend-mode: normal !important;
+}
+.border-none {
+    border:none !important;
+}
+.text-align-right {
+    text-align:right !important;
+}
+.margin-bottom-0 {
+    margin-bottom:0px !important;
+}
+.margin-top-20 {
+    margin-top:20px !important;
+}
+.margin-left-0 {
+    margin-left:0px !important;
+}
+.margin-left-20 {
+    margin-left: 20px !important;
+}
+.padding-left-5 {
+    padding-left: 5px !important;
+}
+.bottom-155 {
+    bottom: 155px !important;
+}
+.fill-red {
+    fill:red !important;
+}
+.border-0 {
+    border:0px!important;
+}
+.news-card-header {
+    margin: 0 0.4rem 1.65rem 0.4rem !important;
+}
+.search-rsp-btn {
+    width: 100% !important;
+    text-align: left !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
+}
+.term-border {    
+    border: 3px solid #63b7ff !important;
+}
+.search-btn {
+    border: 1px solid #63b7ff !important;
+    background: #63b7ff !important;
+}
+.profile-header-border {
+    border-left: 5px solid #63b7ff !important;
+}
+.search-dropdown {
+    width:100% !important;
+    text-align:left !important;
+}
+.min-width-0 {
+    min-width: 0px !important;
+}
 @media only screen and (max-device-width: 990px) and (orientation: landscape) {
     .successful-resetpwd {
         width: 100% !important;
@@ -13582,6 +13654,9 @@ transition: background-color .3s;
     .nursing_cost {
         padding: 0px;
         margin-left: 16px;
+        font-weight:bold !important;
+        font-size:1.5em !important;
+        margin-bottom:7px !important;
     }
     .nursing_title_lbl {
         display: block;

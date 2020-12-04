@@ -16,17 +16,8 @@ use App\SpecialFeaturesJunctions;
 
 class HospitalProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    function getFavouriteHospital($local_sto) 
     {
-       
-    }
-
-    function getFavouriteHospital($local_sto) {
         $query = "SELECT hospital_profiles.* , '' AS schedule_am, '' AS schedule_pm, group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
         LEFT JOIN townships ON townships.id = hospital_profiles.townships_id
         LEFT JOIN cities ON townships.city_id = cities.id
@@ -58,7 +49,8 @@ class HospitalProfileController extends Controller
         return $fav_hospital;
     }
 
-    function getFavouriteNursing($local_sto) {
+    function getFavouriteNursing($local_sto) 
+    {
         $query = "SELECT nursing_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special,'' AS payment_method, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
         LEFT JOIN townships ON townships.id = nursing_profiles.townships_id
         LEFT JOIN cities ON townships.city_id = cities.id
@@ -78,16 +70,12 @@ class HospitalProfileController extends Controller
                 $payment = DB::select($sql);
                 $nur->payment_method = $payment;                
             }
-            
-
-            
-        }
-        
+        }        
         return $fav_nursing;
     }
 
-    public function getPostalList($postal){
-
+    public function getPostalList($postal)
+    {
         $postal = (int)$postal;
         $query = "SELECT * FROM zipcode WHERE zip7_code LIKE '".$postal."'";
         $postal_list = DB::select($query);
@@ -99,10 +87,10 @@ class HospitalProfileController extends Controller
             $township_id = null;
         }
         return response()->json(Array('postal_list'=>$postal_list,'township_id'=>$township_id));
-      
     }
 
-    public function getCitiesName() {
+    public function getCitiesName() 
+    {
         $query = "SELECT cities.id, cities.city_name FROM cities";
         $city_list = DB::select($query);
         return $city_list;
@@ -114,38 +102,6 @@ class HospitalProfileController extends Controller
         $township_list = DB::select ($query);
         return $township_list;
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -155,21 +111,8 @@ class HospitalProfileController extends Controller
      */
     public function edit($id)
     {
-        $hospital = HospitalProfile::where('id',$id)->first();
-       
+        $hospital = HospitalProfile::where('id',$id)->first();       
         return response()->json($hospital);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -185,8 +128,8 @@ class HospitalProfileController extends Controller
         return response()->json('The successfully deleted');
     }
 
-    public function movePhoto(Request $request) {
-
+    public function movePhoto(Request $request) 
+    {
         $request = $request->all();
         foreach ($request as $file){
             $imageName = $file->getClientOriginalName();
@@ -197,18 +140,14 @@ class HospitalProfileController extends Controller
         }        
     }
     
-    public function profileupdate($id,Request $request) {
-      
-        $request = $request->all();  
-        
+    public function profileupdate($id,Request $request) 
+    {      
+        $request = $request->all();          
         $subject = [];
         for($i=0;$i<count($request[0]['subjects'][0]['subject_id']);$i++)
         {    
             $subject[$i] = Subject::where('id',$request[0]['subjects'][0]['subject_id'][$i])->value('name');    
-        }
-       
-
-
+        }      
         // Hospital Profile
         $hospital = HospitalProfile::where('id',$id)->first();
         $hospital->name = $request[0]['hospital_info']['name'];
@@ -228,12 +167,10 @@ class HospitalProfileController extends Controller
         $hospital->longitude =  $request[0]['hospital_info']['longitude'];   
         $hospital->subject = implode($subject, ',');
         $hospital->save();
-       // End 
-        
+        // End         
         // Schedule 
         $schedule = Schedule::where('profile_id', $id)
                     ->delete();
-
         for($i=0; $i<2; $i++) {
             if($i == 0) { $part = 'am'; } else { $part = 'pm'; }
             $data = array(
@@ -250,13 +187,11 @@ class HospitalProfileController extends Controller
                 'updated_at' => date('Y/m/d H:i:s') 
             );
             DB::table('schedule')->insert($data);
-        // End
-        }
-        
+            // End
+        }        
         // Special Feature
         $feature = SpecialFeaturesJunctions::where('profile_id', $id)
                     ->delete();
-
         for($indx=0; $indx<count($request[0]['chek_feature'][0]['special_feature_id']); $indx++) {
             $new_feature = new SpecialFeaturesJunctions();
             $new_feature->profile_id = $id;
@@ -264,14 +199,9 @@ class HospitalProfileController extends Controller
             $new_feature->save();
         }
         // End
-
-
-
-
         // SubjectJuncitonsUpdate 
         $subject = SubjectJunctions::where('profile_id', $id)
                     ->delete();
-
         for($indx=0; $indx<count($request[0]['subjects'][0]['subject_id']); $indx++) {
             $new_subject = new SubjectJunctions();
             $new_subject->profile_id = $id;
@@ -279,11 +209,9 @@ class HospitalProfileController extends Controller
             $new_subject->save();
         }
         // End
-
          // Gallary 
          $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'video', 'profile_type'=>'hospital'])->delete(); 
-         if(count($request[0]["video"]) > 0){
-            
+         if(count($request[0]["video"]) > 0){            
             for($i=0; $i<count($request[0]["video"]); $i++) {
                 $gallery = new Gallery;
                 $gallery->profile_id = $id;
@@ -291,14 +219,12 @@ class HospitalProfileController extends Controller
                 $gallery->type = $request[0]["video"][$i]['type'];
                 $gallery->photo = $request[0]["video"][$i]['photo'];
                 $gallery->title = $request[0]["video"][$i]['title'];
-                $gallery->description = $request[0]["video"][$i]['description'];
-    
+                $gallery->description = $request[0]["video"][$i]['description'];    
                 $gallery->save();
             }
         }
         $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'hospital'])->delete(); 
-        if(count($request[0]["image"]) > 0){
-            
+        if(count($request[0]["image"]) > 0){            
             for($i=0; $i<count($request[0]["image"]); $i++) {
                 $gallery = new Gallery;
                 $gallery->profile_id = $id;
@@ -306,13 +232,10 @@ class HospitalProfileController extends Controller
                 $gallery->type = $request[0]["image"][$i]['type'];
                 $gallery->photo = $request[0]["image"][$i]['photo'];
                 $gallery->title = $request[0]["image"][$i]['title'];
-                $gallery->description = $request[0]["image"][$i]['description'];
-    
+                $gallery->description = $request[0]["image"][$i]['description'];    
                 $gallery->save();
             }
-        }
-   
+        }   
         return response()->json('success');
     }
-
 }

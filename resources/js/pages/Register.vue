@@ -12,24 +12,23 @@
             <div class="user_card user_registercard">
                 <div class="login_link">
                     <a href="/" class="home_link">ホーム</a>
-                <router-link to="/login" class="ml-auto text">ログイン</router-link>    
+                    <router-link to="/login" class="ml-auto text">ログイン</router-link>    
                 </div>
                 <div class="form_content">
                     <div class="reg_title">事業者新規登録</div>
                     <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post" class="registerformwrapper">                       
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">事業者名</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
                                 <div class="input-group">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                   <input type="text" autocomplete="off" class="form-control" name="name" v-model="username"  placeholder="事業者名を入力してください。" @keyup="focusName">
+                                    <input type="text" autocomplete="off" class="form-control" name="name" v-model="username"  placeholder="事業者名を入力してください。" @keyup="focusName">
                                     <span v-if="errors.username" class="error">{{errors.username}}</span>
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">                           
                             <label class="col-12 col-lg-3 col-md-4 control-label">メールアドレス </label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -42,7 +41,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">パスワード </label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -55,7 +53,6 @@
                                 </div>
                             </div>
                          </div>
-
                          <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">パスワード確認</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -68,7 +65,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div  class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">事業者タイプ</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -85,18 +81,17 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="input-group hide form-check form-check-inline" id="showHideActionNursing">
                             <label class="col-12 col-lg-3 col-md-4 control-label">看護種類</label>
                             <div class="input-group-append " id="nursing">
                             </div>
-                            <div class="error" id="radioerror" style="margin-bottom: 6px;margin-left: 210px;">必須</div>
+                            <div class="error register-err-margin" id="radioerror">必須</div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">電話番号</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
-                                <span style="color:#999;">※ 数字のみ </span>
+                                <span class="color-999">※ 数字のみ </span>
                                 <div class="input-group">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
@@ -107,7 +102,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div id="jsErrorMessage" class="error"></div> -->
                         <!-- 契約書 追加 -->
                         <!-- <div class="form-group col-12 text-center">
                             <a href="/contract" v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
@@ -136,58 +130,54 @@
     </div>
 </template>
 <script>
-  export default {
+export default {
     data() {
-      return {
-        contract_status:0,
-        contract_chk:[],
-        disable_color:'#999',
-        images:'',
-        img_name:'',
-        username: '',
-        email: '',
-        //cities: [],
-        //city : '',
-        //townships :[],
-        //township :'',
-        type:'',
-        typ:[],
-        types:[],
-        phone:'',
-        address:'',
-        password: '',
-        password_confirmation: '',
-        passerr: false,
-        has_error: false,
-        correctVal: null,
-        tempVal: null,
-        error: '',
-        errors: {
-            img:"",
-            name:"",
-            email:"",
-            password:"",
-            username:"",
+        return {
+            contract_status:0,
+            contract_chk:[],
+            disable_color:'#999',
+            images:'',
+            img_name:'',
+            username: '',
+            email: '',
+            //cities: [],
+            //city : '',
+            //townships :[],
+            //township :'',
             type:'',
+            typ:[],
+            types:[],
+            phone:'',
+            address:'',
+            password: '',
+            password_confirmation: '',
+            passerr: false,
+            has_error: false,
+            correctVal: null,
+            tempVal: null,
+            error: '',
+            errors: {
+                img:"",
+                name:"",
+                email:"",
+                password:"",
+                username:"",
+                type:'',
+                ph_length:'',
+                ph_num:'',
+                //cities:"",
+                //township:""
+            },
+            success: false,
+            show: true,
+            url: '',
             ph_length:'',
             ph_num:'',
-            //cities:"",
-            //township:""
-        },
-
-        success: false,
-        show: true,
-        url: '',
-        ph_length:'',
-        ph_num:'',
-        arr:[],
-        Numbers:[],
-        mail_reg:  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
-        phone_reg: /^([0-9]*)$/
-
-
-      }
-
+            arr:[],
+            Numbers:[],
+            mail_reg:  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
+            phone_reg: /^([0-9]*)$/
+        }
     },
 
     methods: {
@@ -211,7 +201,6 @@
 
             })
         },
-    
         password_validate() {
             // var pwd = $('#pwd').val();
             // var confirm_pwd = $('#confirm_pwd').val();
@@ -243,7 +232,6 @@
                 this.errors.type = ''
             }
         },
-
         focusMail: function(event) {
             if((this.email != '' && this.mail_reg.test(this.email))){
                 this.errors.email='';
@@ -251,7 +239,6 @@
                 this.errors.email ='※メールアドレスが正しくありません。もう一度入力してください。';
             }
         },
-
         register() {
             if(this.type == '')
             {
@@ -312,15 +299,11 @@
 
             if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13))
             {
-            
-            this.errors.ph_length = '';
-            
+                this.errors.ph_length = '';
             }
             else{
-        
                 this.errors.ph_length = '※電話番号を確認してください。';
             }
-
             if(this.errors.email == '' && this.errors.username == '' && this.errors.password == '' && this.errors.type == '' &&  this.errors.ph_length == '' && this.errors.ph_num == '' && this.errors.contract_chk == '')
             {
                 var app = this
@@ -369,28 +352,25 @@
                                     name: 'News'
                                 });
                             }).catch(error => {
-                            this.$loading(false);
-                            if(error.response.status == 422){
-                            
-                                this.errors = error.response.data.errors;
-                            
-                                if(this.errors.email)
-                                {
-                                    this.errors.email = "このメールアドレスは既に存在します。";
+                                this.$loading(false);
+                                if(error.response.status == 422){
+                                    this.errors = error.response.data.errors;
+                                    if(this.errors.email)
+                                    {
+                                        this.errors.email = "このメールアドレスは既に存在します。";
+                                    }
+                                    else{
+                                        this.errors.email = "";
+                                    }
+                                    if(this.errors.password)
+                                    {
+                                        this.errors.password = "パスワードは6桁以上必要です。"
+                                    }
+                                    else{
+                                        this.errors.password = "";
+                                    }
                                 }
-                                else{
-                                    this.errors.email = "";
-
-                                }
-                                if(this.errors.password)
-                                {
-                                    this.errors.password = "パスワードは6桁以上必要です。"
-                                }
-                                else{
-                                    this.errors.password = "";
-                                }
-                            }
-                        })                        
+                            })                        
                     } 
                 })
                 // .catch(error =>{
@@ -399,52 +379,44 @@
                 //     });
             }
         },
-
         focusPhone: function(e) {
             if(this.phone != '')
             {
                 this.errors.ph_num = '';
             }
-        
-    
-        
             if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13))
             {
-            
-            this.errors.ph_length = '';
-            
-            }
-            else{
-        
-                this.errors.ph_length = '※電話番号を確認してください。';
-            }
-
-            if(this.phone == '' || this.phone == null)
-            {
-            
                 this.errors.ph_length = '';
             }
-
-        
-        
-        },   
-    
+            else{
+                this.errors.ph_length = '※電話番号を確認してください。';
+            }
+            if(this.phone == '' || this.phone == null)
+            {
+                this.errors.ph_length = '';
+            }
+        },    
     },
 
   }
 </script>
 
 <style>
-
 .img{
     opacity: 1;
     transition: 0.5s;
     width:200px;
     height:200px;
-  }
-.tl
-{
+}
+.tl{
     text-align: left;
+}
+.register-err-margin {
+    margin-bottom: 6px;
+    margin-left: 210px;
+}
+.color-999 {
+    color:#999;
 }
 /*  契約書 追加  */
 .contract-group {

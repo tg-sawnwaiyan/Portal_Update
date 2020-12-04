@@ -10,16 +10,12 @@ use Tymon\JWTAuth\Manager;
 
 class AuthController extends Controller
 {
-
     // public function __construct(){
-
     // $this->middleware('auth:api', ['except' => ['login', 'register']]);
-
     // }
 
     public function register(Request $request)
-    {
-        
+    {        
         // return response()->json(['status' => 'success'], 200);
         $v = Validator::make($request->all(), [
             'email' => 'required|email|unique:users',
@@ -36,11 +32,10 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         //$user->save();
-
     }
+
     public function login(Request $request)
     {
-
         $username  = $request->email;
         $getRole = User::where('email',$username)->select('role')->value('role');
         if($getRole == 1){
@@ -51,14 +46,12 @@ class AuthController extends Controller
             return response()->json(['error' => 'login_error'], 401);
         }else{
             return response()->json(['error' => 'Please Admin, You have no authorize to login here!'], 401);
-        }
-       
+        }       
     }
+
     public function admin_login(Request $request)
     {
-        // $email = $_GET['email'];
-
-       
+        // $email = $_GET['email'];       
         $username  = $request->email;
         $getRole = User::where('email',$username)->select('role')->value('role');
         if($getRole == 2){
@@ -69,14 +62,14 @@ class AuthController extends Controller
             return response()->json(['error' => 'login_error'], 401);
         }else{
             return response()->json(['error' => 'Please User, You have no authorize to login here!'], 401);
-        }
-       
+        }       
     }
 
     public function me()
     {
         return response()->json(auth()->user());
     }
+
     public function logout()
     {        
         Auth::logout();
@@ -95,6 +88,7 @@ class AuthController extends Controller
             'data' => $user
         ]);
     }
+
     public function refresh()
     {
         try {
@@ -106,21 +100,22 @@ class AuthController extends Controller
             return response()->json(['status' => 'Token is Expired']);
         }
     }
+
     protected function respondWithToken($token)
     {
        try {
-        $responseArray = [
-            'access_token' => $token,
-            'user' => auth()->user(),
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 2,
-        ];
-        return response()->json($responseArray);
+            $responseArray = [
+                'access_token' => $token,
+                'user' => auth()->user(),
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 2,
+            ];
+            return response()->json($responseArray);
        } catch (Exception $e) {
-        return response()->json('token error');
+            return response()->json('token error');
        }
-
     }
+
     private function guard()
     {
         return Auth::guard();

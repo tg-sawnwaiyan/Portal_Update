@@ -18,25 +18,14 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-
         $ads =Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($ads);
     }
+    
     public function slider()
     {
-
         $ads =Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->get();
         return response()->json($ads);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -45,7 +34,7 @@ class AdvertisementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $logo_imgname = '';
         $pdfname = '';
@@ -105,18 +94,6 @@ class AdvertisementController extends Controller
         return response('logofile')->json('Success ');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -125,10 +102,8 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
-         $ads = Advertisement::find($id);
-
-         return response()->json($ads);
+        $ads = Advertisement::find($id);
+        return response()->json($ads);
     }
 
     /**
@@ -139,7 +114,6 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($id,Request $request)
-
     {
         // $request->validate([
         //     'title' => 'required',
@@ -183,29 +157,29 @@ class AdvertisementController extends Controller
         //       'user_id' => 1,
         //       'recordstatus' => 1
         //  );
-            $ads = Advertisement::find($id);
-            if(is_object($request->photo)) {
-                     $file= $ads->photo;
-                     $filename = './upload/advertisement/'.$file;
-                   \File::delete($filename);
-                }
+        $ads = Advertisement::find($id);
+        if(is_object($request->photo)) {
+            $file= $ads->photo;
+            $filename = './upload/advertisement/'.$file;
+            \File::delete($filename);
+        }
 
-            if(is_object($request->pdf)) {
-                $file= $ads->pdf;
-                $filename = './upload/static/'.$file;
-                \File::delete($filename);
-            }
+        if(is_object($request->pdf)) {
+            $file= $ads->pdf;
+            $filename = './upload/static/'.$file;
+            \File::delete($filename);
+        }
 
-            $ads->title = $request->input('title');
-            $ads->description = $request->input('description');
-            $ads->link=$request->input('link');
-            $ads->location=$request->input('location');
-            $ads->photo = $imageName;
-            $ads->pdf = $pdfName;
-            $ads->show_flag = $request->input('show_flag');
-            $ads->user_id = 1;
-            $ads->save();
-            return response()->json('successfully updated');
+        $ads->title = $request->input('title');
+        $ads->description = $request->input('description');
+        $ads->link=$request->input('link');
+        $ads->location=$request->input('location');
+        $ads->photo = $imageName;
+        $ads->pdf = $pdfName;
+        $ads->show_flag = $request->input('show_flag');
+        $ads->user_id = 1;
+        $ads->save();
+        return response()->json('successfully updated');
         //return response()->json($ads);
     }
 
@@ -215,7 +189,7 @@ class AdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     { 
         //
         $ads = Advertisement::find($id);
@@ -248,13 +222,11 @@ class AdvertisementController extends Controller
                             ->orderBy('id','DESC')
                             ->paginate(20);
         return response()->json($advertisement);
-
     }
 
     public function activate($id)
     {
         $ads = Advertisement::find($id);
-
         if($ads->recordstatus == 0 ) {
             $ads->recordstatus =1;
         }
@@ -262,6 +234,6 @@ class AdvertisementController extends Controller
             $ads->recordstatus =0;
         }
         $ads->save();
-       return response()->json('success');
+        return response()->json('success');
     }
 }

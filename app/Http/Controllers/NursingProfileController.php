@@ -16,23 +16,14 @@ use DB;
 
 class NursingProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function edit($id) 
     {
-       
-    }
-
-    public function edit($id) {
-
         $nursing = NursingProfile::select('nursing_profiles.*','customers.name as cusname')->join('customers','nursing_profiles.customer_id','=','customers.id')->where('nursing_profiles.id', $id)->first();
         return $nursing;
     }
 
-    public function movePanorama(Request $request) {
+    public function movePanorama(Request $request) 
+    {
         $request = $request->all();
         foreach ($request as $file){
             $imageName = $file->getClientOriginalName();
@@ -40,15 +31,15 @@ class NursingProfileController extends Controller
             $imageName = strtolower($imageName);
             $destination = 'upload/nursing_profile/Imagepanorama/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
-
             // $imageName = $file->getClientOriginalName();
             // $imageName = str_replace(' ', '', $imageName);
             // $request->photo->move('upload/nursing_profile/Imagepanorama/', $imageName);
-            
         }
     }
+
     //test
-    public function movePhoto(Request $request) {
+    public function movePhoto(Request $request) 
+    {
         $request = $request->all();
         foreach ($request as $file){
             $imageName = $file->getClientOriginalName();
@@ -59,7 +50,8 @@ class NursingProfileController extends Controller
         }        
     }
 
-    public function moveLogo(Request $request) {
+    public function moveLogo(Request $request) 
+    {
         $request = $request->all();
         $imageName = $request['logo']->getClientOriginalName();
         $imageName = str_replace(' ', '', $imageName);
@@ -68,9 +60,9 @@ class NursingProfileController extends Controller
         $upload_img = move_uploaded_file($request['logo'], $destination);   
     }
 
-    public function profileupdate($id,Request $request) { 
+    public function profileupdate($id,Request $request) 
+    { 
         $request = $request->all();
-
         $nursing = NursingProfile::where('id',$id)->first();
         // Nursing Profile 
         $nursing->name = $request[0]['nursing_profile']['name'];
@@ -78,7 +70,6 @@ class NursingProfileController extends Controller
         $nursing->phone = $request[0]['nursing_profile']['phone'];
         $nursing->address = $request[0]['nursing_profile']['address'];
         $nursing->logo = $request[0]['nursing_profile']['logo'];
-
         $nursing->access = $request[0]['nursing_profile']['access'];
         $nursing->townships_id = $request[0]['nursing_profile']['townships_id'];
         $nursing->operator = $request[0]['nursing_profile']['operator'];
@@ -109,11 +100,9 @@ class NursingProfileController extends Controller
         $nursing->longitude = $request[0]['nursing_profile']['longitude'];
         $nursing->save();
         // End
-
         // Cooperate List
         $medical = Cooperate_Medical::where('profile_id', $id)
                         ->delete();
-
         for($i=0; $i<count($request[0]['cooperate_list']); $i++) {
             $cop_medical = new Cooperate_Medical;
             $cop_medical->profile_id = $id;
@@ -122,15 +111,12 @@ class NursingProfileController extends Controller
             $cop_medical->details = $request[0]['cooperate_list'][$i]['details'];
             $cop_medical->medical_expense = $request[0]['cooperate_list'][$i]['medical_expense'];
             $cop_medical->remark = $request[0]['cooperate_list'][$i]['remark'];
-
             $cop_medical->save();
         }
         // End
-
         // Payment List
         $payment = method_payment::where('profile_id', $id)
-                        ->delete();
-        
+                        ->delete();        
         for($i=0; $i<count($request[0]['payment_list']); $i++) {
             $m_payment = new method_payment;
             $m_payment->profile_id = $id;
@@ -150,19 +136,13 @@ class NursingProfileController extends Controller
             $m_payment->depreciation_period = $request[0]['payment_list'][$i]['depreciation_period'];
             $m_payment->initial_deprecration = $request[0]['payment_list'][$i]['initial_deprecration'];
             $m_payment->other_message_refund = $request[0]['payment_list'][$i]['other_message_refund'];
-
             $m_payment->save();
         }
         // End
-
-        
-
         // DB::update("UPDATE users SET name='".$request[0]['customer_info']['name']."', email='".$request[0]['customer_info']['email']."' WHERE customer_id=$id");
         // End
-
         // Staff Info
-        $staff = Staff::where('profile_id', $id)->first();
-    
+        $staff = Staff::where('profile_id', $id)->first();    
         if($staff) {
             $staff->profile_id = $id;
             $staff->staff = $request[0]['staff_info']['staff'];
@@ -182,11 +162,9 @@ class NursingProfileController extends Controller
             $new_staff->save();
         }
         // End
-
         // Accepatance
         $transition = AcceptanceTransaction::where('profile_id', $id)
                         ->delete();
-
         for($i=0; $i<count($request[0]['acceptance']); $i++) { 
             if($request[0]['acceptance'][$i] != '') {
                 $accept_transaction = new AcceptanceTransaction;
@@ -197,10 +175,8 @@ class NursingProfileController extends Controller
             } 
         }
         // End
-
         // Feature
         $feature = SpecialFeaturesJunctions::where('profile_id', $id) ->delete();
-
         for($indx=0; $indx<count($request[0]['chek_feature'][0]['special_feature_id']); $indx++) {
             $new_feature = new SpecialFeaturesJunctions();
             $new_feature->profile_id = $id;
@@ -208,7 +184,6 @@ class NursingProfileController extends Controller
             $new_feature->save();
         }
         // End
-
         // Gallary 
         $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'video', 'profile_type'=>'nursing'])->delete(); 
         if(count($request[0]["video"]) > 0){
@@ -220,11 +195,9 @@ class NursingProfileController extends Controller
                 $gallery->photo = $request[0]["video"][$i]['photo'];
                 $gallery->title = $request[0]["video"][$i]['title'];
                 $gallery->description = $request[0]["video"][$i]['description'];
-    
                 $gallery->save();
             }
         }
-
         $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'nursing'])->delete(); 
         if(count($request[0]["image"]) > 0){
             for($i=0; $i<count($request[0]["image"]); $i++) {
@@ -235,11 +208,9 @@ class NursingProfileController extends Controller
                 $gallery->photo = $request[0]["image"][$i]['photo'];
                 $gallery->title = $request[0]["image"][$i]['title'];
                 $gallery->description = $request[0]["image"][$i]['description'];
-    
                 $gallery->save();
             }
         }
-
         $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'panorama', 'profile_type'=>'nursing'])->delete(); 
         if(count($request[0]["panorama"]) > 0){
             for($i=0; $i<count($request[0]["panorama"]); $i++) {
@@ -250,15 +221,14 @@ class NursingProfileController extends Controller
                 $gallery->photo = $request[0]["panorama"][$i]['photo'];
                 $gallery->title = $request[0]["panorama"][$i]['title'];
                 $gallery->description = $request[0]["panorama"][$i]['description'];
-    
                 $gallery->save();
             }
         }
         // End
     }
 
-    public function getCities($township_id) {
-
+    public function getCities($township_id) 
+    {
         $query = "SELECT townships.city_id,'' AS township_list FROM townships WHERE id = $township_id";
         $cities = DB::select($query);
         // $cId = $cities[0]['city_id'];
@@ -271,7 +241,9 @@ class NursingProfileController extends Controller
         return $cities;
         // return $cities;
     }
-    public function getTownships($city_id) {
+    
+    public function getTownships($city_id) 
+    {
         $query = "SELECT townships.id,townships.township_name FROM townships WHERE townships.city_id = $city_id";
         $township_list = DB::select($query);
         $c_query = "SELECT cities.latitude, cities.longitude FROM cities WHERE cities.id = $city_id";

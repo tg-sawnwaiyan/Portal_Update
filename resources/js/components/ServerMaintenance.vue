@@ -13,7 +13,6 @@
 .w-h {
     width: 100%;
     height: 500px;
-    
 }
 .card{
     background-color: #d5d5d5;

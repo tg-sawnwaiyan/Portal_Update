@@ -10,24 +10,17 @@
         <span v-if="count == false && searchword != '' && searchword != 'all' && job_data.length && !stateclick "> 「<span class="result-span">{{searchword}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
         <span v-if="count == false && id != '-1' && job_data.length  && stateclick"> 「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
         <span v-if="count == true && job_data.length ">「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」</span>
-        <!-- <span v-if="job_data.length && searchword == '' && job_data[0].city_name != ''"> 「<span class="result-span">{{job_data[0].city_name}}</span>の求人 <span class="result-span">{{job_data.length}} </span>件」</span>
-        <span v-if="job_data.length && searchword != '' && searchword == 'all' && id == '-1'"> 「<span class="result-span">求人</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-        <span v-if="job_data.length && searchword != '' && searchword != 'all' && id == '-1'"> 「<span class="result-span">{{searchword}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-        <span v-if="job_data.length && searchword != '' && searchword == 'all' && id != '-1'"> 「<span class="result-span">求人 , {{job_data[0].city_name}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span>
-        <span v-if="job_data.length && searchword != '' && searchword != 'all' && id != '-1'"> 「<span class="result-span">{{searchword}} , {{job_data[0].city_name}}</span>の求人  <span class="result-span">{{job_data.length}} </span>件」</span> -->
     </h5>
   </div>
   <div class="search-map card-body" @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
         <div>
-          <!-- <div class="info-box"></div> --> 
           <!--start map-->
           <div class="row map-wrap" style="background-color:#ececec;">
 
           <!-- free word left wrapper--->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
-              <!-- <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2> -->
               <h2 class="map-header job-map-header" style="bottom: 155px;">あなたのやさしい<br/>手を求めてる老人<br/>ホーム・病院が見<br/>つかります。</h2>
 
 
@@ -58,10 +51,6 @@
             <div class="freeword-responsive">
                 <h3 class="map-resicon">
                   <div class="map-text-wrapper">
-                    <!-- <div>
-                     <img src="/images/map-responsive1.png" alt="" class="img-responsive"> 
-                      <i class="fa icon map-fa-icon map-fa-icon-job"></i>
-                    </div> -->
                     <div>
                       <p class="text-left job-map-header"> &nbsp;あなたのやさしい 手を求めてる老人<br class="pc-768"/>ホーム・病院が見つかります。</p>
                     </div>
@@ -101,7 +90,6 @@
                     <div class="col-lg-3 col-md-4 col-sm-12 pc-414">
                       <button @click="toggleContent4" class="btn seemore-btn all-btn" v-if="getTownships.length > 0">
                       <i class="fa" aria-hidden="true"></i>
-                          <!-- <em>{{city.city_name}}</em> -->
                           <span id="close6"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる </span>
                     </button>
                     </div>
@@ -140,27 +128,7 @@
                     </div>
                   </td>
                 </tr>
-                 <!--test-->
-                <!-- <tr class="toBeToggled1 ShowHide">
-                    <th class="pc-414-table sp-768-block">職種</th>
-                    <td class="sp-768-block sp-414-table">
-                        <div v-for="(v,i) in array_len" :key="i">
-                            <div class="hospital-subject" v-for="(occupation,index) in occupations.slice((i*3),((i*3)+3))" :key="index">
-                                <div class="row col-12">
-                                    <strong class="table-innertitle row col-12">{{occupation.name}}</strong>
-                                    <div class="col-6" v-for="ch in occupation.child" :key="ch.id+1">
-                                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                        <input  class="form-check-input" type="checkbox" :id="ch.id" v-model="occupationID" :value="ch.id">
-                                            {{ch.name}}
-                                        <div class="control__indicator"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr> -->
-
+                 <!--test-->               
                 <tr >
                     <th class="pc-414-table sp-768-block">職種</th>
                     <td class="sp-768-block sp-414-table">
@@ -327,9 +295,6 @@
                         </div>
                       </div>
                       <div class="job-body d-flex clearfix">
-                        <!-- <div class="col-4 job-img">
-                          <img src="/upload/news/nursing.JPG"  alt="">
-                        </div> -->
                         <div class="col-12 pad-free job-box p0-480">
                           <table  class="table table-bordered  table-sm">
                             <tr>
@@ -340,7 +305,6 @@
                               <td><span class="job_ico">&#xa5;</span>給料</td>
                               <td> {{job.salary}} <span v-if="job.salary_remark"> ( {{ job.salary_remark }} ) </span> </td>
                             </tr>
-                            <!-- {{job.salary_type}} : {{(Number(job.salary)).toLocaleString()}} 円 -->
                             <tr>
                               <td><span class="job_ico">時</span>就業時間/休日休暇</td>
                               <td> {{job.working_hours}} <span v-if="job.holidays!='' && job.holidays!=null">/</span> {{job.holidays}}  </td>
@@ -354,13 +318,11 @@
                       </div>
                       <div class="mt-4 detail-btn">
                         <span class="btn all-btn" @click="gotoJobdetail(job.jobid)">詳細を見る</span>
-                        <!-- <router-link :to="{path:'/job_details/'+job.jobid}" class="btn all-btn">詳細を見る</router-link> -->
                         </div>
                     </div>
                   </div>
                 </div>
               </div>
-            <!-- <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate"> -->
             <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-6" v-if="show_paginate">
               <nav aria-label="Page navigation example">
@@ -498,15 +460,6 @@ export default {
              var elmnt = document.querySelector("#scroll");
              elmnt.scrollIntoView({block: 'start', inline: 'start',offsetTop:200}); 
           
-          
-            // const scrollToEl = document.querySelector("#scroll");
-            // scrollToEl.scrollIntoView({behavior: "smooth",block:"start"});
-            //   var scrollToEl = document.querySelector("#scroll");
-            //   const topOfElement = window.pageYOffset + scrollToEl.getBoundingClientRect().top - 10000;
-            //  topOfElement.scrollIntoView(true); 
-            //  var elmnt = document.querySelector("#scroll").offsetHeight;
-            // const topOfElement = window.pageYOffset + elmnt.getBoundingClientRect().top - headerHeight - buffer;       
-            //  elmnt.scrollIntoView({block:"start",offsetHeight:2000}); 
           }
       }    
     },

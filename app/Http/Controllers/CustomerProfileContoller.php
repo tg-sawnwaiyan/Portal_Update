@@ -7,10 +7,6 @@ use DB;
 
 class CustomerProfileContoller extends Controller
 {
-    function index() {
-
-    }
-
     function getHospitalHistory($local_sto) {
         $query = "SELECT hospital_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, '' AS schedule_am, '' AS schedule_pm, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
         LEFT JOIN townships ON townships.id = hospital_profiles.townships_id

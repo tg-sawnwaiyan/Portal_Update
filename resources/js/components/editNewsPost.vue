@@ -30,9 +30,6 @@
 
                     <div class="form-group" id="showimage">
                         <label class="">写真</label>
-                        <!-- <div class="custom-file">
-                            <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                        </div> -->
                         <div class="d-flex align-items-center">
                             <span class="btn-file d-inline-block">画像を選択        
                                 <input type="file" ref="file" accept="image/*" @change="fileSelected">
@@ -44,7 +41,6 @@
                     
                     <div class="image_show" v-if="upload_img ">
                         <div class='col-md-2'>
-                            <!-- <span class='img-close-btn test' v-on:click="removeUpload()" v-if='status == 1'>X</span> -->
                             <img :src="upload_img" class='show-img' @error="imgUrlAlt">
                         </div>
                     </div>  
@@ -79,7 +75,6 @@
                             <select v-model="block_id" class="form-control" @change='getblock()'>
                                 <option v-bind:value="0">選択してください。</option>
                                 <option v-bind:value="1">大きなブロック</option>
-                               <!--  <option v-bind:value="4">右の大きなブロック</option> -->
                                 <option v-bind:value="2">中型ブロック</option>
                                 <option v-bind:value="3">小さなブロックサイズ</option>
                             </select>
@@ -103,32 +98,6 @@
                         <label>内容 <span class="error sp2">必須</span></label>
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
-
-                        <!-- for quill image upload (@author :pzo) -->
-                        <!-- <div class="form-group" id="quill_showimage">
-                            <div class="d-flex align-items-center">
-                                <span class="btn-file d-inline-block">画像を選択        
-                                    <input type="file" ref="file" accept="image/*" @change="quillFileSelected">
-                                </span> 
-                                <span class="pl-4">{{quill_img_name}}</span>
-                            </div>                    
-                            
-                        </div>                    
-                        <div class="image_show" v-if="quill_upload_img ">
-                            <div class='col-md-2'>
-                                <img :src="quill_upload_img" class='show-img' @error="imgUrlAlt">
-                            </div>
-                        </div>  
-                        <div  class="form-group image_update" id="x-quill" v-if ="news.quill_photo && !quill_upload_img && !old_quill_photo">
-                            <div class="col-md-12" >
-                                <div id='x-quill' class='col-md-2' >
-                                    <span class='img-close-btn' v-on:click='quillCloseBtnMethod(news.quill_photo)'>X</span>
-                                    <img :src="'/upload/news/'+ news.quill_photo" class='show-img' alt="" @error="imgUrlAlt1">
-                                </div>
-                            </div>
-                        </div> -->
-                 
-                        <!-- end quill image upload -->
                     </div>
                     
                     <div v-if="selectedValue != 26" class="form-group">
@@ -176,10 +145,6 @@
                                     </p>
                                     <p class="record-txt01">データが見つかりません。</p>
                                 </div> 
-
-                                <!-- <div class="row">
-                                    <pagination :data="related_news" @pagination-change-page="getPostsByCatId"></pagination>
-                                </div> -->
 
                                  <div>
                               <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
