@@ -308,7 +308,7 @@ class PostController extends Controller
                 $post->created_by_company = '';
             }
             else {
-                $post->created_by_company = $request->input('created_by');
+                $post->created_by_company = $request->input('created_by_company');
             }
             if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
                 $post->created_by = '';
