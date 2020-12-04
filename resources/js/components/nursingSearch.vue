@@ -86,7 +86,6 @@
                                                 <div class="col-lg-6">
                                                     <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData()" v-model="moving_in">
                                                         <option data-price-type="" value="-1" >▼入居一時金</option>
-                                                        <!-- <option data-price-type="" value="0">一時金なし</option> -->
                                                         <option data-price-type="" value="500000">50万円以下</option>
                                                         <option data-price-type="" value="1000000">100万円以下</option>
                                                         <option data-price-type="" value="2000000">200万円以下</option>
@@ -199,10 +198,8 @@
                                                                             </div>
                                                                             <div class="col-7 col-lg-7 col-sm-6 m-b-15 p-l-0">
                                                                                 <ul class="nursingSearch-list">
-                                                                                    <!-- <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}} {{items.address}}</span></p></li> -->
                                                                                     <li class="d-flex"><p class="text-truncate"><span>運営事業者名</span></p></li><span> {{items.cus_name}}</span>
                                                                                     <li class="d-flex"><span>電話 </span></li><span class="text-truncate">{{items.phone}}</span>
-                                                                                    <!-- <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li> -->
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
@@ -328,7 +325,6 @@
                                                             <a data-value="option">
                                                                 <div class="row">
                                                                 <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                                                    <!-- <label class="form-check-label" > -->
                                                                     <label class="form-check-label control control--checkbox">
                                                                     <input  class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
                                                                     {{feature.name}}
@@ -342,7 +338,6 @@
                                                     <a v-if="w_width >= 420">
                                                         <div class="row">
                                                             <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                                                <!-- <label class="form-check-label" > -->
                                                                 <label class="form-check-label control control--checkbox">
                                                                 <input  class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
                                                                 {{feature.name}}

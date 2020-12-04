@@ -13,7 +13,6 @@
     <div class="row" id="hos">
       <div class="col-md-12">
         <div>
-          <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
             <h2 class="map-header hospital-map-header" style="bottom: 155px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
@@ -74,7 +73,6 @@
                             <div class="col-lg-3 col-md-4 col-sm-12 pc-414">
                             <button @click="toggleContent" v-if="getTownships.length > 0" class="btn seemore-btn all-btn">
                                 <i class="fa" aria-hidden="true"></i>
-                                <!-- <em>{{city.city_name}}</em> -->
                                 <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる </span>
                             </button>
 
@@ -129,7 +127,6 @@
                                   <a data-value="option">
                                       <div class="row">
                                       <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                        <!-- <label class="form-check-label" > -->
                                           <label class="form-check-label control control--checkbox">
                                           <input  class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)" >
                                           {{feature.name}}
@@ -144,7 +141,6 @@
 
                                       <div class="row">
                                       <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                          <!-- <label class="form-check-label" > -->
                                           <label class="form-check-label control control--checkbox">
                                           <input  class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
                                           {{feature.name}}

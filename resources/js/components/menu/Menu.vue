@@ -5,7 +5,6 @@
             <div class="container nav-warp d-flex">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand logo-text" href="/">
-                <!-- LOGO <span>HERE</span>  -->
                 <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
                 <img src="/images/logo.png" style="width:215px;height:auto;" />
                 </a>
@@ -28,13 +27,7 @@
                 </li>
                 <li>
                 <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
-                </li>    
-               <!-- <li>
-                <router-link :to="{name: 'sitepolicy'}">利用規約</router-link>
                 </li>
-                <li>
-                <router-link :to="{name: 'privacyPolicy'}">プライバシーポリシー</router-link>
-                </li> -->
             </ul>
              
             <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
@@ -42,7 +35,6 @@
                     <ul class="navbar-nav ml-auto pc  d-flex justify-content-end">
                         <li class="nav-item" v-if="!$auth.check()">
                             <button class="nav-link pad-free btn_login" @click="removeAllSess()"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>事業者 ログイン</span></button>
-                            <!-- <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>事業者 ログイン</span></router-link> -->
                         </li>
                         <li class="nav-item  m-l-10" v-if="!$auth.check()">
                             <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>事業者 登録</span></router-link>
