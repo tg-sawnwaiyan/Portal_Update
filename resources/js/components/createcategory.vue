@@ -14,6 +14,17 @@
                     <input type="number" v-on:keydown="isNumber" class="form-control"  v-model="category.order_number" placeholder="タブ順序を半角数字で入力してください。">
                     <span v-if="errors.order_number" class="error">{{errors.order_number}}</span>
                 </div>
+                <div class="form-group">
+                    <label>新しい色の登録</label><br>
+                    <label for="company">
+                    <span>色名</span>
+                    <input type="text" class="form-control"  v-model="category.color_name">
+                    </label>
+                    <label for="contact">
+                    <span>カラーコード</span>
+                    <input type="text" class="form-control"  v-model="category.color_code">
+                    </label>
+                </div>
                 <div class="form-group"> 
                     <router-link class="btn bt-red all-btn" to="/categorylist" > キャンセル </router-link>
                     <span class="btn main-bg-color white all-btn" @click="checkValidate()"> {{buttontext}}</span>
