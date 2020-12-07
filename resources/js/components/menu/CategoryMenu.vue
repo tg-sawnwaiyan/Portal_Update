@@ -25,27 +25,12 @@ export default {
     data(){
         return {
             cats: [],
-            categoryId: 1,
-            othersDetails: true,
-            status:'0',
-            search_word:null,
-            post_groups : [],
-            norecord_msg: false,
-            is_cat_overflow: false,
-            is_cat_slided: false,
             computed_width: '100%',
-            cat_box_width: null,
             w_width: $(window).width(),
         }
     },
-    created() {                   
+    created() {              
         this.getAllCat();
-        if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
-            this.othersDetails = false;
-        }
-        else{
-            this.othersDetails = true;
-        }
     },
     methods: {
         getAllCat: function() {           
@@ -65,7 +50,6 @@ export default {
             $('.bg_color').css('background-color', color_ary[no]);
         },
         scrollUp(index){
-           // localStorage.clear();
             if(localStorage.getItem("clicked")){
                 if(index >= localStorage.getItem('clicked')){
                     var pos = $('div.nav').scrollLeft() + 100;
@@ -74,9 +58,7 @@ export default {
                 }
             }
             $('div.nav').scrollLeft(pos);
-            localStorage.setItem('clicked', index);
-
-    
+            localStorage.setItem('clicked', index);    
         },
     }
 }

@@ -24,7 +24,7 @@
                     </li>
 
                     <li v-if="visit == 'true'">
-                        <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
+                        <router-link :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
                     </li>
 
                     <li v-if="visit == 'true'">
@@ -176,7 +176,7 @@
                         </ul>
                         <ul class="sidebar_brand" v-if="visit == 'true'">
                             <li>
-                                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
+                                <router-link :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
                             </li>
                             <li>
                                 <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -224,7 +224,7 @@
                         <div class="sp_nav"  v-if="isNav">    
                         <ul class="menu_list child">
                             <li>
-                                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
+                                <router-link :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
                             </li>
                             <li>
                                 <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -424,9 +424,6 @@
                 this.$auth.logout();
             }
             
-        },
-        activeTopMenu(){
-             $("#top_a").addClass("active");
         },
     }
 }

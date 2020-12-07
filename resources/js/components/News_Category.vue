@@ -448,49 +448,45 @@ export default {
         }
     },
     mounted() {
-        this.getAllCat();
+        //this.getAllCat();
     },
     created(){
-    this.$nextTick(() => {
-        if(this.$refs.infoBox){
-            this.cat_box_width = this.$refs.infoBox.clientWidth;
-        }            
-    })
-        var url      = window.location.href; 
-        if(url.indexOf('category') != -1){
-            $("#top_a").removeClass("active");
+        if($(window).width() > 480){
+             this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_id = response.data.cat_id;
+                this.cat_name = response.data.cat_name;
+              
+          });
+        }else{
+            this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_name = response.data.cat_name;              
+          });
         }
-    if($(window).width() > 480){
-         this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_id = response.data.cat_id;
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }else{
-        this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }
-   },
+    },
+    updated:function(){
+        $(".gNav .router-link-active").addClass("router-link-exact-active");
+    },
+    beforeDestroy:function(){
+        $(".gNav .router-link-active").removeClass("router-link-exact-active");
+    },
     computed:{  
         slickOptions() {
                 return {
@@ -542,30 +538,9 @@ export default {
     },
    methods:{
             getAllCat: function() {
-                this.axios .get('/api/home') 
+                this.axios.get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
-                        this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
-
-                        if(this.cat_box_width/total_word < 23){
-                            this.is_cat_overflow = true;
-                        }
-
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
 
                         this.getPostByCatID();
 
@@ -698,87 +673,12 @@ export default {
                 this.getlatestpost();
 
             },
-            swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
-        scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-        },
-         changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },
    }
     
 }
 </script>
 
-<style>
+<style scoped>
 .profile-tit{
     margin-top: 0;
 }
