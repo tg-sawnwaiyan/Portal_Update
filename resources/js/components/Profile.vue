@@ -53,15 +53,9 @@ export default {
   data() {
     return {
       type: null,
-      // pro_id: null,
       btntype: "",
       width: "",
       login_person : null,
-      // loginuser: true,
-      l_storage_hos_history: [],
-      l_storage_nus_history: [],
-      l_storage_hos_fav: [],
-      l_storage_nus_fav: [],
       view_pro_id: false,
       pro_id:0,
       heading:"",
@@ -100,13 +94,11 @@ export default {
       this.loginuser = 'true';     
       if(this.visit == 'false'){
         this.btntype = "create";
-        // this.loginuser = true;
         localStorage.setItem("lat_num", response.data.lat_lng[0].latitude==0?'35.6803997':response.data.lat_lng[0].latitude);
         localStorage.setItem("lng_num", response.data.lat_lng[0].longitude==0?'139.76901739':response.data.lat_lng[0].longitude);
       }
       else{
-        this.btntype = "view";
-        // this.loginuser = false;            
+        this.btntype = "view";          
         this.axios.get(`/api/profile_view/${this.pro_id}/${this.type}`).then(response => {
           localStorage.setItem("lat_num", response.data[0].latitude);
           localStorage.setItem("lng_num", response.data[0].longitude);                
@@ -123,8 +115,8 @@ export default {
     },
     changeBtnType(a,b) {
       this.scrollTop();
-        document.getElementById(a).classList.add("active");
-        document.getElementById(b).classList.remove("active");
+      document.getElementById(a).classList.add("active");
+      document.getElementById(b).classList.remove("active");
     },    
     scrollTop(){
       $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -135,18 +127,9 @@ export default {
 
 <style >
 #Profile-page {
-  /* overflow: hidden; */
-  /* max-width: 1600px; */
   width: 100%;
-  /* margin-top: 10px; */
 }
-/* .hospital-tabColor .nav-link {
-        background: #63b7ff !important;
-        color: #fff;
-        border-right: 1px solid #fff;
-} */
 .nursing-tabColor .nav-link {
-  /* background: #ff9563 !important; */
   background: #63b7ff !important;
   color: #fff !important;
   border-right: 1px solid #fff;
@@ -155,7 +138,6 @@ export default {
   border: 1px solid #63b7ff !important;
 }
 .nursing-borderColor {
-  /* border: 1px solid #ff9563 !important; */
   border: 1px solid #63b7ff !important;
 }
 .h4-background {

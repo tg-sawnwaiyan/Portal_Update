@@ -86,8 +86,7 @@
                             <div class="input-group-append " id="nursing">
                             </div>
                             <div class="error register-err-margin" id="radioerror">必須</div>
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group row">
                             <label class="col-12 col-lg-3 col-md-4 control-label">電話番号</label>
                             <div class="col-12 col-lg-9 col-md-8  p-0">
@@ -103,9 +102,6 @@
                             </div>
                         </div>
                         <!-- 契約書 追加 -->
-                        <!-- <div class="form-group col-12 text-center">
-                            <a href="/contract" v-on:click="changeContractStatus()" class="btn register_btn login_btn" target="_blank">契約書</a>
-                        </div> -->
                         <div class="contract-group">
                             <div class="contract-label">
                                 <input type="checkbox" value=1 v-model="contract_chk" @change="check($event)" :disabled="contract_status == 0">
@@ -114,9 +110,6 @@
                                     本システムを使用するにあたり、上記契約書に同意する
                                 </span>
                                 <span v-if="errors.contract_chk" class="contract-error">{{errors.contract_chk}}</span>
-                            </div>
-                            <div class="contract-btn">
-                                <!-- <button type="submit" class="disable_btn" :disabled="contract_status == 0">登録</button> -->
                             </div>
                             <div class="form-group col-12 text-center">
                                 <button type="submit" class="disable_btn btn register_btn" :disabled="contract_status == 0">登録</button>
@@ -135,15 +128,10 @@ export default {
         return {
             contract_status:0,
             contract_chk:[],
-            disable_color:'#999',
             images:'',
             img_name:'',
             username: '',
             email: '',
-            //cities: [],
-            //city : '',
-            //townships :[],
-            //township :'',
             type:'',
             typ:[],
             types:[],
@@ -165,8 +153,6 @@ export default {
                 type:'',
                 ph_length:'',
                 ph_num:'',
-                //cities:"",
-                //township:""
             },
             success: false,
             show: true,
@@ -179,149 +165,113 @@ export default {
             phone_reg: /^([0-9]*)$/
         }
     },
-
     methods: {
-        changeContractStatus(){
+        changeContractStatus() {
             this.contract_status = 1;
-            this.disable_color = '#2C3E50';
         },
-        check(){
-            if(this.contract_chk != '')
-            {
+        check() {
+            if(this.contract_chk != '') {
                 this.errors.contract_chk = ''
             }
         },
-        getType(){
+        getType() {
             this.axios.get('/api/auth/getTypes',{
                 params:{
-                type:this.type
+                    type:this.type
                 },
             }).then((response)=>{
                 this.types = response.data.types
-
             })
         },
         password_validate() {
-            // var pwd = $('#pwd').val();
-            // var confirm_pwd = $('#confirm_pwd').val();
             window.pwd_same = false;
             var nursing_type_exist = false;
             if(this.password != this.password_confirmation) {
-                // this.passerr = true;
                 this.errors.password = "※パスワードが一致しません。";
-                // $('#passworderror').css("display","block");
             }
             else {
-                // $('#passworderror').css("display","none");
-                // this.passerr = false;
                 this.errors.password = null;
                 window.pwd_same = true;
             }
         },
-        focusName:function(event)
-        {
-            if(this.username != null || this.username != '')
-            {
+        focusName:function(event) {
+            if(this.username != null || this.username != '') {
                 this.errors.username = ''
             }
         },
-        focusType:function(event)
-        {
-            if(this.type != '')
-            {
+        focusType:function(event) {
+            if(this.type != '') {
                 this.errors.type = ''
             }
         },
         focusMail: function(event) {
-            if((this.email != '' && this.mail_reg.test(this.email))){
+            if((this.email != '' && this.mail_reg.test(this.email))) {
                 this.errors.email='';
-            }else{
+            } else {
                 this.errors.email ='※メールアドレスが正しくありません。もう一度入力してください。';
             }
         },
         register() {
-            if(this.type == '')
-            {
+            if(this.type == '') {
                 this.errors.type = "事業者タイプを選択してください。";
             }
-            else{
+            else {
                 this.errors.type = '';
             }
-
-            if(this.username == null || this.username == '')
-            {
+            if(this.username == null || this.username == '') {
                 this.errors.username = "事業者名が必須です。";
             }
-            else
-            {
+            else {
                 this.errors.username = "";
             }
-
-            if(this.email == null || this.email == '')
-            {
+            if(this.email == null || this.email == '') {
                 this.errors.email = "メールアドレスが必須です。";
             }
-            else
-            {
+            else {
                 this.errors.email = "";
             }
-
-            if(this.password_confirmation == null || this.password_confirmation == '' || this.password == null || this.password == '')
-            {
+            if(this.password_confirmation == null || this.password_confirmation == '' || this.password == null || this.password == '') {
                 this.errors.password = "パスワードが必須です。";
             }
-            else{
+            else {
                 this.errors.password = '';
             }
-
-            if((this.email != '' && this.mail_reg.test(this.email))){      
+            if((this.email != '' && this.mail_reg.test(this.email))) {      
                 this.errors.email='';
-            }else{
+            } else {
                 
                 this.errors.email ='※メールアドレスが必須です。';
-            }
-       
-            if(this.phone != '' && this.phone != null)
-            {
+            }       
+            if(this.phone != '' && this.phone != null) {
                 this.errors.ph_num = '';
             }
-            else{
+            else {
                 this.errors.ph_num = '※電話番号が必須です。';
             }
-
-            if(this.contract_chk == '')
-            {
+            if(this.contract_chk == '') {
                 this.errors.contract_chk = "入力されていません。";
             }
-            else{
+            else {
                 this.errors.contract_chk = '';
             }
-
-            if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13))
-            {
+            if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13)) {
                 this.errors.ph_length = '';
             }
-            else{
+            else {
                 this.errors.ph_length = '※電話番号を確認してください。';
             }
-            if(this.errors.email == '' && this.errors.username == '' && this.errors.password == '' && this.errors.type == '' &&  this.errors.ph_length == '' && this.errors.ph_num == '' && this.errors.contract_chk == '')
-            {
+            if(this.errors.email == '' && this.errors.username == '' && this.errors.password == '' && this.errors.type == '' &&  this.errors.ph_length == '' && this.errors.ph_num == '' && this.errors.contract_chk == '') {
                 var app = this
                 let fData = new FormData();
-                //fData.append('img', app.images)
                 fData.append('name', app.username)
                 fData.append('email', app.email)
                 fData.append('password', app.password)
                 fData.append('comfirm_password', app.password_confirmation)
-                //fData.append('cities', app.city)
-                //fData.append('township', app.township)
                 fData.append('types', app.type)
                 fData.append('phone', app.phone)
-                var seltype = app.type == 2 ? '病院': '介護';
-                
+                var seltype = app.type == 2 ? '病院': '介護';                
                 this.$swal({
                     title: 'この内容で登録しますか。',  
-                    // html: "事業者名:"+app.username+"<br/>メールアドレス:"+app.email+"<br/>事業者タイプ:"+seltype+"<br/>電話番号:"+app.phone, 
                     html:"<table style='margin:auto;'><tr><td class='tl'>事業者名</td><td class='tl'>: "+app.username+"</td></tr><tr class='tl'><td class='tl'>メールアドレス</td><td class='tl'>: "+app.email+"</td></tr><tr class='tl'><td class='tl'>事業者タイプ</td><td class='tl'>: "+seltype+"</td></tr><tr class='tl'><td class='tl'>電話番号</td><td class='tl'>: "+app.phone+"</td></tr></table>",             
                     type: 'warning',
                     showCancelButton: true,
@@ -331,74 +281,64 @@ export default {
                     showCloseButton: true,
                     showLoaderOnConfirm: true,
                     allowOutsideClick: false,
-                    }).then((result) => {
-                        if(result) {
-                            this.$loading(true);
-                            this.axios.post('/api/register', fData).then(response => {
-                                this.$loading(false);
-                                this.$swal({
-                                    position: 'top-end',
-                                    type: 'success',
-                                    title: '<p style="font-weight:bold;">サイト管理者に登録情報を通知いたしました</p>',
-                                    html: "<p style='text-align:left;'>登録審査後、事業者様にメールにてお知らせいたします。しばらくおまちください。</p>",
-                                    width: 350,
-                                    height: 200,
-                                    confirmButtonColor: "#31CD38",
-                                    confirmButtonText: "閉じる",
-                                    confirmButtonClass: "all-btn",
-                                    allowOutsideClick: false,
-                                })
-                                this.$router.push({
-                                    name: 'News'
-                                });
-                            }).catch(error => {
-                                this.$loading(false);
-                                if(error.response.status == 422){
-                                    this.errors = error.response.data.errors;
-                                    if(this.errors.email)
-                                    {
-                                        this.errors.email = "このメールアドレスは既に存在します。";
-                                    }
-                                    else{
-                                        this.errors.email = "";
-                                    }
-                                    if(this.errors.password)
-                                    {
-                                        this.errors.password = "パスワードは6桁以上必要です。"
-                                    }
-                                    else{
-                                        this.errors.password = "";
-                                    }
+                }).then((result) => {
+                    if(result) {
+                        this.$loading(true);
+                        this.axios.post('/api/register', fData).then(response => {
+                            this.$loading(false);
+                            this.$swal({
+                                position: 'top-end',
+                                type: 'success',
+                                title: '<p style="font-weight:bold;">サイト管理者に登録情報を通知いたしました</p>',
+                                html: "<p style='text-align:left;'>登録審査後、事業者様にメールにてお知らせいたします。しばらくおまちください。</p>",
+                                width: 350,
+                                height: 200,
+                                confirmButtonColor: "#31CD38",
+                                confirmButtonText: "閉じる",
+                                confirmButtonClass: "all-btn",
+                                allowOutsideClick: false,
+                            })
+                            this.$router.push({
+                                name: 'News'
+                            });
+                        }).catch(error => {
+                            this.$loading(false);
+                            if(error.response.status == 422) {
+                                this.errors = error.response.data.errors;
+                                if(this.errors.email) {
+                                    this.errors.email = "このメールアドレスは既に存在します。";
                                 }
-                            })                        
+                                else {
+                                    this.errors.email = "";
+                                }
+                                if(this.errors.password) {
+                                    this.errors.password = "パスワードは6桁以上必要です。"
+                                }
+                                else {
+                                    this.errors.password = "";
+                                }
+                            }
+                        })                        
                     } 
                 })
-                // .catch(error =>{
-
-                //         this.$swal('Cancelled', 'Your file is still intact', 'info')
-                //     });
             }
         },
         focusPhone: function(e) {
-            if(this.phone != '')
-            {
+            if(this.phone != '') {
                 this.errors.ph_num = '';
             }
-            if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13))
-            {
+            if(this.phone != '' && (this.phone_reg).test(this.phone) && (this.phone.length >= 10 && this.phone.length <= 13)) {
                 this.errors.ph_length = '';
             }
-            else{
+            else {
                 this.errors.ph_length = '※電話番号を確認してください。';
             }
-            if(this.phone == '' || this.phone == null)
-            {
+            if(this.phone == '' || this.phone == null) {
                 this.errors.ph_length = '';
             }
         },    
     },
-
-  }
+}
 </script>
 
 <style>

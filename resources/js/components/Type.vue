@@ -52,7 +52,6 @@ export default {
       errors: {
         name:"",
       },
-      Userdrp: "選択してください。",
       categories: {
         id: '',
         name: ''
@@ -60,13 +59,11 @@ export default {
       Type: {
         name: "",
         parent: "",
-        category_id:""
       },
       TypeList: {
         id: "",
         name: ""
       },
-      category_id_1: '1',
       selectedValue: 0,
       header: "タイプ作成",
       subtitle: "作成する"
@@ -95,7 +92,6 @@ export default {
         });
     }
   },
-
   methods: {
     add() {
       if (this.$route.params.id) {
@@ -133,7 +129,6 @@ export default {
               confirmButtonColor: "#6cb2eb",
               allowOutsideClick: false,
             });
-            // alert('Successfully Created')
             this.$router.push({ name: "typelist" });
           })
           .catch(error => {
@@ -196,10 +191,8 @@ export default {
     },
     checkValidate() {
       if (this.Type.name) {
-        // console.log('exist');
         this.errors.name = "";
       } else {
-        // console.log('null');
         this.errors.name = " 事業者の種類は必須です。";
       }
       if (!this.errors.name) {
