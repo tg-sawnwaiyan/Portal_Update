@@ -46,7 +46,7 @@ export default {
 
         },
         changeBgColor(no) {
-            const color_ary = ['#287db4','#d1281cq','#9579ef','#20d1de','#a3774a'];
+            const color_ary = ['#287db4','#d1281c','#9579ef','#20d1de','#a3774a'];
             $('.bg_color').css('background-color', color_ary[no]);
         },
         scrollUp(index){
