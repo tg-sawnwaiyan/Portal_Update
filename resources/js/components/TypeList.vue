@@ -98,8 +98,6 @@ export default {
         .then(response => {
           this.types = response.data;
           this.norecord = this.types.length;
-          //    let i = this.types.map(item => item.id).indexOf(id); // find index of your object
-          //     this.types.splice(i, 1);
           this.$swal({
             title: "削除された",
             text: "ファイルが削除されました。",
