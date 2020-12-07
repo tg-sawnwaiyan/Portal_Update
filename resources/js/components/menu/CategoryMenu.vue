@@ -270,8 +270,8 @@ export default {
 
     .tab-color1 {
         height: auto;
-        border-left: 5px solid #a3774a;
-        background-color: #a3774a;
+        border-left: 5px solid #d1281c;
+        background-color: #d1281c;
     }
 
     .tab-color2 {
@@ -288,8 +288,8 @@ export default {
 
     .tab-color4 {
         height: auto;
-        border-left: 5px solid #d1281c;
-        background-color: #d1281c;
+        border-left: 5px solid #a3774a;
+        background-color: #a3774a;
     }
 
     .nav-tabs .router-link-exact-active,
