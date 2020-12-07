@@ -698,7 +698,7 @@ pzo
                     </div>
             </div> 
         </div>
-        <div v-if="more_news.length >2" class="form-group text-center">
+        <div v-if="more_news.length >2" class="form-group text-center head-btn">
             <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
@@ -1187,6 +1187,10 @@ export default {
     min-width: 150px;
     color: white;
 }
+.btn_more:hover{
+    background-color: #56a4d6; 
+    /* color: #287db4; */
+}
 .btn_more .fas{
     font-size: 20px;
     vertical-align: middle;
@@ -1196,6 +1200,9 @@ export default {
 }
 .head-news .slick-news:last-child{ 
     display: none;
+}
+.head-btn{
+    margin-top: 8px;
 }
 
 @media only screen and (max-width:767px)  {
