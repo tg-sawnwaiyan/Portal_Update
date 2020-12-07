@@ -866,7 +866,7 @@
                             this.latest_catId = this.cats[0].id;
                         }
 
-                        //this.getPostByCatID();
+                        this.getPostByCatID();
 
                         this.getLatestPostByCatID();
 

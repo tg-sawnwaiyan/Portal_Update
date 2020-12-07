@@ -38,7 +38,7 @@
                     </span>
                   </div>
                   <div class="set-date">
-                    <p :class="news.cat_id == 26 ? 'title26':'title'+(5-(Math.floor(news.cat_id%5)))">
+                    <p :class="news.cat_id == 26 ? 'title26': 'title_color'" :style="{'--color': news.color_code ? news.color_code : '#287db4'}">
                      <span>{{news.cat_name}}</span>
                      <small style="color:#aaa;"  v-if="news.cat_name != 'PR'" >
                        <i class="fa fa-calendar-alt"></i>
@@ -140,7 +140,7 @@ export default {
     this.axios
       .get(`/api/newdetails/${this.$route.params.id}`)
       .then(response => {
-        this.newdetails = response.data.news;          
+        this.newdetails = response.data.news; 
         this.getData = true; 
         this.$ga.event({
           eventCategory: 'ニュース',
@@ -228,5 +228,12 @@ export default {
 }
 .nursing-borderColor {
         border: 1px solid #63b7ff !important;
+}
+.title_color span {
+    background-color: var(--color);
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 4px 0px 4px;
+    font-size: 13px;
 }
 </style>

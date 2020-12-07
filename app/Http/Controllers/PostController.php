@@ -126,7 +126,7 @@ class PostController extends Controller
      
 
         $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
-                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id')
+                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
                                   ->where('posts.id',$id)->get();
      
        return response()->json(array('news'=> $data));
