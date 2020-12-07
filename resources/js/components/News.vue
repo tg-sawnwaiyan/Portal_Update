@@ -1298,15 +1298,15 @@
     height: 360px !important;
     background: #5f5f5f;
 }
-#myTab ul li {
+/*#myTab ul li {
     display: -ms-inline-flexbox;
     display: inline-flex;
     display: -webkit-inline-flex;
-}
+}*/
 
-.nav {
+/*.nav {
     flex-wrap: nowrap;
-}
+}*/
 .news-slider-width{
     width: 100%;
 }
@@ -1319,12 +1319,12 @@
     border-bottom: none;
 }
 
-#myTab .router-link-exact-active {
+/*#myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
     background-color: #828282;
     border: none !important;
-}
+}*/
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;

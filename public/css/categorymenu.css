@@ -1,80 +1,79 @@
-@media only screen and (max-width: 560px){
-    .news-tabColor .nav-link,
-    .nursing-tabColor .nav-link,
-    .hospital-tabColor .nav-link,
-    .job-tabColor .nav-link {
-        height: 60px;
-        padding-top: 13px;
-        padding-bottom: 10px;
+.tab-color0{
+    background-color: #287db4;
+}
+
+.tab-color1{
+    background-color: #a3774a;
+}
+
+.tab-color2 {
+    background-color: #9579ef;
+}
+
+.tab-color3 {
+    background-color: #20d1de;
+}
+
+.tab-color4 {
+    background-color: #d1281c;
+}
+
+
+
+/*For SP*/
+@media only screen and (max-width: 575px){
+    .tab {
+        margin-top: 38px;
     }
-    #app {
-        position: relative;
-    } 
     #myTab {
         overflow-x: auto;
-        width: 100% !important;
-        margin: 0 auto !important;
+        width: 100%;
+        margin: 0 auto;
+        display: -webkit-box;
+        white-space: nowrap;
     }
-    #myTab .nav-link {
-        border-left: 0 !important;
-        border-right: 0 !important;
-    }
-    #myTab .router-link-exact-active {
-    height: auto !important;
-    background-color: transparent !important;
-    }
-    #top {
-        border-left: none !important; 
+    .nav {
+        display: -webkit-box;
     }
     .cat-nav {
         padding-left: 0 !important;
         max-height: 43px;
         position: relative;
         height: auto !important;
-     /*   margin: 0 auto 15px auto !important;*/
     }
     .no-scrollbar {
         scrollbar-width: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
     }
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
     .infoBox {
-        position: absolute;
+        position: relative;
         top: 64px;
         z-index: 1;
-        left: -0.5%;
-        /*right: 2.5%;*/
-        padding: 0 0 3px 0 !important;
+        left: 0;
+        padding: 3px 0;
     }
-    .nav-tabs .router-link-exact-active,
-    #myTab .router-link-exact-active,    
-    #myTab .nav-link.active {
-        background-color: transparent !important;
+    #myTab .router-link-exact-active{
+        background-color: transparent;
         padding: 0.5rem 1rem 0.3rem 1rem;
-        height: auto;
     }
     #myTab ul li {
         border-top-right-radius: 8px;
         border-top-left-radius: 8px;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        display: -webkit-inline-flex;
     }
     #myTab .nav-link {
         color: #fff;
+        border: none;
     }
     .tab-card-header {
         background-color: transparent !important;
     }
     .nav-link {
         padding: 0.3rem 1rem;
-    }
-    .nav {
-        display: -webkit-box;
-    }
-    #top {
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
     }
     #navtab {
         left: 0px;
@@ -83,31 +82,119 @@
         width: 100%;
         position: fixed;
     }
-    .nursing-tabColor li.subtab2 > .router-link-active,
-    .news-tabColor li.subtab1 > .router-link-active,
-    .job-tabColor li.subtab4 > .router-link-active,
-    .hospital-tabColor li.subtab3 > .router-link-active {
-        padding-top: 13px !important;
+    .bg_color{
+        width: 100%;
+        height: 3px;
+        background-color: #287db4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
-    #upper-tab {
-    margin-top: 5px;
+    .category_margin{
+        margin: 0;
     }
-    .d-none-sp {
-        display: none !important;
+}
+
+
+/*For PC*/
+/*menu_category*/
+@media only screen and (min-width: 576px){
+    .menu_category{
+        white-space: nowrap;
+        overflow: hidden;
+        width: 92%;
+        margin: 0 auto;
     }
-    .newssearch-width {
-        margin-bottom: 69px;
+    #ul_menu_category{
+        flex-wrap: nowrap;
+        border-bottom: none;
     }
-    .pad-free {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    #ul_menu_category li{
+        text-align: center;
+        margin: 0 1px 0 0;
+        border-top-left-radius: 11px;
+        border-top-right-radius: 11px;
+        align-self: flex-end;
     }
+    #ul_menu_category li a{
+        color: #fff;
+        border: none !important;
     }
-    @media (max-width: 320px){
-    #upper-tab {
-        margin-top: 16px;
+    .menu_category .nav-tabs .router-link-exact-active{
+        background-color: transparent !important;
+        border: none;
+        padding: 0.75rem 1rem 0.5rem 1rem;
+        font-weight: bold;
     }
-    .infoBox {
-        top: 63px !important;
+    .menu_category .nav-tabs .nav-link:hover {
+        background-color: transparent !important;
+        color: #fff !important;
+        border: none;
     }
+    .category_margin{
+        margin: 68px 0 0 0;
     }
+    .tab_pane_02{
+        margin-top: 10px;
+    }
+    .menu_tab_category{
+        position: absolute;
+        max-width: 1500px;
+        top: 192px;
+        z-index: 9;
+        width: 100%;
+        max-width: 1600px;
+    }
+    #left-button{
+        position: absolute;
+        top: 13px;
+        left: 30px;
+        padding: 0;
+        width: auto;
+    }
+    #right-button{
+        position: absolute;
+        top: 13px;
+        right: 30px;
+        padding: 0;
+        width: auto;
+    }
+    .left-arr-btn .fas,
+    .right-arr-btn .fas{
+        color: #2980b9 !important;
+    }
+    ul.only_sp{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 1000px){
+    .menu_category{
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1099px){
+    .menu_tab_category{
+        top: 204px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 900px){
+    .menu_tab_category{
+        top: 173px;
+    }
+}
+
+@media only screen and (min-width: 1020px) and (max-width: 1050px) {
+    .menu_category{
+        width: 88% !important;
+    }
+    #left-button{
+        left: 36px;
+    }
+    #right-button{
+        right: 36px;
+    }
+}
+/*end of menu_category*/
