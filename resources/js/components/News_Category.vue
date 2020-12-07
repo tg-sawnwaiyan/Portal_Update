@@ -1,4 +1,3 @@
-pzo
 <template>
 <layout>   
 <div class="category_margin">    
