@@ -1,6 +1,6 @@
 <template>
     <div class="menu_tab_category" id="tab1">
-            <!-- slider -->
+            <!-- Category Menu -->
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
@@ -16,7 +16,7 @@
             </div>      
     </div>
 </template>
-<script>
+<script scoped>
 export default {
     data(){
         return {
@@ -25,7 +25,7 @@ export default {
             is_cat_slided: false,
             computed_width: '100%',
             cat_box_width: null,
-            w_width: $(window).width(),
+            w_width: window.innerWidth,
         }
     },
     created() {

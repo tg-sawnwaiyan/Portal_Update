@@ -354,7 +354,8 @@ class HomeController extends Controller
 
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
-                    $aryNewsMobile[$m->id.",".$m->name][] = $m;
+                    $color = $m->color_code ? $m->color_code : "#287db4";
+                    $aryNewsMobile[$m->id.",".$m->name.",".$color][] = $m;
                 }
             
             }          
