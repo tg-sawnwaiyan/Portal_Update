@@ -28,7 +28,7 @@
     </div>
     <!-- news layout design change (@author:pzo) -->
     <div v-else-if="block && w_width > 480" class="head-news" >  
-        <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0" :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">
+        <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color">
                 
             <slick :options="slickOptions" class="news-slider-width" v-if="index === 0" >             
                 <div class="pad-new pattern-child group-0">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b0" v-if="index === 0">
+                        <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -119,7 +119,7 @@
                         </router-link>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b1"  v-if="index === 1">
+                        <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -127,7 +127,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 2">
+                        <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -135,7 +135,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 3">
+                        <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -143,7 +143,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 4">
+                        <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -151,7 +151,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 5">
+                        <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -159,7 +159,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 6">
+                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -167,7 +167,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 7">
+                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -212,7 +212,7 @@
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
-                        <div class="small-b2" v-if="index === 8">
+                        <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -306,7 +306,7 @@
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
-                        <div class="small-b3"  v-if="index === 9">
+                        <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -314,7 +314,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 10">
+                        <div class="small-b3"  v-if="index === 10" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -322,7 +322,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 11">
+                        <div class="small-b3"  v-if="index === 11" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -330,7 +330,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 12">
+                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -384,7 +384,7 @@
                         </router-link>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b1"  v-if="index === 1">
+                        <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -392,7 +392,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 2">
+                        <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -400,7 +400,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 3">
+                        <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -408,7 +408,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 4">
+                        <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -416,7 +416,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 5">
+                        <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -424,7 +424,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 6">
+                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -432,7 +432,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b1"  v-if="index === 7">
+                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -477,7 +477,7 @@
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b0" v-if="index === 0">
+                        <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -570,7 +570,7 @@
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
-                        <div class="small-b3"  v-if="index === 9">
+                        <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -578,7 +578,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 10">
+                        <div class="small-b3"  v-if="index === 10" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -586,7 +586,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 11">
+                        <div class="small-b3"  v-if="index === 11" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -594,7 +594,7 @@
                             </p>
                             </router-link>
                         </div>
-                        <div class="small-b3"  v-if="index === 12">
+                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -638,7 +638,7 @@
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
-                        <div class="small-b2" v-if="index === 8">
+                        <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
@@ -652,7 +652,7 @@
         </div>
         <div v-if="seen" >
             <div id="more"  class="row m-lr-0" v-for="(group,index) in more_news" :key="index">  
-                    <div class="pad-new pattern-child group-0" v-for="(value,index) in group" :key="index"  :class="'bordertop-color'+(5-(Math.floor(cat_id%5)))">
+                    <div class="pad-new pattern-child group-0 bordertop-color" v-for="(value,index) in group" :key="index">
                         <div class="medium">
                             <div class="medium-b3">
                                 <router-link :to="'/newsdetails/'+value.id"> 
@@ -1062,20 +1062,8 @@ export default {
    height: 0; 
    clear: both;
 }
-.bordertop-color1 {
-    border-top: 0px solid #a3774a !important;
-}
-.bordertop-color2 {
-    border-top: 0px solid #9579ef !important;
-}
-.bordertop-color3 {
-    border-top: 0px solid #21d1de !important;
-}
-.bordertop-color4 {
-    border-top: 0px solid #d1291d !important;
-}
-.bordertop-color5 {
-    border-top: 0px solid #63b7ff !important;
+.bordertop-color {
+    border-top: 0px !important;
 }
 .news-slider-width{
     width: 100%;
@@ -1215,5 +1203,8 @@ export default {
     #more .pad-new{
     width: 50%;
     }
+}
+.bordertop-color i {
+    color: var(--color);
 }
 </style>

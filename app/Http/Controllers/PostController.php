@@ -126,7 +126,7 @@ class PostController extends Controller
      
 
         $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
-                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id')
+                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
                                   ->where('posts.id',$id)->get();
      
        return response()->json(array('news'=> $data));
@@ -137,7 +137,7 @@ class PostController extends Controller
     {
         $cat_name = Category::where('id',$id)->select('name')->value('name');
 
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('created_at', 'DESC')->get()->toArray();
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = $More = [];
 

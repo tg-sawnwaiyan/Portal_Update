@@ -1,5 +1,5 @@
 <template>
-    <div class="card"  id="cat_post">
+    <div class="card" id="cat_post">
         <div class="card-body">
             <h4 class="page-header header">{{title}}</h4>
             <br>
@@ -13,6 +13,18 @@
                     <label>タブ順序</label>
                     <input type="number" v-on:keydown="isNumber" class="form-control"  v-model="category.order_number" placeholder="タブ順序を半角数字で入力してください。">
                     <span v-if="errors.order_number" class="error">{{errors.order_number}}</span>
+                </div>
+                <div class="form-group">
+                    <label>新しい色の登録</label><br>
+                    <label for="color_name">
+                    <span>色名</span>
+                    <input type="text" class="form-control"  v-model="category.color_name">
+                    </label>
+                    <label for="color_code">
+                    <span>カラーコード</span>
+                    <input type="text" class="form-control"  v-model="category.color_code">
+                    </label>                    
+                    <span v-if="errors.color_code" class="error">{{errors.color_code}}</span>
                 </div>
                 <div class="form-group"> 
                     <router-link class="btn bt-red all-btn" to="/categorylist" > キャンセル </router-link>
@@ -28,6 +40,7 @@ export default {
             return {
                 errors: {
                         name: "",
+                        color_code: "",
                         order_number: null,
                 },
                 category: {
@@ -147,7 +160,6 @@ export default {
                 
             },
             checkValidate() {
-            
                     if(!this.category.name && !this.$route.params.id){
                       
                         this.errors.name = " ニュースカテゴリー名は必須です。";
@@ -160,12 +172,17 @@ export default {
                        
                         this.errors.name = "";
                     }
-                    if (!this.errors.name && !this.$route.params.id ) 
+                    if (!this.errors.name && !this.$route.params.id && this.category.color_code.charAt(0) == "#") 
                     {
                         this.add();
                     }
-                    else if(!this.errors.name && this.$route.params.id){
+                    else if(!this.errors.name && this.$route.params.id && this.category.color_code.charAt(0) == "#") 
+                    {
                         this.updateCategory();
+                    }
+
+                    if(this.category.color_code.charAt(0) != "#"){
+                        this.errors.color_code = "カラーコードを正しく入力してください。例 #287db4";
                     }
                 },
             isNumber: function(event) {
