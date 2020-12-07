@@ -46,7 +46,7 @@ export default {
 
         },
         changeBgColor(no) {
-            const color_ary = ['#287db4','#a3774a','#9579ef','#20d1de','#d1281c'];
+            const color_ary = ['#287db4','#d1281c','#9579ef','#20d1de','#a3774a'];
             $('.bg_color').css('background-color', color_ary[no]);
         },
         scrollUp(index){
@@ -270,8 +270,8 @@ export default {
 
     .tab-color1 {
         height: auto;
-        border-left: 5px solid #a3774a;
-        background-color: #a3774a;
+        border-left: 5px solid #d1281c;
+        background-color: #d1281c;
     }
 
     .tab-color2 {
@@ -288,8 +288,8 @@ export default {
 
     .tab-color4 {
         height: auto;
-        border-left: 5px solid #d1281c;
-        background-color: #d1281c;
+        border-left: 5px solid #a3774a;
+        background-color: #a3774a;
     }
 
     .nav-tabs .router-link-exact-active,
