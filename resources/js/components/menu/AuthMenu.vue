@@ -6,7 +6,7 @@
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand logo-text" href="/" v-if="visit == 'true'">
                     <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
-                    <img src="/images/logo.png" style="width:215px;height:auto;" />                     
+                    <img src="/images/logo.png" alt="TIS" />                     
                     </a>
                     <a class="" style="color:#fff;font-size:20px;width:230px;text-align:center;background: rgb(36, 84, 113);" href="/"  v-if="visit != 'true'">                     
                       <img src="/images/admin_logo1.png" style="width:230px;height:auto;" />
@@ -218,7 +218,7 @@
                 </span>         
                 <ul class="menu" @click='isNav = !isNav'>
                     <li class="first-submenu">
-                        <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" style="width:15px;" ></i>     
+                        <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" ></i>     
                     </li>
                     <transition name="slide">  
                         <div class="sp_nav"  v-if="isNav">    
