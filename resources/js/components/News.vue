@@ -1175,7 +1175,7 @@
     });
  </script>
 
-<style scoped>
+<style>
 .list-label{
     float: right; 
     color: #999; 
