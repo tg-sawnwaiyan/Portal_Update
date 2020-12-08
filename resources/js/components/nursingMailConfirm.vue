@@ -226,7 +226,6 @@
                     city: "",
                     phone: "",
                     mail: "",
-                    // present: "",
                     relation: "",
                     ttname: "",
                     sex1: "",
@@ -239,7 +238,6 @@
                     fav_mail: [{}],
                     fav_id: [{}],
                     fav_name: [{}],
-                    // arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
                     fav_name_copy:[]
@@ -254,11 +252,6 @@
         },
         created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
-            // if (this.comments.present) {
-            //   this.comments.present = "する";
-            // } else {
-            //   this.comments.present = "しない";
-            // }
             this.axios.get("/api/hospital/citiesList").then(response => {
                 this.city_list = response.data;             
                 for (var i = 0; i < this.city_list.length; i++) {
@@ -284,8 +277,6 @@
                     .post("/api/nurse/add", this.comments)
                     .then(response => {
                         this.$loading(false);
-                        //   alert("Mail Sent Successfully !");
-                        //   location.href = "favouriteNursing";
                         this.type = "completed";
                     })
                     .catch(error => {
@@ -295,16 +286,8 @@
                     });
                 localStorage.removeItem("item");
                 localStorage.removeItem("inputValue");
-                // localStorage.removeItem("reserve");
                 localStorage.removeItem("document");
             }
-            // back() {
-            //     this.$router.push({
-            //             name: 'nursingFavouriteMail',
-            //             params: { input_data: this.comments, bk_postal: this.comments.selectedValue},
-            //             props: true
-            //         });
-            // },
         }
     };
 </script>

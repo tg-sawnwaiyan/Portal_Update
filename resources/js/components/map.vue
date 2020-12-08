@@ -230,20 +230,18 @@
 <script>
     export default {
         methods: {
-            getStateClick(e){
+            getStateClick(e) {
                 this.$parent.$options.parent.$options.methods.parentGetStateClick(e,this.$parent.$options.parent);
             }
         },
         created() {
-            if(this.$router.currentRoute.path == "/nursingSearch")
-            {                 
+            if(this.$router.currentRoute.path == "/nursingSearch") {                 
                 this.path = "nursing";                
             }
-            else if(this.$router.currentRoute.path == "/hospital_search")
-            {                
+            else if(this.$router.currentRoute.path == "/hospital_search") {                
                 this.path = "hospital";                
             }
-            else if(this.$router.currentRoute.path == "/jobSearch"){                
+            else if(this.$router.currentRoute.path == "/jobSearch") {                
                 this.path = "job";                  
             }          
         },

@@ -58,8 +58,6 @@
                                 <label class="control control--radio">
                                     <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">
                                     &nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
                                     <div class="control__indicator"></div>
                                 </label>
                                 <label class="control control--radio">
@@ -119,7 +117,6 @@
                                                 {{town.township_name}}
                                             </option>
                                         </select>
-                                        <!-- <span v-if="errors.division" class="error">{{errors.division[0]}}</span> -->
                                     </div>  
                                 </div>
                                 <div class="form-group row pl-3 m-b-0">
@@ -138,15 +135,11 @@
                                     <div class="col-md-12 p-0">
                                         <label class="col-md-12">※ 電話番号またはメールアドレス必須 <span class="error sp1">必須</span></label>
                                         <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone"   @keyup="focusPhone" @change="aggreBtn" maxlength="13">
-                                        <!-- v-on:keyup="isNumberOnly" -->                                                                               
                                         <span class="float-left eg-txt">例）0312345678（半角）</span>
-                                        <!-- <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>                                        -->
                                     </div>
                                      <span class="error m-l-30" v-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
                                 </div>
                             </div>
-                            <!-- </div>
-                            <div class="form-group m-0 row bd-all"> -->
                             <div class="col-md-3 col-sm-12 form-left"><label class="pl-0"><strong>メールアドレス </strong></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <div class="row pl-3">
@@ -357,7 +350,6 @@
                     days: ['日', '月', '火', '水', '木', '金', '土'],
                     months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                     placeholder: {
-                        //date: new Date().toISOString().slice(0,10),
                         date: '年 - 月 - 日',
                     }
                 },
@@ -385,7 +377,6 @@
                     fav_mail: [{}],
                     fav_id: [{}],
                     fav_name: [{}],
-                    // arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
                     township:0,
@@ -398,7 +389,6 @@
                 all_mail: [],
                 bk_data: [],
                 bk_postal: 0,
-                // reservation: [],
                 documentation: [],
                 btn_disable: false,
                 comment_focus: false,
@@ -411,7 +401,6 @@
                 ph_length: false,
                 ph_error: false,
                 charErr:false,
-                correctVal: null,
                 mail_reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
                 phone_reg: /^([0-9]*)$/
             }
@@ -474,7 +463,6 @@
                     if(town_id == 2)
                     {
                         this.comments.city = ''
-                        // this.comments.postal = '';
                         this.comments.township = 0;
                     }
                     this.comments.townships_list = response.data.townships
@@ -483,7 +471,6 @@
             },
             add() {
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
-                // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));
                 if(this.all_mail == null || this.documentation == null){
                     this.$router.push({
@@ -496,7 +483,6 @@
                         this.comments.fav_id.push(this.all_mail[i].id);
                         this.comments.fav_name.push(this.all_mail[i].name);
                     }
-                    // this.comments.arr_reserve = this.reservation;
                     this.comments.arr_document = this.documentation;
                     this.comments.division = this.comments.selectedValue;
                     localStorage.setItem("inputValue", JSON.stringify(this.comments));
@@ -539,21 +525,12 @@
                          this.mail_focus=false;
                     }else{
                         this.mail_focus=true;
-                        // this.ph_length = false;
                     }
                 }
                 else{
                     this.mail_focus = false;
                 }               
                 this.aggreBtn();
-                // var input_data = $('#phone').val();
-                // var code = 0;
-                // code = input_data.charCodeAt();
-                // if((48 <= code && code <= 57)){
-                //     this.ph_error = false;
-                // }else{
-                //     this.ph_error = true;
-                // }
             },
             focusPhone: function(e) {
                if(this.comments.phone != '' )
@@ -568,144 +545,40 @@
                 }
                 else{
                     this.ph_length = false;
-                }
-            
-                this.aggreBtn();
-                // var input_data = this.comments.phone;
-                // if(((e.keyCode  >= 48 && e.keyCode  <= 57) || (e.keyCode  >= 96 && e.keyCode  <= 105) || (e.keyCode  == 8) || (e.keyCode  == 35) || (e.keyCode  == 36) || (e.keyCode  == 37) || (e.keyCode  == 39) || (e.keyCode  == 46) || (e.keyCode  == 109) || (e.keyCode  == 189)) && input_data.charAt(0) != '-' && !input_data.includes('--'))
-                // {
-                //     this.correctVal = input_data;
-                //     if(input_data.length >= 10 && input_data.length < 14 && input_data.charAt(input_data.length -1 ) != '-'){
-                //     this.ph_error = false;
-                //     this.ph_length = false;
-                //     this.aggreBtn(); 
-                //     }
-                //     else{
-                //     if(input_data.length == 0){
-                //         this.ph_error = false;
-                //         this.ph_length = false;
-                //         this.aggreBtn(); 
-                //     }
-                //     else{
-                //             this.ph_error = true;
-                //             this.btn_disable = true;
-                //     }
-                    
-                //     }
-                // }
-                // else{
-                //     // e.preventDefault();
-                //     this.comments.phone = this.correctVal;
-                //     if(this.comments.phone.length >= 10 && this.comments.phone.length < 14 && this.comments.phone.charAt(this.comments.phone.length -1 ) != '-'){
-                //     this.ph_length = false;
-                //     this.ph_error = false;
-                //     this.aggreBtn(); 
-                //     }
-                //     else{
-                //         if(this.comments.phone.length == 0){
-                //             this.ph_error = false;
-                //             this.ph_length = false;
-                //             this.aggreBtn(); 
-                //         }
-                //         else{
-                //             this.ph_length = true;
-                //             this.ph_error = false;
-                //             this.btn_disable = true;
-                //         }
-                    
-                //     }
-                // }
-            
+                }            
+                this.aggreBtn();            
             },
             
             ChekChar: function(event) {
                 var _this = this;
-               // $('.char-err').text('');
                 var input_val = $('#furigana').val();
                 var each_val = input_val.split('');
                 _this.charErr= false;
                 var code = 0;
                 $.each(each_val, function (key, value) {
                     code = value.charCodeAt();
-                    // if (!(code > 12352 && code < 12447)) {
                     if (!(code > 12448 && code < 12543)) {
-                        //$('.char-err').text('ひらがなで入力してください!');
                         _this.btn_disable = true;
                         _this.charErr = true;                    
                     }  
                 });    
-                if(input_val == ''){
-                    if(this.comments.furigana != ''){
+                if(input_val == '') {
+                    if(this.comments.furigana != '') {
                         this.furigana_focus=false;                    
-                    }else{
+                    } else {
                         this.furigana_focus=true;
                     }
-                }else{            
+                } else {            
                     this.furigana_focus=false;　
                 } 
                 this.aggreBtn();
             },
             postalNumber: function(event) {
                 if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-                {
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) {
                     event.preventDefault();
                 }
             },
-            // getLocation(){
-            //     // this.comments.postal = '';
-            //     this.comments.city = '';
-            //     this.aggreBtn();
-            // },
-            // focusFuri: function(event) {
-            //     if(this.comments.furigana != ''){
-            //         this.furigana_focus=false;
-            //         this.aggreBtn();
-            //     }else{
-            //         this.furigana_focus=true;
-            //     }
-            // },
-            // focusbdate: function(event) {
-            //     if(this.comments.bdate != ''){
-            //         this.bdate_focus = false;
-            //     }else{
-            //         this.bdate_focus = true;
-            //     }
-            // },
-            // focusPhone(){
-            // //   var input_data = $('#phone').val(); 
-            // //   console.log(input_data.length)                
-            //   if(this.comments.phone.charAt(this.comments.phone.length - 1) != '-' && this.comments.phone.charAt(0) != '-' && ((this.comments.phone.length >= 10 && this.comments.phone.length <= 14) || this.comments.phone.length == 0))
-            //   {  
-            //       this.ph_num = false;
-            //       this.ph_length = false; 
-            //       this.aggreBtn();    
-            //   }
-            //   else{
-            //       this.ph_num = true;
-            //       this.ph_length = true;
-            //       this.btn_disable = true;
-            //   }                    
-            // },
-            // isNumberOnly: function(event) {
-            //     // var input_data = $('#phone').val();
-            //     var code = 0;
-            //     code = this.comments.phone.charCodeAt();
-            //     if(this.comments.phone.length >= 10 && this.comments.phone.length <= 14) {
-            //         this.ph_length = false;
-            //         // console.log('a',this.comments.phone.length)
-            //     }else{
-            //         this.ph_length = true;
-            //         // console.log('b',this.comments.phone.length)
-            //     }
-            //     if((48 <= code && code <= 57)){
-            //         this.ph_error = false;
-            //         // console.log('c')
-            //     }else{
-            //         this.ph_error = true;
-            //         // console.log('d')
-            //     }
-            // },
         }
     }
 </script>

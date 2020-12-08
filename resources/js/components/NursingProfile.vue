@@ -24,7 +24,9 @@
                             <label class="heading-lbl col-md-2 col-12 pad-free">メールアドレス<p class="error sp3 sp-t2">必須</p></label>
                             <input type="text" class="form-control customer-email col-md-10 col-12 nursing_input" id="btn" v-model="nursing_info.email" @change="aggreBtn" @keyup="focusMail" placeholder="メールアドレスを入力してください。">
                         </div>                           
-                            <span class="error pro-1" v-if="mail_focus || nursing_info.email =='' || nursing_info.email == null">※メールアドレスが正しくありません。</span>
+                        <span class="error pro-1" v-if="mail_focus || nursing_info.email =='' || nursing_info.email == null">
+                            ※メールアドレスが正しくありません。
+                        </span>
                         <div class="form-group form-group-wrapper d-flex">
                             <label class="heading-lbl col-md-2 col-12 pad-free">電話番号</label>                                
                             <input type="text" class="form-control customer-phone col-md-10 col-12 nursing_input" id="phone" placeholder="電話番号を入力してください。" v-model="nursing_info.phone"  @keyup="focusPhone" maxlength="13">
@@ -372,22 +374,22 @@
                                             </div>
                                             <div :id="'changeLinkcooperate'+indx">
                                                 <table class="table table-bordered nursing_table_title">
-                                                <tr>
-                                                    <th class="width15 title-bg">診療科目</th>
-                                                    <th ><textarea class="form-control clinical-sub white-bg-color" name="clinical-sub" v-model="cooperate.clinical_subject"></textarea></th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="width15 title-bg">協力内容</th>
-                                                    <th><textarea class="form-control details white-bg-color" name="details" v-model="cooperate.details"></textarea></th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="width15 title-bg">診療費用</th>
-                                                    <th><textarea class="form-control expense white-bg-color" name="expense" v-model="cooperate.medical_expense"></textarea></th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="width15 title-bg">備考</th>
-                                                    <th><textarea class="form-control remark white-bg-color" name="remark" v-model="cooperate.remark"></textarea></th>
-                                                </tr>
+                                                    <tr>
+                                                        <th class="width15 title-bg">診療科目</th>
+                                                        <th ><textarea class="form-control clinical-sub white-bg-color" name="clinical-sub" v-model="cooperate.clinical_subject"></textarea></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="width15 title-bg">協力内容</th>
+                                                        <th><textarea class="form-control details white-bg-color" name="details" v-model="cooperate.details"></textarea></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="width15 title-bg">診療費用</th>
+                                                        <th><textarea class="form-control expense white-bg-color" name="expense" v-model="cooperate.medical_expense"></textarea></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="width15 title-bg">備考</th>
+                                                        <th><textarea class="form-control remark white-bg-color" name="remark" v-model="cooperate.remark"></textarea></th>
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>
@@ -431,7 +433,6 @@
                     </tr>
                 </table>
                 <!-- end table 4 for 医療面の受入れ -->
-
                 <!-- table 5 for 職員体制 -->
                 <table class="table table-bordered table-wrapper">
                     <tr>
@@ -604,16 +605,12 @@
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
-// import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue' 
 
 export default {    
     components: {
         GoogleMap,
         quillEditor,
-        // Button,
-        // Input,
-        // Select,
         email:''
     },
     errors: [],      
@@ -623,11 +620,10 @@ export default {
                 days: ['日', '月', '火', '水', '木', '金', '土'],
                 months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                 placeholder: {
-                    // date: new Date().toISOString().slice(0,10),
                     date: '年 - 月 - 日', 
                 },               
             },
-            isRotate1: false, isRotate2: false, isRotate3: false, isRotate4: false, isRotate5: false, fac_list: [], feature_list:[], medical_acceptance:[], nursing_info:[],nursing_info_push:[], staff_info:[], staff_info_push:[], acceptance: [], img_arr:[], video_arr:[], panorama_arr:[], tmp_list:[],test:[], cooperate_arr:[], cooperate_list:[], payment_arr:[],payment_list:[], profile_type:'nursing', profile_arr:[], test:'', station_list:[],chek_feature : [], panorama_count:'0', fac_types:[], stations:[], count:-1, v_count: -1, c_count: -1, p_count: -1, type:'', title:[], v_title:[], description:[], v_description:[], img:[], sub:[], coop_details:[], expense:[],remark:[], method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[], security_deposit:[],other_use:[], rent:[], management_fee:[], food_expense:[],life_service:[],cost_other:[],return_system:[], depreciation_period:[],initial_depreciation:[],other_message:[], cooperate_list:[], payment_list:[],meth_details:[], content: '', 
+            isRotate1: false, isRotate2: false, isRotate3: false, isRotate4: false, isRotate5: false, fac_list: [], feature_list:[], medical_acceptance:[], nursing_info:[],staff_info:[],  acceptance: [], img_arr:[], video_arr:[], panorama_arr:[], test:[], cooperate_arr:[], cooperate_list:[], payment_arr:[],payment_list:[], profile_type:'nursing', profile_arr:[], test:'', chek_feature : [], fac_types:[], type:'', title:[], v_title:[], description:[], v_description:[], img:[], sub:[], coop_details:[], expense:[],remark:[], method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[], security_deposit:[],other_use:[], rent:[], management_fee:[], food_expense:[],life_service:[],cost_other:[],return_system:[], depreciation_period:[],initial_depreciation:[],other_message:[], payment_list:[],meth_details:[], content: '', 
             editorOption:{ debug:'info', placeholder:'', readonly:true, theme:'snow',
                 modules: {
                     toolbar: [
@@ -662,8 +658,7 @@ export default {
             this.address_show = $('#address_show').val();                
             this.axios
             .get('/api/nursinginfo/'+this.pro_id)
-            .then(response=>{
-                console.log(response.data)                
+            .then(response=>{              
                 this.nursing_info = response.data;
                 this.address_show = this.nursing_info.address;            
                 this.profile_img = '/upload/nursing_profile/' +this.nursing_info.logo;
@@ -684,68 +679,57 @@ export default {
                 }
                 this.focusMail();               
             });
-
             this.axios
             .get('/api/staffinfo/'+this.pro_id)
             .then(response=>{
                 this.staff_info = response.data;
             });
-
             this.axios
             .get('/api/facilities')
             .then(response=>{
                 this.fac_list = response.data;
             });
-
             this.axios
             .get('/api/facility_types')
             .then(response=>{
                 this.fac_types = response.data;
             });
-
             this.axios
             .get('/api/medical/acceptancewithtransactions/'+this.pro_id)
             .then(response => {
                 this.medical_acceptance = response.data;
             });
-
             this.axios
             .get('/api/feature/'+this.profile_type+'/'+this.pro_id)
             .then(response=>{
                 this.feature_list = response.data;
             });
-
             this.axios
             .get('/api/pgallery/'+this.pro_id+'/nursing')
             .then(response=>{
                 this.img_arr = response.data;
             });
-
             this.axios
             .get('/api/nursing-panorrama-gallery/'+this.pro_id)
             .then(response=>{
                 this.panorama_arr = response.data;
                 this.panorama_length = this.panorama_arr.length;
             });
-
             this.axios
             .get('/api/vgallery/'+this.pro_id+'/nursing')
             .then(response=>{
                 this.video_arr = response.data;
             });
-
             this.axios
             .get('/api/nursing-cooperate/'+this.pro_id)
             .then(response=>{
                 this.cooperate_arr = response.data;
             });
-
             this.axios
             .get('/api/nursing-payment/'+this.pro_id)
             .then(response=>{
                 this.payment_arr = response.data;
-            });
-            
+            });            
             this.$loading(false);
         },
         aggreBtn: function(){
@@ -759,62 +743,39 @@ export default {
             if((this.nursing_info.email != '' && this.mail_reg.test(this.nursing_info.email))){
                 this.mail_focus=false;
             }else{
-                this.mail_focus=true;
-                
+                this.mail_focus=true;                
             }
             this.aggreBtn();        
         },
         focusPhone(){
-            if(this.nursing_info.phone != '')
-            {
+            if(this.nursing_info.phone != '') {
                 this.ph_num = false;
             }        
-            if(this.nursing_info.phone != '' && (this.phone_reg).test(this.nursing_info.phone) && (this.nursing_info.phone.length >= 10 && this.nursing_info.phone.length <= 13))
-            {            
+            if(this.nursing_info.phone != '' && (this.phone_reg).test(this.nursing_info.phone) && (this.nursing_info.phone.length >= 10 && this.nursing_info.phone.length <= 13)) {            
                 this.ph_length = false;            
             }
-            else{        
+            else {        
                 this.ph_length = true;
             }
-            if(this.nursing_info.phone == '' || this.nursing_info.phone == null)
-            {            
+            if(this.nursing_info.phone == '' || this.nursing_info.phone == null) {            
                 this.ph_length = false;
             }
-
-            //   var input_data = $('#phone').val();
-
-            //   if(input_data.length == 0 || (input_data.length >= 10 && input_data.length <= 14 && input_data.charAt(input_data.length - 1) != '-' && input_data.charAt(0) != '-'))
-            //   {
-            //       this.ph_num = false;
-            //       this.ph_length = false;
-            //   }
-            //   else{
-            //       this.ph_num = true;
-            //       this.ph_length = true;
-            //   }
         },
         imgUrlAlt(event) {
             event.target.src = "/images/noimage.jpg"
         },
-
         onEditorBlur(quill) {
-
         },
-
         onEditorFocus(quill) {
-
         },
-
         maptogglediv() {
             $(".map-toggle-div").toggle('medium');
             this.isRotate5 = !this.isRotate5;
         },
-
         nurseFacToggleDiv() {
             $(".nurse-fac-toggle-div").toggle('medium');
             this.isRotate1 = !this.isRotate1;
         },
-
         staffToggleDiv() {
             $(".staff-toggle-div").toggle('medium');
             this.isRotate3 = !this.isRotate3;
@@ -838,10 +799,8 @@ export default {
                 this.panorama_arr.push({id:null,type:"panorama",photo:event.target.files[i].name,title:'',description:'', path:pathreal, file:event.target.files[i]});
             }
         },
-
         closeBtnMethod: function(indx,id,photo) {
-            if(confirm("Are you sure you want to delete?"))
-            {
+            if(confirm("Are you sure you want to delete?")) {
                 if(id) {
                     this.panorama_arr.splice(indx, 1);
                     let fd = new FormData();
@@ -853,7 +812,6 @@ export default {
                     this.axios
                     .post('/api/delete-pgallery',fd)
                     .then(response=>{
-                        // this.panorama_arr = response.data;
                     });
                 } else {
                     this.panorama_arr.splice(indx, 1);
@@ -876,7 +834,7 @@ export default {
                 cancelButtonClass: "all-btn",
                 allowOutsideClick: false,
             }).then(response => {
-                    if(type == 'cooperate') {
+                if(type == 'cooperate') {
                     this.cooperate_arr.splice(indx,1);
                 }
                 if(type == 'payment') {
@@ -933,10 +891,10 @@ export default {
                             }
                         })
                     } else {
-                        if(type == 'photo'){
+                        if(type == 'photo') {
                             this.img_arr.splice(indx,1);
                         }
-                        else{
+                        else {
                             this.panorama_arr.splice(indx, 1);
                             this.img_name = '';
                         }
@@ -967,10 +925,6 @@ export default {
         },
         specialFeAdd() {
             $(".special-feature-toggle-div").toggle('medium');
-            this.isRotate4 = !this.isRotate4;
-        },
-        StationAdd() {
-            $(".station-toggle-div").toggle('medium');
             this.isRotate4 = !this.isRotate4;
         },
         onDrop: function(e) {
@@ -1013,12 +967,10 @@ export default {
         onAccessEditorChange({ editor, html, text }) {
             this.nursing_info['access'] = html
         },
-
-        mainToggle(type,id) {            
+        mainToggle(type,id) {
             if(id == null) { id =''; }
             var class_by_id = $('#'+type+id).attr('class');            
-            if(class_by_id == "fas fa-sort-down animate rotate")
-            {
+            if(class_by_id == "fas fa-sort-down animate rotate") {
                 $('#'+type+id).removeClass("fas fa-sort-down animate rotate");                   
                 $('#'+type+id).addClass("fas fa-sort-down");
                 $('#changeLink'+type+id).show('medium');
@@ -1041,8 +993,6 @@ export default {
                 this.loc = true;
                 this.btn_disable = true;
                 this.nursing_info.townships_id = $('#gmaptownship').val();
-                // this.nursing_info.latitude = $('#new_lat').val();
-                // this.nursing_info.longitude = $('#new_long').val();
                 this.city_id = $('#division').val();
                 this.township_list = JSON.parse(localStorage.getItem("townshiplist"));
             }
@@ -1061,9 +1011,7 @@ export default {
                 }
             }            
             if(this.btn_disable){
-                // console.log("mail");                
                 this.$swal({
-                    // title: "確認",
                     html: "保存できません。<br/>必須項目を確認してください。",
                     type: "error",
                     width: 350,
@@ -1075,11 +1023,8 @@ export default {
                     allowOutsideClick: false,            
                 })                    
                 this.nursing_info.townships_id = $('#gmaptownship').val();
-                // this.nursing_info.latitude = $('#new_lat').val();
-                // this.nursing_info.longitude = $('#new_long').val();
                 this.city_id = $('#division').val();
-                this.township_list = JSON.parse(localStorage.getItem("townshiplist"));  
-    
+                this.township_list = JSON.parse(localStorage.getItem("townshiplist"));
             }
             else{              
                 this.$loading(true);
@@ -1091,15 +1036,12 @@ export default {
                 this.nursing_info.townships_id = Number($('#gmaptownship').val());
                 localStorage.setItem('lat_num',this.nursing_info.latitude);
                 localStorage.setItem('lng_num',this.nursing_info.longitude);
-
                 // Photo
                 let pt = new FormData();
                 var img = document.getElementsByClassName('gallery-area-photo');
-                for(var i =this.img_arr.length-1;i>=0;i--)
-                {
+                for(var i =this.img_arr.length-1;i>=0;i--) {
                     this.img_arr[i]['type'] = 'photo';
-                    if(this.img_arr[i]['photo'] == null || this.img_arr[i]['photo'] == '')
-                    {
+                    if(this.img_arr[i]['photo'] == null || this.img_arr[i]['photo'] == '') {
                         this.img_arr.splice(i,1);
                     }
                     var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -1108,14 +1050,13 @@ export default {
                     }
                 }
                 this.axios.post('/api/nursing/movephoto', pt)
-                    .then(response => {
-                    }).catch(error=>{
-                        console.log(error);
-                        if(error.response.status == 422){
-                            this.errors = error.response.data.errors
-                        }
-                    })
-
+                .then(response => {
+                }).catch(error=>{
+                    console.log(error);
+                    if(error.response.status == 422){
+                        this.errors = error.response.data.errors
+                    }
+                })
                 // Logo
                 let lg = new FormData();
                 if(document.getElementsByClassName('customer-logo')[0].files[0]) {
@@ -1130,39 +1071,32 @@ export default {
                         }
                     })
                 }
-
                 // Video
                 for(var i =this.video_arr.length-1;i>=0;i--){
-                    if(this.video_arr[i].photo == null || this.video_arr[i].photo == '' )
-                    {
+                    if(this.video_arr[i].photo == null || this.video_arr[i].photo == '' ) {
                         this.video_arr.splice(i,1);
                     }
                 }
-
                 // Cooperate
                 for(var i =this.cooperate_arr.length-1;i>=0;i--){
-                    if(this.cooperate_arr[i].name == null || this.cooperate_arr[i].name == '')
-                    {
+                    if(this.cooperate_arr[i].name == null || this.cooperate_arr[i].name == '') {
                         this.cooperate_arr.splice(i,1);
                     }
                 }
-
                 // Payment Method
                 for(var i =this.payment_arr.length-1;i>=0;i--){
-                    if(this.payment_arr[i].payment_name == null || this.payment_arr[i].payment_name == '')
-                    {
+                    if(this.payment_arr[i].payment_name == null || this.payment_arr[i].payment_name == '') {
                         this.payment_arr.splice(i,1);
                     }
                 }
-
                 var s_features =[];
                 this.chek_feature = [];
-                $.each($("input[name='special-features']:checked"), function(){
+                $.each($("input[name='special-features']:checked"), function() {
                     s_features.push($(this).val());
                 });
                 this.chek_feature.push({special_feature_id:s_features});
                 var acceptance=[];
-                $.each($("input:radio.medical-acceptance:checked"), function(){
+                $.each($("input:radio.medical-acceptance:checked"), function() {
                     var accept_val = $(this).val();
                     var tmp_arr = accept_val.split('-');
                     var type = tmp_arr[0];
@@ -1171,29 +1105,25 @@ export default {
                     var acceptance_id = tmp_arr[1];
                     acceptance.push({id:id,type:type});
                 });
-
                 // Panorama
                 let fd = new FormData();
                 for(var i = 0; i< this.panorama_arr.length; i++) {
-                    if(this.panorama_arr[i]['path']!=''){
+                    if(this.panorama_arr[i]['path']!='') {
                         fd.append(i ,this.panorama_arr[i]["file"] )
                     }
                 }
-
                 this.axios.post('/api/nursing/movepanorama', fd)
-                    .then(response => {
-                    }).catch(error=>{
-                        console.log(error);
-                        if(error.response.status == 422){
-                            this.errors = error.response.data.errors
-                        }
-                    })
-
+                .then(response => {
+                }).catch(error=>{
+                    console.log(error);
+                    if(error.response.status == 422){
+                        this.errors = error.response.data.errors
+                    }
+                })
                 this.profile_arr.push({nursing_profile:this.nursing_info,staff_info:this.staff_info, cooperate_list:this.cooperate_arr,
                     payment_list:this.payment_arr, video:this.video_arr, image: this.img_arr, panorama: this.panorama_arr,
                     acceptance:acceptance,chek_feature:this.chek_feature
                 });
-
                 if(this.profile_arr.length > 0) {
                     this.axios
                     .post(`/api/nursing/profile/${this.pro_id}`,this.profile_arr)
@@ -1222,26 +1152,13 @@ export default {
                 }
             }
         },
-        // isNumberOnly: function(event) {
-        //     var input_data = $('#phone').val();
-        //     var code = 0;
-        //     code = input_data.charCodeAt();
-        //     if((48 <= code && code <= 57) && (this.nursing_info.phone.length >= 10 && this.nursing_info.phone.length <= 14)){
-        //         this.ph_num = false;
-        //         this.ph_length = false;
-        //     }else{
-        //         this.ph_num = true;
-        //         this.ph_length = true;
-        //     }
-        // }
     }
 }
 
 </script>
 
 <style scoped> 
-.gallery-area-panorama {  
-    /* background: #e6e6e6;; */
+.gallery-area-panorama {
     padding: 2px;
 }
 .panorama-old-img{
@@ -1261,7 +1178,6 @@ export default {
     margin: 0px; 
  }
 .form-wrap .sp1,.sp3 {
-    /* margin: 0 5px; */
     padding: 0 5px 0 5px;
     background: #F54336;
     font-size: 12px;

@@ -141,7 +141,6 @@ export default {
             password_confirmation: '',
             passerr: false,
             has_error: false,
-            correctVal: null,
             tempVal: null,
             error: '',
             errors: {
