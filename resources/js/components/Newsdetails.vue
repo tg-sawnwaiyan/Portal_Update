@@ -111,6 +111,7 @@
 </template>
 
 <script>
+import { eventBus } from '../event-bus.js';
 import layout from '../components/home.vue'
 export default {
   components: {
@@ -129,7 +130,6 @@ export default {
   created() {
     this.scrollToTop();
     this.noimage = false;
-    //this.getLatestPostFromAllCat();
     if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
         this.othersDetails = false;
     }
@@ -140,15 +140,15 @@ export default {
     this.axios
       .get(`/api/newdetails/${this.$route.params.id}`)
       .then(response => {
-        this.newdetails = response.data.news; 
+        this.newdetails = response.data.news;
+        eventBus.$emit('gotColor', this.newdetails[0].color_code);
         this.getData = true; 
         this.$ga.event({
           eventCategory: 'ニュース',
           eventAction: this.newdetails[0].cat_name+' / '+this.newdetails[0].title,
         })     
       });   
-     
-    // alert(this.$route.params.id);e
+
     this.relatedNews(this.$route.params.id);
   },
   updated:function(){

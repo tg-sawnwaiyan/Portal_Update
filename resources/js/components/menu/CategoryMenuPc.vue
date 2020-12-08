@@ -55,7 +55,6 @@ export default {
     },
     methods: {
         changeBgColor(color_code) {
-            console.log(color_code);
             eventBus.$emit('gotColor', color_code);
         },
         getAllCat: function() {           
@@ -64,6 +63,13 @@ export default {
                     this.cats = response.data;
                     if(this.$route.path === '/'){
                         eventBus.$emit('gotColor', this.cats[0].color_code);
+                    }else if(this.$route.path.includes('/newscategory')){
+                        this.cats.find(category => {
+                            if (category.id == this.$route.params.id) {
+                                eventBus.$emit('gotColor', category.color_code);
+                            }
+                        })
+
                     }
                     });
 

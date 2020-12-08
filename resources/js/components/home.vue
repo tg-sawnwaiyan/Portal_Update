@@ -48,15 +48,9 @@ export default {
       }
     }
     },
-    mounted(){
-     this.lineColor = localStorage.getItem('gotColor');
-     console.log(this.lineColor);
-    },
     created() {
         eventBus.$on('gotColor', color => {
             this.lineColor = color ? color : "#287db4";
-            localStorage.setItem('gotColor', this.lineColor);         
-
         });
         
         if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
