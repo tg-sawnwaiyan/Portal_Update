@@ -1,7 +1,7 @@
+before	
 <template>
 <layout>   
-<div>    
-    <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+<div class="category_margin">    
     <div class="row col-md-12 m-lr-0 p-0" v-if="!latest_post_null" style="display: none;">
         <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
             <!--search input-->
@@ -14,46 +14,9 @@
             </div>                                    
         </div>
     </div>
-    <!-- </form> -->
-    <!-- slider -->
-    <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-    <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-        <ul class="nav nav-tabs" role="tablist">
-            <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" href="/">トップ</a></li>
-            
-            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" ref="itemWidth">
-               <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-            </li>
-
-        </ul>
-        
-    </div>
-   
-    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-    <div class="bg_color"></div>
-</div>
-                        <!-- end of slider -->
     <div class="col-12">
-        <!-- <div class="pc-991-1880">
-            <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
-                <span class="btn btn-danger all-btn submit">
-                    <i class="fas fa-arrow-left"></i> 
-                    <span>戻る</span> 
-                </span> 
-            </span>                
-            
-        </div> -->
         <h4 class="profile-tit">{{cat_name}}
-       <!--  <span @click="$router.go(-1);" class="backbtn pc-2000" style="cursor:pointer;top: 0px;">
-            <span class="btn btn-danger all-btn submit">
-                <i class="fas fa-arrow-left"></i> 
-                <span>戻る</span> 
-            </span>  
-        </span>   -->       
         </h4>
-        
     </div>       
     <div v-if="norecord_msg">
         <div class="container-fuid no_search_data">
@@ -487,49 +450,45 @@ export default {
         }
     },
     mounted() {
-        this.getAllCat();
+        //this.getAllCat();
     },
     created(){
-    this.$nextTick(() => {
-        if(this.$refs.infoBox){
-            this.cat_box_width = this.$refs.infoBox.clientWidth;
-        }            
-    })
-        var url      = window.location.href; 
-        if(url.indexOf('category') != -1){
-            $("#top_a").removeClass("active");
+        if($(window).width() > 480){
+             this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_id = response.data.cat_id;
+                this.cat_name = response.data.cat_name;
+              
+          });
+        }else{
+            this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
+                this.news = response.data.newslist;
+                if(response.data.newslist.length == 0)
+                {
+                     this.norecord_msg = true;
+                }
+                else{
+                     this.block = true;
+                     this.norecord_msg = false;
+                }
+                this.cat_name = response.data.cat_name;              
+          });
         }
-    if($(window).width() > 480){
-         this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_id = response.data.cat_id;
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }else{
-        this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
-            this.news = response.data.newslist;
-            if(response.data.newslist.length == 0)
-            {
-                 this.norecord_msg = true;
-            }
-            else{
-                 this.block = true;
-                 this.norecord_msg = false;
-            }
-            this.cat_name = response.data.cat_name;
-          
-      });
-    }
-   },
+    },
+    updated:function(){
+        $(".gNav .router-link-active").addClass("router-link-exact-active");
+    },
+    beforeDestroy:function(){
+        $(".gNav .router-link-active").removeClass("router-link-exact-active");
+    },
     computed:{  
         slickOptions() {
                 return {
@@ -581,25 +540,9 @@ export default {
     },
    methods:{
             getAllCat: function() {
-                this.axios .get('/api/home') 
+                this.axios.get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
-
-                        if(this.cat_box_width/total_word < 23){
-                            this.is_cat_overflow = true;
-                        }
-
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
 
                         this.getPostByCatID();
 
@@ -732,87 +675,15 @@ export default {
                 this.getlatestpost();
 
             },
-            swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
-        scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-        },
-         changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },
    }
     
 }
 </script>
 
 <style scoped>
+.profile-tit{
+    margin-top: 0;
+}
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
