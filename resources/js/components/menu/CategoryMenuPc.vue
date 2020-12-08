@@ -5,7 +5,7 @@
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
-                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
+                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth" v-on:click="changeBgColor(cat.color_code);">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
@@ -16,7 +16,9 @@
             </div>      
     </div>
 </template>
-<script scoped>
+<script>
+import { eventBus } from '../../event-bus.js';
+
 export default {
     data(){
         return {
@@ -38,7 +40,6 @@ export default {
     },
     updated: function () {
         this.$nextTick(function () {
-
             // Code that will run only after the
             // entire view has been re-rendered
             var ulWidth = 0;
@@ -53,12 +54,17 @@ export default {
         })
     },
     methods: {
+        changeBgColor(color_code) {
+            console.log(color_code);
+            eventBus.$emit('gotColor', color_code);
+        },
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
-
-                    this.cats = response.data; 
-
+                    this.cats = response.data;
+                    if(this.$route.path === '/'){
+                        eventBus.$emit('gotColor', this.cats[0].color_code);
+                    }
                     });
 
         },

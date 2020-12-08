@@ -15,7 +15,10 @@
             </div>      
     </div>
 </template>
-<script scoped>
+<script>
+
+import { eventBus } from '../../event-bus.js';
+
 export default {
     mounted() {
         if(localStorage.getItem("clicked") == null){
@@ -49,6 +52,7 @@ export default {
                             this.bgColor = localStorage.getItem("bgColor");
                         }else{
                         this.bgColor = this.cats[0].color_code;
+                        eventBus.$emit('gotColor', this.cats[0].color_code);
                         }
                     });
 
@@ -56,6 +60,7 @@ export default {
         changeBgColor(color_code) {
             this.bgColor =  color_code ? color_code : "#287db4";;
             localStorage.setItem('bgColor', this.bgColor);
+            eventBus.$emit('gotColor', color_code);
         },
         scrollUp(index){
             if(localStorage.getItem("clicked")){

@@ -6458,7 +6458,8 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    border: 1px solid #2980b9;
+    margin-top: 5%;/*
+    border: 1px solid #2980b9;*/
     background: #fff;
 }
 
@@ -14900,7 +14901,7 @@ strong {
     color: #2980b9 !important;
 }
 .category_margin{
-    margin: 68px 0 0 0;
+    margin: 5px 0 0 0;
 }
 .tab_pane_02{
     margin-top: 10px;
