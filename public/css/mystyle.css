@@ -1576,6 +1576,10 @@ border-radius: 3px;
     right: 0;
     text-align: center;
 }
+.arr-btn {
+    font-size: 25px;
+    cursor: pointer;
+}
 
 @media only screen and (max-device-width: 990px) and (orientation: landscape) {
     .successful-resetpwd {
@@ -6453,7 +6457,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    border: 1px solid #75b777;
+    border: 1px solid #2980b9;
     background: #fff;
 }
 
@@ -13898,7 +13902,7 @@ transition: background-color .3s;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 990px) {
     .form-wrap .form-left-child {
         padding: 10px 15px 5px 15px;
         margin-top: 25px;
@@ -14819,12 +14823,95 @@ strong {
 
 @media (max-width: 767px){
     .maintab-content {
-        margin: 16px 0 0 0;
+        margin: 34px 0 0 0;
     }
     #myBtn {
         bottom: 64px;
     }
     .footer {
         padding: 16px;
+    }
+}
+/*menu_category*/
+.menu_category{
+    margin: 5px 0 25px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 92% !important;
+    margin: 0 auto;
+}
+#ul_menu_category{
+    /*align-items: center;
+    justify-content: center;*/
+    flex-wrap: nowrap;
+    border-bottom: none;
+}
+#ul_menu_category li{
+    text-align: center;
+    margin: 0 1px 0 0;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    align-self: flex-end;
+}
+#ul_menu_category li a{
+    color: #fff;
+    border: none !important;
+}
+.tab-color0{
+    background-color: #287db4;
+}
+
+.tab-color1{
+    background-color: #d1281c;
+}
+
+.tab-color2 {
+    background-color: #9579ef;
+}
+
+.tab-color3 {
+    background-color: #20d1de;
+}
+
+.tab-color4 {
+    background-color: #a3774a;
+}
+.menu_category .nav-tabs .router-link-exact-active{
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 0.75rem 1rem 0.5rem 1rem;
+    font-weight: bold;
+}
+.menu_category .nav-tabs .nav-link:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
+}
+.h-tel{
+    display: none;
+}
+.gNav{
+    border-left: 1px solid #ccc;
+}
+.gNav .router-link-exact-active>i.fas{
+    color: #2980b9 !important;
+}
+.category_margin{
+    margin: 68px 0 0 0;
+}
+.tab_pane_02{
+    margin-top: 10px;
+}
+@media only screen and (max-width: 560px){
+    .category_margin{
+        margin: 0;
+    }
+}
+/*end of menu_category*/
+
+@media only screen and (min-width: 991px) and (max-width: 1000px) {
+    .maintab-content {
+        margin: 80px 0 0 0;
     }
 }

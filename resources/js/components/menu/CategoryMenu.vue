@@ -2,10 +2,8 @@
     <div class="tab-pane" id="tab1">
             <!-- slider -->
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
-                        <!-- <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li> -->
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
                            <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
@@ -13,8 +11,6 @@
 
                     </ul>                            
                 </div>
-               
-                <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                 <div class="bg_color"></div>
             </div>      
     </div>
@@ -24,37 +20,17 @@ export default {
     mounted() {
         if(localStorage.getItem("clicked") == null){
             localStorage.setItem('clicked', 1);
-        }            
-        this.getAllCat();
+        }
     },
     data(){
         return {
             cats: [],
-            categoryId: 1,
-            othersDetails: true,
-            status:'0',
-            search_word:null,
-            post_groups : [],
-            norecord_msg: false,
-            is_cat_overflow: false,
-            is_cat_slided: false,
             computed_width: '100%',
-            cat_box_width: null,
             w_width: $(window).width(),
         }
     },
-    created() {
-        if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
-            this.othersDetails = false;
-        }
-        else{
-            this.othersDetails = true;
-        }
-        this.$nextTick(() => {
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        }) 
+    created() {              
+        this.getAllCat();
     },
     methods: {
         getAllCat: function() {           
@@ -65,178 +41,15 @@ export default {
                     
                         this.cats = response.data;
                         this.cats = [topic].concat(this.cats);
-               
-         
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
- 
-                        if(this.cat_box_width/total_word < 26){
-                            this.is_cat_overflow = true;
-                            this.computed_width = '99.8%';
-                        }
-
-                        this.getPostByCatID();
-
-                        this.getLatestPostByCatID();
 
                     });
-
-        },
-        searchCategory() {
-            this.$loading(true);
-            if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                this.clearSearch();
-            } else {
-
-                this.status = 1;
-
-                this.search_word = $('#search-free-word').val();
-                this.getLatestPostsByCatID();                 
-
-            }
-        },
-        clearSearch() {
-
-            this.status = 0;
-
-            this.search_word = '';
-
-            this.getLatestPostsByCatID();
-
-        },
-        getLatestPostsByCatID: function() {
-                this.post_groups = [];
-                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                    var searchword = 'all_news_search';                
-                } else {
-                    var searchword = this.search_word;
-                }
-
-                if($(window).width() > 480){
-
-                    this.axios
-                    .get('/api/get_latest_posts_by_catId/'+searchword)
-                    .then(response => {
-                        length = Object.keys(response.data).length;
-                        this.$loading(false);
-                        if(length>0) {
-                            this.post_groups = response.data;
-                        } else {
-                            this.post_groups = [];                         
-                        }                  
-                        if(this.post_groups.length != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;                        
-                        }
-                    });
-
-                }else{
-                    this.axios
-                    .get('/api/get_latest_posts_by_catId_mobile/'+searchword)
-                    .then(response => {
-                        length = Object.keys(response.data).length;
-                        this.$loading(false);
-                        if(length>0) {
-                            this.post_groups = response.data;
-                        } else {
-                            this.post_groups = [];                         
-                        }                  
-                        if(this.post_groups.length != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;                        
-                        }
-                    });
-                }
-            },
-        getPostByCatID: function(catId = this.cats[0].id) {
-                if ($('#search-free-word').val() != null) {
-                    var search_word = $('#search-free-word').val();
-                } else {
-                    var search_word = null;
-                }
-
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.cats[0].id;
-                }
-                let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
-                this.axios.post("/api/posts", fd)
-                    .then(response => {
-                        this.posts = response.data;
-                    });
-        },
-        getLatestPostByCatID: function(catId) {
-
-                if ($('#search-free-word').val()) {
-
-                    var search_word = $('#search-free-word').val();
-                } else {
-
-                    var search_word = null;
-
-                }
-
-                if (catId) {
-
-                    var cat_id = catId;
-
-                } else {
-
-                    var cat_id = this.cats[0].id;
-
-                }
-
-                let fd = new FormData();
-
-                fd.append('search_word', search_word)
-
-                fd.append('category_id', cat_id)
-
-                $('.search-item').css('display', 'none');
-
-                this.categoryId = cat_id;
-
-                this.axios.post("/api/get_latest_post" , fd)
-
-                .then(response => {
-
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
-                        this.latest_post_null = true;
-                    }
-                    else{
-                        this.latest_post_null = false;
-                    }
-                });
 
         },
         changeBgColor(no) {
-            const color_ary = ['#287db4','#a3774a','#9579ef','#20d1de','#d1281c'];
+            const color_ary = ['#287db4','#d1281c','#9579ef','#20d1de','#a3774a'];
             $('.bg_color').css('background-color', color_ary[no]);
         },
-        
-        swipeLeft() {
-            const content = this.$refs.content;
-            this.scrollTo(content, -300, 800);
-        },
-
-        swipeRight() {
-            const content = this.$refs.content;
-            this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
-            this.computed_width = '98%';
-        },
         scrollUp(index){
-           // localStorage.clear();
             if(localStorage.getItem("clicked")){
                 if(index >= localStorage.getItem('clicked')){
                     var pos = $('div.nav').scrollLeft() + 100;
@@ -245,71 +58,8 @@ export default {
                 }
             }
             $('div.nav').scrollLeft(pos);
-            localStorage.setItem('clicked', index);
-
-    
+            localStorage.setItem('clicked', index);    
         },
-        scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-        },
-
-
     }
 }
 </script>
@@ -520,8 +270,8 @@ export default {
 
     .tab-color1 {
         height: auto;
-        border-left: 5px solid #a3774a;
-        background-color: #a3774a;
+        border-left: 5px solid #d1281c;
+        background-color: #d1281c;
     }
 
     .tab-color2 {
@@ -538,8 +288,8 @@ export default {
 
     .tab-color4 {
         height: auto;
-        border-left: 5px solid #d1281c;
-        background-color: #d1281c;
+        border-left: 5px solid #a3774a;
+        background-color: #a3774a;
     }
 
     .nav-tabs .router-link-exact-active,

@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <div class="m-lr-0 justify-content-md-center">
+        <div class="m-lr-0 justify-content-md-center category_margin">
             <div class="">
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
@@ -18,26 +18,6 @@
                             </div>
                         </div>
                         <!-- </form> -->
-                        <!-- slider -->
-                         <div class="card-header d-none d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
-                        <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                        <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
-
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li id="top" class="nav-item nav-line tab-color0"><a id='top_a' class="nav-link nav-line" v-on:click="changeBgColor(0);" href="/">トップ</a></li>
-                                
-                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(5-(Math.floor(cat['id']%5)))" v-bind:value="cat.id" v-on:click="changeBgColor((5-(Math.floor(cat['id']%5))));" ref="itemWidth">
-                                   <router-link class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                                </li>
-
-                            </ul>
-                            
-                        </div>
-                       
-                        <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                        <div class="bg_color"></div>
-                    </div>
-                        <!-- end of slider -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
 
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
@@ -662,23 +642,12 @@
       async mounted() {
             this.visit = 'true';
             localStorage.setItem('visit', this.visit);
-
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
-
             $('#navtab').addClass('news-tabColor');
-
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-
             $('#upper-tab').addClass('news-borderColor');
-
             this.getAllCat();
-
             this.getLatestPostsByCatID();
-
-            
-
-            
-
             this.getLatestPostFromAllCat();
             
             // this.axios.get('/api/auth/user') 
@@ -745,9 +714,12 @@
             is_cat_slided: false,
 
             computed_width: '100%',
-            w_width: $(window).width(),
+            w_width: window.innerWidth,
             norecord_msg: false,
             cat_box_width: null,
+            menuWrapperSize: '',
+            itemSize: '',
+            li_width: 0,
             // w_width: $(window).width() + 16,
         }
     },
@@ -759,10 +731,15 @@
         })
         
         this.$nextTick(() => {
+        	$("#top_a").addClass("active");
+            this.menuWrapperSize = $('.menu_category').outerWidth();
+            this.itemSize = $('.nav-item').outerWidth(true);
+
+            
             if(this.$refs.infoBox){
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
-        })  
+        })
         var today = new Date();
         var month =(String) (today.getMonth()+1);
         var date = (String) (today.getDate());
@@ -1198,7 +1175,7 @@
     });
  </script>
 
-<style>
+<style scoped>
 .list-label{
     float: right; 
     color: #999; 
@@ -1255,7 +1232,7 @@
 }
 
 .news-borderColor {
-    border: 1px solid #75b777 !important;
+    border: 1px solid #2980b9 !important;
 }
 
 
