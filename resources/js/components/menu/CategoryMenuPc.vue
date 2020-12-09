@@ -1,3 +1,4 @@
+temp_brach
 <template>
     <div class="menu_tab_category" id="tab1">
             <!-- Category Menu -->
@@ -56,9 +57,7 @@ export default {
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
-
-                    this.cats = response.data; 
-
+                    this.cats = response.data;
                     });
 
         },
@@ -184,7 +183,7 @@ export default {
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
-            width: 95% !important;
+             width: 95% !important;
         }
         #left-button{
             left: 36px;
