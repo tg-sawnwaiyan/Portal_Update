@@ -148,14 +148,14 @@ export default {
     #left-button{
         position: absolute;
         top: 13px;
-        left: 30px;
+        left: 5px;
         padding: 0;
         width: auto;
     }
     #right-button{
         position: absolute;
         top: 13px;
-        right: 30px;
+        right: 5px;
         padding: 0;
         width: auto;
     }

@@ -6458,7 +6458,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    margin-top: 5%;/*
+    margin-top: 5.5%;/*
     border: 1px solid #2980b9;*/
     background: #fff;
 }
@@ -14840,7 +14840,7 @@ strong {
     margin: 5px 0 25px 0;
     white-space: nowrap;
     overflow: hidden;
-    width: 92% !important;
+    width: 96% !important;
     margin: 0 auto;
 }
 #ul_menu_category{
