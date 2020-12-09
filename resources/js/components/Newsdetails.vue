@@ -127,6 +127,9 @@ export default {
       noimage:false,
     };
   },
+  mounted() {
+    $('#upper-tab').addClass('margin-none');
+  },
   created() {
     this.scrollToTop();
     this.noimage = false;
@@ -220,9 +223,9 @@ export default {
 .job-borderColor {
         border: 1px solid #ccc !important;
 }
-.news-borderColor {
+/*.news-borderColor {
         border: 1px solid #75b777 !important;
-}
+}*/
 .hospital-borderColor {
         border: 1px solid #63b7ff !important;
 }

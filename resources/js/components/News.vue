@@ -625,6 +625,7 @@
     import News from './News.vue'
     import Slick from 'vue-slick'
     import adsslider from '../components/adsslider'
+    import { eventBus } from '../event-bus.js';
 
     export default {
 
@@ -861,11 +862,12 @@
                         this.cats = response.data;
 
                         if(this.cats[0].name == "トップ"){
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
                             this.latest_catId = this.cats[1].id;
                         }else{
                             this.latest_catId = this.cats[0].id;
+                            eventBus.$emit('gotColor', this.cats[1].color_code);
                         }
-
                         this.getPostByCatID();
 
                         this.getLatestPostByCatID();

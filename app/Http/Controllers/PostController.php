@@ -135,7 +135,7 @@ class PostController extends Controller
 
     public function getNewsByCategory($id)
     {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
+        $cat = Category::where('id',$id)->select('name','color_code')->first();
 
         $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
@@ -212,14 +212,14 @@ class PostController extends Controller
             $aryResults = [];
         }
 
-        return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
+        return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
      public function getNewsByCategoryForMobile($id)
     {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
+        $cat = Category::where('id',$id)->select('name','color_code')->first();
         $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('block_id', 'ASC')->orderBy('created_at', 'DESC')->get()->toArray();
-        return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
+        return response()->json(array('cat'=> $cat,'newslist'=>$newslist));
     }
 
     public function show_related($id) {

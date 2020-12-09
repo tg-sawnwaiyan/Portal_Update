@@ -780,6 +780,8 @@
 <script>
     import layout from '../components/home.vue'
     import Slick from 'vue-slick'
+    import { eventBus } from '../event-bus.js';
+
 export default {
 
     components: {
@@ -827,7 +829,8 @@ export default {
                      this.norecord_msg = false;
                 }
                 this.cat_id = response.data.cat_id;
-                this.cat_name = response.data.cat_name;
+                this.cat_name = response.data.cat.name;
+                eventBus.$emit('gotColor', response.data.cat.color_code);
               
           });
         }else{
@@ -841,7 +844,8 @@ export default {
                      this.block = true;
                      this.norecord_msg = false;
                 }
-                this.cat_name = response.data.cat_name;              
+                this.cat_name = response.data.cat.name;
+                eventBus.$emit('gotColor', response.data.cat.color_code);             
           });
         }
     },
