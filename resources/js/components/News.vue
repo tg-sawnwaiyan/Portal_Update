@@ -868,8 +868,6 @@
                             this.latest_catId = this.cats[0].id;
                             eventBus.$emit('gotColor', this.cats[1].color_code);
                         }
-                        console.log(this.cats[1].color_code);
-
                         this.getPostByCatID();
 
                         this.getLatestPostByCatID();

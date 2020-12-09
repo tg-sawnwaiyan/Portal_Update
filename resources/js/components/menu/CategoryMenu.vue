@@ -43,23 +43,34 @@ export default {
             }
         }
     },
+    updated:function(){
+        if(this.$route.path === '/'){
+            this.bgColor = this.cats[0].color_code;
+        }else if(this.$route.path.includes('/newscategory')){
+            eventBus.$on('gotColor', color => {
+                            this.bgColor = color ? color : "#287db4";
+                            });
+        }
+    },
     methods: {
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-                        if(localStorage.getItem("bgColor") != null && this.$route.path.includes('/newscategory')){
-                            this.bgColor = localStorage.getItem("bgColor");
+                        if(this.$route.path.includes('/newscategory')){
+                            eventBus.$on('gotColor', color => {
+                            this.bgColor = color ? color : "#287db4";
+                            });
                         }else{
-                        this.bgColor = this.cats[0].color_code;
-                        eventBus.$emit('gotColor', this.cats[0].color_code);
+                            console.log(this.cats[0].color_code);
+                            this.bgColor = this.cats[0].color_code;
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
                         }
                     });
 
         },
         changeBgColor(color_code) {
-            this.bgColor =  color_code ? color_code : "#287db4";;
-            localStorage.setItem('bgColor', this.bgColor);
+            this.bgColor =  color_code ? color_code : "#287db4";
             eventBus.$emit('gotColor', color_code);
         },
         scrollUp(index){
