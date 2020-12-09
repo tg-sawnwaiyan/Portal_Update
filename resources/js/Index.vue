@@ -174,6 +174,10 @@
     margin-left: 50px;
     margin-right: 50px;
 }
+.footernav .gNav li a {
+    font-size: 15px;
+    font-weight: bold;
+}
 .footernav .gNav li a:after{
     display: none;
 }
