@@ -136,14 +136,14 @@ export default {
     #left-button{
         position: absolute;
         top: 13px;
-        left: 30px;
+        left: 5px;
         padding: 0;
         width: auto;
     }
     #right-button{
         position: absolute;
         top: 13px;
-        right: 30px;
+        right: 5px;
         padding: 0;
         width: auto;
     }
@@ -161,7 +161,10 @@ export default {
     }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
-            width: 86% !important;
+            width: 94% !important;
+        }
+        .upper-tab {
+            margin-top: 9.5%;
         }
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
@@ -181,13 +184,16 @@ export default {
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
-            width: 88% !important;
+            width: 95% !important;
         }
         #left-button{
             left: 36px;
         }
         #right-button{
             right: 36px;
+        }
+        .upper-tab {
+            margin-top: 7%;
         }
     }
 </style>
