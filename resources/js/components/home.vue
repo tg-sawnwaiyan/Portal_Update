@@ -17,7 +17,7 @@
             </li>
         </ul>
         
-        <div class="tabs upper-tab" id="upper-tab">
+        <div class="tabs upper-tab" id="upper-tab" :style="useStyle">
             <div class="tab-pane" id="tab1">
                 <main>
                     <slot />
@@ -31,15 +31,28 @@
 </template>
 
 <script>
+ import { eventBus } from '../event-bus.js';
 export default {
     data(){
         return {
             othersDetails: true,
             computed_width: '100%',
             cat_box_width: null,
+            lineColor: "",
         }
     },
+    computed: {
+    useStyle () {
+      return {
+        '--line-color': this.lineColor
+      }
+    }
+    },
     created() {
+        eventBus.$on('gotColor', color => {
+            this.lineColor = color ? color : "#287db4";
+        });
+        
         if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
             this.othersDetails = false;
         }
@@ -60,6 +73,9 @@ export default {
 }
 </script>
 <style>
+    .upper-tab {
+        border: 1px solid var(--line-color);
+    }
     .hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;
         color: #63b7ff !important;
@@ -129,9 +145,6 @@ export default {
     }
     .job-borderColor {
         border: 1px solid #828282 !important;
-    }
-    .news-borderColor {
-        border: 1px solid #2980b9 !important;
     }
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;

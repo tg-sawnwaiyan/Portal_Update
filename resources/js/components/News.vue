@@ -1118,11 +1118,6 @@
     border-right: 1px solid #fff;
 }
 
-.news-borderColor {
-    border: 1px solid #2980b9 !important;
-}
-
-
 .left{
     float: left;
     width: 30%;
@@ -1357,11 +1352,13 @@
 
 }
 .tab_title_color{
-    color: #fff;
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
     background-color: var(--bkgColor);
+}
+.tab_title_color span {
+    color: #fff;
 }
 .bordertop-color{
     border-top: 2px solid var(--color);
