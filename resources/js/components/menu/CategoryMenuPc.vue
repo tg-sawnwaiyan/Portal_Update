@@ -1,3 +1,4 @@
+temp_brach
 <template>
     <div class="menu_tab_category" id="tab1">
             <!-- Category Menu -->
@@ -5,7 +6,7 @@
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
-                        <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth" v-on:click="changeBgColor(cat.color_code);">
+                        <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
@@ -16,9 +17,7 @@
             </div>      
     </div>
 </template>
-<script>
-import { eventBus } from '../../event-bus.js';
-
+<script scoped>
 export default {
     data(){
         return {
@@ -54,23 +53,10 @@ export default {
         })
     },
     methods: {
-        changeBgColor(color_code) {
-            eventBus.$emit('gotColor', color_code);
-        },
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
                     this.cats = response.data;
-                    if(this.$route.path === '/'){
-                        eventBus.$emit('gotColor', this.cats[0].color_code);
-                    }else if(this.$route.path.includes('/newscategory')){
-                        this.cats.find(category => {
-                            if (category.id == this.$route.params.id) {
-                                eventBus.$emit('gotColor', category.color_code);
-                            }
-                        })
-
-                    }
                     });
 
         },
@@ -173,7 +159,10 @@ export default {
     }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
-            width: 86% !important;
+            width: 94% !important;
+        }
+        .upper-tab {
+            margin-top: 9.5%;
         }
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
@@ -193,13 +182,16 @@ export default {
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
-            width: 88% !important;
+             width: 95% !important;
         }
         #left-button{
             left: 36px;
         }
         #right-button{
             right: 36px;
+        }
+        .upper-tab {
+            margin-top: 7%;
         }
     }
 </style>
