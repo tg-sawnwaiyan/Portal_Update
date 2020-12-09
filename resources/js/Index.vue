@@ -38,7 +38,18 @@
                                     </div>
                                 </div>
                                 <div class="container-fluid footer footer-div">
-                                    <span>Copyright©TRUST-ESTATE Co,Ltd.All Rights Reserved. </span>
+                                    <div class="footernav">
+                                        <ul class="gNav">
+                                            <li><a class="tel" href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i><span>info@t-i-s.jp</span></a></li>
+                                            <li>
+                                            <router-link :to="{name: 'sitepolicy'}">利用規約</router-link>
+                                            </li>
+                                            <li>
+                                            <router-link :to="{name: 'privacyPolicy'}">プライバシーポリシー</router-link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p class="copyright-text">Copyright©TRUST-ESTATE Co,Ltd.All Rights Reserved. </p>
                                 </div>
                             </section>
                         </div>
@@ -150,6 +161,29 @@
 }
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
+}
+.footernav{
+    width: 100%;
+    display: inline-block;
+}
+.footernav .gNav{
+    display: inline-flex;
+    border-left: none;
+}
+.footernav .gNav li{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.footernav .gNav li a:after{
+    display: none;
+}
+.footernav .gNav li a .fa-envelope{
+    color: #2980b9;
+    margin-right: 5px;
+}
+.copyright-text{
+    margin-top: 10px;
+    width: 100%;
 }
 </style>
 <script>
