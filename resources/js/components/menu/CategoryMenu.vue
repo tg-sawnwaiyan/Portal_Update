@@ -59,10 +59,10 @@ export default {
                         this.cats = response.data;
                         if(this.$route.path.includes('/newscategory')){
                             eventBus.$on('gotColor', color => {
-                            this.bgColor = color ? color : "#287db4";
+                            this.bgColor = color ? color : localStorage.getItem("bgColor") ? localStorage.getItem("bgColor") : "#287db4";
                             });
+
                         }else{
-                            console.log(this.cats[0].color_code);
                             this.bgColor = this.cats[0].color_code;
                             eventBus.$emit('gotColor', this.cats[0].color_code);
                         }
@@ -71,6 +71,7 @@ export default {
         },
         changeBgColor(color_code) {
             this.bgColor =  color_code ? color_code : "#287db4";
+            localStorage.setItem('bgColor', this.bgColor);
             eventBus.$emit('gotColor', color_code);
         },
         scrollUp(index){
