@@ -172,7 +172,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}/{cat_id}', 'PostController@delete');
         // Route::post('getPostsByCatId', 'PostController@getPostById');
-        Route::post('getPostsByCatId/{id}/{post_id}', 'PostController@getPostById');
+        Route::post('getPostsByCatId', 'PostController@getPostById');
     });
     // End News
 

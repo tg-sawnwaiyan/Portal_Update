@@ -182,7 +182,7 @@
                                 </div> -->
 
                                  <div>
-                              <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
+                              <pagination :data="related_news" @pagination-change-page="getPostsByCatId" :limit="limitpc" class="mt-3">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                                 <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                             </pagination>
@@ -355,7 +355,7 @@ import {quillEditor} from 'vue-quill-editor'
                                 this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
                         this.getPostsByCatId();
-                        this.getSearchPostsByCatId();
+                        // this.getSearchPostsByCatId();
                     } 
                     else {
                         this.getPostsByCatId();
@@ -554,9 +554,9 @@ import {quillEditor} from 'vue-quill-editor'
                     let fd = new FormData();
                     fd.append("cat_id", cat_id);
                     fd.append("search_word",this.search_word);
-
+                    fd.append("post_id",this.$route.params.id);
                     this.axios
-                    .post('/api/new/getPostsByCatId/page=' + page+"/"+`${this.$route.params.id}`,fd)
+                    .post('/api/new/getPostsByCatId?page=' + page,fd)
                     .then(response => {
                         this.related_news = response.data;
                         this.norecord = this.related_news.data.length;

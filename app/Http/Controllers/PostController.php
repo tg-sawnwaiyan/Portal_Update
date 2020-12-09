@@ -425,13 +425,13 @@ class PostController extends Controller
         
     }
 
-    public function getPostById(Request $request,$page,$postid) {
+    public function getPostById(Request $request) {
 
         // $request = $request->all();
         // $posts = Post::where('id','<>',$postid)->where("category_id",$request['cat_id'])->orderBy('created_at','DESC')->paginate(20);
         // return response()->json($posts);
         $request = $request->all();
-        $posts = Post::where('id','<>',$postid)->where("category_id",$request['cat_id']);
+        $posts = Post::where('id','<>',$request['post_id'])->where("category_id",$request['cat_id']);
 
         
         if(isset($request['search_word'])) {
