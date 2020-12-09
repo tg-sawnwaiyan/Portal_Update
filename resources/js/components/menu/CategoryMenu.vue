@@ -164,9 +164,9 @@ export default {
         border: 1px solid #828282 !important;
     }
 
-    .news-borderColor {
+    /*.news-borderColor {
         border: 1px solid #75b777 !important;
-    }
+    }*/
 
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;

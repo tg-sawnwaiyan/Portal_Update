@@ -773,7 +773,7 @@
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
             $('#navtab').addClass('nursing-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-            $('#upper-tab').addClass('nursing-borderColor');
+            $('#upper-tab').addClass('nursing-borderColor margin-none');
         },
 
         computed: {
