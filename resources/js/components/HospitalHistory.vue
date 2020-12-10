@@ -183,10 +183,8 @@ export default {
             his_hos:'',
             message:'',
             hos_profiles: [],
-            specialfeature: [],
             local_sto: "",
             type: 'nursing',
-            specialfeature: [],
             currentOffset: 0,
             windowSize: 5,
             paginationFactor: 272,
@@ -247,8 +245,7 @@ export default {
         }
         else if (this.window.width >= 1440 && this.window.width < 1880) {
             this.windowSize = 4;
-            this.paginationFactor = 271;            
-            // console.log(this.window.width);
+            this.paginationFactor = 271;
         }
         this.local_sto = localStorage.getItem("hospital_history");
         this.getAllCustomer(this.local_sto);
@@ -287,7 +284,6 @@ export default {
                         allowOutsideClick: false,
                     });
                     var hos_id = '';
-                    // this.message = "現在本サイトに掲載されていない病院については最近見た施設リストから削除しました。";
                     for(var i= 0;i<this.hos_profiles.length;i++) {
                         if(i== this.hos_profiles.length-1) {
                             hos_id += this.hos_profiles[i]['id'];
@@ -343,7 +339,6 @@ export default {
                 var index = l_sto_arr.indexOf(rm_id);
                 if (index > -1) {
                     l_sto_arr.splice(index, 1);
-                    // $("#hos-his-local").html(l_sto_arr.length);
                     this.hosHis = l_sto_arr.length;
                     if(l_sto_arr.length == 0){
                         $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
@@ -358,12 +353,8 @@ export default {
                         this.his_hos = this.local_sto.split(",").length;
                         this.getAllCustomer(this.local_sto);
                     } else {
-                        // window.location.reload();
                         this.$router.push({
                             name: 'hospital_search',
-                            // params: {
-                            //     page: 'subtab3'
-                            // }
                         });
                     }
                 }
@@ -379,24 +370,24 @@ export default {
 };
 </script>
 <style>
-.breadcrumb-style{
-    padding-left:0px !important;
-    padding-right:0px !important;
-}
-.svg-style{
-    fill:#000000;
-}
-.g-style{
-    mix-blend-mode: normal;
-}
-.profile_img{
-    width: 250px;
-}
-.hos_profile-style{
-    word-wrap: break-word;
-}
-.h6-style{
-    text-align:left;
-    font-weight:bold;
-}
+    .breadcrumb-style{
+        padding-left:0px !important;
+        padding-right:0px !important;
+    }
+    .svg-style{
+        fill:#000000;
+    }
+    .g-style{
+        mix-blend-mode: normal;
+    }
+    .profile_img{
+        width: 250px;
+    }
+    .hos_profile-style{
+        word-wrap: break-word;
+    }
+    .h6-style{
+        text-align:left;
+        font-weight:bold;
+    }
 </style>

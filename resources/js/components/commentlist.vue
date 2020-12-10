@@ -108,7 +108,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <pagination :data="comments" @pagination-change-page="searchcomment"></pagination> -->
                     <div>
                         <pagination :data="comments" @pagination-change-page="searchcomment" :limit="limitpc">
                             <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -138,19 +137,14 @@ export default {
             comments: [],
             profileList:[],
             norecord: 0,
-            items: [],
             norecord_msg: false,
             nosearch_msg: false,
             title: '',
             type:'',
             profileid:'',
-            customerList:'',
-            cusid:'',
-            proid:'',
             table_name: {
                 profile: ''
             },
-            cusname:'',
             selectedValue:0
         }
     },
@@ -166,7 +160,6 @@ export default {
             .then(response => {
                 this.$loading(false);
                 this.comments = response.data.commentlist;
-                // this.profilelist = response.data.profilelist;
                 this.norecord = this.comments.data.length;                   
                 if(this.norecord != 0) {
                     this.norecord_msg = false;
@@ -183,7 +176,6 @@ export default {
             .then(response => {
                 this.$loading(false);
                 this.comments = response.data.commentlist;
-                // this.profilelist = response.data.profilelist;
                 this.norecord = this.comments.data.length;
                 if(this.norecord != 0) {
                     this.norecord_msg = false;
@@ -200,9 +192,6 @@ export default {
         this.axios.post(`/api/job/profileList/`+ 0,this.table_name).then(response=> {
             this.profileList = response.data;
         });
-        //  this.axios.get('/api/job/customerList/'+this.type).then(response=> {
-        //     this.customerList = response.data;
-        // });
     },
     methods: {
         getComment(){
@@ -245,7 +234,6 @@ export default {
         },
         deleteComment(id) {
             this.$swal({
-            // title: "確認",
             text: "口コミを削除してよろしいでしょうか。",
             type: "warning",
             width: 350,
@@ -281,10 +269,7 @@ export default {
                     }else{
                         this.norecord_msg = true;
                     }
-                    // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
-                    // this.categories.splice(i, 1);
                     this.$swal({
-                        // title: "削除済",
                         text: "口コミを削除しました。",
                         type: "success",
                         width: 350,
@@ -309,7 +294,6 @@ export default {
         },
         commentConfirm(id) {
             this.$swal({
-                // title: "確認",
                 text: "口コミを承認してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -336,7 +320,6 @@ export default {
                     this.$loading(false);
                     this.comments = response.data.comments;
                     this.$swal({
-                        // title: "確認済",
                         text: "口コミを承認しました。",
                         type: "success",
                         width: 350,
@@ -347,7 +330,6 @@ export default {
                     })
                     .catch(() => {
                         this.$swal({
-                            // title: "エラーメッセージ",
                             html: "システムエラーです。<br/>社内エンジニアにお問い合わせください。",
                             type: "error",
                             width: 350,
@@ -405,29 +387,28 @@ export default {
 }
 </script>
 <style scoped>
-.comment-title {
-    background-size: 29px;
-    /* background :#b6b4b4; */
-    color: #2980b9;
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-    padding-bottom: 10px;
-}
-.comment-date {
-    margin-left: auto;
-    font-size: 12px;
-    color: #777;
-}
-.btn_style{
-    min-width: 65px;
-    font-size:13px;
-}
-.change_link{
-    margin-top:15px;
-}
-.span_style{
-    color: #81ad3b;
-    font-weight: bold; 
-}
+    .comment-title {
+        background-size: 29px;
+        color: #2980b9;
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        padding-bottom: 10px;
+    }
+    .comment-date {
+        margin-left: auto;
+        font-size: 12px;
+        color: #777;
+    }
+    .btn_style{
+        min-width: 65px;
+        font-size:13px;
+    }
+    .change_link{
+        margin-top:15px;
+    }
+    .span_style{
+        color: #81ad3b;
+        font-weight: bold; 
+    }
 </style>

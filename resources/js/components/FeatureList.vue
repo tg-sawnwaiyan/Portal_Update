@@ -58,7 +58,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <pagination :data="features" @pagination-change-page="searchFeature"></pagination> -->
                         <div>
                             <pagination :data="features" @pagination-change-page="searchFeature" :limit="limitpc" class="mt-3">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -87,7 +86,6 @@ export default {
             norecord: 0,
             norecord_msg: false,
             nosearch_msg: false,
-            items: [],
             title: '',
         };
     },
@@ -125,7 +123,6 @@ export default {
     methods: {
         deleteFeature(id,type) {
             this.$swal({
-                // title: "確認",
                 text: "特長を削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -156,7 +153,6 @@ export default {
                         this.norecord_msg = true;
                     }
                     this.$swal({
-                        // title: "削除済",
                         text: "特長を削除しました。",
                         type: "success",
                         width: 350,
@@ -167,9 +163,7 @@ export default {
                     });
                 }).catch(error=>{
                     if(error.response.status == 404){
-                        // this.$swal("このカテゴリーに関連するニュースがあるため、削除できません。");
                         this.$swal({
-                            // title: "削除に失敗しました",
                             html: "削除に失敗しました。<br/>削除しようとした特長の施設が存在するため削除できません。 ",
                             type: "error",
                             width: 350,

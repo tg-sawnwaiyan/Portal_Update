@@ -26,7 +26,7 @@
             </div>                          
             <span class="error pro-1" v-if="mail_focus || hospital_info.email =='' || hospital_info.email == null">※メールアドレスが正しくありません。</span>                            
             <div class="form-group form-group-wrapper d-flex">
-              <label class="heading-lbl col-md-2 col-12 pad-free">電話番号 </label>                            
+              <label class="heading-lbl col-md-2 col-12 pad-free">電話番号 </label>                 
               <input type="text" class="form-control customer-phone col-md-10 col-12 nursing_input" id="phone" placeholder="電話番号を入力してください。" v-model="hospital_info.phone"  @keyup="focusPhone"  maxlength="13">
             </div>                  
             <span class="error pro-1" v-if="ph_length || ph_num">※電話番号が正しくありません。もう一度入力してください。</span>          
@@ -73,12 +73,10 @@
           <tr>
             <th class="nursing_table pc-414-table sp-768-block border-none"> <label class="heading-lbl hos_lbl pad-free">医院からのお知らせ </label></th>
             <td class="nursing_table1 pc-414-table sp-768-block border-none">
-              <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
               <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" @change="onDetailInfoEditorChange($event)" v-model="hospital_info.details_info" :options="editorOption"/>
             </td>
           </tr>
         </table>
-        
         <table class="table table-bordered table-wrapper">
           <tr>
             <td>
@@ -484,20 +482,14 @@
     </form>
   </div>
 </template>
-
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
-// import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue'
-// import { timeout } from 'q'
 export default {
   components: {
     GoogleMap,
     quillEditor,
-    // Button,
-    // Input,
-    // Select,
     email:''
   },
   data() {
@@ -507,16 +499,17 @@ export default {
       video_arr:[],
       feature_list:[],
       profile_type:'hospital',
-      schedule_arr:[],shedule_am:[],shedule_pm:[],
+      schedule_arr:[],
+      shedule_am:[],
+      shedule_pm:[],
       schedule_list:[],
-      hospital_info:[],
-      hospital_info_push:[],
-      hospital_info:[],  save_hospital_info:[],
+      hospital_info:[], 
+      save_hospital_info:[],
       chek_feature : [],
       subjects:[],
       facilities:[],
       city: '',
-      postal: '',clinical_subj:[],
+      clinical_subj:[],
       isRotate1: false,
       isRotate2: false,
       isRotate3: false,
@@ -666,7 +659,6 @@ export default {
     featureCheck(check_id) {
       $('.feature-'+check_id).attr('checked','true');
     },
-   
     subjectCheck(check_id) {
       $('.subject-'+check_id).attr('checked','true');
     },
@@ -760,7 +752,6 @@ export default {
           this.btn_disable = true;
         }
       }
-         
       if(this.btn_disable){      
         this.$swal({
           html: "保存できません。<br/>必須項目を確認してください。",
@@ -820,7 +811,6 @@ export default {
             pt.append(i ,file )
           }            
         }
-       
         for(var i =this.video_arr.length-1;i>=0;i--)
         {
           this.video_arr[i]['type'] = 'video';
@@ -906,46 +896,35 @@ export default {
         this.ph_length = false;
       }          
     }
-     /*stationCheck(check_id) {
-      $('.station-'+check_id).attr('checked','true');
-    },
-    StationAdd() {
-      $(".station-toggle-div").toggle('medium');
-      this.isRotate4 = !this.isRotate4;
-    },*/
   },
-
 }
-
 </script>
 <style scoped>
-.profile-logo {
-  max-height: 120px;
-  overflow: hidden;
-}
-.quill-editor {
-  background-color: #fff;
-}
-.prefecture-err {
-  margin-top: 0px !important;
-  margin-bottom: 10px;
-}
-@media screen and (max-width:414px){
-  .d-flex{
-      display:  block !important;
+  .profile-logo {
+    max-height: 120px;
+    overflow: hidden;
   }
-}
-
-.form-wrap .sp1,
-.sp3 {
-  /* margin: 0 5px; */
-  padding: 0 5px 0 5px;
-  background: #F54336;
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 3px;
-  vertical-align: text-top;
-  width: 35px;
-}
+  .quill-editor {
+    background-color: #fff;
+  }
+  .prefecture-err {
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+  }
+  .form-wrap .sp1,
+  .sp3 {
+    padding: 0 5px 0 5px;
+    background: #F54336;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    vertical-align: text-top;
+    width: 35px;
+  }
+  @media screen and (max-width:414px){
+    .d-flex{
+        display:  block !important;
+    }
+  }
 </style>

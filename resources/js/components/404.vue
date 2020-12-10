@@ -1,5 +1,4 @@
 <template>
-    <!-- <div>Your Login session is Expired! <br/> <a href="#" @click.prevent="$auth.logout()">Please Login Again.</a></div> -->
     <div>
         <nav class="navbar navbar-expand-lg  main-header">
             <div class="container nav-warp d-flex">
@@ -50,20 +49,7 @@ export default {
     methods:{
         created(){
             this.$loading(false);
-            if(this.$route.params.reload){
-                // location.reload();
-            }
         },
-        // logout(){              
-        //     this.loginuser = 'false';
-        //     localStorage.setItem('loginuser', this.loginuser);
-        //     if(this.$auth.check(2)){
-        //         this.$auth.logoutAdmin();
-        //     }
-        //     else{
-        //         this.$auth.logout();
-        //     }
-        // }
     }
 }
 </script>

@@ -71,10 +71,6 @@ export default {
                 status:"",
                 description:"",
             },
-            categories: {
-                id: '',
-                name: ''
-            },
             editorOption:{
                 debug:'info',
                 placeholder:'',
@@ -140,7 +136,6 @@ export default {
     methods: {
         updateAds() {
             this.$swal({
-                // title: "確認",
                 text: "広告を更新してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -176,8 +171,7 @@ export default {
                         height: 200,
                         allowOutsideClick: false,
                     })
-                    var num = localStorage.getItem('page_no');//get from adslist/searchAds()
-                    // this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } });
+                    var num = localStorage.getItem('page_no');
                     this.$router.push({
                         name: 'linkedNews'
                     });
@@ -189,9 +183,7 @@ export default {
             });
         },
         add() {
-            //   this.advertisement.location = "topbar";
             this.$swal({
-                // title: "確認",
                 text: "広告を作成してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -218,7 +210,6 @@ export default {
                     this.$swal({
                         position: 'top-end',
                         type: 'success',
-                        // title:'確認済',
                         text: '広告を投稿しました。',
                         confirmButtonText: "閉じる",
                         confirmButtonColor: "#31cd38",
@@ -265,7 +256,6 @@ export default {
             }
             if(!this.errors.post_date && !this.errors.type && !this.errors.status && !this.errors.description && this.$route.params.id)
             {
-            // console.log('update');
             this.updateAds();
             }
             else if(!this.errors.post_date && !this.errors.type && !this.errors.status && !this.errors.description && !this.$route.params.id){
@@ -276,29 +266,29 @@ export default {
 }
 </script>
 <style>
-.quill-editor{
-    background-color: #fff;
-}
-.bt-red
-{
-    color: #fff;
-    background-color: #e3342f;
-    border-color: #e3342f;
-}
-.bt-suc
-{   
-    color: #fff;
-    background-color: #0cc72c; 
-    border-color: #0cc72c;
-}
-.lb-style{
-    width:20%;
-}
-.date-picker-style{
-    width:485px;
-}
-.newsByCat-style{
-    display:inline-block;
-    width:50%;
-}
+    .quill-editor{
+        background-color: #fff;
+    }
+    .bt-red
+    {
+        color: #fff;
+        background-color: #e3342f;
+        border-color: #e3342f;
+    }
+    .bt-suc
+    {   
+        color: #fff;
+        background-color: #0cc72c; 
+        border-color: #0cc72c;
+    }
+    .lb-style{
+        width:20%;
+    }
+    .date-picker-style{
+        width:485px;
+    }
+    .newsByCat-style{
+        display:inline-block;
+        width:50%;
+    }
 </style>

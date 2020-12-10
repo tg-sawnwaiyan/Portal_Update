@@ -33,8 +33,6 @@ export default {
             category: {
                 name: '',
                 order_number: null,
-                user_id:'',
-                recordstatus: ''
             },
             title:'',
             label:'',
@@ -64,7 +62,6 @@ export default {
     methods: {
         add() {
             this.$swal({
-                // title: "確認",
                 text: "ニュースカテゴリーを作成してよろしいでしょうか。",
                 type: "warning",
                 width: 390,
@@ -91,17 +88,13 @@ export default {
                     this.$swal({
                         position: 'top-end',
                         type: 'success',
-                        // title:'確認済',
                         text: 'ニュースカテゴリーを作成しました。',
-                        // showConfirmButton: false,
-                        // timer: 1800,
                         confirmButtonText: "閉じる",
                         confirmButtonColor: "#31cd38",
                         width: 350,
                         height: 200,
                         allowOutsideClick: false,
                     })
-                    // alert('Successfully Created')
                     this.$router.push({name: 'categorylist'});
                 }).catch(error=>{
                 if(error.response.status == 422){
@@ -129,9 +122,7 @@ export default {
                     height: 200,
                     allowOutsideClick: false,
                 })
-                //this.$router.push({name: 'categorylist'});
-                var num = localStorage.getItem('page_no');//comment get from categorylist/searchbyCategory()
-                // this.$router.push({ name: 'categorylist', params: { status: 'update','page_no':num } });
+                var num = localStorage.getItem('page_no');
                 this.$router.push({name: 'categorylist'});
                 }).catch(error=>{
                 if(error.response.status == 422){

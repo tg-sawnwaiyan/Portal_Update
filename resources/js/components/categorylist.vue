@@ -49,7 +49,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <pagination :data="categories" @pagination-change-page="searchCategory"></pagination> -->
                     <div>
                         <pagination :data="categories" @pagination-change-page="searchCategory" :limit="limitpc">
                             <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -76,7 +75,6 @@ export default {
             norecord: 0,
             norecord_msg: false,
             nosearch_msg: false,
-            items: [],
         };
     },
     created() {
@@ -100,7 +98,6 @@ export default {
     methods: {
         deleteCategory(id) {
             this.$swal({
-            // title: "確認",
             text: "ニュースカテゴリーを削除してよろしいでしょうか。",
             type: "warning",
             width: 380,
@@ -130,10 +127,7 @@ export default {
                     }else {
                         this.norecord_msg = true;
                     }
-                    // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
-                    // this.categories.splice(i, 1);
                     this.$swal({
-                        // title: "削除済",
                         text: "ニュースカテゴリーを削除しました。",
                         type: "success",
                         width: 350,
@@ -146,9 +140,7 @@ export default {
                 })
                 .catch(error=>{
                     if(error.response.status == 404){
-                        // this.$swal("このカテゴリーに関連するニュースがあるため、削除できません。");
                         this.$swal({
-                            // title: "削除に失敗しました",
                             html: "削除に失敗しました。<br>削除しようとしたカテゴリーのニュースが存在するため削除できません。",
                             type: "error",
                             width: 350,

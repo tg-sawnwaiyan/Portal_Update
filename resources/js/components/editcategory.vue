@@ -29,8 +29,6 @@ export default {
             },
             category: {
                 name: "",
-                user_id: "",
-                recordstatus: ""
             }
         };
     },

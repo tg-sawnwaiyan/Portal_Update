@@ -6,27 +6,23 @@
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand logo-text" href="/" v-if="visit == 'true'">
                     <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
-                    <img src="/images/logo.png" style="width:215px;height:auto;" />                     
+                    <img src="/images/logo.png" class="nav-img"/>                  
                     </a>
-                    <a class="" style="color:#fff;font-size:20px;width:230px;text-align:center;background: rgb(36, 84, 113);" href="/"  v-if="visit != 'true'">                     
-                      <img src="/images/admin_logo1.png" style="width:230px;height:auto;" />
+                    <a class="nav-a-img" href="/"  v-if="visit != 'true'">    
+                      <img src="/images/admin_logo1.png" class="nav-img02"/>
                     </a>
-
                     <div class="h-tel" v-if="visit == 'true'">
                     <a class="tel" href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i><span>info@t-i-s.jp</span></a>
                     <br class="pc-1024">
                     </div>
                 </div>
-                
                 <ul class="gNav">
                     <li v-if="visit == 'false'">
                         <router-link :to="{ name: 'News' }"> サイトを表示</router-link>
                     </li>
-
                     <li v-if="visit == 'true'">
                         <router-link :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
                     </li>
-
                     <li v-if="visit == 'true'">
                         <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
                     </li>
@@ -37,7 +33,6 @@
                         <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
                     </li>
                 </ul>
-
                 <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
                     <div class="d-flex">
                         <ul class="navbar-nav ml-auto pc  d-flex justify-content-end">
@@ -54,16 +49,15 @@
                             <span v-if="user.data">
                                 <span v-if="user.data.type_id == 1">
                                     <i class="fa fa-user userprofile-img" aria-hidden="true"></i>
-                                    <label for="" style="color:#2980b9;font-weight:bold;text-shadow: 2px 2px #dcdcdc;">{{user.data.name}} </label>
+                                    <label for="" class="name-label">{{user.data.name}} </label>
                                 </span>
-                                <span v-if="user.data.type_id == 2" style="color:#2980b9;">
+                                <span v-if="user.data.type_id == 2" class="span-color">
                                     <i class="fas fa-briefcase-medical userprofile-img"></i>
-                                    <label for="" style="color:#2980b9;font-weight:bold;text-shadow: 2px 2px #dcdcdc;">{{user.data.name}}</label>
+                                    <label for="" class="name-label">{{user.data.name}}</label>
                                 </span>
-                                <span v-if="user.data.type_id >2" style="color:#2980b9;">
-                                
+                                <span v-if="user.data.type_id >2" class="span-color">
                                     <i class="fas fa-user-md userprofile-img"></i>
-                                    <label for="" style="color:#2980b9;font-weight:bold;text-shadow: 2px 2px #dcdcdc;">{{user.data.name}}</label>
+                                    <label for=""class="name-label">{{user.data.name}}</label>
                                 </span>
                             </span>
                         </li>
@@ -196,11 +190,10 @@
                             <li v-if="!$auth.check()">
                                 <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i> 事業者 ログイン</router-link>
                             </li>
-                            <li v-if="!$auth.check()" style="border-bottom:1px solid #8c9090;">
+                            <li v-if="!$auth.check()" class="bd-bottom">
                                 <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i> 事業者 登録</router-link>
                             </li>
                             <li>
-
                             <ul class="contact_list"  v-if="visit == 'true'">
                                 <li><a href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i>info@t-i-s.jp</a></li>
                             </ul>
@@ -214,11 +207,11 @@
                     <span>
                         <i class="fas fa-arrow-left"></i> 
                     </span>
-                    <span style="color:#2980b9">戻る</span> 
+                    <span class="span-color">戻る</span> 
                 </span>         
                 <ul class="menu" @click='isNav = !isNav'>
                     <li class="first-submenu">
-                        <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" style="width:15px;" ></i>     
+                        <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" class="menu-width"></i>     
                     </li>
                     <transition name="slide">  
                         <div class="sp_nav"  v-if="isNav">    
@@ -244,11 +237,10 @@
                             <li v-if="!$auth.check()">
                                 <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i> 事業者 ログイン</router-link>
                             </li>
-                            <li v-if="!$auth.check()" style="border-bottom:1px solid #8c9090;">
+                            <li v-if="!$auth.check()" class="bd-bottom">
                                 <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i> 事業者 登録</router-link>
                             </li>
                             <li>
-
                             <ul class="contact_list"  v-if="visit == 'true'">
                                 <li><a href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i>info@t-i-s.jp</a></li>
                             </ul>
@@ -258,90 +250,102 @@
                     </transition>
                 </ul>
             </div>
-
         </nav>
         <!--end navigation bar-->
-
     </div>
 </template>
 <style>
+    .nav-a-img{
+        color:#fff;
+        font-size:20px;
+        width:230px;
+        text-align:center;
+        background: rgb(36, 84, 113); 
+    }
+    .nav-img{
+        width:215px;
+        height:auto; 
+    }
+    .nav-img02{
+        width:230px;
+        height:auto; 
+    }
+    .name-label{
+        color:#2980b9;
+        font-weight:bold;
+        text-shadow: 2px 2px #dcdcdc;
+    }
+    .bd-bottom{
+        border-bottom:1px solid #8c9090;
+    }
+    .span-color{
+        color:#2980b9;
+    }
+    .menu-width{
+        width:15px;
+    }
+    .slide-enter-active {
+       -moz-transition-duration: 0.3s;
+       -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+       transition-duration: 0.3s;
+       -moz-transition-timing-function: ease-in;
+       -webkit-transition-timing-function: ease-in;
+       -o-transition-timing-function: ease-in;
+       transition-timing-function: ease-in;
+       transition: transform 0.3s ease;
+    }
+    .slide-leave-active {
+       -moz-transition-duration: 0.3s;
+       -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+       transition-duration: 0.3s;
+       -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    }
+    .slide-enter-to, .slide-leave {
+       max-height: 100vh;
+       overflow: hidden;
+    }
+    .slide-enter, .slide-leave-to {
+       overflow: hidden;
+       max-height: 100vh;
+      transform: translateX(-100%);
+      transition: all 0.3s ease-in 0s;
+    }
+    .slideup-enter-active {
+       -moz-transition-duration: 1s;
+       -webkit-transition-duration: 1s;
+       -o-transition-duration: 1s;
+       transition-duration: 1s;
+       -moz-transition-timing-function: ease-in;
+       -webkit-transition-timing-function: ease-in;
+       -o-transition-timing-function: ease-in;
+       transition-timing-function: ease-in;
+    }
 
-
-.slide-enter-active {
-   -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 0.3s;
-   -moz-transition-timing-function: ease-in;
-   -webkit-transition-timing-function: ease-in;
-   -o-transition-timing-function: ease-in;
-   transition-timing-function: ease-in;
-   transition: transform 0.3s ease;
-}
-
-.slide-leave-active {
-   -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 0.3s;
-   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slide-enter-to, .slide-leave {
-   max-height: 100vh;
-   overflow: hidden;
-}
-
-.slide-enter, .slide-leave-to {
-   overflow: hidden;
-   max-height: 100vh;
-  transform: translateX(-100%);
-  transition: all 0.3s ease-in 0s;
-}
-
-
-
-
-.slideup-enter-active {
-   -moz-transition-duration: 1s;
-   -webkit-transition-duration: 1s;
-   -o-transition-duration: 1s;
-   transition-duration: 1s;
-   -moz-transition-timing-function: ease-in;
-   -webkit-transition-timing-function: ease-in;
-   -o-transition-timing-function: ease-in;
-   transition-timing-function: ease-in;
-}
-
-.slideup-leave-active {
-   -moz-transition-duration: 1s;
-   -webkit-transition-duration: 1s;
-   -o-transition-duration: 1s;
-   transition-duration: 1s;
-   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slideup-enter-to, .slideup-leave {
-   max-height: 600px;
-   overflow: hidden;
-}
-
-.slideup-enter, .slideup-leave-to {
-   overflow: hidden;
-   max-height: 0;
-}
-
+    .slideup-leave-active {
+       -moz-transition-duration: 1s;
+       -webkit-transition-duration: 1s;
+       -o-transition-duration: 1s;
+       transition-duration: 1s;
+       -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    }
+    .slideup-enter-to, .slideup-leave {
+       max-height: 600px;
+       overflow: hidden;
+    }
+    .slideup-enter, .slideup-leave-to {
+       overflow: hidden;
+       max-height: 0;
+    }
 </style>
 <script>
-
-
-
   export default {
     data(){
       return{
@@ -355,15 +359,12 @@
         main_header : 'main-header',
         admin_header :'admin-header',
         container : 'container',
-        // isSubmenu : [{show:false},{show:false},{show:false},{show:false},{show:false}],
         isSubmenu : localStorage.getItem("isSubmenu")? JSON.parse(localStorage.getItem("isSubmenu")):[{show:false},{show:false},{show:false},{show:false},{show:false}],
         isActive: localStorage.getItem("isActive")? Number(localStorage.getItem("isActive")):null,
         isRotate : localStorage.getItem("isRotate")? Number(localStorage.getItem("isRotate")):null,
       }
     },
-
     mounted() {
-        
         if(localStorage.getItem("visit")){
             this.visit = localStorage.getItem("visit");
         }
@@ -384,7 +385,7 @@
             const redirectTo = this.$auth.user().role === 1 ? (this.$auth.user().type_id == 2 ? '/accountlist/hospital/'+ this.$auth.user().customer_id : '/accountlist/nursing/'+ this.$auth.user().customer_id ) : '/news_list'
             this.$router.push({path: redirectTo})
         },
-         toggle(para = null) {    
+        toggle(para = null) {    
             if(para != 'sub'){
                 this.isRotate = null;
                 this.isActive = null;
@@ -396,9 +397,8 @@
                 localStorage.removeItem('isActive');
             }       
             this.isNav = !this.isNav;
-            // $(".content-all").css ({"opacity": "0.9","background":"#000015"});
         },
-         subMenu: function (n) {   
+        subMenu: function (n) {   
             if(this.isSubmenu[n].show){
                 this.isSubmenu[n].show = false;  
                 this.isRotate = null;

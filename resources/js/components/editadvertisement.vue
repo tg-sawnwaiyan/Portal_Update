@@ -115,10 +115,6 @@ export default {
                 title: '',
                 description:'',
                 link:'',
-                // location : [{
-                //     topbars: false,
-                //     sidebars:false
-                // }],
                 location:'',
                 photo:'',
                 pdf:'',
@@ -146,12 +142,9 @@ export default {
                 this.advertisement.title = response.data.title;
                 this.advertisement.description = response.data.description == null ? '':response.data.description;
                 this.advertisement.link = response.data.link == null ? '':response.data.link;
-                //this.advertisement.link = response.data.link;
                 this.advertisement.pdf = response.data.pdf;
                 this.advertisement.show_flag = response.data.show_flag;
                 this.advertisement.location = "topbar";
-                // this.ischeck = response.data.location;
-                // this.updateCheck(this.ischeck);
                 this.advertisement.photo=response.data.photo;
             });
             this.header = '広告編集';
@@ -179,7 +172,7 @@ export default {
             const file =event.target.files[0];
             this.img_name = file.name;
         },
-        selectLogoImage () {
+        selectLogoImage() {
             this.advertisement.photo = "tis_advertisement_logo.png";
             this.upload_img = "/images/tis_advertisement_logo.png";
             this.update_img = true;
@@ -194,7 +187,6 @@ export default {
         },
         closeBtnMethod: function(old_photo) {
             this.$swal({
-                // title: "確認",
                 text: "削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -231,7 +223,6 @@ export default {
         closePDFBtnMethod: function(old_pdf) {
             console.log
             this.$swal({
-                // title: "確認",
                 text: "削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -284,7 +275,6 @@ export default {
         },
         updateAds() {
             this.$swal({
-                // title: "確認",
                 text: "広告を更新してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -325,9 +315,7 @@ export default {
                         height: 200,
                         allowOutsideClick: false,
                     })
-                    //this.$router.push({name: 'ads'});
-                    var num = localStorage.getItem('page_no');//get from adslist/searchAds()
-                    // this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } });
+                    var num = localStorage.getItem('page_no');
                     this.$router.push({
                     name: 'ads'
                     });
@@ -341,7 +329,6 @@ export default {
         add() {
             this.advertisement.location = "topbar";
             this.$swal({
-                // title: "確認",
                 text: "広告を作成してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -371,7 +358,6 @@ export default {
                     this.$swal({
                         position: 'top-end',
                         type: 'success',
-                        // title:'確認済',
                         text: '広告を投稿しました。',
                         confirmButtonText: "閉じる",
                         confirmButtonColor: "#31cd38",

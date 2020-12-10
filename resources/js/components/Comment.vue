@@ -1,7 +1,7 @@
 <template>
-    <div class="">     
-        <div class="col-12 col-lg-12 col-md-12 tab" >       
-            <div class="card title_comment title_comment2">     
+    <div>
+        <div class="col-12 col-lg-12 col-md-12 tab" >
+            <div class="card title_comment title_comment2">
                 <div class="col-12 m-b-10 m-t-8 com-mt">
                     <h4 class="comment-apply-color t-t"><i class="fa fa-comments com_ic">
                     </i> 口コミ投稿</h4>
@@ -214,7 +214,6 @@ export default {
                 lzipcode:'',
                 id:''
             }],
-            // profile_id:'',
             status:'',
             recordstatus:'',
         },
@@ -224,10 +223,7 @@ export default {
         }
     },
     computed : {
-        isDisabled: function() {
-            // return !this.comments;
-        },
-        years () {
+        years() {
             const year = new Date().getFullYear()
             return Array.from({length: year - 1900}, (value, index) => 1901 + index)
         }
@@ -269,7 +265,6 @@ export default {
                 !this.errors.name  &&
                 !this.errors.comment 
             ){
-                // this.add();
                 this.type = 'confirm';
             }
         },
@@ -303,13 +298,13 @@ export default {
 }
 </script>
 <style>
-.title_comment2{
-    background:#edf2f4;
-}
-.comment-apply-color{
-    margin-left:5px;
-}
-.errors_color{
-    color:red;
-}
+    .title_comment2{
+        background:#edf2f4;
+    }
+    .comment-apply-color{
+        margin-left:5px;
+    }
+    .errors_color{
+        color:red;
+    }
 </style>

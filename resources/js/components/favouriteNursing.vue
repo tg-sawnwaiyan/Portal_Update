@@ -400,7 +400,41 @@
 export default {
     data() {
         return {
-            status_all:'0', chek_status:true, errors: [], fav_nursing: [], local_sto: "", fav_email: [], arr_email: [], document_status: [], modal_btn: false, address_check: false, address_show: false, tran_check: false, tran_show: false, month_check: false, month_show: false, entry_check: false, entry_show: false, condition_check: false, condition_show: false, special_check: false, special_show: false, capacity_check: false, capacity_show: false, opening_check: false, opening_show: false, fav_nus :"", iscompare: false, markers: [{ position: { lat: 0.0, lng: 0.0 } }], center: { lat: 0, lng: 0 }, address: '', access: '', custname: '', payment_name: [], currentOffset: 0, windowSize: 5, paginationFactor: 261, disableBtn: false, check:false, checkallbtn:false, window:{ width: 0, height: 0 }, message:''
+            fav_nursing: [], 
+            local_sto: "", 
+            fav_email: [], 
+            document_status: [],
+            address_check: false, 
+            address_show: false, 
+            tran_check: false, 
+            tran_show: false, 
+            month_check: false, 
+            month_show: false, 
+            entry_check: false, 
+            entry_show: false, 
+            condition_check: false, 
+            condition_show: false, 
+            special_check: false, 
+            special_show: false, 
+            capacity_check: false, 
+            capacity_show: false, 
+            opening_check: false, 
+            opening_show: false, 
+            fav_nus :"", 
+            iscompare: false, 
+            markers: [{ position: { lat: 0.0, lng: 0.0 } }], 
+            center: { lat: 0, lng: 0 }, 
+            address: '', access: '', 
+            custname: '', 
+            payment_name: [], 
+            currentOffset: 0, 
+            windowSize: 5, 
+            paginationFactor: 261, 
+            disableBtn: false, 
+            check:false, 
+            checkallbtn:false, 
+            window:{ width: 0, height: 0 }, 
+            message:''
         };
     },
     computed: {
@@ -517,7 +551,6 @@ export default {
                 var index = l_sto_arr.indexOf(rm_id);
                 if (index > -1) {
                     l_sto_arr.splice(index, 1);
-                    // $("#nus-fav-local").html(l_sto_arr.length);
                     this.nusFav = l_sto_arr.length;
                     if(l_sto_arr.length == 0){
                         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
@@ -726,42 +759,42 @@ export default {
 };
 </script>
 <style>
-.added-class:after {
-    content:none
-}
-.favnur-bc-style{
-    padding-left:0px !important;
-    padding-right:0px !important;
-}
-.svg-style{
-    fill:#000000;
-}
-.g-style{
-    mix-blend-mode: normal;
-}
-.p-style{
-    padding:5px;
-}
-.d-none{
-    display:none;
-}
-.lb-style{
-    width:300px;
-    background-color:#63b7ff;
-}
-.control-inner-style{
-    top:8px;
-    left:7px;
-}
-.bg-color{
-    background-color:#63b7ff;
-}
-.ctrinner-check-style{
-    top:7px;
-    left:3px;
-    margin-left:5px;
-}
-.bold-style{
-    font-weight:bold;
-}
+    .added-class:after {
+        content:none
+    }
+    .favnur-bc-style{
+        padding-left:0px !important;
+        padding-right:0px !important;
+    }
+    .svg-style{
+        fill:#000000;
+    }
+    .g-style{
+        mix-blend-mode: normal;
+    }
+    .p-style{
+        padding:5px;
+    }
+    .d-none{
+        display:none;
+    }
+    .lb-style{
+        width:300px;
+        background-color:#63b7ff;
+    }
+    .control-inner-style{
+        top:8px;
+        left:7px;
+    }
+    .bg-color{
+        background-color:#63b7ff;
+    }
+    .ctrinner-check-style{
+        top:7px;
+        left:3px;
+        margin-left:5px;
+    }
+    .bold-style{
+        font-weight:bold;
+    }
 </style>

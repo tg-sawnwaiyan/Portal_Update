@@ -38,7 +38,8 @@
 export default {
     data() {
         return {
-            errors: { name:"", short_name:"", selectedValue:"", host:"", nurse:"", type: "" }, feature: { name: '', short_name:'', type: '-1', host:"", nurse:"" }, selectedValue:0, header: '特長新規作成', subtitle: '作成'
+            errors: { name:"", short_name:"", type: "",}, 
+            feature: { name: '', short_name:'', type: '-1',}, selectedValue:0, header: '特長新規作成', subtitle: '作成'
         }
     },
     created() {

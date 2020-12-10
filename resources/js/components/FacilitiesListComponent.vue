@@ -51,7 +51,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <pagination :data="facilities" @pagination-change-page="searchFacility"></pagination> -->
                     <div>
                         <pagination :data="facilities" @pagination-change-page="searchFacility" :limit="limitpc">
                             <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -77,10 +76,6 @@ export default {
             norecord: 0,
             norecord_msg: false,
             nosearch_msg: false,
-            currentPage: 0,
-            size: 10,
-            pageRange: 5,
-            items: [],
             pagination: false
         };
     },
@@ -100,7 +95,6 @@ export default {
     methods: {
         deleteFacility(id) {
             this.$swal({
-                // title: "確認",
                 text: "院内施設を削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -125,11 +119,7 @@ export default {
                     }else {
                         this.norecord_msg = true;
                     }
-                    //alert('Delete Successfully!');
-                    // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
-                    // this.facilities.splice(i, 1);
                     this.$swal({
-                        // title: "削除済",
                         text: "院内施設を削除しました。",
                         type: "success",
                         width: 350,

@@ -77,7 +77,7 @@ export default {
             pagination: false,
         }
     },
-    created (){
+    created(){
         this.axios.get("/api/main_admin/admin_list").then(response => {
             this.admin_list = response.data;
             if(this.admin_list.length > this.size) {
@@ -126,7 +126,6 @@ export default {
     methods: {
         deleteFeature(id) {
             this.$swal({
-                // title: "確認",
                 text: "特徴を削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -171,31 +170,26 @@ export default {
         first() {
             this.currentPage = 0;
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            // window.scrollTo(0,0);
         },
         last() {
             this.currentPage = this.pages - 1;
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            // window.scrollTo(0,0);
         },
         prev() {
             if (0 < this.currentPage) {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            this.currentPage--;
-        }
-        // window.scrollTo(0,0);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                this.currentPage--;
+            }
         },
         next() {
             if (this.currentPage < this.pages - 1) {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            this.currentPage++;
-        }
-        // window.scrollTo(0,0);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                this.currentPage++;
+            }
         },
         pageSelect(index) {
             this.currentPage = index - 1;
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            // window.scrollTo(0,0); 
         },
     }
 }

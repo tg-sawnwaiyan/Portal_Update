@@ -208,21 +208,11 @@
 export default {
     data() {
         return {
-            errors: [],
             fav_hospital: [],
             fav_hos:'',
             local_sto: "",
-            post_list: [],
-            city_list: [],
             post: "",
-            selectedCity: "",
-            zipStreet: "",
-            zipPref: "",
-            selectedValue: 0,
-            fav_email: [],
-            arr_email: [],
             type: 'nursing',
-            specialfeature: [],
             currentOffset: 0,
             windowSize: 5,
             paginationFactor: 272,
@@ -327,7 +317,6 @@ export default {
                 var index = l_sto_arr.indexOf(rm_id);
                 if (index > -1) {
                     l_sto_arr.splice(index, 1);
-                    // $("#hos-fav-local").html(l_sto_arr.length);
                     this.hosFav = l_sto_arr.length;
                     if(l_sto_arr.length == 0){ 
                         $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
@@ -342,7 +331,6 @@ export default {
                         this.fav_hos =this.local_sto.split(",").length;
                         this.getAllFavourite(this.local_sto);
                     } else {
-                        // window.location.reload();
                         this.$router.push({
                             name: 'hospital_search',                                        
                         });
@@ -372,7 +360,6 @@ export default {
                         allowOutsideClick: false,
                     });
                     var hos_id = '';
-                    //   this.message = "現在本サイトに掲載されていない病院についてはお気に入りリストから削除しました。"
                     for(var i= 0;i<this.fav_hospital.length;i++)
                     {
                         if(i== this.fav_hospital.length-1)
@@ -416,17 +403,17 @@ export default {
 };
 </script>
 <style>
-.breadcrumb-style{
-    padding-left:0px !important;
-    padding-right:0px !important;
-}
-.svg-style{
-    fill:#000000;
-}
-.g-style{
-    mix-blend-mode: normal;
-}
-.td-hos-profile{
-    word-wrap: break-word;
-}
+    .breadcrumb-style{
+        padding-left:0px !important;
+        padding-right:0px !important;
+    }
+    .svg-style{
+        fill:#000000;
+    }
+    .g-style{
+        mix-blend-mode: normal;
+    }
+    .td-hos-profile{
+        word-wrap: break-word;
+    }
 </style>

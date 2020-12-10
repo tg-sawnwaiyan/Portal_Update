@@ -385,24 +385,24 @@ export default {
 }
 </script>
 <style>
-.error-star {
-    color: #ff0000;
-}
-.password-setting {
-    display: none;
-}
-.password-setting{
-    padding: 10px;
-    border: 1px dashed #2980b9;
-    margin-top: 10px;
-}
-.header_bg{
-    background:transparent;
-}
-.d_none{
-    display: none;
-}
-.btn_min_width{
-    min-width: 0px;
-}
+    .error-star {
+        color: #ff0000;
+    }
+    .password-setting {
+        display: none;
+    }
+    .password-setting{
+        padding: 10px;
+        border: 1px dashed #2980b9;
+        margin-top: 10px;
+    }
+    .header_bg{
+        background:transparent;
+    }
+    .d_none{
+        display: none;
+    }
+    .btn_min_width{
+        min-width: 0px;
+    }
 </style>

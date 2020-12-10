@@ -105,7 +105,7 @@ export default {
 }
 </script>
 <style scoped>
-.cursor_style{
-    cursor: pointer;
-}
+    .cursor_style{
+        cursor: pointer;
+    }
 </style>

@@ -141,7 +141,7 @@ export default {
     },
     data() {
         return {
-            customers: [], items: [], norecord: 0, norecord_msg: false, nosearch_msg: false, title: '', type: null, status:'', searchkeyword:'', customerList:'', profileList:[], recordstatus :[], status:[], table_name: { profile: '' }, cusid:'',                  
+            customers: [], norecord: 0, norecord_msg: false, nosearch_msg: false, title: '', type: null, status:'', customerList:'', recordstatus :[], status:[], table_name: { profile: '' }, cusid:'',                  
         };
     },
     created() {
@@ -223,25 +223,12 @@ export default {
                 this.$loading(true);
                 this.axios.delete(`/api/customer/delete/${id}/${type}`).then(response => {
                     this.$loading(false);
-                    // this.customers = response.data.customers;
                     this.initialCall();
-                    // this.$swal({
-                    // // title: "削除済",
-                    // text: "事業者を削除しました。",
-                    // type: "success",
-                    // width: 350,
-                    // height: 200,
-                    // confirmButtonText: "閉じる",
-                    // confirmButtonColor: "#dc3545",
-                    // allowOutsideClick: false,
-                    // });
                     if(this.norecord != 0){
                         this.norecord_msg = false;
                     }else{
                         this.norecord_msg = true;
                     }
-                    // let a = this.customers.map(item => item.id).indexOf(id);
-                    // this.customers.splice(a, 1);
                 });
             }).catch(error => {
                 this.$loading(false);
@@ -249,7 +236,6 @@ export default {
         },
         comfirm(id) {
             this.$swal({
-                // title: "確認",
                 text: "本当に承認してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -267,7 +253,6 @@ export default {
                 this.$loading(true);
                 this.axios.get(`/api/confirm/${id}`).then(response => {
                     this.initialCall();
-                    // this.displayItems();
                     if (response.data.status == 'success') {
                         this.$swal({
                             title: "新規登録承認",
@@ -323,23 +308,20 @@ export default {
                     this.nosearch_msg = true;
                 }
             });
-        },
-        imgUrlAlt(event) {
-            event.target.src = "/images/noimage.jpg"
-        },                    
+        },                   
     }
 };
 </script>
 <style>
-.check-label{
-    padding-left:5px;
-}
-.p-style{
-    color: #81ad3b;
-    font-weight: bold;
-}
-.p-style2{
-    color: #7bbcdc;
-    font-weight: bold;
-}
+    .check-label{
+        padding-left:5px;
+    }
+    .p-style{
+        color: #81ad3b;
+        font-weight: bold;
+    }
+    .p-style2{
+        color: #7bbcdc;
+        font-weight: bold;
+    }
 </style>

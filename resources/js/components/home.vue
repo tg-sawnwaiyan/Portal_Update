@@ -15,20 +15,16 @@
                 <router-link  :to="{ name: 'jobSearch' }"  class="nav-link"><i class="fas fa-users"></i> 求人検索</router-link>
             </li>
         </ul>
-        
         <div class="tabs upper-tab" id="upper-tab">
             <div class="tab-pane" id="tab1">
                 <main>
-                    <slot />
+                    <slot/>
                 </main>
             </div>
         </div>
         <!--end menu tabs-->
-
     </div>
-    <!-- {{ l_storage_hos_history }} -->
 </template>
-
 <script>
 export default {
     data(){
@@ -65,7 +61,6 @@ export default {
         border-bottom-color: transparent !important;
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #63b7ff !important; */
     }
     .hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
         color: #63b7ff !important;
@@ -88,7 +83,6 @@ export default {
         color: #75b777 !important;
     }
     .nursing-tabColor .nav-link {
-        /* background: #ff9563 !important; */
         background: #63b7ff !important;
         color: #fff;
         border-right: 1px solid #fff;
@@ -96,16 +90,12 @@ export default {
     }
     .nursing-tabColor li.subtab2 > .router-link-active{
         background: #fff!important;
-        /* color: #ff9563 !important; */
         color: #63b7ff !important;
         border-bottom-color: transparent !important;
-        /* border-top: 3px solid #ff9563 !important; */
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #ff9563 !important; */
     }
     .nursing-tabColor li.subtab2 > .router-link-exact-active>i.fa, .nursing-tabColor li.subtab2 > .router-link-active>i.fas {
-        /* color: #ff9563 !important; */
         color: #63b7ff !important;
     }
     .job-tabColor .nav-link {
@@ -119,7 +109,6 @@ export default {
         color: #828282 !important;
         border-bottom-color: transparent !important;
         border-top: 3px solid #828282 !important;
-        /* border-left: 1px solid #828282 !important; */
         border-right: 1px solid #828282 !important;
         border-bottom: 0px !important;
     }
@@ -136,7 +125,6 @@ export default {
         border: 1px solid #63b7ff !important;
     }
     .nursing-borderColor {
-        /* border: 1px solid #ff9563 !important; */
          border: 1px solid #63b7ff !important;
     }
 </style>

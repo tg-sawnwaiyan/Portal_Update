@@ -38,17 +38,16 @@ export default {
     },
     updated: function () {
         this.$nextTick(function () {
-
             // Code that will run only after the
             // entire view has been re-rendered
             var ulWidth = 0;
             $("#ul_menu_category > li").each(function() {
-            ulWidth = ulWidth + $(this).width();
+                ulWidth = ulWidth + $(this).width();
             });
             this.menu_width = ulWidth;
             if(ulWidth > this.cat_box_width){
-            this.is_cat_overflow = true;
-            this.computed_width = '99.8%';
+                this.is_cat_overflow = true;
+                this.computed_width = '99.8%';
             }
         })
     },
@@ -58,18 +57,14 @@ export default {
                 .then(response => {
                         const topic = new Array();
                         topic['name'] = "トップ";
-                    
                         this.cats = response.data;
                         this.cats = [topic].concat(this.cats);  
-
                     });
-
         },
         swipeLeft() {
             const content = this.$refs.content;
             this.scrollTo(content, -300, 800);
         },
-
         swipeRight() {
             const content = this.$refs.content;
             this.scrollTo(content, 300, 800);
@@ -78,7 +73,6 @@ export default {
         scrollTo(element, scrollPixels, duration) {
                 const scrollPos = element.scrollLeft;
                 // Condition to check if scrolling is required
-
                 if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
                 {
                     // Get the start timestamp
@@ -86,39 +80,25 @@ export default {
                     "now" in window.performance
                         ? performance.now()
                         : new Date().getTime();
-
                     function scroll(timestamp) {
                     //Calculate the timeelapsed
                     const timeElapsed = timestamp - startTime;
-
                     //Calculate progress
                     const progress = Math.min(timeElapsed / duration, 1);
-
                     //Set the scrolleft
                     element.scrollLeft = scrollPos + scrollPixels * progress;
-
                     //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
                     if (timeElapsed < duration) {
-
                         //Request for animation
                         window.requestAnimationFrame(scroll);
-
                     } else {
-
                         return;
-
                     }
-
                     }
-
                     //Call requestAnimationFrame on scroll function first time
                     window.requestAnimationFrame(scroll);
-
                 }
-
         },
-
-
     }
 }
 </script>
@@ -152,11 +132,6 @@ export default {
     .hidden {
         display: none;
     }
-    /*@media only screen and (min-width: 561px) and (max-width: 989px){ 
-        .tab {
-            margin-top: 52px;
-        }
-    }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
             width: 86% !important;

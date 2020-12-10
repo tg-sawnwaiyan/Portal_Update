@@ -102,7 +102,6 @@ export default {
       status:'0',
       markers: [],
       markerr: [],
-      places: [],
       center:{},
       selected: '',
       new_lat: '',
@@ -110,13 +109,8 @@ export default {
       comment: {
         postal: '',
         city: '',
-        gmap_city: ''
       },
-      address_btn: false,
       city_list: [],
-      address_val: '',
-      test:'',
-      //   selected_city:this.city,
     }
   },
   mounted(){    
@@ -244,7 +238,6 @@ export default {
           if (length > 0) {
             var pref = post_data[0]['city_id'];
             this.address =post_data[0]['street'];
-            // this.address_val = post_data[0]['pref']+post_data[0]['city']+post_data[0]['street'];
             this.city = post_data[0]['city_id'];
             this.cityChange('postal','');
             this.township = response.data.township_id[0]['id'];
@@ -263,7 +256,6 @@ export default {
       .get('/api/townshiplist/'+this.city)
       .then(response=>{
       if(status != 'postal'){
-        // this.comment.postal = '';
         this.comment.city = this.city_list[event.target.options.selectedIndex].city_name;
         this.address ='';
         this.township = 0;
@@ -280,26 +272,20 @@ export default {
         event.preventDefault();
       }
     },
-    /*updateCoordinates(e) {
-      $('#new_lat').val(e.latLng.lat());
-      $('#new_long').val(e.latLng.lng());
-      this.new_lat = e.latLng.lat();
-      this.new_long = e.latLng.lng();
-    },*/
   }
 };
 </script>
 <style scoped>
-.lbl-lat-lng {
-  margin: 15px 0px;
-  font-weight: bold;
-  border-left: 5px solid #2980b9;
-  padding-left: 10px;
-}
-.hide{
-  display: none;
-}
-.w-full{
-  width:100%;
-}
+  .lbl-lat-lng {
+    margin: 15px 0px;
+    font-weight: bold;
+    border-left: 5px solid #2980b9;
+    padding-left: 10px;
+  }
+  .hide{
+    display: none;
+  }
+  .w-full{
+    width:100%;
+  }
 </style>
