@@ -330,20 +330,13 @@ export default {
         }
         else if (this.window.width >= 1440 && this.window.width < 1880) {
             this.windowSize = 4;
-            this.paginationFactor = 260;            
-            // console.log(this.window.width);
+            this.paginationFactor = 260;
         }
         this.local_sto = localStorage.getItem("nursing_history");
         if(this.local_sto){
             this.his_nus = this.local_sto.split(",").length;
         }
         this.getAllCustomer(this.local_sto);
-
-        // this.axios
-        //   .get(`/api/profile/specialfeature/${this.type}`)
-        //   .then(response => {
-        //     this.specialfeature = response.data;
-        //   });
     },
     methods: {
         handleResize() {
@@ -381,7 +374,6 @@ export default {
                 var index = l_sto_arr.indexOf(rm_id);
                 if (index > -1) {
                     l_sto_arr.splice(index, 1);
-                    // $("#nus-his-local").html(l_sto_arr.length);
                     this.nusHis = l_sto_arr.length;
                     if(l_sto_arr.length == 0){
                         $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
@@ -402,8 +394,7 @@ export default {
                         });
                     }
                 }
-            });          
-            
+            });            
             if(this.local_sto){
                 this.his_nus = this.local_sto.split(",").length;
             }     
@@ -426,9 +417,7 @@ export default {
                             height: 200,
                             allowOutsideClick: false,
                         });
-                        // $('.msg').html('<span>Some Nursing Accounts are Deactivated!</span>');
                         var nus_id = '';
-                        // this.message = "現在本サイトに掲載されていない介護施設については最近見た施設リストから削除しました。";
                         for(var i= 0;i<this.nur_profiles.length;i++) {
                             if(i== this.nur_profiles.length-1) {
                                 nus_id += this.nur_profiles[i]['id'];
@@ -450,14 +439,9 @@ export default {
                         width: 400,
                         height: 200,
                         showConfirmButton: true,
-                        // confirmButtonColor: "#dc3545",
-                        // cancelButtonColor: "#b1abab",
-                        // cancelButtonTextColor: "#000",
                         confirmButtonText: "閉じる",
-                        // cancelButtonText: "キャンセル",
                         confirmButtonClass: "all-btn",
                         allowOutsideClick: false,
-                        // cancelButtonClass: "all-btn"
                     }).then(response => {
                         localStorage.setItem('nursing_history','');
                         this.local_sto = localStorage.getItem("nursing_history");

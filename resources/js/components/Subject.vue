@@ -42,7 +42,6 @@ export default {
             errors:{
                 name:""
             },
-            // Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
             Subject: {
                 name: '',
                 parent:'',
@@ -81,10 +80,8 @@ export default {
     methods: {
         checkValidate() {
             if (this.Subject.name) {
-                // console.log('exist');
                 this.errors.name = "";
             } else {
-                // console.log('null');
                 this.errors.name = "診療科目は必須です。";
             }
             if (!this.errors.name) {
@@ -95,7 +92,6 @@ export default {
             if( `${this.$route.params.id}` == "undefined")
             {
                 this.$swal({
-                    // title: "確認",
                     text: "診療科目を作成してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -118,17 +114,13 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            // title:'確認済',
                             text: '診療科目を作成しました。',
                             confirmButtonText: "閉じる",
                             confirmButtonColor: "#31cd38",
-                            // showConfirmButton: false,
-                            // timer: 1800,
                             width: 350,
                             height: 200,
                             allowOutsideClick: false,
                         })
-                        // alert('Successfully Created')
                         this.$router.push({name: 'subjectlist'});
                     }).catch(error=>{
                         if(error.response.status == 422){
@@ -146,7 +138,6 @@ export default {
         },
         updateSubject() { 
             this.$swal({
-                // title: "確認",
                 text: "診療科目を登録してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -169,8 +160,6 @@ export default {
                         position: 'top-end',
                         type: 'success',
                         text: '診療科目を更新しました',
-                        // showConfirmButton: false,
-                        // timer: 1800,
                         confirmButtonText: "閉じる",
                         confirmButtonColor: "#31cd38",
                         width: 350,
@@ -178,7 +167,6 @@ export default {
                         allowOutsideClick: false,
                     })                         
                     var num = localStorage.getItem('page_no');//comment get from Subjectlist/searchSubject()
-                    // this.$router.push({ name: 'subjectlist', params: { status: 'update','page_no':num } })
                     this.$router.push({
                         name: 'subjectlist'
                     });

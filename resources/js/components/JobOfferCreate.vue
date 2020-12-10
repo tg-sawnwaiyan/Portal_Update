@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="location">
-                                            <!-- 番地（建物名) -->市区町村
+                                            市区町村
                                             <span class="error sp2">必須</span>
                                         </label>                                
                                         <select v-model="joboffer.str_address" class="division form-control" @change="getLocation()"  >
@@ -100,8 +100,7 @@
                                         <span v-if="errors.str_address" class="error">{{errors.str_address}}</span>
                                     </div>
                                 </div>                                
-                            </div>
-                          
+                            </div>                          
                             <div class="form-group">
                                 <label for="location">
                                     勤務地
@@ -209,20 +208,20 @@ export default {
             header: "求人作成",
             subtitle: "作成",
             errors: {
-              title: '',
-              description:'',
-              postal:'',
-              pref:'',
-              str_address:'',
-              location:'',
-              salary_type:'',
-              salary:'',
-              working_hours:'',
-              occupation_id: '',
-              customer_id:'',
-              profile_id:'',
-              checkallerror:'',
-              skills:'',
+                title: '',
+                description:'',
+                postal:'',
+                pref:'',
+                str_address:'',
+                location:'',
+                salary_type:'',
+                salary:'',
+                working_hours:'',
+                occupation_id: '',
+                customer_id:'',
+                profile_id:'',
+                checkallerror:'',
+                skills:'',
             },
             OccupationList: {
                 id: "",
@@ -237,7 +236,6 @@ export default {
                 salary_type:-1,
                 fields: [{
                     skills: "",
-
                     id: ""
                 }],
                 skills:"",
@@ -260,13 +258,9 @@ export default {
                 salary_type: '-1',
                 salary: "",
                 salary_remark: '',
-
                 insurance: "",
-
                 holidays: "",
-
                 user_id: "",
-
                 recordstatus: "",
                 profile_id: 0,
             },
@@ -351,32 +345,26 @@ export default {
                 .then(response=> {
                     var cus_list = response.data;
                     for(var i=0; i<cus_list.length; i++){
-                    if(this.joboffer.customer_id == response.data[i].id){
-                        this.cusName = response.data[i].name + '「 ' +response.data[i].email+ ' 」';
-                        if(response.data[i].type_id == 2){
-                        this.table_name.profile = 'hospital_profiles';
-                    }else{
-                        this.table_name.profile = 'nursing_profiles';
+                        if(this.joboffer.customer_id == response.data[i].id){
+                            this.cusName = response.data[i].name + '「 ' +response.data[i].email+ ' 」';
+                            if(response.data[i].type_id == 2){
+                            this.table_name.profile = 'hospital_profiles';
+                        }else{
+                            this.table_name.profile = 'nursing_profiles';
+                        }
                     }
-                    }
-                    }
-                
+                }                
                 this.axios.post(`/api/job/profileName/${this.joboffer.profile_id}`,this.table_name)
-                .then(response=> {
-            
-                    for(var i=0; i<response.data.length; i++){
-                    
-                        if(this.joboffer.profile_id == response.data[i].id){
-                            
+                .then(response=> {            
+                    for(var i=0; i<response.data.length; i++){                    
+                        if(this.joboffer.profile_id == response.data[i].id){                            
                             this.profileName = response.data[i].name;
-                            this.selectedValue = -1;
-                            
+                            this.selectedValue = -1;                            
                         }
                     }
                 });
                     this.customerList = response.data;
-                });
-                
+                });                
                 return this.header;
                 return this.subtitle;
             });
@@ -385,11 +373,10 @@ export default {
             this.editcheck = true;   
             this.joboffer.profile_id = this.$route.params.id;
             this.type = 'profile';
-            if(this.$route.params.type == "nursing")
-            {
+            if(this.$route.params.type == "nursing") {
                 this.table_name.profile = 'nursing_profiles';
             }
-            else{
+            else {
                 this.table_name.profile = 'hospital_profiles';
             }                 
             this.axios.post(`/api/job/profileName/${this.joboffer.profile_id}`,this.table_name)
@@ -411,18 +398,16 @@ export default {
     },
     methods: {
         checkValidate() {
-            if(this.joboffer.customer_id == "")
-            {
+            if(this.joboffer.customer_id == "") {
                 this.errors.customer_id = "事業者名は必須です。";
             }
-            else{
+            else {
                 this.errors.customer_id = "";
             }
-            if((this.selectedValue == -1 && this.profileName == '') || ( this.selectedValue == 0) )
-            {
+            if((this.selectedValue == -1 && this.profileName == '') || ( this.selectedValue == 0) ) {
                 this.errors.profile_id = "施設名は必須です。";
             }
-            else{
+            else {
                 this.errors.profile_id = "";
             }
             if (this.joboffer.title == '') {
@@ -434,12 +419,7 @@ export default {
                 this.errors.description = '仕事内容は必須です。';
             } else {
                 this.errors.description = "";
-            }                      
-            // if (this.joboffer.postal == '') {
-            //     this.errors.postal = '郵便番号は必須です。';
-            // } else {
-            //     this.errors.postal = "";
-            // }
+            }
             if (this.joboffer.pref == '') {
                 this.errors.pref = '都道府県は必須です。';
             } else {
@@ -455,12 +435,6 @@ export default {
             } else {
                 this.errors.location = "";
             }
-            // if (this.joboffer.salary_type == '-1') {
-            //     this.errors.salary_type = " 給与タイプは必須です。";
-            // }
-            // else {
-            //     this.errors.salary_type = null;
-            // }
             if (this.joboffer.salary == '') {
                 this.errors.salary = '給与は必須です。';
             } else {
@@ -485,7 +459,6 @@ export default {
             if (
                 !this.errors.title &&
                 !this.errors.description &&
-                // !this.errors.postal &&
                 !this.errors.pref &&
                 !this.errors.location &&
                 !this.errors.description &&
@@ -535,10 +508,8 @@ export default {
                     city:this.joboffer.pref
                 },
             }).then((response)=>{
-                if(town_id == 2)
-                {
+                if(town_id == 2) {
                     this.joboffer.location = ''
-                    // this.joboffer.postal = '';
                     this.joboffer.zipcode_id = null;
                     this.joboffer.str_address = 0;
                 }
@@ -546,7 +517,6 @@ export default {
             })
         },
         getLocation(){
-            //  this.joboffer.postal = '';
             this.joboffer.location = '';
         },
         add() {              
@@ -554,7 +524,6 @@ export default {
                 this.updateJob();
             } else {
                 this.$swal({
-                    // title: "確認",
                     text: "求人を作成してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -578,20 +547,13 @@ export default {
                             position: "top-end",
                             type: "success",
                             text: "求人を作成しました。",
-                            // text: "ファイルが作成されました。",
-                            // type: "success",
                             width: 350,
                             height: 200,
                             confirmButtonText: "閉じる",
                             confirmButtonColor: "#31cd38",
                             allowOutsideClick: false,
                         });
-                        // alert('Successfully Created')
                         this.$router.go(-1);
-                        // this.$router.push({
-                        //     name: "jobofferlist"
-                        // });
-                        // this.$route.params.id = null;
                     })
                     .catch(error => {
                         this.$loading(false);
@@ -601,11 +563,9 @@ export default {
                     });
                 });
             }
-        },
-                    
+        },                    
         updateJob() {
             this.$swal({
-                // title: "確認",
                 text: "求人を更新してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -626,8 +586,6 @@ export default {
                     this.joboffer = response.data.job;
                     this.$loading(false);                        
                     this.$swal({
-                        // title: "求人を更新しました",
-                        // text: "ファイルが更新されました。",
                         text:"求人を更新しました。",
                         type: "success",
                         width: 350,
@@ -637,7 +595,6 @@ export default {
                         allowOutsideClick: false,
                     });
                     var num = localStorage.getItem('page_no'); 
-                    // this.$router.push({ name: 'jobofferlist', params: { status: 'update','page_no':num } })
                     this.$router.go(-1);
                 })
                 .catch(error => {
@@ -650,16 +607,16 @@ export default {
         formattedDisplay(result) {
             return result.name + '「' + result.email + '」';
         },
-        cleartext(){
+        cleartext() {
             this.selectedValue = 0;
             this.joboffer.customer_id = '';
             this.profileList = [];
         },
         getSelected(event){
             this.errors.customer_id = "";       
-            if(event.selectedObject.type_id == 3){
+            if(event.selectedObject.type_id == 3) {
                 this.table_name.profile = 'nursing_profiles';
-            }else {
+            } else {
                 this.table_name.profile = 'hospital_profiles';
             }
             this.joboffer.customer_id = event.value;
@@ -676,8 +633,7 @@ export default {
         },
         getProfile(event){
             this.joboffer.profile_id = event.target.value;
-            if(this.joboffer.profile_id != 0)
-            {
+            if(this.joboffer.profile_id != 0) {
                 this.errors.profile_id = "";
             }
         },
@@ -688,28 +644,6 @@ export default {
                 event.preventDefault();
             }
         },
-        /*getParent: function() {
-            this.joboffer.occupation_id = this.selectedValue;
-        },          
-        addRow: function() {
-            this.joboffer.fields.push({
-                skills: "",
-                id: ""
-            });
-        },
-        delRow: function(id) {
-            this.joboffer.fields.splice(id, 1);
-            // this.joboffer.fields.pop();
-        },
-        createskill: function(arr) {
-            this.joboffer.fields.shift();
-            for (var i = 0; i < arr.length; i++) {
-                this.joboffer.fields.push({
-                    skills: arr[i],
-                    id: arr[i]
-                });
-            }
-        }, */ 
     }
 };
 </script>

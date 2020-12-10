@@ -3,16 +3,8 @@
   <div>
     <div class="tab-content job-detail">
       <div class="col-md-12 pad-free m-b-20">
-      <!-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-              <router-link to="/" class="router-link-active">ホーム</router-link>
-          </li>
-          <li aria-current="page" class="breadcrumb-item active">求人応募</li>
-        </ol>
-      </nav> -->
       </div>
-        <h4>求人応募フォーム</h4>
+      <h4>求人応募フォーム</h4>
       <div class="col-12 m-b-10 jop-apply-tit-wrap">
         <h4 class="job-apply-color">{{Job.title}}</h4>
       </div>
@@ -340,8 +332,6 @@
             <div class="col-sm-2 col-md-2"></div>
           </div>          
           <br />
-          <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
-          <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
         </form>
       </div>
       <div class="col-md-12 confirm_box" v-if="type == 'completed'">
@@ -371,7 +361,6 @@ export default {
         days: ['日', '月', '火', '水', '木', '金', '土'],
         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
         placeholder: {
-          //date: new Date().toISOString().slice(0,10),
           date: '年 - 月 - 日',
         }
       },
@@ -414,11 +403,6 @@ export default {
       },
       Job: {
         title: ''
-        // fields: [
-        //   {
-        //     skills: []
-        //   }
-        // ]
       },
       type: "register",
       city_list: [],
@@ -432,16 +416,12 @@ export default {
       ph_length: false,
       ph_error: false,
       charErr: false,
-      correctVal: null,
       mail_reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       phone_reg: /^([0-9]*)$/
     }
   },
   created() {
     this.jobApply.job_id = this.$route.params.job_id;
-    // this.axios.get("/api/getskill").then(response => {
-    //   this.Job.fields = response.data;
-    // });
     this.axios.get("/api/getjobtitle/" + this.jobApply.job_id).then(response => {
       this.Job.title = response.data[0].title;
     });
@@ -469,26 +449,25 @@ export default {
           var post_data = response.data.postal_list;
           var length = response.data.postal_list.length;
           if (length > 0) {
-              var pref = post_data[0]['city_id']; 
-              this.jobApply.city_id = pref;
-              this.jobApply.selectedValue = pref;
-              this.getTownship(1);
-              this.jobApply.township = response.data.township_id[0]['id'];
-            
-              this.jobApply.str_address = post_data[0]["street"];
-              this.jobApply.division = pref;
-                  $('#jsErrorMessage').html('<div class="error"></div>');
+            var pref = post_data[0]['city_id']; 
+            this.jobApply.city_id = pref;
+            this.jobApply.selectedValue = pref;
+            this.getTownship(1);
+            this.jobApply.township = response.data.township_id[0]['id'];            
+            this.jobApply.str_address = post_data[0]["street"];
+            this.jobApply.division = pref;
+            $('#jsErrorMessage').html('<div class="error"></div>');
           } else {
-              this.jobApply.str_address = '';
-              this.jobApply.selectedValue = 0;
-              this.jobApply.township = 0;
-              $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+            this.jobApply.str_address = '';
+            this.jobApply.selectedValue = 0;
+            this.jobApply.township = 0;
+            $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
           }
           this.aggreBtn();    
         });
       }
     },
-    getTownship(town_id){                   
+    getTownship(town_id){
       this.axios.get('/api/auth/township',{
         params:{
           city:this.jobApply.selectedValue
@@ -496,7 +475,6 @@ export default {
       }).then((response)=>{
         if(town_id == 2){
           this.jobApply.str_address = ''
-          // this.jobApply.postal = '';
           this.jobApply.township = 0;
         }
         this.town_list = response.data.townships
@@ -509,14 +487,11 @@ export default {
       })
     },
     apply() {
-      this.$loading(true);
-      // $("#loader").css("display", "block");      
+      this.$loading(true); 
       this.axios
       .post("/api/jobapply", this.jobApply)
       .then(response => {
-        // alert("Successful Apply");
         this.$loading(false);
-        // $("#loader").css("display", "none");
         this.jobApply = response.data;
         this.errors.email = this.jobApply;
         this.type = "completed";
@@ -526,9 +501,6 @@ export default {
           this.errors = error.response.data.errors;
         }
       });
-    },
-    getcheckbox(job) {
-      this.jobApply.skills.push(job);
     },
     checkValidate() {    
       if (!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.email && !this.errors.terms) {
@@ -558,8 +530,7 @@ export default {
       }
     },
     focusPhone: function(e) {
-      if(this.jobApply.phone != '')
-      {
+      if(this.jobApply.phone != '') {
         if((this.phone_reg).test(this.jobApply.phone) && (this.jobApply.phone.length >= 10 && this.jobApply.phone.length <= 13))
         {
           this.ph_length = false;
@@ -574,15 +545,14 @@ export default {
       this.aggreBtn();            
     },    
     focusMail: function(event) {
-      if(this.jobApply.email != '')
-      {
+      if(this.jobApply.email != '') {
         if( this.mail_reg.test(this.jobApply.email)){
           this.focus_mail=false;            
         }else{
           this.focus_mail=true;            
         }
       }
-      else{
+      else {
         this.focus_mail = false;
       }       
       this.aggreBtn();
@@ -596,15 +566,12 @@ export default {
     },
     ChekChar: function(event) {
       var _this = this;
-      // $('.char-err').text('');
       var input_val = $('#furigana').val();
       var each_val = input_val.split('');
-      //_this.btn_disable = false;
       _this.charErr =false;
       var code = 0;
       $.each(each_val, function (key, value) {
         code = value.charCodeAt();
-        // if (!(code > 12352 && code < 12447)) {
         if (!(code > 12448 && code < 12543)) {
           _this.charErr = true;
           _this.btn_disable = true;
@@ -612,12 +579,10 @@ export default {
       });    
       if(input_val == ''){
         if(this.jobApply.last_name != ''){
-        //_this.charErr =false;
         this.jobApply.furigana_focus=false;            
       }else{
         this.jobApply.furigana_focus=true;　
         _this.btn_disable = true;
-        //_this.charErr = true;
       }
       }else{            
         this.jobApply.furigana_focus=false;　
@@ -626,28 +591,10 @@ export default {
     },
     postalNumber: function(event) {
       if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-      && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-      {
+      && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) {
         event.preventDefault();
       }
     },
-      /*focusLname: function(event) {
-      if(this.jobApply.last_name != ''){
-        this.focus_lname=false;
-      }else{
-        this.focus_lname=true;
-        this.btn_disable = true;
-      }
-    },
-    focusCity: function(event) {
-      if(this.jobApply.str_address != ''){
-        this.focus_city=false;
-        this.aggreBtn();
-      }else{
-        this.focus_city=true;
-        this.btn_disable = true;
-      }
-    },*/
   }
 };
 </script>

@@ -23,7 +23,7 @@
                             <h5 class="subtitle"><strong>施設名:</strong> {{proname}} </h5>                                         
                         </div>    
                     </div>
-                </div>                    
+                </div>
                 <div v-if="nosearch_msg" class="card card-default card-wrap">
                     <p class="record-ico">
                         <i class="fa fa-exclamation"></i>
@@ -35,11 +35,12 @@
                         <div class="card-body p-3">                              
                             <div class="row"  v-if="page == null || page == 'profile' ">
                                 <div class="col-9">
-                                        <span class="job_id_1"><span>求人番号 :</span>{{jobapply.jobid}}</span>
+                                    <span class="job_id_1"><span>求人番号 :</span>{{jobapply.jobid}}</span>
                                 </div>
-                                    <div class="col-3 pad-free-750 text-right">
+                                <div class="col-3 pad-free-750 text-right">
                                     <button :class="'btn btn drop-bg-color changeLink'+jobapply.id"  @click="applicatnToggle(jobapply.id)">
-                                    詳細  <i :id="'icon' + jobapply.id" class="fas fa-sort-down animate rotate"></i></button>
+                                        詳細  <i :id="'icon' + jobapply.id" class="fas fa-sort-down animate rotate"></i>
+                                    </button>
                                 </div>
                                 <div class="col-12">
                                     <div class="joboffer-tit clearfix">
@@ -97,7 +98,6 @@
                             </div>                                    
                         </div>
                     </div>                   
-                    <!-- <pagination :data="jobapplies" @pagination-change-page="searchApplicantList"></pagination> -->
                     <pagination :data="jobapplies" @pagination-change-page="searchApplicantList" :limit="limitpc" class="mt-3">
                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
@@ -118,7 +118,6 @@ export default {
     data() {
         return {
             jobapplies: [],
-            items: [],
             norecord: 0,
             nosearch_msg: false,
             search_id:0,
@@ -188,19 +187,17 @@ export default {
             this.axios.get("/api/jobapplicantlist/"+this.type+"/"+this.page+"/"+this.search_id).then(response => {
                 this.$loading(false);
                 this.jobapplies = response.data;
-                if(this.jobapplies.data.length != 0){                    
+                if(this.jobapplies.data.length != 0) {                    
                     this.nosearch_msg = false;
                 }
                 else{
                     this.nosearch_msg = true;
-                }
-             
-                if(this.jobapplies.data.length != 0 && this.page == 'job')
-                {                  
+                }             
+                if(this.jobapplies.data.length != 0 && this.page == 'job') {                  
                     this.job_id = this.jobapplies.data[0].jobid;
                     this.job_title = this.jobapplies.data[0].job_title;
                 }
-                else if(this.page == 'profile'){                    
+                else if(this.page == 'profile') {                    
                     this.proname = this.jobapplies.data[0].proname;                   
                 }               
             });
@@ -221,7 +218,6 @@ export default {
         },
         jobApplicantDelete(id){
             this.$swal({
-                // title: "確認",
                 text: "求人応募者を削除してよろしいでしょうか。",
                 type: "warning",
                 width: 350,

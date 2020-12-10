@@ -446,7 +446,7 @@
                         </span>
                     </div>
                     <!--end search list-->
-                    <div class="">
+                    <div>
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-slg-12" style="margin-top:20px;" v-for="(nus,index) in displayItems" :key="nus.id">
                                 <div class="nur-content">
@@ -636,25 +636,79 @@
         },
         data() {
             return {
-                /**added by maythirihtet */
+                /**linked news */
                 c_year:new Date().getFullYear(),
-                vactive:true,
                 linkednews: [],
                 yeararr: [],
-                /**end of added by maythirihtet */
-                cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: '-1', townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
+                /**end of linked news */
+                map: null, 
+                markers: [], 
+                searchmarkers:[], 
+                marker:[], 
+                selectedLocation: null, 
+                infoBoxOpen: false, 
+                id: '-1', 
+                townshipID:[], 
+                township_id:-1, 
+                moving_in:-1, 
+                per_month:-1, 
+                cities: '', 
+                getCity: [], 
+                getTownships: [], 
+                special_features: [], 
+                fac_types: [], 
+                medical_acceptance: [], 
+                showOne: true, 
+                currentOffset: 0, 
+                windowSize: 4, 
+                paginationFactor: 328,
+                window:{ width: 0, height: 0 }, 
+                nursingList: [], 
+                alphabet: [], 
+                markerHover:[], 
+                SpecialFeatureID:[], 
+                MedicalAcceptanceID:[], 
+                FacTypeID:[], 
+                MoveID:[], 
+                nus_data:[], 
+                specialfeature:[], 
+                medicalacceptance:[], 
+                factype:[], 
+                selectedcity:'', 
+                citylatlng:[], 
+                view_pro_id: [], 
+                currentPage: 0, 
+                size: 20, 
+                pageRange: 5, 
+                items: [], 
+                show_paginate: false, 
+                onchangeid:0, 
+                localst:'', 
+                selected: undefined, 
+                toggleCheck: true, 
+                loading: false, 
+                coordinate:[], 
+                norecord_msg: false, 
+                ci : false, 
+                window:{ width: 0, height: 0 }, 
+                w_width:$(window).width(), 
+                boundsval: 'no marker', 
+                searchword:'', 
+                index:'', 
+                clicksearch: false, 
+                isActive: true,
             }
         },
         created(){
             this.axios('/api/cities').then((response) => {
                 this.cities = response.data.city;
             })
-            /**added by maythirihtet*/
+            /**linked news*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
                 this.linkednews = response.data.linkednews,
                 this.yeararr = response.data.yeararr;
             });
-            /**end of added by maythirihtet */
+            /**end of linked news */
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
             if(this.window.width >= 320 && this.window.width < 360) {
@@ -752,11 +806,11 @@
             }
         },
         methods: {
-            /**added by maythirihtet */
+            /**add linked news */
             showDataByYear(year) {
                 this.c_year = year;
             },
-            /**end of added by maythirihtet */
+            /**end of add linked news */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
@@ -768,10 +822,6 @@
                 this.township_id = -1;
                 this.moving_in = -1;
                 this.per_month = -1;
-                // if(this.townshipID == null || this.townshipID == '')
-                // {
-                // this.townshipID[0] = 0;
-                // }
                 if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
                 {
                 this.SpecialFeatureID[0] = 0;
@@ -817,7 +867,6 @@
                         Moving_in:this.moving_in,
                         Per_month:this.per_month,
                         local:this.locast,
-                        // townshipID:this.townshipID,
                         SpecialFeatureID:this.SpecialFeatureID,
                         MedicalAcceptanceID:this.MedicalAcceptanceID,
                         FacTypeID:this.FacTypeID,
@@ -888,7 +937,6 @@
                 $('#searchMap').addClass('select');
                 $('#showSearchMap').removeClass('select');
                 $('#filter').removeClass('select');
-                // this.$loading(true);
                 _this.loading = true;
                localStorage.setItem('features', 'nursing');
                 _this.ci = false;
@@ -909,7 +957,6 @@
                     _this.locast = localStorage.getItem("nursing_fav");
                 }
                 _this.searchword = '';             
-                // _this.$loading(true);                
                 _this.axios.get('/api/getmap',{
                     params:{
                         id: _this.id,
@@ -925,21 +972,16 @@
                     },
                 })
                 .then((response) => {
-                    //   _this.$loading(false);
                     $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
-                    // $("#mymap").css('display', 'block');
                     $("#nursing-search").css("display", "block");
-                    $("#filtertable").css("display", "block");
-                    
+                    $("#filtertable").css("display", "block");                    
                     _this.changeMap(response,2)
                 })
-                //  _this.changeSearch();
             },
             // map onclick function
             // make infowindow, marker , google map
             changeMap(response,freewordornot){                 
-                if(this.id == -1 && freewordornot == 2)
-                {
+                if(this.id == -1 && freewordornot == 2) {
                     freewordornot = 1;
                 }             
                 $('.select').removeClass('select');
@@ -983,8 +1025,7 @@
                 }
                 if(this.map == null){
                     this.createMap(theCity,lat,lng)
-                    if(freewordornot == 1)
-                    {               
+                    if(freewordornot == 1){               
                         this.infoWindow(item, mmarker,response);
                     }
                     else{                    
@@ -997,8 +1038,7 @@
                         map.data.remove(feature);
                     };
                     map.data.forEach(callback);
-                    if(freewordornot != 1)
-                    {
+                    if(freewordornot != 1) {
                         this.coordinates(theCity,lat,lng);
                     }
                     this.infoWindow(item, mmarker,response); 
@@ -1009,8 +1049,7 @@
                 this.searchword = '';
                 this.loading = true;
                 this.ci = false;
-                if(id == 1) //if choose city
-                {               
+                if(id == 1) { //if choose city    
                     this.township_id = -1;
                     this.townshipID = [];
                 }
@@ -1018,27 +1057,18 @@
                     this.townshipID = [];
                     this.townshipID[0] = this.township_id;
                 }
-                if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
-                {
+                if(this.SpecialFeatureID == null || this.SpecialFeatureID == '') {
                     this.SpecialFeatureID[0] = 0;
                 }
-                if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
-                {
+                if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '') {
                     this.MedicalAcceptanceID[0] = 0;
                 }
-                if(this.FacTypeID == null || this.FacTypeID == '')
-                {
+                if(this.FacTypeID == null || this.FacTypeID == '') {
                     this.FacTypeID[0] = 0;
                 }
-                if(this.MoveID == null || this.MoveID == '')
-                {
+                if(this.MoveID == null || this.MoveID == '') {
                     this.MoveID[0] = 0;
                 }
-                //if change dropdown , clear array
-                // this.MoveID = [];
-                // this.MedicalAcceptanceID = [];
-                // this.FacTypeID = [];
-                // this.SpecialFeatureID = [];
                 this.onchangeid = 1;
                 if(localStorage.getItem("nursing_fav") == null){
                     this.locast = 0;
@@ -1094,8 +1124,7 @@
                 }
                 this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);                
             },
-            coordinates(theCity,lat,lng){              
-                // this.loading = false
+            coordinates(theCity,lat,lng){
                 let  coor =[];
                 var townshipName = [];
                 var town = [];
@@ -1120,10 +1149,6 @@
                     }
                 }
                 var township_name = townshipName;
-                //    this.coordinate = []; 
-                //    this.coordinate = [
-                //        {"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"MultiPolygon"}}]}
-                //    ]
                 if(this.ci == true && (this.townshipID[0] == "-1" || this.townshipID.length == 0))
                 {                  
                         this.loading = false;                    
@@ -1131,8 +1156,6 @@
                 else if(this.ci == false && (this.townshipID[0] == 0 || this.townshipID[0] == "-1" || this.townshipID.length == 0)){                 
                     var newresult=[];
                     var jsonfile = theCity+".json";
-                    // https://t-i-s.jp
-                    // https://testikportal.management-partners.co.jp/
                     this.axios.get("https://test.t-i-s.jp/json/cities/"+jsonfile).then(respon => {
                         this.coordinate = respon.data.reduce((acc, val) => acc.concat(val), []);
                         this.boundariesGoogleMap(lat,lng,this.coordinate);  
@@ -1143,11 +1166,8 @@
                     jsonfile = jsonfile.toLowerCase();
                     this.axios.get('https://test.t-i-s.jp/json/Townships/'+jsonfile).then(res => {
                         var township_coor = []
-                        for(var i = 0; i < res.data.features.length; i++)
-                        {                     
-                            if(res.data.features[i]['properties']['N03_007'] == township_name)
-                            {
-                                //  console.log(res.data);
+                        for(var i = 0; i < res.data.features.length; i++) {                     
+                            if(res.data.features[i]['properties']['N03_007'] == township_name) {
                                 township_coor.push(res.data.features[i]);
                                 this.boundariesGoogleMap(lat,lng,township_coor);       
                             }
@@ -1155,10 +1175,8 @@
                     })
                 }
             },
-            boundariesGoogleMap(lat,lng,coor){        
-                // var bb = coor.reduce((acc, val) => acc.concat(val), []);   
-                var data = coor.reduce((acc, val) => acc.concat(val), []);   
-                // var data = coor;         
+            boundariesGoogleMap(lat,lng,coor){
+                var data = coor.reduce((acc, val) => acc.concat(val), []);
                 for (let i = 0; i < data.length; i++) {
                     this.map.data.addGeoJson(data[i]); 
                 }     
@@ -1182,10 +1200,9 @@
                 this.map.fitBounds(this.boundsval)                
                 this.loading = false;
             },
-            infoWindow(item, mmarker,response){                          
+            infoWindow(item, mmarker,response) {
                 var infoWindowContent = new Array();               
-                if(item.length  && mmarker.length)
-                {
+                if(item.length  && mmarker.length) {
                     for (var i = 0; i < item.length; i++) {
                         var typename = item[i]['type_name'] == null ? '介護':item[i]['type_name'];
                         var phonenum = item[i]['phone'] == null ? '':item[i]['phone'];
@@ -1244,8 +1261,7 @@
                     this.markerHover = [];
                     var infoWindow = new google.maps.InfoWindow(),marker, i;
                 }              
-                if(this.marker.length)
-                {
+                if(this.marker.length) {
                    for (let index = 0; index < this.marker.length; index++) {
                        this.marker[index].setMap(null);
                    }
@@ -1265,8 +1281,6 @@
                     var img = this.markers[i]['alphabet']
                     var myLatLng = new google.maps.LatLng(lats, lngs);
                     var  position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                    // var trafficLayer = new google.maps.TrafficLayer();
-                    // trafficLayer.setMap(this.map);            
                     this.marker[i] = new google.maps.Marker({
                         position: position,
                         map: this.map,
@@ -1279,7 +1293,6 @@
                         }
                     });
                     marker = this.marker[i]
-                    // this.googleMarker = marker;
                     bounds.extend(position);
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
                         return function() {
@@ -1302,8 +1315,7 @@
                 }
             },
             // make infowindow, marker , google map
-            clearmap(citylatlng)
-            {
+            clearmap(citylatlng) {
                 // for clean googleMap
                 var lat = citylatlng[0]['latitude']
                 var lng = citylatlng[0]['longitude']
@@ -1338,48 +1350,19 @@
                     strokeWeight: 1
                 })
             },
-            search(){
-                // if(this.townshipID == null || this.townshipID == '')
-                // {
-                // this.townshipID[0] = 0;
-                // }                
-                if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
-                {
+            search(){           
+                if(this.SpecialFeatureID == null || this.SpecialFeatureID == '') {
                     this.SpecialFeatureID[0] = 0;
                 }
-                if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
-                {
+                if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '') {
                     this.MedicalAcceptanceID[0] = 0;
                 }
-                if(this.FacTypeID == null || this.FacTypeID == '')
-                {
+                if(this.FacTypeID == null || this.FacTypeID == '') {
                     this.FacTypeID[0] = 0;
                 }
-                if(this.MoveID == null || this.MoveID == '')
-                {
+                if(this.MoveID == null || this.MoveID == '') {
                     this.MoveID[0] = 0;
-                }
-                // if(this.onchangeid == 1)
-                // {
-                //     if(this.township_id == -1)
-                //     {
-                //         this.townshipID[0] = 0;
-                //     }
-                //     else{
-                //         this.townshipID[0] = this.township_id;
-                //         this.township_id = -1;
-                //     }
-                // }
-                // else{
-                //     this.township_id = -1;
-                // }
-                // this.moving_in = -1;
-                // this.per_month = -1;             
-                // if ($('#search-free-word').val() != '')
-                // {
-                // this.id = -1;
-                //     var search_word = $('#search-free-word').val();                  
-                // }              
+                }            
                 var  search_word= 'null';
                 if(localStorage.getItem("nursing_fav") == null){
                     this.locast = 0;
@@ -1392,7 +1375,6 @@
                     params:{
                         id: this.id,
                         townshipID:this.township_id,
-                        // townshipID:this.townshipID,
                         SpecialFeatureID:this.SpecialFeatureID,
                         MedicalAcceptanceID:this.MedicalAcceptanceID,
                         FacTypeID:this.FacTypeID,
@@ -1481,9 +1463,6 @@
                 }
             },
             getStateHover(e) {
-                // if(e.target.tagName ==='AREA'){
-                //  console.log(e)
-                // }
             },
             imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
@@ -1496,13 +1475,11 @@
                         fav_arr.push(index);
                         fav_arr = [...new Set(fav_arr)];
                         localStorage.setItem("nursing_fav", fav_arr);
-                        // $("#nus-fav-local").html(fav_arr.length);
                         this.nusFav = fav_arr.length;
                     }
                     else{
                         var fav_arr = [index];
                         localStorage.setItem("nursing_fav", fav_arr);
-                        // $("#nus-fav-local").html(fav_arr.length);
                         this.nusFav = fav_arr.length;
                     }
                     $(".fav-nursing-link-box>a").css({'cursor':'pointer','pointer-events':'auto'});
@@ -1515,7 +1492,6 @@
                         fav_arr.splice(index, 1);
                         localStorage.setItem("nursing_fav", fav_arr);
                     }
-                    // $("#nus-fav-local").html(fav_arr.length);
                     this.nusFav = fav_arr.length;
                     if(fav_arr.length == 0){
                         $(".fav-nursing-link-box>a").css({'cursor':'not-allowed','pointer-events':'none'})
@@ -1677,11 +1653,7 @@
                     this.getTownships = response.data.getTownships
                     this.special_features = response.data.special_features
                     this.subjects = response.data.subjects;
-                    //   this.sub_child = response.data.sub_child;
-                    //console.log("aaa",this.subjects);
-                    // this.id = id;
                 })
-                // this.search();
             },
         }
     };
@@ -1770,14 +1742,14 @@ div#holder {
   margin: 20px auto;
 }
 @media only screen and (max-width: 767px){
-.select {
-    display: block;
-}
-.profile_header, #searchMap {
-    display: none;
-}
-#map-responsive {
-    display: none;
-}
+    .select {
+        display: block;
+    }
+    .profile_header, #searchMap {
+        display: none;
+    }
+    #map-responsive {
+        display: none;
+    }
 }
 </style>

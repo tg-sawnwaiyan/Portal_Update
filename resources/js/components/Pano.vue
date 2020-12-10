@@ -369,7 +369,6 @@ export default {
     removeEventListener('touchmove', prevent, false)
     document.body.removeEventListener('touchstart', prevent)
     // todo: release webgl resources
-    // this.gl.deleteTexture()
   },
   props: {
     width: String,

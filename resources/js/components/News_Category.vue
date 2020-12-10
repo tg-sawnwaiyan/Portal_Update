@@ -825,12 +825,12 @@ export default {
     border-bottom: none;
 }
 
-#myTab .router-link-exact-active {
+/*#myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
     background-color: #828282;
     border: none !important;
-}
+}*/
 
 
 @media only screen and (max-width:767px)  {

@@ -72,7 +72,6 @@
                 norecord: 0,
                 norecord_msg: false,
                 nosearch_msg: false,
-                items: [],
             }
         },
         created() {
@@ -98,7 +97,6 @@
         methods: {
             deleteType(id) {
                 this.$swal({
-                    // title: "確認",
                     text: "職種を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -123,11 +121,7 @@
                         }else {
                             this.norecord_msg = true;
                         }
-                        // alert('Delete Successfully!');
-                        // let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
-                        // this.occupation.splice(i, 1)
                         this.$swal({
-                            // title: "削除済",
                             text: "求人職種を削除しました。",
                             type: "success",
                             width: 350,
@@ -138,7 +132,6 @@
                         });
                     }).catch(error=>{
                         if(error.response.status == 404){
-                            // this.$swal("このカテゴリーに関連するニュースがあるため、削除できません。");
                             this.$swal({
                                 title: "削除に失敗しました",
                                 text: "削除に失敗しました この求人職種の施設が存在するため削除できません ",

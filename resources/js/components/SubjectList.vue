@@ -71,7 +71,6 @@
                 norecord: 0,
                 norecord_msg: false,
                 nosearch_msg: false,
-                items: [],
             }
         },
         created() {
@@ -97,7 +96,6 @@
         methods: {
             deleteSubject(id) {
                 this.$swal({
-                    // title: "確認",
                     text: "診療科目を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -121,10 +119,7 @@
                         }else {
                             this.norecord_msg = true;
                         }
-                        //    let i = this.subjects.map(item => item.id).indexOf(id); // find index of your object
-                        //     this.subjects.splice(i, 1)
                         this.$swal({
-                            // title: "削除済",
                             text: "診療科目を削除しました。",
                             type: "success",
                             width: 350,
@@ -135,9 +130,7 @@
                         });
                     }).catch(error=>{
                         if(error.response.status == 404){
-                            // this.$swal("このカテゴリーに関連するニュースがあるため、削除できません。");
                             this.$swal({
-                                // title: "削除に失敗しました",
                                 html: "削除に失敗しました。 <br/>削除しようとした診療科目の施設が存在するため削除できません。 ",
                                 type: "error",
                                 width: 350,

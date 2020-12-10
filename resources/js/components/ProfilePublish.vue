@@ -71,7 +71,6 @@
                                                         <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo" @error="imgUrlAlt">
                                                     </div>
                                                 </div>
-                                                <!-- </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +216,6 @@
                                             <slick :options="slickOptions" ref="slickSetting1">
                                                 <div>
                                                     <h2>
-                                                        <!-- <img :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="img-fluid" @error="imgUrlAlt"/> -->
                                                         <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120" :draggable="true"></Pannellum>
                                                     </h2>
                                                 </div>
@@ -238,12 +236,10 @@
                             </div>
                         </div>
                         <!--end responsive with gallery and panorama -->
-                        <!-- <div  v-for="image in  images"  :key="image.id"></div> -->
                     </div>
                     <!--end for slide image-->
                     <!--for address-->
                     <div class="col-md-7 detail_profile_right col-slg-12 pad-free-750">
-                        <!-- <span class="top-mail-btn-res btn sp-414" @click="documentPost()" v-if="loginuser=='false' && !$auth.check()"><i data-v-b65423c6="" class="far fa-envelope" style="font-size: 15px;font-weight: bold;;"></i>&nbsp;資料請求</span> -->
                         <div class="m-lr-0 pro-heading">
                             <div class="col-12 pad-free pc-1024">
                                 <h5 class="profile_header">
@@ -726,7 +722,6 @@
                                     <img :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  @error="imgUrlAlt">
                                 </div>
                                 <span class="img_txt">{{image.title}}</span>
-                                <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
                         </div>
@@ -795,7 +790,6 @@
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                         </div>
                         <div class="form-group">
-                            <!-- <label for="">備考</label> -->
                             <p v-html="nus_pro.acceptance_remark"></p>
                         </div>
                     </div>
@@ -1223,7 +1217,6 @@
                             <img :src ="'/upload/hospital_profile/' + image.name" class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                         </div>
                         <span class="img_txt">{{image.title}}</span><br>
-                        <!-- <span>{{image.photo}}</span> -->
                     </div>
                     <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
                 </div>
@@ -1294,7 +1287,6 @@
                             <tr>
                                 <th class="custom-bg-color"> メールアドレス</th>
                                 <td>{{m.email}}</td>
-                                <!-- <td v-else> - </td> -->
                             </tr>
                             <tr>
                                 <th class="custom-bg-color"> アクセス</th>
@@ -1380,7 +1372,6 @@ export default {
     data() {
         var that = this;
         return {
-            nav_width:0,
             nus_pro:[],
             ads_list: [],
             profile_id: "",
@@ -1398,7 +1389,6 @@ export default {
             width: '',
             center: { lat: 0, lng: 0 },
             address: '',
-            google:[],
             hosfacilities:[],
             specialfeature:[],
             nusfacilities:[],
@@ -1408,7 +1398,6 @@ export default {
             medical:[],
             fac_list:[],
             staff:[],
-            schedules:[],
             subject:'',
             subjects:[],
             hospitals:[],
@@ -1423,9 +1412,6 @@ export default {
             index: 0,
             light_images:[],
             thumbnailDir: '/upload/',
-            // cusid: 0,
-            // type: 0,
-            pageNum: 0,
             opts: {
                 start: 0,
                 dir: 'v',
@@ -1438,10 +1424,7 @@ export default {
                     that.index = current;
                 }
             },
-            images: [],
-            // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
             panoimages:[],
-            changelinktitle:'内容を見る',
             panocurrentOffset: 0,
             windowSize: 10,
             paginationFactor:103,
@@ -1449,7 +1432,6 @@ export default {
             currentPage: 0,
             size: 5,
             pageRange: 10,
-            items: [],
             pagination: false,
             data: {
                 str:"Welcome to Canada!",
@@ -1459,9 +1441,7 @@ export default {
                 width: 0,
                 height: 0
             },
-            show : false,
             isPano: false,
-            show_arr: [],
             show_comment: false,
             view_pro_id: false,
             profilenumber:'',           
@@ -1472,10 +1452,7 @@ export default {
         type:String,
         loginuser:Boolean,       
     },
-    created(){       
-        // this.nav_width = document.querySelector('.content-all').offsetWidth;
-        // console.log('this.nav_width',this.nav_width)
-        // console.log("previous ",document.referrer)       
+    created(){     
         window.addEventListener('scroll', this.handleScroll);
         this.pro_id = Number(this.$route.params.id);
         this.type = this.$route.params.type;
@@ -1538,25 +1515,20 @@ export default {
         }
         else if (this.window.width >= 1024 && this.window.width < 1280) {
             this.windowSize = 8;
-            // console.log('1024');
         }
         else if (this.window.width >= 1280 && this.window.width < 1440) {
             this.windowSize = 9;
         }
         else if (this.window.width >= 1440 && this.window.width < 1880) {
             this.windowSize = 9;
-            // console.log(this.paginationFactor);/
         }
-        // else if( this.window.width > 1700) {
-        // }
         this.profile_id = this.pro_id;
         this.activePanoImage = 0;
         //for responsive
         if(this.window.width > 768) {
             //greater than 768
             if(this.loginuser == 'true') {
-                $(document).scroll(function() {   
-                    //  $(".fixed-nav").css({"position": "fixed","top":"65px"});
+                $(document).scroll(function() {
                     var cur_pos = $(this).scrollTop();
                     $('.ele').each(function(active_el){
                         if($(this).position().top <= (cur_pos+71)){
@@ -1564,17 +1536,10 @@ export default {
                             $('.top-fixed-btn').eq(active_el).addClass('active');
                         }
                     });
-                    // if (cur_pos >= 100) {
-                    //     $(".fixed-nav").css({"position": "fixed","top":"80px"});
-                    // } else {
-                    //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                    // }
-                    //  $(".fixed-nav").css({"position": "unset","top":"unset"});
                 });
             } else {
                 // public                    
-                $(document).scroll(function() {                       
-                    // $(".fixed-nav").css({"position": "fixed","top":"100px"});
+                $(document).scroll(function() {
                     var cur_pos = $(this).scrollTop();
                     $('.ele').each(function(active_el){
                         if($(this).position().top <= (cur_pos+71)){
@@ -1582,11 +1547,6 @@ export default {
                             $('.top-fixed-btn').eq(active_el).addClass('active');
                         }
                     });
-                    // if (cur_pos >= 100) {
-                    //     $(".fixed-nav").css({"position": "fixed","top":"90px"});
-                    // } else {
-                    //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                    // }
                 });
             }
             //greater than 768
@@ -1595,7 +1555,6 @@ export default {
             //less than 768
             if(this.loginuser == 'true') {
             $(document).scroll(function() {
-                // $(".fixed-nav").css({"position": "fixed","top":"40px"});
                 var cur_pos = $(this).scrollTop();
                 $('.ele').each(function(active_el){
                     if($(this).position().top <= (cur_pos+71)){
@@ -1603,15 +1562,9 @@ export default {
                         $('.top-fixed-btn').eq(active_el).addClass('active');
                     }
                 });
-                // if (cur_pos >= 100) {
-                //     $(".fixed-nav").css({"position": "fixed","top": "40px" ,"display": "inline-flex","width": "100%"});
-                // } else {
-                //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                // }
             });
             } else {               
                 $(document).scroll(function() {
-                    //  $(".fixed-nav").css({"position": "fixed","top":"77px"});
                     var cur_pos = $(this).scrollTop();
                     $('.ele').each(function(active_el){
                         if($(this).position().top <= (cur_pos+71)){
@@ -1619,11 +1572,6 @@ export default {
                             $('.top-fixed-btn').eq(active_el).addClass('active');
                         }
                     });
-                    // if (cur_pos >= 100) {
-                    //     $(".fixed-nav").css({"position": "fixed","top": main_top ,"display": "inline-flex","width": "100%"});
-                    // } else {
-                    //     $(".fixed-nav").css({"position": "unset", "top": "unset", "display": "none"});
-                    // }
                 });
             }
             //end less than 768
@@ -1631,14 +1579,9 @@ export default {
         //for end responsive
         if(this.type == "nursing")
         {
-            // this.axios.get('/api/profile/customer/'+this.pro_id+'/'+this.type) .then(response => {
-            //     this.customer = response.data;
-            // });
             this.axios.get('/api/profile/nursing/'+this.pro_id) .then(response => {
-                //   console.log("test address",response.data);
                 this.profilenumber = response.data.profilenumber[0]['profilenumber'];
-                this.nus_pro = response.data.nurselatlong;
-                // this.google = response.data.nurselatlong;               
+                this.nus_pro = response.data.nurselatlong;             
                 if(!this.$auth.check()){
                     this.show_comment = true;
                 }else{
@@ -1655,12 +1598,8 @@ export default {
                 if(this.nus_pro[0]['address'] == null){
                     this.nus_pro[0]['address'] = '';
                 }
-                this.address = response.data.address;                
-                // if(this.nus_pro[0]['address'] == null){
-                //         this.nus_pro[0]['address'] = '';
-                // }
+                this.address = response.data.address;
                 this.nus_pro[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.nus_pro[0]['address'];
-                // this.google[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.nus_pro[0]['address'];
                 this.nusfacilities = response.data.facility;
                 this.nursing_profiles = response.data.nurselatlong[0]['feature'];
                 this.nus_method= response.data.nurselatlong[0]['method'];
@@ -1698,7 +1637,6 @@ export default {
                 }
                 this.panoimages = response.data.panoimages;
                 this.videos = response.data.videos;
-                // console.log(this.panoimages);return;
                 if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
                 {
                     this.center['lat'] = 35.6803997;
@@ -1722,20 +1660,11 @@ export default {
                 }else{
                     this.pagination = false;
                 }
-                // for ( var index=0; index<response.data.length; index++ ) {
-                //     data = { "created_date": "1", "created_time": "Valid" };
-                //     this.comments.push(data);
-                //         // tempData.push( data );
-                // }
             });
         }
         else{
-            // this.axios.get('/api/profile/customer/'+this.pro_id+'/'+this.type).then(response => {
-            //     this.customer = response.data;
-            // });
             this.axios.get('/api/profile/hospital/'+this.pro_id).then(response => {    
                 this.profilenumber = response.data.profilenumber[0]['profilenumber'];                  
-                // this.google = response.data.hospital;
                 this.address = response.data.address;
                 this.hospitals = response.data.hospital;                
                 if(!this.$auth.check()){
@@ -1755,7 +1684,6 @@ export default {
                     this.hospitals[0]['address'] = '';
                 }
                 this.hospitals[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.hospitals[0]['address'];
-                // this.google[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.hospitals[0]['address'];
                 this.hosfacilities=response.data.facility_list;
                 this.fac_list = response.data.facility;
                 this.markers[0]['position']['lat']  = response.data.hospital[0]['latitude'];
@@ -1763,7 +1691,6 @@ export default {
                 this.center['lat'] = response.data.hospital[0]['latitude'];
                 this.center['lng'] = response.data.hospital[0]['longitude'];
                 this.images = response.data.images;
-                // console.log("images",this.images)
                 if(this.images.length == 1){
                     if(this.images[0]['photo'] != null){
                         for(var i=0; i<this.images.length; i++){
@@ -1787,7 +1714,6 @@ export default {
                     }
                 }
                 this.videos = response.data.videos;
-                // this.panoimages = response.data.panoimages;
                 if(response.data.hospital[0]['latitude'] == 0 && response.data.hospital[0]['longitude'] == 0)
                 {
                     this.center['lat'] = 35.6803997;
@@ -1826,9 +1752,6 @@ export default {
         var new_width = document.querySelector("#content-all").offsetWidth;
         var fixed_width = new_width - 80;
         this.width = fixed_width + "px";
-        // var new_width = $("#Profile-page").width();
-        // this.width = new_width + "px";
-        // console.log(new_width + "px");
         var main_header = $(".main-header").height();
         var main_top =  main_header  + "px" ;
         var admin_header = $(".admin-header").height();
@@ -1909,25 +1832,25 @@ export default {
         },
         slickOptions2() {
             return {
-            slidesToShow: 7,
-            slidesToScroll: 1,
-            arrows:false,
-            dots: false,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 411,
-                    settings: {
-                        slidesToShow: 8.5,
-                        slidesToScroll: 1,
-                        focusOnSelect: true,
-                    }
-                }, {
-                breakpoint: 360,
-                    settings: {
-                        slidesToShow: 8,
-                        slidesToScroll: 1,
-                        focusOnSelect: true,
-                    }
+                slidesToShow: 7,
+                slidesToScroll: 1,
+                arrows:false,
+                dots: false,
+                focusOnSelect: true,
+                responsive: [{
+                    breakpoint: 411,
+                        settings: {
+                            slidesToShow: 8.5,
+                            slidesToScroll: 1,
+                            focusOnSelect: true,
+                        }
+                    }, {
+                    breakpoint: 360,
+                        settings: {
+                            slidesToShow: 8,
+                            slidesToScroll: 1,
+                            focusOnSelect: true,
+                        }
                 }]
             }
         }
@@ -1941,11 +1864,9 @@ export default {
                     var el2 = document.querySelectorAll('.el2');                       
                     var index = 0, length = el.length;                    
                     for ( ; index < length; index++) {
-                        // el[index].classList[3].css.border = "1px solid red;";
                         el[index].style.position = "fixed";
                         el[index].style.top = "85px";
                         el[index].style.display = "block";
-                        // el[index].style.width = "900px";
                         el[index].style.margin = "0px 0px 0px 175px";                           
                     }   
                     for (let i = 0; i < el2.length; i++) {
@@ -1960,7 +1881,6 @@ export default {
                             el[index].style.top = "unset";
                             el[index].style.width = "";
                             el[index].style.margin = "0px";
-                            //el[index].style.left = "0px";
                         }     
                     } 
                 } else {
@@ -1968,7 +1888,6 @@ export default {
                     var el = document.querySelectorAll('.el');                        
                     var index = 0, length = el.length;
                     for ( ; index < length; index++) {
-                        // el[index].classList[3].css.border = "1px solid red;";
                         el[index].style.position = "fixed";
                         el[index].style.top = "85px";
                         el[index].style.display = "block";
@@ -1992,7 +1911,6 @@ export default {
                     var el2 = document.querySelectorAll('.el2');
                     var index = 0, length = el.length;
                     for ( ; index < length; index++) {
-                        // el[index].classList[3].css.border = "1px solid red;";
                         el[index].style.width = "";
                         el[index].style.position = "fixed";
                         el[index].style.top = "60px";
@@ -2028,7 +1946,6 @@ export default {
                         el[index].style.top = "42px";
                         el[index].style.display = "inline-flex";
                     }   
-                    // $(".fixed-nav").css({"position": "fixed","top":"100px"});
                     var cur_pos = window.scrollY;
                     if(this.window.width > 436 && this.window.width <= 1024){
                         for (let i = 0; i < el2.length; i++) {
@@ -2106,7 +2023,6 @@ export default {
             this.activeImageDescription = this.images[imageIndex].description;
         },
         activate:function(el){
-            //    console.log(e); 
         },
         costConfirm(id,inx){
             $('.changeLink').text("詳細はこちら");
@@ -2143,9 +2059,6 @@ export default {
             document_status[this.pro_id] = true;
             localStorage.setItem("document", JSON.stringify(document_status));
             localStorage.setItem("item", JSON.stringify(this.fav_email));
-            // this.$router.push({
-            //     name: 'nursingFavouriteMail',
-            // });
             let routeData = this.$router.resolve({name: 'nursingFavouriteMail',});
             window.open(routeData.href, '_blank');
         },
@@ -2172,28 +2085,25 @@ export default {
             }
         },
         pageSelect(index) {
-            // this.currentPage = index - 1;
-            // window.scrollTo(0,0);
-            if(0 < this.currentPage)
-            {
+            if(0 < this.currentPage) {
                 this.currentPage = index - 1;
             }
-            else{
+            else {
                 this.currentPage++;
             }
         },
-        favAddFun(status){
+        favAddFun(status) {
             if(this.type == 'nursing'){
                 var locReplace = "nursing_fav";
                 var varReplace = "#nus-fav-local";
                 var linkBox = ".fav-nursing-link-box>a";
             }
-            else{
+            else {
                 var locReplace = "hospital_fav";
                 var varReplace = "#hos-fav-local";
                 var linkBox = ".fav-hospital-link-box>a";
             }
-            if(status == 'add'){
+            if(status == 'add') {
                 if(localStorage.getItem(locReplace)){
                     var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
                     fav_arr.push(this.pro_id);
@@ -2261,7 +2171,6 @@ export default {
     padding-bottom: 13%;
 }
 .active > h3{
-    /* border: 2px solid #d2571c; */
     border: 2px solid #3498db;
 }
 h2{
@@ -2297,11 +2206,10 @@ h3 img{
 }
 /*end test*/
 /*slider*/
-    #pano-slider-page .card-carousel {
+#pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
     width: 1033px !important;
-    /* width: 1336px; */
     overflow: hidden;
 }
 /*slick carousel*/
@@ -2315,7 +2223,6 @@ h3 img{
 #pano-slider-page .card-carousel-comment {
     display: flex;
     justify-content: center;
-    /* width: 1145px; */
 }
 #pano-slider-page .card-carousel-comment .card {
     margin: 0px 10px 0px 0px;
@@ -2332,8 +2239,6 @@ h3 img{
     height: 15px;
     padding: 5px;
     box-sizing: border-box;
-    /* border-top: 5px solid #f9793c;
-    border-right: 5px solid #f9793c; */
      border-top: 5px solid #3498db;
     border-right: 5px solid #3498db;
     cursor: pointer;
@@ -2363,7 +2268,6 @@ h3 img{
     line-height: 35px;
     vertical-align: middle;
     background: #fffff4;
-    /* border: 2px solid #ff9563; */
     border: 2px solid #3498db;
     border-radius: 50%;
     text-align: center;
@@ -2388,7 +2292,6 @@ h3 img{
 #pano-slider-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
-    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
@@ -2414,66 +2317,45 @@ h3 img{
     height: 500px;
 }
 .cost_tb{
-    /* border: 1px solid #ccc; */
     border-left: 0px;
     border-bottom: 0px;
     padding-bottom: 1px;
-     /* background: #fff; */
-     /* padding: 10px; */
-    /* padding-bottom: 20px; */
 }
 .cost_table{
     width: 100%;
-    /* height: 81px; */
     float: left;
     border-bottom: 1px solid #ccc;
-    /* margin-top: 15px; */
 }
-/* .cost_table label {
-    border-left: 6px solid #b7dad2;
-    padding-left: 10px;
-    margin-bottom: 10px;
-    font-size:14px;
-    line-height: 1.3;
-     margin-top: 30px;
-    padding-top: 2px;
-} */
 .cost_heading_lbl{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     border-left: 5px solid #2980b9;
     padding: 0 5px;
     font-weight: bold;
     font-size: 1.14em;
 }
 .cost_heading_lbl_respon{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     border-left: 5px solid #2980b9;
     padding: 0 5px;
     font-weight: bold;
     font-size: 0.9rem;
 }
 .cost_heading_lbl_mini{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     line-height: 1;
     font-weight: bold;
     font-size: 1.2em;
 }
 .cost_heading_lbl_mini_res{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     line-height: 1;
     font-weight: bold;
     font-size: 0.8rem;
 }
 .cost_heading_lbl_mini i{
-    border-radius: 3px;    
-    /* color: #d2571c; */
+    border-radius: 3px;   
     color: #3498db;
     font-size: 1em;
 }
 .cost_table th{
     border: 1px solid #ccc;
     padding: 8px 10px;
-    /* text-align: center; */
     background: #f0f0f0;
     color: #000;
     line-height: 1.7;
@@ -2481,9 +2363,7 @@ h3 img{
     min-width: 100px;
 }
 .cost_table td{
-    /* border: 1px solid #ccc;*/
     padding: 8px 10px;
-    /* text-align: center; */
     line-height: 1.7;
     background: #fff;
 }
@@ -2496,7 +2376,6 @@ h3 img{
     width: 158px;
     text-align: center;
     align-self: center;
-    /* padding-top: 21px; */
 }
 .aa th:last-child, .aa td:last-child {
     width: 108px;
@@ -2550,13 +2429,9 @@ h3 img{
     font-size: 12px;
     color: #777;
 }
-/* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-} */
 .thumbnail-img{
     width: 100%;
     padding: 20px;
-    /* line-height: 150px; */
     vertical-align: middle;
     border: 1px solid #b7dad2;
     border-bottom: 1px solid #b7dad2;
@@ -2594,18 +2469,12 @@ h3 img{
     height: 100%;
 }
 .thumbnails {
-    /* display: flex; */
     text-align: left;
-    /* justify-content: space-evenly;
-    flex-direction: row; */
-    /* overflow:auto; */
 }
 .thumbnail-image {
     display: inline-block;
     cursor: pointer;
     margin-bottom: -1px;
-    /* width: 10%;
-    float:left; */
 }
 .thumbnails-pano{
     display: flex;
@@ -2617,10 +2486,6 @@ h3 img{
     margin-bottom: -1px;
 }
 .thumbnail-image > img {
-    /* width:  100px;
-    height: auto;
-    transition: all 250ms;
-    vertical-align: bottom; */
     vertical-align: bottom;
     width: 51px;
     height: 36px;
@@ -2678,16 +2543,12 @@ h3 img{
     color: #000;
     font-weight: bold;
     cursor: pointer;
-    /* border: 1px solid #ffc041; */
     border:1px solid #2981cc;
     padding: 5px;
     border-radius: 5px;
-    /* background-color: #ffc; */
     background-color: #ecf8ff;
 }
 .changeLink:hover {
-    /* color: #f9793c;
-    border: 1px solid #68ec37; */
     color: #2981cc;
     border: 1px solid #2981cc;
 }
@@ -2697,9 +2558,6 @@ h3 img{
     cursor: pointer;    
     padding: 5px;
     border-radius: 5px;
-    /* border: 1px solid #ffc041;
-    background-color: #f9793c; */
-
     border: 1px solid #97cae8;  
     background-color: #2980b9;
 }
@@ -2720,7 +2578,6 @@ h3 img{
 }
 .CloseBtn {
     border: none !important;
-    /* color: #f9793c !important; */
     color: #2c3e50 !important;
     cursor: not-allowed!important;
     pointer-events: none;
@@ -2735,7 +2592,6 @@ h3 img{
 }
 .room-type {
     background: #93c2e0;
-    /* background: #fbaa84; */
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;
@@ -2750,7 +2606,6 @@ h3 img{
 .method-name-respon {
     font-weight: bold;
     font-size: 0.8em;
-    /* margin-bottom: 10px; */
 }
 .cash-lbl-mini {
     font-size: 1.4em !important;
@@ -2905,8 +2760,6 @@ h3 img{
     }
     .comment-date{
         font-size: 12px;
-        /* color: #777; */
-        /* margin-top: 46px; */
         float: left !important;
         position: absolute;
     }

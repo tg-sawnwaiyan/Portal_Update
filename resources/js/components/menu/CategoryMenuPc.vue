@@ -3,7 +3,7 @@
             <!-- slider -->
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
-                <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
+                <div class="menu_category" ref="content">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" ref="itemWidth">
                            <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
@@ -102,67 +102,3 @@ export default {
     }
 }
 </script>
-<style>
-    .menu_tab_category{
-        position: absolute;
-        max-width: 1500px;
-        top: 192px;
-        z-index: 9;
-        width: 100%;
-        max-width: 1600px;
-    }
-    #left-button{
-        position: absolute;
-        top: 13px;
-        left: 30px;
-        padding: 0;
-        width: auto;
-    }
-    #right-button{
-        position: absolute;
-        top: 13px;
-        right: 30px;
-        padding: 0;
-        width: auto;
-    }
-    .left-arr-btn .fas,
-    .right-arr-btn .fas{
-        color: #2980b9 !important;
-    }
-    .hidden {
-        display: none;
-    }
-    @media only screen and (min-width: 561px) and (max-width: 1000px){
-        .menu_category{
-            width: 86% !important;
-        }
-    }
-    @media only screen and (min-width: 991px) and (max-width: 1099px){
-        .menu_tab_category{
-            top: 204px;
-        }
-    }
-    @media only screen and (min-width: 561px) and (max-width: 900px){
-        .menu_tab_category{
-            top: 173px;
-        }
-    }
-    @media only screen and (min-width: 561px){
-        ul.only_sp{
-            display: none;
-        }
-    }
-    @media only screen and (min-width: 1020px) and (max-width: 1050px) {
-        .menu_category{
-            width: 88% !important;
-        }
-        #left-button{
-            left: 36px;
-        }
-        #right-button{
-            right: 36px;
-        }
-    }
-</style>
-
-

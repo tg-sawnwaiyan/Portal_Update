@@ -6,7 +6,7 @@
             <div class="d-flex align-items-center">
                 <a class="navbar-brand logo-text" href="/">
                 <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
-                <img src="/images/logo.png" />
+                <img src="/images/logo.png" alt="TIS" />
                 </a>
                 <div class="h-tel">
                 <a class="tel" href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i><span>info@t-i-s.jp</span></a>
@@ -35,7 +35,7 @@
                         </li>
                         <li class="nav-item  m-l-10" v-if="!$auth.check()">
                             <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>事業者 登録</span></router-link>
-                        </li> 
+                        </li>
                         <li class="col-12 userprofile-name pc" v-if="$auth.check()">
                             <span v-if="user.data.type_id == 1">
                                 <i class="fa fa-user userprofile-img" aria-hidden="true"></i>
@@ -110,10 +110,10 @@
                     </div>
                     <span class="span-color">戻る</span> 
                 </span>
-                </div>    
+                </div>
                 <ul class="menu" @click='isNav = !isNav'>
                 <li class="first-submenu">
-                    <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" style="width:15px;" ></i>     
+                    <span>メニュー</span>&nbsp;<i :class="!isNav ? open : close" ></i>     
                 </li>
                 <transition name="slide">  
                     <div class="sp_nav"  v-if="isNav">    
@@ -146,8 +146,6 @@
                         <ul class="contact_list">
                             <li><a href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i>info@t-i-s.jp</a></li>     
                         </ul>
-                        <ul class="sp_social text-center">
-                        </ul> 
                         </li>          
                     </ul>
                     </div>

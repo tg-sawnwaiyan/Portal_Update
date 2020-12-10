@@ -1134,7 +1134,7 @@
             $("#top_a").addClass("active");
         }
     });
- </script>
+</script>
 
 <style>
 .list-label{
@@ -1142,7 +1142,7 @@
     color: #999; 
     font-size: 14px;
 }
-.list-label > p{
+/*.list-label > p{
     padding-left: 10px;
     font-weight: bold;
     line-height: 1.2px;
@@ -1150,24 +1150,21 @@
     right: 10px;
     top: 10px;
     font-size: 20px;
-}
+}*/
 .pad-new{
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .news-list-display{
-    /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
     margin-bottom: 4px;
     background: #f7f7f7;
-    /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
 }
 
 .news-3-card {
     background-color: #f7f7f7;
-    /* box-shadow: 0 0 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
 }
@@ -1180,53 +1177,42 @@
     background: #f7f7f7;
     height: 310px;
     padding: 10px;
-    /* box-shadow: 0px 0px 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
     overflow: hidden;
 }
 
-.news-tabColor .nav-link {
+/*.news-tabColor .nav-link {
     background: #75b777 !important;
     color: #fff;
     border-right: 1px solid #fff;
-}
+}*/
 
-.news-borderColor {
+/*.news-borderColor {
     border: 1px solid #2980b9 !important;
-}
+}*/
 
 
-.left{
+/*.left{
     float: left;
     width: 30%;
     border: 1px solid black;
-}
+}*/
 
-.internal{
-    /* width: 31.75%;
-    border: 1px solid black; */
+/*.internal{
     display: inline-block;
-}
+}*/
 
 
-.center{
+/*.center{
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-    /* float: left;
-    width: 38.9%;
-    border: 1px solid black;
-    margin: 1px; */
-    /* width: 95%; */
-    
-    /* max-width: 100%; */
 }
 .right{
     float: right;
     width: 30%;
-    /* border: 1px solid black; */
-}
+}*/
 .cat-nav {
     padding-bottom: 0;
     height: 36px;
@@ -1236,7 +1222,6 @@
 
 .card-header-tabs {
    margin-right: -1.65rem;
-    /* margin-bottom: 0rem; */
     margin-left: -1.65rem;
     border-bottom: 0;
 }
@@ -1253,7 +1238,7 @@
     border-bottom: none;
 }
 
-.left-arr-btn {
+/*.left-arr-btn {
     position: relative;     
     left: -20px;
     width: 2%;
@@ -1263,7 +1248,7 @@
     position: relative;      
     right: -47px;
     width: 2%;
-}
+}*/
 .left-arr-btn .fas, .right-arr-btn .fas {
     color:#828282;
 }
@@ -1298,15 +1283,7 @@
     height: 360px !important;
     background: #5f5f5f;
 }
-#myTab ul li {
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    display: -webkit-inline-flex;
-}
 
-.nav {
-    flex-wrap: nowrap;
-}
 .news-slider-width{
     width: 100%;
 }
@@ -1319,12 +1296,7 @@
     border-bottom: none;
 }
 
-#myTab .router-link-exact-active {
-    height: 36px;
-    color: #fff !important;
-    background-color: #828282;
-    border: none !important;
-}
+
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1365,8 +1337,6 @@
 }
 
 @media only screen and (max-width:1280px){
-    
-    
     .news-slider-width{
        
         width: 100%;
@@ -1377,8 +1347,6 @@
         background: #f7f7f7;
         border-radius: 50%;
         box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-      
-       
     }  
     
     .slick-next::before{
@@ -1422,20 +1390,12 @@
     }
 }
 @media only screen and (min-width: 769px){
-   .slick-arrow{   
-    display: none !important;   
-    } 
-}
-#widthmenu{
-    display: inline-block;
+    .slick-arrow{   
+        display: none !important;   
+        } 
+    }
+    #widthmenu{
+        display: inline-block;
 
-}
-/*#ul_menu_category{
-    display: inline-block;
-
-}
-#ul_menu_category li{
-    float: left;
-}*/
-
+    }
 </style>

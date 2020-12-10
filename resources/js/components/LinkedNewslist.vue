@@ -76,8 +76,7 @@
             return {
                 news: [],
                 isOpen: false,
-                norecord: 0,
-                items: [],
+                norecord: 0,                
                 norecord_msg: false,
                 nosearch_msg: false,
             };
@@ -86,9 +85,6 @@
             this.getNews();
         },
         methods: {
-            // toggleModal() {
-            //     this.isOpen = !this.isOpen;
-            // },
             getNews(){
                 if(this.$route.params.status == 'update'){
                     var page_no = this.$route.params.page_no;
@@ -110,7 +106,6 @@
             },
             deleteLinkedNews(id) {
                 this.$swal({
-                    // title: "確認",
                     text: "広告を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -133,11 +128,7 @@
                         }else{
                             this.norecord_msg = true;
                         }
-                        //alert("Delete Successfully!");
-                        //   let a = this.advertisements.map(item => item.id).indexOf(id);
-                        //   this.advertisements.splice(a, 1);
                         this.$swal({
-                            // title: "削除済",
                             text: "広告を削除しました。",
                             type: "success",
                             width: 350,

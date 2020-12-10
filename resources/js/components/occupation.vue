@@ -81,10 +81,8 @@ export default {
     methods: {
         checkValidate() {
             if (this.occupation.name) {
-                // console.log('exist');
                 this.errors.name = "";
             } else {
-                // console.log('null');
                 this.errors.name = " 職種は必須です。";
             }
             if (!this.errors.name) {
@@ -94,7 +92,6 @@ export default {
         add() {
             if( `${this.$route.params.id}` == "undefined") {
                 this.$swal({
-                    //  title: "確認",
                     text: "求人職種を作成してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -117,17 +114,13 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            // title:'確認済',
                             text: '求人職種を作成しました。',
                             confirmButtonText: "閉じる",
                             confirmButtonColor: "#31cd38",
-                            // showConfirmButton: false,
-                            // timer: 1800,
                             width: 350,
                             height: 200,
                             allowOutsideClick: false,
                         })
-                        // alert('Successfully Created')
                         this.$router.push({name: 'occupationlist'});
                     }).catch(error=>{
                         if(error.response.status == 422){
@@ -145,7 +138,6 @@ export default {
         },
         updateType() {
             this.$swal({
-                // title: "確認",
                 text: "求人職種を更新してよろしいでしょうか。",
                 type: "warning",
                 width: 350,
@@ -164,8 +156,6 @@ export default {
                 this.axios.post(`/api/occupation/update/${this.$route.params.id}`, this.occupation)
                 .then(response => {
                     this.$loading(false);
-                    // this.name = ''
-                    //   alert('Successfully Updated!')
                     this.$swal({
                         position: 'top-end',
                         type: 'success',
@@ -177,7 +167,6 @@ export default {
                         allowOutsideClick: false,
                     })
                     var num = localStorage.getItem('page_no');//comment get from occupationlist.vue/searchOccupation()
-                    // this.$router.push({ name: 'occupationlist', params: { status: 'update','page_no':num } })
                     this.$router.push({name: 'occupationlist'});
                 }).catch(error=>{
                     if(error.response.status == 422){

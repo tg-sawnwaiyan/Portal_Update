@@ -198,7 +198,6 @@
 .contract-fee-header {
     position: relative;
     margin: 30px 0;
-    /*font-weight: bold;*/
     line-height: 2;
     text-align: center;
     font-size: 22px;
