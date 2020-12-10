@@ -103,7 +103,7 @@
                         </div>
                     </div>    
                 </div>
-                 <div class="d-none" class="wt-4" v-if="this.$route.path !== '/' && this.$route.path != '/nursingFavouriteMail'"> 
+                 <div class="wt-4 d-none" v-if="this.$route.path !== '/' && this.$route.path != '/nursingFavouriteMail'"> 
                  <span @click="$router.go(-1);">
                     <div class="m-l-10">
                         <i class="fas fa-arrow-left"></i> 
@@ -117,37 +117,37 @@
                 </li>
                 <transition name="slide">  
                     <div class="sp_nav"  v-if="isNav">    
-                    <ul class="menu_list child">
-                        <li>
-                        <router-link :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
-                        </li>
-                        <li>
-                        <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
-                        </li>
-                        <li>
-                        <router-link :to="{ name: 'hospital_search' }"> <i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
-                        </li>
-                        <li>
-                        <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'sitepolicy'}"><i class="fas fa-info-circle"></i> 利用規約</router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'privacyPolicy'}"><i class="fa fa-lock"></i> プライバシーポリシー</router-link>
-                        </li>
-                        <li v-if="!$auth.check()">
-                        <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i> 事業者 ログイン</router-link>
-                        </li>
-                        <li v-if="!$auth.check()" class="menu-list_last">
-                        <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i> 事業者 登録</router-link>
-                        </li>
-                        <li>
-                        <ul class="contact_list">
-                            <li><a href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i>info@t-i-s.jp</a></li>     
+                        <ul class="menu_list child">
+                            <li>
+                            <router-link :to="{ name: 'News' }"><i class="fas fa-newspaper"></i>  ニュース（ホーム）</router-link>
+                            </li>
+                            <li>
+                            <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
+                            </li>
+                            <li>
+                            <router-link :to="{ name: 'hospital_search' }"> <i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
+                            </li>
+                            <li>
+                            <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'sitepolicy'}"><i class="fas fa-info-circle"></i> 利用規約</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'privacyPolicy'}"><i class="fa fa-lock"></i> プライバシーポリシー</router-link>
+                            </li>
+                            <li v-if="!$auth.check()">
+                            <router-link :to="{name: 'login'}" class="nav-link pad-free"><i class="fa fa-sign-in-alt"></i> 事業者 ログイン</router-link>
+                            </li>
+                            <li v-if="!$auth.check()" class="menu-list_last">
+                            <router-link :to="{name: 'register'}" class="nav-link pad-free"><i class="fa fa-user-plus"></i> 事業者 登録</router-link>
+                            </li>
+                            <li>
+                            <ul class="contact_list">
+                                <li><a href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i>info@t-i-s.jp</a></li>     
+                            </ul>
+                            </li>          
                         </ul>
-                        </li>          
-                    </ul>
                     </div>
                 </transition>
                 </ul>
