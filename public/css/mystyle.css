@@ -7236,7 +7236,7 @@ color: #fff !important;
         display: block;
     }
     .upper-tab {
-        border: none;
+        border: none !important;
     }
     .slick-prev {
         left: -15px;

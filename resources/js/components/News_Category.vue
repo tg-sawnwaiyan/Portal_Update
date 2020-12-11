@@ -927,7 +927,8 @@ export default {
                      this.block = true;
                      this.norecord_msg = false;
                 }
-                this.cat_name = response.data.cat.name;
+                this.cat_name = response.data.cat_name;
+
                 eventBus.$emit('gotColor', response.data.cat.color_code);             
           });
         }
