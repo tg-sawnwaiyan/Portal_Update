@@ -26,21 +26,16 @@ class PostController extends Controller
 
     public function index()
     {
-       
-    //    $news_list = Post::orderBy('id','DESC')->get()->toArray();
-    //    $category_list = Category::select('id','name')->get()->toArray();
-            $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
-            $category_list = Category::select('id','name')->get()->toArray();
 
-        
-            foreach ($news_list as $com) {
-                $splitTimeStamp = explode(" ",$com->from_date);
-                $com->from_date = $splitTimeStamp[0];
-                $splitTimeStamp1 = explode(" ",$com->to_date);
-                $com->to_date = $splitTimeStamp1[0];
-            }
-    
-            return response()->json(Array("news"=>$news_list,"category"=>$category_list));
+        $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
+        $category_list = Category::select('id','name')->get()->toArray();
+       	foreach ($news_list as $com) {
+            $splitTimeStamp = explode(" ",$com->from_date);
+            $com->from_date = $splitTimeStamp[0];
+            $splitTimeStamp1 = explode(" ",$com->to_date);
+            $com->to_date = $splitTimeStamp1[0];
+        }
+        return response()->json(Array("news"=>$news_list,"category"=>$category_list));
 
     }
     // add news
@@ -76,41 +71,6 @@ class PostController extends Controller
             $post->save();
 
         return response()->json('The New successfully added');
-
-
-        // $post = new Post([
-        //             'title' => $request->input('title'),
-        //             'main_point' => $request->input('main_point'),
-        //             'body' => $request->input('body'),
-        //             'photo' =>$imageName,
-        //             'category_id' =>$request->input('category_id'),
-        //             'related_news' =>$request->input('related_news'),
-        //             'user_id' => 1,
-        //             'recordstatus' => 1
-        //         ]);
-
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -121,10 +81,6 @@ class PostController extends Controller
      */
     public function show($id)
     {
-      
-        // return Post::findOrFail($id);
-     
-
         $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
                                   ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
                                   ->where('posts.id',$id)->get();
@@ -139,7 +95,7 @@ class PostController extends Controller
 
         $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
-        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = $More = [];
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
 
         //divide array new list by block
         foreach ($newslist as $value) {
@@ -154,9 +110,7 @@ class PostController extends Controller
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
                 $newarray3 = array_chunk($value, 13);
-            }/*elseif($key == 4){
-                $newarray4 = array_chunk($value, 1);
-            }*/
+            }
         }
         $one = $two = $three = 0; 
         $moreNews  = $moreNews_concat = [];
@@ -164,7 +118,6 @@ class PostController extends Controller
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-        //$lenght[] = count($newarray4); 
                 
         for ($i=0; $i <= max($lenght); $i++) { 
             /***for block id one***/      
@@ -215,11 +168,77 @@ class PostController extends Controller
         return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
-     public function getNewsByCategoryForMobile($id)
+    public function getNewsByCategoryForMobile($id)
     {
         $cat = Category::where('id',$id)->select('name','color_code')->first();
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('block_id', 'ASC')->orderBy('created_at', 'DESC')->get()->toArray();
-        return response()->json(array('cat'=> $cat,'newslist'=>$newslist));
+
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
+
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
+
+        //divide array new list by block
+        foreach ($newslist as $value) {
+            $tmp[$value['block_id']][] = $value;
+        }
+
+        //separted divied block array
+        foreach ($tmp as $key => $value) {
+            if($key == 1){
+                $newarray1 = $value;
+            }elseif($key == 2){
+                $newarray2 = array_chunk($value, 2);
+            }elseif($key == 3){
+                $newarray3 = array_chunk($value, 5);
+            } 
+        }
+ 
+        $two = $three = 0; 
+        $moreNews  = $moreNews_concat = [];
+
+        $lenght[] = count($newarray2);
+        $lenght[] = count($newarray3);
+                 
+        for ($i=0; $i <= max($lenght); $i++) { 
+            /***for block id two***/       
+            if(isset($newarray2[$i]) && $two < 1){
+                array_push($aryPush, $newarray2[$i]);                
+                $two++;
+            }else if(isset($newarray2[$i]) && $two >= 1){
+                array_push($More, $newarray2[$i]);
+            }
+            else if(!isset($newarray2[$i])){
+                array_push($aryPush, $aryEmpty);
+            }
+            /***for block id three***/      
+            if(isset($newarray3[$i]) && $three < 1){
+                array_push($aryPush, $newarray3[$i]);                
+                $three++;
+            }else if(isset($newarray3[$i]) && $three >= 1){
+                array_push($More, $newarray3[$i]);
+            }
+            else if(!isset($newarray3[$i])){
+                array_push($aryPush, $aryEmpty);
+            }
+        } 
+
+        foreach ($More as $key => $value) { 
+            if (is_array($value)) { 
+              $moreNews = array_merge($moreNews, $value); 
+            } 
+        } 
+
+        if(array_filter($aryPush)){            
+            $aryResults = array_chunk($aryPush, 2);
+        }else{
+            $aryResults = [];
+        }
+        $result = array('cat'=> $cat,
+                        'cat_id' => $id,
+                        'newslist'=>$aryResults,
+                        'moreNews'=>$moreNews,
+                        'bigNews'=>$newarray1
+                    );
+        return response()->json($result);
     }
 
     public function show_related($id) {
@@ -250,8 +269,6 @@ class PostController extends Controller
     public function edit($id)
     {
         $posts = Post::find($id);
-      
-     
         return response()->json($posts);
     }
 
@@ -299,17 +316,6 @@ class PostController extends Controller
             }
         }
 
-        
-        // $formData = array(
-        //     'title' => $request->input('title'),
-        //     'main_point' => $request->input('main_point'),
-        //     'body' => $request->input('body'),
-        //     'photo' => $imageName,
-        //     'category_id' =>$request->input('category_id'),
-        //     'related_news' =>$request->input('related_news'),
-        //     'user_id' => 1,
-        //     'recordstatus' => 1
-        // );
             $post->title = $request->input('title');
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
@@ -360,11 +366,9 @@ class PostController extends Controller
         
         if($cat_id == 0)
         {
-        //    $posts = Post::orderBy('id', 'desc')->paginate(20);
-        $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
+        	$posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         }
         else{
-            // $posts = Post::where('category_id',$cat_id)->orderBy('id','desc')->paginate(20);
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
         }
 
@@ -427,13 +431,9 @@ class PostController extends Controller
 
     public function getPostById(Request $request) {
 
-        // $request = $request->all();
-        // $posts = Post::where('id','<>',$postid)->where("category_id",$request['cat_id'])->orderBy('created_at','DESC')->paginate(20);
-        // return response()->json($posts);
         $request = $request->all();
         $posts = Post::where('id','<>',$request['post_id'])->where("category_id",$request['cat_id']);
 
-        
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
 
