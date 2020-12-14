@@ -169,7 +169,7 @@ export default {
             width: 86.5% !important;
         }
         .upper-tab {
-            margin-top: 9.5%;
+            margin-top: 63.45px;
         }
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
@@ -195,7 +195,7 @@ export default {
             right: 22px;
         }
         .upper-tab {
-            margin-top: 7%;
+            margin-top: 65.48px;
         }
     }
 </style>

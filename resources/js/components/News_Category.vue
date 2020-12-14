@@ -1330,6 +1330,7 @@ export default {
     .single-news-box .wrapper-3 img{
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     #more .pad-new{
         width: 100%;
@@ -1347,5 +1348,6 @@ export default {
 }
 .profile-tit {
     color: var(--title-color);
+    border-bottom: 1px dashed var(--title-color);
 }
 </style>
