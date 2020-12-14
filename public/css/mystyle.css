@@ -14640,7 +14640,7 @@ strong {
 
 /*menu_category*/
 .menu_category{
-    margin: 5px 25px 0;
+    margin: 5px 25px 0 21.5px;
     white-space: nowrap;
     overflow: hidden;
     width: 91.5% !important;
