@@ -18,6 +18,12 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
+    public function getCategory()
+    {
+        $categories = Category::orderBy('order_number','desc')->paginate(20); 
+        return response()->json($categories);
+    }
+
     public function list()
     {
         $category_list = Category::select('id','name')->get()->toArray();

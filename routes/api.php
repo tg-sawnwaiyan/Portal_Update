@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('categorylist', 'CategoryController@index');
+        Route::get('categorylist', 'CategoryController@getCategory');
         Route::post('add', 'CategoryController@addCategory');
         Route::get('edit/{id}', 'CategoryController@editCategory');
         Route::post('update/{id}', 'CategoryController@updateCategory');
