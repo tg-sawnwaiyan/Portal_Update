@@ -885,7 +885,6 @@ export default {
             is_cat_overflow: false,
             is_cat_slided: false,
             computed_width: '100%',
-            w_width: $(window).width(),
             norecord_msg: false,
             cat_box_width: null,
             seen: false,
@@ -921,7 +920,7 @@ export default {
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
 
-                if(response.data.newslist.length == 0)
+                if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
                 {
                      this.norecord_msg = true;
                 }
