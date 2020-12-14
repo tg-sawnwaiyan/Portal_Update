@@ -2,7 +2,7 @@
     <div class="menu_tab_category" id="tab1">
             <!-- Category Menu -->
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
-                <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+                <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_overflow" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
                         <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
@@ -133,17 +133,24 @@ export default {
     }
     #left-button{
         position: absolute;
-        top: 13px;
-        left: 5px;
-        padding: 0;
+        top: 23px;
+        left: auto;
         width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
+        right: 47px;
     }
     #right-button{
         position: absolute;
-        top: 13px;
-        right: 5px;
-        padding: 0;
+        top: 23px;
+        right: 22px;
         width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
     }
     .left-arr-btn .fas,
     .right-arr-btn .fas{
@@ -159,7 +166,7 @@ export default {
     }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
-            width: 94% !important;
+            width: 86.5% !important;
         }
         .upper-tab {
             margin-top: 9.5%;
@@ -182,13 +189,10 @@ export default {
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
-             width: 95% !important;
-        }
-        #left-button{
-            left: 36px;
+             width: 90% !important;
         }
         #right-button{
-            right: 36px;
+            right: 22px;
         }
         .upper-tab {
             margin-top: 7%;

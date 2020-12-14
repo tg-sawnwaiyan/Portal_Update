@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 cat_title">
-        <h4 class="profile-tit">{{cat_name}}
+         <h4 class="profile-tit" :style="useStyle">{{cat_name}} 
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -704,7 +704,7 @@
     </div>    
     <!-- end layout design -->
    
-   <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
+    <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
                 <div v-for="(value,index) in big_news" :key="index">
@@ -817,8 +817,6 @@
             <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
-
-       
     </div>
     <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
         <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
@@ -877,6 +875,7 @@ export default {
             cats: [],
             searchnews:[],
             cat_name:'',
+            color_code: '#287db4',
             cat_id:'',
             search_word:null,
             norecord_msg:false,
@@ -910,7 +909,10 @@ export default {
                 }
                 this.cat_id = response.data.cat_id;
                 this.cat_name = response.data.cat.name;
-                eventBus.$emit('gotColor', response.data.cat.color_code);
+                if(response.data.cat.color_code){
+                this.color_code = response.data.cat.color_code;
+                }
+                eventBus.$emit('gotColor', this.color_code);
               
           });
         }else{
@@ -926,10 +928,12 @@ export default {
                 else{
                      this.block = true;
                      this.norecord_msg = false;
+                } 
+                this.cat_name = response.data.cat.name;
+                if(response.data.cat.color_code){
+                this.color_code = response.data.cat.color_code;
                 }
-                this.cat_name = response.data.cat_name;
-
-                eventBus.$emit('gotColor', response.data.cat.color_code);             
+                eventBus.$emit('gotColor', this.color_code);  
           });
         }
     },
@@ -939,7 +943,12 @@ export default {
     beforeDestroy:function(){
         $(".gNav .router-link-active").removeClass("router-link-exact-active");
     },
-    computed:{  
+    computed:{ 
+    	useStyle () {
+            return {
+            '--title-color': this.color_code
+            }
+        },
         slickOptions() {
                 return {
                 slidesToShow: 4,
@@ -1306,7 +1315,8 @@ export default {
     width: 9px;
 }
 @media only screen and (max-width:767px)  {
-    .cat_title{
+ 
+	.cat_title{ 
         padding: 0 5px;
     }
     .cat-nav {
@@ -1336,5 +1346,8 @@ export default {
 }
 .bordertop-color i {
     color: var(--color);
+}
+.profile-tit {
+    color: var(--title-color);
 }
 </style>

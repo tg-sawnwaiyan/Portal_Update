@@ -6458,7 +6458,8 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-   border: 1px solid #2980b9;
+    margin-top: 5.5%;/*
+    border: 1px solid #2980b9;*/
     background: #fff;
 }
 
@@ -11038,7 +11039,6 @@ padding: 11px;
         height: 135px;
     }
     /* Register */
-     
     /* hospital and nursing profile */
     .hos_lbl {
         width: 60%;
@@ -11054,9 +11054,9 @@ padding: 11px;
     }
     .divisions {
         position: relative;
-        z-index: 1; 
+        z-index: 1;
         width: 100%;
-        max-width: 670px; 
+        max-width: 670px;
     }
     .map-leftwrapper {
         padding-left: 15px;
@@ -11064,7 +11064,7 @@ padding: 11px;
     /*job search*/
     ul.hokkaido-wrap {
         left: 0px;
-    } 
+    }
     /*end job search*/
     /* job apply list */
     #job_apply .scroll_responsive {
@@ -11087,7 +11087,7 @@ padding: 11px;
     } 
     .slick-disabled {
         opacity: 0;
-    } 
+    }
 }
 
 @media only screen and (max-width: 1240px) {
@@ -11295,10 +11295,10 @@ padding: 0;
         margin-right: 10px;
     }
     .hokkaido-box {
-        position: absolute; 
+        position: absolute;
         right: 10%;
         z-index: 2;
-    } 
+    }
     .multiple-box {
         width: 156px !important;
     }
@@ -11309,7 +11309,7 @@ padding: 0;
     .kanto-box .spanclass,
     .okinawa-box .spanclass {
         margin-right: 1px;
-    } 
+    }
     /*end job search*/
     /* profile publish */
     .gallery-list .gallery-item {
@@ -11503,7 +11503,7 @@ padding: 0;
     }
     #myTabContent {
         margin-bottom: 10px;
-    } 
+    }
     /* common */
     ul li {
         list-style: none;
@@ -11741,7 +11741,7 @@ padding: 0;
         background: #ddd;
         border-radius: 50%;
         vertical-align: middle;
-    } 
+    }
     .d-none-768 {
         display: none;
     }
@@ -11924,12 +11924,12 @@ padding: 0;
     }
     .lightbox-arrow-right {
         right: -20px !important;
-    } 
+    }
     .fixed-nav {
         width: 100%;
     }
     .top-fixed-btn,
-    .top-fixed-btn.active { 
+    .top-fixed-btn.active {
         margin-bottom: 10px !important;
         border-radius: 0px;
     }
@@ -11947,7 +11947,7 @@ padding: 0;
         color: #fff;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
         font-weight: bold;
-        width: 100%; 
+        width: 100%;
     }
     .displayFlex {
         display: block;
@@ -11963,11 +11963,11 @@ padding: 0;
     }
     /*End  profile publish */
     /* job details */
-    .job_id { 
+    .job_id {
         margin-bottom: 0px;
         text-align: center;
     }
-    .search_jobid { 
+    .search_jobid {
         padding: 2px 10px;
         margin-top: 5px;
         font-weight: bold;
@@ -11975,9 +11975,9 @@ padding: 0;
         border-radius: 12px;
         font-size: 12px;
     }
-    .search_jobid1 { 
+    .search_jobid1 {
         width: 71%;
-        position: relative; 
+        position: relative;
         margin-right: 78px;
     }
     .search_jobid3 {
@@ -12225,7 +12225,7 @@ width: 18rem;
     }
     .nursing_responsive {
         max-width: 33%;
-    } 
+    }
     .p-l-162 {
         padding-left: 200px;
     }
@@ -12239,7 +12239,7 @@ width: 18rem;
     .pagination {
         justify-content: center;
         text-align: center;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .pagination .page-item {
         padding: 1px;
@@ -12427,7 +12427,7 @@ width: 18rem;
         width: 90%;
     }
     .hospital-subject {
-        display: table-cell; 
+        display: table-cell;
     }
     .hos-content .detail-btn .btn {
         width: 100%;
@@ -12507,7 +12507,7 @@ width: 18rem;
     }
     .pad-0-res {
         padding: 0px;
-    } 
+    }
     .profile-tit {
         padding: 0px;
         margin: 0px;
@@ -12590,7 +12590,6 @@ width: 18rem;
         width: 120px;
     }
 }
- 
 
 @media only screen and (max-width: 620px) {
     .choose-item .job-no {
@@ -12599,7 +12598,7 @@ width: 18rem;
     .pagination {
         justify-content: center;
         text-align: center;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .pagination .page-item {
         padding: 1px;
@@ -12698,7 +12697,6 @@ width: 18rem;
         width: 100%;
     }
     .related_post_box .create_news img {
-        
         max-width: 40%;
     }
     #news_list .select_box {
@@ -12728,7 +12726,6 @@ width: 18rem;
 /*fav_slider*/
 
 @media only screen and (max-width:480px) {
-     
     .admin-backbtn {
         min-width: 62px;
         position: absolute;
@@ -12768,10 +12765,10 @@ width: 18rem;
     .wrapper-4 {
         border: 1px solid #fff;
         background-color: #fff;
-    }  
+    }
     .wrapper-3 img.fit-image {
         height: 100%;
-    } 
+    }
     .single-news-box p {
         overflow: hidden;
         height: -webkit-fill-available;
@@ -13306,7 +13303,7 @@ transition: background-color .3s;
     .login_wp {
         height: 105vh;
         padding: 10px !important;
-        position: fixed; 
+        position: fixed;
         width: 100%;
         background-color: #fbfbfb;
     }
@@ -13325,17 +13322,16 @@ transition: background-color .3s;
     }
     #psd_reset .reset_txt {
         font-size: 13px;
-    } 
+    }
     .links_2 {
         top: 78px;
-    } 
+    }
     .p-l-162 {
         padding-left: 0px;
     }
     .links {
-        position: relative; 
+        position: relative;
     }
-    
     .sp-414 {
         display: block !important;
     }
@@ -13579,7 +13575,7 @@ transition: background-color .3s;
         width: 98px !important;
         font-size: 12px !important;
     }
-    .fav-profile { 
+    .fav-profile {
         right: 0px;
         font-size: 12px;
         top: 0px !important;
@@ -13802,7 +13798,7 @@ transition: background-color .3s;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1280px) {
-    #fav-history-page .card-carousel { 
+    #fav-history-page .card-carousel {
         width: 783px!important;
     }
     #fav-hospital-page #fav-history-page .card-carousel {
@@ -13814,7 +13810,7 @@ transition: background-color .3s;
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1280px) and (max-width: 1440px) {
-    #fav-history-page .card-carousel { 
+    #fav-history-page .card-carousel {
         width: 1503px!important;
     }
     #fav-hospital-page #fav-history-page .card-carousel {
@@ -13940,7 +13936,7 @@ strong {
     /*comment*/
     .set-date {
         text-indent: 0em;
-    } 
+    }
     .registerform_container {
         margin-top: 0px;
     }
@@ -14038,7 +14034,6 @@ strong {
 /*nursing_search_dropdown*/
 
 @media (max-width: 767px) and (min-width: 420px) {
-     
     .pc-rsp-table {
         /* display: none !important; */
     }
@@ -14046,7 +14041,7 @@ strong {
         display: block;
         width: 100% !important;
         padding: 5px 10px !important;
-    } 
+    }
     .search_wd {
         width: auto;
     }
@@ -14254,16 +14249,16 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 14px; 
+        font-size: 14px;
         margin-bottom: 11px;
         text-align: center;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .search_jobid1 { 
+    .search_jobid1 {
         width: 71%;
-        position: relative; 
+        position: relative;
         margin-right: 96px;
     }
     /*nursing-search*/
@@ -14273,19 +14268,19 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 12px; 
+        font-size: 12px;
         display: inline-block;
         margin-bottom: 11px;
         text-align: center;
     }
-    .job_id3 { 
+    .job_id3 {
         padding: 2px 10px;
         margin-top: 5px;
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 12px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
         text-align: center; 
     }
 }
@@ -14294,7 +14289,7 @@ strong {
     .choose-item {
         /* margin-top: 10px; */
     }
-    .search_jobid1 { 
+    .search_jobid1 {
         position: relative;
         margin-left: 192px;
     }
@@ -14304,7 +14299,7 @@ strong {
         font-weight: bold;
         border: 1px solid #ddd;
         border-radius: 12px;
-        font-size: 16px; 
+        font-size: 16px;
         margin-bottom: 11px;
         text-align: center;
     }
@@ -14316,7 +14311,7 @@ strong {
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 12px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
         text-align: center;
     }
     .job_id6 {
@@ -14646,17 +14641,17 @@ strong {
 
 /*menu_category*/
 .menu_category{
-    margin: 5px 0 25px 0;
+    margin: 5px 25px 0;
     white-space: nowrap;
     overflow: hidden;
-    width: 92% !important;
-    margin: 0 auto;
+    width: 91.5% !important;
 }
 #ul_menu_category{
     /*align-items: center;
     justify-content: center;*/
     flex-wrap: nowrap;
     border-bottom: none;
+    width: 95.5%;
 }
 #ul_menu_category li{
     text-align: center;
@@ -14710,7 +14705,7 @@ strong {
     color: #2980b9 !important;
 }
 .category_margin{
-    margin: 68px 0 0 0;
+    margin: 5px 0 0 0;
 }
 .tab_pane_02{
     margin-top: 10px;

@@ -26,17 +26,9 @@ class PostController extends Controller
 
     public function index()
     {
-       
+
         $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
-
-    
-        foreach ($news_list as $com) {
-            $splitTimeStamp = explode(" ",$com->from_date);
-            $com->from_date = $splitTimeStamp[0];
-            $splitTimeStamp1 = explode(" ",$com->to_date);
-            $com->to_date = $splitTimeStamp1[0];
-        }
 
         return response()->json(Array("news"=>$news_list,"category"=>$category_list));
 
@@ -84,7 +76,6 @@ class PostController extends Controller
      */
     public function show($id)
     {
-       
         $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
                                   ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
                                   ->where('posts.id',$id)->get();
@@ -114,6 +105,7 @@ class PostController extends Controller
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
                 $newarray3 = array_chunk($value, 13);
+ 
             } 
         }
         $one = $two = $three = 0; 
@@ -172,9 +164,9 @@ class PostController extends Controller
         return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
-     public function getNewsByCategoryForMobile($id)
+    public function getNewsByCategoryForMobile($id)
     {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
+        $cat = Category::where('id',$id)->select('name','color_code')->first();
 
         $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
@@ -236,7 +228,7 @@ class PostController extends Controller
         }else{
             $aryResults = [];
         }
-        $result = array('cat_name'=> $cat_name,
+        $result = array('cat'=> $cat,
                         'cat_id' => $id,
                         'newslist'=>$aryResults,
                         'moreNews'=>$moreNews,
@@ -272,7 +264,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts = Post::find($id);
+        $posts = Post::find($id); 
 
         return response()->json($posts);
     }
@@ -371,18 +363,13 @@ class PostController extends Controller
         
         if($cat_id == 0)
         {
+ 
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         }
         else{
 
+ 
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
-        }
-
-        foreach ($posts as $com) {
-            $splitTimeStamp = explode(" ",$com->from_date);
-            $com->from_date = $splitTimeStamp[0];
-            $splitTimeStamp1 = explode(" ",$com->to_date);
-            $com->to_date = $splitTimeStamp1[0];
         }
 
         return response()->json($posts);
