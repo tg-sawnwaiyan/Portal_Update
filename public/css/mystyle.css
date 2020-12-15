@@ -14647,14 +14647,14 @@ strong {
     margin: 5px 25px 0 21.5px;
     white-space: nowrap;
     overflow: hidden;
-   /* width: 92% !important;*/
+    width: 97.5% !important;
 }
 #ul_menu_category{
     /*align-items: center;
     justify-content: center;*/
     flex-wrap: nowrap;
     border-bottom: none;
-    /*width: 95.5%;*/
+    width: 95.5%;
 }
 #ul_menu_category li{
     text-align: center;
@@ -14724,4 +14724,10 @@ strong {
     .maintab-content {
         margin: 80px 0 0 0;
     }
+}
+/*@media only screen and (min-width: 1350px) {
+    .menu_category{
+    width: 100% !important;
+}*/
+
 }

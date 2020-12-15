@@ -23,28 +23,27 @@ export default {
             cats: [],
             is_cat_overflow: false,
             is_cat_slided: false,
-            computed_width: '91.5%',
+            computed_width: '100%',
             cat_box_width: null,
             w_width: window.innerWidth,
             gap_width: null,
         }
     },
     created() {
+
         this.getAllCat();
         this.$nextTick(() => {
-                if(this.$refs.menu){
-                this.cat_box_width = this.$refs.menu.clientWidth;
+                if(this.$refs.content){
+                this.cat_box_width = this.$refs.content.clientWidth;
             }            
         }) 
     },
     updated: function () {
         this.$nextTick(function () {
-
             // Code that will run only after the
             // entire view has been re-rendered
             var ulWidth = 0;
             $("#ul_menu_category > li").each(function() {
-                console.log($(this).width());
             ulWidth = ulWidth + $(this).width();
             });
             this.menu_width = ulWidth;
@@ -52,7 +51,7 @@ export default {
             console.log(this.cat_box_width);
             if(this.menu_width > this.cat_box_width){
             this.is_cat_overflow = true;
-            //this.computed_width = '91.5% !important';
+            this.computed_width = '91.5% !important';
             }
         })
     },
