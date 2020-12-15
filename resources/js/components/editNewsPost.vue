@@ -222,6 +222,7 @@ import {quillEditor} from 'vue-quill-editor'
 
         data() {
                 return {
+                    norecord: 0,
                     lang:{
                         days: ['日', '月', '火', '水', '木', '金', '土'],
                         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -592,7 +593,7 @@ import {quillEditor} from 'vue-quill-editor'
                     this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
                         this.related_news = response.data.query;
                         //console.log("re",this.related_news)
-                        this.norecord = this.related_news.length;
+                        this.norecord = this.related_news.data.length;
 
                         if(this.norecord != 0) {
                             this.nosearch_msg = false;
