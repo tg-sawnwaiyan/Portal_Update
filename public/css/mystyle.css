@@ -2519,7 +2519,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     /* color: #ff9563;
     border-bottom: 1px dashed #ff9563; */
     color: #2981cc;
-    border-bottom: 1px dashed #2981cc;
     min-height: 40px;
 }
 
@@ -6458,7 +6457,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    margin-top: 5.5%;/*
+    margin-top: 63.48px;/*
     border: 1px solid #2980b9;*/
     background: #fff;
 }
@@ -14641,7 +14640,7 @@ strong {
 
 /*menu_category*/
 .menu_category{
-    margin: 5px 25px 0;
+    margin: 5px 25px 0 21.5px;
     white-space: nowrap;
     overflow: hidden;
     width: 91.5% !important;

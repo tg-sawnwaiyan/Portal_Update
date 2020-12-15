@@ -74,7 +74,7 @@ export default {
 </script>
 <style>
     .upper-tab {
-        border: 1px solid var(--line-color);
+        border: 2px solid var(--line-color);
     }
     .hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;

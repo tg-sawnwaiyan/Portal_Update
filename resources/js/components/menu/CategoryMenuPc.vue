@@ -167,9 +167,10 @@ export default {
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
             width: 86.5% !important;
+            margin: 5px 25px 0 21.5px;
         }
         .upper-tab {
-            margin-top: 9.5%;
+            margin-top: 63.45px;
         }
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
@@ -190,12 +191,18 @@ export default {
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
              width: 90% !important;
+             margin: 5px 25px 0 21.5px;
         }
         #right-button{
             right: 22px;
         }
         .upper-tab {
-            margin-top: 7%;
+            margin-top: 65.48px;
+        }
+    }
+    @media only screen and (min-width: 1201px) and (max-width: 1280px) {
+        .menu_category{
+            margin: 5px 25px 0 21.7px;
         }
     }
 </style>

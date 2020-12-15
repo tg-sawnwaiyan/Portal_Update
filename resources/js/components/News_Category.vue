@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 cat_title">
-        <h4 class="profile-tit" :style="useStyle">{{cat_name}}
+         <h4 class="profile-tit" :style="useStyle">{{cat_name}} 
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -885,7 +885,6 @@ export default {
             is_cat_overflow: false,
             is_cat_slided: false,
             computed_width: '100%',
-            w_width: $(window).width(),
             norecord_msg: false,
             cat_box_width: null,
             seen: false,
@@ -920,19 +919,20 @@ export default {
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
-                if(response.data.newslist.length == 0)
+
+                if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
                 {
                      this.norecord_msg = true;
                 }
                 else{
                      this.block = true;
                      this.norecord_msg = false;
-                }
+                } 
                 this.cat_name = response.data.cat.name;
                 if(response.data.cat.color_code){
                 this.color_code = response.data.cat.color_code;
                 }
-                eventBus.$emit('gotColor', this.color_code);             
+                eventBus.$emit('gotColor', this.color_code);  
           });
         }
     },
@@ -1314,7 +1314,8 @@ export default {
     width: 9px;
 }
 @media only screen and (max-width:767px)  {
-	.cat_title{
+ 
+	.cat_title{ 
         padding: 0 5px;
     }
     .cat-nav {
@@ -1330,6 +1331,7 @@ export default {
     .single-news-box .wrapper-3 img{
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     #more .pad-new{
         width: 100%;
@@ -1347,5 +1349,6 @@ export default {
 }
 .profile-tit {
     color: var(--title-color);
+    border-bottom: 1px dashed var(--title-color);
 }
 </style>

@@ -29,12 +29,7 @@ class PostController extends Controller
 
         $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
-       	foreach ($news_list as $com) {
-            $splitTimeStamp = explode(" ",$com->from_date);
-            $com->from_date = $splitTimeStamp[0];
-            $splitTimeStamp1 = explode(" ",$com->to_date);
-            $com->to_date = $splitTimeStamp1[0];
-        }
+
         return response()->json(Array("news"=>$news_list,"category"=>$category_list));
 
     }
@@ -110,7 +105,8 @@ class PostController extends Controller
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
                 $newarray3 = array_chunk($value, 13);
-            }
+ 
+            } 
         }
         $one = $two = $three = 0; 
         $moreNews  = $moreNews_concat = [];
@@ -268,7 +264,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts = Post::find($id);
+        $posts = Post::find($id); 
+
         return response()->json($posts);
     }
 
@@ -366,17 +363,13 @@ class PostController extends Controller
         
         if($cat_id == 0)
         {
-        	$posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
+ 
+            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         }
         else{
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
-        }
 
-        foreach ($posts as $com) {
-            $splitTimeStamp = explode(" ",$com->from_date);
-            $com->from_date = $splitTimeStamp[0];
-            $splitTimeStamp1 = explode(" ",$com->to_date);
-            $com->to_date = $splitTimeStamp1[0];
+ 
+            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
         }
 
         return response()->json($posts);
