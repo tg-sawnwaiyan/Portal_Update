@@ -701,34 +701,7 @@
                 this.cat_box_width = this.$refs.infoBox.clientWidth;
             }            
         })
-        var today = new Date();
-        var month =(String) (today.getMonth()+1);
-        var date = (String) (today.getDate());
 
-        if(month.length == 1)
-        {
-            month = '0' + today.getMonth();
-        }
-
-        if(date.length == 1 )
-        {
-            date = '0' + today.getDate();
-        }
-        var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
-
-        if(localStorage.getItem('date') == null)
-        {
-            localStorage.setItem('date',todaydate);
-            this.getCategoryRandomValue();
-        }
-        else{
-            var localdate = localStorage.getItem('date');
-            if(todaydate > localdate)
-            {
-                localStorage.setItem('date',todaydate);
-                this.getCategoryRandomValue();
-            }
-        };    
     },
     computed:{  
 
@@ -827,7 +800,6 @@
 
             },
             log() {
-                // console.log()
             },
             getAllCat: function() {
                 this.axios .get('/api/home') 
@@ -841,15 +813,7 @@
                         if(this.cat_box_width/total_word < 23){
                             this.is_cat_overflow = true;
                         }
-
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
-
+ 
                         this.getPostByCatID();
 
                         this.getLatestPostByCatID();
@@ -857,7 +821,6 @@
                     });
 
             },
-
             groupBy(array, key) {
 
                 const result = {}
@@ -877,7 +840,6 @@
                 return result
 
             },
-
             getLatestPostsByCatID: function() {
                 this.post_groups = [];
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
@@ -924,8 +886,6 @@
                     });
                 }
             },
-
-
             getPostByCatID: function(catId = this.cats[0].id) {
                 if ($('#search-free-word').val() != null) {
                     var search_word = $('#search-free-word').val();
@@ -948,15 +908,6 @@
                         this.posts = response.data;
                     });
             },
-
-            getCategoryRandomValue(){
-
-            this.axios.get("/api/get_cat_random") .then(response => {
-
-                });
-
-            },
-
             getLatestPostByCatID: function(catId) {
 
                 if ($('#search-free-word').val()) {
