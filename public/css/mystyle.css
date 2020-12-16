@@ -2867,6 +2867,10 @@ border-top: 5px solid #e66527; */
     width: 80%;
 }
 
+.menu_tab_category {
+    width: 78.8% !important;
+}
+
 #app .logo-text {
     padding: 0;
     margin-right: 0px;
@@ -10938,6 +10942,9 @@ padding: 11px;
         width: 97%;
         padding: 0;
     }
+    .menu_tab_category {
+        width: 99% !important;
+    }
     .fixed-ads-fluid {
         width: 100%;
     }
@@ -13840,6 +13847,9 @@ transition: background-color .3s;
         max-width: 100%;
         width: 97%;
         padding: 0;
+    }
+    .menu_tab_category {
+        width: 98.7% !important;
     }
     .fixed-ads-fluid {
         width: 100%;
