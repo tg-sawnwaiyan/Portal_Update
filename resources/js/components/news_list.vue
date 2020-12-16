@@ -292,7 +292,6 @@
                 }).then(response => {
                     this.axios.get(`/api/changeRecordstatus/${id}`)
                         .then(response => {
-                            this.getResults();
                     });
                 
                 }).catch(error =>{

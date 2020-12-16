@@ -18,7 +18,8 @@
           </nav>
           <!-- <span v-else>Back</span> -->
           <div v-else class="d-flex justify-content-end mb-4">
-              <router-link to="/news_list" class="mr-2 btn btn-danger all-btn submit"><i class="fas fa-arrow-left"></i>&nbsp;戻る</router-link>
+              <!-- <router-link to="/news_list" class="mr-2 btn btn-danger all-btn submit"><i class="fas fa-arrow-left"></i>&nbsp;戻る</router-link> -->
+              <span @click="returnPreviousPage()" class="mr-2 btn btn-danger all-btn submit"><i class="fas fa-arrow-left"></i>&nbsp;戻る</span>
               <router-link v-if="getData"  :to="{ path:'/editPost/'+ newdetails[0].id}" class="btn edit-borderbtn">編集</router-link>&nbsp;
           </div>
           
@@ -162,6 +163,10 @@ export default {
     },
 
   methods: {   
+    returnPreviousPage:function () {
+      var num = localStorage.getItem('page_no');
+      this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } });
+  },
     scrollToTop() {
       window.scrollTo(0,0);
     },
