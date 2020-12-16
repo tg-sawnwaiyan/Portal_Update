@@ -32,7 +32,7 @@ class CategoryController extends Controller
     }
 
     //add category
-    public function addCategory(Request $request)
+   public function addCategory(Request $request)
     {
         $category = new Category();
         $category->name = $request->input('name');
@@ -45,7 +45,6 @@ class CategoryController extends Controller
         $category->save();
         return $category;
     }
-
     public function editCategory($id)
     {
         $category = Category::find($id);
@@ -83,14 +82,8 @@ class CategoryController extends Controller
 
     }
 
-    //return create vue template
-    public function create()
+    public function search(Request $request) 
     {
-        return view('categories.create');
-    }
-    
-    //category search and pagination
-    public function search(Request $request) {
         $request = $request->all();
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];

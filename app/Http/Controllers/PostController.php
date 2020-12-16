@@ -11,32 +11,16 @@ use Carbon;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // function __construct()
-    // {
-    //      $this->middleware('permission:role-list');
-    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
-
     public function index()
     {
-
         $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
 
         return response()->json(Array("news"=>$news_list,"category"=>$category_list));
-
     }
     // add news
     public function add(Request $request)
     {
-       
         if(is_object($request->photo)){
             $imageName = uniqid().$request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
@@ -47,24 +31,21 @@ class PostController extends Controller
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
         }
-
         $post = new Post() ;
-            $post->title = $request->input('title');
-            $post->main_point = $request->input('main_point');
-            $post->body=$request->input('body');
-            $post->photo = $imageName;
-            $post->category_id=$request->input('category_id');
-            $post->block_id=$request->input('block_id');
-            $post->related_news=$request->input('related_news');
-            $post->user_id = 1;
-            // $post->recordstatus=1;
-            $post->created_by = $request->input('created_by');
-            $post->created_by_company = $request->input('created_by_company');
-            $post->from_date = $request->input('from_date');
-            $post->to_date = $request->input('to_date');
-        
-            $post->save();
-
+        $post->title = $request->input('title');
+        $post->main_point = $request->input('main_point');
+        $post->body=$request->input('body');
+        $post->photo = $imageName;
+        $post->category_id=$request->input('category_id');
+        $post->block_id=$request->input('block_id');
+        $post->related_news=$request->input('related_news');
+        $post->user_id = 1;
+        // $post->recordstatus=1;
+        $post->created_by = $request->input('created_by');
+        $post->created_by_company = $request->input('created_by_company');
+        $post->from_date = $request->input('from_date');
+        $post->to_date = $request->input('to_date');
+        $post->save();
         return response()->json('The New successfully added');
     }
 
@@ -76,9 +57,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
-                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
-                                  ->where('posts.id',$id)->get();
+        $data = DB::table('posts')
+                    ->join('categories', 'categories.id', '=', 'posts.category_id')
+                    ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
+                    ->where('posts.id',$id)->get();
         if($data[0]->photo == "")
         $data[0]->photo = null;
         return response()->json(array('news'=> $data));
@@ -89,15 +71,18 @@ class PostController extends Controller
     {
         $cat = Category::where('id',$id)->select('name','color_code')->first();
 
-        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
-
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )
+                        ->select('posts.*','categories.color_code')
+                        ->where('posts.block_id','!=',0)
+                        ->where('posts.category_id',$id)
+                        ->where('posts.recordstatus',1)
+                        ->orderBy('posts.created_at', 'DESC')
+                        ->get()->toArray();
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
-
         //divide array new list by block
         foreach ($newslist as $value) {
             $tmp[$value['block_id']][] = $value;
         }
-
         //separted divied block array
         foreach ($tmp as $key => $value) {
             if($key == 1){
@@ -106,16 +91,13 @@ class PostController extends Controller
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
                 $newarray3 = array_chunk($value, 13);
- 
             } 
         }
         $one = $two = $three = 0; 
         $moreNews  = $moreNews_concat = [];
-
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-                
         for ($i=0; $i <= max($lenght); $i++) { 
             /***for block id one***/      
             if(isset($newarray1[$i]) && $one < 2){
@@ -147,7 +129,7 @@ class PostController extends Controller
             else if(!isset($newarray3[$i])){
                 array_push($aryPush, $aryEmpty);
             }
-        } 
+        }
 
         foreach ($More as $key => $value) { 
             if (is_array($value)) { 
@@ -161,7 +143,6 @@ class PostController extends Controller
         }else{
             $aryResults = [];
         }
-
         return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
@@ -238,23 +219,23 @@ class PostController extends Controller
         return response()->json($result);
     }
 
-    public function show_related($id) {
-    
+    public function show_related($id)
+    {
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
         if($related_news[0]["related_news"] != null) {
             $sql = "select * from posts where id in(".$related_news[0]["related_news"].")";
             $news = DB::select($sql);
-            }
+        }
         else{
             $news = null;
         }
-
-        $latest = Post::select('*')->where('category_id',$related_news[0]["category_id"])->orderBy('created_at','DESC')->limit('5')->get();
-
+        $latest = Post::select('*')
+                    ->where('category_id',$related_news[0]["category_id"])
+                    ->orderBy('created_at','DESC')
+                    ->limit('5')->get();
         $data = array("related_news"=>$news, "latest_news" => $latest);
         return $data;
-
-        return response()->json($data);
+        // return response()->json($data);
     }
 
     /**
@@ -265,8 +246,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts = Post::find($id); 
-
+        $posts = Post::find($id);
         return response()->json($posts);
     }
 
@@ -305,7 +285,6 @@ class PostController extends Controller
                 $imageName = strtolower($imageName);
                 $request->photo->move('upload/news/', $imageName);
             }
-
             else {
                 $file= $post->photo;
                 $filename ='./upload/news/'.$file;
@@ -313,36 +292,30 @@ class PostController extends Controller
                 $imageName = '';
             }
         }
+        $post->title = $request->input('title');
+        $post->main_point = $request->input('main_point');
+        $post->body=$request->input('body');
+        $post->photo = $imageName;
+        $post->category_id=$request->input('category_id');
+        $post->block_id=$request->input('block_id');
+        $post->related_news=$request->input('related_news');
+        $post->from_date = $request->input('from_date');
+        $post->to_date = $request->input('to_date');
 
-            $post->title = $request->input('title');
-            $post->main_point = $request->input('main_point');
-            $post->body=$request->input('body');
-            $post->photo = $imageName;
-            $post->category_id=$request->input('category_id');
-            $post->block_id=$request->input('block_id');
-            $post->related_news=$request->input('related_news');
-            $post->from_date = $request->input('from_date');
-            $post->to_date = $request->input('to_date');
-
-            if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
-                $post->created_by_company = '';
-            }
-            else {
-                $post->created_by_company = $request->input('created_by_company');
-            }
-            if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
-                $post->created_by = '';
-            }
-            else {
-                $post->created_by = $request->input('created_by');
-            }
-            //$post->created_by_company = $request->input('created_by_company');
-            $post->user_id = 1;
-            // $post->recordstatus=1;
-            $post->save();
-
-
-        //$post->update($formData);
+        if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
+            $post->created_by_company = '';
+        }
+        else {
+            $post->created_by_company = $request->input('created_by_company');
+        }
+        if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
+            $post->created_by = '';
+        }
+        else {
+            $post->created_by = $request->input('created_by');
+        }
+        $post->user_id = 1;
+        $post->save();
         return response()->json('The news successfully updated');
     }
 
@@ -354,22 +327,16 @@ class PostController extends Controller
      */
     public function delete($id,$cat_id)
     {
-     
         $post = Post::find($id);
         $file= $post->photo;
         $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-       
-        
         if($cat_id == 0)
         {
- 
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
         }
         else{
-
- 
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
         }
 
@@ -379,9 +346,7 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $request = $request->all();
-
         $query = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name');
-     
         if(isset($request['selected_category'])) {
             $category_id = $request['selected_category'];
             if($request['postid'] != null){
@@ -390,7 +355,6 @@ class PostController extends Controller
             else{
                 $query = $query->where('posts.category_id', $category_id);
             }
-           
         }
         if(isset($request['selected_date'])) {
             $selected_date = $request['selected_date'];
@@ -402,25 +366,16 @@ class PostController extends Controller
         }
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-
             $query = $query->where(function($qu) use ($search_word){
-                            $qu->where('posts.title', 'LIKE', "%{$search_word}%")
-                                ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
-                        });
+                        $qu->where('posts.title', 'LIKE', "%{$search_word}%")
+                           ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
+            });
         }
-        
         $query = $query->orderBy('posts.created_at','DESC')
                         ->paginate(20);
         $postCount = $query->count();
-        foreach ($query as $com) {
-            $splitTimeStamp = explode(" ",$com->from_date);
-            $com->from_date = $splitTimeStamp[0];
-            $splitTimeStamp1 = explode(" ",$com->to_date);
-            $com->to_date = $splitTimeStamp1[0];
-        }
-        return  response()->json(array('query'=>$query, 'postCount'=>$postCount));
-
         
+        return  response()->json(array('query'=>$query, 'postCount'=>$postCount));
     }
 
     public function getPostById(Request $request) {
@@ -430,7 +385,6 @@ class PostController extends Controller
 
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-
             $posts = $posts->where(function($qu) use ($search_word){
                             $qu->where('title', 'LIKE', "%{$search_word}%")
                                 ->orWhere('main_point', 'LIKE', "%{$search_word}%"); 
@@ -444,29 +398,15 @@ class PostController extends Controller
     public function changeRecordstatus($id)
     {
         $changeActivate =  Post::find($id);
-
        if($changeActivate->recordstatus == 0 ) {
-
             $changeActivate->recordstatus =1;
        }
        else {
-
             $changeActivate->recordstatus =0;
        }
-
        $changeActivate->save();
-       
        $data = array("changeActivate"=> $changeActivate, "success");
        return response()->json($data);
     }
-
-    // public function searchPost($search_word) {
-    //     // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
-    //     $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo
-    //     FROM posts INNER JOIN categories ON categories.id = posts.category_id
-    //     WHERE posts.title LIKe '%{$search_word}%'";
-    //     $posts = DB::select($sql);
-    //     return $posts;
-    // }
 
 }   
