@@ -14,6 +14,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        var_dump('expression');
         $categories = Category::orderBy('order_number','desc')->paginate(20); 
         return response()->json($categories);
     }
