@@ -43,22 +43,22 @@ class CustomerController extends Controller
     }
 
     public function nusaccount($id) {
-        // NursingProfile::where('customer_id',$id)->where("email",'=',NULL,'OR')->where('townships_id','=',0)->delete();  
+        
         $del = "DELETE FROM nursing_profiles WHERE customer_id=$id AND ISNULL(email)";
         DB::delete($del);
         $nuscustomer = NursingProfile::where(['nursing_profiles.customer_id'=>$id])->select('id','logo','name','phone','email','activate')->get();
         $status = Customer::where(['recordstatus'=>1,'id'=>$id])->count();
-        // $status = NursingProfile::join('customers','customers.id','=','nursing_profiles.customer_id')->where(['customers.recordstatus'=>1,'nursing_profiles.customer_id'=>$id])->count();
+
         return response()->json(array("nuscustomer"=>$nuscustomer,"status"=>$status));
     }
     
     public function hosaccount($id) {
         $del = "DELETE FROM hospital_profiles WHERE customer_id=$id AND ISNULL(email)";
         DB::delete($del);
-        // HospitalProfile::where(['email'=>NULL,"or",'townships_id'=>0])->where('customer_id',$id)->delete();  
+          
         $hoscustomer = HospitalProfile::where('customer_id',$id)->select('id','logo','name','phone','email','activate')->get();
         $status = Customer::where(['recordstatus'=>1,'id'=>$id])->count();
-        // $status = HospitalProfile::join('customers','customers.id','=','hospital_profiles.customer_id')->where(['customers.recordstatus'=>1,'hospital_profiles.customer_id'=>$id])->count();
+
         return response()->json(array("hoscustomer"=>$hoscustomer,"status"=>$status));
     }
 
@@ -124,7 +124,7 @@ class CustomerController extends Controller
 
     public function uploadvideo(Request $request)
     {
-        $request = $request->all();
+        $request    = $request->all();
         $video_file = $request['file'];
         $video_name = $request['name'];
         $destination = 'upload/videos/'.$video_name;
@@ -146,27 +146,27 @@ class CustomerController extends Controller
     public function add(Request $request)
     {
         $request->validate([
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required',
-            'phone' => 'required|numeric',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'logo'      => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name'      => 'required',
+            'phone'     => 'required|numeric',
+            'email'     => 'required|email|unique:users',
+            'password'  => 'required|min:6',
             'confirm_password' => 'required|min:6|max:20|same:password',
-            'address' => 'required',
+            'address'   => 'required',
 
         ],[
             'name.required' => 'Name is required',
         ]);
-        $imageName = $request->logo->getClientOriginalName();
+        $imageName  = $request->logo->getClientOriginalName();
         $request->logo->move(public_path('images'), $imageName);
-        $customer = new Customer ([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-            'logo' => $request->logo->getClientOriginalName(),
-            'type_id' => 1,
-            'phone' => $request->input('phone'),
-            'address' => $request->input('address'),
+        $customer   = new Customer ([
+            'name'      => $request->input('name'),
+            'email'     => $request->input('email'),
+            'password'  => $request->input('password'),
+            'logo'      => $request->logo->getClientOriginalName(),
+            'type_id'   => 1,
+            'phone'     => $request->input('phone'),
+            'address'   => $request->input('address'),
             'recordstatus' => 2
         ]);
         $customer ->save();
@@ -188,10 +188,10 @@ class CustomerController extends Controller
     public function update($id,Request $request)
     {
         if($id == 0) {
-            $u_id = Auth::user()->id;
-            $id = User::where('id',$u_id)->select('customer_id')->value('customer_id');
+            $u_id   = Auth::user()->id;
+            $id     = User::where('id',$u_id)->select('customer_id')->value('customer_id');
         }
-        $customer = Customer::find($id);
+        $customer   = Customer::find($id);
         $customer->update($request->all());
         return response()->json('Customer successfully updated');
     }
@@ -259,27 +259,21 @@ class CustomerController extends Controller
         }
         $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');    
         $comfirmUser =  Auth::user()->id;
-        // $comfirmUser =  auth('api')->user()->id;
         if(!empty($checkUser)){
             return response()->json('already');
         }else{
             \Mail::to($getCustomer->email)->send(new SendMailable($getCustomer));
             $data = array(
-                'name'=>$getCustomer->name,
-                'email'=>$getCustomer->email,
-                'password'=>$getCustomer->password,
-                'role' => 1,
-                'type_id' => $getCustomer->type_id,
+                'name'      =>$getCustomer->name,
+                'email'     =>$getCustomer->email,
+                'password'  =>$getCustomer->password,
+                'role'      => 1,
+                'type_id'   => $getCustomer->type_id,
                 'customer_id' =>$getCustomer->id
             );
             DB::table('users')->insert($data);           
-            $lastid = User::where('email',$getCustomer->email)->select('id')->value('id'); //user table last id
-            // $model_has_roles = array(
-            //     'role_id'=>2,
-            //     'model_type'=> 'App\User',
-            //     'model_id'=> $lastid,
-            // );
-            //    DB::table('model_has_roles')->insert($model_has_roles);
+            $lastid = User::where('email',$getCustomer->email)->select('id')->value('id'); 
+
             $cus = Customer::find($id);
             $cus->status = 1;
             $cus->confirm_user_id = $comfirmUser;
@@ -335,17 +329,10 @@ class CustomerController extends Controller
     public function accountStatusUpdate(Request $request)
     {
         $request = $request->all();
-        //    $user = User::find(auth('api')->user()->id);
         $cusId = $request['cus_id'];
-        //    if(auth()->user()->role == 2) {
-        //        $customer = Customer::find($cusId);
-        //        $user = User::find($customer['user_id']);
-        //    }else{
-        //        $user = User::find(auth('api')->user()->id);
-        //    }
-        //    $customer = Customer::find($user['customer_id']);
-       $customer = Customer::find($cusId);
-       $table_name = $customer->type_id == 2 ? 'hospital_profiles': 'nursing_profiles';
+
+        $customer = Customer::find($cusId);
+        $table_name = $customer->type_id == 2 ? 'hospital_profiles': 'nursing_profiles';
         if($request['status'] == '1') { //de           
             $customer->recordstatus = '0';    
             $sql = "UPDATE $table_name SET activate = (CASE activate WHEN 1 THEN 2 ELSE 0 END) WHERE $table_name.customer_id = $cusId";
