@@ -61,6 +61,10 @@ a{
     word-break: break-all;
 }
 
+img{
+    object-fit: contain;
+}
+
 .txt-box p {
     line-height: 1.4em!important;
     height: 40px;
@@ -336,7 +340,7 @@ label {
 .img_title img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .nus_account p {
@@ -859,7 +863,7 @@ border: 1px solid #eee; */
 
 .gallery-list img {
     position: relative;
-    object-fit: cover;
+    object-fit: contain;
     height: 100%;
     margin-bottom: 3px;
     cursor: pointer;
@@ -1328,7 +1332,7 @@ border-radius: 3px;
 
 .fit-image {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     height: 220px;
     /* only if you want fixed height */
 }
@@ -2612,7 +2616,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 
 .fit-image2 {
     width: 350px;
-    object-fit: cover;
+    object-fit: contain;
     height: 300px;
     /* only if you want fixed height */
 }
@@ -3049,7 +3053,7 @@ border-top: 5px solid #e66527; */
 .List_tbl tr td:first-child img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .List_tbl tr td:nth-child(2) {
@@ -13628,9 +13632,9 @@ transition: background-color .3s;
     .pc-991-1880{
         display: block;
     }
-    .profile-tit{
+   /* .profile-tit{
         display: flex;
-    }
+    }*/
     .customer-id {
         padding: 0 10px;       
         line-height: 26px;
@@ -14643,7 +14647,7 @@ strong {
     margin: 5px 25px 0 21.5px;
     white-space: nowrap;
     overflow: hidden;
-    width: 91.5% !important;
+    width: 97.5% !important;
 }
 #ul_menu_category{
     /*align-items: center;
@@ -14720,4 +14724,10 @@ strong {
     .maintab-content {
         margin: 80px 0 0 0;
     }
+}
+/*@media only screen and (min-width: 1350px) {
+    .menu_category{
+    width: 100% !important;
+}*/
+
 }

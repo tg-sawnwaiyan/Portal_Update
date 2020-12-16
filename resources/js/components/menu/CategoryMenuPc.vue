@@ -4,7 +4,7 @@
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
                 <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_overflow" ><i class="fas fa-angle-left"></i></span>
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
-                    <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
+                    <ul id="ul_menu_category" class="nav nav-tabs" role="tablist" ref="menu">
                         <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
@@ -26,9 +26,11 @@ export default {
             computed_width: '100%',
             cat_box_width: null,
             w_width: window.innerWidth,
+            gap_width: null,
         }
     },
     created() {
+
         this.getAllCat();
         this.$nextTick(() => {
                 if(this.$refs.content){
@@ -38,7 +40,6 @@ export default {
     },
     updated: function () {
         this.$nextTick(function () {
-
             // Code that will run only after the
             // entire view has been re-rendered
             var ulWidth = 0;
@@ -46,9 +47,11 @@ export default {
             ulWidth = ulWidth + $(this).width();
             });
             this.menu_width = ulWidth;
-            if(ulWidth > this.cat_box_width){
+            console.log(this.menu_width);
+            console.log(this.cat_box_width);
+            if(this.menu_width > this.cat_box_width){
             this.is_cat_overflow = true;
-            this.computed_width = '99.8%';
+            this.computed_width = '91.5% !important';
             }
         })
     },
