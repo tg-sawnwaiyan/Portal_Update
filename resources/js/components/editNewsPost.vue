@@ -140,7 +140,7 @@
                                 <div class="d-sm-flex">
                                     <div class="d-flex align-items-center cat_box">
                                          <label class="cat_lbl"> カテゴリー</label>
-                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getPostsByCatId()'>
+                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getSearchPostsByCatId()'>
                                             <option v-for="category in prcategories" :key="category.id" v-bind:value="category.id">
                                                 {{category.name}}
                                             </option>
@@ -182,7 +182,7 @@
                                 </div> -->
 
                                  <div>
-                              <pagination :data="related_news" @pagination-change-page="getPostsByCatId" :limit="limitpc" class="mt-3">
+                              <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                                 <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                             </pagination>
@@ -195,7 +195,7 @@
                    
 
                     <div class="form-group">
-                        <span @click="$router.go(-1)" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
+                        <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 1'> 保存</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 0'> 作成</span>
                     </div>
@@ -222,6 +222,7 @@ import {quillEditor} from 'vue-quill-editor'
 
         data() {
                 return {
+                    norecord: 0,
                     lang:{
                         days: ['日', '月', '火', '水', '木', '金', '土'],
                         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -321,7 +322,11 @@ import {quillEditor} from 'vue-quill-editor'
                 }.bind(this));
             },
             methods: {
-                
+                returnPreviousPage:function () {
+                    this.$loading(false)
+                    var num = localStorage.getItem('page_no');
+                    this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } });
+                },
                 getResults() {
                    
                     if(this.$route.name == "editPost"){
@@ -354,11 +359,10 @@ import {quillEditor} from 'vue-quill-editor'
                                 this.selectedValue = this.news.category_id;
                                 this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
-                        this.getPostsByCatId();
-                        // this.getSearchPostsByCatId();
+                        this.getSearchPostsByCatId();
                     } 
                     else {
-                        this.getPostsByCatId();
+                        this.getSearchPostsByCatId();
                     }
                 },
                 fileSelected(e) {
@@ -587,7 +591,7 @@ import {quillEditor} from 'vue-quill-editor'
                     fd.append("selected_category", cat_id);
                     fd.append("postid",`${this.$route.params.id}`)
                     this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
-                        this.related_news = response.data;
+                        this.related_news = response.data.query;
                         //console.log("re",this.related_news)
                         this.norecord = this.related_news.data.length;
 
@@ -638,7 +642,7 @@ import {quillEditor} from 'vue-quill-editor'
                                     allowOutsideClick: false,
                                 });
                                 this.old_photo = old_photo;
-                                this.getPostsByCatId;
+                                // this.getPostsByCatId;
                        });
                     }
                 },
