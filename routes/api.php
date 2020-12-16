@@ -55,12 +55,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('categories', 'CategoryController@index');
-        Route::post('add', 'CategoryController@add');
-        Route::get('edit/{id}', 'CategoryController@edit');
-        Route::post('update/{id}', 'CategoryController@update');
-        Route::delete('delete/{id}', 'CategoryController@destroy');
-        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
+        Route::get('categorylist', 'CategoryController@getCategory');
+        Route::post('add', 'CategoryController@addCategory');
+        Route::get('edit/{id}', 'CategoryController@editCategory');
+        Route::post('update/{id}', 'CategoryController@updateCategory');
+        Route::delete('delete/{id}', 'CategoryController@destroyCategory');
     });
     // End Category
 
