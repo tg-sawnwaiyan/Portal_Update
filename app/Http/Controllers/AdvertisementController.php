@@ -18,25 +18,13 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-
-        $ads =Advertisement::orderBy('id', 'DESC')->paginate(20);
+        $ads =  Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($ads);
     }
     public function slider()
     {
-
-        $ads =Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->get();
+        $ads =  Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->get();
         return response()->json($ads);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -57,7 +45,6 @@ class AdvertisementController extends Controller
         }
         else{
             $logo_imgname = $request->photo;
-            // $current_time = Carbon::now();
             $string = str_replace(' ', '-', Carbon::now());
             $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
             $imgname = 'logo_'.$string.'.png';
@@ -93,28 +80,8 @@ class AdvertisementController extends Controller
         if($pdfname != ''){
             $request->pdf->move('./upload/static/', $pdfname);
         }
-        //return $ads;
         return response()->json('Success ');
 
-    }
-
-    public function getLogoImage(Request $request) 
-    { 
-        $logofile = new File();
-        $logofile = public_path().'\images\logo.png';
-        return response('logofile')->json('Success ');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -125,9 +92,7 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
          $ads = Advertisement::find($id);
-
          return response()->json($ads);
     }
 
@@ -139,74 +104,54 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($id,Request $request)
-
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'location'=>'required',
-        // ]);
-        // if($request->photo != 'logo.png') {
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
-            // $request->photo->move(public_path('/upload/advertisement'), $imageName);
             $request->photo->move('./upload/advertisement/', $imageName);
-        } 
-        // }
-        else {
+        }else {
             $logo_imgname = $request->photo;
-            // $current_time = Carbon::now();
-            $string = str_replace(' ', '-', Carbon::now());
-            $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+            $string    = str_replace(' ', '-', Carbon::now());
+            $string    = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
             $imageName = 'logo_'.$string.'.png';
-            $old_path = 'images/tis_advertisement_logo.png';
-            $new_path = 'upload/advertisement/logo_'.$string.'.png';
-            $move = File::copy($old_path, $new_path);
+            $old_path  = 'images/tis_advertisement_logo.png';
+            $new_path  = 'upload/advertisement/logo_'.$string.'.png';
+            $move      = File::copy($old_path, $new_path);
         }
         
         if(is_object($request->pdf)) {
             $pdfName = $request->pdf->getClientOriginalName();
             $pdfName = str_replace(' ', '', $pdfName);
             $pdfName = strtolower($pdfName);
-            // $request->pdf->move(public_path('/upload/advertisement'), $imageName);
             $request->pdf->move('./upload/static/', $pdfName);
         } else {
             $pdfName = $request->pdf;
         }
-        //   $uploadData = array(
-        //       'title' => $request->input('title'),
-        //       'description' => $request->input('description'),
-        //       'link'=>$request->input('link'),
-        //       'location'=>$request->input('location'),
-        //       'photo' => $imageName,
-        //       'user_id' => 1,
-        //       'recordstatus' => 1
-        //  );
-            $ads = Advertisement::find($id);
-            if(is_object($request->photo)) {
-                     $file= $ads->photo;
-                     $filename = './upload/advertisement/'.$file;
-                   \File::delete($filename);
-                }
+      
+        $ads = Advertisement::find($id);
+        if(is_object($request->photo)) {
+            $file       = $ads->photo;
+            $filename   = './upload/advertisement/'.$file;
+            \File::delete($filename);
+        }
 
-            if(is_object($request->pdf)) {
-                $file= $ads->pdf;
-                $filename = './upload/static/'.$file;
-                \File::delete($filename);
-            }
+        if(is_object($request->pdf)) {
+            $file       = $ads->pdf;
+            $filename   = './upload/static/'.$file;
+            \File::delete($filename);
+        }
 
-            $ads->title = $request->input('title');
-            $ads->description = $request->input('description');
-            $ads->link=$request->input('link');
-            $ads->location=$request->input('location');
-            $ads->photo = $imageName;
-            $ads->pdf = $pdfName;
-            $ads->show_flag = $request->input('show_flag');
-            $ads->user_id = 1;
-            $ads->save();
-            return response()->json('successfully updated');
-        //return response()->json($ads);
+        $ads->title     = $request->input('title');
+        $ads->description = $request->input('description');
+        $ads->link      = $request->input('link');
+        $ads->location  =$request->input('location');
+        $ads->photo     = $imageName;
+        $ads->pdf       = $pdfName;
+        $ads->show_flag = $request->input('show_flag');
+        $ads->user_id   = 1;
+        $ads->save();
+        return response()->json('successfully updated');
     }
 
     /**
@@ -221,18 +166,15 @@ class AdvertisementController extends Controller
         $ads = Advertisement::find($id);
         $file= $ads->photo;
         $filename = './upload/advertisement/'.$file;
-        //$filename = public_path().'/upload/advertisement/'.$file;
         \File::delete($filename);
 
         $pdffile= $ads->pdf;
         $pdffilename = './upload/static/'.$pdffile;
-        //$filename = public_path().'/upload/advertisement/'.$file;
         \File::delete($pdffilename);
 
         $ads->delete();
         $advertisements = Advertisement::orderBy('id', 'DESC')->paginate(20);
         return response()->json($advertisements);
-        // return response()->json('The successfully deleted');
     }
 
     public function search(Request $request)
@@ -248,13 +190,11 @@ class AdvertisementController extends Controller
                             ->orderBy('id','DESC')
                             ->paginate(20);
         return response()->json($advertisement);
-
     }
 
     public function activate($id)
     {
         $ads = Advertisement::find($id);
-
         if($ads->recordstatus == 0 ) {
             $ads->recordstatus =1;
         }
