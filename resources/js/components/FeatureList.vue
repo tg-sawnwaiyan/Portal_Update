@@ -98,6 +98,7 @@
                     nosearch_msg: false,
                     items: [],
                     title: '',
+                    api_param:'',
                 };
             },
 
@@ -106,34 +107,44 @@
                 if(this.$route.path == "/nusfeaturelist"){
                     this.type = 'nursing';
                     this.title = "特長一覧";
-                    this.axios.get("/api/feature/featurelist/nursing").then(response => {
-                        this.$loading(false);
-                        this.features = response.data;
-                        this.norecord = this.features.data.length;
-                        if (this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else {
-                            this.norecord_msg = true;
-                        }
-                    });
                 }
-                else if(this.$route.path == "/hosfeaturelist"){
+                else if (this.$route.path == "/hosfeaturelist"){
                     this.type = 'hospital';
                     this.title = "特長一覧";
-                    this.axios.get("/api/feature/featurelist/hospital").then(response => {
-                        this.$loading(false);
-                        this.features = response.data;
-                        this.norecord = this.features.data.length;
-                        if (this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else {
-                            this.norecord_msg = true;
-                        }
-                    });
                 }
-
+                this.$http.get("/api/feature/featurelist/"+this.type).then(response => {
+                    this.features = response.data;
+                    this.norecord = this.features.data.length;
+                    if (this.norecord != 0){
+                        this.norecord_msg = false;
+                    }else {
+                        this.norecord_msg = true;
+                    }
+                    this.$loading(false);
+                    if(this.$route.params.status == 'update' && this.type == 'nursing'){
+                        var feature_page_no = this.$route.params.nusfeature_page_no;
+                        this.nextPaginate(feature_page_no);
+                    }
+                    else if(this.$route.params.status == 'update' && this.type == 'hospital'){
+                        var feature_page_no = this.$route.params.hosfeature_page_no;
+                        this.nextPaginate(feature_page_no);
+                    }
+                });
             },
             methods: {
+                nextPaginate(num) {
+                    // let fd = new FormData();
+                    this.$loading(true);
+                    this.axios.post("/api/feature/search/"+this.type+"?page="+num).then(response => {
+                        this.$loading(false);
+                        this.features = response.data;
+                        if(this.features.data.length != 0){
+                            this.nosearch_msg = false;
+                        }else {
+                            this.nosearch_msg = true;
+                        }
+                    });
+                },
                 deleteFeature(id,type) {
                         this.$swal({
                             // title: "確認",
@@ -212,6 +223,14 @@
                             }else {
                                 this.nosearch_msg = true;
                             }
+                            if (this.type == 'nursing'){
+                                localStorage.setItem('nusfeature_page_no', page)
+                            }
+                            else if(this.type == 'hospital') {
+                                localStorage.setItem('hosfeature_page_no', page)
+                            }
+                            
+
                         });
                     },
             }

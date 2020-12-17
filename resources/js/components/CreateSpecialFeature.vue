@@ -28,7 +28,7 @@
                 
 
                 <div class="form-group ">
-                    <span class="btn bt-red all-btn" @click="$router.go(-1)" > キャンセル </span>
+                    <span class="btn bt-red all-btn" @click="returnPreviousPage()" > キャンセル </span>
                     <span class="btn main-bg-color white all-btn" @click="checkValidate()"> {{subtitle}}</span>
                 </div>
             </form>
@@ -48,16 +48,28 @@ export default {
                   this.axios
                     .get(`/api/feature/edit/${this.$route.params.id}`)
                     .then((response) => {
-                    this.feature= response.data;                   
-                      this.header = ' 特長編集';
+                        this.feature= response.data;        
+                        this.header = ' 特長編集';
                         this.subtitle = '保存';
-                        return this.header;
-                        return this.subtitle;
                 });
               }
         },
 
-         methods: {
+        methods: {
+            returnPreviousPage:function () {
+                if(this.feature.type === "nursing") {
+                    console.log('nusfeaturelist')
+                    var route_name = 'nusfeaturelist';
+                    var num = localStorage.getItem('nusfeature_page_no');
+                    this.$router.push({ name: route_name, params: { status: 'update','nusfeature_page_no':num } });
+                }
+                else if (this.feature.type === "hospital") {    
+                    console.log('hosfeaturelist')                
+                    var route_name = 'hosfeaturelist';
+                    var num = localStorage.getItem('hosfeature_page_no');
+                    this.$router.push({ name: route_name, params: { status: 'update','hosfeature_page_no':num } });
+                }                
+            },
               checkValidate() {
                      if (this.feature.name) {
                         this.errors.name = "";
@@ -86,7 +98,7 @@ export default {
                 },
 				
             add() {
-                 if( !this.$route.params.id || this.$route.params.id == 'undefined')
+                if( !this.$route.params.id || this.$route.params.id == 'undefined')
                 {
                     this.$swal({
                             text: "特長を作成してよろしいでしょうか。",
@@ -154,21 +166,21 @@ export default {
                 .then((response) => {
                     this.$loading(false);               
                     this.$swal({
-                            position: 'top-end',
-                            type: 'success',
-                            text: '特長を更新しました。',
-                            confirmButtonText: "閉じる",
-                            confirmButtonColor: "#31cd38",
-                            width: 350,
-                            height: 200,
-                            allowOutsideClick: false,
-                        })
-                    this.$router.go(-1);
+                        position: 'top-end',
+                        type: 'success',
+                        text: '特長を更新しました。',
+                        confirmButtonText: "閉じる",
+                        confirmButtonColor: "#31cd38",
+                        width: 350,
+                        height: 200,
+                        allowOutsideClick: false,
+                    })
+                    this.returnPreviousPage();
                 }).catch(error=>{
                     console.log(error)
-                if(error.response.status == 422){
-                    this.errors = error.response.data.errors
-                }
+                    if(error.response.status == 422){
+                        this.errors = error.response.data.errors
+                    }
             });
            
              }) ;
