@@ -30,8 +30,8 @@ export default {
 
         this.getAllCat();
         this.$nextTick(() => {
-                if(this.$refs.content){
-                this.cat_box_width = this.$refs.content.clientWidth;
+                if(this.$refs.menu){
+                this.cat_box_width = this.$refs.menu.clientWidth;
             }            
         }) 
     },
@@ -149,13 +149,13 @@ export default {
         border: 1px solid #2980b9;
         padding: 1px 5px;
         /*right: 47px;*/
-        right: 31px;
+        right: 34px;
     }
     #right-button{
         position: absolute;
         top: 23px;
         /*right: 22px;*/
-        right: 5px;
+        right: 9px;
         width: auto;
         line-height: 1;
         background: #fff;
