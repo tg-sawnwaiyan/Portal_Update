@@ -162,23 +162,23 @@
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
 }
-.footer-nav{
+/*.footer-nav{
     width: 100%;
     display: inline-block;
-}
-.footer-nav .gNav{
+}*/
+/*.footer-nav .gNav{
     display: inline-flex;
     border-left: none;
-}
-.footer-nav .gNav li{
+}*/
+/*.footer-nav .gNav li{
     margin-left: 50px;
     margin-right: 50px;
-}
-.footer-nav .gNav li a {
+}*/
+/*.footer-nav .gNav li a {
     font-size: 15px;
     font-weight: bold;
-}
-.footer-nav .gNav li a:after{
+}*/
+/*.footer-nav .gNav li a:after{
     display: none;
 }
 .footer-nav .gNav li a .fa-envelope{
@@ -188,8 +188,8 @@
 .copyright-text{
     margin-top: 10px;
     width: 100%;
-}
-@media only screen and (max-width: 767px) {
+}*/
+/*@media only screen and (max-width: 767px) {
     .footer {
         padding-top: 0;
     }
@@ -199,15 +199,15 @@
     .copyright-text{
         margin-top: 0;
     }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px){
+}*/
+/*@media only screen and (min-width: 768px) and (max-width: 991px){
     .footer-nav .gNav li:first-child {
         margin-left: 0;
     }
     .footer-nav .gNav li{
         margin-left: 75px;
     }
-}
+}*/
 </style>
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
