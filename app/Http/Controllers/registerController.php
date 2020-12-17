@@ -21,15 +21,15 @@ class registerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $type = Type::all();
+    {   
+        $type = Type::all();
         $cities = DB::table('cities')->get();
         $townships = DB::table('townships')->get();
-        // return view('register',compact('type','townships','cities'));
+
         return view('register',compact('type'));
     }
     public function getCities()
     {
-        // $cities = $_GET['cities'];
         $data = DB::table('cities')->select('id','city_name')->get();
         return response()->json(array('result' => true,'cities' => $data),200);
     }
@@ -45,21 +45,7 @@ class registerController extends Controller
         $data = DB::table('types')->select('id','name','user_id','parent')->where('parent',$type)->get();
         return response()->json(array('result' => true,'types' => $data),200);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+     
     public function store(Request $request)
     {
 
@@ -71,37 +57,13 @@ class registerController extends Controller
           
         ]);
 
-
-            // $type = 2;
-
-            // if($request->types == '3'){
-            //     $type = $request->nursing;
-            // }
-
-            // $destinationPath = public_path('/images');
-            // $image = $request->file('img');
-            // if($image) {
-            //     $getName = time().'.'.$image->getClientOriginalExtension();
-
-            //     if($request->types == 2){
-            //         $image->move('upload/hospital_profile/', $getName);
-            //     }
-            //     else{
-            //         $image->move('upload/nursing_profile/', $getName);
-            //     }
-            // } else {
-            //     $getName = 'noimage.jpg';
-            // }
-            // $dbPath = $destinationPath. '/'.$input['img'];
             $customer = new Customer;
-            //$customer->logo= $getName;
-            $customer->name = $request->name;
-            $customer->email = $request->email;
-            $customer->phone = $request->phone;
-            $customer->type_id = $request->types;
+            $customer->name     = $request->name;
+            $customer->email    = $request->email;
+            $customer->phone    = $request->phone;
+            $customer->type_id  = $request->types;
             $customer->password = bcrypt($request->password);
-            // $customer->address = $request->address;
-            //$customer->townships_id = $request->township;
+             
             $customer->save();
 
             if($request->types == 2){
@@ -113,75 +75,12 @@ class registerController extends Controller
                 $admin_email = 'kaigo@t-i-s.jp';
             }
 
-            // elseif($request->types == 4){
-            //     $customer->type = '介護  (有料老人ホーム)';
-            // }
-            // elseif($request->types == 5){
-            //     $customer->type = '介護 (デイサービス)';
-            // }
-            // elseif($request->types == 6){
-            //     $customer->type = '介護  (訪問介護・看護)';
-            // }
-            // $query = "SELECT townships.*, cities.city_name
-            //         FROM townships
-            //         JOIN cities
-            //         ON cities.id = townships.city_id
-            //         WHERE townships.id =" . $customer->townships_id;
-
-            // $address = DB::select($query);
-            // foreach($address as $ad) {
-            //     $customer->city_name = $ad->city_name;
-            //     $customer->township_name = $ad->township_name;
-            // }
-            //  $admin_email = 'mayphuekyawsoe123@gmail.com';
-            // $admin_email = 'thuzar.ts92@gmail.com';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success reg', "Special message goes here");
             return Redirect::back();
 
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    } 
     // regisert end
     public function reset(Request $request)
     {
@@ -213,23 +112,16 @@ class registerController extends Controller
             $checkmail[0]["role"] = $token;
             \Mail::to($getEmail)->send(new sendResetPasswordMail($checkmail));
             return response()->json(['success' => 'success'], 200);
-            // return back()->with('reset','Check Your email for reset password');
         }
         else{
-
             return response()->json(['error' => 'Token Expired']);
-            // return back()->with('reset','Email Not Exist.');
         }
     }
 
     public function resetpassword(Request $request)
     {
-       
-
-        // return view('auth.passwordReset');
         $hashPass = bcrypt($request->password);
         $token = $request->token;
-        // $checkmail = DB::select('SELECT email,status FROM password_resets WHERE token = "'.$token.'" AND created_at >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)');
         $checkmail = DB::table('password_resets')->where('token',$token)->get();
         if($checkmail[0]->status == 0){
 
@@ -240,7 +132,6 @@ class registerController extends Controller
             $updateStatus = array('status' => 1);
             DB::table('users')->where('email',$getEmail)->update($updatePass);
             DB::table('customers')->where('email',$getEmail)->update($updatePass);
-            // DB::table('password_resets')->where('email',$getEmail)->delete();
             DB::table('password_resets')->where('email',$getEmail)->update($updateStatus);
             return response()->json("success");
         }
@@ -254,7 +145,6 @@ class registerController extends Controller
     }
     public function getStatus($token)
     {
-        // $checkExpire = DB::select('SELECT email,status FROM password_resets WHERE token = "'.$token.'" AND created_at < DATE_SUB(CURDATE(), INTERVAL 1 DAY)');
         $date =  DB::select('SELECT  TIMEDIFF(NOW(), created_at) AS date, status,created_at FROM password_resets WHERE token = "'.$token.'"');
         $dates =  explode(':',$date[0]->date);
         $getStatus = DB::table('password_resets')->where('token',$token)->get();
@@ -266,31 +156,6 @@ class registerController extends Controller
         return response()->json($updateGetStatus);
     }
 
-    public function insertUesr(Request $request)
-    {
-        $getEmail = $request->email;
-        $CheckUserEmail = User::where('email',$getEmail)->select('email')->value('email');
-        $checkResetEmail = password_reset::where('email',$getEmail)->select('email')->value('email');
-        if(!empty($checkResetEmail)){
-            return back()->with('reset','Your Email is already reset password!');
-        }else{
-            if(!empty($CheckUserEmail)){
-                $getUserId = User::where('email',$getEmail)->select('id')->value('id');
-                $getCustomerId = Customer::where('email',$getEmail)->select('id')->value('id');
-                $getTime = Carbon\Carbon::now();
-                $data = array([
-                    'email' => $getEmail,
-                    'user_id' => $getUserId,
-                    'customer_id' => $getCustomerId,
-                    'created_at' => $getTime,
-                ]);
-                DB::table('password_reset')->insert($data);
-                return back()->with('reset','Check Your email for new password. When admin approved,you can use your password');
-            }else{
-                return back()->with('reset','Your Email is not register');
-            }
-        }
-    }
     public function getReset()
     {
         $getReset = DB::table('password_reset_view')->get();
