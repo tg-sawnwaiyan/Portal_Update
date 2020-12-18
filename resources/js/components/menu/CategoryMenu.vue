@@ -1,14 +1,21 @@
 <template>
     <div class="tab-pane" id="tab1">
             <!-- slider -->
+<<<<<<< HEAD
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor(cat.color_code);" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+=======
+            <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="infoBox" ref="infoBox">
+                <div class="no-scrollbar" id="myTab" ref="content">
+                    <ul class="nav" role="tablist">
+                        <li v-for="(cat, index) in cats" :key="cat.id" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
+                           <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+>>>>>>> 431425b13423917088bb7dd6aae071e0c044fbfc
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
-
                     </ul>                            
                 </div>
                 <div class="bg_color" :style="lineStyle"></div>
@@ -67,7 +74,6 @@ export default {
                             eventBus.$emit('gotColor', this.cats[0].color_code);
                         }
                     });
-
         },
         changeBgColor(color_code) {
             this.bgColor =  color_code ? color_code : "#287db4";
@@ -87,6 +93,7 @@ export default {
         },
     }
 }
+<<<<<<< HEAD
 </script>
 <style>
     .tab_color{
@@ -392,3 +399,6 @@ export default {
 </style>
 
 
+=======
+</script>
+>>>>>>> 431425b13423917088bb7dd6aae071e0c044fbfc

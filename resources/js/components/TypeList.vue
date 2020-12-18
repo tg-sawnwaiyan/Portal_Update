@@ -14,8 +14,7 @@
           <div v-if="norecord == 0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
-            </p>
-           
+            </p>           
             <p class="record-txt01">表示するデータありません。</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
             <a href="/type" class="main-bg-color create-btn all-btn">
@@ -47,7 +46,8 @@
                         :to="{name:'type', params:{id : type.id}}"
                         class="btn edit-borderbtn"
                       >編集</router-link>
-                    </small> &nbsp;
+                    </small>
+                    &nbsp;
                     <small>
                       <a class="btn text-danger delete-borderbtn" @click="deleteType(type.id)">削除</a>
                     </small>
@@ -94,34 +94,32 @@ export default {
         allowOutsideClick: false,
       }).then(response => {
         this.axios
-          .delete(`/api/types/delete/${id}`)
-          .then(response => {
-            this.types = response.data;
-            this.norecord = this.types.length;
-            //    let i = this.types.map(item => item.id).indexOf(id); // find index of your object
-            //     this.types.splice(i, 1);
-            this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
-              type: "success",
-              width: 350,
-              height: 200,
-              confirmButtonText: "はい",
-              confirmButtonColor: "#dc3545",
-              allowOutsideClick: false,
-            });
-          })
-          .catch(() => {
-            this.$swal({             
-              html: "システムエラーです。<br/>社内エンジニアにお問い合わせください。<br/><a href='mailto:pg@management-partners.co.jp'>pg@management-partners.co.jp</a>",
-              type: "error",
-              width: 350,
-              height: 200,
-              confirmButtonText: "閉じる",
-              confirmButtonColor: "#FF5462",
-              allowOutsideClick: false,
+        .delete(`/api/types/delete/${id}`)
+        .then(response => {
+          this.types = response.data;
+          this.norecord = this.types.length;
+          this.$swal({
+            title: "削除された",
+            text: "ファイルが削除されました。",
+            type: "success",
+            width: 350,
+            height: 200,
+            confirmButtonText: "はい",
+            confirmButtonColor: "#dc3545",
+            allowOutsideClick: false,
           });
+        })
+        .catch(() => {
+          this.$swal({             
+            html: "システムエラーです。<br/>社内エンジニアにお問い合わせください。<br/><a href='mailto:pg@management-partners.co.jp'>pg@management-partners.co.jp</a>",
+            type: "error",
+            width: 350,
+            height: 200,
+            confirmButtonText: "閉じる",
+            confirmButtonColor: "#FF5462",
+            allowOutsideClick: false,
           });
+        });
       });
     },
     searchType() {

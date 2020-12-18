@@ -1,13 +1,11 @@
 <!--Panorama viewer pannellum wrap.-->
 <template>
-
   <div
     class="vue-pannellum"
     @mouseup="onMouseUp"
     @touchmove="onTouchMove"
     @touchend="onTouchEnd"
-  >
-  
+  >  
     <div class="info">{{ info }}</div>
     <div class="default-slot">
       <slot/>
@@ -18,8 +16,6 @@
 <script>
 import 'pannellum'
 import 'pannellum/build/pannellum.css'
-
-// import _debounce from 'lodash/debounce'
 
 export default {
   props: {
@@ -81,7 +77,7 @@ export default {
       if (this.viewer) {
         this.viewer.setHfovBounds([this.minHfov, this.maxHfov])
       }
-  },
+    },
     minHfov (val) {
       if (this.viewer) {
         this.viewer.setHfovBounds([this.minHfov, this.maxHfov])
@@ -128,8 +124,6 @@ export default {
         minHfov: this.minHfov,
         maxHfov: this.maxHfov,
         draggable: this.draggable
-        // haov: 149.87,
-        // vaov: 54.15,
       }
       Object.assign(options, this.srcOption)
       this.viewer = window.pannellum.viewer(this.$el, options)
@@ -161,20 +155,13 @@ export default {
     },
     onMouseUp () {
       if (this.debug) this.info += ' mu'
-      // this.debounceRotate()
     },
     onTouchMove () {
       if (this.debug) this.info += ' tm'
     },
     onTouchEnd () {
       if (this.debug) this.info += ' te'
-      // this.debounceRotate()
     },
-    // debounceRotate: _debounce(function () {
-    //   // priority of orientation is higher
-    //   if (this.orientation) this.viewer.startOrientation()
-    //   else if (this.autoRotate) this.viewer.startAutoRotate()
-    // }, 3000),
   },
 }
 </script>
@@ -183,7 +170,6 @@ export default {
 .pnlm-ui .pnlm-about-msg {
   display: none !important;
 }
-
 .pnlm-ui .pnlm-orientation-button {
   display: none !important;
 }
@@ -193,16 +179,6 @@ export default {
 .vue-pannellum {
   position: relative;
 }
-
-/* .info {
-  position: absolute;
-  background-color: hsla(0, 0%, 100%, 0.5);
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-} */
-
 .default-slot {
   position: absolute;
   left: 0;

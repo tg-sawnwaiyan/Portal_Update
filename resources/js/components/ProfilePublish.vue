@@ -1,187 +1,171 @@
 <template>
-  <div id="app">
-    <div v-if="type == 'nursing'" id="nursingView">         
-        <!--panorama-->     
-        <div v-if="$auth.user().role == 2">
-            <div @click="$router.go(-1);" class="pc-2000" style="cursor:pointer;right:0;top:0;text-align:right;">
-                <span class="btn btn-danger all-btn submit">
-                    <i class="fas fa-arrow-left"></i> 
-                    <span>戻る</span> 
-                </span>                    
-            </div>          
-             <div class="pc-991-1880">
-                <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
-                   <span class="btn btn-danger all-btn submit">
+    <div id="app">
+        <div v-if="type == 'nursing'" id="nursingView">         
+            <!--panorama-->     
+            <div v-if="$auth.user().role == 2">
+                <div @click="$router.go(-1);" class="pc-2000" style="cursor:pointer;right:0;top:0;text-align:right;">
+                    <span class="btn btn-danger all-btn submit">
                         <i class="fas fa-arrow-left"></i> 
                         <span>戻る</span> 
-                    </span> 
-                </span>                
-               
-            </div>
-            <div class="sp-9-180">             
-            <p class="job_id3">
-                <span>施設番号:{{profilenumber}}</span>
-            </p>
-            </div>
-        </div>
-        <div v-else> 
-            <div @click="$router.go(-1);" class="pc-2000" style="cursor:pointer;right:0;top:0;text-align:right;">
-                    <span class="btn btn-danger all-btn submit">
-                    <i class="fas fa-arrow-left"></i> 
-                    <span>戻る</span> 
-                </span>  
-            </div>          
-            <div class="pc-991-1880">
-                <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
-                    <span class="btn btn-danger all-btn submit">
-                    <i class="fas fa-arrow-left"></i> 
-                    <span>戻る</span> 
-                </span> 
-                </span>                
-               
-            </div>
-            <div class="sp-9-180">             
-            <p class="job_id3">
-                <span>施設番号:{{profilenumber}}</span>
-            </p>
-            </div>
-              
-        </div>
-
-        <h4 class="profile-tit"  v-if="!currentPanoImage && nus_pro[0]">
-        <span>{{nus_pro[0].name}}</span>
-        <span class="customer-id pc-991-1880">施設番号:{{profilenumber}}</span> </h4>
-            
-
-        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
-            <h4 class="profile-tit" v-if="nus_pro[0]">{{nus_pro[0].name}}</h4>
-
-            <div class="thumbnail-img pc-414" style="padding:0px;border:none;">
-                <div class="card-carousel" style="background:#fff;">
-                <div class="card-img">
-                    <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120" :draggable="true"></Pannellum>
+                    </span>                    
+                </div>          
+                <div class="pc-991-1880">
+                    <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
+                        <span class="btn btn-danger all-btn submit">
+                            <i class="fas fa-arrow-left"></i> 
+                            <span>戻る</span> 
+                        </span> 
+                    </span>               
                 </div>
-                <div class="col-12" id="pano-slider-page">
-                    <div class="card-carousel-wrapper">
-
-                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
-                                <div class="nav-content mr-2">
-                                    <div class="card-carousel--nav__left"></div>
-                                </div>
-                            </div>
-                            <div class="card-carousel">
-                                <div class="card-carousel--overflow-container">
-                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
-                                        <div class="card-carousel--card">
-                                           
-                                            <div  class="thumbnails-pano">
-                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo" @error="imgUrlAlt">
-                                                </div>
-                                            </div>
-                                        <!-- </div> -->
+                <div class="sp-9-180">             
+                    <p class="job_id3">
+                        <span>施設番号:{{profilenumber}}</span>
+                    </p>
+                </div>
+            </div>
+            <div v-else> 
+                <div @click="$router.go(-1);" class="pc-2000" style="cursor:pointer;right:0;top:0;text-align:right;">
+                        <span class="btn btn-danger all-btn submit">
+                        <i class="fas fa-arrow-left"></i> 
+                        <span>戻る</span> 
+                    </span>  
+                </div>          
+                <div class="pc-991-1880">
+                    <span @click="$router.go(-1);" class="backbtn" style="cursor:pointer;right:0;top:1%;;position:relative;">
+                        <span class="btn btn-danger all-btn submit">
+                            <i class="fas fa-arrow-left"></i> 
+                            <span>戻る</span> 
+                        </span> 
+                    </span>               
+                </div>
+                <div class="sp-9-180">             
+                    <p class="job_id3">
+                        <span>施設番号:{{profilenumber}}</span>
+                    </p>
+                </div>              
+            </div>
+            <h4 class="profile-tit" v-if="!currentPanoImage && nus_pro[0]">
+                <span>{{nus_pro[0].name}}</span>
+                <span class="customer-id pc-991-1880">施設番号:{{profilenumber}}</span>
+            </h4>
+            <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
+                <h4 class="profile-tit" v-if="nus_pro[0]">{{nus_pro[0].name}}</h4>
+                <div class="thumbnail-img pc-414" style="padding:0px;border:none;">
+                    <div class="card-carousel" style="background:#fff;">
+                        <div class="card-img">
+                            <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120" :draggable="true"></Pannellum>
+                        </div>
+                        <div class="col-12" id="pano-slider-page">
+                            <div class="card-carousel-wrapper">
+                                <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                    <div class="nav-content mr-2">
+                                        <div class="card-carousel--nav__left"></div>
                                     </div>
                                 </div>
-                            </div>
-                            </div>
-
-                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
-                                <div class="nav-content ml-2">
-                                   <div class="card-carousel--nav__right"></div>
+                                <div class="card-carousel">
+                                    <div class="card-carousel--overflow-container">
+                                        <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
+                                            <div class="card-carousel--card">                                           
+                                                <div  class="thumbnails-pano">
+                                                    <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo" @error="imgUrlAlt">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                    <div class="nav-content ml-2">
+                                        <div class="card-carousel--nav__right"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>            
             </div>
+            <!--end panorama-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab typelabel nav-link fixed-nav btn-group el">            
+                        <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
+                            介護情報
+                        </button>
+                        <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
+                            特長
+                        </button>
+                        <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
+                            費用
+                        </button>
+                        <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn"  @click="activate(4)" :class="{ active : active_el == 4 }">
+                            施設概要
+                        </button>
+                        <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn"  @click="activate(5)" :class="{ active : active_el == 5 }">
+                            地図
+                        </button>
+                        <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn" @click="activate(6)" :class="{ active : active_el == 6 }">
+                            口コミ
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-        </div>
-        <!--end panorama-->
-        <div class="row">
-        <div class="col-12">
-            <div class="tab typelabel nav-link fixed-nav btn-group el">
-            
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
-
-                介護情報
-            </button>
-
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
-
-                特長
-            </button>
-
-            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
-
-                費用
-            </button>
-
-            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn"  @click="activate(4)" :class="{ active : active_el == 4 }">
-                施設概要
-            </button>
-
-            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn"  @click="activate(5)" :class="{ active : active_el == 5 }">
-                地図
-            </button>
-
-            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn" @click="activate(6)" :class="{ active : active_el == 6 }">
-                口コミ
-            </button>
-            </div>
-        </div>
-        </div>
             <div class="row m-lr-0 ele pt-2"  id="element1">
-                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in nus_pro" :key="cust.id">
+                    <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in nus_pro" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-md-5 detail_profile_left col-slg-12 pad-free-750">
-                           <div class="col-12 pad-free sp-1024">
-                                <h5 class="profile_header">
-                                <span class="span-height">介護情報</span>
-                                <!--fav and mail btn-->
-                                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                                    <div class="m-r-10 float-left">
-                                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                                        </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
+                        <div class="col-12 pad-free sp-1024">
+                            <h5 class="profile_header">
+                            <span class="span-height">介護情報</span>
+                            <!--fav and mail btn-->
+                            <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                                <div class="m-r-10 float-left">
+                                    <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                                    <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                                 </div>
-                                <!--end fav and mail btn-->
-                                </h5>
-                                <!--fav and mail btn-->
-                                <section class="row col-12 m-0 p-0">
+                                <div class="float-right">
+                                    <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end fav and mail btn-->
+                            </h5>
+                            <!--fav and mail btn-->
+                            <section class="row col-12 m-0 p-0">
                                 <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
                                     <div class="m-r-10 float-left">
                                         <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                                         <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                                        </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
+                                    </div>
+                                    <div class="float-right">
+                                        <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                            <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                        </span>
+                                    </div>
                                 </div>
-                                </section>
-                                <!--end fav and mail btn-->
-                            </div>
-                           <div class="thumbnail-img pc-414">
-                             <div class="card-carousel">
-                                    <div class="card-img photocard-carousel-wrapper">
-                                        <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt">
-                                        <div class="actions">
-                                            <span @click="prevImage" class="prev">
-                                                <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                            <span @click="nextImage" class="next">
-                                                <i class="fas fa-chevron-right"></i>
-                                            </span>
-                                        </div>
+                            </section>
+                            <!--end fav and mail btn-->
+                        </div>
+                        <div class="thumbnail-img pc-414">
+                            <div class="card-carousel">
+                                <div class="card-img photocard-carousel-wrapper">
+                                    <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt">
+                                    <div class="actions">
+                                        <span @click="prevImage" class="prev">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span @click="nextImage" class="next">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
                                     </div>
-                                    <div class="row col-12 photocard-title">
-                                        <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
-                                        <div class="row col-12 m-b-10">
-                                            <p class="text-left">{{activeImageDescription}}</p>
-                                        </div>
+                                </div>
+                                <div class="row col-12 photocard-title">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                        <p class="text-left">{{activeImageDescription}}</p>
                                     </div>
+                                </div>
                                 <ul class="thumbnails">
                                     <li v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
                                         <img  :src ="'/upload/nursing_profile/' + image.photo" @error="imgUrlAlt">
@@ -201,7 +185,7 @@
                                 <p class="res-descr">{{activeImageDescription}}</p>
                             </slick>
                             <slick :options="slickOptions2" ref="slickSetting2" id="res-pano">
-                                    <div v-for="(image,index) in  images" :key="image.id" :class="[(activeImage == index) ? 'active' : '']" @click="activateImage(index)">
+                                <div v-for="(image,index) in  images" :key="image.id" :class="[(activeImage == index) ? 'active' : '']" @click="activateImage(index)">
                                     <h3>
                                         <span>
                                             <img  :src ="'/upload/nursing_profile/' + image.photo" @error="imgUrlAlt" class="img-fluid">
@@ -232,7 +216,6 @@
                                             <slick :options="slickOptions" ref="slickSetting1">
                                                 <div>
                                                     <h2>
-                                                        <!-- <img :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="img-fluid" @error="imgUrlAlt"/> -->
                                                         <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120" :draggable="true"></Pannellum>
                                                     </h2>
                                                 </div>
@@ -250,165 +233,150 @@
                                         </div>
                                     </div>
                                 </transition>
-
                             </div>
                         </div>
                         <!--end responsive with gallery and panorama -->
-                        <!-- <div  v-for="image in  images"  :key="image.id"></div> -->
                     </div>
-
                     <!--end for slide image-->
                     <!--for address-->
-                     <div class="col-md-7 detail_profile_right col-slg-12 pad-free-750">
-                         <!-- <span class="top-mail-btn-res btn sp-414" @click="documentPost()" v-if="loginuser=='false' && !$auth.check()"><i data-v-b65423c6="" class="far fa-envelope" style="font-size: 15px;font-weight: bold;;"></i>&nbsp;資料請求</span> -->
+                    <div class="col-md-7 detail_profile_right col-slg-12 pad-free-750">
                         <div class="m-lr-0 pro-heading">
-                             <div class="col-12 pad-free pc-1024">
+                            <div class="col-12 pad-free pc-1024">
                                 <h5 class="profile_header">
                                     <span class="span-height">介護情報</span>
-                              <!--fav and mail btn-->
-                                <div class="d-block float-right" v-if="loginuser=='false'">
-                                    <div class="m-r-10 float-left">
-                                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                                    <!--fav and mail btn-->
+                                    <div class="d-block float-right" v-if="loginuser=='false'">
+                                        <div class="m-r-10 float-left">
+                                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                                         </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
-                                </div>
-                                <!--end fav and mail btn-->
+                                        <div class="float-right">
+                                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--end fav and mail btn-->
                                 </h5>
-                             </div>
-                             
+                            </div>                             
                             <table class="table table-bordered info_tbl">
-                                    <tbody>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>入居時費用</font>
-                                            </th>
-                                            <td>
-                                                
-                                                <font class="cash-lbl">
-                                                    <span v-if="Number(cust.moving_in_from) == 0">0円</span>
+                                <tbody>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>入居時費用</font>
+                                        </th>
+                                        <td>                                                
+                                            <font class="cash-lbl">
+                                                <span v-if="Number(cust.moving_in_from) == 0">0円</span>
+                                                <span v-else>
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
+                                                </span>
+                                                    ~
+                                                <span v-if="Number(cust.moving_in_to) == 0">0円</span>
+                                                <span v-else>
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
+                                                </span>                                                    
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>月額費用</font>
+                                        </th>
+                                        <td>
+                                            <font class="cash-lbl">
+                                                <span v-if="Number(cust.per_month_from) == 0">0円</span>
+                                                <span v-else>
+                                                {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
+                                                </span>
+                                                    ~
+                                                    <span v-if="Number(cust.per_month_to) == 0">0円</span>
                                                     <span v-else>
-                                                        {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
-                                                    </span>
-                                                        ~
-                                                    <span v-if="Number(cust.moving_in_to) == 0">0円</span>
-                                                    <span v-else>
-                                                        {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
-                                                    </span>
-                                                    
-                                                </font>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>月額費用</font>
-                                            </th>
-                                            <td>
-                                                <font class="cash-lbl">
-                                                    <span v-if="Number(cust.per_month_from) == 0">0円</span>
-                                                    <span v-else>
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
-                                                    </span>
-                                                     ~
-                                                     <span v-if="Number(cust.per_month_to) == 0">0円</span>
-                                                     <span v-else>
-                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
-                                                    </span>
-                                                </font>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>住所 </font>
-                                            </th>
-                                            <td>
-                                                <font>{{(cust.address == '')?'-':cust.address}}</font>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>電話番号</font>
-                                            </th>
-                                            <td>
-                                                <font>{{cust.phone}}</font>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>アクセス　</font>
-                                            </th>
-                                            <td v-if="cust.access">
-                                                <p v-html=cust.access></p>
-                                            </td>
-                                            <td v-else> - </td>
-                                        </tr>
-                                        <tr>
-                                            <th  class="custom-bg-color">
-                                                <font>運営事業者</font>
-                                            </th>
-                                            <td v-if="cust.operator">
-                                                <font>{{cust.operator}}</font>
-                                            </td>
-                                            <td v-else> - </td>
-                                        </tr>
-                                        
-                                    </tbody>
+                                                {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
+                                                </span>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>住所 </font>
+                                        </th>
+                                        <td>
+                                            <font>{{(cust.address == '')?'-':cust.address}}</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>電話番号</font>
+                                        </th>
+                                        <td>
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>アクセス　</font>
+                                        </th>
+                                        <td v-if="cust.access">
+                                            <p v-html=cust.access></p>
+                                        </td>
+                                        <td v-else> - </td>
+                                    </tr>
+                                    <tr>
+                                        <th  class="custom-bg-color">
+                                            <font>運営事業者</font>
+                                        </th>
+                                        <td v-if="cust.operator">
+                                            <font>{{cust.operator}}</font>
+                                        </td>
+                                        <td v-else> - </td>
+                                    </tr>                                        
+                                </tbody>
                             </table>
-
                         </div>
-
-                         <h5 class="header m-t-10">こだわりの特長</h5>
-
+                        <h5 class="header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0" v-if="specialfeature">
-
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
-
                                 <li>{{special.short_name}}</li>
-
                             </ul>
-
                         </div>
-
                         <div class="row m-lr-0" v-else>
                             <p class="no-data-color">データがありません。</p>
                         </div>
-
                     </div>
-
                     <!--end for address-->
-
                 </div>
-
             </div>
-
             <div class="ele m-lr-0" id="element2">
                 <h5 class="profile_header">
-                <span class="span-height">特長</span>
-                <!--fav and mail btn-->
-                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <span class="span-height">特長</span>
+                    <!--fav and mail btn-->
+                    <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
-                <!--end fav and mail btn-->
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end fav and mail btn-->
                 </h5>
                 <!--fav and mail btn-->
                 <section class="row col-12 m-0 p-0">
-                <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
                 </section>
                 <!--end fav and mail btn-->                
                 <div class="col-md-12 d-flex m-b-768">
@@ -419,426 +387,330 @@
                         <p class="no-data-color">データがありません。</p>
                     </span>
                 </div>
-
             </div>
-
             <div class="ele m-lr-0" id="element3">
                 <h5 class="profile_header">
-                <span class="span-height">費用</span>
-                <!--fav and mail btn-->
-                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <span class="span-height">費用</span>
+                    <!--fav and mail btn-->
+                    <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
-                <!--end fav and mail btn-->
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end fav and mail btn-->
                 </h5>
                 <!--fav and mail btn-->
                 <section class="row col-12 m-0 p-0">
-                <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
                 </section>
-                <!--end fav and mail btn-->   
-                
-                <!-- <div class="row col-12 pad-free-750 m-0">
-                    <table class="table table-striped table-bordered payment-tbl" >
-                        <tr>
-                            <th class="custom-bg-color">
-                                <font>支払方法</font>
-                            </th>
-                            <td v-if="nus_method">
-                                <p>{{nus_method}}</p>
-                            </td>
-                            <td v-else> -
-                            </td>
-                        </tr>
-                    </table>
-                </div> -->
-
-                    <div v-if="method_payment.length > 0" class="pc-414">
-                        <!-- <div class="cost_tb"> -->
-                            <div class="row col-12 m-0 p-0 cost_tb" >
-                                <div class="col-md-12 main-cost-wrap pad-free-750">
-                                    <table class="table table-bordered cost_table main-cost-table">
-                                        <thead>
-                                            <tr>
-                                                <th>プラン名 / 居室詳細</th>
-                                                <th>入居時費用</th>
-                                                <th>月額費用</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr v-for="(cost,index) in method_payment" :key="cost.id" :class="'cost'+index">
-                                            <td>
-                                                <h5 class="method-name">{{cost.payment_name}}</h5>
-                                                <span class="room-type"> {{cost.living_room_type}} </span>
-                                                {{cost.area}}
-                                            </td>
-                                            <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>
-                                            <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
-                                            <td>
-                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id,index)" >詳細はこちら</span>
-                                                <span :class="'closeLink closeLink'+cost.id" @click="closeDetail(cost.id,index)" class="hideCloseBtn float-right">詳細を閉じる</span>
-                                            </td>
+                <!--end fav and mail btn-->
+                <div v-if="method_payment.length > 0" class="pc-414">
+                    <div class="row col-12 m-0 p-0 cost_tb" >
+                        <div class="col-md-12 main-cost-wrap pad-free-750">
+                            <table class="table table-bordered cost_table main-cost-table">
+                                <thead>
+                                    <tr>
+                                        <th>プラン名 / 居室詳細</th>
+                                        <th>入居時費用</th>
+                                        <th>月額費用</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="(cost,index) in method_payment" :key="cost.id" :class="'cost'+index">
+                                    <td>
+                                        <h5 class="method-name">{{cost.payment_name}}</h5>
+                                        <span class="room-type"> {{cost.living_room_type}} </span>
+                                        {{cost.area}}
+                                    </td>
+                                    <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>
+                                    <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
+                                    <td>
+                                        <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id,index)" >詳細はこちら</span>
+                                        <span :class="'closeLink closeLink'+cost.id" @click="closeDetail(cost.id,index)" class="hideCloseBtn float-right">詳細を閉じる</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>                                
+                        <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                            <label class="cost_heading_lbl m-b-15">{{cost.payment_name}}</label>
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
+                                <table id="costDetails" class="table table-condensed table-bordered cost_table moving-in_tbl">
+                                    <tbody>
+                                        <tr>
+                                            <th>入居一時金または</th>
+                                            <td><span class="cash-lbl-mini">{{cost.deposit}}</span></td>
+                                            <th>その他（使途）</th>
+                                            <td>{{cost.other_use}}</td>
                                         </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
-                                    <label class="cost_heading_lbl m-b-15">{{cost.payment_name}}</label>
-                                    <div class="col-md-12">
-                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
-                                        <table id="costDetails" class="table table-condensed table-bordered cost_table moving-in_tbl">
-                                            <tbody>
-                                                <tr>
-                                                    <th>入居一時金または</th>
-                                                    <td><span class="cash-lbl-mini">{{cost.deposit}}</span></td>
-                                                    <th>その他（使途）</th>
-                                                    <td>{{cost.other_use}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 月額費用</label>
-                                        <table class="table table-condensed table-bordered cost_table">
-                                            <tbody>
-
-                                                <tr>
-                                                    <th>賃料</th>
-                                                    <td><span class="cash-lbl-mini">{{cost.rent}}</span></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>管理費</th>
-                                                    <td><span class="cash-lbl-mini">{{cost.admin_expense}}</span></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>食費 </th>
-                                                    <td><span class="cash-lbl-mini">{{cost.food_expense}}</span></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>介護上乗せ金（生活サービス費</th>
-                                                    <td><span class="cash-lbl-mini">{{cost.nurse_care_surcharge}}</span></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>その他 </th>
-                                                    <td>{{cost.other_monthly_cost}}</td>
-                                                </tr>
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 返還金について</label>
-                                        <table class="table table-condensed table-bordered cost_table">
-                                            <tbody>
-
-                                                <tr>
-
-                                                    <th>返還制度</th>
-
-                                                    <td>{{cost.refund_system}}</td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <th>償却期間</th>
-
-                                                    <td>{{cost.depreciation_period}}</td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <th>初期償却</th>
-
-                                                    <td>{{cost.initial_deprecration}}</td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <th>その他メッセージ</th>
-
-                                                    <td>{{cost.other_message_refund}}</td>
-
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
+                                    </tbody>
+                                </table>
                             </div>
-                        
-                    </div>
-                    <div v-else class="row col-12 m-0 m-b-768"> <p class="no-data-color">データがありません。</p> </div>
-
-                    <!--Table responsive-->
-                    <div class=" col-12 p-0 card sp-414 mb-3" v-for="(cost) in method_payment" :key="cost.id">
-                        <div class="card-header font-weight-bold">{{cost.payment_name}}</div>
-                        <div class="card-body payment-body">
-                                
-                            <p class="mb-2"><span>初期</span> {{cost.expense_moving}}</p>
-                            <p><span>月額</span> {{cost.monthly_fees}}</p>
-
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 月額費用</label>
+                                <table class="table table-condensed table-bordered cost_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>賃料</th>
+                                            <td><span class="cash-lbl-mini">{{cost.rent}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>管理費</th>
+                                            <td><span class="cash-lbl-mini">{{cost.admin_expense}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>食費 </th>
+                                            <td><span class="cash-lbl-mini">{{cost.food_expense}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>介護上乗せ金（生活サービス費</th>
+                                            <td><span class="cash-lbl-mini">{{cost.nurse_care_surcharge}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>その他 </th>
+                                            <td>{{cost.other_monthly_cost}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 返還金について</label>
+                                <table class="table table-condensed table-bordered cost_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>返還制度</th>
+                                            <td>{{cost.refund_system}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>償却期間</th>
+                                            <td>{{cost.depreciation_period}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>初期償却</th>
+                                            <td>{{cost.initial_deprecration}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>その他メッセージ</th>
+                                            <td>{{cost.other_message_refund}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="payment-footer">
-                            <span class="detail-btn" :class="'changeLink changeLink'+cost.id" @click="costConfirmMini(cost.id,index)" >詳細はこちら</span>
-                            <div class="col-md-12 collapse miniChangeLink" :id="'changeLinkMini' + cost.id">
-                                <label class="cost_heading_lbl_respon m-b-15">{{cost.payment_name}}</label>
-                                <div class="col-md-12">
-                                    <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
-                                    <table id="costDetails" class="table table-condensed table-bordered cost_table moving-in_tbl">
-                                        <tbody>
-                                            <tr>
-                                                <th class="method-name-respon">入居一時金または</th>
-                                                <td><span class="cash-lbl-respon">{{cost.deposit}}</span></td>
-                                                <th class="method-name-respon">その他（使途）</th>
-                                                <td>{{cost.other_use}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 月額費用</label>
-                                    <table class="table table-condensed table-bordered cost_table">
-                                        <tbody>
-
-                                            <tr>
-                                                <th class="method-name-respon">賃料</th>
-                                                <td><span class="cash-lbl-respon">{{cost.rent}}</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="method-name-respon">管理費</th>
-                                                <td><span class="cash-lbl-respon">{{cost.admin_expense}}</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="method-name-respon">食費 </th>
-                                                <td><span class="cash-lbl-respon">{{cost.food_expense}}</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="method-name-respon">介護上乗せ金（生活サービス費</th>
-                                                <td><span class="cash-lbl-respon">{{cost.nurse_care_surcharge}}</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="method-name-respon">その他 </th>
-                                                <td>{{cost.other_monthly_cost}}</td>
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 返還金について</label>
-                                    <table class="table table-condensed table-bordered cost_table">
-                                        <tbody>
-
-                                            <tr>
-
-                                                <th class="method-name-respon">返還制度</th>
-
-                                                <td>{{cost.refund_system}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th class="method-name-respon">償却期間</th>
-
-                                                <td>{{cost.depreciation_period}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th class="method-name-respon">初期償却</th>
-
-                                                <td>{{cost.initial_deprecration}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th class="method-name-respon">その他メッセージ</th>
-
-                                                <td>{{cost.other_message_refund}}</td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </div>                        
+                </div>
+                <div v-else class="row col-12 m-0 m-b-768"> <p class="no-data-color">データがありません。</p> </div>
+                <!--Table responsive-->
+                <div class=" col-12 p-0 card sp-414 mb-3" v-for="(cost) in method_payment" :key="cost.id">
+                    <div class="card-header font-weight-bold">{{cost.payment_name}}</div>
+                    <div class="card-body payment-body">                                
+                        <p class="mb-2"><span>初期</span> {{cost.expense_moving}}</p>
+                        <p><span>月額</span> {{cost.monthly_fees}}</p>
+                    </div>
+                    <div class="payment-footer">
+                        <span class="detail-btn" :class="'changeLink changeLink'+cost.id" @click="costConfirmMini(cost.id,index)" >詳細はこちら</span>
+                        <div class="col-md-12 collapse miniChangeLink" :id="'changeLinkMini' + cost.id">
+                            <label class="cost_heading_lbl_respon m-b-15">{{cost.payment_name}}</label>
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
+                                <table id="costDetails" class="table table-condensed table-bordered cost_table moving-in_tbl">
+                                    <tbody>
+                                        <tr>
+                                            <th class="method-name-respon">入居一時金または</th>
+                                            <td><span class="cash-lbl-respon">{{cost.deposit}}</span></td>
+                                            <th class="method-name-respon">その他（使途）</th>
+                                            <td>{{cost.other_use}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 月額費用</label>
+                                <table class="table table-condensed table-bordered cost_table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="method-name-respon">賃料</th>
+                                            <td><span class="cash-lbl-respon">{{cost.rent}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">管理費</th>
+                                            <td><span class="cash-lbl-respon">{{cost.admin_expense}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">食費 </th>
+                                            <td><span class="cash-lbl-respon">{{cost.food_expense}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">介護上乗せ金（生活サービス費</th>
+                                            <td><span class="cash-lbl-respon">{{cost.nurse_care_surcharge}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">その他 </th>
+                                            <td>{{cost.other_monthly_cost}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="cost_heading_lbl_mini_res"><i class="fas fa-yen-sign"></i> 返還金について</label>
+                                <table class="table table-condensed table-bordered cost_table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="method-name-respon">返還制度</th>
+                                            <td>{{cost.refund_system}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">償却期間</th>
+                                            <td>{{cost.depreciation_period}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">初期償却</th>
+                                            <td>{{cost.initial_deprecration}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="method-name-respon">その他メッセージ</th>
+                                            <td>{{cost.other_message_refund}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <!--End table responsive-->
+                </div>
+                <!--End table responsive-->
             </div>
-
             <div class="ele m-lr-0" id="element4">
                 <h5 class="profile_header">
-                <span class="span-height">施設の概要</span>
-                <!--fav and mail btn-->
-                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <span class="span-height">施設の概要</span>
+                    <!--fav and mail btn-->
+                    <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
-                <!--end fav and mail btn-->
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end fav and mail btn-->
                 </h5>
                 <!--fav and mail btn-->
                 <section class="row col-12 m-0 p-0">
-                <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
                 </section>
-                <!--end fav and mail btn--> 
-               
-                    <div class="row col-12 m-0 p-0">
+                <!--end fav and mail btn-->                
+                <div class="row col-12 m-0 p-0">
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 pad-free-750" >
                         <table border="1" class="table table-bordered cost_table facility_tbl">
                             <tbody>
                                 <tr>
-                                <th custom-bg-color> 事業主体</th>
-                                <td v-if="nus.business_entity">{{nus.business_entity}}</td>
-                                <td v-else>-</td>
-                            </tr>
-                            <tr>
-                                <th custom-bg-color>開設年月日</th>
-                                <td v-if="nus.date_of_establishment">{{nus.date_of_establishment}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-                                <th custom-bg-color> 土地の権利形態 </th>
-                                <td v-if="nus.land_right_form">{{nus.land_right_form}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-                                <th custom-bg-color>建物の権利形態</th>
-                                <td v-if="nus.building_right_form">{{nus.building_right_form}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-                                <th custom-bg-color>敷地面積</th>
-                                <td v-if="nus.site_area">{{nus.site_area}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-                                <th custom-bg-color>延床面積</th>
-                                <td v-if="nus.floor_area">{{nus.floor_area}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>構造</th>
-                                <td v-if="nus.construction">{{nus.construction}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-                                <th custom-bg-color>定員</th>
-                                <td v-if="nus.capacity">{{nus.capacity}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>総居室・戸数 </th>
-                                <td v-if="nus.num_rooms">{{nus.num_rooms}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>居住の権利形態 </th>
-                                <td v-if="nus.residence_form"><p v-html="nus.residence_form"></p></td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>類型 </th>
-                                <td v-if="nus.fac_type">{{nus.fac_type}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>入居条件</th>
-                                <td v-if="nus.occupancy_condition">{{nus.occupancy_condition}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>居室区分・間取り等 </th>
-                                <td v-if="nus.room_floor">{{nus.room_floor}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color> 居室設備</th>
-                                <td v-if="nus.living_room_facilities">{{nus.living_room_facilities}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
-                            <tr>
-
-                                <th custom-bg-color>共用施設・設備 </th>
-                                <td v-if="nus.equipment">{{nus.equipment}}</td>
-                                <td v-else>-</td>
-                            </tr>
-
+                                    <th custom-bg-color> 事業主体</th>
+                                    <td v-if="nus.business_entity">{{nus.business_entity}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>開設年月日</th>
+                                    <td v-if="nus.date_of_establishment">{{nus.date_of_establishment}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color> 土地の権利形態 </th>
+                                    <td v-if="nus.land_right_form">{{nus.land_right_form}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>建物の権利形態</th>
+                                    <td v-if="nus.building_right_form">{{nus.building_right_form}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>敷地面積</th>
+                                    <td v-if="nus.site_area">{{nus.site_area}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>延床面積</th>
+                                    <td v-if="nus.floor_area">{{nus.floor_area}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>構造</th>
+                                    <td v-if="nus.construction">{{nus.construction}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>定員</th>
+                                    <td v-if="nus.capacity">{{nus.capacity}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>総居室・戸数 </th>
+                                    <td v-if="nus.num_rooms">{{nus.num_rooms}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>居住の権利形態 </th>
+                                    <td v-if="nus.residence_form"><p v-html="nus.residence_form"></p></td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>類型 </th>
+                                    <td v-if="nus.fac_type">{{nus.fac_type}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>入居条件</th>
+                                    <td v-if="nus.occupancy_condition">{{nus.occupancy_condition}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>居室区分・間取り等 </th>
+                                    <td v-if="nus.room_floor">{{nus.room_floor}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color> 居室設備</th>
+                                    <td v-if="nus.living_room_facilities">{{nus.living_room_facilities}}</td>
+                                    <td v-else>-</td>
+                                </tr>
+                                <tr>
+                                    <th custom-bg-color>共用施設・設備 </th>
+                                    <td v-if="nus.equipment">{{nus.equipment}}</td>
+                                    <td v-else>-</td>
+                                </tr>
                             </tbody>
-
                         </table>
-
                     </div>
-
                     <div class="col-md-12 pad-free-750">
                         <h5 class="profile_subtit">フォトアルバム</h5>
                         <div class="row m-0 m-b-768" v-if="light_images == '' || light_images.length == 0">
@@ -846,16 +718,14 @@
                         </div>
                         <div class="row gallery-list m-0" v-else>
                             <div v-for="(image,index) in  light_images" :key="index" class="col-6 col-md-4 col-sm-4 col-lg-3 m-b-10 ">
-                                    <div class="gallery-item">
-                                        <img :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  @error="imgUrlAlt">
-                                    </div>
-                                    <span class="img_txt">{{image.title}}</span>
-                                <!-- <span>{{image.photo}}</span> -->
+                                <div class="gallery-item">
+                                    <img :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  @error="imgUrlAlt">
+                                </div>
+                                <span class="img_txt">{{image.title}}</span>
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
                         </div>
                     </div>
-
                     <div class="col-md-12 pad-free-750">
                         <h5 class="profile_subtit">動画</h5>
                         <div class="row m-0 m-b-768" v-if="videos == '' || videos.length == 0">
@@ -867,44 +737,38 @@
                                     <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls width="100%"></iframe>
                                 </div>
                                 <span class="video_txt">{{video.title}}</span>
-
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12 pad-free-750">
                         <h5 class="profile_subtit">協力医療機関</h5>
                         <div v-if="cooperate_medical.length>0" class="col-md-12 pad-free-750">
-                                <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 pad-free" >
-                                    <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
-                                    <table border="1" class="table table-bordered cost_table facility_tbl">
-                                        <tbody>
-                                            <tr>
-                                                <th class="custom-bg-color" > 診療科目</th>
-                                                <td>{{comedical.clinical_subject}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="custom-bg-color">協力内容</th>
-                                                <td >{{comedical.details}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="custom-bg-color">診療費用</th>
-                                                <td >{{comedical.medical_expense}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="custom-bg-color">備考</th>
-                                                <td >{{comedical.remark}}</td>
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
+                            <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 pad-free" >
+                                <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
+                                <table border="1" class="table table-bordered cost_table facility_tbl">
+                                    <tbody>
+                                        <tr>
+                                            <th class="custom-bg-color" > 診療科目</th>
+                                            <td>{{comedical.clinical_subject}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="custom-bg-color">協力内容</th>
+                                            <td >{{comedical.details}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="custom-bg-color">診療費用</th>
+                                            <td >{{comedical.medical_expense}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="custom-bg-color">備考</th>
+                                            <td >{{comedical.remark}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="col-12 m-b-768" v-else> <p class="no-data-color">データがありません。</p> </div>
                     </div>
-
                     <div class="col-12 pad-free-750">
                         <h5 class="profile_subtit"> 医療面の受入れ</h5>
                         <div class="row  m-0">
@@ -914,7 +778,8 @@
                                         <i v-if="ma.name === maccept.name && ma.accept_type === 'accept'" class="fas fa-check green"></i>
                                         <i v-if="ma.name === maccept.name && ma.accept_type === 'unaccept'" class="fas fa-times red"></i>
                                         <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiate'" class="fas fa-adjust blue"></i>
-                                    </div>&nbsp;
+                                    </div>
+                                    &nbsp;
                                     {{maccept.name}}
                                 </div>
                             </div>
@@ -925,283 +790,226 @@
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                         </div>
                         <div class="form-group">
-                            <!-- <label for="">備考</label> -->
                             <p v-html="nus_pro.acceptance_remark"></p>
                         </div>
                     </div>
-
                     <div class=" col-12 pad-free-750">
                         <h5  class="profile_subtit"> 職員体制</h5>
                         <div v-if="staff.length>0">
-
                             <div v-for="st in staff" :key="st.id" class="col-md-12 pad-free-750">
-
                                 <table border="1" class="table table-bordered staff_tbl">
-
                                     <tbody>
-
                                         <tr>
-
                                             <th class="custom-bg-color"> 介護に関わる職員体制（入居者：職員）</th>
-
                                             <td>{{st.staff}}</td>
-
                                             <th class="custom-bg-color"> 介護職員    </th>
-
                                             <td>{{st.nursing_staff}}</td>
-
                                         </tr>
-
                                         <tr>
-
                                             <th class="custom-bg-color"> 夜間の最少職員数   </th>
-
                                             <td>{{st.min_num_staff}}</td>
-
                                             <th class="custom-bg-color">     看護職員数     </th>
-
                                             <td>{{st.num_staff}}</td>
-
                                         </tr>
-
                                     </tbody>
-
                                 </table>
                                 <div class="form-group">
-                                    <!-- <label for="">備考</label> -->
                                     <p v-html="st.remarks"></p>
                                 </div>
                             </div>
-
                         </div>
                         <div v-else class="col-12 m-b-768"> <p class="no-data-color">データがありません。</p> </div>
-
                     </div>
-                    </div>
-
+                </div>
             </div>
-
             <div class="ele m-lr-0" id="element5">
                 <h5 class="profile_header">
-                <span class="span-height">地図</span>
-                <!--fav and mail btn-->
-                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <span class="span-height">地図</span>
+                    <!--fav and mail btn-->
+                    <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
-                <!--end fav and mail btn-->
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end fav and mail btn-->
                 </h5>
                 <!--fav and mail btn-->
                 <section class="row col-12 m-0 p-0">
-                <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
                 </section>
                 <!--end fav and mail btn-->                 
-                        <div class="row col-lg-12 col-md-12 col-sm-12 pad-0-res m-0 p-0">
-                            <GmapMap class="col-12" id="googlemap" ref="map" :center="center" :zoom="10" >
-                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
-
-                           </GmapMap>
-
-                            <div class="col-md-12 m-t-20 pad-free-750"  v-for="m in nus_pro" :key="m.id" >
-                                <table border="1" class="table table-bordered map_tbl">
-                                    <tbody>
-                                    <tr>
-                                        <th class="custom-bg-color"> 公式サイト</th>
-                                        <td v-if="m.website">{{m.website}}</td> <td v-else> - </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="custom-bg-color"> メールアドレス</th>
-                                        <td v-if="m.website">{{m.email}}</td>
-                                        <td v-else> - </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="custom-bg-color"> アクセス</th>
-                                        <td v-if="m.access"><p v-html="m.access"></p></td> <td v-else> - </td>
-                                    </tr>
-                                    <!-- <tr>
-                                        <th class="custom-bg-color">住所 </th>
-                                        <td v-if="m.address">{{m.address}}</td> <td v-else> - </td>
-                                    </tr> -->
-                                    </tbody>
-                                </table>
-                            </div>
-                      </div>
-                 </div>
-
-
-
+                <div class="row col-lg-12 col-md-12 col-sm-12 pad-0-res m-0 p-0">
+                    <GmapMap class="col-12" id="googlemap" ref="map" :center="center" :zoom="10" >
+                        <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
+                    </GmapMap>
+                    <div class="col-md-12 m-t-20 pad-free-750"  v-for="m in nus_pro" :key="m.id" >
+                        <table border="1" class="table table-bordered map_tbl">
+                            <tbody>
+                            <tr>
+                                <th class="custom-bg-color"> 公式サイト</th>
+                                <td v-if="m.website">{{m.website}}</td> <td v-else> - </td>
+                            </tr>
+                            <tr>
+                                <th class="custom-bg-color"> メールアドレス</th>
+                                <td v-if="m.website">{{m.email}}</td>
+                                <td v-else> - </td>
+                            </tr>
+                            <tr>
+                                <th class="custom-bg-color"> アクセス</th>
+                                <td v-if="m.access"><p v-html="m.access"></p></td> <td v-else> - </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="ele m-lr-0" id="element6">
                 <h5 class="profile_header col-12">口コミ</h5>
-                 <!--fav and mail btn-->
-                <!-- <div class="d-block float-right m-b-20" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                        </div>
-                    <div class="float-right"><span class=" pc-414" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div> -->
-                <!--end fav and mail btn-->
-                <!-- <div style="min-height:300px;"> -->
-               <div class="col-lg-12 col-md-12 col-sm-12 pad-0-res m-0"  v-if="displayItems.length>0">
+                <div class="col-lg-12 col-md-12 col-sm-12 pad-0-res m-0"  v-if="displayItems.length>0">
                     <div class="card mb-4 col-12 p-0" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
                                 <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
                             <div class="d-flex d-block">
-                                <!-- <p class="card-title font-weight-bold">{{comment.email}}</p>
-                                <p class="comment-age" v-if="comment.year != null">{{ new Date().getFullYear() - comment.year}}年代</p>
-                                <p class="comment-age" v-else></p> -->
                                 <p class="comment-date"><i class="fa fa-calendar-alt" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
                             </div>
-                                <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160" class="m-t-comment"></read-more><br>
-                                <div>{{comment.customer}}</div>
+                            <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160" class="m-t-comment"></read-more><br>
+                            <div>{{comment.customer}}</div>
                         </div>
                     </div>
                     <div class="m-b-20 text-right">
                         <router-link :to="{ path:'/comment/nursing/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
-                        <span>口コミを投稿する</span>
-                        </router-link>
-                    </div>
-
-               </div>
-               <div v-else class="row col-12 m-0 p-0">
-                   <div class="col-12 m-b-768">
-                        <p class="no-data-color pb-3">口コミはありません。</p>
-                   </div>
-                  
-                   <div class="col-12 m-b-20 text-right p-0">
-                        <router-link :to="{ path:'/comment/nursing/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
-                        <span>口コミを投稿する</span>
+                            <span>口コミを投稿する</span>
                         </router-link>
                     </div>
                 </div>
-                <!-- </div> -->
-               <div class="col-12" v-if="pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
-                                    </li>
-                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
-                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                <div v-else class="row col-12 m-0 p-0">
+                    <div class="col-12 m-b-768">
+                        <p class="no-data-color pb-3">口コミはありません。</p>
+                    </div>                  
+                    <div class="col-12 m-b-20 text-right p-0">
+                        <router-link :to="{ path:'/comment/nursing/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
+                            <span>口コミを投稿する</span>
+                        </router-link>
+                    </div>
+                </div>
+                <div class="col-12" v-if="pagination">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                            </li>
+                            <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-
-    </div>
-
-    <div v-if="type == 'hospital'" id="hospitalView">
-         <p class="job_id3" v-if="$auth.user().role == 2"><span>施設番号:{{profilenumber}}</span></p>
-
-        <div v-else>
-            <div class="pc-9-180">
-                <span class="customer-id ">施設番号:{{profilenumber}}</span>
-            </div>
-            <p class="job_id3 sp-9-180"><span>施設番号:{{profilenumber}}</span></p>
         </div>
+        <div v-if="type == 'hospital'" id="hospitalView">
+            <p class="job_id3" v-if="$auth.user().role == 2"><span>施設番号:{{profilenumber}}</span></p>
+            <div v-else>
+                <div class="pc-9-180">
+                    <span class="customer-id ">施設番号:{{profilenumber}}</span>
+                </div>
+                <p class="job_id3 sp-9-180"><span>施設番号:{{profilenumber}}</span></p>
+            </div>
             <h5 class="profile-tit" v-if="hospitals[0]"> {{hospitals[0].name}}</h5>
-           <div class="tab typelabel nav-link fixed-nav el el2">
-               
+            <div class="tab typelabel nav-link fixed-nav el el2">               
                 <button v-scroll-to="{ el: '#element7'}" class="top-fixed-btn" @click="activate(7)" :class="{ active : active_el == 7 }">
                     病院情報
                 </button>
-
                 <button v-scroll-to="{ el: '#element8' }" class="top-fixed-btn" @click="activate(8)" :class="{ active : active_el == 8 }">
                     地図
                 </button>
-
                 <button v-scroll-to="{ el: '#element9' }" class="top-fixed-btn" @click="activate(9)" :class="{ active : active_el == 9 }">
                     口コミ
                 </button>
-
-                <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-                    求人応募
-                </button> -->
             </div>
-
             <div class="ele m-lr-0 pt-2" id="element7">
                 <!-- ee-->
-                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in hospitals" :key="cust.id">
+                <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in hospitals" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-md-5 col-slg-12 col-sm-12 detail_profile_left pad-free-750">
-                            <div class="col-12 pad-free sp-1024">
-                                <h5 class="profile_header">
+                        <div class="col-12 pad-free sp-1024">
+                            <h5 class="profile_header">
                                 <span class="span-height">病院情報</span>
                                 <!--fav and mail btn-->
                                 <div class="d-block float-right pc-414" v-if="loginuser=='false'">
                                     <div class="m-r-10 float-left">
                                         <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                                         <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                                        </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
+                                    </div>
+                                    <div class="float-right">
+                                        <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                            <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                        </span>
+                                    </div>
                                 </div>
                                 <!--end fav and mail btn-->
-                                </h5>
-                                <!--fav and mail btn-->
-                                <section class="row col-12 m-0 p-0">
+                            </h5>
+                            <!--fav and mail btn-->
+                            <section class="row col-12 m-0 p-0">
                                 <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
                                     <div class="m-r-10 float-left">
                                         <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                                         <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                                        </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
+                                    </div>
+                                    <div class="float-right">
+                                        <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                            <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                        </span>
+                                    </div>
                                 </div>
-                                </section>
-                                <!--end fav and mail btn-->                                                               
-                            </div>
-                           <div class="thumbnail-img pc-414">
-                             <div class="card-carousel">
+                            </section>
+                            <!--end fav and mail btn-->                                                               
+                        </div>
+                        <div class="thumbnail-img pc-414">
+                            <div class="card-carousel">
                                 <div class="card-img photocard-carousel-wrapper">
                                     <img :src="'/upload/hospital_profile/' +currentImage" alt="" @error="imgUrlAlt">
                                     <div class="actions">
                                         <span @click="prevImage" class="prev">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
-
                                         <span @click="nextImage" class="next">
                                             <i class="fas fa-chevron-right"></i>
                                         </span>
                                     </div>
                                 </div>
-
                                 <div class="row col-12 photocard-title">
                                     <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
                                     <div class="row col-12 m-b-10">
-                                         <p class="text-left">{{activeImageDescription}}</p>
+                                        <p class="text-left">{{activeImageDescription}}</p>
                                     </div>
                                 </div>
-
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
@@ -1225,7 +1033,7 @@
                                 <p>{{activeImageDescription}}</p>
                             </slick>
                             <slick :options="slickOptions2" ref="slickSetting2" id="res-pano">
-                                    <div v-for="(image,index) in  images" :key="image.id" :class="[(activeImage == index) ? 'active' : '']" @click="activateImage(index)">
+                                <div v-for="(image,index) in  images" :key="image.id" :class="[(activeImage == index) ? 'active' : '']" @click="activateImage(index)">
                                     <h3>
                                         <span>
                                             <img  :src ="'/upload/hospital_profile/' + image.photo" @error="imgUrlAlt" class="img-fluid">
@@ -1233,31 +1041,31 @@
                                     </h3>
                                 </div>
                             </slick>
-
                         </div>
                         <!--end responsive with gallery -->
                     </div>
                     <!--end for slide image-->
-
                     <!--for address-->
-                     <div class="col-md-7 col-sm-12 detail_profile_right col-slg-12 pad-free-750">
+                    <div class="col-md-7 col-sm-12 detail_profile_right col-slg-12 pad-free-750">
                         <div class="row m-lr-0">
                             <div class="col-12 pro-heading pad-free">
                                 <div class="col-12 pad-free pc-1024">
                                     <h5 class="profile_header">
-                                    <span class="span-height">病院情報</span>
-                              <!--fav and mail btn-->
-                                <div class="d-block float-right" v-if="loginuser=='false'">
-                                    <div class="m-r-10 float-left">
-                                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                                        <span class="span-height">病院情報</span>
+                                        <!--fav and mail btn-->
+                                        <div class="d-block float-right" v-if="loginuser=='false'">
+                                            <div class="m-r-10 float-left">
+                                                <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                                                <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                                            </div>
+                                            <div class="float-right">
+                                                <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                                    <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                                                </span>
+                                            </div>
                                         </div>
-                                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                                    </span></div>
-                                </div>
-                                <!--end fav and mail btn-->
-                                </h5>                                   
+                                        <!--end fav and mail btn-->
+                                    </h5>                                   
                                 </div>                                 
                                 <table class="table table-bordered info_tbl">
                                     <tr>
@@ -1278,7 +1086,7 @@
                                         </td>
                                         <td v-else> - </td>
                                     </tr>
-                                     <tr>
+                                        <tr>
                                         <th class="custom-bg-color">
                                             <font>アクセス</font>
                                         </th>
@@ -1287,7 +1095,7 @@
                                         </td>
                                         <td v-else> - </td>
                                     </tr>
-                                     <tr>
+                                        <tr>
                                         <th class="custom-bg-color">
                                             <font>件名 </font>
                                         </th>
@@ -1299,41 +1107,32 @@
                                         <td v-else> - </td>
                                     </tr>
                                 </table>
-                            </div>
-                            
+                            </div>                            
                         </div>
-
-                         <h5 class="header m-t-10">こだわりの特長</h5>
-
+                            <h5 class="header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0" v-if="specialfeature">
                             <ul class="hos_fac_container" v-for="special in specialfeature" :key="special.id">
                                 <li>{{special.short_name}}</li>
                             </ul>
                         </div>
-                        <div class="row m-lr-0 m-b-768" v-else> <p class="no-data-color">データがありません。</p> </div>
-
-                       
+                        <div class="row m-lr-0 m-b-768" v-else> <p class="no-data-color">データがありません。</p> </div>                       
                     </div>
                     <!--end for address-->
                 </div>
-                 <div class="col-12 m-b-20 pad-free-750">
+                <div class="col-12 m-b-20 pad-free-750">
                     <h5 class="profile_subtit">診療科目 </h5>
-
-                <div class="row col-md-12" v-if="subjects">
-                <ul class="sub_container" v-for="sub in subjects" :key="sub.id">
-                    <li>{{sub.name}}</li>
-                </ul>
-                </div>
-                <div class="col-12 m-b-768" v-else>
-                   <p class="no-data-color">データがありません。</p>
-                </div>
-                </div>
-             
-            <!--end ee-->
-
+                    <div class="row col-md-12" v-if="subjects">
+                        <ul class="sub_container" v-for="sub in subjects" :key="sub.id">
+                            <li>{{sub.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 m-b-768" v-else>
+                        <p class="no-data-color">データがありません。</p>
+                    </div>
+                </div>             
+                <!--end ee-->
                 <div class="col-12 m-b-20 pad-free-750">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-
                     <p class="col-12">
                         <span v-if="hospitals[0]"><p v-html="hospitals[0].details_info"></p></span>
                         <span v-else><p class="no-data-color">データがありません。</p></span>
@@ -1355,35 +1154,31 @@
                                         <th> 土 </th>
                                         <th> 日 </th>
                                     </tr>
-
                                     <tr class="last" v-if="am_arr[0]">
                                         <th class="second-row text-center">午前</th>
-                                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
-                                                <span v-if="amval"> {{amval}} </span>
-                                                <span v-else> - </span>
-                                            </td>
+                                        <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
+                                            <span v-if="amval"> {{amval}} </span>
+                                            <span v-else> - </span>
+                                        </td>
                                     </tr>
                                     <tr class="last" v-else>
                                         <th class="second-row text-center">午前</th>
                                         <td v-for="indx in 7" :key="indx" class="text-center"> - </td>
                                     </tr>
-
                                     <tr class="last" v-if="pm_arr[0]">
                                         <th class="second-row text-center">午後</th>
-                                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
-                                                <span v-if="amval"> {{amval}} </span>
-                                                <span v-else> - </span>
-                                            </td>
+                                        <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
+                                            <span v-if="amval"> {{amval}} </span>
+                                            <span v-else> - </span>
+                                        </td>
                                     </tr>
                                     <tr class="last" v-else>
                                         <th class="second-row text-center">午後</th>
                                         <td v-for="indx in 7" :key="indx" class="text-center"> - </td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="col-md-3 col-sm-12 pad-free-750">
                             <p><strong class="font-weight-bold">休診日: </strong>
                                 <span v-if="hospitals[0]"><font>{{hospitals[0].closed_day}}</font></span>
@@ -1391,9 +1186,7 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="col-12 pad-free-750">
                     <h5 class="profile_subtit">院内施設情報 </h5>
                     <div class="row col-md-12 m-0">
@@ -1412,9 +1205,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <div class="col-md-12 pad-free-750">
                 <h5 class="profile_subtit">フォトアルバム</h5>
                 <div class="row m-0" v-if="light_images == '' || light_images.length == 0">
@@ -1426,193 +1217,153 @@
                             <img :src ="'/upload/hospital_profile/' + image.name" class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                         </div>
                         <span class="img_txt">{{image.title}}</span><br>
-
-                        <!-- <span>{{image.photo}}</span> -->
                     </div>
                     <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
                 </div>
             </div>
-
             <!-- Hospital Video -->
-                <div class="col-md-12 pad-free-750">
-                    <h5 class="profile_subtit">動画</h5>
-                    <div class="row m-0 gallery-list" v-if="videos.length>0" style="width:100%;">
-                        <div v-for="(video) in  videos" :key="video.id" class="col-12 col-lg-3 col-md-4 col-sm-4 m-b-10">
-                            <div class="gallery-item" style="height:135px;">
-                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls width="100%"></iframe>
-                            </div>
-                            <span class="video_txt">{{video.title}}</span><br>
+            <div class="col-md-12 pad-free-750">
+                <h5 class="profile_subtit">動画</h5>
+                <div class="row m-0 gallery-list" v-if="videos.length>0" style="width:100%;">
+                    <div v-for="(video) in  videos" :key="video.id" class="col-12 col-lg-3 col-md-4 col-sm-4 m-b-10">
+                        <div class="gallery-item" style="height:135px;">
+                            <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls width="100%"></iframe>
                         </div>
-                    </div>
-                    <div class="row m-0" v-else>
-                        <div class="col-12">
-                            <span> <p class="no-data-color">データがありません。</p> </span>
-                        </div>
+                        <span class="video_txt">{{video.title}}</span><br>
                     </div>
                 </div>
+                <div class="row m-0" v-else>
+                    <div class="col-12">
+                        <span> <p class="no-data-color">データがありません。</p> </span>
+                    </div>
+                </div>
+            </div>
             <!-- End -->
-
             <div class="m-lr-0" id="element8">
-                 <h5 class="profile_header">
-                <span class="span-height">地図</span>
-                <!--fav and mail btn-->
-                <div class="d-block float-right pc-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                <h5 class="profile_header">
+                    <span class="span-height">地図</span>
+                    <!--fav and mail btn-->
+                    <div class="d-block float-right pc-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
-                <!--end fav and mail btn-->
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end fav and mail btn-->
                 </h5>
                 <!--fav and mail btn-->
                 <section class="row col-12 m-0 p-0">
-                <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
-                    <div class="m-r-10 float-left">
-                        <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                    <div class="d-block float-right ml-0 m-b-20 sp-414" v-if="loginuser=='false'">
+                        <div class="m-r-10 float-left">
+                            <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                            <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    <div class="float-right"><span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                        <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-                    </span></div>
-                </div>
+                        <div class="float-right">
+                            <span class="" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
+                                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
+                            </span>
+                        </div>
+                    </div>
                 </section>
                 <!--end fav and mail btn--> 
-
                 <div class="row col-lg-12 col-md-12 col-sm-12 pad-free-750 m-0 p-0">
-
                     <GmapMap id="googlemap" class="col-12" ref="map" :center="center" :zoom="10" >
-
-                    <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
-
+                        <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
                     </GmapMap>
-
-                </div>
-              
+                </div>              
                 <div  class="col-12 m-t-20 pad-free-750" v-for="m in hospitals" :key="m.id" >
-                             <table border="1" class="table table-bordered map_tbl" >
-                                    <tbody>
-                                    <tr>
-                                        <th class="custom-bg-color"> 公式サイト</th>
-                                        <td v-if="m.website">{{m.website}}</td>
-                                        <td v-else> - </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="custom-bg-color"> メールアドレス</th>
-                                        <td>{{m.email}}</td>
-                                        <!-- <td v-else> - </td> -->
-                                    </tr>
-                                    <tr>
-                                        <th class="custom-bg-color"> アクセス</th>
-                                        <td v-if="m.access"><p v-html="m.access"></p></td>
-                                        <td v-else> - </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="custom-bg-color"> 混雑状況</th>
-                                        <td v-if="m.congestion">{{m.congestion}}</td>
-                                        <td v-else> - </td>
-                                    </tr>
-                                    <!-- <tr>
-                                        <th class="custom-bg-color">住所 </th>
-                                        <td v-if="m.address">{{m.address}}</td>
-                                        <td v-else> - </td>
-                                    </tr> -->
-                                    </tbody>
-                                </table>
-                        </div>
-
+                    <table border="1" class="table table-bordered map_tbl" >
+                        <tbody>
+                            <tr>
+                                <th class="custom-bg-color"> 公式サイト</th>
+                                <td v-if="m.website">{{m.website}}</td>
+                                <td v-else> - </td>
+                            </tr>
+                            <tr>
+                                <th class="custom-bg-color"> メールアドレス</th>
+                                <td>{{m.email}}</td>
+                            </tr>
+                            <tr>
+                                <th class="custom-bg-color"> アクセス</th>
+                                <td v-if="m.access"><p v-html="m.access"></p></td>
+                                <td v-else> - </td>
+                            </tr>
+                            <tr>
+                                <th class="custom-bg-color"> 混雑状況</th>
+                                <td v-if="m.congestion">{{m.congestion}}</td>
+                                <td v-else> - </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="row ele m-lr-0" id="element9">
                 <h5 class="profile_header col-12 m-t-20">口コミ</h5>
-                   <div class="col-lg-12 col-md-12 col-sm-12 pad-free-750"  v-if="displayItems.length>0">
+                <div class="col-lg-12 col-md-12 col-sm-12 pad-free-750"  v-if="displayItems.length>0">
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
                                 <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
                             <div class="d-flex">
-                                <!-- <p class="card-title font-weight-bold">{{comment.email}}</p>
-                                <p class="comment-age" v-if="comment.year != null">{{ new Date().getFullYear() - comment.year}}年代</p>
-                                <p class="comment-age" v-else></p> -->
                                 <p class="comment-date"><i class="fa fa-calendar-alt" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
                             </div>
-                                <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160" class="m-t-comment"></read-more><br>
-                                <div>{{comment.customer}}</div>
+                            <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160" class="m-t-comment"></read-more><br>
+                            <div>{{comment.customer}}</div>
                         </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="m-b-20 text-right">
                         <router-link :to="{ path:'/comment/hospital/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
-                        <span>口コミを投稿する</span>
+                            <span>口コミを投稿する</span>
                         </router-link>
                     </div>
-               </div>
+                </div>
                 <div v-else class="row col-12 m-0 p-0">
-                   <div class="col-12">
+                    <div class="col-12">
                         <p class="no-data-color pb-3">口コミはありません。</p>
-                   </div>
-                  
-                   <div class="col-12 m-b-20 text-right p-0">
-                         <router-link :to="{ path:'/comment/hospital/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
-                        <span>口コミを投稿する</span>
+                    </div>                    
+                    <div class="col-12 m-b-20 text-right p-0">
+                        <router-link :to="{ path:'/comment/hospital/'+ pro_id}" class="comment-btn" v-if="show_comment"> <i class="far fa-comment"></i>
+                            <span>口コミを投稿する</span>
                         </router-link>
                     </div>
-                </div>              
-
-
-
-               <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i><span class="aa">最初</span></span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> <span>前へ</span></span>
-                                    </li>
-                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
-                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="next"><span>次へ</span> <i class='fas fa-angle-right'></i></span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="last"><span>最後</span><i class='fas fa-angle-double-right'></i></span>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                </div>
+                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i><span class="aa">最初</span></span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> <span>前へ</span></span>
+                            </li>
+                            <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="next"><span>次へ</span> <i class='fas fa-angle-right'></i></span>
+                            </li>
+                            <li class="page-item">
+                                <span class="spanclass" @click="last"><span>最後</span><i class='fas fa-angle-double-right'></i></span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-
+        </div>
     </div>
-    <!-- <div class="bottom-fixed-btn" v-if="loginuser=='false'">
-         <div class="row justify-content-center">
-            <div class="col-6 col-md-3 col-lg-3 col-xl-2 p0-480">
-                <span class="bottom-fav-btn" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                <span class="bottom-fav-btn" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-            </div>
-            <div class="col-6 col-md-3 col-lg-3 col-xl-2 pc-414" v-if="loginuser=='false' && !$auth.check() && type == 'nursing'">       
-                <span class="bottom-mail-btn" @click="documentPost()"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
-            </div>
-        </div>       
-    </div> -->
-    <!-- <span class="btn fav-profile fav-item fav-color" v-if="!view_pro_id && loginuser=='false'" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-    <span class="btn fav-profile fav-item fav-color" style="color:#aaa;" v-if="view_pro_id && loginuser=='false'" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
-  </div>
-
 </template>
 
-
-
 <script>
-
 import Slick from 'vue-slick'
 import Pannellum from '../../js/components/vue-pannellum.vue'
 import Lightbox from 'vue-my-photos'
 export default {
-
     components:{
         Pannellum,
         Lightbox,
@@ -1621,7 +1372,6 @@ export default {
     data() {
         var that = this;
         return {
-            nav_width:0,
             nus_pro:[],
             ads_list: [],
             profile_id: "",
@@ -1639,7 +1389,6 @@ export default {
             width: '',
             center: { lat: 0, lng: 0 },
             address: '',
-            google:[],
             hosfacilities:[],
             specialfeature:[],
             nusfacilities:[],
@@ -1649,7 +1398,6 @@ export default {
             medical:[],
             fac_list:[],
             staff:[],
-            schedules:[],
             subject:'',
             subjects:[],
             hospitals:[],
@@ -1664,11 +1412,7 @@ export default {
             index: 0,
             light_images:[],
             thumbnailDir: '/upload/',
-            // cusid: 0,
-            // type: 0,
-            pageNum: 0,
             opts: {
-
                 start: 0,
                 dir: 'v',
                 loop: false,
@@ -1676,15 +1420,11 @@ export default {
                 beforeChange: function(ele, current, next) {
                     that.index = next;
                 },
-
                 afterChange: function(ele, current) {
                     that.index = current;
                 }
             },
-            images: [],
-            // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
             panoimages:[],
-            changelinktitle:'内容を見る',
             panocurrentOffset: 0,
             windowSize: 10,
             paginationFactor:103,
@@ -1692,7 +1432,6 @@ export default {
             currentPage: 0,
             size: 5,
             pageRange: 10,
-            items: [],
             pagination: false,
             data: {
                 str:"Welcome to Canada!",
@@ -1702,34 +1441,21 @@ export default {
                 width: 0,
                 height: 0
             },
-            show : false,
             isPano: false,
-            show_arr: [],
             show_comment: false,
             view_pro_id: false,
-            profilenumber:'',
-           
+            profilenumber:'',           
         };
     },
-
     props:{
         pro_id:Number,
         type:String,
-        loginuser:Boolean,
-       
+        loginuser:Boolean,       
     },
-
-    created(){       
-        // this.nav_width = document.querySelector('.content-all').offsetWidth;
-        // console.log('this.nav_width',this.nav_width)
-        // console.log("previous ",document.referrer)
-       
-         window.addEventListener('scroll', this.handleScroll);
-
-
+    created(){     
+        window.addEventListener('scroll', this.handleScroll);
         this.pro_id = Number(this.$route.params.id);
         this.type = this.$route.params.type;
-
         if(this.type == 'hospital'){
             if(localStorage.getItem("hospital_history")) {
                 var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
@@ -1767,8 +1493,7 @@ export default {
                 var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
                 this.view_pro_id = nus_fav_arr.includes(this.pro_id);
             }
-        }
-        
+        }        
         //
         this.axios.get("/api/advertisement/ads").then(response => {
             this.ads_list = response.data;
@@ -1779,7 +1504,6 @@ export default {
         if(this.window.width >= 320 && this.window.width < 450) {
             this.windowSize = 1;
         }
-
         else if(this.window.width >= 450 && this.window.width < 768) {
             this.windowSize = 2;
         }
@@ -1791,76 +1515,20 @@ export default {
         }
         else if (this.window.width >= 1024 && this.window.width < 1280) {
             this.windowSize = 8;
-            // console.log('1024');
         }
         else if (this.window.width >= 1280 && this.window.width < 1440) {
             this.windowSize = 9;
-
         }
         else if (this.window.width >= 1440 && this.window.width < 1880) {
             this.windowSize = 9;
-            // console.log(this.paginationFactor);/
         }
-        // else if( this.window.width > 1700) {
-        // }
-
         this.profile_id = this.pro_id;
         this.activePanoImage = 0;
         //for responsive
-
-
-
-            if(this.window.width > 768) {
-                //greater than 768
-                if(this.loginuser == 'true') {
-
-                    $(document).scroll(function() {
-   
-                          //  $(".fixed-nav").css({"position": "fixed","top":"65px"});
-                        var cur_pos = $(this).scrollTop();
-                        $('.ele').each(function(active_el){
-                            if($(this).position().top <= (cur_pos+71)){
-                                $('.top-fixed-btn.active').removeClass('active');
-                                $('.top-fixed-btn').eq(active_el).addClass('active');
-                            }
-                        });
-                        // if (cur_pos >= 100) {
-                        //     $(".fixed-nav").css({"position": "fixed","top":"80px"});
-                        // } else {
-                        //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                        // }
-                        //  $(".fixed-nav").css({"position": "unset","top":"unset"});
-                    });
-
-
-
-                } else {
-                    // public
-                    
-                    $(document).scroll(function() {
-                       
-                       // $(".fixed-nav").css({"position": "fixed","top":"100px"});
-                        var cur_pos = $(this).scrollTop();
-                        $('.ele').each(function(active_el){
-                            if($(this).position().top <= (cur_pos+71)){
-                                $('.top-fixed-btn.active').removeClass('active');
-                                $('.top-fixed-btn').eq(active_el).addClass('active');
-                            }
-                        });
-                        // if (cur_pos >= 100) {
-                        //     $(".fixed-nav").css({"position": "fixed","top":"90px"});
-                        // } else {
-                        //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                        // }
-                    });
-                }
-                //greater than 768
-            }
-            else {
-                //less than 768
-                if(this.loginuser == 'true') {
+        if(this.window.width > 768) {
+            //greater than 768
+            if(this.loginuser == 'true') {
                 $(document).scroll(function() {
-                   // $(".fixed-nav").css({"position": "fixed","top":"40px"});
                     var cur_pos = $(this).scrollTop();
                     $('.ele').each(function(active_el){
                         if($(this).position().top <= (cur_pos+71)){
@@ -1868,53 +1536,52 @@ export default {
                             $('.top-fixed-btn').eq(active_el).addClass('active');
                         }
                     });
-                    // if (cur_pos >= 100) {
-                    //     $(".fixed-nav").css({"position": "fixed","top": "40px" ,"display": "inline-flex","width": "100%"});
-                    // } else {
-                    //     $(".fixed-nav").css({"position": "unset", "top": "unset"});
-                    // }
                 });
-                } else {
-
-               
-                    $(document).scroll(function() {
-                      //  $(".fixed-nav").css({"position": "fixed","top":"77px"});
-                        var cur_pos = $(this).scrollTop();
-                        $('.ele').each(function(active_el){
-                            if($(this).position().top <= (cur_pos+71)){
-                                $('.top-fixed-btn.active').removeClass('active');
-                                $('.top-fixed-btn').eq(active_el).addClass('active');
-                            }
-                        });
-                        // if (cur_pos >= 100) {
-                        //     $(".fixed-nav").css({"position": "fixed","top": main_top ,"display": "inline-flex","width": "100%"});
-                        // } else {
-                        //     $(".fixed-nav").css({"position": "unset", "top": "unset", "display": "none"});
-                        // }
+            } else {
+                // public                    
+                $(document).scroll(function() {
+                    var cur_pos = $(this).scrollTop();
+                    $('.ele').each(function(active_el){
+                        if($(this).position().top <= (cur_pos+71)){
+                            $('.top-fixed-btn.active').removeClass('active');
+                            $('.top-fixed-btn').eq(active_el).addClass('active');
+                        }
                     });
-                }
-                //end less than 768
+                });
             }
-            //for end responsive
-
-
-
-
-
-
-
-
+            //greater than 768
+        }
+        else {
+            //less than 768
+            if(this.loginuser == 'true') {
+            $(document).scroll(function() {
+                var cur_pos = $(this).scrollTop();
+                $('.ele').each(function(active_el){
+                    if($(this).position().top <= (cur_pos+71)){
+                        $('.top-fixed-btn.active').removeClass('active');
+                        $('.top-fixed-btn').eq(active_el).addClass('active');
+                    }
+                });
+            });
+            } else {               
+                $(document).scroll(function() {
+                    var cur_pos = $(this).scrollTop();
+                    $('.ele').each(function(active_el){
+                        if($(this).position().top <= (cur_pos+71)){
+                            $('.top-fixed-btn.active').removeClass('active');
+                            $('.top-fixed-btn').eq(active_el).addClass('active');
+                        }
+                    });
+                });
+            }
+            //end less than 768
+        }
+        //for end responsive
         if(this.type == "nursing")
         {
-            // this.axios.get('/api/profile/customer/'+this.pro_id+'/'+this.type) .then(response => {
-            //     this.customer = response.data;
-            // });
             this.axios.get('/api/profile/nursing/'+this.pro_id) .then(response => {
-            //   console.log("test address",response.data);
                 this.profilenumber = response.data.profilenumber[0]['profilenumber'];
-                this.nus_pro = response.data.nurselatlong;
-                // this.google = response.data.nurselatlong;
-               
+                this.nus_pro = response.data.nurselatlong;             
                 if(!this.$auth.check()){
                     this.show_comment = true;
                 }else{
@@ -1928,42 +1595,23 @@ export default {
                         }
                     }
                 }
-
                 if(this.nus_pro[0]['address'] == null){
-                        this.nus_pro[0]['address'] = '';
+                    this.nus_pro[0]['address'] = '';
                 }
                 this.address = response.data.address;
-
-                
-                // if(this.nus_pro[0]['address'] == null){
-                //         this.nus_pro[0]['address'] = '';
-                // }
-
                 this.nus_pro[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.nus_pro[0]['address'];
-                // this.google[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.nus_pro[0]['address'];
                 this.nusfacilities = response.data.facility;
-
                 this.nursing_profiles = response.data.nurselatlong[0]['feature'];
                 this.nus_method= response.data.nurselatlong[0]['method'];
-
                 this.method_payment = response.data.cost;
-
                 this.cooperate_medical = response.data.comedical;
-
                 this.medical_acceptance = response.data.medicalacceptance;
-
                 this.medical = response.data.medical;
-
                 this.staff = response.data.staff;
-
                 this.markers[0]['position']['lat']  = response.data.nurselatlong[0]['latitude'];
-
                 this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
-
                 this.center['lat'] = response.data.nurselatlong[0]['latitude'];
-
                 this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-
                 this.images = response.data.images;
                 if(this.images.length == 1){
                     if(this.images[0]['photo'] != null){
@@ -1987,65 +1635,38 @@ export default {
                         })
                     }
                 }
-
-                
-
                 this.panoimages = response.data.panoimages;
-
                 this.videos = response.data.videos;
-                // console.log(this.panoimages);return;
-
                 if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
                 {
                     this.center['lat'] = 35.6803997;
-
                     this.center['lng'] = 139.76901739;
-
                     this.markers[0]['position']['lat']  = 35.6803997;
-
                     this.markers[0]['position']['lng']  = 139.76901739;
-
                 }
                 var catname = '介護';
-
                 this.$ga.event({
                     eventCategory: '施設',
                     eventAction: catname+' / '+this.profilenumber+' / '+this.nus_pro[0].name,
                 })
             });
-
             this.axios.get(`/api/profile/specialfeature/${this.type}/${this.pro_id}`) .then(response => {
                 this.specialfeature = response.data;
             });
-
             this.axios.get('/api/profile/comment/'+this.pro_id+'/'+this.type) .then(response => {
-
                 this.comments = response.data;
                 if(this.comments.length > this.size){
                     this.pagination = true;
                 }else{
                     this.pagination = false;
                 }
-                // for ( var index=0; index<response.data.length; index++ ) {
-
-                //     data = { "created_date": "1", "created_time": "Valid" };
-                //     this.comments.push(data);
-                //         // tempData.push( data );
-                // }
             });
-
         }
-
         else{
-            // this.axios.get('/api/profile/customer/'+this.pro_id+'/'+this.type).then(response => {
-            //     this.customer = response.data;
-            // });
             this.axios.get('/api/profile/hospital/'+this.pro_id).then(response => {    
                 this.profilenumber = response.data.profilenumber[0]['profilenumber'];                  
-                // this.google = response.data.hospital;
                 this.address = response.data.address;
-                this.hospitals = response.data.hospital;
-                
+                this.hospitals = response.data.hospital;                
                 if(!this.$auth.check()){
                     this.show_comment = true;
                 }else{
@@ -2059,13 +1680,10 @@ export default {
                         }
                     }
                 }
-
                 if(this.hospitals[0]['address'] == null){
                     this.hospitals[0]['address'] = '';
                 }
-
                 this.hospitals[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.hospitals[0]['address'];
-                // this.google[0]['address'] = this.address[0]['city_name'] + this.address[0]['township_name'] +this.hospitals[0]['address'];
                 this.hosfacilities=response.data.facility_list;
                 this.fac_list = response.data.facility;
                 this.markers[0]['position']['lat']  = response.data.hospital[0]['latitude'];
@@ -2073,7 +1691,6 @@ export default {
                 this.center['lat'] = response.data.hospital[0]['latitude'];
                 this.center['lng'] = response.data.hospital[0]['longitude'];
                 this.images = response.data.images;
-                // console.log("images",this.images)
                 if(this.images.length == 1){
                     if(this.images[0]['photo'] != null){
                         for(var i=0; i<this.images.length; i++){
@@ -2096,12 +1713,7 @@ export default {
                         })
                     }
                 }
-
-                
-
                 this.videos = response.data.videos;
-                // this.panoimages = response.data.panoimages;
-
                 if(response.data.hospital[0]['latitude'] == 0 && response.data.hospital[0]['longitude'] == 0)
                 {
                     this.center['lat'] = 35.6803997;
@@ -2109,70 +1721,45 @@ export default {
                     this.markers[0]['position']['lat']  = 35.6803997;
                     this.markers[0]['position']['lng']  = 139.76901739;
                 }
-
                 var catname = '病院';
-
                 this.$ga.event({
                     eventCategory: '施設',
                     eventAction: catname+' / '+this.profilenumber+' / '+this.hospitals[0].name,
                 })
-
             });
-
             this.axios.get(`/api/profile/specialfeature/${this.type}/${this.pro_id}`).then(response => {
-
                 this.specialfeature = response.data;
-
             });
-
             this.axios.get('/api/profile/comment/'+this.pro_id+'/'+this.type).then(response => {
-
                 this.comments = response.data;
                 if(this.comments.length > this.size){
                     this.pagination = true;
                 }else{
                     this.pagination = false;
                 }
-
             });
-
             this.axios.get('/api/profile/subject/'+this.pro_id).then(response => {
                 this.subjects = response.data;
                 for(var i=0; i< response.data.length; i++) {
                     this.subject += response.data[i]['name'] + " , ";
                 }
             });
-
             this.axios.get('/api/profile/schedule/'+this.pro_id) .then(response => {
                 this.am_arr = response.data.am;
                 this.pm_arr = response.data.pm;
-            });
-
-            
-        }        
-        
+            });            
+        }                
         var new_width = document.querySelector("#content-all").offsetWidth;
         var fixed_width = new_width - 80;
         this.width = fixed_width + "px";
-
-        // var new_width = $("#Profile-page").width();
-        // this.width = new_width + "px";
-        // console.log(new_width + "px");
-
         var main_header = $(".main-header").height();
         var main_top =  main_header  + "px" ;
-
         var admin_header = $(".admin-header").height();
         var admin_top = admin_header  + "px" ;
     },
-
-
     destroyed () {
-
-    window.removeEventListener('scroll', this.handleScroll);
-
-  },
-
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     computed: {
         atEndOfList() {
             return this.panocurrentOffset <= (this.paginationFactor * -1) * (this.panoimages.length - this.windowSize);
@@ -2201,8 +1788,8 @@ export default {
             }
         },
         pages() {
-                return Math.ceil(this.comments.length / this.size);
-            },
+            return Math.ceil(this.comments.length / this.size);
+        },
         displayPageRange() {
             const half = Math.ceil(this.pageRange / 2);
             const isEven = this.pageRange / 2 == 0;
@@ -2245,172 +1832,143 @@ export default {
         },
         slickOptions2() {
             return {
-            slidesToShow: 7,
-            slidesToScroll: 1,
-            arrows:false,
-            dots: false,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 411,
-                    settings: {
-                        slidesToShow: 8.5,
-                        slidesToScroll: 1,
+                slidesToShow: 7,
+                slidesToScroll: 1,
+                arrows:false,
+                dots: false,
+                focusOnSelect: true,
+                responsive: [{
+                    breakpoint: 411,
+                        settings: {
+                            slidesToShow: 8.5,
+                            slidesToScroll: 1,
                             focusOnSelect: true,
-                    }
-                }, {
-                breakpoint: 360,
-                    settings: {
-                        slidesToShow: 8,
-                        slidesToScroll: 1,
-                        focusOnSelect: true,
-                    }
+                        }
+                    }, {
+                    breakpoint: 360,
+                        settings: {
+                            slidesToShow: 8,
+                            slidesToScroll: 1,
+                            focusOnSelect: true,
+                        }
                 }]
             }
         }
     },
     methods: {
-
-
-
-         handleScroll (event) {
-                
-             if(this.window.width > 768) {
+        handleScroll (event) {                
+            if(this.window.width > 768) {
                 //greater than 768
                 if(this.loginuser == 'true') {
-
+                    var el = document.querySelectorAll('.el');
+                    var el2 = document.querySelectorAll('.el2');                       
+                    var index = 0, length = el.length;                    
+                    for ( ; index < length; index++) {
+                        el[index].style.position = "fixed";
+                        el[index].style.top = "85px";
+                        el[index].style.display = "block";
+                        el[index].style.margin = "0px 0px 0px 175px";                           
+                    }   
+                    for (let i = 0; i < el2.length; i++) {
+                        el2[i].style.margin = "";
+                    }
+                    var cur_pos = window.scrollY;
+                    if (cur_pos < 100) {
                         var el = document.querySelectorAll('.el');
-                        var el2 = document.querySelectorAll('.el2');
-                       
                         var index = 0, length = el.length;
-                    
                         for ( ; index < length; index++) {
-                            // el[index].classList[3].css.border = "1px solid red;";
-                            el[index].style.position = "fixed";
-                            el[index].style.top = "85px";
-                            el[index].style.display = "block";
-                            // el[index].style.width = "900px";
-                            el[index].style.margin = "0px 0px 0px 175px";
-                           
-                        }   
-                        for (let i = 0; i < el2.length; i++) {
-                            el2[i].style.margin = "";
-                        }
-                        var cur_pos = window.scrollY;
-                        if (cur_pos < 100) {
-                            var el = document.querySelectorAll('.el');
-                            var index = 0, length = el.length;
-                            for ( ; index < length; index++) {
-                                el[index].style.position = "unset";
-                                el[index].style.top = "unset";
-                                el[index].style.width = "";
-                                el[index].style.margin = "0px";
-                                //el[index].style.left = "0px";
-                            }     
-                        } 
-
-
-
+                            el[index].style.position = "unset";
+                            el[index].style.top = "unset";
+                            el[index].style.width = "";
+                            el[index].style.margin = "0px";
+                        }     
+                    } 
                 } else {
                     // public
+                    var el = document.querySelectorAll('.el');                        
+                    var index = 0, length = el.length;
+                    for ( ; index < length; index++) {
+                        el[index].style.position = "fixed";
+                        el[index].style.top = "85px";
+                        el[index].style.display = "block";
+                    }   
+                    var cur_pos = window.scrollY;
+                    if (cur_pos < 100) {
                         var el = document.querySelectorAll('.el');
-                        
                         var index = 0, length = el.length;
                         for ( ; index < length; index++) {
-                            // el[index].classList[3].css.border = "1px solid red;";
-                            el[index].style.position = "fixed";
-                            el[index].style.top = "85px";
-                            el[index].style.display = "block";
-                        }   
-                        var cur_pos = window.scrollY;
-                        if (cur_pos < 100) {
-                            var el = document.querySelectorAll('.el');
-                            var index = 0, length = el.length;
-                            for ( ; index < length; index++) {
-                                el[index].style.position = "unset";
-                                el[index].style.top = "unset";
-                            }     
-                        } 
-          
+                            el[index].style.position = "unset";
+                            el[index].style.top = "unset";
+                        }     
+                    }           
                 }
                 //greater than 768
             }
             else {
                 //less than 768
                 if(this.loginuser == 'true') {
+                    var el = document.querySelectorAll('.el');
+                    var el2 = document.querySelectorAll('.el2');
+                    var index = 0, length = el.length;
+                    for ( ; index < length; index++) {
+                        el[index].style.width = "";
+                        el[index].style.position = "fixed";
+                        el[index].style.top = "60px";
+                        el[index].style.display = "inline-flex";
+                        el[index].style.margin = "0px";
+                    }
+                    if(this.window.width > 436 && this.window.width <= 1024){
+                        for (let i = 0; i < el2.length; i++) {
+                        el2[i].style.display = "flow-root list-item";
+                        el[index].style.top = "40px";
+                        } 
+                    }else{
+                        for (let i = 0; i < el2.length; i++) {
+                        el2[i].style.display = "inline-flex";
+                        } 
+                    }                          
+                    var cur_pos = window.scrollY;
+                    if (cur_pos < 100) {
                         var el = document.querySelectorAll('.el');
-                        var el2 = document.querySelectorAll('.el2');
                         var index = 0, length = el.length;
                         for ( ; index < length; index++) {
-                            // el[index].classList[3].css.border = "1px solid red;";
-                            el[index].style.width = "";
-                            el[index].style.position = "fixed";
-                            el[index].style.top = "60px";
-                            el[index].style.display = "inline-flex";
-                            el[index].style.margin = "0px";
-                        }
-
-                        if(this.window.width > 436 && this.window.width <= 1024){
-                            for (let i = 0; i < el2.length; i++) {
-                            el2[i].style.display = "flow-root list-item";
-                            el[index].style.top = "40px";
-                            } 
-                        }else{
-                           for (let i = 0; i < el2.length; i++) {
-                            el2[i].style.display = "inline-flex";
-                            } 
-                        } 
-                         
-                        var cur_pos = window.scrollY;
-                        if (cur_pos < 100) {
-                            var el = document.querySelectorAll('.el');
-                            var index = 0, length = el.length;
-                            for ( ; index < length; index++) {
-                                el[index].style.position = "unset";
-                                el[index].style.top = "unset";
-                                el[index].style.display = "none";
-                            }     
-                        } 
-                
+                            el[index].style.position = "unset";
+                            el[index].style.top = "unset";
+                            el[index].style.display = "none";
+                        }     
+                    }                
                 } else {
-
+                    var el = document.querySelectorAll('.el');
+                    var el2 = document.querySelectorAll('.el2');
+                    var index = 0, length = el.length;
+                    for ( ; index < length; index++) {                           
+                        el[index].style.position = "fixed";
+                        el[index].style.top = "42px";
+                        el[index].style.display = "inline-flex";
+                    }   
+                    var cur_pos = window.scrollY;
+                    if(this.window.width > 436 && this.window.width <= 1024){
+                        for (let i = 0; i < el2.length; i++) {
+                        el2[i].style.display = "flow-root list-item";
+                        el[index].style.top = "40px";
+                        } 
+                    }else{
+                        for (let i = 0; i < el2.length; i++) {
+                        el2[i].style.display = "inline-flex";
+                        } 
+                    } 
+                    if (cur_pos <= 100) {
                         var el = document.querySelectorAll('.el');
-                        var el2 = document.querySelectorAll('.el2');
                         var index = 0, length = el.length;
                         for ( ; index < length; index++) {
-                           
-                            el[index].style.position = "fixed";
-                            el[index].style.top = "42px";
-                            el[index].style.display = "inline-flex";
-                        }   
-                     // $(".fixed-nav").css({"position": "fixed","top":"100px"});
-                        var cur_pos = window.scrollY;
-                       if(this.window.width > 436 && this.window.width <= 1024){
-                            for (let i = 0; i < el2.length; i++) {
-                            el2[i].style.display = "flow-root list-item";
-                            el[index].style.top = "40px";
-                            } 
-                        }else{
-                           for (let i = 0; i < el2.length; i++) {
-                            el2[i].style.display = "inline-flex";
-                            } 
-                        } 
-                        if (cur_pos <= 100) {
-                            var el = document.querySelectorAll('.el');
-                            var index = 0, length = el.length;
-                            for ( ; index < length; index++) {
-                                el[index].style.position = "unset";
-                                el[index].style.display = "none";
-                                el[index].style.top = "unset";
-                            }     
-                        }
-
-                  
+                            el[index].style.position = "unset";
+                            el[index].style.display = "none";
+                            el[index].style.top = "unset";
+                        }     
+                    }                 
                 }
                 //end less than 768
-            }
-
-
-        
+            }        
         },
         next() {
             this.$refs.slick.next();
@@ -2432,69 +1990,41 @@ export default {
             this.$refs.lightbox.show(imageName);
         },
         moveCarousel(direction) {
-                    // Find a more elegant way to express the :style. consider using props to make it truly generic
+            // Find a more elegant way to express the :style. consider using props to make it truly generic
             if (direction === 1 && !this.atEndOfList) {
                 this.panocurrentOffset -= this.paginationFactor;
             } else if (direction === -1 && !this.atHeadOfList) {
                 this.panocurrentOffset += this.paginationFactor;
             }
         },
-            activatePanoImage(imageIndex) {
+        activatePanoImage(imageIndex) {
             this.activePanoImage = imageIndex;
-
         },
-
-            moveTo: function(index) {
-
+        moveTo: function(index) {
             this.$refs.fullpage.$fullpage.moveTo(index, true);
-
         },
-
-            nextImage() {
-
+        nextImage() {
             var active = this.activeImage + 1;
-
             if(active >= this.images.length) {
-
                 active = 0;
-
             }
-
             this.activateImage(active);
-
         },
-
-
-
         prevImage() {
-
             var active = this.activeImage - 1;
-
             if(active < 0) {
-
                 active = this.images.length - 1;
-
             }
-
             this.activateImage(active);
-
         },
-
         activateImage(imageIndex) {
-            
-
             this.activeImage = imageIndex;
-
             this.activeImageTitle = this.images[imageIndex].title;
-
-                this.activeImageDescription = this.images[imageIndex].description;
+            this.activeImageDescription = this.images[imageIndex].description;
         },
         activate:function(el){
-        //    console.log(e); 
         },
-
         costConfirm(id,inx){
-
             $('.changeLink').text("詳細はこちら");
             $('.changeLink').removeClass("CloseBtn");
             $('.changeLink'+id).text("選択中");
@@ -2503,7 +2033,6 @@ export default {
             $('#changeLink'+id).show('medium');
             $('.closeLink').css({'display':'none'});
             $('.closeLink'+id).css({'display':'inline'});
-
             $('.main-cost-table td').css({'background':'transparent'});
             $('.cost'+inx+' td').css({'background':'#ecf8ff'});
         },
@@ -2525,14 +2054,11 @@ export default {
                 'id': this.pro_id,
                 'email': this.nus_pro[0]['email'],
                 'name': this.nus_pro[0]['name'],
-                });
+            });
             var document_status=[];
             document_status[this.pro_id] = true;
             localStorage.setItem("document", JSON.stringify(document_status));
             localStorage.setItem("item", JSON.stringify(this.fav_email));
-            // this.$router.push({
-            //     name: 'nursingFavouriteMail',
-            // });
             let routeData = this.$router.resolve({name: 'nursingFavouriteMail',});
             window.open(routeData.href, '_blank');
         },
@@ -2559,29 +2085,25 @@ export default {
             }
         },
         pageSelect(index) {
-            // this.currentPage = index - 1;
-            // window.scrollTo(0,0);
-            if(0 < this.currentPage)
-            {
+            if(0 < this.currentPage) {
                 this.currentPage = index - 1;
             }
-            else{
+            else {
                 this.currentPage++;
             }
         },
-        favAddFun(status){
+        favAddFun(status) {
             if(this.type == 'nursing'){
                 var locReplace = "nursing_fav";
                 var varReplace = "#nus-fav-local";
                 var linkBox = ".fav-nursing-link-box>a";
             }
-            else{
+            else {
                 var locReplace = "hospital_fav";
                 var varReplace = "#hos-fav-local";
                 var linkBox = ".fav-hospital-link-box>a";
             }
-
-            if(status == 'add'){
+            if(status == 'add') {
                 if(localStorage.getItem(locReplace)){
                     var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
                     fav_arr.push(this.pro_id);
@@ -2619,7 +2141,6 @@ export default {
                 else{
                     this.hosFav = fav_arr.length;
                 }
-
                 if(fav_arr.length == 0){
                     $(linkBox).css({'cursor':'not-allowed','pointer-events':'none'})
                 }
@@ -2629,10 +2150,7 @@ export default {
             }
         },
     }
-
- }
-
-
+}
 </script>
 
 <style scoped>
@@ -2646,7 +2164,6 @@ export default {
     overflow: hidden;
     padding: 0px 5px;
 }
-
 .slick-list .draggable{
     min-height: 200px !important;
 }
@@ -2654,7 +2171,6 @@ export default {
     padding-bottom: 13%;
 }
 .active > h3{
-    /* border: 2px solid #d2571c; */
     border: 2px solid #3498db;
 }
 h2{
@@ -2688,19 +2204,15 @@ h3 img{
 .see-pano li{
     list-style: none;
 }
-
 /*end test*/
 /*slider*/
-    #pano-slider-page .card-carousel {
+#pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
     width: 1033px !important;
-    /* width: 1336px; */
     overflow: hidden;
 }
-
 /*slick carousel*/
-
 #pano-slider-page .card-carousel-wrapper {
     display: flex;
     align-items: center;
@@ -2708,23 +2220,18 @@ h3 img{
     margin: 20px 0 40px;
     color: #666a73;
 }
-
 #pano-slider-page .card-carousel-comment {
     display: flex;
     justify-content: center;
-    /* width: 1145px; */
 }
-
 #pano-slider-page .card-carousel-comment .card {
     margin: 0px 10px 0px 0px;
 }
-
 #pano-slider-page .card-carousel--overflow-container {
     color: #000;
     text-align: left;
     overflow: hidden;
 }
-
 #pano-slider-page .card-carousel--nav__left,
 #pano-slider-page .card-carousel--nav__right {
     display: inline-block;
@@ -2732,89 +2239,70 @@ h3 img{
     height: 15px;
     padding: 5px;
     box-sizing: border-box;
-    /* border-top: 5px solid #f9793c;
-    border-right: 5px solid #f9793c; */
      border-top: 5px solid #3498db;
     border-right: 5px solid #3498db;
     cursor: pointer;
     margin: 10px;
     transition: transform 150ms linear;
 }
-
-
 #pano-slider-page .card-carousel--nav__left[disabled],
 #pano-slider-page .card-carousel--nav__right[disabled] {
     opacity: 0.2;
     border-color: black;
 }
-
 .nav-box[disabled] {
     opacity: 0.2;
 }
-
 #pano-slider-page .nav-box[disabled] .card-carousel--nav__left,
 #pano-slider-page .nav-box[disabled] .card-carousel--nav__right {
     border-top: 5px solid #000;
     border-right: 5px solid #000;
 }
-
 #pano-slider-page .nav-box[disabled] .nav-content {
     border: 2px solid #000;
     background: #fff
 }
-
 .nav-content {
     width: 40px;
     height: 40px;
     line-height: 35px;
     vertical-align: middle;
     background: #fffff4;
-    /* border: 2px solid #ff9563; */
     border: 2px solid #3498db;
     border-radius: 50%;
     text-align: center;
 }
-
 #pano-slider-page .card-carousel--nav__left {
     transform: rotate(-135deg);
 }
-
 #pano-slider-page .card-carousel--nav__left:active {
     transform: rotate(-135deg) scale(0.9);
 }
-
 #pano-slider-page .card-carousel--nav__right {
     transform: rotate(45deg);
 }
-
 #pano-slider-page .card-carousel--nav__right:active {
     transform: rotate(45deg) scale(0.9);
 }
-
 #pano-slider-page .card-carousel-cards {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
-    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
     margin-bottom: 2px;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card:first-child {
     margin-left: 0;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card:last-child {
     margin-right: 0;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card img {
     vertical-align: bottom;
     border-top-left-radius: 4px;
@@ -2822,118 +2310,78 @@ h3 img{
     transition: opacity 150ms linear;
     user-select: none;
 }
-
 #pano-slider-page .card-carousel-cards .card-carousel--card img:hover {
     opacity: 0.5;
 }
-
 .pannellum{
     height: 500px;
 }
-
 .cost_tb{
-    /* border: 1px solid #ccc; */
     border-left: 0px;
     border-bottom: 0px;
     padding-bottom: 1px;
-     /* background: #fff; */
-     /* padding: 10px; */
-    /* padding-bottom: 20px; */
-
 }
-
 .cost_table{
     width: 100%;
-    /* height: 81px; */
     float: left;
     border-bottom: 1px solid #ccc;
-    /* margin-top: 15px; */
 }
-
-/* .cost_table label {
-    border-left: 6px solid #b7dad2;
-    padding-left: 10px;
-    margin-bottom: 10px;
-    font-size:14px;
-    line-height: 1.3;
-     margin-top: 30px;
-    padding-top: 2px;
-} */
-
 .cost_heading_lbl{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     border-left: 5px solid #2980b9;
     padding: 0 5px;
     font-weight: bold;
     font-size: 1.14em;
 }
 .cost_heading_lbl_respon{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     border-left: 5px solid #2980b9;
     padding: 0 5px;
     font-weight: bold;
     font-size: 0.9rem;
 }
 .cost_heading_lbl_mini{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     line-height: 1;
     font-weight: bold;
     font-size: 1.2em;
 }
 .cost_heading_lbl_mini_res{
-    /* border-left: 5px solid rgb(249, 121, 60); */
     line-height: 1;
     font-weight: bold;
     font-size: 0.8rem;
 }
-
 .cost_heading_lbl_mini i{
-    border-radius: 3px;    
-    /* color: #d2571c; */
+    border-radius: 3px;   
     color: #3498db;
     font-size: 1em;
 }
-
 .cost_table th{
     border: 1px solid #ccc;
     padding: 8px 10px;
-    /* text-align: center; */
     background: #f0f0f0;
     color: #000;
     line-height: 1.7;
     vertical-align: top;
     min-width: 100px;
 }
-
 .cost_table td{
-    /* border: 1px solid #ccc;*/
     padding: 8px 10px;
-    /* text-align: center; */
     line-height: 1.7;
     background: #fff;
-
 }
 .main-cost-table td{
     padding: 10px !important;
     vertical-align: middle;
 }
-
 .cost_btnwrapper{
     float: right;
     width: 158px;
     text-align: center;
     align-self: center;
-    /* padding-top: 21px; */
 }
-
 .aa th:last-child, .aa td:last-child {
     width: 108px;
     font-size: 88.2%;
     white-space: nowrap;
 }
-
-
-
 .comment-wrapper{
     background-color: #fff;
     padding: 5px;
@@ -2946,7 +2394,6 @@ h3 img{
     font-weight: 700;
     padding-bottom: 10px;
 }
-
 .card-text{
     color: #777;
 }
@@ -2962,7 +2409,6 @@ h3 img{
     padding: 5px 20px;
     border-radius: 20px;
 }
-
 .comment-ico i {
     display: block;
     float: left;
@@ -2983,16 +2429,9 @@ h3 img{
     font-size: 12px;
     color: #777;
 }
-/* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-
-} */
-
 .thumbnail-img{
     width: 100%;
     padding: 20px;
-    /* line-height: 150px; */
     vertical-align: middle;
     border: 1px solid #b7dad2;
     border-bottom: 1px solid #b7dad2;
@@ -3000,7 +2439,6 @@ h3 img{
     margin: 0 auto 20px;
     text-align: center;
 }
-
 .thumbnail-img img {
     width: 100%;
 }
@@ -3013,7 +2451,6 @@ h3 img{
     min-height: 300px;
     max-height: 300px;
     overflow: hidden;
-
 }
 .photocard-title{
     height: 79px;
@@ -3032,19 +2469,12 @@ h3 img{
     height: 100%;
 }
 .thumbnails {
-    /* display: flex; */
     text-align: left;
-    /* justify-content: space-evenly;
-    flex-direction: row; */
-    /* overflow:auto; */
-
 }
 .thumbnail-image {
     display: inline-block;
     cursor: pointer;
     margin-bottom: -1px;
-    /* width: 10%;
-    float:left; */
 }
 .thumbnails-pano{
     display: flex;
@@ -3055,12 +2485,7 @@ h3 img{
     cursor: pointer;
     margin-bottom: -1px;
 }
-
 .thumbnail-image > img {
-    /* width:  100px;
-    height: auto;
-    transition: all 250ms;
-    vertical-align: bottom; */
     vertical-align: bottom;
     width: 51px;
     height: 36px;
@@ -3074,7 +2499,6 @@ h3 img{
     max-width: 103px;
     border: 3px solid transparent;
 }
-
 .thumbnail-image:hover > img,
 .thumbnail-image.active > img {
     opacity: 0.6;
@@ -3102,7 +2526,6 @@ h3 img{
     justify-content: space-between;
     color: #585858;
 }
-
 .actions > span {
     cursor: pointer;
     transition: all 250ms;
@@ -3120,16 +2543,12 @@ h3 img{
     color: #000;
     font-weight: bold;
     cursor: pointer;
-    /* border: 1px solid #ffc041; */
     border:1px solid #2981cc;
     padding: 5px;
     border-radius: 5px;
-    /* background-color: #ffc; */
     background-color: #ecf8ff;
 }
 .changeLink:hover {
-    /* color: #f9793c;
-    border: 1px solid #68ec37; */
     color: #2981cc;
     border: 1px solid #2981cc;
 }
@@ -3139,9 +2558,6 @@ h3 img{
     cursor: pointer;    
     padding: 5px;
     border-radius: 5px;
-    /* border: 1px solid #ffc041;
-    background-color: #f9793c; */
-
     border: 1px solid #97cae8;  
     background-color: #2980b9;
 }
@@ -3150,8 +2566,7 @@ h3 img{
 }
 .payment-footer{
     display: inline-block;
-    width: 100%;
-    
+    width: 100%;    
 }
 .payment-footer .changeLink{
     padding: 8px 5px;
@@ -3163,7 +2578,6 @@ h3 img{
 }
 .CloseBtn {
     border: none !important;
-    /* color: #f9793c !important; */
     color: #2c3e50 !important;
     cursor: not-allowed!important;
     pointer-events: none;
@@ -3178,14 +2592,12 @@ h3 img{
 }
 .room-type {
     background: #93c2e0;
-    /* background: #fbaa84; */
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;
     margin-right: 7px;
     font-weight: bold;
 }
-
 .method-name {
     font-weight: bold;
     font-size: 1em;
@@ -3194,9 +2606,7 @@ h3 img{
 .method-name-respon {
     font-weight: bold;
     font-size: 0.8em;
-    /* margin-bottom: 10px; */
 }
-
 .cash-lbl-mini {
     font-size: 1.4em !important;
     color: #fd0e0e;
@@ -3211,12 +2621,10 @@ h3 img{
     display: flex;
     justify-content: center;
 }
-
 .cash-unit {
     color: #333;
     font-size: 0.8em;
 }
-
 .top-mail-btn {
     position: absolute;
     right: 175px;
@@ -3256,7 +2664,7 @@ h3 img{
     line-height: 62px;
     color: #883914;
     font-weight: bold;
-    }
+}
 .fz12{
     font-size: 17px;
     position: relative;
@@ -3294,21 +2702,19 @@ h3 img{
     border-radius: 5px;
 }
  .circle_t{
-        border: 7px solid #346e90 ;
-        width: 0%;
-        border-radius: 62%;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-
+    border: 7px solid #346e90 ;
+    width: 0%;
+    border-radius: 62%;
+    margin: 0 auto;
+    text-align: center;
+}
 @media only screen and (max-width: 375px) and (min-width: 320px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 200px!important;
     }
-  .thumbnails-pano
+    .thumbnails-pano
     {
-    width: 827px;
+        width: 827px;
     }
     #pano-slider-page{
         margin-left: 3px;
@@ -3338,7 +2744,6 @@ h3 img{
     }
     table.timeTable th, table.timeTable td{
         width: 100% !important;
-
     }
     tr.first-row th{
         width: auto !important;
@@ -3349,26 +2754,23 @@ h3 img{
 }
 @media only screen and (max-width: 450px) and (min-width: 320px) {
     .comment-age {
-       margin-top: 24px;    
-       float: left !important;
-       position: absolute;
+        margin-top: 24px;    
+        float: left !important;
+        position: absolute;
     }
     .comment-date{
-            font-size: 12px;
-    /* color: #777; */
-    /* margin-top: 46px; */
-    float: left !important;
-    position: absolute;
-}
+        font-size: 12px;
+        float: left !important;
+        position: absolute;
+    }
     .m-t-comment
     {
         margin-top: 34px;
-    }
-   
-    }
+    }   
+}
 
 @media only screen and (max-width: 450px) and (min-width: 376px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 207px !important;
     }
      .thumbnails-pano
@@ -3382,11 +2784,10 @@ h3 img{
     {
        margin-right: -35px;
     }
-
 }
 
 @media only screen and (max-width: 768px) and (min-width: 451px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 415px!important;
     }
     .changeLink {
@@ -3395,10 +2796,10 @@ h3 img{
 }
 
 @media only screen and (max-width: 992px) and (min-width: 769px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 720px!important;
     }
-     .thumbnails-pano
+    .thumbnails-pano
     {
     width: 827px;
     }
@@ -3415,39 +2816,39 @@ h3 img{
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 1024px) and (min-width: 993px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 823px!important;
     }
 }
 @media only screen and (max-width: 1200px) and (min-width: 1025px) {
-  #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 930px!important;
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1440px) and (min-width: 1201px) {
-   #pano-slider-page .card-carousel {
+    #pano-slider-page .card-carousel {
         width: 930px!important;
     }
     .thumbnails-pano
     {
-    width: 1000px;
+        width: 1000px;
     }
 }
+
 @media only screen and (max-width: 1880px) and (min-width: 1440px) {
     #pano-slider-page .card-carousel {
         width: 1033px!important;
     }
     .thumbnails-pano
     {
-    width: 1022px;
+        width: 1022px;
     }
     #pano-slider-page{
         margin-left: 15px;
     }
 }
-
 .hideimg{
     display: none!important;
 }

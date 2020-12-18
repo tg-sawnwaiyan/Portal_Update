@@ -26,21 +26,9 @@ class OccupationsController extends Controller
         return $occupationList;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     public function getParent()
     {
-
         $occupationlist = Occupations::select('id','name')->get()->toArray();
-
         return $occupationlist;
     }
 
@@ -50,18 +38,15 @@ class OccupationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
-
         $request->validate([
             'name' => 'required|unique:occupation',
 
 
         ]);
-
         if( $request->parent != null)
         {
-
             $occupation = new Occupations();
             $occupation->name = $request->input('name');
             $occupation->user_id = 1;
@@ -71,29 +56,15 @@ class OccupationsController extends Controller
         }
         else if( $request->parent == null)
         {
-
-
             $occupation = new Occupations();
             $occupation->name = $request->input('name');
             $occupation->user_id = 1;
             $occupation ->parent = 0;
             $occupation ->recordstatus = 2;
-
         }
-
         $occupation->save();
-
         return $occupation;
     }
-
-
-    public function show(Type $type)
-    {
-
-    }
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -136,9 +107,6 @@ class OccupationsController extends Controller
             $occupation ->recordstatus = 2;
             $occupation->save();
         }
-
-
-
         return response()->json('The Type successfully updated');
     }
 
@@ -148,9 +116,8 @@ class OccupationsController extends Controller
      * @param  \App\Occupations  $occupations
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-
         $occupation = Occupations::find($id);
         $query = "SELECT * FROM jobs WHERE jobs.occupation_id = $id";
         $jobs = DB::select($query);
@@ -171,7 +138,6 @@ class OccupationsController extends Controller
         }else{
             $search_word = null;
         }
-
         $search_occupations = Occupations::query()
                             ->where('name', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')

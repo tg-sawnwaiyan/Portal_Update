@@ -10,25 +10,16 @@ use DB;
 
 class SpecialFeatureController extends Controller
 {
-
     public function index($type)
     {
         $feature = special_feature::where('type','=',$type)->orderBy('id', 'desc')->paginate(20);
         return response()->json($feature);
     }
 
-
-    public function create()
-    {
-
-    }
-
-    public function getFeaturebyProfileType($profile_type,$customer_id) {
-       
-        $cooperate_list = special_feature::where('type','=',$profile_type)->get()->toArray();
-       
-        $profile_feature = SpecialFeaturesJunctions::where('profile_id','=',$customer_id)->get()->toArray();
-      
+    public function getFeaturebyProfileType($profile_type,$customer_id) 
+    {       
+        $cooperate_list = special_feature::where('type','=',$profile_type)->get()->toArray();       
+        $profile_feature = SpecialFeaturesJunctions::where('profile_id','=',$customer_id)->get()->toArray();      
         for($indx=0; $indx<count($profile_feature); $indx++) {
             for($sec_indx = 0; $sec_indx<count($cooperate_list); $sec_indx++) {
                 if($profile_feature[$indx]['special_feature_id'] == $cooperate_list[$sec_indx]['id']) {
@@ -39,9 +30,8 @@ class SpecialFeatureController extends Controller
         return $cooperate_list;
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
-
         // $request->validate([
         //     'name' => 'required|unique:special_features',
         //     'short_name'=>'required|unique:special_features',
@@ -53,7 +43,6 @@ class SpecialFeatureController extends Controller
         //     'short_name.required'=>'短い名の入力が必要です。',
         //     'type.required'=>'タイプの入力が必要です。'
         // ]);
-
         $feature = new special_feature;
         $feature->name=$request->name;
         $feature->short_name=$request->short_name;
@@ -64,20 +53,11 @@ class SpecialFeatureController extends Controller
         return $feature;
     }
 
-
-
-    public function show($id)
-    {
-
-    }
-
-
     public function edit($id)
     {
         $feature = special_feature::find($id);
         return response()->json($feature);
     }
-
 
     public function update(Request $request, $id)
     {
@@ -91,18 +71,15 @@ class SpecialFeatureController extends Controller
             'type.required'=>'タイプの入力が必要です。',
         ]);
         $feature = special_feature::find($id);
-
         $feature->name = $request->name;
         $feature->short_name = $request->short_name;
         $feature->type = $request->type;
         $feature->user_id = 1;
         $feature->save();
-
         return response()->json('The Feature successfully updated');
     }
 
-
-    public function destroy($id,$type)
+    public function delete($id,$type)
     {
         $feature = special_feature::find($id);
         if($type == 'nursing') {
@@ -136,7 +113,6 @@ class SpecialFeatureController extends Controller
         }else{
             $search_word = null;
         }
-
         $special_feature = special_feature::where('type',$type)
                             ->where(function($query) use($search_word){
                                 $query->where('name', 'LIKE', "%{$search_word}%")

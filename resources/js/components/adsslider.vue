@@ -1,32 +1,29 @@
 <template>
-<div class="ads-slider">
-    <slick ref="slick" :options="slickOptions" v-if="ads_list.length > 0">  
-        <div class="list-group-item adslist-card" v-for="adsList in ads_list" :key="adsList.id">
-            <div v-if="adsList.link && adsList.show_flag == 'link'">
-                <a :href="adsList.link" target="_blank">
-                    <div class="slide-img">
-                        <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
-                    </div>
-                    <h3 class="smallads-title">{{adsList.title}}</h3>
-                </a>
+    <div class="ads-slider">
+        <slick ref="slick" :options="slickOptions" v-if="ads_list.length > 0">  
+            <div class="list-group-item adslist-card" v-for="adsList in ads_list" :key="adsList.id">
+                <div v-if="adsList.link && adsList.show_flag == 'link'">
+                    <a :href="adsList.link" target="_blank">
+                        <div class="slide-img">
+                            <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
+                        </div>
+                        <h3 class="smallads-title">{{adsList.title}}</h3>
+                    </a>
+                </div>
+                <div v-else>
+                    <a @click="showPDF($event, adsList.pdf)" class="cursor_style">
+                        <div class="slide-img">
+                            <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
+                        </div>
+                        <h3 class="smallads-title pdf-link">{{adsList.title}}</h3>
+                    </a>
+                </div>       
             </div>
-            <div v-else>
-                <a @click="showPDF($event, adsList.pdf)" style="cursor: pointer;">
-                    <div class="slide-img">
-                        <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
-                    </div>
-                    <h3 class="smallads-title pdf-link">{{adsList.title}}</h3>
-                </a>
-            </div>       
-        </div>
-    </slick>
-</div>
+        </slick>
+    </div>
 </template>
-
 <script>
 import Slick from 'vue-slick';
-
-
 export default {
     components: { Slick },
     data() {
@@ -44,44 +41,44 @@ export default {
                 lazyLoad: 'ondemand',
                 responsive: [
                     {
-                    breakpoint: 1100,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        infinite: true,
-                        dots: true
-                    }
+                        breakpoint: 1100,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true
+                        }
                     },
                     {
-                    breakpoint: 990,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
+                        breakpoint: 990,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
                     },
                     {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
                     },
                     {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
                 ]               
             },
         }
     },
     created() {
-    this.axios.get("/api/advertisement/adslide").then(response => {
-      this.ads_list = response.data;
-    });
-  },
+        this.axios.get("/api/advertisement/adslide").then(response => {
+            this.ads_list = response.data;
+        });
+    },
     methods: {
         next() {
             this.$refs.slick.next();
@@ -95,7 +92,7 @@ export default {
                 this.$refs.slick.reSlick();
             });
         },
-         imgUrlAlt(event) 
+        imgUrlAlt(event) 
         {
             event.target.src = "/images/noimage.jpg"
         },
@@ -105,12 +102,10 @@ export default {
             open(show_pdf);
         }
     }
-   
 }
 </script>
-
-
 <style scoped>
-/* Slider */
-
+    .cursor_style{
+        cursor: pointer;
+    }
 </style>
