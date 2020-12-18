@@ -29,7 +29,7 @@ export default {
             cats: [],
             computed_width: '100%',
             w_width: window.innerWidth,
-            bgColor: "",
+            bgColor: "#287db4",
         }
     },
     created() {              
@@ -44,10 +44,10 @@ export default {
     },
     updated:function(){
         if(this.$route.path === '/'){
-            this.bgColor = this.cats[0].color_code ? this.cats[0].color_code : "#287db4";
+            this.bgColor = this.cats[0].color_code;
         }else if(this.$route.path.includes('/newscategory')){
-            eventBus.$on('gotColor', color => {
-                this.bgColor = color ? color : "#287db4";
+            eventBus.$once('gotColor', color => {
+                this.bgColor = color;
             });
         }
     },
@@ -57,7 +57,7 @@ export default {
                 .then(response => {
                         this.cats = response.data;
                         if(this.$route.path.includes('/newscategory')){
-                            eventBus.$on('gotColor', color => {
+                            eventBus.$once('gotColor', color => {
                             this.bgColor = color ? color : localStorage.getItem("bgColor") ? localStorage.getItem("bgColor") : "#287db4";
                             });
 
@@ -69,7 +69,7 @@ export default {
 
         },
         changeBgColor(color_code) {
-            this.bgColor =  color_code ? color_code : "#287db4";
+            this.bgColor =  color_code;
             localStorage.setItem('bgColor', this.bgColor);
             eventBus.$emit('gotColor', color_code);
         },
