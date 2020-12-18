@@ -366,6 +366,9 @@ body.all-bg{
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
 }
+.news-slider-width{
+    width: 100%;
+}
 
 @media (max-width: 600px) and (min-width: 400px){
     .source-img-small {
@@ -576,7 +579,6 @@ body.all-bg{
 }
 .slick-initialized .slick-slide{
     display: block;
-    width: 100%;
 }
 .slick-loading .slick-slide{
     visibility: hidden;
