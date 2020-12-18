@@ -1051,7 +1051,13 @@
                                 post.created_at = "1";
                             }
                             else {
-                               post.created_at = post.created_at.slice(0, -8);
+                                var post_txt = new Date(post.created_at);
+                                var min = post_txt.getMinutes();
+                                var month = post_txt.getMonth()+1;
+                                if(min == 0 ) {
+                                    min = '00';
+                                }
+                                post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
                             }
                         });
                         this.latest_post_all_cats = posts;
