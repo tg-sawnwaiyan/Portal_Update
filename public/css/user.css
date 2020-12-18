@@ -576,6 +576,7 @@ body.all-bg{
 }
 .slick-initialized .slick-slide{
     display: block;
+    width: 100%;
 }
 .slick-loading .slick-slide{
     visibility: hidden;
