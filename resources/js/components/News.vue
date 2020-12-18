@@ -215,8 +215,8 @@
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
-                                                    <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                                    <span class="tab_title_date" v-else >New</span>
+                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +272,8 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
-                                                    
+                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
 
                                             </div>
@@ -338,8 +339,8 @@
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
                                             <span>{{item.cname}}</span>
                                         </span>
-                                        <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                        <span class="tab_title_date" v-else >New</span>
+                                        <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                        <span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -395,7 +396,8 @@
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
-
+                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -1274,6 +1276,12 @@
     font-size: 12px;
     float: right;
     margin-top: 16px;
+}
+.tab_title_d {
+    color: #969798!important;
+}
+.tab_title_n {
+    color: #E83015!important;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
