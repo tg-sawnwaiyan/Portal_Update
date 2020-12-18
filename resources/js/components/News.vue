@@ -211,7 +211,12 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
+                                                        <span>{{item.cname}}</span>
+                                                        
+                                                    </span>
+                                                    <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                                    <span class="tab_title_date" v-else >New</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,7 +272,7 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
-
+                                                    
                                                 </div>
 
                                             </div>
@@ -330,7 +335,11 @@
                                             <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
+                                            <span>{{item.cname}}</span>
+                                        </span>
+                                        <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                        <span class="tab_title_date" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -1030,7 +1039,20 @@
                     .then(response => {
                     
                         this.$loading(false);
-                        this.latest_post_all_cats = response.data;
+                        const posts = response.data;
+                        var current_date = new Date();
+                        var is_within_48 = false;
+                        posts.forEach(function(post){
+                            const post_date = Date.parse(post.created_at);
+                            const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
+                            if(time_diff < 2) {
+                                post.created_at = "1";
+                            }
+                            else {
+                               post.created_at = post.created_at.slice(0, -8);
+                            }
+                        });
+                        this.latest_post_all_cats = posts;
                     });
             },
 
@@ -1247,6 +1269,11 @@
     color: #fff !important;
     background-color: #828282;
     border: none !important;
+}
+.tab_title_date {
+    font-size: 12px;
+    float: right;
+    margin-top: 16px;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
