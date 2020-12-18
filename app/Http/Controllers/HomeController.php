@@ -28,10 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $catList = array();
-
-        $topic[0] = DB::table('categories')->where('name', 'トップ')
-                    //->where('recordstatus', '=', 1)
-                    ->first();
+        $topic[0] = DB::table('categories')->where('name', 'トップ')->first();
         $cats = DB::table('categories')
                     ->join('posts', 'categories.id', '=', 'posts.category_id')
                     ->where('categories.id', '!=', 26)
@@ -44,9 +41,7 @@ class HomeController extends Controller
        if(isset($topic[0]))
         $catList = array_merge_recursive($topic , $cats);
         else
-        $catList = $cats;
-
-        
+        $catList = $cats;        
         return response()->json($catList);
     }
 
@@ -61,14 +56,16 @@ class HomeController extends Controller
         $cat = DB::table('categories')
                     ->leftJoin('posts', 'categories.id', '=', 'posts.category_id')
                     ->where('posts.recordstatus', '=', 1)
-                    ->select('categories.id','categories.color_code')->orderBy('order_number', 'desc')->first();
+                    ->select('categories.id','categories.color_code')->orderBy('order_number', 'desc')
+                    ->first();
         $topic = Category::where('name', 'トップ')->first();
         if($topic){
             $color_code = $topic->color_code;
         }else{
             $color_code = $cat->color_code;
         }
-        $posts = Post::where(["category_id"=>$cat->id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
+        $posts = Post::where(["category_id"=> $cat->id, 'recordstatus'=> 1])->orderBy('created_at', 'desc')->limit(10)->get();
+
         return response()->json(Array("news"=>$posts,"line_color"=>$color_code));
     }
 
@@ -78,7 +75,7 @@ class HomeController extends Controller
         $getTime = Carbon\Carbon::now()->toDateString();
         // toDateTimeString
         $query = "SELECT *,'' as cname from posts 
-        where category_id = 26 and recordstatus=1 and from_date <= '".$getTime."' and 
+        where category_id = 26 and recordstatus = 1 and from_date <= '".$getTime."' and 
         (CASE WHEN to_date is NULL THEN from_date <= '".$getTime."' and to_date is null ELSE from_date <= '".$getTime."' and to_date >= '".$getTime."' END) limit 16";
         $break_news = DB::select($query);
   

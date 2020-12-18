@@ -890,9 +890,6 @@ export default {
             seen: false,
         }
     },
-    mounted() {
-        //this.getAllCat();
-    },
     created(){
         if($(window).width() > 480){
              this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
