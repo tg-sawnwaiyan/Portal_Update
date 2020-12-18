@@ -522,6 +522,24 @@ body.all-bg{
 .news-list-display03{
     padding: 5.7px 10px;
 }
+.head-btn{
+    margin-top: 8px;
+}
+.btn_more{
+    background-color: #287db4; 
+    padding: 5px 30px; 
+    border-radius: 0;
+    border: none;
+    min-width: 150px;
+    color: white;
+}
+.btn_more:hover{
+    background-color: #56a4d6; 
+}
+.btn_more .fas{
+    font-size: 20px;
+    vertical-align: middle;
+}
 
 
 /* .slick-slider */
@@ -771,6 +789,44 @@ body.all-bg{
 [dir='rtl'] .slick-slide {
     float: right;
 }
+
+.slick-next, .slick-prev{
+    border: 1px solid #807777;
+    outline: none;
+    background: #f7f7f7;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
+    z-index: 9;
+} 
+.slick-disabled {
+    opacity: 0;
+}
+.slick-next::before{
+    border-width: .2rem .2rem 0 0;
+    height: 9px;
+    width: 9px;  
+}
+.slick-prev::before{
+    border-width: .2rem .2rem 0 0;
+    height: 9px;
+    width: 9px;
+}
+@media only screen and (max-width:1280px){
+    .slick-next{
+        right: 0;
+    }
+    .slick-prev{
+        left: 0;     
+    }
+    .button:not(:disabled).slick-next{
+        opacity: 0;
+    }
+}
+@media only screen and (min-width: 769px){
+   .slick-arrow{   
+        display: none !important;   
+    } 
+}
 /*end of slick slider*/
 
 @media only screen and (min-width: 991px) and (max-width: 1400px){
@@ -781,6 +837,7 @@ body.all-bg{
 @media only screen and (max-width: 990px){
     .ads-slider{
         top: 30px;
+        width: 80%;
     }
 }
 /*end of ads-slider*/

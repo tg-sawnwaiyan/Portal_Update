@@ -11027,7 +11027,7 @@ padding: 11px;
         margin-bottom: 0 !important;
     }
     /*End job apply list */
-    .slick-next, .slick-prev{
+    /*.slick-next, .slick-prev{
         border: 1px solid #807777;
         outline: none;
         background: #f7f7f7;
@@ -11037,7 +11037,7 @@ padding: 11px;
     } 
     .slick-disabled {
         opacity: 0;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 1240px) {
