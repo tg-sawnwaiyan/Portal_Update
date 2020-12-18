@@ -297,7 +297,6 @@ body.all-bg{
 .bordertop-color{
     border-top: 2px solid var(--color);
     padding: 10px 0px 0px 0px;
-    margin-top: 20px;
 }
 .category_news_title {
     padding: 0px 15px 15px 0px;
@@ -807,8 +806,12 @@ body.all-bg{
     .main-header {
         padding: 4px 0;
     }
-    .tab-pane{
+    .profile-tit {
         padding: 0;
+        margin: 0;
+    }
+    .tab-pane{
+        padding: 10px 0 0 0;
     }
     .upper-tab{
         margin-top: 0;
