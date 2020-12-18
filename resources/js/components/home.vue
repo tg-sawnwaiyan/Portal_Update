@@ -55,18 +55,17 @@ export default {
     .upper-tab {
         border: 2px solid var(--line-color);
     }
-    .hospital-tabColor li.subtab3 > .router-link-active{
+    /*.hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;
         color: #63b7ff !important;
         border-bottom-color: transparent !important;
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #63b7ff !important; */
-    }
-    .hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
+    }*/
+    /*.hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
         color: #63b7ff !important;
-    }
-    .news-tabColor .nav-link {
+    }*/
+    /*.news-tabColor .nav-link {
         background: #75b777 !important;
         color: #fff;
         border-right: 1px solid #fff;
@@ -79,43 +78,39 @@ export default {
         border-top: 3px solid #75b777 !important;
         border-left: 1px solid #75b777 !important;
         border-bottom: 0px !important;
-    }
-    .news-tabColor li.subtab1 > .router-link-exact-active>i.fa, .news-tabColor li.subtab1 > .router-link-active>i.fas {
+    }*/
+    /*.news-tabColor li.subtab1 > .router-link-exact-active>i.fa, .news-tabColor li.subtab1 > .router-link-active>i.fas {
         color: #75b777 !important;
-    }
+    }*/
     .nursing-tabColor .nav-link {
         /* background: #ff9563 !important; */
-        background: #63b7ff !important;
+        /*background: #63b7ff !important;
         color: #fff;
         border-right: 1px solid #fff;
-        border-bottom: 0px !important;
+        border-bottom: 0px !important;*/
     }
-    .nursing-tabColor li.subtab2 > .router-link-active{
+    /*.nursing-tabColor li.subtab2 > .router-link-active{
         background: #fff!important;
-        /* color: #ff9563 !important; */
         color: #63b7ff !important;
         border-bottom-color: transparent !important;
-        /* border-top: 3px solid #ff9563 !important; */
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #ff9563 !important; */
-    }
+    }*/
     .nursing-tabColor li.subtab2 > .router-link-exact-active>i.fa, .nursing-tabColor li.subtab2 > .router-link-active>i.fas {
         /* color: #ff9563 !important; */
-        color: #63b7ff !important;
+        /*color: #63b7ff !important;*/
     }
-    .job-tabColor .nav-link {
+    /*.job-tabColor .nav-link {
         background: #828282 !important;
         color: #fff;
         border-right: 1px solid #fff;
         border-bottom: 0px !important;
-    }
-    .job-tabColor li.subtab4 > .router-link-active{
+    }*/
+    /*.job-tabColor li.subtab4 > .router-link-active{
         background: #fff!important;
         color: #828282 !important;
         border-bottom-color: transparent !important;
         border-top: 3px solid #828282 !important;
-        /* border-left: 1px solid #828282 !important; */
         border-right: 1px solid #828282 !important;
         border-bottom: 0px !important;
     }
@@ -127,12 +122,12 @@ export default {
     }
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;
-    }
-    .nursing-borderColor {
-        /* border: 1px solid #ff9563 !important; */
+    }*/
+    /*.nursing-borderColor {
+         border: 1px solid #ff9563 !important; 
          border: 1px solid #63b7ff !important;
-    }
-    .margin-none {
+    }*/
+    /*.margin-none {
         margin-top: 0px;
-    }
+    }*/
 </style>

@@ -938,11 +938,11 @@
     overflow: hidden;
 }
 
-.news-tabColor .nav-link {
+/*.news-tabColor .nav-link {
     background: #75b777 !important;
     color: #fff;
     border-right: 1px solid #fff;
-}
+}*/
 
 .left{
     float: left;
@@ -957,62 +957,11 @@
 }
 
 
-.center{
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    /* float: left;
-    width: 38.9%;
-    border: 1px solid black;
-    margin: 1px; */
-    /* width: 95%; */
-    
-    /* max-width: 100%; */
-}
+
 .right{
     float: right;
     width: 30%;
     /* border: 1px solid black; */
-}
-.cat-nav {
-    padding-bottom: 0;
-    height: 36px;
-    display: flex;
-    padding-left: 1.65rem !important;
-}
-
-.card-header-tabs {
-   margin-right: -1.65rem;
-    /* margin-bottom: 0rem; */
-    margin-left: -1.65rem;
-    border-bottom: 0;
-}
-.arr-btn {
-    cursor: pointer;
-    display: inline-flex;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flex;
-    background:transparent;
-    padding: 5px 1px 4px;
-    font-size: 25px;
-}
-.nav-tabs{
-    border-bottom: none;
-}
-
-.left-arr-btn {
-    position: relative;     
-    left: -20px;
-    width: 2%;
-}
-
-.right-arr-btn {
-    position: relative;      
-    right: -47px;
-    width: 2%;
-}
-.left-arr-btn .fas, .right-arr-btn .fas {
-    color:#828282;
 }
 
 .cat-slider .list-group-item{
@@ -1045,33 +994,13 @@
     height: 360px !important;
     background: #5f5f5f;
 }
-#myTab ul li {
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    display: -webkit-inline-flex;
-}
 
-.nav {
-    flex-wrap: nowrap;
-}
 .news-slider-width{
     width: 100%;
 }
 
-#top {
-    border-left: 1px solid #fff;
-}
 
-.nav-tabs{
-    border-bottom: none;
-}
 
-#myTab .router-link-exact-active {
-    height: 36px;
-    color: #fff !important;
-    background-color: #828282;
-    border: none !important;
-}
 .tab_title_date {
     font-size: 12px;
     float: right;
@@ -1083,6 +1012,7 @@
 .tab_title_n {
     color: #E83015!important;
 }
+
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1173,12 +1103,7 @@
         width: 100%;
     }
 }
-@media only screen and (max-width: 560px){
-    .cat-nav {
-        height: auto !important;
-        padding: 0 !important;
-    }
-}
+
 @media only screen and (min-width: 769px){
    .slick-arrow{   
     display: none !important;   
