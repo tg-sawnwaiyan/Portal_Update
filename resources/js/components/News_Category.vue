@@ -994,134 +994,45 @@ export default {
         }
     },
     methods:{
-            getAllCat: function() {
-                this.axios.get('/api/home') 
-                .then(response => {
-                        this.cats = response.data;
-
-                        this.getPostByCatID();
-
-                        this.getLatestPostByCatID();
-
-                    });
-
-            },
-            next() {
-                this.$refs.slick.next();
-            },
-            prev() {
-                this.$refs.slick.prev();
-            },
             reInit() {
                 // Helpful if you have to deal with v-for to update dynamic lists
                 this.$nextTick(() => {
                     this.$refs.slick.reSlick();
                 });
             },
-            imgUrlAlt(event) {
-                            event.target.src = "/images/noimage.jpg"
-                },
             searchCategory(){
 
-                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                        this.clearSearch();
-                    } else {
-                        this.status = 1;
-                        this.search_word = $('#search-free-word').val();          
-                    }
-                    this.getlatestpost();
-
-            },
-            getPostByCatID: function(catId = this.cats[0].id) {
-                if ($('#search-free-word').val() != null) {
-                    var search_word = $('#search-free-word').val();
+                if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                    this.clearSearch();
                 } else {
-                    var search_word = null;
+                    this.status = 1;
+                    this.search_word = $('#search-free-word').val();          
                 }
-
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.cats[0].id;
-                }
-                let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
-                this.axios.post("/api/posts", fd)
-                    .then(response => {
-                        this.posts = response.data;
-                    });
-            },
-            getLatestPostByCatID: function(catId) {
-
-                if ($('#search-free-word').val()) {
-
-                    var search_word = $('#search-free-word').val();
-                } else {
-
-                    var search_word = null;
-
-                }
-
-                if (catId) {
-
-                    var cat_id = catId;
-
-                } else {
-
-                    var cat_id = this.cats[0].id;
-
-                }
-
-                let fd = new FormData();
-
-                fd.append('search_word', search_word)
-
-                fd.append('category_id', cat_id)
-
-                $('.search-item').css('display', 'none');
-
-                this.categoryId = cat_id;
-
-                this.axios.post("/api/get_latest_post" , fd)
-
-                .then(response => {
-
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
-                        this.latest_post_null = true;
-                    }
-                    else{
-                        this.latest_post_null = false;
-                    }
-                });
+                this.getlatestpost();
 
             },
             getlatestpost()
             {
-                  if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                        this.nonblock = false;
-                        this.block = true;
-                        var searchword = 'all_news_search';                
-                    } else {                        
-                        this.block = false;
-                        this.nonblock = true;
-                        var searchword = this.search_word;
-                        this.searchnews = [];
-                    }
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+                    this.nonblock = false;
+                    this.block = true;
+                    var searchword = 'all_news_search';                
+                } else {                        
+                    this.block = false;
+                    this.nonblock = true;
+                    var searchword = this.search_word;
+                    this.searchnews = [];
+                }
                     this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
                     this.$loading(false);
                     this.searchnews = response.data;
-                    if(response.data.length == 0)
-                    {
-                        this.norecord_msg = true;
-                    }
-                    else{
-                        this.norecord_msg = false;
-                    }
-                
+                if(response.data.length == 0)
+                {
+                    this.norecord_msg = true;
+                }
+                else{
+                    this.norecord_msg = false;
+                }
                 });
             },
              clearSearch() {
