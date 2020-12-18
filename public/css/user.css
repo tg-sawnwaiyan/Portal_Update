@@ -155,9 +155,6 @@ body.all-bg{
 .pad-free{
     padding: 0px;
 }
-.margin-none{
-    margin-top: 0px;
-}
 .maintab-content{
     padding: 7px;
     margin: 75px 0 0 0;
@@ -165,6 +162,9 @@ body.all-bg{
 .upper-tab{
     margin-top: 63px;
     background: #fff;
+}
+.margin-none{
+    margin-top: 0px;
 }
 .nav-tabs .nav-link{
     border-top-left-radius: 0px;
@@ -176,6 +176,200 @@ body.all-bg{
 }
 .job-borderColor{
     border: 1px solid #828282 !important;
+}
+.tab-pane{
+    padding: 10px;
+}
+.category_margin{
+    margin: 5px 0 0 0;
+}
+.tab_pane_02{
+    margin-top: 10px;
+}
+.pad-new{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.tab-content {
+    padding: 13px;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+#myTabContent {
+    border: 1px solid #ccc;
+    height: 410px;
+}
+.wrapper-0 {
+    flex: 1 0 33.333%;
+    position: relative;
+    height: 0;
+    padding-bottom: 194px;
+}
+.wrapper-0 img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    transition: all 250ms ease-out;
+}
+.source-title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.538;
+    text-transform: uppercase;
+    color: #000;
+    margin: 12px 0;
+}
+.source-subtitle {
+    font-size: 12px;
+    color: #969798;
+    font-weight: 300;
+}
+.source-img-small {
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+    width: 100%;
+}
+.news-wrapper a:hover {
+    text-decoration: none;
+}
+.news-3-card{
+    background-color: #f7f7f7;
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+}
+.adslist-card {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px 10px 0px;
+}
+.news-3-card .img-box{
+    padding-left: 10px;
+}
+.wrapper-4{
+    flex: 1 0 33.333%;
+    position: relative;
+    height: 0;
+    padding-bottom: 75px;
+    overflow: hidden;
+}
+.wrapper-4 img {
+    position: absolute;
+    height: 100%;
+    transition: all 250ms ease-out;
+}
+.txt-box {
+    color: #333;
+    position: relative;
+    height: 75px;
+    padding-left: 0px;
+}
+.txt-box p{
+    line-height: 1.4em;
+    height: 40px;
+    overflow: hidden;
+}
+.tab_title_color{
+    border-radius: 3px;
+    padding: 2px 4px 0px 4px;
+    font-size: 13px;
+    background-color: var(--bkgColor);
+    color: #fff;
+    position: absolute;
+    bottom: -1px;
+}
+.tab_title_d {
+    color: #969798;
+    font-size: 12px;
+    float: right;
+    margin-top: 16px;
+}
+.bordertop-color{
+    border-top: 2px solid var(--color);
+    padding: 10px 0px 0px 0px;
+    margin-top: 20px;
+}
+.category_news_title {
+    padding: 0px 15px 15px 0px;
+}
+.h-color span {
+    border-left: 5px solid var(--color);
+    color: var(--color);
+    padding-left: 10px;
+    font-weight: bold;
+}
+.list-label{
+    float: right;
+    color: #999;
+    font-size: 14px;
+}
+.single-news-box {
+    background: #f7f7f7;
+    height: 310px;
+    padding: 10px;
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    overflow: hidden;
+}
+.wrapper-3 {
+    flex: 1 0 33.333%;
+    position: relative;
+    height: 77%;
+    overflow: hidden;
+}
+.wrapper-3 img {
+    width: 100%;
+    transition: all 250ms ease-out;
+}
+.single-news-box >p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pattern-txt-box {
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    height: 75px;
+    padding-left: 0px;
+}
+.news-list-display{
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    background: #f7f7f7;
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+}
+.bordertop-color i {
+    color: var(--color);
+}
+.profile-tit {
+    padding: 0 5px 5px 5px;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 1px;
+    min-height: 40px;
+    color: #2981cc;
+    min-height: 40px;
+    color: var(--title-color);
+    border-bottom: 1px dashed var(--title-color);
+}
+
+@media (max-width: 600px) and (min-width: 400px){
+    .source-img-small {
+        width: 500px;
+    }
+}
+
+
+.m-lr-0{
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 

@@ -1141,9 +1141,9 @@ export default {
 </script>
 
 <style scoped>
-.profile-tit{
+/*.profile-tit{
     margin-top: 0;
-}
+}*/
 .pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
@@ -1344,8 +1344,8 @@ export default {
 .bordertop-color i {
     color: var(--color);
 }
-.profile-tit {
+/*.profile-tit {
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
-}
+}*/
 </style>
