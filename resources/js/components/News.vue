@@ -889,11 +889,11 @@
  </script>
 
 <style>
-.list-label{
+/*.list-label{
     float: right; 
     color: #999; 
     font-size: 14px;
-}
+}*/
 .list-label > p{
     padding-left: 10px;
     font-weight: bold;
@@ -903,40 +903,36 @@
     top: 10px;
     font-size: 20px;
 }
-.pad-new{
+/*.pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
-}
-.news-list-display{
-    /* border: 1px solid #f7f7f7; */
+}*/
+/*.news-list-display{
     padding: 5px 10px;
     margin-bottom: 4px;
     background: #f7f7f7;
-    /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
+}*/
 
-.news-3-card {
+/*.news-3-card {
     background-color: #f7f7f7;
-    /* box-shadow: 0 0 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
+}*/
 
-.news-3-card .img-box{
+/*.news-3-card .img-box{
     padding-left: 10px;
-}
+}*/
 
-.single-news-box {
+/*.single-news-box {
     background: #f7f7f7;
     height: 310px;
     padding: 10px;
-    /* box-shadow: 0px 0px 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
     overflow: hidden;
-}
+}*/
 
 /*.news-tabColor .nav-link {
     background: #75b777 !important;
@@ -1001,14 +997,14 @@
 
 
 
-.tab_title_date {
+/*.tab_title_date {
     font-size: 12px;
     float: right;
     margin-top: 16px;
-}
-.tab_title_d {
+}*/
+/*.tab_title_d {
     color: #969798!important;
-}
+}*/
 .tab_title_n {
     color: #E83015!important;
 }
@@ -1113,23 +1109,24 @@
     display: inline-block;
 
 }
-.tab_title_color{
+/*.tab_title_color{
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
     background-color: var(--bkgColor);
-}
-.tab_title_color span {
     color: #fff;
-}
-.bordertop-color{
+}*/
+/*.tab_title_color span {
+    color: #fff;
+}*/
+/*.bordertop-color{
     border-top: 2px solid var(--color);
-}
-.h-color span {
+}*/
+/*.h-color span {
     border-left: 5px solid var(--color);
     color: var(--color);
-}
-.bordertop-color i {
+}*/
+/*.bordertop-color i {
     color: var(--color);
-}
+}*/
 </style>
