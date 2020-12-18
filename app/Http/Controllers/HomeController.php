@@ -57,25 +57,24 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
-        $request = $request->all();
-        $cat_id = $request['category_id'];
-
-        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
-        return response()->json($posts);
-    }
-
-    public function getLatestPost(Request $request)
-    {
-        $request = $request->all();
-        $cat_id = $request['category_id'];
-        $latest_post = Post::where("category_id",$cat_id,"and")->where('recordstatus',1);
-        $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
-        return response()->json($latest_post);
+        $color_code = "";
+        $cat = DB::table('categories')
+                    ->leftJoin('posts', 'categories.id', '=', 'posts.category_id')
+                    ->where('posts.recordstatus', '=', 1)
+                    ->select('categories.id','categories.color_code')->orderBy('order_number', 'desc')->first();
+        $topic = Category::where('name', 'トップ')->first();
+        if($topic){
+            $color_code = $topic->color_code;
+        }else{
+            $color_code = $cat->color_code;
+        }
+        $posts = Post::where(["category_id"=>$cat->id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
+        return response()->json(Array("news"=>$posts,"line_color"=>$color_code));
     }
 
     public function getLatestPostFromAllCat()
     {
-        $to_date = [];$from_date=[];
+        $to_date = $from_date = [];
         $getTime = Carbon\Carbon::now()->toDateString();
         // toDateTimeString
         $query = "SELECT *,'' as cname from posts 
@@ -90,6 +89,17 @@ class HomeController extends Controller
         shuffle($merge_arr);
         return response()->json($merge_arr);
     }
+
+    public function getLatestPost(Request $request)
+    {
+        $request = $request->all();
+        $cat_id = $request['category_id'];
+        $latest_post = Post::where("category_id",$cat_id,"and")->where('recordstatus',1);
+        $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
+        return response()->json($latest_post);
+    }
+
+    
 
     public function get_news_by_catId($search_word,$id)
     {

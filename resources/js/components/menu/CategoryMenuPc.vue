@@ -3,7 +3,7 @@
             <!-- Category Menu -->
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist" ref="menu">
-                        <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
+                        <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
@@ -14,20 +14,20 @@
     </div>
 </template>
 <script scoped>
+
+import { eventBus } from '../../event-bus.js';
+
 export default {
     data(){
         return {
             cats: [],
             is_cat_overflow: false,
-            is_cat_slided: false,
             computed_width: '100%',
             cat_box_width: null,
             w_width: window.innerWidth,
-            gap_width: null,
         }
     },
-    created() {
-
+    mounted() {
         this.getAllCat();
         this.$nextTick(() => {
                 if(this.$refs.menu){
@@ -61,12 +61,17 @@ export default {
         })
     },
     methods: {
-        getAllCat: function() {           
-                this.axios .get('/api/home') 
+         getAllCat: function() {           
+                this.axios.get('/api/home') 
                 .then(response => {
                     this.cats = response.data;
-                    });
 
+                    if(this.cats[0].name == "トップ"){
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
+                        }else{
+                            eventBus.$emit('gotColor', this.cats[1].color_code);
+                        }
+                    });
         },
         swipeLeft() {
             const content = this.$refs.content;
@@ -76,7 +81,6 @@ export default {
         swipeRight() {
             const content = this.$refs.content;
             this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
         },
         scrollTo(element, scrollPixels, duration) {
                 const scrollPos = element.scrollLeft;

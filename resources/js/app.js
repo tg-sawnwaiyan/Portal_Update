@@ -14,6 +14,7 @@ import DatePicker from 'vue2-datepicker';
 import { BulmaAccordion, BulmaAccordionItem } from "vue-bulma-accordion";
 import Slick from 'vue-slick'; //vue slick
 import VueAnalytics from 'vue-analytics'
+import storeData from "./store"
 
 Vue.use(VueAnalytics, {
     id: 'UA-164662727-1',
@@ -160,9 +161,14 @@ router.afterEach(() => {
     setTimeout(() => NProgress.done(), 500)
 })
 
+const store = new Vuex.Store(
+   storeData
+)
+
 const app = new Vue({
     el: '#app',
     router,
+    store, //vuex
     component: {
         Index,
         meta: {

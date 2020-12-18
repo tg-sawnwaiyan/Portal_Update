@@ -211,12 +211,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
-                                                        <span>{{item.cname}}</span>
-                                                        
-                                                    </span>
-                                                    <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                                    <span class="tab_title_date" v-else >New</span>
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +267,7 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
-                                                    
+
                                                 </div>
 
                                             </div>
@@ -335,11 +330,7 @@
                                             <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
-                                            <span>{{item.cname}}</span>
-                                        </span>
-                                        <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                        <span class="tab_title_date" v-else >New</span>
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                     </div>
 
                                 </div>
@@ -652,7 +643,7 @@
             $('#navtab').addClass('news-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('news-borderColor');
-            this.getAllCat();
+            this.getPostByCatID();
             this.getLatestPostsByCatID();
             this.getLatestPostFromAllCat();
         },
@@ -660,63 +651,16 @@
     data() {
 
         return {
-
-            cats: [],
-
             posts: [],
-
             latest_post: [],
             latest_post_null: false,
-
             latest_post_all_cats: [],
-
             search_posts:[],
-
-            tmp_arr:[],
-
-            categoryId: 1,
-
-            index:[0,3],
-
-            second_index:[1,2],
-
-            third_index:[4,5],
-
-            tmp_title:[],
-
-            title_arr:[],
-
-            tmp_photo:[],
-
-            photo_arr:[],
-
-            tmp_post_id:[],
-
-            id_arr:[],
-
             post_groups : [],
-
             status:'0',
-
             search_word:null,
-
-            first_search_word:'',
-
-            pattern:[],
-
-            is_cat_overflow: false,
-
-            is_cat_slided: false,
-
-            computed_width: '100%',
             w_width: window.innerWidth,
             norecord_msg: false,
-            cat_box_width: null,
-            menuWrapperSize: '',
-            itemSize: '',
-            li_width: 0,
-            latest_catId: 0,
-            // w_width: $(window).width() + 16,
         }
     },
 
@@ -727,47 +671,10 @@
         })
         
         this.$nextTick(() => {
-            $("#top_a").addClass("active");
-            this.menuWrapperSize = $('.menu_category').outerWidth();
-
-             this.itemSize = $('.nav-item').outerWidth(true);
-
-            
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        })
-        var today = new Date();
-        var month =(String) (today.getMonth()+1);
-        var date = (String) (today.getDate());
-
-        if(month.length == 1)
-        {
-            month = '0' + today.getMonth();
-        }
-
-        if(date.length == 1 )
-        {
-            date = '0' + today.getDate();
-        }
-        var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
-
-        if(localStorage.getItem('date') == null)
-        {
-            localStorage.setItem('date',todaydate);
-            this.getCategoryRandomValue();
-        }
-        else{
-            var localdate = localStorage.getItem('date');
-            if(todaydate > localdate)
-            {
-                localStorage.setItem('date',todaydate);
-                this.getCategoryRandomValue();
-            }
-        };    
+            $("#top_a").addClass("active");       
+        })   
     },
     computed:{  
-
         categoryslider(){
             return {
                 slidesToShow: 1,
@@ -781,54 +688,54 @@
                 lazyLoad: 'ondemand',   
                 arrows: false              
             }
-        }    ,  
-            slickOptions() {
-                return {
-                slidesToShow: 4,
-                infinite: false,
-                accessibility: true,
-                adaptiveHeight: false,
-                arrows: true,
-                dots: true,
-                draggable: true,
-                edgeFriction: 0.30,
-                swipe: true,
-                responsive: [{
-                    breakpoint: 1280,
-                        settings: {
-                            slidesToShow: 3,                           
-                            slidesToScroll: 1,  
-                            infinite:false 
-                        }
-                    }, {
-                    breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1, 
-                            infinite: false                           
-                        }
-                    },{
-                    breakpoint: 770,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1, 
-                            infinite: false                           
-                        }
-                    },{
-                        breakpoint: 420,
-                            settings:{
-                                slidesToShow: 1,
-                                slidesToScroll:1,
-                                infinite: false
-                            }
-                    },{
-                    breakpoint: 481,
+        },  
+        slickOptions() {
+            return {
+            slidesToShow: 4,
+            infinite: false,
+            accessibility: true,
+            adaptiveHeight: false,
+            arrows: true,
+            dots: true,
+            draggable: true,
+            edgeFriction: 0.30,
+            swipe: true,
+            responsive: [{
+                breakpoint: 1280,
+                    settings: {
+                        slidesToShow: 3,                           
+                        slidesToScroll: 1,  
+                        infinite:false 
+                    }
+                }, {
+                breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1, 
+                        infinite: false                           
+                    }
+                },{
+                breakpoint: 770,
                     settings: {
                         slidesToShow: 2,
+                        slidesToScroll: 1, 
+                        infinite: false                           
                     }
-                }]                    
+                },{
+                    breakpoint: 420,
+                        settings:{
+                            slidesToShow: 1,
+                            slidesToScroll:1,
+                            infinite: false
+                        }
+                },{
+                breakpoint: 481,
+                settings: {
+                    slidesToShow: 2,
                 }
+            }]                    
             }
+        }
     },
     methods: {
             next() {
@@ -843,68 +750,6 @@
                     this.$refs.slick.reSlick();
                 });
             },
-                  
-            newsToggle(id)
-                {
-
-                    var class_by_id = $('#newstogg'+id).attr('class');
-                    if(class_by_id == "fas fa-sort-down animate rotate")
-                    {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
-                        $('.newsChangeLink'+id).addClass("fas fa-sort-down");
-                        $('#newsChangeLink'+id).show('medium');
-                    }
-                    else {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down");
-                        $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
-                        $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
-                        $('#newsChangeLink'+id).hide('medium');
-                    }
-
-            },
-            log() {
-                // console.log()
-            },
-            getAllCat: function() {
-                this.axios .get('/api/home') 
-                .then(response => {
-                        this.cats = response.data;
-
-                        if(this.cats[0].name == "トップ"){
-                            eventBus.$emit('gotColor', this.cats[0].color_code);
-                            this.latest_catId = this.cats[1].id;
-                        }else{
-                            this.latest_catId = this.cats[0].id;
-                            eventBus.$emit('gotColor', this.cats[1].color_code);
-                        }
-                        this.getPostByCatID();
-
-                        this.getLatestPostByCatID();
-
-                    });
-
-            },
-
-            groupBy(array, key) {
-
-                const result = {}
-
-                array.forEach(item => {
-
-                    if (!result[item[key]]) {
-
-                        result[item[key]] = []
-
-                    }
-
-                    result[item[key]].push(item)
-
-                })
-
-                return result
-
-            },
-
             getLatestPostsByCatID: function() {
                 this.post_groups = [];
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
@@ -914,7 +759,6 @@
                 }
 
                 if($(window).width() > 480){
-
                     this.axios
                     .get('/api/get_latest_posts_by_catId/'+searchword)
                     .then(response => {
@@ -951,111 +795,43 @@
                     });
                 }
             },
-
-
-            getPostByCatID: function(catId = this.latest_catId) {
-                if ($('#search-free-word').val() != null) {
-                    var search_word = $('#search-free-word').val();
-                } else {
-                    var search_word = null;
-                }
-
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.latest_catId;
-                }
+            getPostByCatID: function() {
+                // if ($('#search-free-word').val()) {
+                //     var search_word = $('#search-free-word').val();
+                // } else {
+                //     var search_word = null;
+                // }
                 let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
+                //fd.append('search_word', search_word);
                 this.axios.post("/api/posts", fd)
                     .then(response => {
-                        this.posts = response.data;
+                        this.latest_post = response.data.news[0];
+                        this.posts = response.data.news;
+                        eventBus.$emit('gotColor', response.data.line_color);
                     });
             },
-
-            getCategoryRandomValue(){
-
-            this.axios.get("/api/get_cat_random") .then(response => {
-
-                });
-
-            },
-
-            getLatestPostByCatID: function(catId) {
-
-                if ($('#search-free-word').val()) {
-
-                    var search_word = $('#search-free-word').val();
-                } else {
-
-                    var search_word = null;
-
-                }
-
-                if (catId) {
-
-                    var cat_id = catId;
-
-                } else {
-
-                    var cat_id = this.latest_catId;
-
-                }
-
-                let fd = new FormData();
-
-                fd.append('search_word', search_word)
-
-                fd.append('category_id', cat_id)
-
-                $('.search-item').css('display', 'none');
-
-                this.categoryId = cat_id;
-
-                this.axios.post("/api/get_latest_post" , fd)
-
-                .then(response => {
-
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
-                        this.latest_post_null = true;
-                    }
-                    else{
-                        this.latest_post_null = false;
-                    }
-                });
-
-            },
-
             getLatestPostFromAllCat: function() {
-                // this.$loading(true);
-                this.axios
-
-                    .get('/api/get_latest_post_all_cat')
-
-                    .then(response => {
-                    
+                this.axios.get('/api/get_latest_post_all_cat')
+                    .then(response => {                    
                         this.$loading(false);
-                        const posts = response.data;
-                        var current_date = new Date();
-                        var is_within_48 = false;
-                        posts.forEach(function(post){
-                            const post_date = Date.parse(post.created_at);
-                            const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
-                            if(time_diff < 2) {
-                                post.created_at = "1";
-                            }
-                            else {
-                               post.created_at = post.created_at.slice(0, -8);
-                            }
-                        });
-                        this.latest_post_all_cats = posts;
+                        this.latest_post_all_cats = response.data;
                     });
+            },    
+            newsToggle(id) {
+                var class_by_id = $('#newstogg'+id).attr('class');
+                if(class_by_id == "fas fa-sort-down animate rotate")
+                {
+                    $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
+                    $('.newsChangeLink'+id).addClass("fas fa-sort-down");
+                    $('#newsChangeLink'+id).show('medium');
+                }
+                else {
+                    $('#newstogg'+id).removeClass("fas fa-sort-down");
+                    $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
+                    $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
+                    $('#newsChangeLink'+id).hide('medium');
+                }
             },
-
             searchCategory() {
                 this.$loading(true);
                 if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
@@ -1070,15 +846,10 @@
                 }
             },
             clearSearch() {
-
                 this.status = 0;
-
                 this.search_word = '';
-
                 this.getLatestPostsByCatID();
-
             },
-
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
@@ -1269,11 +1040,6 @@
     color: #fff !important;
     background-color: #828282;
     border: none !important;
-}
-.tab_title_date {
-    font-size: 12px;
-    float: right;
-    margin-top: 16px;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {

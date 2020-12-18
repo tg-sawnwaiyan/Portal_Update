@@ -1,10 +1,9 @@
 <template>
     <div>
-        <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
-        <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
+        <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab">
             <li role="presentation" class="subtab1 nav-item">
-                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
+                <router-link :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
             </li>
             <li role="presentation" class="subtab2 nav-item"  >
                 <router-link :to="{ name: 'nursingSearch' }"  class="nav-link"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -15,8 +14,7 @@
             <li role="presentation" class="subtab4 nav-item"  >
                 <router-link  :to="{ name: 'jobSearch' }"  class="nav-link"><i class="fas fa-users"></i> 求人検索</router-link>
             </li>
-        </ul>
-        
+        </ul>        
         <div class="tabs upper-tab" id="upper-tab" :style="useStyle">
             <div class="tab-pane" id="tab1">
                 <main>
@@ -25,19 +23,16 @@
             </div>
         </div>
         <!--end menu tabs-->
-
     </div>
-    <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
- import { eventBus } from '../event-bus.js';
+
+import { eventBus } from '../event-bus.js';
+
 export default {
     data(){
         return {
-            othersDetails: true,
-            computed_width: '100%',
-            cat_box_width: null,
             lineColor: "",
         }
     },
@@ -48,27 +43,11 @@ export default {
       }
     }
     },
-    created() {
+    created() {       
         eventBus.$on('gotColor', color => {
             this.lineColor = color ? color : "#287db4";
         });
-        
-        if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
-            this.othersDetails = false;
-        }
-        else{
-            this.othersDetails = true;
-        }
-        this.$nextTick(() => {
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        }) 
-    },
-    methods: {
-        activeTopMenu(){
-             $("#top_a").addClass("active");
-        }
+        console.log(this.lineColor)
     }
 }
 </script>
