@@ -135,11 +135,11 @@ class PostController extends Controller
 
     public function getNewsByCategory($id)
     {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
+        $cat = Category::where('id',$id)->select('name')->first();
 
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('created_at', 'DESC')->get()->toArray();
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
-        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = [];
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = $More = [];
 
         //divide array new list by block
         foreach ($newslist as $value) {
@@ -158,6 +158,8 @@ class PostController extends Controller
                 $newarray4 = array_chunk($value, 1);
             }*/
         }
+        $one = $two = $three = 0; 
+        $moreNews  = $moreNews_concat = [];
 
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
@@ -165,30 +167,44 @@ class PostController extends Controller
         //$lenght[] = count($newarray4); 
                 
         for ($i=0; $i <= max($lenght); $i++) { 
-            if(isset($newarray1[$i])){
-                array_push($aryPush, $newarray1[$i]);
-            }else{
+            /***for block id one***/      
+            if(isset($newarray1[$i]) && $one < 2){
+                array_push($aryPush, $newarray1[$i]);                
+                $one++;
+            }else if(isset($newarray1[$i]) && $one >= 2){
+                array_push($More, $newarray1[$i]);
+            }
+            else if(!isset($newarray1[$i])){
                 array_push($aryPush, $aryEmpty);
             }
-
-            if(isset($newarray2[$i])){
-                array_push($aryPush, $newarray2[$i]);
-            }else{
+            /***for block id two***/      
+            if(isset($newarray2[$i]) && $two < 2){
+                array_push($aryPush, $newarray2[$i]);                
+                $two++;
+            }else if(isset($newarray2[$i]) && $two >= 2){
+                array_push($More, $newarray2[$i]);
+            }
+            else if(!isset($newarray2[$i])){
                 array_push($aryPush, $aryEmpty);
             }
-
-            if(isset($newarray3[$i])){
-                array_push($aryPush, $newarray3[$i]);
-            }else{
+            /***for block id three***/      
+            if(isset($newarray3[$i]) && $three < 2){
+                array_push($aryPush, $newarray3[$i]);                
+                $three++;
+            }else if(isset($newarray3[$i]) && $three >= 2){
+                array_push($More, $newarray3[$i]);
+            }
+            else if(!isset($newarray3[$i])){
                 array_push($aryPush, $aryEmpty);
             }
+        } 
 
-           /* if(isset($newarray4[$i])){
-                array_push($aryPush, $newarray4[$i]);
-            }else{
-                array_push($aryPush, $aryEmpty);
-            }*/
-        }
+        foreach ($More as $key => $value) { 
+            if (is_array($value)) { 
+              $moreNews = array_merge($moreNews, $value); 
+            } 
+            $moreNews_concat = array_chunk($moreNews, 4);
+        } 
 
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 3);
@@ -196,14 +212,80 @@ class PostController extends Controller
             $aryResults = [];
         }
 
-        return response()->json(array('cat_name'=> $cat_name,'cat_id' => $id,'newslist'=>$aryResults));
+        return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
      public function getNewsByCategoryForMobile($id)
     {
-        $cat_name = Category::where('id',$id)->select('name')->value('name');
-        $newslist = Post::where('block_id','!=',0)->where('category_id',$id)->where('recordstatus',1)->orderBy('block_id', 'ASC')->orderBy('created_at', 'DESC')->get()->toArray();
-        return response()->json(array('cat_name'=> $cat_name,'newslist'=>$newslist));
+        $cat = Category::where('id',$id)->select('name')->first();
+
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
+
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
+
+        //divide array new list by block
+        foreach ($newslist as $value) {
+            $tmp[$value['block_id']][] = $value;
+        }
+
+        //separted divied block array
+        foreach ($tmp as $key => $value) {
+            if($key == 1){
+                $newarray1 = $value;
+            }elseif($key == 2){
+                $newarray2 = array_chunk($value, 2);
+            }elseif($key == 3){
+                $newarray3 = array_chunk($value, 5);
+            } 
+        }
+ 
+        $two = $three = 0; 
+        $moreNews  = $moreNews_concat = [];
+
+        $lenght[] = count($newarray2);
+        $lenght[] = count($newarray3);
+                 
+        for ($i=0; $i <= max($lenght); $i++) { 
+            /***for block id two***/       
+            if(isset($newarray2[$i]) && $two < 1){
+                array_push($aryPush, $newarray2[$i]);                
+                $two++;
+            }else if(isset($newarray2[$i]) && $two >= 1){
+                array_push($More, $newarray2[$i]);
+            }
+            else if(!isset($newarray2[$i])){
+                array_push($aryPush, $aryEmpty);
+            }
+            /***for block id three***/      
+            if(isset($newarray3[$i]) && $three < 1){
+                array_push($aryPush, $newarray3[$i]);                
+                $three++;
+            }else if(isset($newarray3[$i]) && $three >= 1){
+                array_push($More, $newarray3[$i]);
+            }
+            else if(!isset($newarray3[$i])){
+                array_push($aryPush, $aryEmpty);
+            }
+        } 
+
+        foreach ($More as $key => $value) { 
+            if (is_array($value)) { 
+              $moreNews = array_merge($moreNews, $value); 
+            } 
+        } 
+
+        if(array_filter($aryPush)){            
+            $aryResults = array_chunk($aryPush, 2);
+        }else{
+            $aryResults = [];
+        }
+        $result = array('cat'=> $cat,
+                        'cat_id' => $id,
+                        'newslist'=>$aryResults,
+                        'moreNews'=>$moreNews,
+                        'bigNews'=>$newarray1
+                    );
+        return response()->json($result);
     }
 
     public function show_related($id) {

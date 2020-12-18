@@ -140,4 +140,9 @@ export default {
         /* border: 1px solid #ff9563 !important; */
          border: 1px solid #63b7ff !important;
     }
+    @media screen and (max-width: 480px) {
+        .news-borderColor {
+            border: 0!important;
+        }
+    }
 </style>

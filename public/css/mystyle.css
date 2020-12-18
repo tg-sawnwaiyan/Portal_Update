@@ -7238,6 +7238,14 @@ color: #fff !important;
     .page-item.disabled {
         display: block;
     }
+    .upper-tab {
+        border: none !important;
+    }
+    .slick-prev {
+        left: -15px;
+        transform: rotate(-135deg);
+        z-index: 1000;
+    }
 }
 
 
@@ -11112,6 +11120,17 @@ padding: 11px;
         margin-bottom: 0 !important;
     }
     /*End job apply list */
+    .slick-next, .slick-prev{
+        border: 1px solid #807777;
+        outline: none;
+        background: #f7f7f7;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
+        z-index: 999;
+    } 
+    .slick-disabled {
+        opacity: 0;
+    }
 }
 
 @media only screen and (max-width: 1240px) {

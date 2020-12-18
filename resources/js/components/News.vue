@@ -213,6 +213,8 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
+                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                    				<span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -268,7 +270,8 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>                                                
-
+													<span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                    				<span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
 
                                             </div>
@@ -332,6 +335,8 @@
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                         <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
+                                        <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                   		<span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -387,7 +392,8 @@
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                     <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
-
+									<span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -1051,7 +1057,26 @@
                     .then(response => {
                     
                         this.$loading(false);
-                        this.latest_post_all_cats = response.data;
+                        const posts = response.data;
+                        var current_date = new Date();
+                        var is_within_48 = false;
+                        posts.forEach(function(post){
+                            const post_date = Date.parse(post.created_at);
+                            const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
+                            if(time_diff < 2) {
+                                post.created_at = "1";
+                            }
+                            else {
+                                var post_txt = new Date(post.created_at);
+                                var min = post_txt.getMinutes();
+                                var month = post_txt.getMonth()+1;
+                                if(min == 0 ) {
+                                    min = '00';
+                                }
+                                post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
+                            }
+                        });
+                        this.latest_post_all_cats = posts;
                     });
             },
 
@@ -1231,11 +1256,6 @@
     border-right: 1px solid #fff;
 }
 
-.news-borderColor {
-    border: 1px solid #2980b9 !important;
-}
-
-
 .left{
     float: left;
     width: 30%;
@@ -1364,6 +1384,18 @@
     background-color: #828282;
     border: none !important;
 }
+
+.tab_title_date {
+    font-size: 12px;
+    float: right;
+    margin-top: 16px;
+}
+.tab_title_d {
+    color: #969798!important;
+}
+.tab_title_n {
+    color: #E83015!important;
+}   
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
