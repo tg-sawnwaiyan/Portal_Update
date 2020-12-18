@@ -1144,24 +1144,24 @@ export default {
 /*.profile-tit{
     margin-top: 0;
 }*/
-.pad-new{
+/*.pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
-}
-.clearfix:after { 
+}*/
+/*.clearfix:after { 
    content: "."; 
    visibility: hidden; 
    display: block; 
    height: 0; 
    clear: both;
-}
-.bordertop-color {
+}*/
+/*.bordertop-color {
     border-top: 0px !important;
-}
-.news-slider-width{
+}*/
+/*.news-slider-width{
     width: 100%;
-}
-.news-list-display{
+}*/
+/*.news-list-display{
     padding: 5px 10px;
     margin-bottom: 5px;
     background: #f7f7f7;
@@ -1169,11 +1169,11 @@ export default {
     border-width: 0 1px 1px 0;
     box-sizing: border-box;
     max-height: 30px;
-}
-.news-list-display03{
+}*/
+/*.news-list-display03{
     padding: 5.7px 10px;
-}
-.news-3-card {
+}*/
+/*.news-3-card {
     background-color: #f7f7f7;
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
@@ -1181,8 +1181,8 @@ export default {
 }
 .news-3-card .img-box{
     padding-left: 10px;
-}
-.single-news-box {
+}*/
+/*.single-news-box {
     background: #f7f7f7;
     height: 310px;
     padding: 10px;
@@ -1190,7 +1190,7 @@ export default {
     border-width: 0 1px 1px 0;
     overflow: hidden;
     box-sizing: border-box;
-}
+}*/
 .single-news-slide{
     max-width: 100%;
 }
@@ -1219,7 +1219,7 @@ export default {
     right: -47px;
     width: 2%;
 }
-#myTab ul li {
+/*#myTab ul li {
     display: -ms-inline-flexbox;
     display: inline-flex;
     display: -webkit-inline-flex;
@@ -1231,7 +1231,7 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-}
+}*/
 .card-header-tabs {
     margin-right: -1.65rem;
     margin-left: -1.65rem;
@@ -1243,7 +1243,7 @@ export default {
     display: flex;
     padding-left: 1.65rem !important;
 }
-.left-arr-btn {
+/*.left-arr-btn {
     position: relative;     
     left: -20px;
     width: 2%;
@@ -1252,19 +1252,19 @@ export default {
     position: relative;      
     right: -40px;
     width: 2%;
-}
-#top {
+}*/
+/*#top {
     border-left: 1px solid #fff;
-}
+}*/
 .nav-tabs{
     border-bottom: none;
 }
-#myTab .router-link-exact-active {
+/*#myTab .router-link-exact-active {
     height: 36px;
     color: #fff !important;
     background-color: #828282;
     border: none !important;
-}
+}*/
 .wrapper-4{
     padding-bottom: 79px;
 }
@@ -1341,9 +1341,9 @@ export default {
     width: 50%;
     }
 }
-.bordertop-color i {
+/*.bordertop-color i {
     color: var(--color);
-}
+}*/
 /*.profile-tit {
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);

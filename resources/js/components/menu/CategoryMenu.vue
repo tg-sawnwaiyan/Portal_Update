@@ -76,12 +76,12 @@ export default {
         scrollUp(index){
             if(localStorage.getItem("clicked")){
                 if(index >= localStorage.getItem('clicked')){
-                    var pos = $('div.nav').scrollLeft() + 100;
+                    var pos = $('div#myTab').scrollLeft() + 100;
                 }else{
-                    var pos = $('div.nav').scrollLeft() - 100;
+                    var pos = $('div#myTab').scrollLeft() - 100;
                 }
             }
-            $('div.nav').scrollLeft(pos);
+            $('div#myTab').scrollLeft(pos);
             localStorage.setItem('clicked', index);    
         },
     }

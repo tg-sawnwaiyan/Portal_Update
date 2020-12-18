@@ -138,6 +138,13 @@ ul.menu_list li a.router-link-exact-active{
 /*end of footer*/
 
 /*main*/
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
 body.all-bg{
     background: #f8f8f8;
 }
@@ -162,6 +169,7 @@ body.all-bg{
 .upper-tab{
     margin-top: 63px;
     background: #fff;
+    border: 2px solid var(--line-color);
 }
 .margin-none{
     margin-top: 0px;
@@ -509,6 +517,12 @@ body.all-bg{
     width: 100%;
     height: auto;
 }
+.pattern-txt-box p {
+    line-height: 1.4em;
+}
+.news-list-display03{
+    padding: 5.7px 10px;
+}
 
 
 /* .slick-slider */
@@ -708,6 +722,56 @@ body.all-bg{
     opacity: .75;
     color: black;
 }
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
 /*end of slick slider*/
 
 @media only screen and (min-width: 991px) and (max-width: 1400px){
@@ -740,6 +804,12 @@ body.all-bg{
 
 /*navtab for SP*/
 @media only screen and (max-width: 575px){
+    .main-header {
+        padding: 4px 0;
+    }
+    .tab-pane{
+        padding: 0;
+    }
     .upper-tab{
         margin-top: 0;
     }
@@ -809,9 +879,8 @@ body.all-bg{
     /*SP category menu*/
     .cat-nav{
         padding: 0;
-        display: flex;
         position: relative;
-        top: 70px;
+        top: 73px;
         z-index: 1;
     }
     #myTab{

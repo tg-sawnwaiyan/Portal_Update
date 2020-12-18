@@ -1085,9 +1085,9 @@ border-radius: 3px;
     padding-left: 0px;
 }*/
 
-.pattern-txt-box p {
+/*.pattern-txt-box p {
     line-height: 1.4em!important;
-}
+}*/
 
 /*.txt-box {
     color: #333;
@@ -9744,7 +9744,7 @@ ul.nur-caro-card>li.list-group-item {
     background: #f8fdff;
 }
 
-.slick-list:focus {
+/*.slick-list:focus {
     outline: none;
 }
 
@@ -9767,8 +9767,6 @@ ul.nur-caro-card>li.list-group-item {
     top: 0;
     left: 0;
     display: block;
-    /* margin-left: auto;
-margin-right: auto; */
     margin: 0;
 }
 
@@ -9795,7 +9793,7 @@ margin-right: auto; */
 
 [dir='rtl'] .slick-slide {
     float: right;
-}
+}*/
 
 /*.slick-slide img {
     display: block;

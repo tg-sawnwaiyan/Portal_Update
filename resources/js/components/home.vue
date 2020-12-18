@@ -44,17 +44,16 @@ export default {
     }
     },
     created() {       
-        eventBus.$on('gotColor', color => {
+        eventBus.$once('gotColor', color => {
             this.lineColor = color ? color : "#287db4";
         });
-        console.log(this.lineColor)
     }
 }
 </script>
 <style>
-    .upper-tab {
+    /*.upper-tab {
         border: 2px solid var(--line-color);
-    }
+    }*/
     /*.hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;
         color: #63b7ff !important;
