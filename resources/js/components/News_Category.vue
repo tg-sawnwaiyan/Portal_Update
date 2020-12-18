@@ -1200,7 +1200,7 @@ export default {
  #slick-slide10{
     width: 170px !important;
 }
-.arr-btn {
+/*.arr-btn {
     cursor: pointer;
     display: inline-flex;
     display: -webkit-inline-flex;
@@ -1218,7 +1218,7 @@ export default {
     position: relative;      
     right: -47px;
     width: 2%;
-}
+}*/
 /*#myTab ul li {
     display: -ms-inline-flexbox;
     display: inline-flex;
