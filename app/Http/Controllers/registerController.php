@@ -15,19 +15,6 @@ use App\password_reset_view;
 use App\Mail\customerCreateMail;
 class registerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {   
-        $type = Type::all();
-        $cities = DB::table('cities')->get();
-        $townships = DB::table('townships')->get();
-
-        return view('register',compact('type'));
-    }
     public function getCities()
     {
         $data = DB::table('cities')->select('id','city_name')->get();
@@ -48,13 +35,11 @@ class registerController extends Controller
      
     public function store(Request $request)
     {
-
         $request->validate( [
             "file('img')" => 'image|mimes:jpeg,png,jpg|max:2048',
             'email' => 'email|unique:customers',
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
-          
         ]);
 
             $customer = new Customer;
@@ -84,11 +69,9 @@ class registerController extends Controller
     // regisert end
     public function reset(Request $request)
     {
-
-        // return view('auth.passwordReset');
         $getEmail = $request->email;
-
         $checkmail = User::where('email',$getEmail)->select('*')->get();
+        
         if($checkmail[0]['type_id'] == 2)
         {
             $checkmail[0]['cusnum'] = 200000 +$checkmail[0]['customer_id'];
@@ -96,7 +79,6 @@ class registerController extends Controller
         else{
             $checkmail[0]['cusnum'] = 500000 + $checkmail[0]['customer_id'];
         }
-
 
         if(!$checkmail->isEmpty()){
 
