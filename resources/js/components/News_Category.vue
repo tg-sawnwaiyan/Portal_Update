@@ -44,7 +44,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -91,6 +92,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -190,7 +192,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div class="m_top_left"><span>New</span></div>                            
 
                                         <transition name="fade" slot="placeholder">
 
@@ -238,6 +241,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -277,6 +281,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -356,6 +361,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -455,7 +461,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div class="m_top_left"><span>New</span></div>                         
 
                                         <transition name="fade" slot="placeholder">
 
@@ -502,6 +509,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -541,6 +549,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -616,7 +625,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>  
+                                        <div class="m_top_left"><span>New</span></div>                              
 
                                         <transition name="fade" slot="placeholder">
 
@@ -666,6 +676,7 @@
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                             </transition>
+                                            <div class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -716,7 +727,8 @@
 
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                </transition>                                
+                                </transition>   
+                                <div class="m_top_left"><span>New</span></div>                             
 
                                 <transition name="fade" slot="placeholder">
 
@@ -751,6 +763,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
+                            <div class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -791,6 +804,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
+                            <div class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -830,6 +844,7 @@
                             <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                         </transition>
+                        <div class="m_top_left"><span>New</span></div>
 
                         <transition name="fade" slot="placeholder">
 

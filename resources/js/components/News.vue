@@ -36,6 +36,7 @@
                                                         <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <div v-if="latest_post_all_cat.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
 
@@ -102,6 +103,8 @@
 
                                                     </transition>
 
+                                                    <div v-if="latest_post.new_news == '1'" class="m_top_left"><span>New</span></div>
+
                                                     <transition name="fade" slot="placeholder">
 
                                                         <div class="preloader">
@@ -132,17 +135,19 @@
 
                                             <div class="col-md-6 col-sm-6 news-wrapper">
 
-                                                <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
+                                                <ul class="list-group list-group-flush all-item">
 
-                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                        <span v-if="post.new_news == '1'" class="s_top_left">New</span>
 
-                                                        <router-link :to="{path:'/newsdetails/'+post.id}">
+                                                        <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
 
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
                                                             <span class="source-img-small d-inline-block text-truncate">{{ post.main_point }}</span>
 
                                                         </router-link>
+
 
                                                     </li>
 
@@ -179,7 +184,10 @@
 
                                                                 <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
 
+
                                                             </transition>
+
+                                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -202,6 +210,7 @@
                                                     </router-link>
 
                                                 </div>
+                                                
 
 
                                                 <div class="col-md-8 col-sm-8 txt-box">                                                   
@@ -215,8 +224,8 @@
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
-                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
+                                                    <span class="tab_title_date tab_title_d">{{item.created_at}}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,6 +248,7 @@
                                                                 <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
 
                                                             </transition>
+                                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -272,8 +282,8 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
-                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
+                                                    <span class="tab_title_date tab_title_d">{{item.created_at}}
+                                                    </span>
                                                 </div>
 
                                             </div>
@@ -297,33 +307,35 @@
 
                                         <router-link :to="'/newsdetails/'+item.id">
 
-                                        <clazy-load class="wrapper-4" @load="log"  src="/images/noimage.jpg" :key="item.id">
+                                            <clazy-load class="wrapper-4" @load="log"  src="/images/noimage.jpg" :key="item.id">
 
-                                            <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
+                                                <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
-                                            <transition name="fade">
+                                                <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                            </transition>
+                                                </transition>
+                                                <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
-                                            <transition name="fade" slot="placeholder">
+                                                <transition name="fade" slot="placeholder">
 
-                                                <div class="preloader">
+                                                    <div class="preloader">
 
-                                                    <div class="circle">
+                                                        <div class="circle">
 
-                                                    <div class="circle-inner"></div>
+                                                        <div class="circle-inner"></div>
+
+                                                        </div>
 
                                                     </div>
 
-                                                </div>
+                                                </transition>
 
-                                            </transition>
-
-                                        </clazy-load>
+                                            </clazy-load>
 
                                         </router-link>
+                                        
 
                                     </div>
 
@@ -339,8 +351,9 @@
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
                                             <span>{{item.cname}}</span>
                                         </span>
-                                        <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                        <span class="tab_title_date tab_title_n" v-else >New</span>
+                                        <span class="tab_title_date tab_title_d">
+                                            {{item.created_at}}
+                                        </span>
                                     </div>
 
                                 </div>
@@ -351,7 +364,7 @@
                         <div class="row col-md-12 pad-free m-0" v-if="(w_width < 1280 && w_width > 768) || (w_width < 480)">
                             <div class="col-md-4 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(4, 10)"  :key="item.id">
                                 <div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
-                                   
+
                                     <div class="col-md-4 img-box">
 
                                         <router-link :to="'/newsdetails/'+item.id">
@@ -365,6 +378,7 @@
                                                 <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                             </transition>
+                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -396,8 +410,9 @@
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
-                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                    <span class="tab_title_date tab_title_n" v-else >New</span>
+                                    <span class="tab_title_date tab_title_d">
+                                        {{item.created_at}}
+                                    </span>
                                     </div>
 
                                 </div>
@@ -448,7 +463,7 @@
 
                                                     <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                </transition>                                
+                                                </transition>                              
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -1047,18 +1062,21 @@
                         posts.forEach(function(post){
                             const post_date = Date.parse(post.created_at);
                             const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
+                            post.new_news = "";
                             if(time_diff < 2) {
-                                post.created_at = "1";
+                                //is_within_48 = true;
+                                //post.created_at = "1";                              
+                                post.new_news = "1";
                             }
-                            else {
-                                var post_txt = new Date(post.created_at);
-                                var min = post_txt.getMinutes();
-                                var month = post_txt.getMonth()+1;
-                                if(min == 0 ) {
-                                    min = '00';
-                                }
-                                post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
+                            
+                            var post_txt = new Date(post.created_at);
+                            var min = post_txt.getMinutes();
+                            var month = post_txt.getMonth()+1;
+                            if(min == 0 ) {
+                                min = '00';
                             }
+                            post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
+                            
                         });
                         this.latest_post_all_cats = posts;
                     });
@@ -1412,5 +1430,8 @@
 }
 .bordertop-color i {
     color: var(--color);
+}
+.display_align {
+    display: inline-flex;
 }
 </style>

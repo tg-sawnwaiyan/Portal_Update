@@ -14740,4 +14740,18 @@ strong {
     width: 100% !important;
 }*/
 
+.m_top_left {
+  position: absolute;
+  top: -1px;
+  left: 1px;
+} 
+.m_top_left span,
+.s_top_left {
+    border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+}
+
 }
