@@ -397,16 +397,21 @@ class PostController extends Controller
 
     public function changeRecordstatus($id)
     {
-        $changeActivate =  Post::find($id);
-       if($changeActivate->recordstatus == 0 ) {
-            $changeActivate->recordstatus =1;
-       }
-       else {
-            $changeActivate->recordstatus =0;
-       }
-       $changeActivate->save();
-       $data = array("changeActivate"=> $changeActivate, "success");
-       return response()->json($data);
+        DB::beginTransaction();
+        try{
+            $changeActivate =  Post::find($id);
+            if($changeActivate->recordstatus == 0 ) {
+                $changeActivate->recordstatus =1;
+            }
+            else {
+                $changeActivate->recordstatus =0;
+            }
+            $changeActivate->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+        return response()->json("success");
     }
 
 }   

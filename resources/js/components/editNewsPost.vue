@@ -195,7 +195,7 @@
                    
 
                     <div class="form-group">
-                        <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
+                        <span @click="returnPreviousPage()" class="btn bt-red all-btn">キャンセル</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 1'> 保存</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 0'> 作成</span>
                     </div>
@@ -323,7 +323,6 @@ import {quillEditor} from 'vue-quill-editor'
             },
             methods: {
                 returnPreviousPage:function () {
-                    this.$loading(false)
                     var num = localStorage.getItem('page_no');
                     this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } });
                 },
@@ -475,11 +474,7 @@ import {quillEditor} from 'vue-quill-editor'
                                 height: 200,
                                 allowOutsideClick: false,                                   
                             })
-                            var num = localStorage.getItem('page_no');//comment get from newslist.vue/searchbyCategory()
-
-                            this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
-                            
-                            //this.$router.go(-1);
+                            this.returnPreviousPage();
                         })
                         .catch(error=>{
                         if(error.response.status == 422){
