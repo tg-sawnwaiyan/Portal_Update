@@ -26,8 +26,8 @@ class CategoryController extends Controller
 
     public function list()
     {
-        $category_list = Category::select('id','name')->get()->toArray();
-        $pr_category_list = Category::select('id','name')->where('id','!=',26)->get()->toArray();
+        $category_list = Category::select('id','name')->where('name','!=','トップ')->get()->toArray();
+        $pr_category_list = Category::select('id','name')->where('id','!=',26)->where('name','!=','トップ')->get()->toArray();
         return response()->json(array("categories"=>$category_list,"prcategories"=>$pr_category_list));
     }
 

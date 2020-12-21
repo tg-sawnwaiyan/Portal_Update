@@ -50,8 +50,6 @@
                             </router-link>
                         </div>
                     </div>
-                    
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">データが見つかりません。</div> -->
 
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                     <p class="record-ico">
@@ -249,7 +247,6 @@
         created() {
             this.$loading(true);
             this.getResults();
-
         },
         methods: {
             /** added by maythirihtet */
