@@ -11,7 +11,7 @@
                     </ul>                            
                 </div>
                 <div class="bg_color" :style="lineStyle"></div>
-            </div>      
+            </div>   
     </div>
 </template>
 <script>
