@@ -5,9 +5,9 @@
         <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
             <!--search input-->
             <div class="search-input">
-                <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1">X</span>
                 <input type="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
-                <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                <button type="submit" class="searchButtonNews">
                     <i class="fas fa-search"></i> 検索
                 </button>
             </div>                                    
@@ -23,7 +23,6 @@
                 <svg x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:red;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#666666"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
             </p>
             <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
-             <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
         </div>
     </div>
     <!-- news layout design change (@author:pzo) -->
@@ -995,51 +994,11 @@ export default {
     },
     methods:{
             reInit() {
+                alert("hi");
                 // Helpful if you have to deal with v-for to update dynamic lists
                 this.$nextTick(() => {
                     this.$refs.slick.reSlick();
                 });
-            },
-            searchCategory(){
-
-                if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                    this.clearSearch();
-                } else {
-                    this.status = 1;
-                    this.search_word = $('#search-free-word').val();          
-                }
-                this.getlatestpost();
-
-            },
-            getlatestpost()
-            {
-                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                    this.nonblock = false;
-                    this.block = true;
-                    var searchword = 'all_news_search';                
-                } else {                        
-                    this.block = false;
-                    this.nonblock = true;
-                    var searchword = this.search_word;
-                    this.searchnews = [];
-                }
-                    this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
-                    this.$loading(false);
-                    this.searchnews = response.data;
-                if(response.data.length == 0)
-                {
-                    this.norecord_msg = true;
-                }
-                else{
-                    this.norecord_msg = false;
-                }
-                });
-            },
-             clearSearch() {
-
-                this.search_word = '';
-                this.getlatestpost();
-
             },
             showMoreClick(){
                 this.seen = true;
@@ -1047,6 +1006,47 @@ export default {
             showLessClick(){
                 this.seen = false;
             },
+            // searchCategory(){
+
+            //     if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+            //         this.clearSearch();
+            //     } else {
+            //         this.status = 1;
+            //         this.search_word = $('#search-free-word').val();          
+            //     }
+            //     this.getlatestpost();
+
+            // },
+            // getlatestpost()
+            // {
+            //     if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+            //         this.nonblock = false;
+            //         this.block = true;
+            //         var searchword = 'all_news_search';                
+            //     } else {                        
+            //         this.block = false;
+            //         this.nonblock = true;
+            //         var searchword = this.search_word;
+            //         this.searchnews = [];
+            //     }
+            //         this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
+            //         this.$loading(false);
+            //         this.searchnews = response.data;
+            //     if(response.data.length == 0)
+            //     {
+            //         this.norecord_msg = true;
+            //     }
+            //     else{
+            //         this.norecord_msg = false;
+            //     }
+            //     });
+            // },
+            //  clearSearch() {
+
+            //     this.search_word = '';
+            //     this.getlatestpost();
+
+            // },
    }
 }
 </script>

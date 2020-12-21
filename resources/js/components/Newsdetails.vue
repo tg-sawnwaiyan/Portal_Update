@@ -191,13 +191,6 @@ export default {
         // this.latest_news = response.data.latest_news;
       });
     },
-    changeRoute(e,tab){
-        $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
-        $('#navtab').addClass(tab+'-tabColor');
-        $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
-        $('.tab-content').addClass(tab+'-borderColor'); 
-          this.$router.push({name:'home',params:{page:e.target.hash}});   
-    },
   
   }
 };

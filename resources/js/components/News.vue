@@ -9,9 +9,9 @@
                             <div class="col-sm-12 pad-new col-lg-8 m-b-15 newssearch-width">
                                 <!--search input-->
                                 <div class="search-input">
-                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
+                                    <span class="btn btn col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1">X</span>
                                     <input typee="text" class="searchNews" placeholder="ニュース検索" id="search-free-word" v-bind:value="search_word">
-                                    <button type="submit" class="searchButtonNews" @click="searchCategory()">
+                                    <button type="submit" class="searchButtonNews">
                                         <i class="fas fa-search"></i> 検索
                                     </button>
                                 </div>                                    
@@ -82,8 +82,8 @@
                                             </div>
 
                                             <div class="col-md-6 col-sm-6 news-wrapper">
-                                                <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
-                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                <ul class="list-group list-group-flush all-item" v-for="post in news" :key="post.id">
+                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "news[0].id != post.id">
                                                         <router-link :to="{path:'/newsdetails/'+post.id}">                                                <span class="source-img-small d-inline-block text-truncate">{{ post.main_point }}</span>
                                                         </router-link>
                                                     </li>
@@ -393,7 +393,7 @@
                         </slick>
                     </div>                    
                 </div>           
-            <adsslider class="d-block d-sm-none"></adsslider>
+            <adsslider v-if="w_width <= 480" class="d-block d-sm-none"></adsslider>
             </span>
         </div>
     </layout>
@@ -424,7 +424,7 @@
 
     data() {
         return {
-            posts: [],
+            news: [],
             latest_post: [],
             latest_post_null: false,
             latest_post_all_cats: [],
@@ -573,7 +573,7 @@
                 this.axios.post("/api/posts", fd)
                     .then(response => {
                         this.latest_post = response.data.news[0];
-                        this.posts = response.data.news;
+                        this.news = response.data.news;
                         eventBus.$emit('gotColor', response.data.line_color);
                     });
             },
@@ -618,24 +618,24 @@
                     $('#newsChangeLink'+id).hide('medium');
                 }
             },
-            searchCategory() {
-                this.$loading(true);
-                if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                    this.clearSearch();
-                } else {
-                    this.status = 1;
-                    this.search_word = $('#search-free-word').val();
-                    this.getLatestPostsByCatID(); 
-                }
-            },
-            clearSearch() {
-                this.status = 0;
-                this.search_word = '';
-                this.getLatestPostsByCatID();
-            },
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
+            // searchCategory() {
+            //     this.$loading(true);
+            //     if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+            //         this.clearSearch();
+            //     } else {
+            //         this.status = 1;
+            //         this.search_word = $('#search-free-word').val();
+            //         this.getLatestPostsByCatID(); 
+            //     }
+            // },
+            // clearSearch() {
+            //     this.status = 0;
+            //     this.search_word = '';
+            //     this.getLatestPostsByCatID();
+            // },
         }
     }
  </script>
