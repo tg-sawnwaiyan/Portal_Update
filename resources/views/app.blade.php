@@ -44,7 +44,8 @@ header("Pragma:no-cache");
 <!--mailbox-->
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/mystyle.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/mystyle.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
+<link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
 <link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
