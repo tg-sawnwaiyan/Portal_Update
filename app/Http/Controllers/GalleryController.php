@@ -9,11 +9,6 @@ use File;
 
 class GalleryController extends Controller
 {
-    public function index()
-    {
-       
-    }
-    
     public function getPhotobyCustomerId($profile_id,$type) {
         if($type == 'hospital')
         {

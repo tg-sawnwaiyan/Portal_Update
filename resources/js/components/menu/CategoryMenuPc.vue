@@ -3,7 +3,7 @@
             <!-- Category Menu -->
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist" ref="menu">
-                        <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
+                        <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
@@ -14,20 +14,20 @@
     </div>
 </template>
 <script scoped>
+
+import { eventBus } from '../../event-bus.js';
+
 export default {
     data(){
         return {
             cats: [],
             is_cat_overflow: false,
-            is_cat_slided: false,
             computed_width: '100%',
             cat_box_width: null,
             w_width: window.innerWidth,
-            gap_width: null,
         }
     },
-    created() {
-
+    mounted() {
         this.getAllCat();
         this.$nextTick(() => {
                 if(this.$refs.menu){
@@ -61,12 +61,17 @@ export default {
         })
     },
     methods: {
-        getAllCat: function() {           
-                this.axios .get('/api/home') 
+         getAllCat: function() {           
+                this.axios.get('/api/home') 
                 .then(response => {
                     this.cats = response.data;
-                    });
 
+                    if(this.cats[0].name == "トップ"){
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
+                        }else{
+                            eventBus.$emit('gotColor', this.cats[1].color_code);
+                        }
+                    });
         },
         swipeLeft() {
             const content = this.$refs.content;
@@ -76,7 +81,6 @@ export default {
         swipeRight() {
             const content = this.$refs.content;
             this.scrollTo(content, 300, 800);
-            this.is_cat_slided = true;
         },
         scrollTo(element, scrollPixels, duration) {
                 const scrollPos = element.scrollLeft;
@@ -125,105 +129,4 @@ export default {
     }
 }
 </script>
-<style>
-    .tab_color{
-        height: auto;
-        border-left: 5px solid var(--bkgColor);
-        background-color: var(--bkgColor);
-    }
-    .menu_tab_category{
-        position: absolute;
-        max-width: 1500px;
-        top: 192px;
-        z-index: 9;
-        width: 100%;
-        max-width: 1600px;
-    }
-    #left-button{
-        position: absolute;
-        top: 23px;
-        left: auto;
-        width: auto;
-        line-height: 1;
-        background: #fff;
-        border: 1px solid #2980b9;
-        padding: 1px 5px;
-        /*right: 47px;*/
-        right: 34px;
-    }
-    #right-button{
-        position: absolute;
-        top: 23px;
-        /*right: 22px;*/
-        right: 9px;
-        width: auto;
-        line-height: 1;
-        background: #fff;
-        border: 1px solid #2980b9;
-        padding: 1px 5px;
-    }
-    .left-arr-btn .fas,
-    .right-arr-btn .fas{
-        color: #2980b9 !important;
-    }
-    .hidden {
-        display: none;
-    }
-    /*@media only screen and (min-width: 561px) and (max-width: 989px){ 
-        .tab {
-            margin-top: 52px;
-        }
-    }*/
-    @media only screen and (min-width: 561px) and (max-width: 1000px){
-        .menu_category{
-            /*width: 86.5% !important;*/
-            margin: 5px 25px 0 21.5px;
-        }
-        .upper-tab {
-            margin-top: 63.45px;
-        }
-        #right-button{
-            right: 14px;
-        }
-        #left-button{
-            right: 40px;
-        }
-    }
-    @media only screen and (min-width: 991px) and (max-width: 1099px){
-        .menu_tab_category{
-            top: 204px;
-        }
-    }
-    @media only screen and (min-width: 561px) and (max-width: 900px){
-        .menu_tab_category{
-            top: 173px;
-        }
-    }
-    @media only screen and (min-width: 561px){
-        ul.only_sp{
-            display: none;
-        }
-    }
-    @media only screen and (min-width: 1020px) and (max-width: 1050px) {
-        .menu_category{
-             /*width: 90% !important;*/
-             margin: 5px 25px 0 21.5px;
-        }
-        #right-button{
-            right: 13px;
-        }
-        #left-button{
-            right: 39px;
-        }
-        .upper-tab {
-            margin-top: 65.48px;
-        }
-    }
-    @media only screen and (min-width: 1201px) and (max-width: 1280px) {
-        .menu_category{
-            margin: 5px 25px 0 21.7px;
-        }
-    }
-</style>
-
 

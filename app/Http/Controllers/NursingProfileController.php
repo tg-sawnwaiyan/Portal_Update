@@ -16,16 +16,6 @@ use DB;
 
 class NursingProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-       
-    }
-
     public function edit($id) {
 
         $nursing = NursingProfile::select('nursing_profiles.*','customers.name as cusname')->join('customers','nursing_profiles.customer_id','=','customers.id')->where('nursing_profiles.id', $id)->first();
@@ -35,36 +25,31 @@ class NursingProfileController extends Controller
     public function movePanorama(Request $request) {
         $request = $request->all();
         foreach ($request as $file){
-            $imageName = $file->getClientOriginalName();
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
-            $destination = 'upload/nursing_profile/Imagepanorama/'.$imageName;
+            $imageName  = $file->getClientOriginalName();
+            $imageName  = str_replace(' ', '', $imageName);
+            $imageName  = strtolower($imageName);
+            $destination= 'upload/nursing_profile/Imagepanorama/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
-
-            // $imageName = $file->getClientOriginalName();
-            // $imageName = str_replace(' ', '', $imageName);
-            // $request->photo->move('upload/nursing_profile/Imagepanorama/', $imageName);
-            
         }
     }
     //test
     public function movePhoto(Request $request) {
         $request = $request->all();
         foreach ($request as $file){
-            $imageName = $file->getClientOriginalName();
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
-            $destination = 'upload/nursing_profile/'.$imageName;
+            $imageName  = $file->getClientOriginalName();
+            $imageName  = str_replace(' ', '', $imageName);
+            $imageName  = strtolower($imageName);
+            $destination= 'upload/nursing_profile/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
         }        
     }
 
     public function moveLogo(Request $request) {
-        $request = $request->all();
-        $imageName = $request['logo']->getClientOriginalName();
-        $imageName = str_replace(' ', '', $imageName);
-        $imageName = strtolower($imageName);
-        $destination = 'upload/nursing_profile/'.$imageName;
+        $request    = $request->all();
+        $imageName  = $request['logo']->getClientOriginalName();
+        $imageName  = str_replace(' ', '', $imageName);
+        $imageName  = strtolower($imageName);
+        $destination= 'upload/nursing_profile/'.$imageName;
         $upload_img = move_uploaded_file($request['logo'], $destination);   
     }
 
@@ -73,40 +58,40 @@ class NursingProfileController extends Controller
 
         $nursing = NursingProfile::where('id',$id)->first();
         // Nursing Profile 
-        $nursing->name = $request[0]['nursing_profile']['name'];
-        $nursing->email = $request[0]['nursing_profile']['email'];
-        $nursing->phone = $request[0]['nursing_profile']['phone'];
-        $nursing->address = $request[0]['nursing_profile']['address'];
-        $nursing->logo = $request[0]['nursing_profile']['logo'];
+        $nursing->name      = $request[0]['nursing_profile']['name'];
+        $nursing->email     = $request[0]['nursing_profile']['email'];
+        $nursing->phone     = $request[0]['nursing_profile']['phone'];
+        $nursing->address   = $request[0]['nursing_profile']['address'];
+        $nursing->logo      = $request[0]['nursing_profile']['logo'];
 
-        $nursing->access = $request[0]['nursing_profile']['access'];
-        $nursing->townships_id = $request[0]['nursing_profile']['townships_id'];
-        $nursing->operator = $request[0]['nursing_profile']['operator'];
+        $nursing->access    = $request[0]['nursing_profile']['access'];
+        $nursing->townships_id  = $request[0]['nursing_profile']['townships_id'];
+        $nursing->operator  = $request[0]['nursing_profile']['operator'];
         $nursing->business_entity = $request[0]['nursing_profile']['business_entity'];
-        $nursing->website = $request[0]['nursing_profile']['website'];
+        $nursing->website   = $request[0]['nursing_profile']['website'];
         $nursing->moving_in_from = $request[0]['nursing_profile']['moving_in_from'];
-        $nursing->moving_in_to = $request[0]['nursing_profile']['moving_in_to'];
+        $nursing->moving_in_to   = $request[0]['nursing_profile']['moving_in_to'];
         $nursing->per_month_from = $request[0]['nursing_profile']['per_month_from'];
-        $nursing->per_month_to = $request[0]['nursing_profile']['per_month_to'];
-        $nursing->feature = $request[0]['nursing_profile']['feature'];
-        $nursing->method = $request[0]['nursing_profile']['method'];
+        $nursing->per_month_to   = $request[0]['nursing_profile']['per_month_to'];
+        $nursing->feature   = $request[0]['nursing_profile']['feature'];
+        $nursing->method    = $request[0]['nursing_profile']['method'];
         $nursing->date_of_establishment = $request[0]['nursing_profile']['date_of_establishment'];
         $nursing->land_right_form = $request[0]['nursing_profile']['land_right_form'];
         $nursing->building_right_form = $request[0]['nursing_profile']['building_right_form'];
-        $nursing->site_area = $request[0]['nursing_profile']['site_area'];
-        $nursing->floor_area = $request[0]['nursing_profile']['floor_area'];
-        $nursing->construction = $request[0]['nursing_profile']['construction'];
-        $nursing->capacity = $request[0]['nursing_profile']['capacity'];
-        $nursing->num_rooms = $request[0]['nursing_profile']['num_rooms'];
-        $nursing->residence_form = $request[0]['nursing_profile']['residence_form'];
-        $nursing->fac_type = $request[0]['nursing_profile']['fac_type'];
+        $nursing->site_area     = $request[0]['nursing_profile']['site_area'];
+        $nursing->floor_area    = $request[0]['nursing_profile']['floor_area'];
+        $nursing->construction  = $request[0]['nursing_profile']['construction'];
+        $nursing->capacity      = $request[0]['nursing_profile']['capacity'];
+        $nursing->num_rooms     = $request[0]['nursing_profile']['num_rooms'];
+        $nursing->residence_form= $request[0]['nursing_profile']['residence_form'];
+        $nursing->fac_type      = $request[0]['nursing_profile']['fac_type'];
         $nursing->occupancy_condition = $request[0]['nursing_profile']['occupancy_condition'];
-        $nursing->room_floor = $request[0]['nursing_profile']['room_floor'];
+        $nursing->room_floor    = $request[0]['nursing_profile']['room_floor'];
         $nursing->living_room_facilities = $request[0]['nursing_profile']['living_room_facilities'];
-        $nursing->equipment = $request[0]['nursing_profile']['equipment'];
+        $nursing->equipment     = $request[0]['nursing_profile']['equipment'];
         $nursing->acceptance_remark = $request[0]['nursing_profile']['acceptance_remark'];
-        $nursing->latitude = $request[0]['nursing_profile']['latitude'];
-        $nursing->longitude = $request[0]['nursing_profile']['longitude'];
+        $nursing->latitude      = $request[0]['nursing_profile']['latitude'];
+        $nursing->longitude     = $request[0]['nursing_profile']['longitude'];
         $nursing->save();
         // End
 
@@ -133,15 +118,15 @@ class NursingProfileController extends Controller
         
         for($i=0; $i<count($request[0]['payment_list']); $i++) {
             $m_payment = new method_payment;
-            $m_payment->profile_id = $id;
-            $m_payment->payment_name = $request[0]['payment_list'][$i]['payment_name'];
+            $m_payment->profile_id     = $id;
+            $m_payment->payment_name   = $request[0]['payment_list'][$i]['payment_name'];
             $m_payment->expense_moving = $request[0]['payment_list'][$i]['expense_moving'];
-            $m_payment->monthly_fees = $request[0]['payment_list'][$i]['monthly_fees'];
+            $m_payment->monthly_fees   = $request[0]['payment_list'][$i]['monthly_fees'];
             $m_payment->living_room_type = $request[0]['payment_list'][$i]['living_room_type'];
-            $m_payment->area = $request[0]['payment_list'][$i]['area'];
-            $m_payment->deposit = $request[0]['payment_list'][$i]['deposit'];
+            $m_payment->area      = $request[0]['payment_list'][$i]['area'];
+            $m_payment->deposit   = $request[0]['payment_list'][$i]['deposit'];
             $m_payment->other_use = $request[0]['payment_list'][$i]['other_use'];
-            $m_payment->rent = $request[0]['payment_list'][$i]['rent'];
+            $m_payment->rent      = $request[0]['payment_list'][$i]['rent'];
             $m_payment->admin_expense = $request[0]['payment_list'][$i]['admin_expense'];
             $m_payment->food_expense = $request[0]['payment_list'][$i]['food_expense'];
             $m_payment->nurse_care_surcharge = $request[0]['payment_list'][$i]['nurse_care_surcharge'];
@@ -155,30 +140,25 @@ class NursingProfileController extends Controller
         }
         // End
 
-        
-
-        // DB::update("UPDATE users SET name='".$request[0]['customer_info']['name']."', email='".$request[0]['customer_info']['email']."' WHERE customer_id=$id");
-        // End
-
         // Staff Info
         $staff = Staff::where('profile_id', $id)->first();
     
         if($staff) {
-            $staff->profile_id = $id;
-            $staff->staff = $request[0]['staff_info']['staff'];
+            $staff->profile_id  = $id;
+            $staff->staff       = $request[0]['staff_info']['staff'];
             $staff->nursing_staff = $request[0]['staff_info']['nursing_staff'];
             $staff->min_num_staff = $request[0]['staff_info']['min_num_staff'];
-            $staff->num_staff = $request[0]['staff_info']['num_staff'];
-            $staff->remarks = $request[0]['staff_info']['remarks'];
+            $staff->num_staff   = $request[0]['staff_info']['num_staff'];
+            $staff->remarks     = $request[0]['staff_info']['remarks'];
             $staff->save();
         } else {
             $new_staff = new Staff;
-            $new_staff->profile_id = $id;
-            $new_staff->staff = $request[0]['staff_info']['staff'];
+            $new_staff->profile_id  = $id;
+            $new_staff->staff       = $request[0]['staff_info']['staff'];
             $new_staff->nursing_staff = $request[0]['staff_info']['nursing_staff'];
             $new_staff->min_num_staff = $request[0]['staff_info']['min_num_staff'];
-            $new_staff->num_staff = $request[0]['staff_info']['num_staff'];
-            $new_staff->remarks = $request[0]['staff_info']['remarks'];
+            $new_staff->num_staff   = $request[0]['staff_info']['num_staff'];
+            $new_staff->remarks     = $request[0]['staff_info']['remarks'];
             $new_staff->save();
         }
         // End
@@ -214,9 +194,9 @@ class NursingProfileController extends Controller
         if(count($request[0]["video"]) > 0){
             for($i=0; $i<count($request[0]["video"]); $i++) {
                 $gallery = new Gallery;
-                $gallery->profile_id = $id;
-                $gallery->profile_type = 'nursing';
-                $gallery->type = 'video';
+                $gallery->profile_id  = $id;
+                $gallery->profile_type= 'nursing';
+                $gallery->type  = 'video';
                 $gallery->photo = $request[0]["video"][$i]['photo'];
                 $gallery->title = $request[0]["video"][$i]['title'];
                 $gallery->description = $request[0]["video"][$i]['description'];
@@ -229,12 +209,12 @@ class NursingProfileController extends Controller
         if(count($request[0]["image"]) > 0){
             for($i=0; $i<count($request[0]["image"]); $i++) {
                 $gallery = new Gallery;
-                $gallery->profile_id = $id;
+                $gallery->profile_id   = $id;
                 $gallery->profile_type = 'nursing';
-                $gallery->type = 'photo';
+                $gallery->type  = 'photo';
                 $gallery->photo = $request[0]["image"][$i]['photo'];
                 $gallery->title = $request[0]["image"][$i]['title'];
-                $gallery->description = $request[0]["image"][$i]['description'];
+                $gallery->description  = $request[0]["image"][$i]['description'];
     
                 $gallery->save();
             }
@@ -244,12 +224,12 @@ class NursingProfileController extends Controller
         if(count($request[0]["panorama"]) > 0){
             for($i=0; $i<count($request[0]["panorama"]); $i++) {
                 $gallery = new Gallery;
-                $gallery->profile_id = $id;
+                $gallery->profile_id   = $id;
                 $gallery->profile_type = 'nursing';
-                $gallery->type = 'panorama';
+                $gallery->type  = 'panorama';
                 $gallery->photo = $request[0]["panorama"][$i]['photo'];
                 $gallery->title = $request[0]["panorama"][$i]['title'];
-                $gallery->description = $request[0]["panorama"][$i]['description'];
+                $gallery->description  = $request[0]["panorama"][$i]['description'];
     
                 $gallery->save();
             }
@@ -261,7 +241,6 @@ class NursingProfileController extends Controller
 
         $query = "SELECT townships.city_id,'' AS township_list FROM townships WHERE id = $township_id";
         $cities = DB::select($query);
-        // $cId = $cities[0]['city_id'];
         foreach($cities as $city){
             $cId = $city->city_id;
             $c_query = "SELECT townships.id,townships.township_name FROM townships WHERE city_id = $cId";

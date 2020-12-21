@@ -1,10 +1,9 @@
 <template>
     <div>
-        <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
-        <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab" v-if="othersDetails">
+        <ul class="only_sp nav nav-tabs news-tabColor navtab tab-menu-responsive" id="navtab">
             <li role="presentation" class="subtab1 nav-item">
-                <router-link v-on:click.native="activeTopMenu" :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
+                <router-link :to="{ name: 'News' }"  class="nav-link" ><i class="fas fa-newspaper"></i> ニュース</router-link>
             </li>
             <li role="presentation" class="subtab2 nav-item"  >
                 <router-link :to="{ name: 'nursingSearch' }"  class="nav-link"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
@@ -15,8 +14,7 @@
             <li role="presentation" class="subtab4 nav-item"  >
                 <router-link  :to="{ name: 'jobSearch' }"  class="nav-link"><i class="fas fa-users"></i> 求人検索</router-link>
             </li>
-        </ul>
-        
+        </ul>        
         <div class="tabs upper-tab" id="upper-tab" :style="useStyle">
             <div class="tab-pane" id="tab1">
                 <main>
@@ -25,19 +23,16 @@
             </div>
         </div>
         <!--end menu tabs-->
-
     </div>
-    <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
- import { eventBus } from '../event-bus.js';
+
+import { eventBus } from '../event-bus.js';
+
 export default {
     data(){
         return {
-            othersDetails: true,
-            computed_width: '100%',
-            cat_box_width: null,
             lineColor: "",
         }
     },
@@ -48,46 +43,28 @@ export default {
       }
     }
     },
-    created() {
-        eventBus.$on('gotColor', color => {
+    created() {       
+        eventBus.$once('gotColor', color => {
             this.lineColor = color ? color : "#287db4";
         });
-        
-        if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
-            this.othersDetails = false;
-        }
-        else{
-            this.othersDetails = true;
-        }
-        this.$nextTick(() => {
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        }) 
-    },
-    methods: {
-        activeTopMenu(){
-             $("#top_a").addClass("active");
-        }
     }
 }
 </script>
 <style>
-    .upper-tab {
+    /*.upper-tab {
         border: 2px solid var(--line-color);
-    }
-    .hospital-tabColor li.subtab3 > .router-link-active{
+    }*/
+    /*.hospital-tabColor li.subtab3 > .router-link-active{
         background: #fff!important;
         color: #63b7ff !important;
         border-bottom-color: transparent !important;
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #63b7ff !important; */
-    }
-    .hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
+    }*/
+    /*.hospital-tabColor li.subtab3 > .router-link-exact-active>i.fa, .hospital-tabColor li.subtab3 > .router-link-active>i.fas {
         color: #63b7ff !important;
-    }
-    .news-tabColor .nav-link {
+    }*/
+    /*.news-tabColor .nav-link {
         background: #75b777 !important;
         color: #fff;
         border-right: 1px solid #fff;
@@ -100,43 +77,39 @@ export default {
         border-top: 3px solid #75b777 !important;
         border-left: 1px solid #75b777 !important;
         border-bottom: 0px !important;
-    }
-    .news-tabColor li.subtab1 > .router-link-exact-active>i.fa, .news-tabColor li.subtab1 > .router-link-active>i.fas {
+    }*/
+    /*.news-tabColor li.subtab1 > .router-link-exact-active>i.fa, .news-tabColor li.subtab1 > .router-link-active>i.fas {
         color: #75b777 !important;
-    }
+    }*/
     .nursing-tabColor .nav-link {
         /* background: #ff9563 !important; */
-        background: #63b7ff !important;
+        /*background: #63b7ff !important;
         color: #fff;
         border-right: 1px solid #fff;
-        border-bottom: 0px !important;
+        border-bottom: 0px !important;*/
     }
-    .nursing-tabColor li.subtab2 > .router-link-active{
+    /*.nursing-tabColor li.subtab2 > .router-link-active{
         background: #fff!important;
-        /* color: #ff9563 !important; */
         color: #63b7ff !important;
         border-bottom-color: transparent !important;
-        /* border-top: 3px solid #ff9563 !important; */
         border-top: 3px solid #63b7ff !important;
         border-bottom: 0px !important;
-        /* border-left: 1px solid #ff9563 !important; */
-    }
+    }*/
     .nursing-tabColor li.subtab2 > .router-link-exact-active>i.fa, .nursing-tabColor li.subtab2 > .router-link-active>i.fas {
         /* color: #ff9563 !important; */
-        color: #63b7ff !important;
+        /*color: #63b7ff !important;*/
     }
-    .job-tabColor .nav-link {
+    /*.job-tabColor .nav-link {
         background: #828282 !important;
         color: #fff;
         border-right: 1px solid #fff;
         border-bottom: 0px !important;
-    }
-    .job-tabColor li.subtab4 > .router-link-active{
+    }*/
+    /*.job-tabColor li.subtab4 > .router-link-active{
         background: #fff!important;
         color: #828282 !important;
         border-bottom-color: transparent !important;
         border-top: 3px solid #828282 !important;
-        /* border-left: 1px solid #828282 !important; */
         border-right: 1px solid #828282 !important;
         border-bottom: 0px !important;
     }
@@ -148,12 +121,12 @@ export default {
     }
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;
-    }
-    .nursing-borderColor {
-        /* border: 1px solid #ff9563 !important; */
+    }*/
+    /*.nursing-borderColor {
+         border: 1px solid #ff9563 !important; 
          border: 1px solid #63b7ff !important;
-    }
-    .margin-none {
+    }*/
+    /*.margin-none {
         margin-top: 0px;
-    }
+    }*/
 </style>

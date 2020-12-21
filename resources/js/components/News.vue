@@ -212,11 +212,12 @@
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
-                                                        <span>{{item.cname}}</span>
+                                                        
+                                                    <span>{{item.cname}}</span>
                                                         
                                                     </span>
-                                                    <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                                    <span class="tab_title_date" v-else >New</span>
+                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -271,8 +272,9 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
-                                                    
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                                 </div>
 
                                             </div>
@@ -338,8 +340,8 @@
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
                                             <span>{{item.cname}}</span>
                                         </span>
-                                        <span class="tab_title_date" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                        <span class="tab_title_date" v-else >New</span>
+                                        <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                        <span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -395,7 +397,8 @@
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
-
+                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
+                                    <span class="tab_title_date tab_title_n" v-else >New</span>
                                     </div>
 
                                 </div>
@@ -411,14 +414,10 @@
         <div>
             <span v-if="norecord_msg">
                 <div class="container-fuid no_search_data">
-                   <!-- <svg x="0px" y="0px" width="60" height="60" viewBox="0 0 172 172" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#cccccc"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
-                    <br><br>
-                    申し訳ありませんが、検索結果がありませんでした。 -->
                     <p class="nosearch-icon">
                         <svg x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:red;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><path d="M0,172v-172h172v172z" fill="none"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none"></path><g fill="#666666"><path d="M74.53333,17.2c-31.59643,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59641 25.7369,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09923,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59641 -25.7369,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39939,0 45.86667,20.46729 45.86667,45.86667c0,25.39937 -20.46728,45.86667 -45.86667,45.86667c-25.39939,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.46728,-45.86667 45.86667,-45.86667zM91.67734,51.52161c-1.51229,0.03575 -2.94918,0.66766 -3.99765,1.75807l-13.14636,13.14636l-13.14636,-13.14636c-1.07942,-1.10959 -2.56162,-1.73559 -4.10963,-1.73568c-2.33303,0.00061 -4.43306,1.41473 -5.31096,3.57628c-0.8779,2.16155 -0.3586,4.6395 1.31331,6.26669l13.14636,13.14636l-13.14636,13.14636c-1.49777,1.43802 -2.10111,3.5734 -1.57733,5.58259c0.52378,2.0092 2.09283,3.57825 4.10203,4.10203c2.0092,0.52378 4.14457,-0.07956 5.58259,-1.57733l13.14636,-13.14636l13.14636,13.14636c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-13.14636,-13.14636l13.14636,-13.14636c1.70419,-1.63875 2.22781,-4.1555 1.31865,-6.33798c-0.90916,-2.18248 -3.06468,-3.58317 -5.42829,-3.52739z"></path></g></g></g></svg>
                     </p>
                      <p class="nosearch-data">お探しの条件に合うニュースは見つかりませんでした。</p>
-                     <!-- <p class="nosearch"> 申し訳ありませんが、検索結果がありませんでした。</p> -->
                 </div>
             </span>
             <span v-else>
@@ -652,7 +651,7 @@
             $('#navtab').addClass('news-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('news-borderColor');
-            this.getAllCat();
+            this.getPostByCatID();
             this.getLatestPostsByCatID();
             this.getLatestPostFromAllCat();
         },
@@ -660,63 +659,16 @@
     data() {
 
         return {
-
-            cats: [],
-
             posts: [],
-
             latest_post: [],
             latest_post_null: false,
-
             latest_post_all_cats: [],
-
             search_posts:[],
-
-            tmp_arr:[],
-
-            categoryId: 1,
-
-            index:[0,3],
-
-            second_index:[1,2],
-
-            third_index:[4,5],
-
-            tmp_title:[],
-
-            title_arr:[],
-
-            tmp_photo:[],
-
-            photo_arr:[],
-
-            tmp_post_id:[],
-
-            id_arr:[],
-
             post_groups : [],
-
             status:'0',
-
             search_word:null,
-
-            first_search_word:'',
-
-            pattern:[],
-
-            is_cat_overflow: false,
-
-            is_cat_slided: false,
-
-            computed_width: '100%',
             w_width: window.innerWidth,
             norecord_msg: false,
-            cat_box_width: null,
-            menuWrapperSize: '',
-            itemSize: '',
-            li_width: 0,
-            latest_catId: 0,
-            // w_width: $(window).width() + 16,
         }
     },
 
@@ -727,47 +679,10 @@
         })
         
         this.$nextTick(() => {
-            $("#top_a").addClass("active");
-            this.menuWrapperSize = $('.menu_category').outerWidth();
-
-             this.itemSize = $('.nav-item').outerWidth(true);
-
-            
-            if(this.$refs.infoBox){
-                this.cat_box_width = this.$refs.infoBox.clientWidth;
-            }            
-        })
-        var today = new Date();
-        var month =(String) (today.getMonth()+1);
-        var date = (String) (today.getDate());
-
-        if(month.length == 1)
-        {
-            month = '0' + today.getMonth();
-        }
-
-        if(date.length == 1 )
-        {
-            date = '0' + today.getDate();
-        }
-        var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
-
-        if(localStorage.getItem('date') == null)
-        {
-            localStorage.setItem('date',todaydate);
-            this.getCategoryRandomValue();
-        }
-        else{
-            var localdate = localStorage.getItem('date');
-            if(todaydate > localdate)
-            {
-                localStorage.setItem('date',todaydate);
-                this.getCategoryRandomValue();
-            }
-        };    
+            $("#top_a").addClass("active");       
+        })   
     },
     computed:{  
-
         categoryslider(){
             return {
                 slidesToShow: 1,
@@ -781,130 +696,62 @@
                 lazyLoad: 'ondemand',   
                 arrows: false              
             }
-        }    ,  
-            slickOptions() {
-                return {
-                slidesToShow: 4,
-                infinite: false,
-                accessibility: true,
-                adaptiveHeight: false,
-                arrows: true,
-                dots: true,
-                draggable: true,
-                edgeFriction: 0.30,
-                swipe: true,
-                responsive: [{
-                    breakpoint: 1280,
-                        settings: {
-                            slidesToShow: 3,                           
-                            slidesToScroll: 1,  
-                            infinite:false 
-                        }
-                    }, {
-                    breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1, 
-                            infinite: false                           
-                        }
-                    },{
-                    breakpoint: 770,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1, 
-                            infinite: false                           
-                        }
-                    },{
-                        breakpoint: 420,
-                            settings:{
-                                slidesToShow: 1,
-                                slidesToScroll:1,
-                                infinite: false
-                            }
-                    },{
-                    breakpoint: 481,
+        },  
+        slickOptions() {
+            return {
+            slidesToShow: 4,
+            infinite: false,
+            accessibility: true,
+            adaptiveHeight: false,
+            arrows: true,
+            dots: true,
+            draggable: true,
+            edgeFriction: 0.30,
+            swipe: true,
+            responsive: [{
+                breakpoint: 1280,
+                    settings: {
+                        slidesToShow: 3,                           
+                        slidesToScroll: 1,  
+                        infinite:false 
+                    }
+                }, {
+                breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1, 
+                        infinite: false                           
+                    }
+                },{
+                breakpoint: 770,
                     settings: {
                         slidesToShow: 2,
+                        slidesToScroll: 1, 
+                        infinite: false                           
                     }
-                }]                    
+                },{
+                    breakpoint: 420,
+                        settings:{
+                            slidesToShow: 1,
+                            slidesToScroll:1,
+                            infinite: false
+                        }
+                },{
+                breakpoint: 481,
+                settings: {
+                    slidesToShow: 2,
                 }
+            }]                    
             }
+        }
     },
     methods: {
-            next() {
-                this.$refs.slick.next();
-            },
-            prev() {
-                this.$refs.slick.prev();
-            },
             reInit() {
                 // Helpful if you have to deal with v-for to update dynamic lists
                 this.$nextTick(() => {
                     this.$refs.slick.reSlick();
                 });
             },
-                  
-            newsToggle(id)
-                {
-
-                    var class_by_id = $('#newstogg'+id).attr('class');
-                    if(class_by_id == "fas fa-sort-down animate rotate")
-                    {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
-                        $('.newsChangeLink'+id).addClass("fas fa-sort-down");
-                        $('#newsChangeLink'+id).show('medium');
-                    }
-                    else {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down");
-                        $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
-                        $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
-                        $('#newsChangeLink'+id).hide('medium');
-                    }
-
-            },
-            log() {
-                // console.log()
-            },
-            getAllCat: function() {
-                this.axios .get('/api/home') 
-                .then(response => {
-                        this.cats = response.data;
-
-                        if(this.cats[0].name == "トップ"){
-                            eventBus.$emit('gotColor', this.cats[0].color_code);
-                            this.latest_catId = this.cats[1].id;
-                        }else{
-                            this.latest_catId = this.cats[0].id;
-                            eventBus.$emit('gotColor', this.cats[1].color_code);
-                        }
-                        this.getPostByCatID();
-
-                        this.getLatestPostByCatID();
-
-                    });
-
-            },
-
-            groupBy(array, key) {
-
-                const result = {}
-
-                array.forEach(item => {
-
-                    if (!result[item[key]]) {
-
-                        result[item[key]] = []
-
-                    }
-
-                    result[item[key]].push(item)
-
-                })
-
-                return result
-
-            },
-
             getLatestPostsByCatID: function() {
                 this.post_groups = [];
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
@@ -914,7 +761,6 @@
                 }
 
                 if($(window).width() > 480){
-
                     this.axios
                     .get('/api/get_latest_posts_by_catId/'+searchword)
                     .then(response => {
@@ -951,93 +797,24 @@
                     });
                 }
             },
-
-
-            getPostByCatID: function(catId = this.latest_catId) {
-                if ($('#search-free-word').val() != null) {
-                    var search_word = $('#search-free-word').val();
-                } else {
-                    var search_word = null;
-                }
-
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.latest_catId;
-                }
+            getPostByCatID: function() {
+                // if ($('#search-free-word').val()) {
+                //     var search_word = $('#search-free-word').val();
+                // } else {
+                //     var search_word = null;
+                // }
                 let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
+                //fd.append('search_word', search_word);
                 this.axios.post("/api/posts", fd)
                     .then(response => {
-                        this.posts = response.data;
+                        this.latest_post = response.data.news[0];
+                        this.posts = response.data.news;
+                        eventBus.$emit('gotColor', response.data.line_color);
                     });
             },
-
-            getCategoryRandomValue(){
-
-            this.axios.get("/api/get_cat_random") .then(response => {
-
-                });
-
-            },
-
-            getLatestPostByCatID: function(catId) {
-
-                if ($('#search-free-word').val()) {
-
-                    var search_word = $('#search-free-word').val();
-                } else {
-
-                    var search_word = null;
-
-                }
-
-                if (catId) {
-
-                    var cat_id = catId;
-
-                } else {
-
-                    var cat_id = this.latest_catId;
-
-                }
-
-                let fd = new FormData();
-
-                fd.append('search_word', search_word)
-
-                fd.append('category_id', cat_id)
-
-                $('.search-item').css('display', 'none');
-
-                this.categoryId = cat_id;
-
-                this.axios.post("/api/get_latest_post" , fd)
-
-                .then(response => {
-
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
-                        this.latest_post_null = true;
-                    }
-                    else{
-                        this.latest_post_null = false;
-                    }
-                });
-
-            },
-
             getLatestPostFromAllCat: function() {
-                // this.$loading(true);
-                this.axios
-
-                    .get('/api/get_latest_post_all_cat')
-
-                    .then(response => {
-                    
+                this.axios.get('/api/get_latest_post_all_cat')
+                    .then(response => {                    
                         this.$loading(false);
                         const posts = response.data;
                         var current_date = new Date();
@@ -1049,13 +826,33 @@
                                 post.created_at = "1";
                             }
                             else {
-                               post.created_at = post.created_at.slice(0, -8);
+                                var post_txt = new Date(post.created_at);
+                                var min = post_txt.getMinutes();
+                                var month = post_txt.getMonth()+1;
+                                if(min == 0 ) {
+                                    min = '00';
+                                }
+                                post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
                             }
                         });
                         this.latest_post_all_cats = posts;
                     });
+            },    
+            newsToggle(id) {
+                var class_by_id = $('#newstogg'+id).attr('class');
+                if(class_by_id == "fas fa-sort-down animate rotate")
+                {
+                    $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
+                    $('.newsChangeLink'+id).addClass("fas fa-sort-down");
+                    $('#newsChangeLink'+id).show('medium');
+                }
+                else {
+                    $('#newstogg'+id).removeClass("fas fa-sort-down");
+                    $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
+                    $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
+                    $('#newsChangeLink'+id).hide('medium');
+                }
             },
-
             searchCategory() {
                 this.$loading(true);
                 if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
@@ -1070,15 +867,10 @@
                 }
             },
             clearSearch() {
-
                 this.status = 0;
-
                 this.search_word = '';
-
                 this.getLatestPostsByCatID();
-
             },
-
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
@@ -1087,11 +879,11 @@
  </script>
 
 <style>
-.list-label{
+/*.list-label{
     float: right; 
     color: #999; 
     font-size: 14px;
-}
+}*/
 .list-label > p{
     padding-left: 10px;
     font-weight: bold;
@@ -1101,46 +893,42 @@
     top: 10px;
     font-size: 20px;
 }
-.pad-new{
+/*.pad-new{
     padding-left: 5px !important;
     padding-right: 5px !important;
-}
-.news-list-display{
-    /* border: 1px solid #f7f7f7; */
+}*/
+/*.news-list-display{
     padding: 5px 10px;
     margin-bottom: 4px;
     background: #f7f7f7;
-    /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
+}*/
 
-.news-3-card {
+/*.news-3-card {
     background-color: #f7f7f7;
-    /* box-shadow: 0 0 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
+}*/
 
-.news-3-card .img-box{
+/*.news-3-card .img-box{
     padding-left: 10px;
-}
+}*/
 
-.single-news-box {
+/*.single-news-box {
     background: #f7f7f7;
     height: 310px;
     padding: 10px;
-    /* box-shadow: 0px 0px 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
     overflow: hidden;
-}
+}*/
 
-.news-tabColor .nav-link {
+/*.news-tabColor .nav-link {
     background: #75b777 !important;
     color: #fff;
     border-right: 1px solid #fff;
-}
+}*/
 
 .left{
     float: left;
@@ -1155,62 +943,11 @@
 }
 
 
-.center{
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    /* float: left;
-    width: 38.9%;
-    border: 1px solid black;
-    margin: 1px; */
-    /* width: 95%; */
-    
-    /* max-width: 100%; */
-}
+
 .right{
     float: right;
     width: 30%;
     /* border: 1px solid black; */
-}
-.cat-nav {
-    padding-bottom: 0;
-    height: 36px;
-    display: flex;
-    padding-left: 1.65rem !important;
-}
-
-.card-header-tabs {
-   margin-right: -1.65rem;
-    /* margin-bottom: 0rem; */
-    margin-left: -1.65rem;
-    border-bottom: 0;
-}
-.arr-btn {
-    cursor: pointer;
-    display: inline-flex;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flex;
-    background:transparent;
-    padding: 5px 1px 4px;
-    font-size: 25px;
-}
-.nav-tabs{
-    border-bottom: none;
-}
-
-.left-arr-btn {
-    position: relative;     
-    left: -20px;
-    width: 2%;
-}
-
-.right-arr-btn {
-    position: relative;      
-    right: -47px;
-    width: 2%;
-}
-.left-arr-btn .fas, .right-arr-btn .fas {
-    color:#828282;
 }
 
 .cat-slider .list-group-item{
@@ -1243,38 +980,25 @@
     height: 360px !important;
     background: #5f5f5f;
 }
-#myTab ul li {
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    display: -webkit-inline-flex;
-}
 
-.nav {
-    flex-wrap: nowrap;
-}
 .news-slider-width{
     width: 100%;
 }
 
-#top {
-    border-left: 1px solid #fff;
-}
 
-.nav-tabs{
-    border-bottom: none;
-}
 
-#myTab .router-link-exact-active {
-    height: 36px;
-    color: #fff !important;
-    background-color: #828282;
-    border: none !important;
-}
-.tab_title_date {
+/*.tab_title_date {
     font-size: 12px;
     float: right;
     margin-top: 16px;
+}*/
+/*.tab_title_d {
+    color: #969798!important;
+}*/
+.tab_title_n {
+    color: #E83015!important;
 }
+
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1308,95 +1032,56 @@
         width: 100%;
     }
 }
-@media only screen and (max-width:1024px){
+/*@media only screen and (max-width:1024px){
     .news-slider-width{
         width: 100%;
     }
-}
+}*/
 
-@media only screen and (max-width:1280px){
-    
-    
-    .news-slider-width{
-       
-        width: 100%;
-    }
-    .slick-next, .slick-prev{
-        border: 1px solid #807777;
-        outline: none;
-        background: #f7f7f7;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-      
-       
-    }  
-    
-    .slick-next::before{
-        
-        border-width: .2rem .2rem 0 0;
-        height: 9px;
-        width: 9px;  
-    }
-    .slick-prev::before{
-        
-        border-width: .2rem .2rem 0 0;
-        height: 9px;
-        width: 9px;
-    }
+/*@media only screen and (max-width:1280px){
     .slick-next{
-     
-        right: 0px
+        right: 0;
     }
     .slick-prev{
-      
-        left: 5px;
-        z-index: 999;       
+        left: 0;     
     }
     .button:not(:disabled).slick-next{
         opacity: 0;
     }
-    .slick-disabled{
-        opacity: 0;
-    }
-    
-}
-@media only screen and (max-width: 414px){
+}*/
+/*@media only screen and (max-width: 414px){
     .news-slider-width{
         width: 100%;
     }
-}
-@media only screen and (max-width: 560px){
-    .cat-nav {
-        height: auto !important;
-        padding: 0 !important;
-    }
-}
-@media only screen and (min-width: 769px){
+}*/
+
+/*@media only screen and (min-width: 769px){
    .slick-arrow{   
-    display: none !important;   
+        display: none !important;   
     } 
-}
+}*/
 #widthmenu{
     display: inline-block;
 
 }
-.tab_title_color{
+/*.tab_title_color{
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
     background-color: var(--bkgColor);
-}
-.tab_title_color span {
     color: #fff;
-}
-.bordertop-color{
+}*/
+/*.tab_title_color span {
+    color: #fff;
+}*/
+/*.bordertop-color{
     border-top: 2px solid var(--color);
-}
-.h-color span {
+}*/
+/*.h-color span {
     border-left: 5px solid var(--color);
     color: var(--color);
-}
-.bordertop-color i {
+}*/
+/*.bordertop-color i {
     color: var(--color);
-}
+}*/
 </style>
