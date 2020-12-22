@@ -45,7 +45,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>                               
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -92,7 +92,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -193,7 +193,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>                            
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                            
 
                                         <transition name="fade" slot="placeholder">
 
@@ -241,7 +241,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -281,7 +281,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -361,7 +361,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -462,7 +462,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>                         
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                         
 
                                         <transition name="fade" slot="placeholder">
 
@@ -509,7 +509,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -549,7 +549,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div class="m_top_left"><span>New</span></div>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -626,7 +626,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>  
-                                        <div class="m_top_left"><span>New</span></div>                              
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              
 
                                         <transition name="fade" slot="placeholder">
 
@@ -676,7 +676,7 @@
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                             </transition>
-                                            <div class="m_top_left"><span>New</span></div>
+                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -728,7 +728,7 @@
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                 </transition>   
-                                <div class="m_top_left"><span>New</span></div>                             
+                                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                             
 
                                 <transition name="fade" slot="placeholder">
 
@@ -763,7 +763,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <div class="m_top_left"><span>New</span></div>
+                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -804,7 +804,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <div class="m_top_left"><span>New</span></div>
+                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -832,7 +832,7 @@
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
     </div>
-    <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
+    <!-- <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
         <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
             <div class="col-md-12 row adslist-card news-3-card m-0">
 
@@ -844,7 +844,7 @@
                             <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                         </transition>
-                        <div class="m_top_left"><span>New</span></div>
+                        <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                         <transition name="fade" slot="placeholder">
 
@@ -865,7 +865,7 @@
                 </div>
             </div>
         </router-link>
-    </div>
+    </div> -->
 </div>
 </layout>
 </template>
@@ -904,9 +904,6 @@ export default {
             cat_box_width: null,
             seen: false,
         }
-    },
-    mounted() {
-        //this.getAllCat();
     },
     created(){
         if($(window).width() > 480){
@@ -1017,9 +1014,9 @@ export default {
                 .then(response => {
                         this.cats = response.data;
 
-                        this.getPostByCatID();
+                        //this.getPostByCatID();
 
-                        this.getLatestPostByCatID();
+                        //this.getLatestPostByCatID();
 
                     });
 
@@ -1038,18 +1035,13 @@ export default {
             },
             imgUrlAlt(event) {
                             event.target.src = "/images/noimage.jpg"
-                },
-            searchCategory(){
-
-                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                        this.clearSearch();
-                    } else {
-                        this.status = 1;
-                        this.search_word = $('#search-free-word').val();          
-                    }
-                    this.getlatestpost();
-
+            },            
+            showMoreClick(){
+                this.seen = true;
             },
+            showLessClick(){
+                this.seen = false;
+            },  
             getPostByCatID: function(catId = this.cats[0].id) {
                 if ($('#search-free-word').val() != null) {
                     var search_word = $('#search-free-word').val();
@@ -1115,44 +1107,48 @@ export default {
                         this.latest_post_null = false;
                     }
                 });
+            },            
+            searchCategory(){
 
-            },
-            getlatestpost()
-            {
-                  if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                        this.nonblock = false;
-                        this.block = true;
-                        var searchword = 'all_news_search';                
-                    } else {                        
-                        this.block = false;
-                        this.nonblock = true;
-                        var searchword = this.search_word;
-                        this.searchnews = [];
+                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                        this.clearSearch();
+                    } else {
+                        this.status = 1;
+                        this.search_word = $('#search-free-word').val();          
                     }
-                    this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
-                    this.$loading(false);
-                    this.searchnews = response.data;
-                    if(response.data.length == 0)
-                    {
-                        this.norecord_msg = true;
-                    }
-                    else{
-                        this.norecord_msg = false;
-                    }
-                
-                });
-            },
-             clearSearch() {
+                    this.getlatestpost();
+
+            },            
+            clearSearch() {
 
                 this.search_word = '';
                 this.getlatestpost();
 
             },
-            showMoreClick(){
-                this.seen = true;
-            },
-            showLessClick(){
-                this.seen = false;
+            getlatestpost()
+            {
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+                    this.nonblock = false;
+                    this.block = true;
+                    var searchword = 'all_news_search';                
+                } else {                        
+                    this.block = false;
+                    this.nonblock = true;
+                    var searchword = this.search_word;
+                    this.searchnews = [];
+                }
+                this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
+                this.$loading(false);
+                this.searchnews = response.data;
+                if(response.data.length == 0)
+                {
+                    this.norecord_msg = true;
+                }
+                else{
+                    this.norecord_msg = false;
+                }
+
+                });
             },
    }
 }

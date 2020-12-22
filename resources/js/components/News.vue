@@ -989,7 +989,7 @@
                 this.categoryId = cat_id;
                 this.axios.post("/api/posts", fd)
                     .then(response => {
-                        this.posts = response.data;
+                        this.posts = this.findNewNews(response.data);
                     });
             },
 
@@ -1036,7 +1036,10 @@
 
                 .then(response => {
 
-                    this.latest_post = response.data;
+                    var posts =[]
+                    posts.push(response.data);
+                    var latest_post = this.findNewNews(posts);
+                    this.latest_post = latest_post[0];
                     if(Object.keys(this.latest_post).length == 0){
                         this.latest_post_null = true;
                     }
@@ -1056,8 +1059,11 @@
                     .then(response => {
                     
                         this.$loading(false);
-                        const posts = response.data;
-                        var current_date = new Date();
+                        this.latest_post_all_cats = this.findNewNews(response.data);
+                    });
+            },
+            findNewNews: function(posts) {
+                var current_date = new Date();
                         var is_within_48 = false;
                         posts.forEach(function(post){
                             const post_date = Date.parse(post.created_at);
@@ -1078,8 +1084,7 @@
                             post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
                             
                         });
-                        this.latest_post_all_cats = posts;
-                    });
+                        return posts;
             },
 
             searchCategory() {
