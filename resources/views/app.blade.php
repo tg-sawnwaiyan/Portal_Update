@@ -180,7 +180,8 @@ header("Pragma:no-cache");
 <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
 <!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script src="{{ asset('js/vue.min.js') }}"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>

@@ -97,11 +97,13 @@ class PostController extends Controller
         foreach ($newslist as $value) {
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
-            $dayInterval = $todayDate->diff($createdDate);
-            if($dayInterval->days < 2)
+            $dayInterval = $todayDate->diffInDays($createdDate);
+            if($dayInterval < 2)
             {
             $value['new_news'] = 1;
             }
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
             array_push($aryNews, $value); 
         }
 
@@ -186,14 +188,17 @@ class PostController extends Controller
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = $aryNews = [];
 
         // find time difference 
+        // find time difference 
         foreach ($newslist as $value) {
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
-            $dayInterval = $todayDate->diff($createdDate);
-            if($dayInterval->days < 2)
+            $dayInterval = $todayDate->diffInDays($createdDate);
+            if($dayInterval < 2)
             {
             $value['new_news'] = 1;
             }
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
             array_push($aryNews, $value); 
         }
 

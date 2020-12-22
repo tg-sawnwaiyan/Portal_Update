@@ -64,6 +64,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -119,6 +120,7 @@
 
                             </div>
                         </router-link>
+                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
@@ -212,6 +214,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -268,6 +271,7 @@
 
                             </div>
                             </router-link>
+                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -308,6 +312,7 @@
 
                             </div>
                             </router-link>
+                            <div v-if="index === 2" class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
@@ -388,6 +393,7 @@
 
                             </div>
                         </router-link>
+                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
@@ -481,6 +487,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -536,6 +543,7 @@
 
                             </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -576,6 +584,7 @@
 
                             </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
@@ -645,6 +654,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -703,6 +713,7 @@
 
                                 </div>
                                 </router-link>
+                                <div class="txt_date">{{value.created_at}}</div>
                             </div>
                         </div>
                     </div>
@@ -1361,5 +1372,26 @@ export default {
 .profile-tit {
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
+}
+.large-b0, .medium-b1, .medium-b3 {
+    position: relative;
+}
+.txt_date {
+    font-weight:bold; 
+    text-align:right;
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+}
+.single-news-box > p,
+.pattern-txt-box p {
+   /* line-height: 1.5em;
+    height: 3em;*/
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>
