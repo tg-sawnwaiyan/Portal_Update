@@ -91,10 +91,11 @@ class PostController extends Controller
 
         $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.color_code')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
 
-        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = $aryNews = [];
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
 
-        // find time difference 
+        //divide array new list by block
         foreach ($newslist as $value) {
+            //find time difference
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
             $dayInterval = $todayDate->diffInDays($createdDate);
@@ -104,12 +105,7 @@ class PostController extends Controller
             }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
-            array_push($aryNews, $value); 
-        }
-
-        //divide array new list by block
-        foreach ($aryNews as $v) {
-            $tmp[$value['block_id']][] = $v;
+            $tmp[$value['block_id']][] = $value;
         }
 
         //separted divied block array
@@ -187,9 +183,8 @@ class PostController extends Controller
 
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = $aryNews = [];
 
-        // find time difference 
-        // find time difference 
         foreach ($newslist as $value) {
+            //find time difference
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
             $dayInterval = $todayDate->diffInDays($createdDate);
@@ -199,12 +194,7 @@ class PostController extends Controller
             }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
-            array_push($aryNews, $value); 
-        }
-
-        //divide array new list by block
-        foreach ($aryNews as $v) {
-            $tmp[$value['block_id']][] = $v;
+            $tmp[$value['block_id']][] = $value;
         }
 
         //separted divied block array

@@ -1069,11 +1069,11 @@
                             const post_date = Date.parse(post.created_at);
                             const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
                             post.new_news = "";
-                            if(time_diff < 2) {
+                           // if(time_diff < 2) {
                                 //is_within_48 = true;
                                 //post.created_at = "1";                              
                                 post.new_news = "1";
-                            }
+                          //  }
                             
                             var post_txt = new Date(post.created_at);
                             var min = post_txt.getMinutes();
@@ -1436,7 +1436,7 @@
 .bordertop-color i {
     color: var(--color);
 }
-.display_align {
+/* .display_align {
     display: inline-flex;
-}
+} */
 </style>
