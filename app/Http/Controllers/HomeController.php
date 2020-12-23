@@ -313,7 +313,11 @@ class HomeController extends Controller
 
             $tmp = array();
 
-            foreach($posts as $aryPosts){
+            foreach($posts as $aryPosts){ 
+                $createdDate = $aryPosts->created_at;
+                $aryPosts->new_news = 1;
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $aryPosts->created_at = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
                 $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
 

@@ -96,13 +96,13 @@ class PostController extends Controller
         //divide array new list by block
         foreach ($newslist as $value) {
             //find time difference
-            $todayDate = Carbon\Carbon::now();
+            //$todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
-            $dayInterval = $todayDate->diffInDays($createdDate);
-            if($dayInterval < 2)
-            {
+            //$dayInterval = $todayDate->diffInDays($createdDate);
+            // if($dayInterval < 2)
+            // {
             $value['new_news'] = 1;
-            }
+            // }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
             $tmp[$value['block_id']][] = $value;
@@ -188,10 +188,10 @@ class PostController extends Controller
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
             $dayInterval = $todayDate->diffInDays($createdDate);
-            if($dayInterval < 2)
-            {
+            // if($dayInterval < 2)
+            // {
             $value['new_news'] = 1;
-            }
+            // }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             $value['created_at'] = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
             $tmp[$value['block_id']][] = $value;

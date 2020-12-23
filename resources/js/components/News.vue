@@ -68,6 +68,7 @@
                                                         </div>
 
                                                     </div>
+                                                    <div class="txt_date txt_color">{{latest_post_all_cat.created_at}}</div>
 
                                                 </div>
 
@@ -580,7 +581,8 @@
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
-                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                    <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
+                                    <router-link  :to="'/newsdetails/'+item.pid">
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
                                             <div class="col-4 img-box">
 
@@ -591,6 +593,7 @@
                                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -618,6 +621,8 @@
                                             </div>
                                         </div>
                                     </router-link>
+                                    <div class="txt_date">{{item.created_at}}</div>
+                                    </div>                                                    
                                 </div>                    
 
                                 <div class="pad-new pattern-child" v-if="group[3]">
@@ -1439,4 +1444,20 @@
 /* .display_align {
     display: inline-flex;
 } */
+</style>
+<style scoped="scoped">
+.txt_align {
+    position: relative;
+}
+.txt_date {
+    font-weight: bold;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.txt_color {
+    right: 5px;
+    color: white;
+}
 </style>
