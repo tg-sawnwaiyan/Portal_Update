@@ -728,7 +728,7 @@
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
-                <div v-for="(value,index) in big_news" :key="index">
+                <div v-for="(value,index) in big_news" :key="index" class="txt_align">
                     <router-link :to="'/newsdetails/'+value.id" >
                         <div class="col-6  single-news-box single-news-slide">
                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -757,6 +757,7 @@
                             <p>  {{value.main_point}} </p>
                         </div>
                     </router-link>
+                    <div class="txt_date txt_date_bg">{{value.created_at}}</div>
                 </div>
             </slick>
         </div>
@@ -791,14 +792,17 @@
                     </div>
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.main_point}} </p>
-                    </div>
+                    </div>                   
+                        <div class="txt_date"> {{value.created_at}}</div>
                 </div>
             </router-link>
          
-            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new">  
+            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
             <p class="text-truncate news-list-display">
                 {{value.main_point}}
             </p>
+            <div class="txt_date"><span>{{value.created_at}}</span></div>
             </router-link>
         </div>
         <div v-if="seen" id="more" class="slick-news m-lr-0 bordertop-color" >
@@ -814,7 +818,6 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -833,6 +836,7 @@
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.main_point}} </p>
                     </div>
+                    <div class="txt_date"><span>{{value.created_at}}</span></div>
                 </div>
             </router-link>
              
@@ -1358,6 +1362,23 @@ export default {
         width: 100%;
         display: inline-block;
     }
+    .txt_date_bg {
+        padding-left: 3px;
+        background: white;
+    }
+    .txt_date {
+        bottom: 5px !important;
+    }
+    .text-truncate {
+    line-height: 1.5em;
+    height: 3em;
+    white-space: normal;
+    }
+    .news-list-display{
+        padding:0;
+        padding-left: 33px;
+        max-height: 3rem !important;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
@@ -1380,17 +1401,21 @@ export default {
     text-align:right;
     position: absolute;
     bottom: 0; 
-    right: 0;
+    right: 5px;
+    color: black;
 }
 .single-news-box > p,
 .pattern-txt-box p {
-   /* line-height: 1.5em;
-    height: 3em;*/
+    line-height: 1.9em;
+    height: 3.8em;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.txt_align {
+    position: relative;
 }
 </style>

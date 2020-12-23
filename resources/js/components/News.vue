@@ -139,13 +139,13 @@
                                                 <ul class="list-group list-group-flush all-item">
 
                                                     <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
-                                                        <span v-if="post.new_news == '1'" class="s_top_left">New</span>
+                                                        
 
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
-
+                                                            <span v-if="post.new_news == '1'" class="s_top_left">New</span>
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
-                                                            <span class="source-img-small d-inline-block text-truncate">{{ post.main_point }}</span>
+                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">{{ post.main_point }}</span>
 
                                                         </router-link>
 
@@ -1459,5 +1459,16 @@
 .txt_color {
     right: 5px;
     color: white;
+}
+.s_top_left {
+position: relative;
+bottom: 12px;
+}
+.top_sm_news {
+width: 85%;
+overflow: hidden;
+height: 37px;
+white-space: unset;
+line-height: 1.3rem;
 }
 </style>
