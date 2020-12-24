@@ -71,8 +71,12 @@
                         <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -127,7 +131,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -135,7 +144,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -143,15 +157,24 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
                         <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -159,23 +182,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -222,7 +234,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -318,9 +335,14 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
                         <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            
                             <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -328,7 +350,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                               <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -336,15 +363,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -400,7 +424,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -408,7 +437,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -416,7 +450,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -424,7 +463,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -432,23 +476,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -495,7 +528,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -592,7 +630,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -600,7 +643,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -608,15 +656,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -662,7 +707,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -1196,7 +1246,8 @@ export default {
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
     box-sizing: border-box;
-    max-height: 30px;
+    /* max-height: 47px; */
+    height: 47.5px;
 }
 .news-list-display03{
     padding: 5.7px 10px;
@@ -1397,12 +1448,12 @@ export default {
     position: relative;
 }
 .txt_date {
-    font-weight:bold; 
+    font-size: 12px;
     text-align:right;
     position: absolute;
     bottom: 0; 
-    right: 5px;
-    color: black;
+    right: 10px;
+    color:#969798;
 }
 .single-news-box > p,
 .pattern-txt-box p {
@@ -1417,5 +1468,37 @@ export default {
 }
 .txt_align {
     position: relative;
+}
+.sm_news_new {
+    /* border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white; */
+    border-radius: 1px;
+    padding: 0 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    float: left;
+    /* margin: 10px 0 0 0; */
+}
+
+.sm_news_fa {
+    float: left;
+}
+.sm_news_mp {
+    width: 87%;
+    float: left;
+    max-height: 20px;
+    overflow: hidden;
+    padding: 0 0 0 5px;
+}
+.sm_news_date {
+    color: #969798;
+    float: right;
+}
+.text-truncate {
+    white-space: unset;
 }
 </style>
