@@ -1068,25 +1068,26 @@
                     });
             },
             findNewNews: function(posts) {
-                var current_date = new Date();
+                        var current_date = new Date().getTime();
                         var is_within_48 = false;
                         posts.forEach(function(post){
-                            const post_date = Date.parse(post.created_at);
-                            const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
+                            const post_date = new Date(post.created_at);
+                            var msec = (current_date - post_date.getTime());
+                            var mins = Math.floor(msec / 60000);
+                            var hrs = Math.floor(mins / 60);
+
                             post.new_news = "";
-                           // if(time_diff < 2) {
-                                //is_within_48 = true;
-                                //post.created_at = "1";                              
+                            if(hrs <= 36) {     
+
                                 post.new_news = "1";
-                          //  }
-                            
-                            var post_txt = new Date(post.created_at);
-                            var min = post_txt.getMinutes();
-                            var month = post_txt.getMonth()+1;
+                            }   
+
+                            var min = post_date.getMinutes();
+                            var month = post_date.getMonth()+1;
                             if(min == 0 ) {
                                 min = '00';
                             }
-                            post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
+                            post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
                             
                         });
                         return posts;
