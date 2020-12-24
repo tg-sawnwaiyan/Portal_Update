@@ -270,6 +270,17 @@ class HomeController extends Controller
 
             foreach($posts as $aryPosts){
                 $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
+                $todayDate = Carbon\Carbon::now();
+                $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+                if($hourInterval <= 36)
+                {
+                $aryPosts->new_news = 1;
+                }
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
                 $tmp[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
 

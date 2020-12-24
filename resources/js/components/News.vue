@@ -464,7 +464,8 @@
 
                                                     <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                </transition>                              
+                                                </transition>
+                                                <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                             
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -482,6 +483,7 @@
                                             </clazy-load>
                                             <p> {{value[0].main_point}} </p>
                                         </div>
+                                        <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
 
                                     </router-link>
                                 </div>
@@ -502,6 +504,7 @@
                                                         <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -529,16 +532,26 @@
                                                 <p>{{item.main_point}}</p>
 
                                             </div>
+                                            <div class="txt_date txt_color_pc">{{item.created_at}}</div>
 
                                         </div>
                                     </router-link>
                                 </div>
 
                                 <div class="pad-new pattern-child" v-if="block_id == 3">
-                                    <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+                                    <router-link v-for="(item,inx) in value.slice(0,6)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+
 
                                         <p class="text-truncate news-list-display">
-                                            <i class="fas fa-building"></i>{{item.main_point}}
+                                        <span class="sm_news_new_top" v-if="item.new_news == 1">New</span>
+                            <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                            <span class="sm_news_mp">
+                                {{item.main_point}}
+                            </span> 
+                            <span class="sm_news_date">{{item.created_at}}</span>
+
+
+                                     <!--        <i class="fas fa-building"></i>{{item.main_point}} -->
                                         </p>
                                     </router-link>
                                 </div>
@@ -556,7 +569,8 @@
 
                                                     <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                </transition>                                
+                                                </transition>
+                                                <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                             
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -574,6 +588,7 @@
                                             </clazy-load>
                                             <p> {{value[1].main_point}} </p>
                                         </div>
+                                        <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
 
                                     </router-link>
                                 </div> 
@@ -1137,13 +1152,14 @@
     font-size: 20px;
 }
 .pad-new{
+    position: relative;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     background: #f7f7f7;
     /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
@@ -1459,15 +1475,55 @@
     right: 5px;
     color: white;
 }
+.txt_color_pc {
+    right: 16px;
+    font-weight: normal;
+    font-size: 12px;
+    float: right;
+    margin-top: 16px;    
+    color: #969798;
+    bottom: -2px;
+}
 .s_top_left {
-position: relative;
-bottom: 12px;
+    position: relative;
+    bottom: 12px;
 }
 .top_sm_news {
-width: 85%;
-overflow: hidden;
-height: 37px;
-white-space: unset;
-line-height: 1.3rem;
+    width: 85%;
+    overflow: hidden;
+    height: 37px;
+    white-space: unset;
+    line-height: 1.3rem;
+}
+.sm_news_fa {
+    float: left;
+}
+.sm_news_mp {
+    width: 87%;
+    float: left;
+    max-height: 20px;
+    overflow: hidden;
+    padding: 0 0 0 5px;
+}
+.sm_news_date {
+    font-size: 12px;
+    color: #969798;
+    float: right;
+}
+.text-truncate {
+    white-space: unset;
+}
+.news-list-display{
+    height: 47.5px;
+}
+.sm_news_new_top {
+    border-radius: 1px;
+    padding: 0px 4px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    float: left;
+    height: 15px;
+    line-height: 15px;
 }
 </style>
