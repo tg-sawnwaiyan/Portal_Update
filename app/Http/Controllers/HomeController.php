@@ -314,10 +314,17 @@ class HomeController extends Controller
             $tmp = array();
 
             foreach($posts as $aryPosts){ 
+                $todayDate = Carbon\Carbon::now();
                 $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+                if($hourInterval <= 36)
+                {
                 $aryPosts->new_news = 1;
+                }
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
-                $aryPosts->created_at = $carbonCreated_dt->day.'/'.$carbonCreated_dt->month.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
                 $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
 

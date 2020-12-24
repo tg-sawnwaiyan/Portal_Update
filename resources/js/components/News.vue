@@ -1084,9 +1084,7 @@
 
                             var min = post_date.getMinutes();
                             var month = post_date.getMonth()+1;
-                            if(min == 0 ) {
-                                min = '00';
-                            }
+                            min = min < 10 ? '0' + min : min;
                             post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
                             
                         });

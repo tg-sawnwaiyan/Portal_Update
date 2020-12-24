@@ -105,7 +105,9 @@ class PostController extends Controller
             $value['new_news'] = 1;
             }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
-            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
+            $minute = $carbonCreated_dt->minute;
+            $minute = $minute < 10 ? '0'.$minute : $minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
             $tmp[$value['block_id']][] = $value;
         }
 
@@ -194,7 +196,9 @@ class PostController extends Controller
             $value['new_news'] = 1;
             }
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
-            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$carbonCreated_dt->minute;
+            $minute = $carbonCreated_dt->minute;
+            $minute = $minute < 10 ? '0'.$minute : $minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
             $tmp[$value['block_id']][] = $value;
         }
 
