@@ -641,14 +641,15 @@
                                 </div>                    
 
                                 <div class="pad-new pattern-child" v-if="group[3]">
-                                    <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
+                                    <router-link v-for="(item,inx) in group.slice(3, 9)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
                                         <p class="text-truncate news-list-display">
-
-                                            <i class="fas fa-building"></i> {{item.main_point}}
-
+                                            <span class="sm_news_new_top" v-if="item.new_news == 1">New</span>
+                                            <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                            <span class="sm_news_mp">
+                                                {{item.main_point}}
+                                            </span> 
+                                            <span class="sm_news_date">{{item.created_at}}</span>
                                         </p>
-
                                     </router-link>
                                 </div>                                               
                         </slick>
@@ -1332,6 +1333,9 @@
 .tab_title_n {
     color: #E83015!important;
 }
+.wrapper-3 {
+    height: 73%;
+}
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1358,6 +1362,14 @@
 @media only screen and (max-width:480px){
     .list-label{  
         color: #fff;     
+    }
+    .pattern-txt-box {
+        max-height: 60px;
+    }
+    .txt_date {
+        font-weight: normal;
+        font-size: 12px;
+        color: #969798;
     }
 }
 @media only screen and (max-width: 1280px){
