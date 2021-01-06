@@ -33,7 +33,7 @@
                     {{news.title}}
                   </h4>  
                   <div style="text-align: center;margin-bottom: 20px;">
-                    <span v-if="news.created_by_company && news.created_by_company != null" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                    <span v-if="news.created_by_company && news.created_by_company != 'null'" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
                       {{news.created_by_company}}
                     </span>
                   </div>
@@ -60,7 +60,7 @@
                     <p class="p5 mb-2 text-justify" v-html="news.body"></p>
                   </div>
                 </div>
-                <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin: 1rem auto 0;">
+                <span v-if="news.created_by && news.created_by != 'null'" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin: 1rem auto 0;">
                   {{news.created_by}}
                 </span>
                 
