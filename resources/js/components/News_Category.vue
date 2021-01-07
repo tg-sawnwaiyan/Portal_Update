@@ -44,7 +44,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -63,14 +64,19 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -91,6 +97,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -117,13 +124,19 @@
 
                             </div>
                         </router-link>
+                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -131,7 +144,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -139,15 +157,24 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
                         <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -155,23 +182,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -190,7 +206,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                            
 
                                         <transition name="fade" slot="placeholder">
 
@@ -209,6 +226,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -216,7 +234,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -238,6 +261,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -264,6 +288,7 @@
 
                             </div>
                             </router-link>
+                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -277,6 +302,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -303,14 +329,20 @@
 
                             </div>
                             </router-link>
+                            <div v-if="index === 2" class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
                         <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            
                             <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -318,7 +350,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                               <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -326,15 +363,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -356,6 +390,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -382,13 +417,19 @@
 
                             </div>
                         </router-link>
+                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -396,7 +437,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -404,7 +450,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -412,7 +463,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -420,23 +476,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 6" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -455,7 +500,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                         
 
                                         <transition name="fade" slot="placeholder">
 
@@ -474,6 +520,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -481,7 +528,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -502,6 +554,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -528,6 +581,7 @@
 
                             </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -541,6 +595,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -567,6 +622,7 @@
 
                             </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
@@ -574,7 +630,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -582,7 +643,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -590,15 +656,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -616,7 +679,8 @@
 
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                        </transition>                                
+                                        </transition>  
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              
 
                                         <transition name="fade" slot="placeholder">
 
@@ -635,6 +699,7 @@
                                     <p>  {{value.main_point}} </p>
                                 </div>
                             </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -642,7 +707,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display">
 
-                                <i class="fas fa-building"></i> {{value.main_point}}
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -692,6 +762,7 @@
 
                                 </div>
                                 </router-link>
+                                <div class="txt_date">{{value.created_at}}</div>
                             </div>
                         </div>
                     </div>
@@ -707,7 +778,7 @@
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
-                <div v-for="(value,index) in big_news" :key="index">
+                <div v-for="(value,index) in big_news" :key="index" class="txt_align">
                     <router-link :to="'/newsdetails/'+value.id" >
                         <div class="col-6  single-news-box single-news-slide">
                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -716,7 +787,8 @@
 
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                </transition>                                
+                                </transition>   
+                                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                             
 
                                 <transition name="fade" slot="placeholder">
 
@@ -735,6 +807,7 @@
                             <p>  {{value.main_point}} </p>
                         </div>
                     </router-link>
+                    <div class="txt_date txt_date_bg">{{value.created_at}}</div>
                 </div>
             </slick>
         </div>
@@ -751,6 +824,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                             </transition>
+                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                             <transition name="fade" slot="placeholder">
 
@@ -768,14 +842,17 @@
                     </div>
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.main_point}} </p>
-                    </div>
+                    </div>                   
+                        <div class="txt_date"> {{value.created_at}}</div>
                 </div>
             </router-link>
          
-            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new">  
+            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
             <p class="text-truncate news-list-display">
                 {{value.main_point}}
             </p>
+            <div class="txt_date"><span>{{value.created_at}}</span></div>
             </router-link>
         </div>
         <div v-if="seen" id="more" class="slick-news m-lr-0 bordertop-color" >
@@ -809,6 +886,7 @@
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.main_point}} </p>
                     </div>
+                    <div class="txt_date"><span>{{value.created_at}}</span></div>
                 </div>
             </router-link>
              
@@ -818,7 +896,7 @@
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
     </div>
-    <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
+    <!-- <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
         <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
             <div class="col-md-12 row adslist-card news-3-card m-0">
 
@@ -830,6 +908,7 @@
                             <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
 
                         </transition>
+                        <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                         <transition name="fade" slot="placeholder">
 
@@ -850,7 +929,7 @@
                 </div>
             </div>
         </router-link>
-    </div>
+    </div> -->
 </div>
 </layout>
 </template>
@@ -889,9 +968,6 @@ export default {
             cat_box_width: null,
             seen: false,
         }
-    },
-    mounted() {
-        //this.getAllCat();
     },
     created(){
         if($(window).width() > 480){
@@ -1002,9 +1078,9 @@ export default {
                 .then(response => {
                         this.cats = response.data;
 
-                        this.getPostByCatID();
+                        //this.getPostByCatID();
 
-                        this.getLatestPostByCatID();
+                        //this.getLatestPostByCatID();
 
                     });
 
@@ -1023,18 +1099,13 @@ export default {
             },
             imgUrlAlt(event) {
                             event.target.src = "/images/noimage.jpg"
-                },
-            searchCategory(){
-
-                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                        this.clearSearch();
-                    } else {
-                        this.status = 1;
-                        this.search_word = $('#search-free-word').val();          
-                    }
-                    this.getlatestpost();
-
+            },            
+            showMoreClick(){
+                this.seen = true;
             },
+            showLessClick(){
+                this.seen = false;
+            },  
             getPostByCatID: function(catId = this.cats[0].id) {
                 if ($('#search-free-word').val() != null) {
                     var search_word = $('#search-free-word').val();
@@ -1100,44 +1171,48 @@ export default {
                         this.latest_post_null = false;
                     }
                 });
+            },            
+            searchCategory(){
 
-            },
-            getlatestpost()
-            {
-                  if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                        this.nonblock = false;
-                        this.block = true;
-                        var searchword = 'all_news_search';                
-                    } else {                        
-                        this.block = false;
-                        this.nonblock = true;
-                        var searchword = this.search_word;
-                        this.searchnews = [];
+                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                        this.clearSearch();
+                    } else {
+                        this.status = 1;
+                        this.search_word = $('#search-free-word').val();          
                     }
-                    this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
-                    this.$loading(false);
-                    this.searchnews = response.data;
-                    if(response.data.length == 0)
-                    {
-                        this.norecord_msg = true;
-                    }
-                    else{
-                        this.norecord_msg = false;
-                    }
-                
-                });
-            },
-             clearSearch() {
+                    this.getlatestpost();
+
+            },            
+            clearSearch() {
 
                 this.search_word = '';
                 this.getlatestpost();
 
             },
-            showMoreClick(){
-                this.seen = true;
-            },
-            showLessClick(){
-                this.seen = false;
+            getlatestpost()
+            {
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+                    this.nonblock = false;
+                    this.block = true;
+                    var searchword = 'all_news_search';                
+                } else {                        
+                    this.block = false;
+                    this.nonblock = true;
+                    var searchword = this.search_word;
+                    this.searchnews = [];
+                }
+                this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
+                this.$loading(false);
+                this.searchnews = response.data;
+                if(response.data.length == 0)
+                {
+                    this.norecord_msg = true;
+                }
+                else{
+                    this.norecord_msg = false;
+                }
+
+                });
             },
    }
 }
@@ -1171,7 +1246,8 @@ export default {
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
     box-sizing: border-box;
-    max-height: 30px;
+    /* max-height: 47px; */
+    height: 47.5px;
 }
 .news-list-display03{
     padding: 5.7px 10px;
@@ -1337,6 +1413,23 @@ export default {
         width: 100%;
         display: inline-block;
     }
+    .txt_date_bg {
+        padding-left: 3px;
+        background: white;
+    }
+    .txt_date {
+        bottom: 5px !important;
+    }
+    .text-truncate {
+    line-height: 1.5em;
+    height: 3em;
+    white-space: normal;
+    }
+    .news-list-display{
+        padding:0;
+        padding-left: 33px;
+        max-height: 3rem !important;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
@@ -1350,5 +1443,62 @@ export default {
 .profile-tit {
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
+}
+.large-b0, .medium-b1, .medium-b3 {
+    position: relative;
+}
+.txt_date {
+    font-size: 12px;
+    text-align:right;
+    position: absolute;
+    bottom: 0; 
+    right: 10px;
+    color:#969798;
+}
+.single-news-box > p,
+.pattern-txt-box p {
+    line-height: 1.9em;
+    height: 3.8em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.txt_align {
+    position: relative;
+}
+.sm_news_new {
+    /* border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white; */
+    border-radius: 1px;
+    padding: 0 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    float: left;
+    /* margin: 10px 0 0 0; */
+}
+
+.sm_news_fa {
+    float: left;
+}
+.sm_news_mp {
+    width: 87%;
+    float: left;
+    max-height: 20px;
+    overflow: hidden;
+    padding: 0 0 0 5px;
+}
+.sm_news_date {
+    color: #969798;
+    float: right;
+}
+.text-truncate {
+    white-space: unset;
 }
 </style>

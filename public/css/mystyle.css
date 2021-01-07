@@ -2867,6 +2867,10 @@ border-top: 5px solid #e66527; */
     width: 80%;
 }
 
+.menu_tab_category {
+    width: 78.8% !important;
+}
+
 #app .logo-text {
     padding: 0;
     margin-right: 0px;
@@ -10938,6 +10942,9 @@ padding: 11px;
         width: 97%;
         padding: 0;
     }
+    .menu_tab_category {
+        width: 99% !important;
+    }
     .fixed-ads-fluid {
         width: 100%;
     }
@@ -13841,6 +13848,9 @@ transition: background-color .3s;
         width: 97%;
         padding: 0;
     }
+    .menu_tab_category {
+        width: 98.7% !important;
+    }
     .fixed-ads-fluid {
         width: 100%;
     }
@@ -14729,5 +14739,19 @@ strong {
     .menu_category{
     width: 100% !important;
 }*/
+
+.m_top_left {
+  position: absolute;
+  top: -1px;
+  left: 1px;
+} 
+.m_top_left span,
+.s_top_left {
+    border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+}
 
 }

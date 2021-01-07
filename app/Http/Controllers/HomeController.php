@@ -60,7 +60,14 @@ class HomeController extends Controller
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
+        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(8)->get();
+        // if(isset($request['search_word'])) {
+        //     $search_word = $request['search_word'];
+        //     $posts = $posts->where(function($qu) use ($search_word){
+        //         $qu->where('title', 'LIKE', "%{$search_word}%");
+        //     });
+        // }
+        // $posts = $posts->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
 
@@ -128,6 +135,17 @@ class HomeController extends Controller
             $tmp = array();
             foreach($posts as $aryPosts){
                 $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
+                $todayDate = Carbon\Carbon::now();
+                $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+                if($hourInterval <= 36)
+                {
+                $aryPosts->new_news = 1;
+                }
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
                 $tmp[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
             $aryResults = array();
@@ -162,7 +180,19 @@ class HomeController extends Controller
             $sql = trim($sql,' UNION ');
             $posts = DB::select($sql);
             $tmp = array();
-            foreach($posts as $aryPosts){
+
+            foreach($posts as $aryPosts){ 
+                $todayDate = Carbon\Carbon::now();
+                $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+                if($hourInterval <= 36)
+                {
+                $aryPosts->new_news = 1;
+                }
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
                 $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
             $aryResults = array();
