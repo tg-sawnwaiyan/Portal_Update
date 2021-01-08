@@ -70,7 +70,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
@@ -129,7 +129,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -142,7 +142,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -155,7 +155,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -168,7 +168,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
@@ -180,7 +180,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -232,7 +232,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
                         <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -422,7 +422,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -435,7 +435,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -448,7 +448,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -461,7 +461,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -474,7 +474,7 @@
                         </div>
                         <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -526,7 +526,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
                         <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -705,7 +705,7 @@
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
                         <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display">
+                            <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
@@ -1376,7 +1376,7 @@ export default {
 }
 .single-news-box {
     background: #f7f7f7;
-    height: 310px;
+    height: 330px;
     padding: 10px;
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
@@ -1457,8 +1457,15 @@ export default {
     background-color: #828282;
     border: none !important;
 }
+.head-news .adslist-card{
+    background: #f7f7f7;
+    height: 107px;
+}
 .wrapper-4{
     padding-bottom: 79px;
+}
+.wrapper-4 img{
+    width: 100%;
 }
 .btn_more{
     background-color: #287db4; 
@@ -1502,6 +1509,11 @@ export default {
     height: 9px;
     width: 9px;
 }
+.medium-b3{
+    height: 105px;
+    margin-bottom: 6px;
+}
+ 
 @media only screen and (max-width:767px)  {
  
 	.cat_title{ 
@@ -1576,11 +1588,67 @@ export default {
         display: inline-block;
         padding: 0 !important;
     }
+    .square-medium{
+        float: left;
+        width: 49%;
+        margin-bottom: 10px;
+    }
+    .square-small{
+        float: right;
+        width: 49%;
+        height:106px;
+    }
+    .square-small p{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+     .square-small .text-truncate{margin-top: 18px;} 
+
+    .rectangle-small {
+        display: inline-block;
+        width: 100%;
+    }
+    .text-truncate.news-list-display{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .square-small-left{
+        float: left;
+    }
+    .square-medium-right{
+        float: right;
+    }
+    .rectangle-medium .txt_date01{
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+    }
+    .txt_date01{
+        position: none !important;
+        font-size: 12px;
+        text-align: right;
+        color: #969798;
+    }
+    #more .one .two .square-small .txt_date01{
+        margin-top: 20px;
+    }
+    .text-truncate.news-list-display{
+        padding-top: 16px;
+        padding-left: 0;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
     #more .pad-new{
-    width: 50%;
+        width: 50%;
     }
 }
 .bordertop-color i {
@@ -1641,62 +1709,5 @@ export default {
 }
 .text-truncate {
     white-space: unset;
-}
-
-.square-medium{
-    float: left;
-    width: 49%;
-    margin-bottom: 10px;
-}
-.square-small{
-    float: right;
-    width: 49%;
-    height:106px;
-}
-.square-small p{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
- .square-small .text-truncate{margin-top: 18px;} 
-
-.rectangle-small {
-    display: inline-block;
-    width: 100%;
-}
-.text-truncate.news-list-display{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.square-small-left{
-    float: left;
-}
-.square-medium-right{
-    float: right;
-}
-.rectangle-medium .txt_date01{
-    position: absolute;
-    right: 10px;
-    bottom: 0;
-}
-.txt_date01{
-    position: none !important;
-    font-size: 12px;
-    text-align: right;
-    color: #969798;
-}
-#more .one .two .square-small .txt_date01{
-    margin-top: 20px;
-}
-.text-truncate.news-list-display{
-    padding-top: 16px;
-    padding-left: 0;
 }
 </style>
