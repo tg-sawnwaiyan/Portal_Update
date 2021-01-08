@@ -778,7 +778,7 @@
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
-                <div v-for="(value,index) in big_news" :key="index" class="txt_align">
+                <div v-for="(value,index) in big_news" :key="index" class="txt_align news-3-card">
                     <router-link :to="'/newsdetails/'+value.id" >
                         <div class="col-6  single-news-box single-news-slide">
                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -807,12 +807,22 @@
                             <p>  {{value.main_point}} </p>
                         </div>
                     </router-link>
-                    <div class="txt_date txt_date_bg">{{value.created_at}}</div>
+                    <div class="txt_date01">{{value.created_at}}</div>
                 </div>
             </slick>
         </div>
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color">
-            <router-link v-for="(value,index) in group[0]" :key="index" :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+            <!-- small block -->
+            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
+                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+                <p class="text-truncate news-list-display">
+                    {{value.main_point}}
+                </p>
+                <div class="txt_date"><span>{{value.created_at}}</span></div>
+            </router-link>
+            <!-- medium block -->
+            <div v-for="(value,index) in group[0]" :key="index" class="rectangle-medium01">
+            <router-link :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8">
                 <div class="col-md-12 row adslist-card news-3-card m-0">
 
                     <div class="col-4 img-box">
@@ -846,90 +856,193 @@
                         <div class="txt_date"> {{value.created_at}}</div>
                 </div>
             </router-link>
-         
-            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
-                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
-            <p class="text-truncate news-list-display">
-                {{value.main_point}}
-            </p>
-            <div class="txt_date"><span>{{value.created_at}}</span></div>
-            </router-link>
+            </div>
         </div>
-        <div v-if="seen" id="more" class="slick-news m-lr-0 bordertop-color" >
-            <router-link v-for="(value,index) in more_news" :key="index" :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
-                <div class="col-md-12 row adslist-card news-3-card m-0">
+        <!-- v-if="seen"  -->
+        <div id="more" class="slick-news m-lr-0 bordertop-color" >
+            <div class="one" v-for="(more_value) in more_news">
+                <div class="two" v-for="(value,index) in more_value" :key="index">
+                    <div class="square-medium news-3-card" v-if="index === 0"  >
+                        <router-link :to="'/newsdetails/'+value.id" >
+                            <div class="col-6  single-news-box single-news-slide">
+                                <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
-                    <div class="col-4 img-box">
+                                    <transition name="fade">
 
-                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                            <transition name="fade">
+                                    </transition>   
+                                   
+                                    <transition name="fade" slot="placeholder">
 
-                                <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                        <div class="preloader">
 
-                            </transition>
+                                            <div class="circle">
 
-                            <transition name="fade" slot="placeholder">
+                                            <div class="circle-inner"></div>
 
-                            <div class="preloader">
+                                            </div>
 
-                                <div class="circle">
+                                        </div>
 
-                                <div class="circle-inner"></div>
-
-                                </div>
-
+                                    </transition>
+                                </clazy-load>
+                                <p> {{value.main_point}} </p>
                             </div>
-                            </transition>
-                        </clazy-load>
+                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
                     </div>
-                    <div class="col-8 pattern-txt-box">
-                        <p> {{value.main_point}} </p>
+                    <div class="square-small news-3-card m-b-8" v-if="index === 1">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate">
+                            {{value.main_point}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
                     </div>
-                    <div class="txt_date"><span>{{value.created_at}}</span></div>
+                    <div class="square-small news-3-card m-b-8" v-if="index === 2">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate ">
+                            {{value.main_point}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div> 
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 3">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new "> 
+                            <p class="text-truncate news-list-display">
+                                {{value.main_point}}
+                            </p>
+                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
+                        <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                            <p class="text-truncate news-list-display">
+                                {{value.main_point}}
+                            </p>
+                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>                    
+                    <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 5">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate">
+                            {{value.main_point}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>
+                    <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 7">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate ">
+                            {{value.main_point}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>
+                    <div class="square-medium news-3-card square-medium-right" v-if="index === 6"  >
+                        <router-link :to="'/newsdetails/'+value.id" >
+                            <div class="col-6  single-news-box single-news-slide">
+                                <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                    <transition name="fade">
+
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                    </transition>   
+                                   
+                                    <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </transition>
+                                </clazy-load>
+                                <p> {{value.main_point}} </p>
+                            </div>
+                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>
+                    <div class="rectangle-medium" v-if="index === 8"  >
+                        <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+                            <div class="col-md-12 row adslist-card news-3-card m-0">
+                             
+                                <div class="col-4 img-box">
+
+                                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                        </transition>
+                                        <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+                                        </transition>
+                                    </clazy-load>
+                                </div>
+                                <div class="col-8 pattern-txt-box">
+                                    <p> {{value.main_point}} </p>
+                                </div>                   
+                                    <div class="txt_date01"> {{value.created_at}}</div>
+                            </div> 
+                        </router-link>
+                    </div>
+                    <div class="rectangle-medium" v-if="index === 9"  >
+                        <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+                            <div class="col-md-12 row adslist-card news-3-card m-0">
+
+                                <div class="col-4 img-box">
+
+                                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                        </transition>
+                                        <transition name="fade" slot="placeholder">
+
+                                        <div class="preloader">
+
+                                            <div class="circle">
+
+                                            <div class="circle-inner"></div>
+
+                                            </div>
+
+                                        </div>
+                                        </transition>
+                                    </clazy-load>
+                                </div>
+                                <div class="col-8 pattern-txt-box">
+                                    <p> {{value.main_point}} </p>
+                                </div>                   
+                                    <div class="txt_date01"> {{value.created_at}}</div>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>
-            </router-link>
-             
+            </div>             
         </div>
-        <div v-if="more_news.length >1" class="form-group text-center head-btn">
+        <div v-if="seen"  class="form-group text-center head-btn">
             <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
     </div>
-    <!-- <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
-        <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
-            <div class="col-md-12 row adslist-card news-3-card m-0">
-
-                <div class="col-4 img-box">
-
-                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
-                        <transition name="fade">
-
-                            <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
-
-                        </transition>
-                        <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
-
-                        <transition name="fade" slot="placeholder">
-
-                        <div class="preloader">
-
-                            <div class="circle">
-
-                            <div class="circle-inner"></div>
-
-                            </div>
-
-                        </div>
-                        </transition>
-                    </clazy-load>
-                </div>
-                <div class="col-8 pattern-txt-box">
-                    <p> {{item.main_point}} </p>
-                </div>
-            </div>
-        </router-link>
-    </div> -->
+     
 </div>
 </layout>
 </template>
@@ -1247,17 +1360,17 @@ export default {
     border-width: 0 1px 1px 0;
     box-sizing: border-box;
     /* max-height: 47px; */
-    height: 47.5px;
+    /*height: 47.5px;*/
 }
 .news-list-display03{
     padding: 5.7px 10px;
 }
-.news-3-card {
+/*.news-3-card {
     background-color: #f7f7f7;
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
     box-sizing: border-box;
-}
+}*/
 .news-3-card .img-box{
     padding-left: 10px;
 }
@@ -1413,6 +1526,23 @@ export default {
         width: 100%;
         display: inline-block;
     }
+    .pad-new{
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .news-3-card{
+        background: #f7f7f7;
+        border: solid #f3efef;
+        border-width: 0 1px 1px 0;
+    }
+    .txt_align.news-3-card{
+        margin-bottom: 10px;
+        width: 96% !important;
+    }
+    .slick-active .txt_align.news-3-card:first-child{
+        width: 96% !important;
+    }
     .txt_date_bg {
         padding-left: 3px;
         background: white;
@@ -1421,14 +1551,30 @@ export default {
         bottom: 5px !important;
     }
     .text-truncate {
-    line-height: 1.5em;
-    height: 3em;
-    white-space: normal;
+        line-height: 1.5em;
+        white-space: normal;
+        background: none;
+        border: none;
     }
     .news-list-display{
         padding:0;
         padding-left: 33px;
-        max-height: 3rem !important;
+        margin-top: 5px;
+    }
+    .pad-new01{
+        height: 4rem;
+        max-height: 4rem;
+        background: #f7f7f7;
+        border: solid #f3efef;
+        border-width: 0 1px 1px 0;
+    }
+    .rectangle-medium01{
+        width: 100%;
+    }
+    .rectangle-medium a,
+    .rectangle-medium01 a{
+        display: inline-block;
+        padding: 0 !important;
     }
 }
 
@@ -1458,7 +1604,7 @@ export default {
 .single-news-box > p,
 .pattern-txt-box p {
     line-height: 1.9em;
-    height: 3.8em;
+    /*height: 3.8em;*/
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1470,18 +1616,13 @@ export default {
     position: relative;
 }
 .sm_news_new {
-    /* border-radius: 1px;
-    padding: 0px 6px 0px 6px;
-    font-size: 10px;
-    background-color: red;
-    color: white; */
     border-radius: 1px;
     padding: 0 6px 0px 6px;
     font-size: 10px;
     background-color: red;
     color: white;
     float: left;
-    /* margin: 10px 0 0 0; */
+    
 }
 
 .sm_news_fa {
@@ -1500,5 +1641,62 @@ export default {
 }
 .text-truncate {
     white-space: unset;
+}
+
+.square-medium{
+    float: left;
+    width: 49%;
+    margin-bottom: 10px;
+}
+.square-small{
+    float: right;
+    width: 49%;
+    height:106px;
+}
+.square-small p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+ .square-small .text-truncate{margin-top: 18px;} 
+
+.rectangle-small {
+    display: inline-block;
+    width: 100%;
+}
+.text-truncate.news-list-display{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.square-small-left{
+    float: left;
+}
+.square-medium-right{
+    float: right;
+}
+.rectangle-medium .txt_date01{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+.txt_date01{
+    position: none !important;
+    font-size: 12px;
+    text-align: right;
+    color: #969798;
+}
+#more .one .two .square-small .txt_date01{
+    margin-top: 20px;
+}
+.text-truncate.news-list-display{
+    padding-top: 16px;
+    padding-left: 0;
 }
 </style>

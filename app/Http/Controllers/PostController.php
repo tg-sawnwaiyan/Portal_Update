@@ -226,9 +226,15 @@ class PostController extends Controller
         foreach ($More as $key => $value) { 
             if (is_array($value)) { 
               $moreNews = array_merge($moreNews, $value); 
+
             } 
         } 
-
+        if(array_filter($aryPush)){            
+            $moreNews = array_chunk($moreNews, 10);
+        }else{
+            $moreNews = [];
+        }
+        
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 2);
         }else{
