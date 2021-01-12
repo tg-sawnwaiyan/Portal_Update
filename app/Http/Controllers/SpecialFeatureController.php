@@ -15,16 +15,10 @@ class SpecialFeatureController extends Controller
     {
         $feature = special_feature::where('type','=',$type)->orderBy('id', 'desc')->paginate(20);
         return response()->json($feature);
-    }
+    } 
 
-
-    public function create()
+    public function getFeaturebyProfileType($profile_type,$customer_id) 
     {
-
-    }
-
-    public function getFeaturebyProfileType($profile_type,$customer_id) {
-       
         $cooperate_list = special_feature::where('type','=',$profile_type)->get()->toArray();
        
         $profile_feature = SpecialFeaturesJunctions::where('profile_id','=',$customer_id)->get()->toArray();
@@ -41,50 +35,28 @@ class SpecialFeatureController extends Controller
 
     public function store(Request $request)
     {
-
-        // $request->validate([
-        //     'name' => 'required|unique:special_features',
-        //     'short_name'=>'required|unique:special_features',
-        //     'type'=>'required',
-        // ],[
-        //     'name.required' => '名前の入力が必要です。',
-        //     'name.unique'=>'名前はすでに使用されています。',
-        //     'short_name.unique'=>"短い名はすでに使用されています。",
-        //     'short_name.required'=>'短い名の入力が必要です。',
-        //     'type.required'=>'タイプの入力が必要です。'
-        // ]);
-
         $feature = new special_feature;
-        $feature->name=$request->name;
-        $feature->short_name=$request->short_name;
-        $feature->type=$request->type;
-        $feature->user_id=1;
-        $feature->recordstatus=1;
+        $feature->name      = $request->name;
+        $feature->short_name= $request->short_name;
+        $feature->type      = $request->type;
+        $feature->user_id   = 1;
+        $feature->recordstatus= 1;
         $feature ->save();
         return $feature;
     }
-
-
-
-    public function show($id)
-    {
-
-    }
-
-
+ 
     public function edit($id)
     {
         $feature = special_feature::find($id);
         return response()->json($feature);
     }
 
-
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            'name'      => 'required',
             'short_name'=>'required',
-            'type'=>'required',
+            'type'      =>'required',
         ],[
             'name.required' => '名前の入力が必要です。',
             'short_name.required'=>'短い名の入力が必要です。',

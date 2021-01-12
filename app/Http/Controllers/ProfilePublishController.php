@@ -24,16 +24,6 @@ use App\FacType;
 
 class ProfilePublishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     public function hospitalProfile($cusid)
     {
              
@@ -70,11 +60,8 @@ class ProfilePublishController extends Controller
     public function nursingProfile($cusid)
     {
 
-        // $feature = NursingProfile::select('feature')->where('id',$cusid)->get();
-        // $method = NursingProfile::select('method')->where('id',$cusid)->get();
         $facility = NursingProfile::where('id',$cusid)->get(); 
         
-
         $tmp = FacType::where('id', $facility[0]['fac_type'])->first();
         $facility[0]['fac_type'] = $tmp['description'];       
         $comedical = Cooperate_Medical::where('profile_id',$cusid)->get();
@@ -93,8 +80,6 @@ class ProfilePublishController extends Controller
         $staff = Staff::where('profile_id',$cusid)->get();
 
          //for nursing map
-        // $nurselatlong =  DB::table('nursing_profiles') ->select('nursing_profiles.*')
-        //                      ->where('nursing_profiles.id','=',$cusid)->get();
         $nurselatlong = NursingProfile::where('id',$cusid)->get(); 
 
         $addquery  = "SELECT cities.city_name,townships.township_name from townships inner join cities on townships.city_id=cities.id where townships.id =".$nurselatlong[0]->townships_id;
@@ -117,14 +102,25 @@ class ProfilePublishController extends Controller
                 $videos[$i]['photo'] = $videos[$i]['photo'];
             }
         }
-        $query = "SELECT CONCAT((500000+customers.id),'-',LPAD(nursing_profiles.pro_num, 4, '0')) as profilenumber from customers join nursing_profiles on 
+        $query = "SELECT CONCAT((500000+customers.id),'-',LPAD(nursing_profiles.pro_num, 4, '0')) as profilenumber from customers join nursing_profiles on
                           customers.id = nursing_profiles.customer_id where nursing_profiles.id = ".$cusid;
         $profilenumber = DB::select($query);
+        $data = array(
+                "facility"  =>$facility,
+                "comedical" =>$comedical,
+                "medicalacceptance"=>$medicalacceptance,
+                "staff"     =>$staff, 
+                "nurselatlong"=>$nurselatlong,
+                "cost"      =>$cost,
+                "medical"   =>$medical,
+                "images"    =>$images,
+                "panoimages"=>$panoimages,
+                "address"   =>$address,
+                "videos"    =>$videos,
+                "profilenumber"=>$profilenumber
+            );
 
-
-        return response()->json(array("facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,
-        "staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"images"=>$images,"panoimages"=>$panoimages,"address"=>$address,
-        "videos"=>$videos,"profilenumber"=>$profilenumber));
+        return response()->json($data);
     }
 
     public function getComment($proid,$type)
@@ -133,7 +129,7 @@ class ProfilePublishController extends Controller
             $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment, comments.created_at from comments INNER JOIN nursing_profiles ON comments.profile_id= nursing_profiles.id WHERE comments.profile_id = $proid AND comments.status = 1";
             $comments = DB::select($sql);
             foreach ($comments as $cm) {
-                $splitTimeStamp = explode(" ",$cm->created_at);
+                $splitTimeStamp   = explode(" ",$cm->created_at);
                 $cm->created_date = $splitTimeStamp[0];
                 $cm->created_time = $splitTimeStamp[1];
             }
@@ -142,7 +138,7 @@ class ProfilePublishController extends Controller
             $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment, comments.created_at from comments INNER JOIN hospital_profiles ON comments.profile_id= hospital_profiles.id WHERE comments.profile_id = $proid AND comments.status = 1";
             $comments = DB::select($sql);
             foreach ($comments as $cm) {
-                $splitTimeStamp = explode(" ",$cm->created_at);
+                $splitTimeStamp   = explode(" ",$cm->created_at);
                 $cm->created_date = $splitTimeStamp[0];
                 $cm->created_time = $splitTimeStamp[1];
             }
@@ -150,11 +146,8 @@ class ProfilePublishController extends Controller
         }
     }
 
-
-
     public function getCustomer($proid,$type)
     {
-        // $customer = Customer::where('id',$cusid)->get();
         if($type == 'hospital'){
             $type = 'hospital_profiles';
         }
@@ -163,11 +156,12 @@ class ProfilePublishController extends Controller
         }
         $sql = "SELECT $type.* from $type where id = $proid";
         $customer = DB::select($sql);
+
         return $customer;
     }
+
     public function getCustomerLatLng($proid,$type)
     {
-        // $customer = Customer::where('id',$cusid)->get();
         if($type == 'hospital'){
             $type = 'hospital_profiles';
         }
@@ -176,6 +170,7 @@ class ProfilePublishController extends Controller
         }
         $sql = "SELECT $type.latitude,$type.longitude,$type.id as pro_id FROM $type where $type.id = $proid";
         $profilelatlan = DB::select($sql);
+
         return $profilelatlan;
     }
 
@@ -217,44 +212,7 @@ class ProfilePublishController extends Controller
                             ->get();
 
         return response()->json(array("am"=> $schedule_am, "pm"=> $schedule_pm));
-    }
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show()
-    {
-        //
-
-
-    }
-
-
-    public function edit($id)
-    {
-
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
+    }  
 
     public function getStaffbyCustomerId($cusid) {
         $staff = Staff::where("profile_id",$cusid)->first();

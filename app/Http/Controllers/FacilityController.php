@@ -32,23 +32,7 @@ class FacilityController extends Controller
 
 
 
-    }
-
-
-
-
-    public function store(Request $request)
-    {
-
-    }
-
-
-    public function show(Facility $facility)
-    {
-
-    }
-
-
+    } 
     public function edit($id)
     {
         $facility = Facility::find($id);
@@ -110,8 +94,6 @@ class FacilityController extends Controller
                 }
             }
         }
-
-        // print_r($facility_list);
 
         return $facility_list;
     }

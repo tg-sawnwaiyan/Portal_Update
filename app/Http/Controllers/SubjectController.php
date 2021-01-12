@@ -28,30 +28,12 @@ class SubjectController extends Controller
         }
 
         return response()->json($Subjects);
-
     }
 
     public function Subjectlist()
     {
-
         $Subjectlist = Subject::select('id','name')->where('parent',0)->get()->toArray();
-
         return $Subjectlist;
-    }
-
-    public function getParent()
-    {
-
-        $Subjectlist = Subject::select('id','name')->get()->toArray();
-
-        return $Subjectlist;
-    }
-
-
-
-    public function create()
-    {
-
     }
 
     public function store(Request $request)
@@ -63,24 +45,19 @@ class SubjectController extends Controller
 
         if( $request->parent != null)
         {
-
             $Subject = new Subject();
             $Subject->name = $request->input('name');
             $Subject->user_id = 1;
             $Subject ->parent = $request->parent;
             $Subject ->recordstatus = 1;
-
         }
         else if( $request->parent == null)
         {
-
-
             $Subject = new Subject();
             $Subject->name = $request->input('name');
             $Subject->user_id = 1;
             $Subject ->parent = 0;
             $Subject ->recordstatus = 2;
-
         }
 
         $Subject->save();
@@ -88,19 +65,11 @@ class SubjectController extends Controller
         return $Subject;
     }
 
-
-    public function show(Subject $Subject)
-    {
-
-    }
-
-
     public function edit($id)
     {
         $subject = Subject::find($id);
         return response()->json($subject);
     }
-
 
     public function update($id, Request $request)
     {
@@ -125,9 +94,6 @@ class SubjectController extends Controller
             $Subject ->recordstatus = 1;
             $Subject->save();
         }
-
-
-        // $Subject->update($request->all());
 
         return response()->json('The Subject successfully updated');
     }
@@ -161,7 +127,7 @@ class SubjectController extends Controller
                             ->paginate(20);
         return response()->json($search_subjects);
     }
-
+    
     public function getHospitalClinicalSubject($customer_id) {
         $subject_list = Subject::where('parent','!=',0)->get()->toArray();
 
@@ -177,6 +143,5 @@ class SubjectController extends Controller
         }
         return $subject_list;
     }
-
 
 }
