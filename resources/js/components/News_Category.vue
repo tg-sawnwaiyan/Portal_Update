@@ -805,6 +805,7 @@
                                 </transition>
                             </clazy-load>
                             <p>  {{value.main_point}} </p>
+                            
                         </div>
                     </router-link>
                     <div class="txt_date01">{{value.created_at}}</div>
@@ -1527,12 +1528,29 @@ export default {
         height: 200px;
         border: none;
         background: none;
-        padding: 10px 5px;
+        padding: 0px;
     }
     .single-news-box .wrapper-3 img{
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+    .txt_align .single-news-box .wrapper-3 {
+        max-height: 140px;
+    }
+    .txt_align .single-news-box p{
+        max-height: 70px;
+        padding: 5px;
+        background: #e8e8e8;
+    }
+    .txt_align .single-news-box .wrapper-3 img{
+        background: #fff;
+    }
+    .m_top_left {
+        left: 8px;
+    }
+    .txt_align .txt_date01 {
+        background: #e8e8e8;
     }
     #more .pad-new{
         width: 100%;
