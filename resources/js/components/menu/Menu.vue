@@ -18,23 +18,23 @@
             
             <ul class="gNav">
                 <li>
-                <router-link :to="{ name: 'News' }"> ニュース（ホーム）</router-link>
+                <router-link :to="{ name: 'News' }"> <i class="fas fa-newspaper"></i> ニュース（ホーム）</router-link>
                 </li>
                 <li>
-                <router-link :to="{ name: 'nursingSearch' }">介護施設検索</router-link>
+                <router-link :to="{ name: 'nursingSearch' }"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
                 </li>
                 <li>
-                <router-link :to="{ name: 'hospital_search' }"> 病院検索</router-link>
+                <router-link :to="{ name: 'hospital_search' }"> <i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
                 </li>
                 <li>
-                <router-link :to="{ name: 'jobSearch' }">求人検索</router-link>
+                <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
                 </li>    
-               <li>
+               <!-- <li>
                 <router-link :to="{name: 'sitepolicy'}">利用規約</router-link>
                 </li>
                 <li>
                 <router-link :to="{name: 'privacyPolicy'}">プライバシーポリシー</router-link>
-                </li>
+                </li> -->
             </ul>
              
             <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
@@ -67,7 +67,7 @@
             </div>
             </div>
             <div id="sp_headerbar">
-                <div class="row">
+                <div class="row" style="display: none;">
                    
                     <div class="fav-dropdown col-5 col-md-3 col-sm-3">
                         <span id="dropdownMenuButton" data-toggle="dropdown"><svg x="0px" y="20px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g id="original-icon" fill="#c40000" opacity="0" visibility="hidden"><path d="M50.16667,78.83333h107.5v14.33333h-107.5zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h107.5v14.33333h-107.5zM21.5,75.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,118.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,32.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"></path></g><g id="subtracted-icon" fill="#c40000"><path d="M50.16667,78.83333h107.5l0,10.81336c-1.5126,0.69131 -2.92913,1.65951 -4.17264,2.90462l-0.6155,0.61535h-102.71186zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h24.29256c-1.88479,4.7147 -1.16582,10.22759 2.1569,14.33333h-26.44946zM32.25,86c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,129c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,43c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM123.60062,122.43755l-0.6045,-0.60422l1.20887,0z"></path></g><g><g id="Filled_3_" fill="#c40000"><path d="M123.60062,162.99169l-35.82908,-35.82908l10.13652,-10.13652l25.69256,25.69256l40.02993,-40.02993l10.13652,10.13652z"></path></g><g id="Filled_3_" fill="#000000" opacity="0"><path d="M183.90358,122.96087l-50.16644,50.16644c-2.79579,2.80295 -6.46615,4.20085 -10.13652,4.20085c-3.67037,0 -7.34073,-1.39789 -10.13652,-4.20085l-35.82908,-35.82908c-5.59874,-5.59874 -5.59874,-14.67429 0,-20.27304l10.13652,-10.13652c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l15.55604,15.54887l29.89341,-29.88624c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l10.13652,10.13652c5.59874,5.59874 5.59874,14.67429 0,20.27304z"></path></g></g></g></svg> お気に入り<span class="count">{{nusFav+hosFav}}件</span></span>
@@ -117,7 +117,7 @@
                         </div>
                     </div>    
                 </div>
-                 <div class="wt-4" v-if="this.$route.path !== '/' && this.$route.path != '/nursingFavouriteMail'"> 
+                 <div style="display: none;" class="wt-4" v-if="this.$route.path !== '/' && this.$route.path != '/nursingFavouriteMail'"> 
                  <span @click="$router.go(-1);">
                     <div style="margin-left:10px;">
                         <i class="fas fa-arrow-left"></i> 

@@ -5,7 +5,12 @@
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="user" content="Auth::user()">
+<meta name="user" content="{{ Auth::user() }}">
+<?php 
+header("Cache-Control:no-cache,no-store,must-revalidate,max-age=0");
+header("Cache-Control:pre-check=0,post-check=0,false");
+header("Pragma:no-cache");
+?>
 @if(isset($tweetData))
 <meta name="twitter:card" content="summary" />
 <meta property="og:url" content="{{ Config::get('app.url') }}{{ '/newsdetails/'.$tweetData->id }}" />
@@ -21,11 +26,14 @@
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<title>{{ config('app.name', 'Healthcare Portal') }}</title>
+<!-- <title>{{ config('app.name', 'Healthcare Portal') }}</title> -->
+<title>ティーズ（TIS）｜介護医療福祉の総合サイト</title>
+<meta name="description" content="ティーズ（TIS）は介護医療福祉の総合サイトです。病院・医療、特養・介護、有料老人ホーム、訪問介護・看護、デイサービス、グループホーム、新型コロナなど、
+様々なカテゴリのニュースの掲載をしております。また、介護施設や病院の検索も行うことができます。さらに老人ホームや病院の求人も掲載しております。">
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
 <script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
 <!-- <script src="/js/manifest.js"></script> -->
 <!-- <script src="/js/vendor.js"></script> -->
@@ -35,8 +43,9 @@
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/mystyle.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
@@ -171,7 +180,8 @@
 <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
 <!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script src="{{ asset('js/vue.min.js') }}"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>

@@ -78,8 +78,8 @@
                         <label>ブロック</label>
                             <select v-model="block_id" class="form-control" @change='getblock()'>
                                 <option v-bind:value="0">選択してください。</option>
-                                <option v-bind:value="1">左の大きなブロック</option>
-                                <option v-bind:value="4">右の大きなブロック</option>
+                                <option v-bind:value="1">大きなブロック</option>
+                               <!--  <option v-bind:value="4">右の大きなブロック</option> -->
                                 <option v-bind:value="2">中型ブロック</option>
                                 <option v-bind:value="3">小さなブロックサイズ</option>
                             </select>
@@ -105,7 +105,7 @@
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
 
                         <!-- for quill image upload (@author :pzo) -->
-                        <div class="form-group" id="quill_showimage">
+                        <!-- <div class="form-group" id="quill_showimage">
                             <div class="d-flex align-items-center">
                                 <span class="btn-file d-inline-block">画像を選択        
                                     <input type="file" ref="file" accept="image/*" @change="quillFileSelected">
@@ -126,7 +126,7 @@
                                     <img :src="'/upload/news/'+ news.quill_photo" class='show-img' alt="" @error="imgUrlAlt1">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                  
                         <!-- end quill image upload -->
                     </div>
@@ -140,7 +140,7 @@
                                 <div class="d-sm-flex">
                                     <div class="d-flex align-items-center cat_box">
                                          <label class="cat_lbl"> カテゴリー</label>
-                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getPostsByCatId()'>
+                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getSearchPostsByCatId()'>
                                             <option v-for="category in prcategories" :key="category.id" v-bind:value="category.id">
                                                 {{category.name}}
                                             </option>
@@ -195,7 +195,7 @@
                    
 
                     <div class="form-group">
-                        <span @click="$router.go(-1)" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
+                        <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 1'> 保存</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 0'> 作成</span>
                     </div>
@@ -222,6 +222,7 @@ import {quillEditor} from 'vue-quill-editor'
 
         data() {
                 return {
+                    norecord: 0,
                     lang:{
                         days: ['日', '月', '火', '水', '木', '金', '土'],
                         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -296,7 +297,7 @@ import {quillEditor} from 'vue-quill-editor'
                     old_photo: "",
                     old_quill_photo: "",
                     upload_img: null,
-                    quill_upload_img: null,
+                    //quill_upload_img: null,
                     currentPage: 0,
                     size: 12,
                     pageRange: 5,
@@ -304,7 +305,7 @@ import {quillEditor} from 'vue-quill-editor'
                     pagination: false,
                     search_word:'',
                     img_name : '',
-                    quill_img_name : '',
+                    //quill_img_name : '',
                     noimage:0,
                     nosearch_msg:false,
                 }
@@ -321,7 +322,11 @@ import {quillEditor} from 'vue-quill-editor'
                 }.bind(this));
             },
             methods: {
-                
+                returnPreviousPage:function () {
+                    this.$loading(false)
+                    var num = localStorage.getItem('page_no');
+                    this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } });
+                },
                 getResults() {
                    
                     if(this.$route.name == "editPost"){
@@ -348,17 +353,16 @@ import {quillEditor} from 'vue-quill-editor'
                                 if(this.news.photo == null || this.news.photo == '') {
                                     this.old_photo = '';
                                 }
-                                if(this.news.quill_photo == null || this.news.quill_photo == '') {
+                                /*if(this.news.quill_photo == null || this.news.quill_photo == '') {
                                     this.old_quill_photo = '';
-                                }
+                                }*/
                                 this.selectedValue = this.news.category_id;
                                 this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
-                        this.getPostsByCatId();
                         this.getSearchPostsByCatId();
                     } 
                     else {
-                        this.getPostsByCatId();
+                        this.getSearchPostsByCatId();
                     }
                 },
                 fileSelected(e) {
@@ -367,13 +371,13 @@ import {quillEditor} from 'vue-quill-editor'
                     const file =event.target.files[0];
                     this.img_name = file.name;
                 },
-                quillFileSelected(e) {
+                /*quillFileSelected(e) {
 
                     this.news.quill_photo = event.target.files[0];
                     this.quill_upload_img = URL.createObjectURL(event.target.files[0]);
                     const file =event.target.files[0];
                     this.quill_img_name = file.name;
-                },
+                },*/
                 removeUpload(e) {
                     this.$swal({
                         // title: "確認",
@@ -406,7 +410,7 @@ import {quillEditor} from 'vue-quill-editor'
                         this.quill_img_name = '';
                         });
                     this.news.photo = '';
-                    this.news.quill_photo = '';
+                    //this.news.quill_photo = '';
                     this.upload_img = '';
                     this.upload_quill_img = '';
                     this.reset();
@@ -455,7 +459,7 @@ import {quillEditor} from 'vue-quill-editor'
                         fData.append('block_id', this.news.block_id)
                         fData.append('related_news', this.checkedNews)
                         fData.append('old_photo',this.old_photo)
-                        fData.append('quill_photo', this.news.quill_photo)
+                        //fData.append('quill_photo', this.news.quill_photo)
                         fData.append('old_quill_photo',this.old_quill_photo)
  
                             this.$loading(true);
@@ -513,7 +517,7 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('category_id', this.news.category_id)
                             fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
-                            fData.append('quill_photo', this.news.quill_photo)
+                            //fData.append('quill_photo', this.news.quill_photo)
 
                             this.$loading(true);
                             this.axios.post('/api/new/add', fData)
@@ -554,9 +558,9 @@ import {quillEditor} from 'vue-quill-editor'
                     let fd = new FormData();
                     fd.append("cat_id", cat_id);
                     fd.append("search_word",this.search_word);
-
+                    fd.append("post_id",this.$route.params.id);
                     this.axios
-                    .post('/api/new/getPostsByCatId/page=' + page+"/"+`${this.$route.params.id}`,fd)
+                    .post('/api/new/getPostsByCatId?page=' + page,fd)
                     .then(response => {
                         this.related_news = response.data;
                         this.norecord = this.related_news.data.length;
@@ -587,7 +591,7 @@ import {quillEditor} from 'vue-quill-editor'
                     fd.append("selected_category", cat_id);
                     fd.append("postid",`${this.$route.params.id}`)
                     this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
-                        this.related_news = response.data;
+                        this.related_news = response.data.query;
                         //console.log("re",this.related_news)
                         this.norecord = this.related_news.data.length;
 
@@ -638,11 +642,11 @@ import {quillEditor} from 'vue-quill-editor'
                                     allowOutsideClick: false,
                                 });
                                 this.old_photo = old_photo;
-                                this.getPostsByCatId;
+                                // this.getPostsByCatId;
                        });
                     }
                 },
-                quillCloseBtnMethod: function(old_quill_photo) {
+               /* quillCloseBtnMethod: function(old_quill_photo) {
                     if(confirm)
                     {
                         this.$swal({
@@ -678,7 +682,7 @@ import {quillEditor} from 'vue-quill-editor'
                                 this.getPostsByCatId;
                        });
                     }
-                },
+                },*/
                 checkValidate() {
                     if(this.selectedValue == 26){
                         if(this.news.from_date == ''){

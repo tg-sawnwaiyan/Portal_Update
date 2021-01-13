@@ -38,7 +38,7 @@
                     </span>
                   </div>
                   <div class="set-date">
-                    <p :class="news.cat_id == 26 ? 'title26':'title'+(5-(Math.floor(news.cat_id%5)))">
+                    <p :class="news.cat_id == 26 ? 'title26': 'title_color'" :style="{'--color': news.color_code ? news.color_code : '#287db4'}">
                      <span>{{news.cat_name}}</span>
                      <small style="color:#aaa;"  v-if="news.cat_name != 'PR'" >
                        <i class="fa fa-calendar-alt"></i>
@@ -59,9 +59,9 @@
                   <div>
                     <p class="p5 mb-2 text-justify" v-html="news.body"></p>
                     <!--for quill upload image (@author: pzo) -->
-                    <div class="img-wrap mb-2" v-if="news.quill_photo" >
+                    <!-- <div class="img-wrap mb-2" v-if="news.quill_photo" >
                       <img :src="'/upload/news/'+ news.quill_photo"  class="img-responsive img_2" alt="img" @error="imgUrlAlt" style="max-width:100%;"  />
-                    </div>
+                    </div> -->
                     <!-- end quill image -->
                   </div>
                 </div>
@@ -111,6 +111,7 @@
 </template>
 
 <script>
+import { eventBus } from '../event-bus.js';
 import layout from '../components/home.vue'
 export default {
   components: {
@@ -126,10 +127,12 @@ export default {
       noimage:false,
     };
   },
+  mounted() {
+    $('#upper-tab').addClass('margin-none');
+  },
   created() {
     this.scrollToTop();
     this.noimage = false;
-    //this.getLatestPostFromAllCat();
     if(this.$route.path.includes("/newsdetails") && this.$auth.check(2) && this.visit == 'false'){
         this.othersDetails = false;
     }
@@ -140,17 +143,23 @@ export default {
     this.axios
       .get(`/api/newdetails/${this.$route.params.id}`)
       .then(response => {
-        this.newdetails = response.data.news;          
+        this.newdetails = response.data.news;
+        eventBus.$emit('gotColor', this.newdetails[0].color_code);
         this.getData = true; 
         this.$ga.event({
           eventCategory: 'ニュース',
           eventAction: this.newdetails[0].cat_name+' / '+this.newdetails[0].title,
         })     
       });   
-     
-    // alert(this.$route.params.id);e
+
     this.relatedNews(this.$route.params.id);
   },
+  updated:function(){
+        $(".gNav .router-link-active").addClass("router-link-exact-active");
+    },
+  beforeDestroy:function(){
+        $(".gNav .router-link-active").removeClass("router-link-exact-active");
+    },
 
   methods: {   
     scrollToTop() {
@@ -214,13 +223,20 @@ export default {
 .job-borderColor {
         border: 1px solid #ccc !important;
 }
-.news-borderColor {
+/*.news-borderColor {
         border: 1px solid #75b777 !important;
-}
+}*/
 .hospital-borderColor {
         border: 1px solid #63b7ff !important;
 }
 .nursing-borderColor {
         border: 1px solid #63b7ff !important;
+}
+.title_color span {
+    background-color: var(--color);
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 4px 0px 4px;
+    font-size: 13px;
 }
 </style>

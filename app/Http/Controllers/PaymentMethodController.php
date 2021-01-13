@@ -8,17 +8,6 @@ use DB;
 
 class PaymentMethodController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
-    {
-        //
-    }
-
     public function getPaymentByCustomerId($customer_id) {
 
         $paymethod_list = method_payment::where("profile_id",$customer_id)

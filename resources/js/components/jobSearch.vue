@@ -1,6 +1,6 @@
 <template>
 <layout>
-<div id="job-search-ui">
+<div id="job-search-ui" class="tab_pane_02">
   
  
    <div class="col-md-12" style="border-bottom: 1px dashed #828282;padding-bottom: 10px; margin-bottom: 20px;">
@@ -93,7 +93,7 @@
                   <td class="sp-768-block">
                     <div class="row mt-2 mb-2">
                       <div class="col-lg-9 col-md-8 col-sm-12 m-b-8">
-                      <select id="selectCity" class="form-control custom-select" v-model="id" @change="changeTownship">
+                      <select id="selectCity" class="form-control custom-select" v-model="id" @change="changeTownship();search();">
                         <option value="-1" >▼市区町村</option>
                         <option v-for="city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
                     </select>
@@ -452,10 +452,23 @@ export default {
         linkednews: [],
         yeararr: [],
         /**end of added by maythirihtet */
-        id:'', townshipID:[], township_id:[], cities:[], getCity:[], township_id:-1, moving_in:-1, per_month:-1, getTownships:[], special_features:[], fac_types:[], fac_id:[], medical_acceptance:[], subjects:[], occupationID:[], occupations:[], occupation:[], toggleCheck: true, toggleCheck_1: false, empstatus:[], job_data:[], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, locast:'', company:[], open:false, norecord_msg: false, window:{ width: 0, height: 0 }, w_width: $(window).width(), testclass:'', array_len: 0, searchword:'', stateclick:false, count:false, clicksearch: false, ci: false, isActive: true, isActivePreNext:true,
+        id:-1, townshipID:[], township_id:[], cities:'', getCity:[], township_id:-1, moving_in:-1, per_month:-1, getTownships:[], special_features:[], fac_types:[], fac_id:[], medical_acceptance:[], subjects:[], occupationID:[], occupations:[], occupation:[], toggleCheck: true, toggleCheck_1: false, empstatus:[], job_data:[], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, locast:'', company:[], open:false, norecord_msg: false, window:{ width: 0, height: 0 }, w_width: $(window).width(), testclass:'', array_len: 0, searchword:'', stateclick:false, count:false, clicksearch: false, ci: false, isActive: true, isActivePreNext:true,
       }
     },
     created() {
+
+         this.axios.get('api/getmap',{
+            params:{ id: this.id, township_id:-1, moving_in:-1, per_month:-1, local:0, feature:'job', SpecialFeatureID:[0], MedicalAcceptanceID:[0], FacTypeID:[0], MoveID:[0], },
+          })
+          .then((response)=>{
+            this.cities = response.data.city
+            this.getCity = response.data.getCity
+            this.getTownships = response.data.getTownships
+            this.occupation = response.data.occupation
+            this.occupations = response.data.occupations
+            this.id = id
+         })
+
         /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+3).then((response) => { 
                 this.linkednews = response.data.linkednews,
@@ -501,7 +514,7 @@ export default {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
             $('#navtab').addClass('job-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-            $('#upper-tab').addClass('job-borderColor');
+            $('#upper-tab').addClass('job-borderColor margin-none');
         },
   methods:{
     /**added by maythirihtet */
@@ -988,5 +1001,13 @@ $(document).on('click','.btn-2019',function(){
   width: 500px !important;
   margin: 20px auto;
 }
-
+@media only screen and (max-width: 767px){
+#job-search-ui .jobselect {
+    display: block;
+}
+#map-responsive {
+    display: none;
+}
+}
 </style>
+

@@ -12,45 +12,22 @@ class TypeController extends Controller
     {
         $types = Type::all()->toArray();
         return $types;
-        // return view('typesample');
     }
 
     public function typelist()
     {
-
         $typelist = Type::select('id','name')->get()->toArray();
-
         return response()->json($typelist);
-    }
-
-    // public function getParent()
-    // {
-
-    //     $typelist = Type::select('id','name')->get()->toArray();
-
-    //     return $typelist;
-    // }
-
-
-
-    public function create()
-    {
-
     }
 
     public function store(Request $request)
     {
-
-
         $request->validate([
             'name' => 'required|unique:types',
-
-
         ],[
             'name.required'=>'名前は必須です。',
             'name.unique'=>'名前はすでに使用されています。',
         ]);
-
 
         if( $request->parent != null)
         {
@@ -73,21 +50,13 @@ class TypeController extends Controller
         $type->save();
 
         return $type;
-    }
-
-
-    public function show(Type $type)
-    {
-
-    }
-
+    } 
 
     public function edit($id)
     {
         $type = Type::find($id);
         return response()->json($type);
     }
-
 
     public function update($id, Request $request)
     {
@@ -122,7 +91,6 @@ class TypeController extends Controller
     {
         $type = Type::find($id);
         $type->delete();
-        // return response()->json('The Type was successfully deleted');
         $types = Type::all()->toArray();
         return $types;
     }
@@ -137,6 +105,5 @@ class TypeController extends Controller
                             ->get()
                             ->toArray();
         return $search_categories;
-
     }
 }

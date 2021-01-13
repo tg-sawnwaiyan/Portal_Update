@@ -55,11 +55,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('categories', 'CategoryController@index');
-        Route::post('add', 'CategoryController@add');
-        Route::get('edit/{id}', 'CategoryController@edit');
-        Route::post('update/{id}', 'CategoryController@update');
-        Route::delete('delete/{id}', 'CategoryController@destroy');
+        Route::get('categorylist', 'CategoryController@getCategory');
+        Route::post('add', 'CategoryController@addCategory');
+        Route::get('edit/{id}', 'CategoryController@editCategory');
+        Route::post('update/{id}', 'CategoryController@updateCategory');
+        Route::delete('delete/{id}', 'CategoryController@destroyCategory');
         // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
     });
     // End Category
@@ -172,7 +172,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}/{cat_id}', 'PostController@delete');
         // Route::post('getPostsByCatId', 'PostController@getPostById');
-        Route::post('getPostsByCatId/{id}/{post_id}', 'PostController@getPostById');
+        Route::post('getPostsByCatId', 'PostController@getPostById');
     });
     // End News
 
@@ -229,6 +229,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch/{searchword}','SearchMapController@getNursingSearch');
     Route::get('getmap','SearchMapController@getMap');
+    Route::get('cities','SearchMapController@getCities');
     Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{proid}/{type}','ProfilePublishController@getCustomerLatLng');

@@ -2379,7 +2379,7 @@ export default {
                         for ( ; index < length; index++) {
                            
                             el[index].style.position = "fixed";
-                            el[index].style.top = "75px";
+                            el[index].style.top = "42px";
                             el[index].style.display = "inline-flex";
                         }   
                      // $(".fixed-nav").css({"position": "fixed","top":"100px"});

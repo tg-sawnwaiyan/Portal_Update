@@ -25,14 +25,10 @@ class StationController extends Controller
     public function add(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|unique:stations',
-
-        ],
-        [
-            'name.unique' => 'Unique Name'
-        ]
-    );
+        $request->validate(
+            [ 'name' => 'required|unique:stations', ],
+            [ 'name.unique' => 'Unique Name' ]
+        );
 
         $station = new Station();
         $station->name = $request->input('name');
@@ -42,30 +38,7 @@ class StationController extends Controller
         $station->save();
         return $station;
 
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
+    } 
     /**
      * Show the form for editing the specified resource.
      *
@@ -112,7 +85,6 @@ class StationController extends Controller
         $station->delete();
         $stations =Station::all()->toArray();
         return $stations;
-        // return response()->json('The Station successfully deleted');
     }
 
     public function search(Request $request) {

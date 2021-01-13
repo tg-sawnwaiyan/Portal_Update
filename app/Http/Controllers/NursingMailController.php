@@ -10,25 +10,7 @@ use App\Mail\userNursingMail;
 use App\Mail\adminNursingMail;
 class NursingMailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+     
 
     /**
      * Store a newly created resource in storage.
@@ -44,12 +26,11 @@ class NursingMailController extends Controller
        
         $fav_documentation = $request->arr_document;
      
-         for($i = 1; $i<count($favourite_id); $i++){
+        for($i = 1; $i<count($favourite_id); $i++){
             
             $request->related_fav_id = 500000+intval($favourite_id[$i]);
             $request->related_fav_name = $favourite_name[$i];  
            
-         
             if(isset($fav_documentation[$favourite_id[$i]])){
            
                 if ($fav_documentation[$favourite_id[$i]] == true ) {
@@ -58,11 +39,8 @@ class NursingMailController extends Controller
                    $request->fav_name_copy = $name_arr;
                     \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
                 } 
-              
             }     
-     
-    
-    }      
+        }      
 
         $admin_email = 'admin@t-i-s.jp';
        
@@ -76,53 +54,4 @@ class NursingMailController extends Controller
         return response()->json(['success'=>'Done!']);
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\NursingMail  $nursingMail
-     * @return \Illuminate\Http\Response
-     */
-    public function show(NursingMail $nursingMail)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\NursingMail  $nursingMail
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(NursingMail $nursingMail)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NursingMail  $nursingMail
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, NursingMail $nursingMail)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\NursingMail  $nursingMail
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(NursingMail $nursingMail)
-    {
-        //
-    }
 }
