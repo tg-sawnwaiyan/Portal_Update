@@ -148,9 +148,8 @@ class PostController extends Controller
             if (is_array($value)) { 
               $moreNews = array_merge($moreNews, $value); 
             } 
-            $moreNews_concat = array_chunk($moreNews, 4);
+            $moreNews_concat = array_chunk($moreNews, 30);
         } 
-
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 3);
         }else{
@@ -229,7 +228,7 @@ class PostController extends Controller
 
             } 
         } 
-        if(array_filter($aryPush)){            
+        if(array_filter($moreNews)){            
             $moreNews = array_chunk($moreNews, 10);
         }else{
             $moreNews = [];
