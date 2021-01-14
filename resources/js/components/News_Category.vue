@@ -1,6 +1,3 @@
-<style type="text/css">
-   
-</style>
 <template>
 <layout>   
 <div class="category_margin">    
@@ -291,7 +288,7 @@
 
                             </div>
                             </router-link>
-                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -332,7 +329,7 @@
 
                             </div>
                             </router-link>
-                            <div v-if="index === 2" class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
@@ -925,7 +922,7 @@
 
                             </div>
                             </router-link>
-                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
+                            <div  class="txt_date">{{value.created_at}}</div>
                         </div>
                         
                     </div>
@@ -989,7 +986,7 @@
 
                                 </div>
                             </router-link>
-                            <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                            <div v-if="index === 0"  class="txt_date">{{value.created_at}}</div>
                         </div>
 
                         <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
@@ -1099,7 +1096,7 @@
 
                             </div>
                             </router-link>
-                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">{{value.created_at}}</div>
                         </div>
                         
                     </div>
@@ -2149,5 +2146,13 @@ export default {
 .text-truncate {
     white-space: unset;
 }
- .more_news p{ height: 51px; }
+ .more_news p{ 
+    height: 51px; 
+}
+ .medium-b1 p{
+    height: 41px;
+}
+ .medium p{
+    height: 41px;
+}
 </style>
