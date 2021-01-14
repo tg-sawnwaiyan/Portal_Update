@@ -1932,6 +1932,16 @@ export default {
     height: 105px;
     margin-bottom: 6px;
 }
+.large-b0 .single-news-box p {
+    line-height: 1.4rem;
+    -webkit-line-clamp: 3;
+    height: 60px;
+}
+.medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p {
+    line-height: 1.6rem!important;
+    -webkit-line-clamp: 3;
+    height: 70px;
+}
  
 @media only screen and (max-width:767px)  {
  

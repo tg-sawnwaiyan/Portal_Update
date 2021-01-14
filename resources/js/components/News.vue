@@ -498,7 +498,6 @@
                                                 <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
 
                                                     <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
-
                                                     <transition name="fade">
 
                                                         <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
@@ -529,7 +528,7 @@
                                             <div class="col-8 pattern-txt-box">
                                                 <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
 
-                                                <p>{{item.main_point}}</p>
+                                                <p class="medium_text">{{item.main_point}}</p>
 
                                             </div>
                                             <div class="txt_date txt_color_pc">{{item.created_at}}</div>
@@ -1362,6 +1361,10 @@
 }
 .wrapper-3 {
     height: 73%;
+}
+.pattern-txt-box .medium_text {
+    height: 62px;
+    overflow: hidden;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
