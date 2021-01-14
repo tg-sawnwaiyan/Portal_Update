@@ -1935,7 +1935,7 @@ export default {
 .large-b0 .single-news-box p {
     line-height: 1.4rem;
     -webkit-line-clamp: 3;
-    height: 60px;
+    height: 63px;
 }
 .medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p {
     line-height: 1.6rem!important;
@@ -2034,10 +2034,17 @@ export default {
         display: inline-block;
         padding: 0 !important;
     }
+    .rectangle-medium01 .news-3-card .pattern-txt-box p {
+        -webkit-line-clamp: 3;
+    }
     .square-medium{
         float: left;
         width: 49%;
         margin-bottom: 10px;
+    }
+    .square-medium .single-news-box p {
+        padding: 0 5px;
+        line-height: 1.7em;
     }
     .square-small{
         float: right;
