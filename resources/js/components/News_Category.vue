@@ -1,3 +1,6 @@
+<style type="text/css">
+   
+</style>
 <template>
 <layout>   
 <div class="category_margin">    
@@ -720,12 +723,61 @@
                 </div>
             </slick>            
         </div>
-        <div v-if="seen" >
-            <div id="more"  class="row m-lr-0" v-for="(group,index) in more_news" :key="index">  
-                    <div class="pad-new pattern-child group-0 bordertop-color" v-for="(value,index) in group" :key="index">
-                        <div class="medium">
-                            <div class="medium-b3">
-                                <router-link :to="'/newsdetails/'+value.id"> 
+        <div v-for="(group,ind) in more_news" :key="ind" class="slick-news row m-lr-0 bordertop-color more_news">
+            <slick :options="slickOptions" class="news-slider-width" >             
+                <div class="pad-new pattern-child group-0">
+                    <div class="block0" v-for="(value,index) in group.slice(0, 2)" :key="index" >
+                        <div class="large-b0 m-b-5" v-if="index === 0">
+                            <router-link :to="'/newsdetails/'+value.id" >
+                                <div class="col-12 single-news-box">
+
+                                    <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+                                    <p>  {{value.main_point}} </p>
+                                </div>
+                            </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pad-new pattern-child group-1"   >
+                    <div class="block01" v-for="(value,index) in group.slice(2, 8)" :key="index" >
+                        <div class="medium-b1">
+                            <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
                                 <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
 
                                     <div class="col-4 img-box">
@@ -736,6 +788,7 @@
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                             </transition>
+                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -761,17 +814,366 @@
                                     </div>
 
                                 </div>
-                                </router-link>
-                                <div class="txt_date">{{value.created_at}}</div>
+                            </router-link>
+                            <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                        </div>
+
+                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div>                                
+                </div>
+
+                <div class="pad-new pattern-child group-2"  >
+                    <div class="block02" v-for="(value,index) in group.slice(8, 10)" :key="index" >
+                        <div class="large-b0 m-b-5" v-if="index === 0">
+                            <router-link :to="'/newsdetails/'+value.id" >
+                                <div class="col-12 single-news-box">
+
+                                    <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+                                    <p>  {{value.main_point}} </p>
+                                </div>
+                            </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="pad-new pattern-child group-3"  >    
+                     
+                    <div class="medium" v-for="(value,index) in group.slice(10, 12)" :key="index" >
+                        <div class="medium-b3">
+                            <router-link :to="'/newsdetails/'+value.id"> 
+                            <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
+
+                                <div class="col-4 img-box">
+
+                                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+
+                                </div>
+                                <div class="col-8 pattern-txt-box">
+                                  
+
+                                    <p>{{value.main_point}}</p>
+
+                                </div>
+
                             </div>
+                            </router-link>
+                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        
+                    </div>
+                    <div class="small" v-for="(value,index) in group.slice(12, 15)" :key="index" >                  
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
                         </div>
                     </div>
-            </div> 
+                </div>                    
+            </slick>
+            <slick :options="slickOptions" class="news-slider-width"  >             
+                
+                <div class="pad-new pattern-child group-1"   >
+                    <div class="block01" v-for="(value,index) in group.slice(15, 21)" :key="index" >
+                        <div class="medium-b1">
+                            <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
+                                <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
+
+                                    <div class="col-4 img-box">
+
+                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                            <transition name="fade">
+
+                                                <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                            </transition>
+                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+
+                                            <transition name="fade" slot="placeholder">
+
+                                                <div class="preloader">
+
+                                                    <div class="circle">
+
+                                                    <div class="circle-inner"></div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </transition>
+                                        </clazy-load>
+
+                                    </div>
+                                    <div class="col-8 pattern-txt-box">
+                                      
+
+                                        <p>{{value.main_point}}</p>
+
+                                    </div>
+
+                                </div>
+                            </router-link>
+                            <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                        </div>
+
+                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div>                                
+                </div>
+
+                <div class="pad-new pattern-child group-0">
+                    <div class="block0" v-for="(value,index) in group.slice(21, 23)" :key="index" >
+                        <div class="large-b0 m-b-5" v-if="index === 0">
+                            <router-link :to="'/newsdetails/'+value.id" >
+                                <div class="col-12 single-news-box">
+
+                                    <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+                                    <p>  {{value.main_point}} </p>
+                                </div>
+                            </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pad-new pattern-child group-3"  >    
+                     
+                    <div class="medium" v-for="(value,index) in group.slice(23, 25)" :key="index" >
+                        <div class="medium-b3">
+                            <router-link :to="'/newsdetails/'+value.id"> 
+                            <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
+
+                                <div class="col-4 img-box">
+
+                                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+
+                                </div>
+                                <div class="col-8 pattern-txt-box">
+                                  
+
+                                    <p>{{value.main_point}}</p>
+
+                                </div>
+
+                            </div>
+                            </router-link>
+                            <div v-if="index === 1" class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        
+                    </div>
+                    <div class="small" v-for="(value,index) in group.slice(25, 28)" :key="index" >                  
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="pad-new pattern-child group-2"  >
+                    <div class="block02" v-for="(value,index) in group.slice(28, 30)" :key="index" >
+                        <div class="large-b0 m-b-5" v-if="index === 0">
+                            <router-link :to="'/newsdetails/'+value.id" >
+                                <div class="col-12 single-news-box">
+
+                                    <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                        <transition name="fade">
+
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                        </transition>
+                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
+
+                                        <transition name="fade" slot="placeholder">
+
+                                            <div class="preloader">
+
+                                                <div class="circle">
+
+                                                <div class="circle-inner"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </transition>
+                                    </clazy-load>
+                                    <p>  {{value.main_point}} </p>
+                                </div>
+                            </router-link>
+                            <div class="txt_date">{{value.created_at}}</div>
+                        </div>
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div>
+                    </div> 
+                </div>                   
+            </slick>
         </div>
-        <div v-if="more_news.length >1" class="form-group text-center head-btn">
+        <!-- <div v-if="more_news.length >1" class="form-group text-center head-btn">
             <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
-        </div> 
+        </div>  -->
     </div>    
     <!-- end layout design -->
    
@@ -1088,6 +1490,7 @@ export default {
              this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
                 this.news = response.data.newslist;
                 this.more_news = response.data.moreNews;
+                console.log(this.more_news);
                 if(response.data.newslist.length == 0)
                 {
                      this.norecord_msg = true;
@@ -1508,9 +1911,6 @@ export default {
 #more .pad-new{
     width: 25%;
 }
-.head-news .slick-news:last-child{ 
-    display: none;
-}
 .head-btn{
     margin-top: 8px;
 }
@@ -1749,4 +2149,5 @@ export default {
 .text-truncate {
     white-space: unset;
 }
+ .more_news p{ height: 51px; }
 </style>
