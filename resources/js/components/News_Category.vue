@@ -2020,7 +2020,7 @@ export default {
         margin-top: 5px;
     }
     .pad-new01{
-        height: 3.5rem;
+        height: 3.3rem;
         max-height: 4rem;
         background: #f7f7f7;
         border: solid #f3efef;
