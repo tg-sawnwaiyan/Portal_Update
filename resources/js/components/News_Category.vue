@@ -1211,7 +1211,7 @@
                 </div>
             </slick>
         </div>
-        <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color">
+        <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
             <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
                 <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -1987,7 +1987,7 @@ export default {
     .pad-new{
         width: 100%;
         display: inline-block;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     .news-3-card{
         background: #f7f7f7;
@@ -2006,7 +2006,7 @@ export default {
         background: white;
     }
     .txt_date {
-        bottom: 5px !important;
+        bottom: -2px !important;
     }
     .text-truncate {
         line-height: 1.5em;
@@ -2020,7 +2020,7 @@ export default {
         margin-top: 5px;
     }
     .pad-new01{
-        height: 4rem;
+        height: 3.5rem;
         max-height: 4rem;
         background: #f7f7f7;
         border: solid #f3efef;
@@ -2084,6 +2084,10 @@ export default {
         right: 10px;
         bottom: 0;
     }
+    .square-medium ‌a .txt_date01 {
+        position: relative;
+        right: 8px;
+    }
     .txt_date01{
         position: none !important;
         font-size: 12px;
@@ -2094,8 +2098,28 @@ export default {
         margin-top: 20px;
     }
     .text-truncate.news-list-display{
-        padding-top: 16px;
+        /* padding-top: 16px; */
         padding-left: 0;
+    }
+    .tp_small_5 p{
+        position: relative;
+        top: 18px;
+        margin: 0;
+    }
+    .rectangle-small  a {
+        height: 3.5rem;
+    }
+    .rectangle-small {
+        margin-bottom: 5px;
+    }
+    .rectangle-small a .text-truncate {
+        position: relative;
+        top: 18px;
+        margin: 0;
+    }
+    .rectangle-small a .txt_date01 {
+        position: relative;
+        top: 19px;
     }
 }
 
@@ -2172,4 +2196,4 @@ export default {
  .medium p{
     height: 41px;
 }
-</style>
+</style>    
