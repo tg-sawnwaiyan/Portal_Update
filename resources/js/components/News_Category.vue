@@ -126,59 +126,8 @@
                         </router-link>
                         <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
-                    <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                    <div class="small" v-for="(value,index) in group[2].slice(1, 8)" :key="index">
+                        <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -332,8 +281,8 @@
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
-                    <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
-                        <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                    <div class="small" v-for="(value,index) in group[2].slice(9, 13)" :key="index" >                  
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
@@ -345,33 +294,7 @@
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 10" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                               <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 11" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
+                        </div> 
                     </div>
                 </div>                    
             </slick>
@@ -419,60 +342,8 @@
                         </router-link>
                         <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                     </div>
-                    <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b1"  v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 2" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 3" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 4" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b1"  v-if="index === 5" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                    <div class="small" v-for="(value,index) in group[2].slice(0, 7)" :key="index">
+                        <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -524,7 +395,7 @@
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small-b0" v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -625,34 +496,8 @@
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
                     </div>
-                    <div class="small" v-for="(value,index) in group[2]" :key="index" >                  
-                        <div class="small-b3"  v-if="index === 9" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 10" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.main_point}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div>
-                        <div class="small-b3"  v-if="index === 11" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                    <div class="small" v-for="(value,index) in group[2].slice(8, 12)" :key="index" >                  
+                        <div class="small-b3"  :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -703,7 +548,7 @@
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
-                        <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small-b2" v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -723,7 +568,7 @@
         <div v-for="(group,ind) in more_news" :key="ind" class="slick-news row m-lr-0 bordertop-color more_news">
             <slick :options="slickOptions" class="news-slider-width" >             
                 <div class="pad-new pattern-child group-0">
-                    <div class="block0" v-for="(value,index) in group.slice(0, 2)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(0, 2)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -764,7 +609,7 @@
                                 <span class="sm_news_mp">
                                     {{value.main_point}}
                                 </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                <span v-if="index === 1" class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -772,7 +617,7 @@
                 </div>
 
                 <div class="pad-new pattern-child group-1"   >
-                    <div class="block01" v-for="(value,index) in group.slice(2, 8)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(2, 10)" :key="index" >
                         <div class="medium-b1">
                             <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
                                 <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -832,7 +677,7 @@
                 </div>
 
                 <div class="pad-new pattern-child group-2"  >
-                    <div class="block02" v-for="(value,index) in group.slice(8, 10)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(10, 12)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -865,9 +710,22 @@
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
+                        <!-- <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
+                            <p class="text-truncate news-list-display news-list-display03">
+                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
+                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_mp">
+                                    {{value.main_point}}
+                                </span> 
+                                <span class="sm_news_date">{{value.created_at}}</span>
+                            </p>
+                            </router-link>
+                        </div> -->
                         <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
+
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
@@ -882,7 +740,7 @@
 
                 <div class="pad-new pattern-child group-3"  >    
                      
-                    <div class="medium" v-for="(value,index) in group.slice(10, 12)" :key="index" >
+                    <div class="medium" v-for="(value,index) in group.slice(12, 14)" :key="index" >
                         <div class="medium-b3">
                             <router-link :to="'/newsdetails/'+value.id"> 
                             <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -926,7 +784,7 @@
                         </div>
                         
                     </div>
-                    <div class="small" v-for="(value,index) in group.slice(12, 15)" :key="index" >                  
+                    <div class="small" v-for="(value,index) in group.slice(14, 18)" :key="index" >                  
                         <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
@@ -946,7 +804,7 @@
             <slick :options="slickOptions" class="news-slider-width"  >             
                 
                 <div class="pad-new pattern-child group-1"   >
-                    <div class="block01" v-for="(value,index) in group.slice(15, 21)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(18, 26)" :key="index" >
                         <div class="medium-b1">
                             <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
                                 <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -1006,7 +864,7 @@
                 </div>
 
                 <div class="pad-new pattern-child group-0">
-                    <div class="block0" v-for="(value,index) in group.slice(21, 23)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(26, 28)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -1042,6 +900,7 @@
                         <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
+
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
@@ -1056,7 +915,7 @@
 
                 <div class="pad-new pattern-child group-3"  >    
                      
-                    <div class="medium" v-for="(value,index) in group.slice(23, 25)" :key="index" >
+                    <div class="medium" v-for="(value,index) in group.slice(28, 30)" :key="index" >
                         <div class="medium-b3">
                             <router-link :to="'/newsdetails/'+value.id"> 
                             <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -1100,7 +959,7 @@
                         </div>
                         
                     </div>
-                    <div class="small" v-for="(value,index) in group.slice(25, 28)" :key="index" >                  
+                    <div class="small" v-for="(value,index) in group.slice(30, 34)" :key="index" >                  
                         <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
@@ -1118,7 +977,7 @@
                 </div> 
 
                 <div class="pad-new pattern-child group-2"  >
-                    <div class="block02" v-for="(value,index) in group.slice(28, 30)" :key="index" >
+                    <div class="small" v-for="(value,index) in group.slice(34, 36)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -1154,6 +1013,7 @@
                         <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
+
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
@@ -1777,7 +1637,7 @@ export default {
 }
 .single-news-box {
     background: #f7f7f7;
-    height: 330px;
+    height: 310px;
     padding: 10px;
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
@@ -1881,7 +1741,7 @@ export default {
 }
 .head-news .adslist-card{
     background: #f7f7f7;
-    height: 107px;
+    height: 100px;
 }
 .wrapper-4{
     padding-bottom: 79px;
@@ -1929,8 +1789,8 @@ export default {
     width: 9px;
 }
 .medium-b3{
-    height: 105px;
-    margin-bottom: 6px;
+    height: 100px;
+    margin-bottom: 5px;
 }
 .large-b0 .single-news-box p {
     line-height: 1.4rem;
@@ -1942,7 +1802,79 @@ export default {
     -webkit-line-clamp: 3;
     height: 70px;
 }
- 
+.bordertop-color i {
+    color: var(--color);
+}
+.profile-tit {
+    color: var(--title-color);
+    border-bottom: 1px dashed var(--title-color);
+}
+.large-b0, .medium-b1, .medium-b3 {
+    position: relative;
+}
+.txt_date {
+    font-size: 12px;
+    text-align:right;
+    position: absolute;
+    bottom: 0; 
+    right: 10px;
+    color:#969798;
+}
+.single-news-box > p,
+.pattern-txt-box p {
+    line-height: 1.9em;
+    /*height: 3.8em;*/
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.txt_align {
+    position: relative;
+}
+.sm_news_new {
+    border-radius: 1px;
+    padding: 0 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    float: left;
+    
+}
+
+.sm_news_fa {
+    float: left;
+}
+.sm_news_mp{
+    width: 70%;
+    float: left;
+    max-height: 20px;
+    overflow: hidden;
+    padding: 0 0 0 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sm_news_date {
+    color: #969798;
+    float: right;
+}
+.text-truncate {
+    white-space: unset;
+}
+ .more_news p{ 
+    height: 51px; 
+}
+ .medium-b1 p{
+    height: 41px;
+}
+ .medium p{
+    height: 41px;
+}
 @media only screen and (max-width:767px)  {
  
 	.cat_title{ 
@@ -2104,72 +2036,9 @@ export default {
         width: 50%;
     }
 }
-.bordertop-color i {
-    color: var(--color);
-}
-.profile-tit {
-    color: var(--title-color);
-    border-bottom: 1px dashed var(--title-color);
-}
-.large-b0, .medium-b1, .medium-b3 {
-    position: relative;
-}
-.txt_date {
-    font-size: 12px;
-    text-align:right;
-    position: absolute;
-    bottom: 0; 
-    right: 10px;
-    color:#969798;
-}
-.single-news-box > p,
-.pattern-txt-box p {
-    line-height: 1.9em;
-    /*height: 3.8em;*/
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.txt_align {
-    position: relative;
-}
-.sm_news_new {
-    border-radius: 1px;
-    padding: 0 6px 0px 6px;
-    font-size: 10px;
-    background-color: red;
-    color: white;
-    float: left;
-    
-}
-
-.sm_news_fa {
-    float: left;
-}
-.sm_news_mp {
-    width: 87%;
-    float: left;
-    max-height: 20px;
-    overflow: hidden;
-    padding: 0 0 0 5px;
-}
-.sm_news_date {
-    color: #969798;
-    float: right;
-}
-.text-truncate {
-    white-space: unset;
-}
- .more_news p{ 
-    height: 51px; 
-}
- .medium-b1 p{
-    height: 41px;
-}
- .medium p{
-    height: 41px;
+@media only screen and (min-width:767px){
+    .news-list-display{
+        max-height: 30px;
+    }
 }
 </style>
