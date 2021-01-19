@@ -148,7 +148,7 @@ class PostController extends Controller
             if (is_array($value)) { 
               $moreNews = array_merge($moreNews, $value); 
             } 
-            $moreNews_concat = array_chunk($moreNews, 30);
+            $moreNews_concat = array_chunk($moreNews, 36);
         } 
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 3);
