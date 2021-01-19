@@ -171,14 +171,16 @@ class PostController extends Controller
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
             $hourInterval = $todayDate->diffInHours($createdDate);
-            if($hourInterval <= 36)
-            {
-            $value['new_news'] = 1;
-            }
+            
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             $minute = $carbonCreated_dt->minute;
             $minute = $minute < 10 ? '0'.$minute : $minute;
             $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
+            if($hourInterval <= 36)
+            {
+            $value['new_news'] = 1;
+            $value['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+            }
             $tmp[$value['block_id']][] = $value;
         }
 

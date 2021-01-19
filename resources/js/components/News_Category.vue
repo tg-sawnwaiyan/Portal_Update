@@ -1074,11 +1074,11 @@
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
             <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
-                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
-                <p class="text-truncate news-list-display">
-                    {{value.title}}
-                </p>
-                <div class="txt_date"><span>{{value.created_at}}</span></div>
+               <!--  <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
+                <p class="first_para">{{value.title}}</p>
+                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                <p v-else class="second_para">{{value.created_at}}</p>
+
             </router-link>
             <!-- medium block -->
             <div v-for="(value,index) in group[0]" :key="index" class="rectangle-medium01">
@@ -1170,18 +1170,16 @@
                     </div> 
                     <div class="rectangle-small news-3-card m-b-8" v-if="index === 3">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new "> 
-                            <p class="text-truncate news-list-display">
-                                {{value.title}}
-                            </p>
-                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                            <p class="first_para">{{value.title}}</p>
+                            <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                            <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>
                     <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
-                            <p class="text-truncate news-list-display">
-                                {{value.title}}
-                            </p>
-                            <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                            <p class="first_para">{{value.title}}</p>
+                            <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                            <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>                    
                     <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 5">
@@ -1910,6 +1908,15 @@ export default {
     .m_top_left {
         left: 8px;
     }
+    .small_new{
+        margin-left: 5px;
+        float: right;
+        border-radius: 1px;
+        padding: 0px 6px 0px 6px;
+        font-size: 10px;
+        background-color: red;
+        color: white;
+    }
     .txt_align .txt_date01 {
         background: #e8e8e8;
     }
@@ -1953,8 +1960,8 @@ export default {
         margin-top: 5px;
     }
     .pad-new01{
-        height: 3.3rem;
-        max-height: 4rem;
+        height: 1.8rem;
+        max-height: 2rem;
         background: #f7f7f7;
         border: solid #f3efef;
         border-width: 0 1px 1px 0;
@@ -2034,13 +2041,23 @@ export default {
         /* padding-top: 16px; */
         padding-left: 0;
     }
-    .tp_small_5 p{
-        position: relative;
+    .first_para{
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 275px;
+        /*position: relative;
         top: 18px;
-        margin: 0;
+        margin: 0;*/
+    }
+    .second_para{
+        font-size: 12px;
+        text-align: right;
+        color: #969798;
     }
     .rectangle-small  a {
-        height: 3.5rem;
+        /*height: 3.5rem;*/
     }
     .rectangle-small {
         margin-bottom: 5px;
