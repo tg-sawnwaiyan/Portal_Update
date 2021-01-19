@@ -456,7 +456,7 @@
                                 <div class="pad-new pattern-child" v-if="block_id == 1 && value[0]">
                                     <router-link :to="'/newsdetails/'+value[0].pid">
 
-                                        <div class="col-12 single-news-box">
+                                        <div class="col-12 single-news-box top_lar_pc">
 
                                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
@@ -491,7 +491,7 @@
                                 <div class="pad-new pattern-child" v-if="block_id == 2">
                                     <router-link v-for="(item,inx) in value.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
 
-                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                        <div class="col-12 row adslist-card m-lr-0 news-3-card top_med_pc">
 
                                             <div class="col-4 img-box">
 
@@ -538,20 +538,17 @@
                                     </router-link>
                                 </div>
 
-                                <div class="pad-new pattern-child" v-if="block_id == 3">
-                                    <router-link v-for="(item,inx) in value.slice(0,6)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
+                                <div class="pad-new pattern-child top_sm_pc" v-if="block_id == 3">
+                                    <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
 
                                         <p class="text-truncate news-list-display">
-                                        <span class="sm_news_new_top" v-if="item.new_news == 1">New</span>
-                            <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                            <span class="sm_news_mp">
-                                {{item.title}}
-                            </span> 
-                            <span class="sm_news_date">{{item.created_at}}</span>
-
-
-                                     <!--        <i class="fas fa-building"></i>{{item.title}} -->
+                                            <!-- <span class="sm_news_new_top" v-if="item.new_news == 1">New</span> -->
+                                            <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
+                                            <span class="sm_news_mp">
+                                                {{item.title}}
+                                            </span> 
+                                            <span class="sm_news_date">{{item.created_at}}</span>
                                         </p>
                                     </router-link>
                                 </div>
@@ -1172,6 +1169,7 @@
     /* box-shadow: 0 0 2px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
+    padding: 10px 0;
 }
 
 .news-3-card .img-box{
@@ -1180,7 +1178,7 @@
 
 .single-news-box {
     background: #f7f7f7;
-    height: 310px;
+    height: 307px;
     padding: 10px;
     /* box-shadow: 0px 0px 2px #ddd; */
     border:solid #f3efef;
@@ -1339,6 +1337,19 @@
 .pattern-txt-box .medium_text {
     height: 62px;
     overflow: hidden;
+}
+.top_lar_pc {
+
+}
+.top_med_pc {
+    height: 98px;
+    margin-bottom: 6.5px;
+}
+.top_sm_pc a .news-list-display {
+    height: 34px;
+}
+.top_sm_pc a .news-list-display .sm_news_mp {
+    width: 72%;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
@@ -1529,9 +1540,9 @@
 .text-truncate {
     white-space: unset;
 }
-.news-list-display{
-    height: 47.5px;
-}
+/* .news-list-display{
+    height: 33px;
+} */
 .sm_news_new_top {
     border-radius: 1px;
     padding: 0px 4px;
