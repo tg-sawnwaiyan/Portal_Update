@@ -1222,7 +1222,7 @@
             </router-link>
             <!-- medium block -->
             <div v-for="(value,index) in group[0]" :key="index" class="rectangle-medium01">
-            <router-link :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8">
+            <router-link :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-5">
                 <div class="col-md-12 row adslist-card news-3-card m-0">
 
                     <div class="col-4 img-box">
@@ -1253,7 +1253,7 @@
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.main_point}} </p>
                     </div>                   
-                        <div class="txt_date"> {{value.created_at}}</div>
+                    <div class="txt_date"> {{value.created_at}}</div>
                 </div>
             </router-link>
             </div>
@@ -1262,7 +1262,7 @@
         <div id="more" class="slick-news m-lr-0 bordertop-color" >
             <div class="one" v-for="(more_value) in more_news">
                 <div class="two" v-for="(value,index) in more_value" :key="index">
-                    <div class="square-medium news-3-card" v-if="index === 0"  >
+                    <div class="square-medium news-3-card m-b-5" v-if="index === 0"  >
                         <router-link :to="'/newsdetails/'+value.id" >
                             <div class="col-6  single-news-box single-news-slide">
                                 <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -1300,7 +1300,7 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-8" v-if="index === 2">
+                    <div class="square-small news-3-card m-b-5" v-if="index === 2">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                             {{value.main_point}}
@@ -1332,7 +1332,7 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 7">
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 7">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                             {{value.main_point}}
@@ -1340,7 +1340,7 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-medium news-3-card square-medium-right" v-if="index === 6"  >
+                    <div class="square-medium news-3-card square-medium-right m-b-5" v-if="index === 6"  >
                         <router-link :to="'/newsdetails/'+value.id" >
                             <div class="col-6  single-news-box single-news-slide">
                                 <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -1974,6 +1974,7 @@ export default {
     .txt_align .single-news-box .wrapper-3 img{
         background: #fff;
     }
+    .txt_align a 
     .m_top_left {
         left: 8px;
     }
@@ -1995,7 +1996,7 @@ export default {
         border-width: 0 1px 1px 0;
     }
     .txt_align.news-3-card{
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         width: 96% !important;
     }
     .slick-active .txt_align.news-3-card:first-child{
