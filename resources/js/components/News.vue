@@ -61,7 +61,7 @@
                                                             <p class=" p_3">
                                                                 <span v-if="latest_post_all_cat.category_id == 26" class="breaking-tip">PR</span>
 
-                                                                {{ latest_post_all_cat.main_point }}
+                                                                {{ latest_post_all_cat.title }}
 
                                                             </p>
 
@@ -122,7 +122,7 @@
 
                                                  </clazy-load>
 
-                                                    <p class="source-title" v-if="latest_post.main_point" aria-label="">{{ latest_post.main_point }}</p>
+                                                    <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
 
                                                     <p class="source-subtitle" v-if="latest_post.created_at">
 
@@ -145,7 +145,7 @@
                                                             <span v-if="post.new_news == '1'" class="s_top_left">New</span>
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
-                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">{{ post.main_point }}</span>
+                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">{{ post.title }}</span>
 
                                                         </router-link>
 
@@ -217,8 +217,8 @@
                                                 <div class="col-md-8 col-sm-8 txt-box">                                                   
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <!-- <span> {{item.main_point}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                                        <!-- <span> {{item.title}} </span> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
@@ -278,8 +278,8 @@
                                                 <div class="col-md-8 txt-box">
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <!-- <span> {{item.main_point}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                                        <!-- <span> {{item.title}} </span> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
@@ -345,8 +345,8 @@
                                     <div class="col-md-8 col-sm-8 txt-box">                                        
                                         
                                         <router-link :to="'/newsdetails/'+item.id">
-                                            <!-- <span> {{item.main_point}} </span> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                            <!-- <span> {{item.title}} </span> -->
+                                            <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
@@ -406,8 +406,8 @@
                                     <div class="col-md-8 txt-box">
                                     
                                     <router-link :to="'/newsdetails/'+item.id">
-                                        <!-- <span> {{item.main_point}} </span> -->
-                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                        <!-- <span> {{item.title}} </span> -->
+                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
@@ -481,7 +481,7 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[0].main_point}} </p>
+                                            <p> {{value[0].title}} </p>
                                         </div>
                                         <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
 
@@ -527,9 +527,9 @@
 
 
                                             <div class="col-8 pattern-txt-box">
-                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.title"></read-more> -->
 
-                                                <p class="medium_text">{{item.main_point}}</p>
+                                                <p class="medium_text">{{item.title}}</p>
 
                                             </div>
                                             <div class="txt_date txt_color_pc">{{item.created_at}}</div>
@@ -546,12 +546,12 @@
                                         <span class="sm_news_new_top" v-if="item.new_news == 1">New</span>
                             <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                             <span class="sm_news_mp">
-                                {{item.main_point}}
+                                {{item.title}}
                             </span> 
                             <span class="sm_news_date">{{item.created_at}}</span>
 
 
-                                     <!--        <i class="fas fa-building"></i>{{item.main_point}} -->
+                                     <!--        <i class="fas fa-building"></i>{{item.title}} -->
                                         </p>
                                     </router-link>
                                 </div>
@@ -586,7 +586,7 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[1].main_point}} </p>
+                                            <p> {{value[1].title}} </p>
                                         </div>
                                         <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
 
@@ -629,9 +629,9 @@
                                             </div>
 
                                             <div class="col-8 pattern-txt-box">
-                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.title"></read-more> -->
 
-                                                <p>{{item.main_point}}</p>
+                                                <p>{{item.title}}</p>
 
                                             </div>
                                         </div>
@@ -646,7 +646,7 @@
                                             <span class="sm_news_new_top" v-if="item.new_news == 1">New</span>
                                             <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                             <span class="sm_news_mp">
-                                                {{item.main_point}}
+                                                {{item.title}}
                                             </span> 
                                             <span class="sm_news_date">{{item.created_at}}</span>
                                         </p>
