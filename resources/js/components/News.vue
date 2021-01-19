@@ -1511,7 +1511,7 @@
     float: right;
     margin-top: 16px;    
     color: #969798;
-    bottom: -2px;
+    /* bottom: -2px; */
 }
 .s_top_left {
     position: relative;
