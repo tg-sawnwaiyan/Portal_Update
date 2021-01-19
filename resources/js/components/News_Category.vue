@@ -61,7 +61,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -74,7 +74,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -118,7 +118,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -134,7 +134,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -172,7 +172,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -186,7 +186,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -231,7 +231,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -272,7 +272,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -289,7 +289,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -334,7 +334,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -350,7 +350,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -388,7 +388,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -402,7 +402,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -446,7 +446,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -487,7 +487,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -504,7 +504,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -541,7 +541,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -555,7 +555,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -596,7 +596,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -607,7 +607,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span v-if="index === 1" class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -651,7 +651,7 @@
                                     <div class="col-8 pattern-txt-box">
                                       
 
-                                        <p>{{value.main_point}}</p>
+                                        <p>{{value.title}}</p>
 
                                     </div>
 
@@ -667,7 +667,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -705,7 +705,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -716,7 +716,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -729,7 +729,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -774,7 +774,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -792,7 +792,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -838,7 +838,7 @@
                                     <div class="col-8 pattern-txt-box">
                                       
 
-                                        <p>{{value.main_point}}</p>
+                                        <p>{{value.title}}</p>
 
                                     </div>
 
@@ -854,7 +854,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -892,7 +892,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -904,7 +904,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -949,7 +949,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.main_point}}</p>
+                                    <p>{{value.title}}</p>
 
                                 </div>
 
@@ -967,7 +967,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -1005,7 +1005,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.main_point}} </p>
+                                    <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -1017,7 +1017,7 @@
                                 <span class="sm_news_new" v-if="value.new_news == 1">New</span>
                                 <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.main_point}}
+                                    {{value.title}}
                                 </span> 
                                 <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
@@ -1063,7 +1063,7 @@
 
                                 </transition>
                             </clazy-load>
-                            <p>  {{value.main_point}} </p>
+                            <p>  {{value.title}} </p>
                             
                         </div>
                     </router-link>
@@ -1076,7 +1076,7 @@
             <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
                 <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
                 <p class="text-truncate news-list-display">
-                    {{value.main_point}}
+                    {{value.title}}
                 </p>
                 <div class="txt_date"><span>{{value.created_at}}</span></div>
             </router-link>
@@ -1111,7 +1111,7 @@
                         </clazy-load>
                     </div>
                     <div class="col-8 pattern-txt-box">
-                        <p> {{value.main_point}} </p>
+                        <p> {{value.title}} </p>
                     </div>                   
                     <div class="txt_date"> {{value.created_at}}</div>
                 </div>
@@ -1147,7 +1147,7 @@
 
                                     </transition>
                                 </clazy-load>
-                                <p> {{value.main_point}} </p>
+                                <p> {{value.title}} </p>
                             </div>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1155,7 +1155,7 @@
                     <div class="square-small news-3-card m-b-8" v-if="index === 1">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
-                            {{value.main_point}}
+                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1163,7 +1163,7 @@
                     <div class="square-small news-3-card m-b-5" v-if="index === 2">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.main_point}}
+                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1171,7 +1171,7 @@
                     <div class="rectangle-small news-3-card m-b-8" v-if="index === 3">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new "> 
                             <p class="text-truncate news-list-display">
-                                {{value.main_point}}
+                                {{value.title}}
                             </p>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1179,7 +1179,7 @@
                     <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                             <p class="text-truncate news-list-display">
-                                {{value.main_point}}
+                                {{value.title}}
                             </p>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1187,7 +1187,7 @@
                     <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 5">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
-                            {{value.main_point}}
+                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1195,7 +1195,7 @@
                     <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 7">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.main_point}}
+                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1225,7 +1225,7 @@
 
                                     </transition>
                                 </clazy-load>
-                                <p> {{value.main_point}} </p>
+                                <p> {{value.title}} </p>
                             </div>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1256,7 +1256,7 @@
                                     </clazy-load>
                                 </div>
                                 <div class="col-8 pattern-txt-box">
-                                    <p> {{value.main_point}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>                   
                                     <div class="txt_date01"> {{value.created_at}}</div>
                             </div> 
@@ -1288,7 +1288,7 @@
                                     </clazy-load>
                                 </div>
                                 <div class="col-8 pattern-txt-box">
-                                    <p> {{value.main_point}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>                   
                                     <div class="txt_date01"> {{value.created_at}}</div>
                             </div>
