@@ -138,14 +138,18 @@ class HomeController extends Controller
                 $todayDate = Carbon\Carbon::now();
                 $createdDate = $aryPosts->created_at;
                 $hourInterval = $todayDate->diffInHours($createdDate);
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
+                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
                 }
-                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                
+                $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
                 $minute = $carbonCreated_dt->minute;
                 $minute = $minute < 10 ? '0'.$minute : $minute;
-                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
                 $tmp[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
             $aryResults = array();
@@ -185,14 +189,19 @@ class HomeController extends Controller
                 $todayDate = Carbon\Carbon::now();
                 $createdDate = $aryPosts->created_at;
                 $hourInterval = $todayDate->diffInHours($createdDate);
+
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
+                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
                 }
-                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
                 $minute = $carbonCreated_dt->minute;
                 $minute = $minute < 10 ? '0'.$minute : $minute;
-                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
+
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
                 $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
             $aryResults = array();

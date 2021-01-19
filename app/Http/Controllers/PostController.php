@@ -85,15 +85,18 @@ class PostController extends Controller
             $todayDate = Carbon\Carbon::now();
             $createdDate = $value['created_at'];
             $hourInterval = $todayDate->diffInHours($createdDate);
+            
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
             if($hourInterval <= 36)
             {
-
+            $value['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
             $value['new_news'] = 1;
             }
-            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $hour = $carbonCreated_dt->hour;
+            $hour = $hour < 10 ? '0'.$hour : $hour;
             $minute = $carbonCreated_dt->minute;
             $minute = $minute < 10 ? '0'.$minute : $minute;
-            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
             $tmp[$value['block_id']][] = $value;
         }
         //separted divied block array
@@ -173,9 +176,11 @@ class PostController extends Controller
             $hourInterval = $todayDate->diffInHours($createdDate);
             
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
             $minute = $carbonCreated_dt->minute;
             $minute = $minute < 10 ? '0'.$minute : $minute;
-            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$carbonCreated_dt->hour.':'.$minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
             if($hourInterval <= 36)
             {
             $value['new_news'] = 1;

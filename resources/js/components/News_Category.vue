@@ -71,12 +71,12 @@
                         <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -131,12 +131,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -183,12 +183,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -286,12 +286,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div> 
@@ -347,12 +347,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -399,12 +399,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -501,12 +501,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -552,12 +552,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -604,12 +604,12 @@
                         <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span v-if="index === 1" class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -664,12 +664,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -726,12 +726,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -789,12 +789,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -851,12 +851,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -901,12 +901,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -964,12 +964,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -1014,12 +1014,12 @@
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
+                                <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
                                     {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
+                                </span>
+                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
+                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -1838,10 +1838,13 @@ export default {
     font-size: 10px;
     background-color: red;
     color: white;
-    float: left;
-    
+    float: right; 
 }
-
+.second_para{
+    font-size: 12px;
+    float: right;
+    color: #969798;
+}
 .sm_news_fa {
     float: left;
 }
@@ -2050,11 +2053,6 @@ export default {
         /*position: relative;
         top: 18px;
         margin: 0;*/
-    }
-    .second_para{
-        font-size: 12px;
-        text-align: right;
-        color: #969798;
     }
     .rectangle-small  a {
         /*height: 3.5rem;*/
