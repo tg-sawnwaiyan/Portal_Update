@@ -28,11 +28,9 @@
                         <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
 
-                    <div class="form-group" id="showimage">
+                    <!-- <div class="form-group" id="showimage">
                         <label class="">写真</label>
-                        <!-- <div class="custom-file">
-                            <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                        </div> -->
+                        
                         <div class="d-flex align-items-center">
                             <span class="btn-file d-inline-block">画像を選択        
                                 <input type="file" ref="file" accept="image/*" @change="fileSelected">
@@ -41,22 +39,56 @@
                         </div>                    
                         
                     </div>                    
-                    
                     <div class="image_show" v-if="upload_img ">
                         <div class='col-md-2'>
-                            <!-- <span class='img-close-btn test' v-on:click="removeUpload()" v-if='status == 1'>X</span> -->
+                            
                             <img :src="upload_img" class='show-img' @error="imgUrlAlt">
                         </div>
                     </div>  
-    
-                    <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
+                     <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
                         <div class="col-md-12" >
                             <div id='x-image' class='col-md-2' >
                                 <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
                                 <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+<div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo ">
+    <div class="col-md-12" >
+        <div id='x-image' class='col-md-2' >
+            <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
+            <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
+        </div>
+    </div>
+</div>
+
+<div class="form-group p-3 bg-white shadow rounded-lg">
+    <input type="file" name="image" accept="image/*" @change="setImage" />
+
+    <!-- Image previewer -->
+    <!-- <img :src="imageSrc" width="100" /> -->
+
+    <!-- Cropper container -->
+    <div
+      v-if="this.imageSrc"
+      class="my-3 d-flex align-items-center justify-content-center mx-auto"
+    >
+      <vue-cropper
+        class="mr-2 w-50"
+        ref="cropper"
+        :guides="true"
+        :src="imageSrc"
+      ></vue-cropper>
+
+      <!-- Cropped image previewer -->
+      <img class="ml-2 w-50 bg-light" :src="croppedImageSrc" />
+    </div>
+    <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary"> Crop </div>
+    <!-- <button v-if="this.croppedImageSrc" @click="uploadImage">Upload</button> -->
+  </div>
+
+        
+                   
                  
                     <div class="form-group">
                         <label>内容要約 <span class="error sp2">必須</span></label>
@@ -103,32 +135,6 @@
                         <label>内容 <span class="error sp2">必須</span></label>
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
-
-                        <!-- for quill image upload (@author :pzo) -->
-                        <!-- <div class="form-group" id="quill_showimage">
-                            <div class="d-flex align-items-center">
-                                <span class="btn-file d-inline-block">画像を選択        
-                                    <input type="file" ref="file" accept="image/*" @change="quillFileSelected">
-                                </span> 
-                                <span class="pl-4">{{quill_img_name}}</span>
-                            </div>                    
-                            
-                        </div>                    
-                        <div class="image_show" v-if="quill_upload_img ">
-                            <div class='col-md-2'>
-                                <img :src="quill_upload_img" class='show-img' @error="imgUrlAlt">
-                            </div>
-                        </div>  
-                        <div  class="form-group image_update" id="x-quill" v-if ="news.quill_photo && !quill_upload_img && !old_quill_photo">
-                            <div class="col-md-12" >
-                                <div id='x-quill' class='col-md-2' >
-                                    <span class='img-close-btn' v-on:click='quillCloseBtnMethod(news.quill_photo)'>X</span>
-                                    <img :src="'/upload/news/'+ news.quill_photo" class='show-img' alt="" @error="imgUrlAlt1">
-                                </div>
-                            </div>
-                        </div> -->
-                 
-                        <!-- end quill image upload -->
                     </div>
                     
                     <div v-if="selectedValue != 26" class="form-group">
@@ -136,7 +142,6 @@
                         <div class="card related-card">
                             <div class="card-body">
                                 <input type="hidden" v-model="old_photo" >
-                                <input type="hidden" v-model="old_quill_photo" >
                                 <div class="d-sm-flex">
                                     <div class="d-flex align-items-center cat_box">
                                          <label class="cat_lbl"> カテゴリー</label>
@@ -208,9 +213,12 @@
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
+import VueCropper from "vue-cropperjs"
+import "cropperjs/dist/cropper.css"
 
     export default {
         components: {
+            VueCropper,
             quillEditor
         },
            props:{
@@ -222,6 +230,8 @@ import {quillEditor} from 'vue-quill-editor'
 
         data() {
                 return {
+                    imageSrc: "",
+                    croppedImageSrc: "",
                     norecord: 0,
                     lang:{
                         days: ['日', '月', '火', '水', '木', '金', '土'],
@@ -295,9 +305,7 @@ import {quillEditor} from 'vue-quill-editor'
                     related_news: [],
                     checkedNews: [],
                     old_photo: "",
-                    old_quill_photo: "",
                     upload_img: null,
-                    //quill_upload_img: null,
                     currentPage: 0,
                     size: 12,
                     pageRange: 5,
@@ -305,7 +313,6 @@ import {quillEditor} from 'vue-quill-editor'
                     pagination: false,
                     search_word:'',
                     img_name : '',
-                    //quill_img_name : '',
                     noimage:0,
                     nosearch_msg:false,
                 }
@@ -335,7 +342,7 @@ import {quillEditor} from 'vue-quill-editor'
                             .get(`/api/new/editPost/${this.$route.params.id}`)
                             .then((response) => {
                                 this.news = response.data;
-                            
+                         
                                 if(this.news.to_date == null)
                                 {
                                     this.news.to_date = '';
@@ -353,9 +360,7 @@ import {quillEditor} from 'vue-quill-editor'
                                 if(this.news.photo == null || this.news.photo == '') {
                                     this.old_photo = '';
                                 }
-                                /*if(this.news.quill_photo == null || this.news.quill_photo == '') {
-                                    this.old_quill_photo = '';
-                                }*/
+                               
                                 this.selectedValue = this.news.category_id;
                                 this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
@@ -365,56 +370,13 @@ import {quillEditor} from 'vue-quill-editor'
                         this.getSearchPostsByCatId();
                     }
                 },
-                fileSelected(e) {
+                /*fileSelected(e) {
                     this.news.photo = event.target.files[0];
                     this.upload_img = URL.createObjectURL(event.target.files[0]);
                     const file =event.target.files[0];
                     this.img_name = file.name;
-                },
-                /*quillFileSelected(e) {
-
-                    this.news.quill_photo = event.target.files[0];
-                    this.quill_upload_img = URL.createObjectURL(event.target.files[0]);
-                    const file =event.target.files[0];
-                    this.quill_img_name = file.name;
                 },*/
-                removeUpload(e) {
-                    this.$swal({
-                        // title: "確認",
-                        text: "削除してよろしいでしょうか。",
-                        type: "warning",
-                        width: 350,
-                        height: 200,
-                        showCancelButton: true,
-                        confirmButtonColor: "#eea025",
-                        cancelButtonColor: "#b1abab",
-                        cancelButtonTextColor: "#000",
-                        confirmButtonText: "はい",
-                        cancelButtonText: "キャンセル",
-                        confirmButtonClass: "all-btn",
-                        cancelButtonClass: "all-btn",
-                        allowOutsideClick: false,
-                        }).then(response => {
-                            this.$swal({
-                                text: "画像を削除しました。",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "閉じる",
-                                confirmButtonColor: "#31cd38",
-                                allowOutsideClick: false,
-                                   
-                            });
-                       }).then(response => {
-                        this.img_name = '';
-                        this.quill_img_name = '';
-                        });
-                    this.news.photo = '';
-                    //this.news.quill_photo = '';
-                    this.upload_img = '';
-                    this.upload_quill_img = '';
-                    this.reset();
-                },
+                
                 reset() {
                     const input = this.$refs.file;
                     input.type = 'text';
@@ -459,9 +421,7 @@ import {quillEditor} from 'vue-quill-editor'
                         fData.append('block_id', this.news.block_id)
                         fData.append('related_news', this.checkedNews)
                         fData.append('old_photo',this.old_photo)
-                        //fData.append('quill_photo', this.news.quill_photo)
-                        fData.append('old_quill_photo',this.old_quill_photo)
- 
+                         
                             this.$loading(true);
                         this.axios.post(`/api/new/update/${this.$route.params.id}`, fData).then(response => {
                             this.$loading(false);
@@ -592,7 +552,6 @@ import {quillEditor} from 'vue-quill-editor'
                     fd.append("postid",`${this.$route.params.id}`)
                     this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
                         this.related_news = response.data.query;
-                        //console.log("re",this.related_news)
                         this.norecord = this.related_news.data.length;
 
                         if(this.norecord != 0) {
@@ -630,7 +589,7 @@ import {quillEditor} from 'vue-quill-editor'
                         }).then(response =>{
                         var image_x = document.getElementById('x-image');
                         image_x.parentNode.removeChild(image_x);
-                        document.getElementById('showimage').style.display = 'block';
+                        //document.getElementById('showimage').style.display = 'block';
                        }).then(response => {
                             this.$swal({
                                     text: "画像を削除しました。",
@@ -642,47 +601,13 @@ import {quillEditor} from 'vue-quill-editor'
                                     allowOutsideClick: false,
                                 });
                                 this.old_photo = old_photo;
+                                this.news.photo = "";
+                                
                                 // this.getPostsByCatId;
+
                        });
                     }
                 },
-               /* quillCloseBtnMethod: function(old_quill_photo) {
-                    if(confirm)
-                    {
-                        this.$swal({
-                        // title: "削除",
-                        text: "画像を削除してよろしいでしょうか。",
-                        type: "warning",
-                        width: 350,
-                        height: 200,
-                        showCancelButton: true,
-                        confirmButtonColor: "#eea025",
-                        cancelButtonColor: "#b1abab",
-                        cancelButtonTextColor: "#000",
-                        confirmButtonText: "はい",
-                        cancelButtonText: "キャンセル",
-                        confirmButtonClass: "all-btn",
-                        cancelButtonClass: "all-btn",
-                        allowOutsideClick: false,
-                        }).then(response =>{
-                        var quill_x = document.getElementById('x-quill');
-                        quill_x.parentNode.removeChild(quill_x);
-                        document.getElementById('quill_showimage').style.display = 'block';
-                       }).then(response => {
-                            this.$swal({
-                                    text: "画像を削除しました。",
-                                    type: "success",
-                                    width: 350,
-                                    height: 200,
-                                    confirmButtonText: "閉じる",
-                                    confirmButtonColor: "#31cd38",
-                                    allowOutsideClick: false,
-                                });
-                                this.old_quill_photo = old_quill_photo;
-                                this.getPostsByCatId;
-                       });
-                    }
-                },*/
                 checkValidate() {
                     if(this.selectedValue == 26){
                         if(this.news.from_date == ''){
@@ -772,8 +697,29 @@ import {quillEditor} from 'vue-quill-editor'
                     this.noimage = 1;
                     event.target.src = "/images/noimage.jpg"
                 },
+                setImage: function (e) {
+                    const file = e.target.files[0]
+                    if (!file.type.includes("image/")) {
+                      alert("Please select an image file")
+                      return
+                    }
+                    if (typeof FileReader === "function") {
+                      const reader = new FileReader()
+                      reader.onload = event => {
+                        this.imageSrc = event.target.result
 
-            
+                        // Rebuild cropperjs with the updated source
+                        this.$refs.cropper.replace(event.target.result)
+                      }
+                      reader.readAsDataURL(file)
+                    } else {
+                      alert("Sorry, FileReader API not supported")
+                    }
+                },
+                cropImage() {
+                    this.croppedImageSrc = this.$refs.cropper.getCroppedCanvas().toDataURL();
+                    this.news.photo = this.croppedImageSrc;
+                },
             
             }
 
@@ -781,9 +727,6 @@ import {quillEditor} from 'vue-quill-editor'
             
     }
 
-
-
- 
 </script>
 
 <style>

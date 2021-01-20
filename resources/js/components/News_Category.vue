@@ -1034,7 +1034,7 @@
     </div>    
     <!-- end layout design -->
    
-    <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
+    <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0 moblie">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
                 <div v-for="(value,index) in big_news" :key="index" class="txt_align news-3-card">
@@ -1878,6 +1878,9 @@ export default {
 }
  .medium p{
     height: 41px;
+}
+.moblie p{
+    font-weight: bold;
 }
 @media only screen and (max-width:767px)  {
  
