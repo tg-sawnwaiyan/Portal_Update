@@ -142,10 +142,13 @@
                                                         
 
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
-                                                            <span v-if="post.new_news == '1'" class="s_top_left">New</span>
+                                                            
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
-                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">{{ post.title }}</span>
+                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">
+                                                                <span v-if="post.new_news == '1'" class="s_top_left">New</span>
+                                                                {{ post.title }}
+                                                            </span>
 
                                                         </router-link>
 
@@ -1351,7 +1354,7 @@
     height: 34px;
 }
 .top_sm_pc a .news-list-display .sm_news_mp {
-    width: 72%;
+    max-width: 70%;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
@@ -1515,14 +1518,14 @@
 }
 .s_top_left {
     position: relative;
-    bottom: 12px;
+    bottom: 2px;
 }
 .top_sm_news {
-    width: 85%;
+    /* width: 85%;
     overflow: hidden;
     height: 37px;
     white-space: unset;
-    line-height: 1.3rem;
+    line-height: 1.3rem; */
 }
 .sm_news_fa {
     float: left;
@@ -1550,9 +1553,9 @@
     color: #969798;
     float: right;
 }
-.text-truncate {
+/* .text-truncate {
     white-space: unset;
-}
+} */
 /* .news-list-display{
     height: 33px;
 } */

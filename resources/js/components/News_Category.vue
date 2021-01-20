@@ -1840,10 +1840,13 @@ export default {
     color: white;
     float: right; 
 }
-.second_para{
+.second_para {
     font-size: 12px;
     float: right;
     color: #969798;
+}
+.second_para .sm_news_new {
+    margin-left: 5px;
 }
 .sm_news_fa {
     float: left;
@@ -1963,8 +1966,8 @@ export default {
         margin-top: 5px;
     }
     .pad-new01{
-        height: 1.8rem;
-        max-height: 2rem;
+        height: 35px;
+        /* max-height: 2rem; */
         background: #f7f7f7;
         border: solid #f3efef;
         border-width: 0 1px 1px 0;
@@ -2050,15 +2053,18 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         max-width: 275px;
-        /*position: relative;
-        top: 18px;
-        margin: 0;*/
+        margin-top: 2px;
     }
-    .rectangle-small  a {
-        /*height: 3.5rem;*/
+    .second_para {
+        margin-top: 4px;
     }
     .rectangle-small {
         margin-bottom: 5px;
+        height: 35px;
+    }
+    .rectangle-small  a {
+        padding: 3px 2px;
+        margin-bottom: 0;
     }
     .rectangle-small a .text-truncate {
         position: relative;
@@ -2069,11 +2075,18 @@ export default {
         position: relative;
         top: 19px;
     }
+    .tp_small_5 a{
+        height: 35px;
+        padding: 4px 2px;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
     #more .pad-new{
         width: 50%;
+    }
+    .slick-slider {
+        margin-bottom: 0;
     }
 }
 @media only screen and (min-width:767px){
