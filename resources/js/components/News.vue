@@ -1391,6 +1391,9 @@
         font-size: 12px;
         color: #969798;
     }
+    .txt_align p, .sm_news_mp {
+        font-weight: bold;
+    }
 }
 @media only screen and (max-width: 1280px){
     .news-slider-width{

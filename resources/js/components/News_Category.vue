@@ -1905,7 +1905,7 @@ export default {
     .txt_align .single-news-box p{
         max-height: 70px;
         padding: 5px;
-        background: #e8e8e8;
+        background: #f7f7f7;
     }
     .txt_align .single-news-box .wrapper-3 img{
         background: #fff;
@@ -1924,7 +1924,7 @@ export default {
         color: white;
     }
     .txt_align .txt_date01 {
-        background: #e8e8e8;
+        background: #f7f7f7;
     }
     #more .pad-new{
         width: 100%;
@@ -2078,6 +2078,9 @@ export default {
     .tp_small_5 a{
         height: 35px;
         padding: 4px 2px;
+    }
+    .single-news-box p, .tp_small_5 p, .rectangle-medium p, .rectangle-small p, .square-small p {
+        font-weight: bold;
     }
 }
 
