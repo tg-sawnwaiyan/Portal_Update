@@ -21,16 +21,16 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
-        if(is_object($request->photo)){
-            $imageName = uniqid().$request->photo->getClientOriginalName();
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
-            $request->photo->move('upload/news/', $imageName);
-        }else {
-            $imageName = uniqid().$request->photo;
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
+        
+        if(empty($request->photo)){
+            $imageName = "";
+        }else{
+            $image = str_replace('data:image/png;base64,', '', $request->photo);
+            $image = str_replace(' ', '+', $image);
+            $imageName = str_random(10).'.'.'png';
+            \File::put('upload/news/' . $imageName, base64_decode($image));
         }
+
         $post = new Post() ;
         $post->title = $request->input('title');
         $post->main_point = $request->input('main_point');
@@ -296,38 +296,29 @@ class PostController extends Controller
     public function update($id, Request $request)
     {
         $post = Post::find($id);
-        if($request->old_photo == ' ' || $request->old_photo == null ){
-            if(is_object($request->photo)) {
-                $file= $post->photo;
-                $filename = './upload/news/'.$file;
+        if(!empty($request->photo)){
+            if(strpos($request->photo,"data:image/png;base64") !== false ){
+
+                $file       = $post->photo;
+                $filename   = './upload/news/'.$file;
                 \File::delete($filename);
-                $imageName = uniqid().$request->photo->getClientOriginalName();
-                $imageName = str_replace(' ', '', $imageName);
-                $imageName = strtolower($imageName);
-                $request->photo->move('upload/news/', $imageName);
+
+                $image = str_replace('data:image/png;base64,', '', $request->photo);
+                $image = str_replace(' ', '+', $image);
+                $imageName = str_random(10).'.'.'png';
+                \File::put('upload/news/' . $imageName, base64_decode($image));
+
+            }else{
+                $imageName = $post->photo;
             }
-            else {
-                $file = $post->photo;
-                $imageName = $file;
-            }
+        }else{
+            $file       = $post->photo;
+            $filename   = './upload/news/'.$file;
+            \File::delete($filename);
+
+            $imageName = "";
         }
-        else {
-            if(is_object($request->photo)) {
-                $file= $post->photo;
-                $filename ='./upload/news/'.$file;
-                \File::delete($filename);
-                $imageName = uniqid().$request->photo->getClientOriginalName();
-                $imageName = str_replace(' ', '', $imageName);
-                $imageName = strtolower($imageName);
-                $request->photo->move('upload/news/', $imageName);
-            }
-            else {
-                $file= $post->photo;
-                $filename ='./upload/news/'.$file;
-                \File::delete($filename);
-                $imageName = '';
-            }
-        }
+
         $post->title = $request->input('title');
         $post->main_point = $request->input('main_point');
         $post->body=$request->input('body');
