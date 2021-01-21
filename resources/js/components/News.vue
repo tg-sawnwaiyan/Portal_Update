@@ -1139,7 +1139,7 @@
     }
  </script>
 
-<style>
+<style scoped>
 .list-label{
     float: right; 
     color: #999; 
@@ -1343,9 +1343,6 @@
     height: 62px;
     overflow: hidden;
 }
-.top_lar_pc {
-
-}
 .top_med_pc {
     height: 98px;
     margin-bottom: 6.5px;
@@ -1391,7 +1388,7 @@
         font-size: 12px;
         color: #969798;
     }
-    .txt_align p, .sm_news_mp {
+    .txt_align a .pattern-txt-box p, .sm_news_mp {
         font-weight: bold;
     }
 }
@@ -1494,17 +1491,16 @@
 /* .display_align {
     display: inline-flex;
 } */
-</style>
-<style scoped="scoped">
+
 .txt_align {
     position: relative;
 }
 .txt_date {
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: right;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 3px;
+    right: 10px;
 }
 .txt_color {
     right: 5px;

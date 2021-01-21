@@ -1081,8 +1081,8 @@
 
             </router-link>
             <!-- medium block -->
-            <div v-for="(value,index) in group[0]" :key="index" class="rectangle-medium01">
-            <router-link :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-5">
+            <div v-for="(value,index) in group[0]" :key="index" class="rectangle-medium01 m-b-8">
+            <router-link :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 ">
                 <div class="col-md-12 row adslist-card news-3-card m-0">
 
                     <div class="col-4 img-box">
@@ -1974,6 +1974,7 @@ export default {
     }
     .rectangle-medium01{
         width: 100%;
+        /* margin-bottom: 5px; */
     }
     .rectangle-medium a,
     .rectangle-medium01 a{
@@ -2052,7 +2053,7 @@ export default {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        max-width: 275px;
+        max-width: 267px;
         margin-top: 2px;
     }
     .second_para {
@@ -2079,7 +2080,7 @@ export default {
         height: 35px;
         padding: 4px 2px;
     }
-    .single-news-box p, .tp_small_5 p, .rectangle-medium p, .rectangle-small p, .square-small p {
+    .single-news-box p, .tp_small_5 a p.first_para, .rectangle-medium01 a .pattern-txt-box p,.rectangle-medium p, .rectangle-small a p.first_para, .square-small p {
         font-weight: bold;
     }
 }
