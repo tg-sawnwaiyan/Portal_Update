@@ -1152,7 +1152,7 @@
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-8" v-if="index === 1">
+                    <div class="square-small news-3-card m-b-5" v-if="index === 1">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
                             {{value.title}}
@@ -1167,22 +1167,30 @@
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
+                    </div>
+                    <div class="square-small news-3-card m-b-5" v-if="index === 3">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate ">
+                            {{value.title}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
                     </div> 
-                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 3">
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new "> 
                             <p class="first_para">{{value.title}}</p>
                             <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                             <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>
-                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 5">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                             <p class="first_para">{{value.title}}</p>
                             <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                             <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>                    
-                    <div class="square-small news-3-card m-b-8 square-small-left" v-if="index === 5">
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 6">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
                             {{value.title}}
@@ -1190,7 +1198,7 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 7">
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 8">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                             {{value.title}}
@@ -1198,7 +1206,15 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-medium news-3-card square-medium-right m-b-5" v-if="index === 6"  >
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 9">
+                        <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
+                        <p class="text-truncate ">
+                            {{value.title}}
+                        </p>
+                        <div class="txt_date01"><span>{{value.created_at}}</span></div>
+                        </router-link>
+                    </div>
+                    <div class="square-medium news-3-card square-medium-right m-b-5" v-if="index === 7"  >
                         <router-link :to="'/newsdetails/'+value.id" >
                             <div class="col-6  single-news-box single-news-slide">
                                 <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -1228,7 +1244,7 @@
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="rectangle-medium" v-if="index === 8"  >
+                    <div class="rectangle-medium" v-if="index === 10"  >
                         <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
                             <div class="col-md-12 row adslist-card news-3-card m-0">
                              
@@ -1260,7 +1276,7 @@
                             </div> 
                         </router-link>
                     </div>
-                    <div class="rectangle-medium" v-if="index === 9"  >
+                    <div class="rectangle-medium" v-if="index === 11"  >
                         <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
                             <div class="col-md-12 row adslist-card news-3-card m-0">
 
@@ -1391,7 +1407,7 @@ export default {
         $(".gNav .router-link-active").removeClass("router-link-exact-active");
     },
     computed:{ 
-    	useStyle () {
+        useStyle () {
             return {
             '--title-color': this.color_code
             }
@@ -1884,7 +1900,7 @@ export default {
 }
 @media only screen and (max-width:767px)  {
  
-	.cat_title{ 
+    .cat_title{ 
         padding: 0 5px;
     }
     .cat-nav {
@@ -1977,7 +1993,7 @@ export default {
     }
     .rectangle-medium01{
         width: 100%;
-        /* margin-bottom: 5px; */
+        margin-bottom: 10px;
     }
     .rectangle-medium a,
     .rectangle-medium01 a{
@@ -1999,7 +2015,7 @@ export default {
     .square-small{
         float: right;
         width: 49%;
-        height:106px;
+        height:70px;
     }
     .square-small p{
         overflow: hidden;
@@ -2009,7 +2025,7 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-     .square-small .text-truncate{margin-top: 18px;} 
+     .square-small .text-truncate{margin-top: 7px;} 
 
     .rectangle-small {
         display: inline-block;
@@ -2044,9 +2060,7 @@ export default {
         text-align: right;
         color: #969798;
     }
-    #more .one .two .square-small .txt_date01{
-        margin-top: 20px;
-    }
+   
     .text-truncate.news-list-display{
         /* padding-top: 16px; */
         padding-left: 0;
