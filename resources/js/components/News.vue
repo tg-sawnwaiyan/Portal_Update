@@ -1378,9 +1378,11 @@
 
 @media only screen and (max-width:480px){
     .p_3 {
+        max-height: 50px;
         font-weight: bold;
+        line-height: 1.1rem;
     }
-    .list-label{  
+    .list-label{
         color: #fff;     
     }
     .pattern-txt-box {
