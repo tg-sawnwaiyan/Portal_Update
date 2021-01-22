@@ -141,7 +141,7 @@ export default {
     }
     #left-button{
         position: absolute;
-        top: 23px;
+        top: 21px;
         left: auto;
         width: auto;
         line-height: 1;
@@ -153,7 +153,7 @@ export default {
     }
     #right-button{
         position: absolute;
-        top: 23px;
+        top: 21px;
         /*right: 22px;*/
         right: 9px;
         width: auto;
@@ -180,7 +180,7 @@ export default {
             margin: 5px 25px 0 21.5px;
         }
         .upper-tab {
-            margin-top: 63.45px;
+            margin-top: 62.45px;
         }
         #right-button{
             right: 14px;
@@ -216,7 +216,7 @@ export default {
             right: 39px;
         }
         .upper-tab {
-            margin-top: 65.48px;
+            margin-top: 64.48px;
         }
     }
     @media only screen and (min-width: 1201px) and (max-width: 1280px) {

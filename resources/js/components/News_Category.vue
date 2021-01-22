@@ -1899,7 +1899,7 @@ export default {
     font-weight: bold;
 }
 @media only screen and (max-width:767px)  {
- 
+    
     .cat_title{ 
         padding: 0 5px;
     }
@@ -1922,9 +1922,10 @@ export default {
         max-height: 140px;
     }
     .txt_align .single-news-box p{
-        max-height: 70px;
+        /* max-height: 50px; */
         padding: 5px;
         background: #f7f7f7;
+        /* line-height: 1.3rem; */
     }
     .txt_align .single-news-box .wrapper-3 img{
         background: #fff;
@@ -2099,6 +2100,13 @@ export default {
     }
     .single-news-box p, .tp_small_5 a p.first_para, .rectangle-medium01 a .pattern-txt-box p,.rectangle-medium p, .rectangle-small a p.first_para, .square-small p {
         font-weight: bold;
+    }
+    .txt_align a .single-news-box {
+        height: 187px;
+    }
+    .txt_align .single-news-box p {
+        max-height: 50px;
+        line-height: 1.3rem;
     }
 }
 

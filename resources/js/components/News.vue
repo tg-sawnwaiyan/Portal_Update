@@ -1377,6 +1377,9 @@
 }
 
 @media only screen and (max-width:480px){
+    .p_3 {
+        font-weight: bold;
+    }
     .list-label{  
         color: #fff;     
     }
@@ -1390,6 +1393,9 @@
     }
     .txt_align a .pattern-txt-box p, .sm_news_mp {
         font-weight: bold;
+    }
+    .sm_news_mp {
+        max-width: 72%!important;
     }
 }
 @media only screen and (max-width: 1280px){

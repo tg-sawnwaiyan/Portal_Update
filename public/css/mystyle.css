@@ -6465,7 +6465,7 @@ li.userprofile-name>a {
 }
 
 .upper-tab {
-    margin-top: 63.48px;/*
+    margin-top: 62.48px;/*
     border: 1px solid #2980b9;*/
     background: #fff;
 }
@@ -14752,6 +14752,4 @@ strong {
     font-size: 10px;
     background-color: red;
     color: white;
-}
-
 }
