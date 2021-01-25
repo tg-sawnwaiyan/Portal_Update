@@ -19,7 +19,6 @@
                         </div>
                         <!-- </form> -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
-
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                  <router-link :to="{path:'/newsdetails/'+latest_post_all_cat.id}">
                                     <div class="slide-img" style="border:1px solid #eee;">
@@ -36,7 +35,7 @@
                                                         <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
 
                                                     </transition>
-                                                    <div v-if="latest_post_all_cat.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                    <!-- <div v-if="latest_post_all_cat.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
 
@@ -68,7 +67,9 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="txt_date txt_color">{{latest_post_all_cat.created_at}}</div>
+                                                    <!-- <div class="txt_date txt_color">{{latest_post_all_cat.created_at}}
+                                                        
+                                                    </div> -->
 
                                                 </div>
 
@@ -104,7 +105,7 @@
 
                                                     </transition>
 
-                                                    <div v-if="latest_post.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                    <!-- <div v-if="latest_post.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -124,11 +125,10 @@
 
                                                     <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
 
-                                                    <p class="source-subtitle" v-if="latest_post.created_at">
-
-                                                      <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{ latest_post.created_at }}
-
-                                                    </p>
+                                                    <span class="source-subtitle" v-if="latest_post.created_at">                                                        
+                                                        <p v-if="latest_post.new_news == '1'" class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-else class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.created_at}}</p>
+                                                    </span>
 
                                                 </router-link>
 
@@ -191,7 +191,7 @@
 
                                                             </transition>
 
-                                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                            <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -228,7 +228,9 @@
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
-                                                    <span class="tab_title_date tab_title_d">{{item.created_at}}
+                                                    <span class="tab_title_date tab_title_d">
+                                                        <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-else class="second_para">{{item.created_at}}</p>
                                                     </span>
                                                 </div>
                                             </div>
@@ -320,7 +322,7 @@
                                                     <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                                 </transition>
-                                                <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -356,7 +358,8 @@
                                             <span>{{item.cname}}</span>
                                         </span>
                                         <span class="tab_title_date tab_title_d">
-                                            {{item.created_at}}
+                                            <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{item.created_at}}</p>
                                         </span>
                                     </div>
 
@@ -468,7 +471,7 @@
                                                     <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                                 </transition>
-                                                <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                             
+                                                <!-- <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -484,9 +487,12 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[0].title}} </p>
+                                            <p class="news_title_large"> {{value[0].title}} </p>
                                         </div>
-                                        <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
+                                        <div class="txt_date txt_color_pc">
+                                            <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{value[0].created_at}}</p>
+                                        </div>
 
                                     </router-link>
                                 </div>
@@ -507,7 +513,7 @@
                                                         <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
 
                                                     </transition>
-                                                    <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                    <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -535,7 +541,10 @@
                                                 <p class="medium_text">{{item.title}}</p>
 
                                             </div>
-                                            <div class="txt_date txt_color_pc">{{item.created_at}}</div>
+                                            <div class="txt_date txt_color_pc">
+                                                <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                                <p v-else class="second_para">{{value[0].created_at}}</p>
+                                            </div>
 
                                         </div>
                                     </router-link>
@@ -562,7 +571,7 @@
 
                                     <router-link :to="'/newsdetails/'+value[1].pid">
 
-                                        <div class="col-12 single-news-box">
+                                        <div class="col-12 single-news-box top_lar_pc">
 
                                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
@@ -571,7 +580,7 @@
                                                     <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                                 </transition>
-                                                <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                             
+                                                <!-- <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -587,9 +596,12 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[1].title}} </p>
+                                            <p class="news_title_large"> {{value[1].title}} </p>
                                         </div>
-                                        <div class="txt_date txt_color_pc">{{value[0].created_at}}</div>
+                                        <div class="txt_date txt_color_pc">
+                                            <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{value[0].created_at}}</p>
+                                        </div>
 
                                     </router-link>
                                 </div> 
@@ -609,7 +621,7 @@
                                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                                     </transition>
-                                                    <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                                    <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -637,7 +649,10 @@
                                             </div>
                                         </div>
                                     </router-link>
-                                    <div class="txt_date">{{item.created_at}}</div>
+                                    <div class="txt_date">
+                                        <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                        <p v-else class="second_para">{{value[0].created_at}}</p>
+                                    </div>
                                     </div>                                                    
                                 </div>                    
 
@@ -1063,7 +1078,21 @@
                     posts.push(response.data);
                     var latest_post = this.findNewNews(posts);
                     this.latest_post = latest_post[0];
-                    if(Object.keys(this.latest_post).length == 0){
+                    const post_date = new Date(latest_post.created_at);
+                    var msec = (current_date - post_date.getTime());
+                    var mins = Math.floor(msec / 60000);
+                    var hrs = Math.floor(mins / 60);
+                    var min = post_date.getMinutes();
+                    var month = post_date.getMonth()+1;
+                    min = min < 10 ? '0' + min : min;
+
+                    latest_post.new_news = "";
+                    if(hrs <= 36) {     
+                        latest_post.date_only = month + '/' +  post_date.getDate();
+                        latest_post.new_news = "1";
+                    }       
+                    latest_post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                    if(Object.keys(this.latest_post).length == 0) {
                         this.latest_post_null = true;
                     }
                     else{
@@ -1093,16 +1122,17 @@
                             var msec = (current_date - post_date.getTime());
                             var mins = Math.floor(msec / 60000);
                             var hrs = Math.floor(mins / 60);
-
-                            post.new_news = "";
-                            if(hrs <= 36) {     
-
-                                post.new_news = "1";
-                            }   
-
                             var min = post_date.getMinutes();
                             var month = post_date.getMonth()+1;
                             min = min < 10 ? '0' + min : min;
+
+                            post.new_news = "";
+                            if(hrs <= 36) {     
+                                post.date_only = month + '/' +  post_date.getDate();
+                                post.new_news = "1";
+                            }   
+
+                           
                             post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
                             
                         });
@@ -1342,6 +1372,9 @@
 .pattern-txt-box .medium_text {
     height: 62px;
     overflow: hidden;
+}
+.top_lar_pc .news_title_large {
+    line-height: 1.3rem;
 }
 .top_med_pc {
     height: 98px;

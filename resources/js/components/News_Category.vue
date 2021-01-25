@@ -122,7 +122,7 @@
                                 <div class="col-8 pattern-txt-box">
                                   
 
-                                    <p>{{value.title}}</p>
+                                    <p class="med_news_title">{{value.title}}</p>
 
                                 </div>
 
@@ -1836,7 +1836,7 @@ export default {
     height: auto;
 }
 .medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p {
-    line-height: 1.6rem!important;
+    line-height: 1.5rem!important;
     -webkit-line-clamp: 3;
     height: 70px;
 }
