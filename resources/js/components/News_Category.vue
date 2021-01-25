@@ -1054,7 +1054,7 @@
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                 </transition>   
-                                <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                             
+                                <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                 <transition name="fade" slot="placeholder">
 
@@ -1074,7 +1074,10 @@
                             
                         </div>
                     </router-link>
-                    <div class="txt_date01">{{value.created_at}}</div>
+                    <div class="txt_date01">
+                        <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                        <p v-else class="second_para">{{value.created_at}}</p>
+                    </div>
                 </div>
             </slick>
         </div>
@@ -1101,7 +1104,7 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+                            <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                             <transition name="fade" slot="placeholder">
 
@@ -1120,7 +1123,10 @@
                     <div class="col-8 pattern-txt-box">
                         <p> {{value.title}} </p>
                     </div>                   
-                    <div class="txt_date"> {{value.created_at}}</div>
+                    <div class="txt_date">
+                        <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                        <p v-else class="second_para">{{value.created_at}}</p>
+                    </div>
                 </div>
             </router-link>
             </div>
@@ -2036,6 +2042,7 @@ export default {
     .square-medium .single-news-box p {
         padding: 0 5px;
         line-height: 1.7em;
+        max-height: 50px;
     }
     .square-small{
         float: right;

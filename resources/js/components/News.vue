@@ -542,8 +542,8 @@
 
                                             </div>
                                             <div class="txt_date txt_color_pc">
-                                                <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
-                                                <p v-else class="second_para">{{value[0].created_at}}</p>
+                                                <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                <p v-else class="second_para">{{item.created_at}}</p>
                                             </div>
 
                                         </div>
@@ -599,8 +599,8 @@
                                             <p class="news_title_large"> {{value[1].title}} </p>
                                         </div>
                                         <div class="txt_date txt_color_pc">
-                                            <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
-                                            <p v-else class="second_para">{{value[0].created_at}}</p>
+                                            <p v-if="value[1].new_news == '1'" class="second_para">{{value[1].date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{value[1].created_at}}</p>
                                         </div>
 
                                     </router-link>
@@ -650,8 +650,8 @@
                                         </div>
                                     </router-link>
                                     <div class="txt_date">
-                                        <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
-                                        <p v-else class="second_para">{{value[0].created_at}}</p>
+                                        <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                        <p v-else class="second_para">{{item.created_at}}</p>
                                     </div>
                                     </div>                                                    
                                 </div>                    
@@ -1169,7 +1169,7 @@
     }
  </script>
 
-<style scoped>
+<style>
 .list-label{
     float: right; 
     color: #999; 
@@ -1197,28 +1197,6 @@
     /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
-
-.news-3-card {
-    background-color: #f7f7f7;
-    /* box-shadow: 0 0 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
-    padding: 10px 0;
-}
-
-.news-3-card .img-box{
-    padding-left: 10px;
-}
-
-.single-news-box {
-    background: #f7f7f7;
-    height: 307px;
-    padding: 10px;
-    /* box-shadow: 0px 0px 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
-    overflow: hidden;
 }
 
 .news-tabColor .nav-link {
@@ -1532,7 +1510,28 @@
 /* .display_align {
     display: inline-flex;
 } */
+</style>
+<style scoped>
+.single-news-box {
+    background: #f7f7f7;
+    height: 307px;
+    padding: 10px;
+    /* box-shadow: 0px 0px 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    overflow: hidden;
+}
+.news-3-card {
+    background-color: #f7f7f7;
+    /* box-shadow: 0 0 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    padding: 10px 0;
+}
 
+.news-3-card .img-box{
+    padding-left: 10px;
+}
 .txt_align {
     position: relative;
 }
@@ -1560,13 +1559,6 @@
     position: relative;
     bottom: 2px;
 }
-.top_sm_news {
-    /* width: 85%;
-    overflow: hidden;
-    height: 37px;
-    white-space: unset;
-    line-height: 1.3rem; */
-}
 .sm_news_fa {
     float: left;
 }
@@ -1593,12 +1585,6 @@
     color: #969798;
     float: right;
 }
-/* .text-truncate {
-    white-space: unset;
-} */
-/* .news-list-display{
-    height: 33px;
-} */
 .sm_news_new_top {
     border-radius: 1px;
     padding: 0px 4px;
