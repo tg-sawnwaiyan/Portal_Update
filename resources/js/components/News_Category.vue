@@ -45,7 +45,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
+                                        <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                                -->
 
                                         <transition name="fade" slot="placeholder">
 
@@ -64,7 +64,11 @@
                                     <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <!-- <div class="txt_date">{{value.created_at}}</div> -->
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -97,7 +101,7 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
+                                        <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                         <transition name="fade" slot="placeholder">
 
@@ -124,7 +128,10 @@
 
                             </div>
                         </router-link>
-                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                        <div v-if="index === 0" class="txt_date">
+                            <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                            <p v-else class="second_para">{{value.created_at}}</p>
+                        </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(1, 8)" :key="index">
                         <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
@@ -1806,10 +1813,27 @@ export default {
     height: 100px;
     margin-bottom: 5px;
 }
+.large-b0 .single-news-box .wrapper-3 {
+    height: 73%;
+}
 .large-b0 .single-news-box p {
-    line-height: 1.4rem;
+    line-height: 1.3rem;
     -webkit-line-clamp: 3;
-    height: 63px;
+    height: 60px;
+    margin-top: 6px;
+}
+.large-b0 .txt_date .second_para .small_new,.medium-b1 .txt_date .second_para .small_new  {
+    margin-left: 5px;
+    float: right;
+    border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    height: 18px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+}
+.medium-b1 .second_para {
+    height: auto;
 }
 .medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p {
     line-height: 1.6rem!important;
