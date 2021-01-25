@@ -1337,7 +1337,7 @@
     color: #E83015!important;
 }
 .wrapper-3 {
-    height: 73%;
+    /*height: 73%;*/
 }
 .pattern-txt-box .medium_text {
     height: 62px;

@@ -42,7 +42,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                                -->
@@ -98,7 +98,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -160,7 +160,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                            
@@ -214,7 +214,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -255,7 +255,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -317,7 +317,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -376,7 +376,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                         
@@ -429,7 +429,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -470,7 +470,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -529,7 +529,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>  
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              
@@ -584,7 +584,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
@@ -634,7 +634,7 @@
                                         <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                             <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
                                             <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -693,7 +693,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
@@ -757,7 +757,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -821,7 +821,7 @@
                                         <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                             <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
                                             <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -880,7 +880,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
@@ -932,7 +932,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx" >
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -993,7 +993,7 @@
 
                                         <transition name="fade">
 
-                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                            <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
                                         <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
@@ -1051,7 +1051,7 @@
 
                                 <transition name="fade">
 
-                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                 </transition>   
                                 <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                             
@@ -1098,7 +1098,7 @@
 
                             <transition name="fade">
 
-                                <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
 
                             </transition>
                             <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -1136,7 +1136,7 @@
 
                                     <transition name="fade">
 
-                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                     </transition>   
                                    
@@ -1228,7 +1228,7 @@
 
                                     <transition name="fade">
 
-                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+                                        <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                     </transition>   
                                    
@@ -1260,7 +1260,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                         <transition name="fade">
-                                            <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
                                         </transition>
                                         <transition name="fade" slot="placeholder">
 
@@ -1292,7 +1292,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                         <transition name="fade">
-                                            <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
                                         </transition>
                                         <transition name="fade" slot="placeholder">
 
