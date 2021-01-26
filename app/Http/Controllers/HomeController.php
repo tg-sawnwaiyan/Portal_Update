@@ -28,8 +28,27 @@ class HomeController extends Controller
     public function index()
     {
         
-        $cats = DB::select("SELECT categories.* FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id != 26 and posts.recordstatus=1 GROUP BY categories.id ORDER BY categories.order_number DESC");
-        return response()->json($cats);
+        $catList = array();
+
+        $topic[0] = DB::table('categories')->where('name', 'トップ')
+                    //->where('recordstatus', '=', 1)
+                    ->first();
+        $cats = DB::table('categories')
+                    ->join('posts', 'categories.id', '=', 'posts.category_id')
+                    ->where('categories.id', '!=', 26)
+                    ->where('posts.recordstatus', '=', 1)
+                    ->groupBy('categories.id')
+                    ->orderByDesc('categories.order_number')
+                    ->select('categories.*')
+                    ->get()->toArray();
+
+       if(isset($topic[0]))
+        $catList = array_merge_recursive($topic , $cats);
+        else
+        $catList = $cats;
+
+        
+        return response()->json($catList);
     }
 
     public function home()
@@ -60,23 +79,9 @@ class HomeController extends Controller
 
     public function getLatestPost(Request $request)
     {
-
-
-
-
-        // $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
         $request = $request->all();
         $cat_id = $request['category_id'];
-
         $latest_post = Post::where("category_id",$cat_id,"and")->where('recordstatus',1);
-        // $search_word = $request['search_word'];
-
-        // if(isset($request['search_word'])) {
-        //     $search_word = $request['search_word'];
-        //     $latest_post = $latest_post->where(function($qu) use ($search_word){
-        //         $qu->where('title', 'LIKE', "%{$search_word}%");
-        //     });
-        // }
         $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
         return response()->json($latest_post);
     }
@@ -125,47 +130,20 @@ class HomeController extends Controller
     }
 
 
-        public function getLatestPostFromAllCat()
+    public function getLatestPostFromAllCat()
     {
         $to_date = [];$from_date=[];
         $getTime = Carbon\Carbon::now()->toDateString();
         // toDateTimeString
-
         $query = "SELECT *,'' as cname from posts 
         where category_id = 26 and recordstatus=1 and from_date <= '".$getTime."' and 
         (CASE WHEN to_date is NULL THEN from_date <= '".$getTime."' and to_date is null ELSE from_date <= '".$getTime."' and to_date >= '".$getTime."' END) limit 16";
         $break_news = DB::select($query);
-  
-  
-        // $list = Post::where('category_id',26)->get();
-        // foreach ($list as $li) {
-
-   
-        //     if($li->to_date == '0000-00-00 00:00:00' || $li->to_date == null)
-        //     {
-              
-        //         $query = "SELECT * from posts where (category_id = 26 and (from_date <= '".$getTime."' and (to_date = '0000-00-00 00:00:00' || to_date is null))) limit 16 ";
-        //         $from_date = DB::select($query);
-        //     }
-        //     if($li->to_date != '0000-00-00 00:00:00' && $li->to_date != null){
-           
-        //         $query1 = "SELECT * from posts where (category_id = 26 and (((to_date != '0000-00-00 00:00:00' || to_date is not null)) and (from_date <= '".$getTime."' and to_date >= '".$getTime."'))) limit 16";
-        //         $to_date = DB::select($query1);
-        //     }
-          
-        // }
-     
-        // $break_news =array_merge($from_date,$to_date);
-      
-       
-        // $query = "SELECT * from posts where (category_id = 26 and (from_date <= '".$getTime."' and to_date <= '".$getTime."')) limit 16";
-        // $break_news = DB::select($query);
         $limit = 16 - count($break_news);
         $latestpost = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.name as cname')->where('category_id','!=',26)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'desc')->limit("$limit")->get()->toArray();
 
         $merge_arr = array_merge($break_news,$latestpost);
         shuffle($merge_arr);
-
         return response()->json($merge_arr);
     }
 
@@ -229,37 +207,43 @@ class HomeController extends Controller
         else{
             $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
         }
-
         $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
-
         if(count($cat) == 0){
             $posts = [];
 
             return response()->json($posts);
         }else{
             for($i = 0; $i < count($cat); $i++) {
-
                 $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc  LIMIT 50) UNION ";
-
             }
             $sql = trim($sql,' UNION ');
-
             $posts = DB::select($sql);
-
             $tmp = array();
-
             foreach($posts as $aryPosts){
+                //$color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
+                $todayDate = Carbon\Carbon::now();
+                $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                if($hourInterval <= 36)
+                {
+                $aryPosts->new_news = 1;
+                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+                }
+                
+                $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
                 $tmp[$aryPosts->id.",".$aryPosts->name][] = $aryPosts;
             }
-
             $aryResults = array();
-
             foreach ($tmp as $key => $item) {
                 foreach($item as $item){
                     $aryResults[$key][$item->block_id][] = $item;
                 }
             }
-
             return response()->json($aryResults);
         }
     }
@@ -273,12 +257,9 @@ class HomeController extends Controller
         else{
             $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
         }
-
         $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
-
         if(count($cat) == 0){
             $posts = [];
-
             return response()->json($posts);
         }else{
             for($i = 0; $i < count($cat); $i++) {
@@ -287,35 +268,42 @@ class HomeController extends Controller
 
             }
             $sql = trim($sql,' UNION ');
-
-            $posts = DB::select($sql);
-
+			$posts = DB::select($sql);
             $tmp = array();
 
-            foreach($posts as $aryPosts){
+            foreach($posts as $aryPosts){ 
+                $todayDate = Carbon\Carbon::now();
+                $createdDate = $aryPosts->created_at;
+                $hourInterval = $todayDate->diffInHours($createdDate);
+
+                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                if($hourInterval <= 36)
+                {
+                $aryPosts->new_news = 1;
+                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+                }
+                $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
+                $minute = $carbonCreated_dt->minute;
+                $minute = $minute < 10 ? '0'.$minute : $minute;
+
+                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
                 $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
             }
-
             $aryResults = array();
-
             foreach ($tmp as $k => $v) {
                 foreach($v as $j){
                     if($k == 1)
                     $aryResults[] = $j[0];
-
                     if($k == 2)
                     $aryResults[] = $j;
-
                     if($k == 3)
                     $aryResults[] = $j;
-
                     // if($k == 4)
                     // $aryResults[] = $j[0];
                 }
             }
-
             $mobile = array();
-
             foreach($aryResults as $key => $value){
                 if(is_array($value)){
                     foreach($value as $v){
@@ -324,20 +312,16 @@ class HomeController extends Controller
                 }else{
                     $mobile[$value->block_id][] = $value;
                 }
-                
             } 
-
             sort($mobile, SORT_REGULAR);
-            
             $aryNewsMobile = array();
-
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
+                   // $color = $m->color_code ? $m->color_code : "#287db4";
                     $aryNewsMobile[$m->id.",".$m->name][] = $m;
                 }
             
             }          
-
         return response()->json($aryNewsMobile);
         }
     }

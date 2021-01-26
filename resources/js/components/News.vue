@@ -19,7 +19,6 @@
                         </div>
                         <!-- </form> -->
                         <slick  v-if="latest_post_all_cats.length > 0 && status == '0'" ref="slick" :options="categoryslider" class="cat-slider d-block d-sm-none">  
-
                             <div class="list-group-item adslist-card m-b-10"  v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                  <router-link :to="{path:'/newsdetails/'+latest_post_all_cat.id}">
                                     <div class="slide-img" style="border:1px solid #eee;">
@@ -60,7 +59,7 @@
                                                             <p class=" p_3">
                                                                 <span v-if="latest_post_all_cat.category_id == 26" class="breaking-tip">PR</span>
 
-                                                                {{ latest_post_all_cat.main_point }}
+                                                                {{ latest_post_all_cat.title }}
 
                                                             </p>
 
@@ -119,13 +118,12 @@
 
                                                  </clazy-load>
 
-                                                    <p class="source-title" v-if="latest_post.main_point" aria-label="">{{ latest_post.main_point }}</p>
+                                                    <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
 
-                                                    <p class="source-subtitle" v-if="latest_post.created_at">
-
-                                                      <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{ latest_post.created_at }}
-
-                                                    </p>
+                                                    <span class="source-subtitle" v-if="latest_post.created_at">                                                        
+                                                        <p v-if="latest_post.new_news == '1'" class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-else class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.created_at}}</p>
+                                                    </span>
 
                                                 </router-link>
 
@@ -133,15 +131,18 @@
 
                                             <div class="col-md-6 col-sm-6 news-wrapper">
 
-                                                <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
+                                                <ul class="list-group list-group-flush all-item">
 
-                                                    <li  class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
 
-                                                        <router-link :to="{path:'/newsdetails/'+post.id}">
+                                                        <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
 
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
-                                                            <span class="source-img-small d-inline-block text-truncate">{{ post.main_point }}</span>
+                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">
+                                                                <span v-if="post.new_news == '1'" class="s_top_left">New</span>
+                                                                {{ post.title }}
+                                                            </span>
 
                                                         </router-link>
 
@@ -208,13 +209,18 @@
                                                 <div class="col-md-8 col-sm-8 txt-box">                                                   
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <!-- <span> {{item.main_point}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                                        <!-- <span> {{item.title}} </span> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
-                                                    <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                    				<span class="tab_title_date tab_title_n" v-else >New</span>
+                                                    <span v-else class="tab_title_color for-read-more">
+                                                        <span>{{item.cname}}</span>
+                                                        
+                                                    </span>
+                                                    <span class="tab_title_date tab_title_d">
+                                                        <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-else class="second_para">{{item.created_at}}</p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,6 +243,7 @@
                                                                 <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
 
                                                             </transition>
+                                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -265,13 +272,13 @@
                                                 <div class="col-md-8 txt-box">
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <!-- <span> {{item.main_point}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                                        <!-- <span> {{item.title}} </span> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>                                                
-													<span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                    				<span class="tab_title_date tab_title_n" v-else >New</span>
+                                                    <span v-else class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
+                                                    <span class="tab_title_date tab_title_d">{{item.created_at}}
+                                                    </span>
                                                 </div>
 
                                             </div>
@@ -295,31 +302,32 @@
 
                                         <router-link :to="'/newsdetails/'+item.id">
 
-                                        <clazy-load class="wrapper-4" @load="log"  src="/images/noimage.jpg" :key="item.id">
+                                            <clazy-load class="wrapper-4" @load="log"  src="/images/noimage.jpg" :key="item.id">
 
-                                            <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
+                                                <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
-                                            <transition name="fade">
+                                                <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
-                                            </transition>
+                                                </transition>
+                                                <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
-                                            <transition name="fade" slot="placeholder">
+                                                <transition name="fade" slot="placeholder">
 
-                                                <div class="preloader">
+                                                    <div class="preloader">
 
-                                                    <div class="circle">
+                                                        <div class="circle">
 
-                                                    <div class="circle-inner"></div>
+                                                        <div class="circle-inner"></div>
+
+                                                        </div>
 
                                                     </div>
 
-                                                </div>
+                                                </transition>
 
-                                            </transition>
-
-                                        </clazy-load>
+                                            </clazy-load>
 
                                         </router-link>
 
@@ -330,13 +338,17 @@
                                     <div class="col-md-8 col-sm-8 txt-box">                                        
                                         
                                         <router-link :to="'/newsdetails/'+item.id">
-                                            <!-- <span> {{item.main_point}} </span> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                            <!-- <span> {{item.title}} </span> -->
+                                            <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
-                                        <span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                   		<span class="tab_title_date tab_title_n" v-else >New</span>
+                                        <span v-else class="tab_title_color for-read-more">
+                                            <span>{{item.cname}}</span>
+                                        </span>
+                                        <span class="tab_title_date tab_title_d">
+                                            <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{item.created_at}}</p>
+                                        </span>
                                     </div>
 
                                 </div>
@@ -346,8 +358,7 @@
                         <!-- one show -->
                         <div class="row col-md-12 pad-free m-0" v-if="(w_width < 1280 && w_width > 768) || (w_width < 480)">
                             <div class="col-md-4 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(4, 10)"  :key="item.id">
-                                <div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
-                                   
+								<div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
                                     <div class="col-md-4 img-box">
 
                                         <router-link :to="'/newsdetails/'+item.id">
@@ -361,6 +372,7 @@
                                                 <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                             </transition>
+                                            <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -387,13 +399,14 @@
                                     <div class="col-md-8 txt-box">
                                     
                                     <router-link :to="'/newsdetails/'+item.id">
-                                        <!-- <span> {{item.main_point}} </span> -->
-                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.main_point"></read-more>
+                                        <!-- <span> {{item.title}} </span> -->
+                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class=" for-read-more"><span>{{item.cname}}</span></span>
-									<span class="tab_title_date tab_title_d" v-if="item.created_at != 1">{{item.created_at}}</span>
-                                    <span class="tab_title_date tab_title_n" v-else >New</span>
+                                    <span v-else class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                    <span class="tab_title_date tab_title_d">
+                                        {{item.created_at}}
+                                    </span>
                                     </div>
 
                                 </div>
@@ -423,10 +436,9 @@
             </span>
             <span v-else>
   
-                <div v-for="(group,name,index) in post_groups" :key="index" class="col-md-12 category_box" id="view-1024-pattern" :class="'bordertop-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))" >
-                    
-                    <h4  class="category_news_title" :class="'h-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))"> 
-                        <router-link :to="'/newscategory/'+name.slice(0, name.indexOf(','))"><span >{{name.slice(name.lastIndexOf(',')+1)}} </span> </router-link>
+                <div v-for="(group,name,index) in post_groups" :key="index" class="col-md-12 category_box" id="view-1024-pattern" :class="'bordertop-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))">
+                    <h4  class="category_news_title" :class="'h-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))">
+                        <router-link :to="'/newscategory/'+name.split(',')[0]"><span >{{name.split(',')[1]}} </span> </router-link>
                         <label class="list-label" for="">新着ニュース一覧</label>
                         <label class="list-label sp-414">                         
                                 <p :class="'newsChangeLink'+index" @click="newsToggle(index)" ><i :id="'newstogg' + index" class="fas fa-sort-down"></i></p>                      
@@ -439,7 +451,7 @@
                                 <div class="pad-new pattern-child" v-if="block_id == 1 && value[0]">
                                     <router-link :to="'/newsdetails/'+value[0].pid">
 
-                                        <div class="col-12 single-news-box">
+                                        <div class="col-12 single-news-box top_lar_pc">
 
                                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
@@ -447,7 +459,8 @@
 
                                                     <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                </transition>                                
+                                                </transition>
+                                                <!-- <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -463,7 +476,11 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[0].main_point}} </p>
+                                            <p class="news_title_large"> {{value[0].title}} </p>
+                                        </div>
+                                        <div class="txt_date txt_color_pc">
+                                            <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{value[0].created_at}}</p>
                                         </div>
 
                                     </router-link>
@@ -472,7 +489,7 @@
                                 <div class="pad-new pattern-child" v-if="block_id == 2">
                                     <router-link v-for="(item,inx) in value.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
 
-                                        <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
+                                        <div class="col-12 row adslist-card m-lr-0 news-3-card top_med_pc">
 
                                             <div class="col-4 img-box">
 
@@ -485,6 +502,7 @@
                                                         <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -507,21 +525,32 @@
 
 
                                             <div class="col-8 pattern-txt-box">
-                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.title"></read-more> -->
 
-                                                <p>{{item.main_point}}</p>
+                                                <p class="medium_text">{{item.title}}</p>
 
+                                            </div>
+                                            <div class="txt_date txt_color_pc">
+                                                <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                <p v-else class="second_para">{{item.created_at}}</p>
                                             </div>
 
                                         </div>
                                     </router-link>
                                 </div>
 
-                                <div class="pad-new pattern-child" v-if="block_id == 3">
+                                <div class="pad-new pattern-child top_sm_pc" v-if="block_id == 3">
                                     <router-link v-for="(item,inx) in value.slice(0,8)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
 
+
                                         <p class="text-truncate news-list-display">
-                                            <i class="fas fa-building"></i> {{item.main_point}}
+                                            <!-- <span class="sm_news_new_top" v-if="item.new_news == 1">New</span> -->
+                                            <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
+                                            <span class="sm_news_mp">
+                                                {{item.title}}
+                                            </span>
+                                            <span v-if="item.new_news == '1'" class="sm_news_date">{{item.date_only}}<em class="small_new">New</em></span>
+                                            <span v-else class="sm_news_date">{{item.created_at}}</span>
                                         </p>
                                     </router-link>
                                 </div>
@@ -531,7 +560,7 @@
 
                                     <router-link :to="'/newsdetails/'+value[1].pid">
 
-                                        <div class="col-12 single-news-box">
+                                        <div class="col-12 single-news-box top_lar_pc">
 
                                             <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
 
@@ -539,7 +568,8 @@
 
                                                     <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
-                                                </transition>                                
+                                                </transition>
+                                                <!-- <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                                 <transition name="fade" slot="placeholder">
 
@@ -555,7 +585,11 @@
 
                                                 </transition>
                                             </clazy-load>
-                                            <p> {{value[1].main_point}} </p>
+                                            <p class="news_title_large"> {{value[1].title}} </p>
+                                        </div>
+                                        <div class="txt_date txt_color_pc">
+                                            <p v-if="value[1].new_news == '1'" class="second_para">{{value[1].date_only}}<span class="small_new">New</span></p>
+                                            <p v-else class="second_para">{{value[1].created_at}}</p>
                                         </div>
 
                                     </router-link>
@@ -564,7 +598,8 @@
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
                                 <div class="pad-new pattern-child" v-if="group[0]">
-                                    <router-link v-for="(item,inx) in group.slice(0, 3)" :key="inx" :to="'/newsdetails/'+item.pid">
+                                    <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
+                                    <router-link  :to="'/newsdetails/'+item.pid">
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
                                             <div class="col-4 img-box">
 
@@ -575,6 +610,7 @@
                                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -595,24 +631,31 @@
                                             </div>
 
                                             <div class="col-8 pattern-txt-box">
-                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.main_point"></read-more> -->
+                                                <!-- <read-more more-str="" less-str=""  :max-chars="40" :text="item.title"></read-more> -->
 
-                                                <p>{{item.main_point}}</p>
+                                                <p>{{item.title}}</p>
 
                                             </div>
                                         </div>
                                     </router-link>
+                                    <div class="txt_date">
+                                        <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                        <p v-else class="second_para">{{item.created_at}}</p>
+                                    </div>
+                                    </div>                                                    
                                 </div>                    
 
                                 <div class="pad-new pattern-child" v-if="group[3]">
                                     <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
-
                                         <p class="text-truncate news-list-display">
-
-                                            <i class="fas fa-building"></i> {{item.main_point}}
-
+                                            
+                                            <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
+                                            <span class="sm_news_mp">
+                                                {{item.title}}
+                                            </span>
+                                            <span v-if="item.new_news == '1'" class="sm_news_date">{{item.date_only}}<em class="small_new">New</em></span>
+                                            <span v-else class="sm_news_date">{{item.created_at}}</span>
                                         </p>
-
                                     </router-link>
                                 </div>                                               
                         </slick>
@@ -635,6 +678,7 @@
     import News from './News.vue'
     import Slick from 'vue-slick'
     import adsslider from '../components/adsslider'
+    import { eventBus } from '../event-bus.js';
 
     export default {
 
@@ -655,17 +699,6 @@
             this.getAllCat();
             this.getLatestPostsByCatID();
             this.getLatestPostFromAllCat();
-            
-            // this.axios.get('/api/auth/user') 
-            // .then(response => {
-            //     if(response.data.error == 'Unauthorized'){
-            //         $('#fav-box').css('display','block');                 
-            //     }
-            //     else{
-            //         $('#fav-box').css('display','none');
-            //     } 
-            // })
-
         },
 
     data() {
@@ -726,6 +759,7 @@
             menuWrapperSize: '',
             itemSize: '',
             li_width: 0,
+            latest_catId: 0,
             // w_width: $(window).width() + 16,
         }
     },
@@ -737,9 +771,10 @@
         })
         
         this.$nextTick(() => {
-        	$("#top_a").addClass("active");
+            $("#top_a").addClass("active");
             this.menuWrapperSize = $('.menu_category').outerWidth();
-            this.itemSize = $('.nav-item').outerWidth(true);
+
+             this.itemSize = $('.nav-item').outerWidth(true);
 
             
             if(this.$refs.infoBox){
@@ -878,6 +913,11 @@
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
+                        if(this.cats[0].name == "トップ"){
+                            this.latest_catId = this.cats[1].id;
+                        }else{
+                            this.latest_catId = this.cats[0].id;
+                        }
                         var total_word = 0;
                         $.each(this.cats, function(key,value) {
                             total_word += value.name.length;
@@ -886,15 +926,6 @@
                         if(this.cat_box_width/total_word < 23){
                             this.is_cat_overflow = true;
                         }
-
-                        // if(total_word > 32) {
-                        //     this.is_cat_overflow = true;
-                        //     this.computed_width = '99%';
-                        // }
-                        // else{
-                        //       this.is_cat_overflow = false;
-                        // }
-
                         this.getPostByCatID();
 
                         this.getLatestPostByCatID();
@@ -971,7 +1002,7 @@
             },
 
 
-            getPostByCatID: function(catId = this.cats[0].id) {
+            getPostByCatID: function(catId = this.latest_catId) {
                 if ($('#search-free-word').val() != null) {
                     var search_word = $('#search-free-word').val();
                 } else {
@@ -981,7 +1012,7 @@
                 if (catId !== undefined) {
                     var cat_id = catId;
                 } else {
-                    var cat_id = this.cats[0].id;
+                    var cat_id = this.latest_catId;
                 }
                 let fd = new FormData();
                 fd.append('search_word', search_word);
@@ -990,7 +1021,7 @@
                 this.categoryId = cat_id;
                 this.axios.post("/api/posts", fd)
                     .then(response => {
-                        this.posts = response.data;
+                        this.posts = this.findNewNews(response.data);
                     });
             },
 
@@ -1002,7 +1033,8 @@
 
             },
 
-            getLatestPostByCatID: function(catId) {
+            getLatestPostByCatID: function(catId = this.latest_catId) {
+             //   catId = 1;
 
                 if ($('#search-free-word').val()) {
 
@@ -1019,7 +1051,7 @@
 
                 } else {
 
-                    var cat_id = this.cats[0].id;
+                    var cat_id = this.latest_catId;
 
                 }
 
@@ -1037,8 +1069,27 @@
 
                 .then(response => {
 
-                    this.latest_post = response.data;
-                    if(Object.keys(this.latest_post).length == 0){
+                    var posts =[];
+                    var current_date = new Date().getTime();
+                    posts.push(response.data);
+                    var latest_post = this.findNewNews(posts);
+                    console.log(response.data);
+                    this.latest_post = latest_post[0];
+                    const post_date = new Date(latest_post.created_at);
+                    var msec = (current_date - post_date.getTime());
+                    var mins = Math.floor(msec / 60000);
+                    var hrs = Math.floor(mins / 60);
+                    var min = post_date.getMinutes();
+                    var month = post_date.getMonth()+1;
+                    min = min < 10 ? '0' + min : min;
+
+                    latest_post.new_news = "";
+                    if(hrs <= 36) {     
+                        latest_post.date_only = month + '/' +  post_date.getDate();
+                        latest_post.new_news = "1";
+                    }       
+                    latest_post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                    if(Object.keys(this.latest_post).length == 0) {
                         this.latest_post_null = true;
                     }
                     else{
@@ -1057,27 +1108,32 @@
                     .then(response => {
                     
                         this.$loading(false);
-                        const posts = response.data;
-                        var current_date = new Date();
+                        this.latest_post_all_cats = this.findNewNews(response.data);
+                    });
+            },
+            findNewNews: function(posts) {
+                        var current_date = new Date().getTime();
                         var is_within_48 = false;
                         posts.forEach(function(post){
-                            const post_date = Date.parse(post.created_at);
-                            const time_diff = (current_date.getTime() - post_date) / (1000 * 60 * 60 * 24);
-                            if(time_diff < 2) {
-                                post.created_at = "1";
-                            }
-                            else {
-                                var post_txt = new Date(post.created_at);
-                                var min = post_txt.getMinutes();
-                                var month = post_txt.getMonth()+1;
-                                if(min == 0 ) {
-                                    min = '00';
-                                }
-                                post.created_at = post_txt.getDate() + '/' +  month + ' ' + post_txt.getHours () + ':' + min;
-                            }
+                            const post_date = new Date(post.created_at);
+                            var msec = (current_date - post_date.getTime());
+                            var mins = Math.floor(msec / 60000);
+                            var hrs = Math.floor(mins / 60);
+                            var min = post_date.getMinutes();
+                            var month = post_date.getMonth()+1;
+                            min = min < 10 ? '0' + min : min;
+
+                            post.new_news = "";
+                            if(hrs <= 36) {     
+                                post.date_only = month + '/' +  post_date.getDate();
+                                post.new_news = "1";
+                            }   
+
+                           
+                            post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                            
                         });
-                        this.latest_post_all_cats = posts;
-                    });
+                        return posts;
             },
 
             searchCategory() {
@@ -1106,98 +1162,8 @@
             imgUrlAlt(event) {
                 event.target.src = "/images/noimage.jpg"
             },
-
-            scrollTo(element, scrollPixels, duration) {
-
-                const scrollPos = element.scrollLeft;
-
-                // Condition to check if scrolling is required
-
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
-
-                {
-
-                    // Get the start timestamp
-
-                    const startTime =
-
-                    "now" in window.performance
-
-                        ? performance.now()
-
-                        : new Date().getTime();
-
-
-
-                    function scroll(timestamp) {
-
-                    //Calculate the timeelapsed
-
-                    const timeElapsed = timestamp - startTime;
-
-                    //Calculate progress
-
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    //Set the scrolleft
-
-                    element.scrollLeft = scrollPos + scrollPixels * progress;
-
-                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
-
-                    if (timeElapsed < duration) {
-
-                        //Request for animation
-
-                        window.requestAnimationFrame(scroll);
-
-                    } else {
-
-                        return;
-
-                    }
-
-                    }
-
-                    //Call requestAnimationFrame on scroll function first time
-
-                    window.requestAnimationFrame(scroll);
-
-                }
-
-            },
-
-            swipeLeft() {
-
-                const content = this.$refs.content;
-
-                this.scrollTo(content, -300, 800);
-              
-
-
-            },
-
-            swipeRight() {
-                const content = this.$refs.content;
-                this.scrollTo(content, 300, 800);
-                this.is_cat_slided = true;
-                this.computed_width = '98%';
-            },
-             changeBgColor(no) {
-            console.log(no);
-            const color_ary = ['#0066CC','#a3774a','#9579ef','#21d1de','#d1291d','#63b7ff'];
-            $('.bg_color').css('background-color', color_ary[no]);
-        },         
-
         }
     }
-    $(document).ready(function(){
-        // $("#top_a").addClass("active");
-        var url      = window.location.href; 
-        if(url.indexOf('category') == -1){
-            $("#top_a").addClass("active");
-        }
-    });
  </script>
 
 <style>
@@ -1216,38 +1182,18 @@
     font-size: 20px;
 }
 .pad-new{
+	position: relative;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     background: #f7f7f7;
     /* box-shadow: 0px 0px 1px #ddd; */
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
-}
-
-.news-3-card {
-    background-color: #f7f7f7;
-    /* box-shadow: 0 0 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
-}
-
-.news-3-card .img-box{
-    padding-left: 10px;
-}
-
-.single-news-box {
-    background: #f7f7f7;
-    height: 310px;
-    padding: 10px;
-    /* box-shadow: 0px 0px 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
-    overflow: hidden;
 }
 
 .news-tabColor .nav-link {
@@ -1295,9 +1241,11 @@
 
 .card-header-tabs {
    margin-right: -1.65rem;
-    /* margin-bottom: 0rem; */
     margin-left: -1.65rem;
     border-bottom: 0;
+}
+#top {
+    border-left: 1px solid #fff;
 }
 .arr-btn {
     cursor: pointer;
@@ -1369,11 +1317,9 @@
 .news-slider-width{
     width: 100%;
 }
-
 #top {
     border-left: 1px solid #fff;
 }
-
 .nav-tabs{
     border-bottom: none;
 }
@@ -1384,7 +1330,6 @@
     background-color: #828282;
     border: none !important;
 }
-
 .tab_title_date {
     font-size: 12px;
     float: right;
@@ -1395,7 +1340,27 @@
 }
 .tab_title_n {
     color: #E83015!important;
-}   
+}
+.wrapper-3 {
+    /*height: 73%;*/
+}
+.pattern-txt-box .medium_text {
+    height: 62px;
+    overflow: hidden;
+}
+.top_lar_pc .news_title_large {
+    line-height: 1.3rem;
+}
+.top_med_pc {
+    height: 98px;
+    margin-bottom: 6.5px;
+}
+.top_sm_pc a .news-list-display {
+    height: 34px;
+}
+.top_sm_pc a .news-list-display .sm_news_mp {
+    max-width: 70%;
+}
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
         max-width: 66.666667%;
@@ -1420,8 +1385,27 @@
 }
 
 @media only screen and (max-width:480px){
-    .list-label{  
+    .p_3 {
+        max-height: 50px;
+        font-weight: bold;
+        line-height: 1.1rem;
+    }
+    .list-label{
         color: #fff;     
+    }
+    .pattern-txt-box {
+        max-height: 60px;
+    }
+    .txt_date {
+        font-weight: normal;
+        font-size: 12px;
+        color: #969798;
+    }
+    .txt_align a .pattern-txt-box p, .sm_news_mp {
+        font-weight: bold;
+    }
+    .sm_news_mp {
+        max-width: 72%!important;
     }
 }
 @media only screen and (max-width: 1280px){
@@ -1497,5 +1481,105 @@
     display: none !important;   
     } 
 }
+#widthmenu{
+    display: inline-block;
 
+}
+.tab_title_color{
+    border-radius: 3px;
+    padding: 2px 4px 0px 4px;
+    font-size: 13px;
+    background-color: var(--bkgColor);
+}
+.tab_title_color span {
+    color: #fff;
+}
+/* .display_align {
+    display: inline-flex;
+} */
+</style>
+<style scoped>
+.single-news-box {
+    background: #f7f7f7;
+    height: 307px;
+    padding: 10px;
+    /* box-shadow: 0px 0px 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    overflow: hidden;
+}
+.news-3-card {
+    background-color: #f7f7f7;
+    /* box-shadow: 0 0 2px #ddd; */
+    border:solid #f3efef;
+    border-width: 0 .1rem .1rem 0;
+    padding: 10px 0;
+}
+
+.news-3-card .img-box{
+    padding-left: 10px;
+}
+.txt_align {
+    position: relative;
+}
+.txt_date {
+    /* font-weight: bold; */
+    text-align: right;
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+}
+.txt_color {
+    right: 5px;
+    color: white;
+}
+.txt_color_pc {
+    right: 16px;
+    font-weight: normal;
+    font-size: 12px;
+    float: right;
+    margin-top: 16px;    
+    color: #969798;
+    /* bottom: -2px; */
+}
+.s_top_left {
+    position: relative;
+    bottom: 2px;
+}
+.sm_news_fa {
+    float: left;
+}
+.sm_news_mp {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 75%;
+    float: left;
+    max-height: 20px;
+    overflow: hidden;
+    padding: 0 0 0 5px;
+}
+.small_new {
+    margin-left: 5px;
+    border-radius: 1px;
+    padding: 0px 6px 0px 6px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    font-style: normal;
+}
+.sm_news_date {
+    font-size: 12px;
+    color: #969798;
+    float: right;
+}
+.sm_news_new_top {
+    border-radius: 1px;
+    padding: 0px 4px;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    float: left;
+    height: 15px;
+    line-height: 15px;
+}
 </style>

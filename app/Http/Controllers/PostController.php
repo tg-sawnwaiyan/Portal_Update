@@ -137,15 +137,35 @@ class PostController extends Controller
     {
         $cat = Category::where('id',$id)->select('name')->first();
 
-        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*')->where('posts.block_id','!=',0)->where('posts.category_id',$id)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'DESC')->get()->toArray();
-
-        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $newarray4 = $aryPush = $aryEmpty = $More = [];
+        $newslist = Post::join('categories', 'posts.category_id', '=', 'categories.id' )
+                        ->select('posts.*')
+                        ->where('posts.block_id','!=',0)
+                        ->where('posts.category_id',$id)
+                        ->where('posts.recordstatus',1)
+                        ->orderBy('posts.created_at', 'DESC')
+                        ->get()->toArray();
+        $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
 
         //divide array new list by block
         foreach ($newslist as $value) {
+            //find time difference
+            $todayDate = Carbon\Carbon::now();
+            $createdDate = $value['created_at'];
+            $hourInterval = $todayDate->diffInHours($createdDate);
+            
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            if($hourInterval <= 36)
+            {
+            $value['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+            $value['new_news'] = 1;
+            }
+            $hour = $carbonCreated_dt->hour;
+            $hour = $hour < 10 ? '0'.$hour : $hour;
+            $minute = $carbonCreated_dt->minute;
+            $minute = $minute < 10 ? '0'.$minute : $minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
             $tmp[$value['block_id']][] = $value;
         }
-
         //separted divied block array
         foreach ($tmp as $key => $value) {
             if($key == 1){
@@ -154,18 +174,13 @@ class PostController extends Controller
                 $newarray2 = array_chunk($value, 3);
             }elseif($key == 3){
                 $newarray3 = array_chunk($value, 13);
-            }/*elseif($key == 4){
-                $newarray4 = array_chunk($value, 1);
-            }*/
+            }
         }
         $one = $two = $three = 0; 
         $moreNews  = $moreNews_concat = [];
-
         $lenght[] = count($newarray1);
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-        //$lenght[] = count($newarray4); 
-                
         for ($i=0; $i <= max($lenght); $i++) { 
             /***for block id one***/      
             if(isset($newarray1[$i]) && $one < 2){
@@ -203,19 +218,17 @@ class PostController extends Controller
             if (is_array($value)) { 
               $moreNews = array_merge($moreNews, $value); 
             } 
-            $moreNews_concat = array_chunk($moreNews, 4);
+            $moreNews_concat = array_chunk($moreNews, 36);
         } 
-
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 3);
         }else{
             $aryResults = [];
         }
-
         return response()->json(array('cat'=> $cat,'cat_id' => $id,'newslist'=>$aryResults,'moreNews'=>$moreNews_concat));
     }
 
-     public function getNewsByCategoryForMobile($id)
+    public function getNewsByCategoryForMobile($id)
     {
         $cat = Category::where('id',$id)->select('name')->first();
 
@@ -223,8 +236,23 @@ class PostController extends Controller
 
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
 
-        //divide array new list by block
         foreach ($newslist as $value) {
+            //find time difference
+            $todayDate = Carbon\Carbon::now();
+            $createdDate = $value['created_at'];
+            $hourInterval = $todayDate->diffInHours($createdDate);
+            
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $hour = $carbonCreated_dt->hour;
+                $hour = $hour < 10 ? '0'.$hour : $hour;
+            $minute = $carbonCreated_dt->minute;
+            $minute = $minute < 10 ? '0'.$minute : $minute;
+            $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
+            if($hourInterval <= 36)
+            {
+            $value['new_news'] = 1;
+            $value['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+            }
             $tmp[$value['block_id']][] = $value;
         }
 
@@ -273,6 +301,11 @@ class PostController extends Controller
               $moreNews = array_merge($moreNews, $value); 
             } 
         } 
+        if(array_filter($moreNews)){            
+            $moreNews = array_chunk($moreNews, 12);
+        }else{
+            $moreNews = [];
+        }
 
         if(array_filter($aryPush)){            
             $aryResults = array_chunk($aryPush, 2);
