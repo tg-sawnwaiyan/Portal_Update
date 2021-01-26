@@ -1952,10 +1952,10 @@ export default {
         max-height: 140px;
     }
     .txt_align .single-news-box p{
-        /* max-height: 50px; */
+         max-height: 50px; 
         padding: 5px;
         background: #f7f7f7;
-        /* line-height: 1.3rem; */
+         line-height: 1.3rem; 
     }
     .txt_align .single-news-box .wrapper-3 img{
         background: #fff;
@@ -2038,6 +2038,14 @@ export default {
         float: left;
         width: 49%;
         margin-bottom: 10px;
+    }
+    .square-medium .single-news-box .wrapper-3{
+        border: 1px solid #fff;
+        background-color: #fff;
+        max-height: 150px;
+    }
+    .square-medium .single-news-box .wrapper-3 img{
+        max-height: 150px;
     }
     .square-medium .single-news-box p {
         padding: 0 5px;
@@ -2134,10 +2142,6 @@ export default {
     }
     .txt_align a .single-news-box {
         height: 187px;
-    }
-    .txt_align .single-news-box p {
-        max-height: 50px;
-        line-height: 1.3rem;
     }
 }
 
