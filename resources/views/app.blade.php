@@ -26,7 +26,10 @@ header("Pragma:no-cache");
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<title>{{ config('app.name', 'Healthcare Portal') }}</title>
+<!-- <title>{{ config('app.name', 'Healthcare Portal') }}</title> -->
+<title>ティーズ（TIS）｜介護医療福祉の総合サイト</title>
+<meta name="description" content="ティーズ（TIS）は介護医療福祉の総合サイトです。病院・医療、特養・介護、有料老人ホーム、訪問介護・看護、デイサービス、グループホーム、新型コロナなど、
+様々なカテゴリのニュースの掲載をしております。また、介護施設や病院の検索も行うことができます。さらに老人ホームや病院の求人も掲載しております。">
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
@@ -177,7 +180,7 @@ header("Pragma:no-cache");
 <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
 <!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
