@@ -1333,7 +1333,9 @@ border-radius: 3px;
 .fit-image {
     width: 100%;
     object-fit: contain;
-    height: 220px;
+    /* height: 220px; */
+    height: 214px;
+    padding: 10px 0;
     /* only if you want fixed height */
 }
 
@@ -10629,7 +10631,7 @@ background-color: #f57e46;
 .wrapper-4 img {
     position: absolute;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
     /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
 }
@@ -12899,7 +12901,7 @@ width: 18rem;
         padding: 0 5px !important;
     }
     .wrapper-4 img {
-        width: auto !important;
+        /* width: auto !important; */
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -14648,7 +14650,7 @@ strong {
 .img-fluid {
     max-width: 670px !important;
     width: 100% !important;
-    height: auto;
+    /* height: auto; */
 }
 
 

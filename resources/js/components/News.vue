@@ -1385,6 +1385,9 @@
 }
 
 @media only screen and (max-width:480px){
+    .fit-image {
+        padding: 0;
+    }
     .p_3 {
         max-height: 50px;
         font-weight: bold;

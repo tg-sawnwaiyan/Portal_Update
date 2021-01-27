@@ -2135,6 +2135,7 @@ export default {
     .txt_align.news-3-card{
         margin-bottom: 5px;
         width: 96% !important;
+        border: 1px solid #f3efef;
     }
     .slick-active .txt_align.news-3-card:first-child{
         width: 96% !important;
@@ -2180,6 +2181,16 @@ export default {
         float: left;
         width: 49%;
         margin-bottom: 10px;
+    }
+    .square-medium .single-news-box .wrapper-3{
+        /* border: 1px solid red;
+         */
+        border: 1px solid #f3efef;
+        background-color: #fff;
+        max-height: 150px;
+    }
+    .square-medium .single-news-box .wrapper-3 img{
+        max-height: 150px;
     }
     .square-medium .single-news-box p {
         padding: 0 5px;
@@ -2278,7 +2289,7 @@ export default {
         height: 187px;
     }
     .txt_align .single-news-box p {
-        max-height: 50px;
+        max-height: 45px;
         line-height: 1.3rem;
     }
 }

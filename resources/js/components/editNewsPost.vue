@@ -28,11 +28,8 @@
                         <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
 
-                    <div class="form-group" id="showimage">
-                        <label class="">写真</label>
-                        <!-- <div class="custom-file">
-                            <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                        </div> -->
+                    <!-- <div class="form-group" id="showimage">
+                        <label class="">写真</label>                      
                         <div class="d-flex align-items-center">
                             <span class="btn-file d-inline-block">画像を選択        
                                 <input type="file" ref="file" accept="image/*" @change="fileSelected">
@@ -41,22 +38,56 @@
                         </div>                    
                         
                     </div>                    
-                    
                     <div class="image_show" v-if="upload_img ">
                         <div class='col-md-2'>
-                            <!-- <span class='img-close-btn test' v-on:click="removeUpload()" v-if='status == 1'>X</span> -->
+                            
                             <img :src="upload_img" class='show-img' @error="imgUrlAlt">
                         </div>
                     </div>  
-    
-                    <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
+                	<div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
                         <div class="col-md-12" >
                             <div id='x-image' class='col-md-2' >
                                 <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
                                 <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+<div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo ">
+    <div class="col-md-12" >
+        <div id='x-image' class='col-md-2' >
+            <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
+            <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
+        </div>
+    </div>
+</div>
+
+<div class="form-group p-3 bg-white shadow rounded-lg">
+    <input type="file" name="image" accept="image/*" @change="setImage" />
+
+    <!-- Image previewer -->
+    <!-- <img :src="imageSrc" width="100" /> -->
+
+    <!-- Cropper container -->
+    <div
+      v-if="this.imageSrc"
+      class="my-3 d-flex align-items-center justify-content-center mx-auto"
+    >
+      <vue-cropper
+        class="mr-2 w-50"
+        ref="cropper"
+        :guides="true"
+        :src="imageSrc"
+      ></vue-cropper>
+
+      <!-- Cropped image previewer -->
+      <img class="ml-2 w-50 bg-light" :src="croppedImageSrc" />
+    </div>
+    <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary"> Crop </div>
+    <!-- <button v-if="this.croppedImageSrc" @click="uploadImage">Upload</button> -->
+  </div>
+
+        
+                   
                  
                     <div class="form-group">
                         <label>内容要約 <span class="error sp2">必須</span></label>
@@ -78,7 +109,8 @@
                         <label>ブロック</label>
                             <select v-model="block_id" class="form-control" @change='getblock()'>
                                 <option v-bind:value="0">選択してください。</option>
-                                <option v-bind:value="1">左の大きなブロック</option>
+                                <option v-bind:value="1">大きなブロック</option>
+                               <!--  <option v-bind:value="4">右の大きなブロック</option> -->
                                 <option v-bind:value="2">中型ブロック</option>
                                 <option v-bind:value="3">小さなブロックサイズ</option>
                             </select>
@@ -98,7 +130,7 @@
                         </div>
                         <span v-if="errors.date_check" class="error">{{errors.date_check}}</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="border:1px solid #ccc;">
                         <label>内容 <span class="error sp2">必須</span></label>
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
@@ -112,7 +144,7 @@
                                 <div class="d-sm-flex">
                                     <div class="d-flex align-items-center cat_box">
                                          <label class="cat_lbl"> カテゴリー</label>
-                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getPostsByCatId()'>
+                                        <select v-model="category_id_1" id="categories" class="form-control cat_select" @change='getSearchPostsByCatId()'>
                                             <option v-for="category in prcategories" :key="category.id" v-bind:value="category.id">
                                                 {{category.name}}
                                             </option>
@@ -167,7 +199,7 @@
                    
 
                     <div class="form-group">
-                        <span @click="$router.go(-1)" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
+                        <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 1'> 保存</span>
                         <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 0'> 作成</span>
                     </div>
@@ -180,9 +212,12 @@
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
+import VueCropper from "vue-cropperjs"
+import "cropperjs/dist/cropper.css"
 
     export default {
         components: {
+            VueCropper,
             quillEditor
         },
            props:{
@@ -194,6 +229,9 @@ import {quillEditor} from 'vue-quill-editor'
 
         data() {
                 return {
+                    imageSrc: "",
+                    croppedImageSrc: "",
+                    norecord: 0,
                     lang:{
                         days: ['日', '月', '火', '水', '木', '金', '土'],
                         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -290,7 +328,11 @@ import {quillEditor} from 'vue-quill-editor'
                 }.bind(this));
             },
             methods: {
-                
+                returnPreviousPage:function () {
+                    this.$loading(false)
+                    var num = localStorage.getItem('page_no');
+                    this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } });
+                },
                 getResults() {
                    
                     if(this.$route.name == "editPost"){
@@ -299,7 +341,7 @@ import {quillEditor} from 'vue-quill-editor'
                             .get(`/api/new/editPost/${this.$route.params.id}`)
                             .then((response) => {
                                 this.news = response.data;
-                            
+                         
                                 if(this.news.to_date == null)
                                 {
                                     this.news.to_date = '';
@@ -317,88 +359,112 @@ import {quillEditor} from 'vue-quill-editor'
                                 if(this.news.photo == null || this.news.photo == '') {
                                     this.old_photo = '';
                                 }
+                               
                                 this.selectedValue = this.news.category_id;
                                 this.block_id = this.news.block_id ? this.news.block_id : 0;
                         });
-                        this.getPostsByCatId();
                         this.getSearchPostsByCatId();
                     } 
                     else {
-                        this.getPostsByCatId();
+                        this.getSearchPostsByCatId();
                     }
                 },
-                    fileSelected(e) {
-                        this.news.photo = event.target.files[0];
-                        this.upload_img = URL.createObjectURL(event.target.files[0]);
-                        const file =event.target.files[0];
-                        this.img_name = file.name;
-                    },
-                    removeUpload(e) {
-                         this.$swal({
-                            // title: "確認",
-                            text: "削除してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                        }).then(response => {
-                                this.$swal({
-                                        text: "画像を削除しました。",
-                                        type: "success",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "閉じる",
-                                        confirmButtonColor: "#31cd38",
-                                        allowOutsideClick: false,
-                                       
-                                    });
-                           }).then(response => {
-                            this.img_name = '';
-                         });
-                        this.news.photo = '';
-                        this.upload_img = '';
-                        this.reset();
-                    },
-                    reset() {
-                        const input = this.$refs.file;
-                        input.type = 'text';
-                        input.type = 'file';
-                    },
-                    onDetailInfoEditorChange({ editor, html, text }) {
-                        this.news['body'] = html
-                    },
-                    updatepost() {
+                /*fileSelected(e) {
+                    this.news.photo = event.target.files[0];
+                    this.upload_img = URL.createObjectURL(event.target.files[0]);
+                    const file =event.target.files[0];
+                    this.img_name = file.name;
+                },*/
+                
+                reset() {
+                    const input = this.$refs.file;
+                    input.type = 'text';
+                    input.type = 'file';
+                },
+                onDetailInfoEditorChange({ editor, html, text }) {
+                    this.news['body'] = html
+                },
+                updatepost() {
+                    this.$swal({
+                        // title:"確認",
+                        text: "ニュースを更新してよろしいでしょうか。",
+                        type: "warning",
+                        width: 350,
+                        height: 200,
+                        showCancelButton: true,
+                        confirmButtonColor: "#eea025",
+                        cancelButtonColor: "#b1abab",
+                        cancelButtonTextColor: "#000",
+                        confirmButtonText: "はい",
+                        cancelButtonText: "キャンセル",
+                        confirmButtonClass: "all-btn",
+                        cancelButtonClass: "all-btn",
+                        allowOutsideClick: false,
+                       
+                    }).then(response => {
+                        let fData = new FormData();
+                        if(this.news.category_id != 26 )
+                        {
+                            this.news.from_date = null;
+                            this.news.to_date = null;
+                        }
+                        fData.append('photo', this.news.photo)
+                        fData.append('from_date', this.news.from_date)
+                        fData.append('to_date', this.news.to_date)
+                        fData.append('title', this.news.title)
+                        fData.append('created_by', this.news.created_by)
+                        fData.append('created_by_company', this.news.created_by_company)
+                        fData.append('main_point', this.news.main_point)
+                        fData.append('body', this.news.body)
+                        fData.append('category_id', this.news.category_id)
+                        fData.append('block_id', this.news.block_id)
+                        fData.append('related_news', this.checkedNews)
+                        fData.append('old_photo',this.old_photo)
+                         
+                            this.$loading(true);
+                        this.axios.post(`/api/new/update/${this.$route.params.id}`, fData).then(response => {
+                            this.$loading(false);
+                             this.$swal({
+                                position: 'top-end',
+                                type: 'success',
+                                text: 'ニュースを更新しました。',
+                                confirmButtonText: "閉じる",
+                                confirmButtonColor: "#31cd38",
+                                width: 350,
+                                height: 200,
+                                allowOutsideClick: false,                                   
+                            })
+                            var num = localStorage.getItem('page_no');//comment get from newslist.vue/searchbyCategory()
+
+                            this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
+                            
+                            //this.$router.go(-1);
+                        })
+                        .catch(error=>{
+                        if(error.response.status == 422){
+                            this.errors = error.response.data.errors
+                        }
+                        });
+                    });
+                },
+                add() {
                         this.$swal({
-                            // title:"確認",
-                            text: "ニュースを更新してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                           
+                        // title: "確認",
+                        text: "ニュースを投稿してよろしいでしょうか。",
+                        type: "warning",
+                        width: 350,
+                        height: 200,
+                        showCancelButton: true,
+                        confirmButtonColor: "#eea025",
+                        cancelButtonColor: "#b1abab",
+                        cancelButtonTextColor: "#000",
+                        confirmButtonText: "はい",
+                        cancelButtonText: "キャンセル",
+                        confirmButtonClass: "all-btn",
+                        cancelButtonClass: "all-btn",
+                        allowOutsideClick: false,                         
                         }).then(response => {
                             let fData = new FormData();
-                            if(this.news.category_id != 26 )
-                            {
-                                this.news.from_date = null;
-                                this.news.to_date = null;
-                            }
                             fData.append('photo', this.news.photo)
                             fData.append('from_date', this.news.from_date)
                             fData.append('to_date', this.news.to_date)
@@ -410,64 +476,10 @@ import {quillEditor} from 'vue-quill-editor'
                             fData.append('category_id', this.news.category_id)
                             fData.append('block_id', this.news.block_id)
                             fData.append('related_news', this.checkedNews)
-                            fData.append('old_photo',this.old_photo)
-                            this.$loading(true);
-                            this.axios.post(`/api/new/update/${this.$route.params.id}`, fData).then(response => {
-                                this.$loading(false);
-                                 this.$swal({
-                                    position: 'top-end',
-                                    type: 'success',
-                                    text: 'ニュースを更新しました。',
-                                    confirmButtonText: "閉じる",
-                                    confirmButtonColor: "#31cd38",
-                                    width: 350,
-                                    height: 200,
-                                    allowOutsideClick: false,                                   
-                                })
-                                var num = localStorage.getItem('page_no');//comment get from newslist.vue/searchbyCategory()
+                            //fData.append('quill_photo', this.news.quill_photo)
 
-                                this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
-                                
-                                //this.$router.go(-1);
-                            })
-                            .catch(error=>{
-                            if(error.response.status == 422){
-                                this.errors = error.response.data.errors
-                            }
-                            });
-                        });
-                    },
-                    add() {
-                            this.$swal({
-                            // title: "確認",
-                            text: "ニュースを投稿してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,                         
-                        }).then(response => {
-                        let fData = new FormData();
-                            fData.append('photo', this.news.photo)
-                            fData.append('from_date', this.news.from_date)
-                            fData.append('to_date', this.news.to_date)
-                            fData.append('title', this.news.title)
-                            fData.append('created_by', this.news.created_by)
-                            fData.append('created_by_company', this.news.created_by_company)
-                            fData.append('main_point', this.news.main_point)
-                            fData.append('body', this.news.body)
-                            fData.append('category_id', this.news.category_id)
-                            fData.append('block_id', this.news.block_id)
-                            fData.append('related_news', this.checkedNews)
                             this.$loading(true);
-                        this.axios.post('/api/new/add', fData)
+                            this.axios.post('/api/new/add', fData)
                             .then(response => {
                             this.$loading(false);
                             this.name = ''
@@ -480,211 +492,233 @@ import {quillEditor} from 'vue-quill-editor'
                             width: 350,
                             height: 200,
                             allowOutsideClick: false,
-                        })
-                            this.$router.push({
-                                name: 'news_list'
                             })
-                        }).catch(error=>{
-                            if(error.response.status == 422){
-                                this.errors = error.response.data.errors
-                            }});
+                            this.$router.push({  name: 'news_list'})
+                            }).catch(error=>{
+                                if(error.response.status == 422){
+                                    this.errors = error.response.data.errors
+                                }
+                            });
                         })
-                    },
-                    getstates: function() {
-                        this.news.category_id = this.selectedValue;
-                        this.news.from_date = '';
-                        this.news.to_date = '';
-                    },
-                    getblock: function() {
-                        this.news.block_id = this.block_id;
-                    },
-                    getPostsByCatId: function(page) {
-                        if (typeof page === 'undefined') {
-                            page = 1;
+                },
+                getstates: function() {
+                    this.news.category_id = this.selectedValue;
+                    this.news.from_date = '';
+                    this.news.to_date = '';
+                },
+                getblock: function() {
+                    this.news.block_id = this.block_id;
+                },
+                getPostsByCatId: function(page) {
+                    if (typeof page === 'undefined') {
+                        page = 1;
+                    }
+                    var cat_id = this.category_id_1;
+                    let fd = new FormData();
+                    fd.append("cat_id", cat_id);
+                    fd.append("search_word",this.search_word);
+                    fd.append("post_id",this.$route.params.id);
+                    this.axios
+                    .post('/api/new/getPostsByCatId?page=' + page,fd)
+                    .then(response => {
+                        this.related_news = response.data;
+                        this.norecord = this.related_news.data.length;
+                       
+
+                        if(this.norecord != 0) {
+                            this.nosearch_msg = false;
+                        }else{
+                            this.nosearch_msg = true;
                         }
-                        var cat_id = this.category_id_1;
-                        let fd = new FormData();
-                        fd.append("cat_id", cat_id);
-                        fd.append("search_word",this.search_word);
 
-                        this.axios
-                        .post('/api/new/getPostsByCatId/page=' + page+"/"+`${this.$route.params.id}`,fd)
-                        .then(response => {
-                            this.related_news = response.data;
-                            this.norecord = this.related_news.data.length;
-                           
-
-                            if(this.norecord != 0) {
-                                this.nosearch_msg = false;
-                            }else{
-                                this.nosearch_msg = true;
-                            }
-
-                            
-                            if(this.related_news.length > this.size) {
-                                this.pagination = true;
-                            }else{
-                                this.pagination = false;
-                            }
-                        });
-                    },
-                    getSearchPostsByCatId(page) {
-                        if (typeof page === 'undefined') {
-                            page = 1;
-                        }
-                        var cat_id = this.category_id_1;
                         
-                        let fd = new FormData();
-                        fd.append("search_word", this.search_word);
-                        fd.append("selected_category", cat_id);
-                        fd.append("postid",`${this.$route.params.id}`)
-                        this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
-                            this.related_news = response.data;
-                            console.log("re",this.related_news)
-                            this.norecord = this.related_news.data.length;
+                        if(this.related_news.length > this.size) {
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
+                    });
+                },
+                getSearchPostsByCatId(page) {
+                    if (typeof page === 'undefined') {
+                        page = 1;
+                    }
+                    var cat_id = this.category_id_1;
+                    
+                    let fd = new FormData();
+                    fd.append("search_word", this.search_word);
+                    fd.append("selected_category", cat_id);
+                    fd.append("postid",`${this.$route.params.id}`)
+                    this.axios.post("/api/news_list/search?page="+ page,fd).then(response => {
+                        this.related_news = response.data.query;
+                        this.norecord = this.related_news.data.length;
 
-                            if(this.norecord != 0) {
-                                this.nosearch_msg = false;
-                            }else{
-                                this.nosearch_msg = true;
-                            }
-                            this.check_head = true;
-                            if(this.related_news.length > this.size) {
-                                this.pagination = true;
-                            }else{
-                                this.pagination = false;
-                            }
-                        });
-                        // this.search_word = '1';
-                    },
-                    closeBtnMethod: function(old_photo) {
-                        if(confirm)
-                        {
+                        if(this.norecord != 0) {
+                            this.nosearch_msg = false;
+                        }else{
+                            this.nosearch_msg = true;
+                        }
+                        this.check_head = true;
+                        if(this.related_news.length > this.size) {
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
+                    });
+                    // this.search_word = '1';
+                },
+                closeBtnMethod: function(old_photo) {
+                    if(confirm)
+                    {
+                        this.$swal({
+                        // title: "削除",
+                        text: "画像を削除してよろしいでしょうか。",
+                        type: "warning",
+                        width: 350,
+                        height: 200,
+                        showCancelButton: true,
+                        confirmButtonColor: "#eea025",
+                        cancelButtonColor: "#b1abab",
+                        cancelButtonTextColor: "#000",
+                        confirmButtonText: "はい",
+                        cancelButtonText: "キャンセル",
+                        confirmButtonClass: "all-btn",
+                        cancelButtonClass: "all-btn",
+                        allowOutsideClick: false,
+                        }).then(response =>{
+                        var image_x = document.getElementById('x-image');
+                        image_x.parentNode.removeChild(image_x);
+                        //document.getElementById('showimage').style.display = 'block';
+                       }).then(response => {
                             this.$swal({
-                            // title: "削除",
-                            text: "画像を削除してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                            }).then(response =>{
-                            var image_x = document.getElementById('x-image');
-                            image_x.parentNode.removeChild(image_x);
-                            document.getElementById('showimage').style.display = 'block';
-                           }).then(response => {
-                                this.$swal({
-                                        text: "画像を削除しました。",
-                                        type: "success",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "閉じる",
-                                        confirmButtonColor: "#31cd38",
-                                        allowOutsideClick: false,
-                                    });
-                                    this.old_photo = old_photo;
-                                    this.getPostsByCatId;
-                           });
-                        }
-                    },
-                    checkValidate() {
-                        if(this.selectedValue == 26){
-                            if(this.news.from_date == ''){
-                                this.errors.from_date = '掲載開始日は必須です。'
-                            }
-                            else{
-                                this.errors.from_date = '';
-                            }
-                        }
-                        if (this.news.title) {
-                            this.errors.title = "";
-                        } else {
-                            this.errors.title = "ニュースの題名は必須です。";
-                        }
-                        if (this.news.main_point) {
-                            this.errors.main_point = "";
-                        } else {
-                            this.errors.main_point = "ニュースの内容要約は必須です。";
-                        }
-                        if (this.news.body) {
-                            this.errors.body = "";
-                        } else {
-                            this.errors.body = "ニュースの内容は必須です。";
-                        }
-                        if (this.news.category_id) {
-                            this.errors.category_id = "";
-                        } else {
-                            this.errors.category_id = "ニュースのカテゴリーは必須です。";
-                        }
-                        if(this.selectedValue == 26){
-                            if (
-                                !this.errors.title &&
-                                !this.errors.main_point &&
-                                !this.errors.body &&
-                                !this.errors.category_id &&
-                                !this.errors.from_date
-                            ){
-                                //date 
-                                if(this.news.to_date != ''){
+                                    text: "画像を削除しました。",
+                                    type: "success",
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: "閉じる",
+                                    confirmButtonColor: "#31cd38",
+                                    allowOutsideClick: false,
+                                });
+                                this.old_photo = old_photo;
+                                this.news.photo = "";
+                                
+                                // this.getPostsByCatId;
 
-                                    var fromd = new Date(this.news.from_date);
-                                    var tod = new Date(this.news.to_date)
-                                   
-                                    if(fromd.getTime() >  tod.getTime()){
-                                        this.errors.date_check = "掲載終了日を掲載開始日より後にしてください。";
-                                    } else {
-                                        this.errors.date_check = '';
-                                        if(this.status == 0) {
-                                            this.add();
-                                        } else {
-                                            this.updatepost();
-                                        } 
-                                    } 
-                                }  
-                                else {
+                       });
+                    }
+                },
+                checkValidate() {
+                    if(this.selectedValue == 26){
+                        if(this.news.from_date == ''){
+                            this.errors.from_date = '掲載開始日は必須です。'
+                        }
+                        else{
+                            this.errors.from_date = '';
+                        }
+                    }
+                    if (this.news.title) {
+                        this.errors.title = "";
+                    } else {
+                        this.errors.title = "ニュースの題名は必須です。";
+                    }
+                    if (this.news.main_point) {
+                        this.errors.main_point = "";
+                    } else {
+                        this.errors.main_point = "ニュースの内容要約は必須です。";
+                    }
+                    if (this.news.body) {
+                        this.errors.body = "";
+                    } else {
+                        this.errors.body = "ニュースの内容は必須です。";
+                    }
+                    if (this.news.category_id) {
+                        this.errors.category_id = "";
+                    } else {
+                        this.errors.category_id = "ニュースのカテゴリーは必須です。";
+                    }
+                    if(this.selectedValue == 26){
+                        if (
+                            !this.errors.title &&
+                            !this.errors.main_point &&
+                            !this.errors.body &&
+                            !this.errors.category_id &&
+                            !this.errors.from_date
+                        ){
+                            //date 
+                            if(this.news.to_date != ''){
+
+                                var fromd = new Date(this.news.from_date);
+                                var tod = new Date(this.news.to_date)
+                               
+                                if(fromd.getTime() >  tod.getTime()){
+                                    this.errors.date_check = "掲載終了日を掲載開始日より後にしてください。";
+                                } else {
+                                    this.errors.date_check = '';
                                     if(this.status == 0) {
                                         this.add();
                                     } else {
                                         this.updatepost();
                                     } 
-                                }                                                             
-                            }
-                            
-                        }
-                        else{
-                            if (
-                                !this.errors.title &&
-                                !this.errors.main_point &&
-                                !this.errors.body &&
-                                !this.errors.category_id
-                            ) {
+                                } 
+                            }  
+                            else {
                                 if(this.status == 0) {
                                     this.add();
                                 } else {
                                     this.updatepost();
                                 } 
-                            }
-                        }                        
-                    },
-            imgUrlAlt(event) {
-              
-               event.target.src = "/images/noimage.jpg"
-            },
+                            }                                                             
+                        }
+                        
+                    }
+                    else{
+                        if (
+                            !this.errors.title &&
+                            !this.errors.main_point &&
+                            !this.errors.body &&
+                            !this.errors.category_id
+                        ) {
+                            if(this.status == 0) {
+                                this.add();
+                            } else {
+                                this.updatepost();
+                            } 
+                        }
+                    }                        
+                },
+                imgUrlAlt(event) {
+                  
+                   event.target.src = "/images/noimage.jpg"
+                },
 
-            imgUrlAlt1(event) {
-              
-                this.noimage = 1;
-                event.target.src = "/images/noimage.jpg"
-            },
+                imgUrlAlt1(event) {
+                  
+                    this.noimage = 1;f
+                    event.target.src = "/images/noimage.jpg"
+                },
+                setImage: function (e) {
+                    const file = e.target.files[0]
+                    if (!file.type.includes("image/")) {
+                      alert("Please select an image file")
+                      return
+                    }
+                    if (typeof FileReader === "function") {
+                      const reader = new FileReader()
+                      reader.onload = event => {
+                        this.imageSrc = event.target.result
 
-            
+                        // Rebuild cropperjs with the updated source
+                        this.$refs.cropper.replace(event.target.result)
+                      }
+                      reader.readAsDataURL(file)
+                    } else {
+                      alert("Sorry, FileReader API not supported")
+                    }
+                },
+                cropImage() {
+                    this.croppedImageSrc = this.$refs.cropper.getCroppedCanvas().toDataURL();
+                    this.news.photo = this.croppedImageSrc;
+                },
             
             }
 
@@ -692,9 +726,6 @@ import {quillEditor} from 'vue-quill-editor'
             
     }
 
-
-
- 
 </script>
 
 <style>

@@ -11,51 +11,41 @@ use Carbon;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // function __construct()
-    // {
-    //      $this->middleware('permission:role-list');
-    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
-
     public function index()
     {
-       
-    //    $news_list = Post::orderBy('id','DESC')->get()->toArray();
-    //    $category_list = Category::select('id','name')->get()->toArray();
             $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
             $category_list = Category::select('id','name')->get()->toArray();
-
-        
             foreach ($news_list as $com) {
                 $splitTimeStamp = explode(" ",$com->from_date);
                 $com->from_date = $splitTimeStamp[0];
                 $splitTimeStamp1 = explode(" ",$com->to_date);
                 $com->to_date = $splitTimeStamp1[0];
             }
-    
             return response()->json(Array("news"=>$news_list,"category"=>$category_list));
-
     }
     // add news
     public function add(Request $request)
     {
-       
-        if(is_object($request->photo)){
-            $imageName = uniqid().$request->photo->getClientOriginalName();
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
-            $request->photo->move('upload/news/', $imageName);
-        }else {
-            $imageName = uniqid().$request->photo;
-            $imageName = str_replace(' ', '', $imageName);
-            $imageName = strtolower($imageName);
+        // before crop image
+        // if(is_object($request->photo)){
+        //     $imageName = uniqid().$request->photo->getClientOriginalName();
+        //     $imageName = str_replace(' ', '', $imageName);
+        //     $imageName = strtolower($imageName);
+        //     $request->photo->move('upload/news/', $imageName);
+        // }else {
+        //     $imageName = uniqid().$request->photo;
+        //     $imageName = str_replace(' ', '', $imageName);
+        //     $imageName = strtolower($imageName);
+        // }
+
+        // after crop image
+        if(empty($request->photo)){
+            $imageName = "";
+        }else{
+            $image = str_replace('data:image/png;base64,', '', $request->photo);
+            $image = str_replace(' ', '+', $image);
+            $imageName = str_random(10).'.'.'png';
+            \File::put('upload/news/' . $imageName, base64_decode($image));
         }
 
         $post = new Post() ;
@@ -364,51 +354,65 @@ class PostController extends Controller
     public function update($id, Request $request)
     {
         $post = Post::find($id);
-        if($request->old_photo == ' ' || $request->old_photo == null ){
-            if(is_object($request->photo)) {
-                $file= $post->photo;
-                $filename = './upload/news/'.$file;
-                \File::delete($filename);
-                $imageName = uniqid().$request->photo->getClientOriginalName();
-                $imageName = str_replace(' ', '', $imageName);
-                $imageName = strtolower($imageName);
-                $request->photo->move('upload/news/', $imageName);
-            }
-            else {
-                $file = $post->photo;
-                $imageName = $file;
-            }
-        }
-        else {
-            if(is_object($request->photo)) {
-                $file= $post->photo;
-                $filename ='./upload/news/'.$file;
-                \File::delete($filename);
-                $imageName = uniqid().$request->photo->getClientOriginalName();
-                $imageName = str_replace(' ', '', $imageName);
-                $imageName = strtolower($imageName);
-                $request->photo->move('upload/news/', $imageName);
-            }
+        // before image crop
+        // if($request->old_photo == ' ' || $request->old_photo == null ){
+        //     if(is_object($request->photo)) {
+        //         $file= $post->photo;
+        //         $filename = './upload/news/'.$file;
+        //         \File::delete($filename);
+        //         $imageName = uniqid().$request->photo->getClientOriginalName();
+        //         $imageName = str_replace(' ', '', $imageName);
+        //         $imageName = strtolower($imageName);
+        //         $request->photo->move('upload/news/', $imageName);
+        //     }
+        //     else {
+        //         $file = $post->photo;
+        //         $imageName = $file;
+        //     }
+        // }
+        // else {
+        //     if(is_object($request->photo)) {
+        //         $file= $post->photo;
+        //         $filename ='./upload/news/'.$file;
+        //         \File::delete($filename);
+        //         $imageName = uniqid().$request->photo->getClientOriginalName();
+        //         $imageName = str_replace(' ', '', $imageName);
+        //         $imageName = strtolower($imageName);
+        //         $request->photo->move('upload/news/', $imageName);
+        //     }
 
-            else {
-                $file= $post->photo;
-                $filename ='./upload/news/'.$file;
+        //     else {
+        //         $file= $post->photo;
+        //         $filename ='./upload/news/'.$file;
+        //         \File::delete($filename);
+        //         $imageName = '';
+        //     }
+        // }
+
+        // after crop image
+        if(!empty($request->photo)){
+            if(strpos($request->photo,"data:image/png;base64") !== false ){
+
+                $file       = $post->photo;
+                $filename   = './upload/news/'.$file;
                 \File::delete($filename);
-                $imageName = '';
+
+                $image = str_replace('data:image/png;base64,', '', $request->photo);
+                $image = str_replace(' ', '+', $image);
+                $imageName = str_random(10).'.'.'png';
+                \File::put('upload/news/' . $imageName, base64_decode($image));
+
+            }else{
+                $imageName = $post->photo;
             }
+        }else{
+            $file       = $post->photo;
+            $filename   = './upload/news/'.$file;
+            \File::delete($filename);
+
+            $imageName = "";
         }
 
-        
-        // $formData = array(
-        //     'title' => $request->input('title'),
-        //     'main_point' => $request->input('main_point'),
-        //     'body' => $request->input('body'),
-        //     'photo' => $imageName,
-        //     'category_id' =>$request->input('category_id'),
-        //     'related_news' =>$request->input('related_news'),
-        //     'user_id' => 1,
-        //     'recordstatus' => 1
-        // );
             $post->title = $request->input('title');
             $post->main_point = $request->input('main_point');
             $post->body=$request->input('body');
