@@ -46,7 +46,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                                -->
 
                                         <transition name="fade" slot="placeholder">
 
@@ -164,7 +163,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                            
 
                                         <transition name="fade" slot="placeholder">
 
@@ -183,7 +181,10 @@ before
                                     <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -218,7 +219,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -245,7 +245,10 @@ before
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -259,7 +262,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -286,7 +288,10 @@ before
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(9, 13)" :key="index" >                  
@@ -321,7 +326,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -348,7 +352,10 @@ before
 
                             </div>
                         </router-link>
-                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                        <div v-if="index === 0" class="txt_date">
+                            <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                            <p v-else class="second_para">{{value.created_at}}</p>
+                        </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(0, 7)" :key="index">
                         <div class="small-b1">
@@ -380,7 +387,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                         
 
                                         <transition name="fade" slot="placeholder">
 
@@ -399,7 +405,10 @@ before
                                     <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -433,7 +442,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -460,7 +468,10 @@ before
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -474,7 +485,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -501,7 +511,10 @@ before
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(8, 12)" :key="index" >                  
@@ -533,7 +546,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>  
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              
 
                                         <transition name="fade" slot="placeholder">
 
@@ -552,7 +564,10 @@ before
                                     <p>  {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -588,7 +603,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -638,7 +652,6 @@ before
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
-                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -697,7 +710,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -718,18 +730,6 @@ before
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <!-- <div class="small-b0" v-if="index === 1">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div> -->
                         <div class="small-b0" v-if="index === 1">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
@@ -761,7 +761,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -825,7 +824,6 @@ before
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
-                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -884,7 +882,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -936,7 +933,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -997,7 +993,6 @@ before
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -1035,10 +1030,6 @@ before
                 </div>                   
             </slick>
         </div>
-        <!-- <div v-if="more_news.length >1" class="form-group text-center head-btn">
-            <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
-            <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
-        </div>  -->
     </div>     
     <!-- end layout design -->
 
@@ -1055,7 +1046,6 @@ before
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                 </transition>   
-                                <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                 <transition name="fade" slot="placeholder">
 
@@ -1085,7 +1075,6 @@ before
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
             <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
-               <!--  <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
                 <p class="first_para">{{value.title}}</p>
                 <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                 <p v-else class="second_para">{{value.created_at}}</p>
@@ -1105,7 +1094,6 @@ before
                                 <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                             <transition name="fade" slot="placeholder">
 
@@ -1969,7 +1957,8 @@ export default {
     height: 60px;
     margin-top: 6px;
 }
-.large-b0 .txt_date .second_para .small_new,.medium-b1 .txt_date .second_para .small_new  {
+.large-b0 .txt_date .second_para .small_new,.medium-b1 .txt_date .second_para .small_new,
+.medium-b3 .txt_date .second_para .small_new  {
     margin-left: 5px;
     float: right;
     border-radius: 1px;
