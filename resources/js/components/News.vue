@@ -597,7 +597,7 @@
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
-                                <div class="pad-new pattern-child" v-if="group[0]">
+                                <div class="pad-new pattern-child">
                                     <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
                                     <router-link  :to="'/newsdetails/'+item.pid">
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
@@ -645,7 +645,7 @@
                                     </div>                                                    
                                 </div>                    
 
-                                <div class="pad-new pattern-child" v-if="group[3]">
+                                <div class="pad-new pattern-child">
                                     <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
                                         <p class="text-truncate news-list-display">
                                             
@@ -1073,7 +1073,6 @@
                     var current_date = new Date().getTime();
                     posts.push(response.data);
                     var latest_post = this.findNewNews(posts);
-                    console.log(response.data);
                     this.latest_post = latest_post[0];
                     const post_date = new Date(latest_post.created_at);
                     var msec = (current_date - post_date.getTime());
