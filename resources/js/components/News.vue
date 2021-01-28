@@ -555,7 +555,7 @@
                                     </router-link>
                                 </div>
                             </div>
-                            <div v-for="(value, block_id, i) in group" :key="i">    
+                            <div v-for="(value, block_id, i) in group" :key="i" v-if="i == 0">    
                                 <div class="pad-new pattern-child" v-if="block_id == 1 && value[1]">
 
                                     <router-link :to="'/newsdetails/'+value[1].pid">
@@ -1480,7 +1480,7 @@
 }
 @media only screen and (min-width: 769px){
    .slick-arrow{   
-    display: none !important;   
+    /* display: none !important;    */
     } 
 }
 #widthmenu{
