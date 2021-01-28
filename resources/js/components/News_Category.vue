@@ -288,7 +288,7 @@ before
 
                             </div>
                             </router-link>
-                            <div class="txt_date">
+                            <div class="txt_date" v-if="index === 2">
                                 <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                                 <p v-else class="second_para">{{value.created_at}}</p>
                             </div>
@@ -630,8 +630,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -689,8 +688,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -738,8 +736,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -800,8 +797,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -861,8 +857,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -910,8 +905,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -972,8 +966,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -1021,8 +1014,7 @@ before
                                 <span class="sm_news_mp">
                                     {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -2017,14 +2009,7 @@ export default {
     color: white;
     float: right; 
 }
-.second_para {
-    font-size: 12px;
-    float: right;
-    color: #969798;
-}
-.second_para .sm_news_new {
-    margin-left: 5px;
-}
+
 .sm_news_fa {
     float: left;
 }
@@ -2050,14 +2035,23 @@ export default {
  .more_news p{ 
     height: 51px; 
 }
- .medium-b1 p{
-    height: 41px;
+.medium-b1 p,.medium-b3 p{
+    max-height: 41px;
 }
- .medium p{
+ /* .medium p{
     height: 41px;
-}
+} */
 .moblie p{
     font-weight: bold;
+}
+.second_para {
+    font-size: 12px;
+    float: right;
+    color: #969798;
+    font-weight: normal!important;;
+}
+.second_para .sm_news_new {
+    margin-left: 5px;
 }
 @media only screen and (max-width:767px)  {
     

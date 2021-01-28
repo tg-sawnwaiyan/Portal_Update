@@ -213,7 +213,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else class="tab_title_color for-read-more">
+                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more">
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
@@ -276,7 +276,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
+                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
                                                     <span class="tab_title_date tab_title_d">{{item.created_at}}
                                                     </span>
                                                 </div>
@@ -342,7 +342,7 @@
                                             <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else class="tab_title_color for-read-more">
+                                        <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more">
                                             <span>{{item.cname}}</span>
                                         </span>
                                         <span class="tab_title_date tab_title_d">
@@ -403,7 +403,7 @@
                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                    <span v-else class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                     <span class="tab_title_date tab_title_d">
                                         {{item.created_at}}
                                     </span>
@@ -1492,7 +1492,7 @@
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
-    background-color: var(--bkgColor);
+    /* background-color: var(--bkgColor); */
 }
 .tab_title_color span {
     color: #fff;
