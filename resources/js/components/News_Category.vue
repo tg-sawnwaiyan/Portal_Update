@@ -1741,6 +1741,11 @@ export default {
 }
 </script>
 
+<style>
+.slick-arrow{
+    z-index: 0;
+}
+</style>
 <style scoped>
 .profile-tit{
     margin-top: 0;

@@ -608,7 +608,7 @@
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
-                                <div class="pad-new pattern-child" v-if="group[0]">
+                                <div class="pad-new pattern-child">
                                     <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
                                     <router-link  :to="'/newsdetails/'+item.pid">
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
@@ -656,7 +656,7 @@
                                     </div>                                                    
                                 </div>                    
 
-                                <div class="pad-new pattern-child" v-if="group[3]">
+                                <div class="pad-new pattern-child">
                                     <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
                                         <p class="text-truncate news-list-display">
                                             
@@ -1168,8 +1168,13 @@
         }
     }
  </script>
-
+<style>
+.slick-arrow{
+    z-index: 0;
+}
+</style>
 <style scoped>
+
 .list-label{
     float: right; 
     color: #999; 
@@ -1343,9 +1348,6 @@
 }
 .tab_title_n {
     color: #E83015!important;
-}
-.wrapper-3 {
-    /*height: 73%;*/
 }
 .pattern-txt-box .medium_text {
     height: 62px;
