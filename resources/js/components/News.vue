@@ -566,7 +566,7 @@
                                     </router-link>
                                 </div>
                             </div>
-                            <div v-for="(value, block_id, i) in group" :key="i">    
+                            <div v-for="(value, block_id, i) in group" :key="i" v-if="i == 0">    
                                 <div class="pad-new pattern-child" v-if="block_id == 1 && value[1]">
 
                                     <router-link :to="'/newsdetails/'+value[1].pid">
@@ -1169,7 +1169,7 @@
     }
  </script>
 
-<style>
+<style scoped>
 .list-label{
     float: right; 
     color: #999; 
@@ -1510,8 +1510,6 @@
 /* .display_align {
     display: inline-flex;
 } */
-</style>
-<style scoped>
 .single-news-box {
     background: #f7f7f7;
     height: 307px;
@@ -1586,7 +1584,7 @@
     float: right;
 }
 .sm_news_new_top {
-    border-radius: 1px;
+    border-radius: 1px; 
     padding: 0px 4px;
     font-size: 10px;
     background-color: red;
