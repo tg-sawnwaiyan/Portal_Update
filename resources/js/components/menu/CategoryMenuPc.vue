@@ -1,22 +1,19 @@
 <template>
-    <div class="menu_tab_category" id="tab1">
-            <!-- slider -->
-            <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
-                <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
+    <div class="menu_tab_category" id="tab1" v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" ref="infoBox" >
+            <!-- Category Menu -->
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
-                    <ul id="ul_menu_category" class="nav nav-tabs" role="tablist">
-                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" ref="itemWidth">
-                           <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                    <ul id="ul_menu_category" class="nav nav-tabs" role="tablist" ref="menu">
+                        <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
+                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
-                    </ul>                                             
-                </div>               
+                    </ul>  
+                </div>                
+                <span id="left-button" class="left-arr-btn arr-btn d-none-sp" @click="swipeLeft" v-if="is_cat_overflow" ><i class="fas fa-angle-left"></i></span>          
                 <span id="right-button"  class="right-arr-btn arr-btn d-none-sp" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
-                <div class="bg_color"></div>
-            </div>      
     </div>
 </template>
-<script>
+<script scoped>
 export default {
     data(){
         return {
@@ -25,20 +22,21 @@ export default {
             is_cat_slided: false,
             computed_width: '100%',
             cat_box_width: null,
-            w_width: $(window).width(),
+            w_width: window.innerWidth,
+            gap_width: null,
         }
     },
     created() {
+
         this.getAllCat();
         this.$nextTick(() => {
-                if(this.$refs.content){
-                this.cat_box_width = this.$refs.content.clientWidth;
+                if(this.$refs.menu){
+                this.cat_box_width = this.$refs.menu.clientWidth;
             }            
         }) 
     },
     updated: function () {
         this.$nextTick(function () {
-
             // Code that will run only after the
             // entire view has been re-rendered
             var ulWidth = 0;
@@ -46,9 +44,19 @@ export default {
             ulWidth = ulWidth + $(this).width();
             });
             this.menu_width = ulWidth;
-            if(ulWidth > this.cat_box_width){
+            if(this.menu_width > this.cat_box_width){
             this.is_cat_overflow = true;
-            this.computed_width = '99.8%';
+            if(this.w_width >= 1440 && this.width <= 1888){
+                this.computed_width = '94.2% !important';
+            }else if(this.w_width <= 768){                
+                    this.computed_width = '87.7% !important';                
+            }else if(this.w_width <= 1024){                
+                    this.computed_width = '90.7% !important';                
+            }else if(this.w_width >= 1024 && this.w_width <= 1400){                
+                    this.computed_width = '92.8% !important';                
+            }else{
+                this.computed_width = '93.5% !important';
+            }        
             }
         })
     },
@@ -56,12 +64,7 @@ export default {
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
-                        this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);  
-
+                    this.cats = response.data;
                     });
 
         },
@@ -123,6 +126,11 @@ export default {
 }
 </script>
 <style>
+    .tab_color{
+        height: auto;
+        border-left: 5px solid var(--bkgColor);
+        background-color: var(--bkgColor);
+    }
     .menu_tab_category{
         position: absolute;
         max-width: 1500px;
@@ -133,17 +141,26 @@ export default {
     }
     #left-button{
         position: absolute;
-        top: 13px;
-        left: 30px;
-        padding: 0;
+        top: 21px;
+        left: auto;
         width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
+        /*right: 47px;*/
+        right: 34px;
     }
     #right-button{
         position: absolute;
-        top: 13px;
-        right: 30px;
-        padding: 0;
+        top: 21px;
+        /*right: 22px;*/
+        right: 9px;
         width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
     }
     .left-arr-btn .fas,
     .right-arr-btn .fas{
@@ -159,7 +176,17 @@ export default {
     }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
-            width: 86% !important;
+            /*width: 86.5% !important;*/
+            margin: 5px 25px 0 21.5px;
+        }
+        .upper-tab {
+            margin-top: 62.45px;
+        }
+        #right-button{
+            right: 14px;
+        }
+        #left-button{
+            right: 40px;
         }
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
@@ -179,13 +206,22 @@ export default {
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
-            width: 88% !important;
-        }
-        #left-button{
-            left: 36px;
+             /*width: 90% !important;*/
+             margin: 5px 25px 0 21.5px;
         }
         #right-button{
-            right: 36px;
+            right: 13px;
+        }
+        #left-button{
+            right: 39px;
+        }
+        .upper-tab {
+            margin-top: 64.48px;
+        }
+    }
+    @media only screen and (min-width: 1201px) and (max-width: 1280px) {
+        .menu_category{
+            margin: 5px 25px 0 21.7px;
         }
     }
 </style>

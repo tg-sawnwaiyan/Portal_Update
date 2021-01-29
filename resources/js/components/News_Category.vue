@@ -14,8 +14,8 @@ before
             </div>                                    
         </div>
     </div>
-    <div class="col-12">
-        <h4 class="profile-tit">{{cat_name}}
+    <div class="col-12 cat_title">
+        <h4 class="profile-tit" :style="useStyle">{{cat_name}}
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -72,7 +72,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b0" v-if="index === 0">
+                        <div class="small-b0" v-if="index === 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
@@ -134,7 +134,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(1, 8)" :key="index">
-                        <div class="small-b1">
+                        <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -188,7 +188,7 @@ before
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
-                        <div class="small-b2" v-if="index === 8">
+                        <div class="small-b2" v-if="index === 8" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -295,7 +295,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(9, 13)" :key="index" >                  
-                        <div class="small-b3">
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
@@ -358,7 +358,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(0, 7)" :key="index">
-                        <div class="small-b1">
+                        <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -412,7 +412,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
-                        <div class="small-b0" v-if="index === 7">
+                        <div class="small-b0" v-if="index === 7" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -518,7 +518,7 @@ before
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(8, 12)" :key="index" >                  
-                        <div class="small-b3">
+                        <div class="small-b3"  :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -571,7 +571,7 @@ before
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
-                        <div class="small-b2" v-if="index === 12">
+                        <div class="small-b2" v-if="index === 12" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -623,7 +623,7 @@ before
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1">
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
@@ -680,7 +680,7 @@ before
                             <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                         </div>
 
-                        <div class="small-b1" v-if="index !== 0">
+                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -728,7 +728,7 @@ before
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1">
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -789,7 +789,7 @@ before
                         
                     </div>
                     <div class="small" v-for="(value,index) in group.slice(14, 18)" :key="index" >                  
-                        <div class="small-b3">
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
@@ -849,7 +849,7 @@ before
                             <div v-if="index === 0"  class="txt_date">{{value.created_at}}</div>
                         </div>
 
-                        <div class="small-b1" v-if="index !== 0">
+                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -897,7 +897,7 @@ before
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1">
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -958,7 +958,7 @@ before
                         
                     </div>
                     <div class="small" v-for="(value,index) in group.slice(30, 34)" :key="index" >                  
-                        <div class="small-b3">
+                        <div class="small-b3"    :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             
                             <p class="text-truncate news-list-display news-list-display03">
@@ -1006,7 +1006,7 @@ before
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1">
+                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -1022,7 +1022,7 @@ before
                 </div>                   
             </slick>
         </div>
-    </div>     
+    </div>  
     <!-- end layout design -->
 
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0 moblie">
@@ -1469,6 +1469,7 @@ before
 <script>
     import layout from '../components/home.vue'
     import Slick from 'vue-slick'
+    import { eventBus } from '../event-bus.js';
 export default {
 
  components: {
@@ -1485,6 +1486,7 @@ export default {
             cats: [],
             searchnews:[],
             cat_name:'',
+            color_code: '#287db4',
             cat_id:'',
             search_word:null,
             norecord_msg:false,
@@ -1494,7 +1496,6 @@ export default {
             is_cat_overflow: false,
             is_cat_slided: false,
             computed_width: '100%',
-            w_width: $(window).width(),
             norecord_msg: false,
             cat_box_width: null,
             seen: false,
@@ -1518,6 +1519,10 @@ export default {
                 }
                 this.cat_id = response.data.cat_id;
                 this.cat_name = response.data.cat.name;
+                if(response.data.cat.color_code){
+                this.color_code = response.data.cat.color_code;
+                }
+                eventBus.$emit('gotColor', this.color_code);
               
           });
         }else{
@@ -1525,16 +1530,19 @@ export default {
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
-                
-                if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
+				if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
                 {
                      this.norecord_msg = true;
                 }
                 else{
                      this.block = true;
                      this.norecord_msg = false;
+                } 
+                this.cat_name = response.data.cat.name;
+                if(response.data.cat.color_code){
+                this.color_code = response.data.cat.color_code;
                 }
-                this.cat_name = response.data.cat.name;              
+                eventBus.$emit('gotColor', this.color_code);
           });
         }
     },
@@ -1544,7 +1552,12 @@ export default {
     beforeDestroy:function(){
         $(".gNav .router-link-active").removeClass("router-link-exact-active");
     },
-    computed:{  
+    computed:{
+        useStyle () {
+            return {
+            '--title-color': this.color_code
+            }
+        },
         slickOptions() {
                 return {
                 slidesToShow: 4,
@@ -1598,11 +1611,6 @@ export default {
                 this.axios.get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
-
-                        this.getPostByCatID();
-
-                        this.getLatestPostByCatID();
-
                     });
 
             },
@@ -1620,17 +1628,6 @@ export default {
             },
             imgUrlAlt(event) {
                             event.target.src = "/images/noimage.jpg"
-                },
-            searchCategory(){
-
-                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
-                        this.clearSearch();
-                    } else {
-                        this.status = 1;
-                        this.search_word = $('#search-free-word').val();          
-                    }
-                    this.getlatestpost();
-
             },
             getPostByCatID: function(catId = this.cats[0].id) {
                 if ($('#search-free-word').val() != null) {
@@ -1697,45 +1694,49 @@ export default {
                         this.latest_post_null = false;
                     }
                 });
+			},
+            searchCategory(){
 
-            },
-            getlatestpost()
-            {
-                  if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
-                        this.nonblock = false;
-                        this.block = true;
-                        var searchword = 'all_news_search';                
-                    } else {                        
-                        this.block = false;
-                        this.nonblock = true;
-                        var searchword = this.search_word;
-                        this.searchnews = [];
+                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                        this.clearSearch();
+                    } else {
+                        this.status = 1;
+                        this.search_word = $('#search-free-word').val();          
                     }
-                    this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
-                    this.$loading(false);
-                    this.searchnews = response.data;
-                    if(response.data.length == 0)
-                    {
-                        this.norecord_msg = true;
-                    }
-                    else{
-                        this.norecord_msg = false;
-                    }
-                
-                });
-            },
-             clearSearch() {
+                    this.getlatestpost();
+
+            },            
+            clearSearch() {
 
                 this.search_word = '';
                 this.getlatestpost();
 
             },
-            // showMoreClick(){
-            //     this.seen = true;
-            // },
-            // showLessClick(){
-            //     this.seen = false;
-            // },
+            getlatestpost()
+            {
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+                    this.nonblock = false;
+                    this.block = true;
+                    var searchword = 'all_news_search';                
+                } else {                        
+                    this.block = false;
+                    this.nonblock = true;
+                    var searchword = this.search_word;
+                    this.searchnews = [];
+                }
+                this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
+                this.$loading(false);
+                this.searchnews = response.data;
+                if(response.data.length == 0)
+                {
+                    this.norecord_msg = true;
+                }
+                else{
+                    this.norecord_msg = false;
+                }
+
+                });
+            },
    }
 }
 </script>
@@ -1971,10 +1972,10 @@ export default {
 .bordertop-color i {
     color: var(--color);
 }
-/* .profile-tit {
+.profile-tit {
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
-} */
+}
 .large-b0, .medium-b1, .medium-b3 {
     position: relative;
 }
@@ -1999,7 +2000,6 @@ export default {
 }
 .txt_align {
     position: relative;
-    margin-top: 10px;
 }
 .sm_news_new {
     border-radius: 1px;
@@ -2009,7 +2009,15 @@ export default {
     color: white;
     float: right; 
 }
-
+.second_para {
+    font-size: 12px;
+    float: right;
+    color: #969798;
+    font-weight: normal!important;;
+}
+.second_para .sm_news_new {
+    margin-left: 5px;
+}
 .sm_news_fa {
     float: left;
 }
@@ -2038,20 +2046,11 @@ export default {
 .medium-b1 p,.medium-b3 p{
     max-height: 41px;
 }
- /* .medium p{
+/* .medium p{
     height: 41px;
 } */
 .moblie p{
     font-weight: bold;
-}
-.second_para {
-    font-size: 12px;
-    float: right;
-    color: #969798;
-    font-weight: normal!important;;
-}
-.second_para .sm_news_new {
-    margin-left: 5px;
 }
 @media only screen and (max-width:767px)  {
     

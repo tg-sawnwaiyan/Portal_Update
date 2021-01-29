@@ -4,50 +4,75 @@
             <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="card-header d-sm-block tab-card-header clearfix cat-nav infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line" id="category-id" :class="'tab-color'+(Math.floor(index%5))" v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor((Math.floor(index%5)));" ref="itemWidth">
-                           <router-link v-if="!!cat.id"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
+                        <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor(cat.color_code);" ref="itemWidth">
+                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
                            <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
                         </li>
 
                     </ul>                            
                 </div>
-                <div class="bg_color"></div>
+                <div class="bg_color" :style="lineStyle"></div>
             </div>      
     </div>
 </template>
 <script>
+
+import { eventBus } from '../../event-bus.js';
+
 export default {
     mounted() {
         if(localStorage.getItem("clicked") == null){
             localStorage.setItem('clicked', 1);
-        }
+        } 
     },
     data(){
         return {
             cats: [],
             computed_width: '100%',
-            w_width: $(window).width(),
+            w_width: window.innerWidth,
+            bgColor: "",
         }
     },
     created() {              
         this.getAllCat();
     },
+    computed: {
+        lineStyle() {
+        return {
+            '--bg-color': this.bgColor,
+            }
+        }
+    },
+    updated:function(){
+        if(this.$route.path === '/'){
+            this.bgColor = this.cats[0].color_code ? this.cats[0].color_code : "#287db4";
+        }else if(this.$route.path.includes('/newscategory')){
+            eventBus.$on('gotColor', color => {
+                this.bgColor = color ? color : "#287db4";
+            });
+        }
+    },
     methods: {
         getAllCat: function() {           
                 this.axios .get('/api/home') 
                 .then(response => {
-                        const topic = new Array();
-                        topic['name'] = "トップ";
-                    
                         this.cats = response.data;
-                        this.cats = [topic].concat(this.cats);
+                        if(this.$route.path.includes('/newscategory')){
+                            eventBus.$on('gotColor', color => {
+                            this.bgColor = color ? color : localStorage.getItem("bgColor") ? localStorage.getItem("bgColor") : "#287db4";
+                            });
 
+                        }else{
+                            this.bgColor = this.cats[0].color_code;
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
+                        }
                     });
 
         },
-        changeBgColor(no) {
-            const color_ary = ['#287db4','#d1281c','#9579ef','#20d1de','#a3774a'];
-            $('.bg_color').css('background-color', color_ary[no]);
+        changeBgColor(color_code) {
+            this.bgColor =  color_code ? color_code : "#287db4";
+            localStorage.setItem('bgColor', this.bgColor);
+            eventBus.$emit('gotColor', color_code);
         },
         scrollUp(index){
             if(localStorage.getItem("clicked")){
@@ -64,6 +89,11 @@ export default {
 }
 </script>
 <style>
+    .tab_color{
+        height: auto;
+        border-left: 5px solid var(--bkgColor);
+        background-color: var(--bkgColor);
+    }
     #myTab ul li {
         display: -ms-inline-flexbox;
         display: inline-flex;
@@ -146,9 +176,9 @@ export default {
         border: 1px solid #828282 !important;
     }
 
-    .news-borderColor {
+    /*.news-borderColor {
         border: 1px solid #75b777 !important;
-    }
+    }*/
 
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;
@@ -327,7 +357,7 @@ export default {
     .bg_color{
         width: 100%;
         height: 3px;
-        background-color: #287db4;
+        background-color: var(--bg-color);
         position: absolute;
         bottom: 0;
         left: 0;

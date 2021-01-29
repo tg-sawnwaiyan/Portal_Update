@@ -14,7 +14,7 @@
                     <input type="number" v-on:keydown="isNumber" class="form-control"  v-model="category.order_number" placeholder="タブ順序を半角数字で入力してください。">
                     <span v-if="errors.order_number" class="error">{{errors.order_number}}</span>
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label>新しい色の登録</label><br>
                     <label for="color_name">
                     <span>色名</span>
@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" v-model="category.color_code">
                     </label>                    
                     <span v-if="errors.color_code" class="error">{{errors.color_code}}</span>
-                </div> -->
+                </div>
                 <div class="form-group"> 
                     <router-link class="btn bt-red all-btn" to="/categorylist" > キャンセル </router-link>
                     <span class="btn main-bg-color white all-btn" @click="checkValidate()"> {{buttontext}}</span>
@@ -46,6 +46,7 @@ export default {
             category: {
                     name: '',
                     order_number: null,
+                    color_name: null,
                     color_code: null,
                     user_id:'',
                     recordstatus: ''
@@ -140,6 +141,11 @@ export default {
                     else if(this.category.name ) {
                        
                         this.errors.name = "";
+                    }
+                    if(this.category.color_code && this.category.color_code.charAt(0) != "#"){
+                        this.errors.color_code = "カラーコードを正しく入力してください。例 #287db4";
+                    }else{
+                        this.errors.color_code = "";
                     }
                     if (!this.errors.name && !this.$route.params.id && !this.errors.color_code) 
                     {

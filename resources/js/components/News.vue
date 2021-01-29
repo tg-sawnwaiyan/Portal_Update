@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <div class="m-lr-0 justify-content-md-center category_margin">
+        <div class="m-lr-0 justify-content-md-center  category_margin">
             <div class="">
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-lr-0 p-0">
@@ -35,6 +35,7 @@
                                                         <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
 
                                                     </transition>
+                                                    <!-- <div v-if="latest_post_all_cat.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
 
@@ -66,6 +67,9 @@
                                                         </div>
 
                                                     </div>
+                                                    <!-- <div class="txt_date txt_color">{{latest_post_all_cat.created_at}}
+                                                        
+                                                    </div> -->
 
                                                 </div>
 
@@ -79,7 +83,6 @@
 
                         </slick>
                        <!-- slider -->
-
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
@@ -101,6 +104,8 @@
                                                         <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
 
                                                     </transition>
+
+                                                    <!-- <div v-if="latest_post.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                     <transition name="fade" slot="placeholder">
 
@@ -134,9 +139,10 @@
                                                 <ul class="list-group list-group-flush all-item">
 
                                                     <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                        
 
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
-
+                                                            
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
 
                                                             <span class="source-img-small d-inline-block text-truncate top_sm_news">
@@ -145,6 +151,7 @@
                                                             </span>
 
                                                         </router-link>
+
 
                                                     </li>
 
@@ -181,7 +188,10 @@
 
                                                                 <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
 
+
                                                             </transition>
+
+                                                            <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -204,6 +214,7 @@
                                                     </router-link>
 
                                                 </div>
+                                                
 
 
                                                 <div class="col-md-8 col-sm-8 txt-box">                                                   
@@ -213,7 +224,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more">
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
@@ -276,7 +287,7 @@
                                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
                                                     <span class="tab_title_date tab_title_d">{{item.created_at}}
                                                     </span>
                                                 </div>
@@ -330,6 +341,7 @@
                                             </clazy-load>
 
                                         </router-link>
+                                        
 
                                     </div>
 
@@ -342,7 +354,7 @@
                                             <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more">
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
                                             <span>{{item.cname}}</span>
                                         </span>
                                         <span class="tab_title_date tab_title_d">
@@ -358,7 +370,8 @@
                         <!-- one show -->
                         <div class="row col-md-12 pad-free m-0" v-if="(w_width < 1280 && w_width > 768) || (w_width < 480)">
                             <div class="col-md-4 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(4, 10)"  :key="item.id">
-								<div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
+                                <div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
+
                                     <div class="col-md-4 img-box">
 
                                         <router-link :to="'/newsdetails/'+item.id">
@@ -403,7 +416,7 @@
                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                    <span v-else :class="'title'+(5-(Math.floor(item.category_id%5)))" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
                                     <span class="tab_title_date tab_title_d">
                                         {{item.created_at}}
                                     </span>
@@ -415,9 +428,7 @@
                     </div>
                     <!-- end category bottom -->
                 </div>
-
             </div>
-
         </div>
 
         <!-- </div> -->
@@ -436,8 +447,8 @@
             </span>
             <span v-else>
   
-                <div v-for="(group,name,index) in post_groups" :key="index" class="col-md-12 category_box" id="view-1024-pattern" :class="'bordertop-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))">
-                    <h4  class="category_news_title" :class="'h-color'+(5-(Math.floor(name.slice(0, name.indexOf(','))%5)))">
+                <div v-for="(group,name,index) in post_groups" :key="index" class="bordertop-color col-md-12 category_box" id="view-1024-pattern" :style="{'--color': name.slice(name.lastIndexOf(',')+1)}">
+                    <h4  class="category_news_title h-color" :style="{'--color': name.split(',')[2]}">
                         <router-link :to="'/newscategory/'+name.split(',')[0]"><span >{{name.split(',')[1]}} </span> </router-link>
                         <label class="list-label" for="">新着ニュース一覧</label>
                         <label class="list-label sp-414">                         
@@ -597,7 +608,7 @@
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
-                                <div class="pad-new pattern-child">
+                                <div class="pad-new pattern-child" v-if="group[0]">
                                     <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
                                     <router-link  :to="'/newsdetails/'+item.pid">
                                         <div class="col-12 row m-b-10 adslist-card m-lr-0 news-3-card">
@@ -645,7 +656,7 @@
                                     </div>                                                    
                                 </div>                    
 
-                                <div class="pad-new pattern-child">
+                                <div class="pad-new pattern-child" v-if="group[3]">
                                     <router-link v-for="(item,inx) in group.slice(3, 11)" :key="inx" :to="'/newsdetails/'+item.pid" style="color:#333;">
                                         <p class="text-truncate news-list-display">
                                             
@@ -913,18 +924,13 @@
                 this.axios .get('/api/home') 
                 .then(response => {
                         this.cats = response.data;
+
                         if(this.cats[0].name == "トップ"){
+                            eventBus.$emit('gotColor', this.cats[0].color_code);
                             this.latest_catId = this.cats[1].id;
                         }else{
                             this.latest_catId = this.cats[0].id;
-                        }
-                        var total_word = 0;
-                        $.each(this.cats, function(key,value) {
-                            total_word += value.name.length;
-                        });
-
-                        if(this.cat_box_width/total_word < 23){
-                            this.is_cat_overflow = true;
+                            eventBus.$emit('gotColor', this.cats[1].color_code);
                         }
                         this.getPostByCatID();
 
@@ -1033,8 +1039,7 @@
 
             },
 
-            getLatestPostByCatID: function(catId = this.latest_catId) {
-             //   catId = 1;
+            getLatestPostByCatID: function(catId) {
 
                 if ($('#search-free-word').val()) {
 
@@ -1069,8 +1074,7 @@
 
                 .then(response => {
 
-                    var posts =[];
-                    var current_date = new Date().getTime();
+                    var posts =[]
                     posts.push(response.data);
                     var latest_post = this.findNewNews(posts);
                     this.latest_post = latest_post[0];
@@ -1165,7 +1169,7 @@
     }
  </script>
 
-<style>
+<style scoped>
 .list-label{
     float: right; 
     color: #999; 
@@ -1181,7 +1185,7 @@
     font-size: 20px;
 }
 .pad-new{
-	position: relative;
+    position: relative;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
@@ -1239,7 +1243,7 @@
 }
 
 .card-header-tabs {
-   margin-right: -1.65rem;
+    margin-right: -1.65rem;
     margin-left: -1.65rem;
     border-bottom: 0;
 }
@@ -1384,9 +1388,6 @@
 }
 
 @media only screen and (max-width:480px){
-    .fit-image {
-        padding: 0;
-    }
     .p_3 {
         max-height: 50px;
         font-weight: bold;
@@ -1480,7 +1481,7 @@
 }
 @media only screen and (min-width: 769px){
    .slick-arrow{   
-    /* display: none !important;    */
+    display: none !important;   
     } 
 }
 #widthmenu{
@@ -1491,16 +1492,24 @@
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
-    /* background-color: var(--bkgColor); */
+    background-color: var(--bkgColor);
 }
 .tab_title_color span {
     color: #fff;
 }
+.bordertop-color{
+    border-top: 2px solid var(--color);
+}
+.h-color span {
+    border-left: 5px solid var(--color);
+    color: var(--color);
+}
+.bordertop-color i {
+    color: var(--color);
+}
 /* .display_align {
     display: inline-flex;
 } */
-</style>
-<style scoped>
 .single-news-box {
     background: #f7f7f7;
     height: 307px;
@@ -1575,7 +1584,7 @@
     float: right;
 }
 .sm_news_new_top {
-    border-radius: 1px;
+    border-radius: 1px; 
     padding: 0px 4px;
     font-size: 10px;
     background-color: red;

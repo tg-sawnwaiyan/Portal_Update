@@ -38,7 +38,18 @@
                                     </div>
                                 </div>
                                 <div class="container-fluid footer footer-div">
-                                    <span>Copyright©TRUST-ESTATE Co,Ltd.All Rights Reserved. </span>
+                                    <div class="footer-nav">
+                                        <ul class="gNav">
+                                            <li><a class="tel" href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i><span>info@t-i-s.jp</span></a></li>
+                                            <li>
+                                            <router-link :to="{name: 'sitepolicy'}">利用規約</router-link>
+                                            </li>
+                                            <li>
+                                            <router-link :to="{name: 'privacyPolicy'}">プライバシーポリシー</router-link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p class="copyright-text">Copyright©TRUST-ESTATE Co,Ltd.All Rights Reserved. </p>
                                 </div>
                             </section>
                         </div>
@@ -150,6 +161,52 @@
 }
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
+}
+.footer-nav{
+    width: 100%;
+    display: inline-block;
+}
+.footer-nav .gNav{
+    display: inline-flex;
+    border-left: none;
+}
+.footer-nav .gNav li{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.footer-nav .gNav li a {
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer-nav .gNav li a:after{
+    display: none;
+}
+.footer-nav .gNav li a .fa-envelope{
+    color: #2980b9;
+    margin-right: 5px;
+}
+.copyright-text{
+    margin-top: 10px;
+    width: 100%;
+}
+@media only screen and (max-width: 767px) {
+    .footer {
+        padding-top: 0;
+    }
+    .footer-nav .gNav {
+        display: none;
+    }
+    .copyright-text{
+        margin-top: 0;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .footer-nav .gNav li:first-child {
+        margin-left: 0;
+    }
+    .footer-nav .gNav li{
+        margin-left: 75px;
+    }
 }
 </style>
 <script>
