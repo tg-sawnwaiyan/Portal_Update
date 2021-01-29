@@ -38,8 +38,8 @@ class PostsCategoryController extends Controller
         $category->name = $request->input('name');
         $order_number = (int)$request->input('order_number');
         $category->order_number = $order_number ? $order_number : 0;
-        // $category->color_name = $request->input('color_name');
-        // $category->color_code = $request->input('color_code');
+        $category->color_name = $request->input('color_name');
+        $category->color_code = $request->input('color_code');
         $category->user_id = 1;
         $category->recordstatus = 1;
         $category->save();
@@ -58,8 +58,8 @@ class PostsCategoryController extends Controller
         $category->name = $request->input('name');
         $order_number = (int)$request->input('order_number');
         $category->order_number = $order_number ? $order_number : 0;
-        // $category->color_name = $request->input('color_name');
-        // $category->color_code = $request->input('color_code');
+        $category->color_name = $request->input('color_name');
+        $category->color_code = $request->input('color_code');
         $category->user_id = 1;
         $category->recordstatus = 1;
         $category->save();
