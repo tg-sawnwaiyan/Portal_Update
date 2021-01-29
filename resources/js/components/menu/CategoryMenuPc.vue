@@ -191,7 +191,7 @@ export default {
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
         .menu_tab_category{
-            top: 204px;
+            top: 194px;
         }
     }
     @media only screen and (min-width: 561px) and (max-width: 900px){
@@ -216,7 +216,7 @@ export default {
             right: 39px;
         }
         .upper-tab {
-            margin-top: 64.48px;
+            margin-top: 64.18px;
         }
     }
     @media only screen and (min-width: 1201px) and (max-width: 1280px) {

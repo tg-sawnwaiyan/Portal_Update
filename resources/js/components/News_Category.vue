@@ -1741,11 +1741,6 @@ export default {
 }
 </script>
 
-<style>
-.slick-arrow{
-    z-index: 0;
-}
-</style>
 <style scoped>
 .profile-tit{
     margin-top: 0;
@@ -2051,14 +2046,16 @@ export default {
 .medium-b1 p,.medium-b3 p{
     max-height: 41px;
 }
-/* .medium p{
+.medium p{
     height: 41px;
-} */
+}
 .moblie p{
     font-weight: bold;
 }
 @media only screen and (max-width:767px)  {
-    
+    .txt_align {
+        margin-top: 10px;
+    }
     .cat_title{ 
         padding: 0 5px;
     }

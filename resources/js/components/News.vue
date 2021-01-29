@@ -1168,11 +1168,7 @@
         }
     }
  </script>
-<style>
-.slick-arrow{
-    z-index: 0;
-}
-</style>
+
 <style scoped>
 
 .list-label{
