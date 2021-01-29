@@ -2047,7 +2047,7 @@ export default {
     max-height: 41px;
 }
 .medium p{
-    height: 41px;
+    height: auto;
 }
 .moblie p{
     font-weight: bold;

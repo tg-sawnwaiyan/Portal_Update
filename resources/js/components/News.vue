@@ -1170,7 +1170,9 @@
  </script>
 
 <style scoped>
-
+.fit-image {
+    padding: 0;
+}
 .list-label{
     float: right; 
     color: #999; 
