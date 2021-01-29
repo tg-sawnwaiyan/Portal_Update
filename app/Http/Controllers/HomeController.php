@@ -178,10 +178,10 @@ class HomeController extends Controller
         }else{
             for($i = 0; $i < count($cat); $i++) {
 
-                $sql.= "(SELECT categories.name,categories.pattern,categories.id,categories.color_code,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 50) UNION ";
+                $sql.= "(SELECT categories.name,categories.pattern,categories.id,categories.color_code,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 11) UNION ";
 
             }
-            $sql = trim($sql,' UNION ');
+            $sql = trim($sql,' UNION '); 
             $posts = DB::select($sql);
             $tmp = array();
 
@@ -202,9 +202,12 @@ class HomeController extends Controller
                 $minute = $minute < 10 ? '0'.$minute : $minute;
 
                 $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
-                $tmp[$aryPosts->block_id][$aryPosts->name][] = $aryPosts;
+
+
+                $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
+                $aryNewsMobile[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
-            $aryResults = array();
+            /*$aryResults = array();
             foreach ($tmp as $k => $v) {
                 foreach($v as $j){
                     if($k == 1)
@@ -228,6 +231,7 @@ class HomeController extends Controller
                 }
             } 
             sort($mobile, SORT_REGULAR);
+
             $aryNewsMobile = array();
             foreach($mobile as $mobile){
                 foreach($mobile as $m){
@@ -235,7 +239,7 @@ class HomeController extends Controller
                     $aryNewsMobile[$m->id.",".$m->name.",".$color][] = $m;
                 }
             
-            }          
+            }   */
         return response()->json($aryNewsMobile);
         }
     }
