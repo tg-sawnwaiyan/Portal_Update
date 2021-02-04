@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 cat_title">
-         <h4 class="profile-tit" :style="useStyle">{{cat_name}} 
+        <h4 class="profile-tit" :style="useStyle">{{cat_name}}
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -45,7 +45,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                                -->
 
                                         <transition name="fade" slot="placeholder">
 
@@ -61,7 +60,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
                             <!-- <div class="txt_date">{{value.created_at}}</div> -->
@@ -77,7 +76,7 @@
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -140,7 +139,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -163,7 +162,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                            
 
                                         <transition name="fade" slot="placeholder">
 
@@ -179,10 +177,13 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -192,7 +193,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -217,7 +218,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -244,7 +244,10 @@
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -258,7 +261,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -285,7 +287,10 @@
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date" v-if="index === 2">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(9, 13)" :key="index" >                  
@@ -295,7 +300,7 @@
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -320,7 +325,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -347,7 +351,10 @@
 
                             </div>
                         </router-link>
-                        <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
+                        <div v-if="index === 0" class="txt_date">
+                            <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                            <p v-else class="second_para">{{value.created_at}}</p>
+                        </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(0, 7)" :key="index">
                         <div class="small-b1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
@@ -356,7 +363,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -379,7 +386,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                         
 
                                         <transition name="fade" slot="placeholder">
 
@@ -395,10 +401,13 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2]" :key="index">
@@ -408,7 +417,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -432,7 +441,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -459,7 +467,10 @@
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                         <div class="medium-b3" v-if="index === 2">
                             <router-link :to="'/newsdetails/'+value.id"> 
@@ -473,7 +484,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -500,7 +510,10 @@
 
                             </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="small" v-for="(value,index) in group[2].slice(8, 12)" :key="index" >                  
@@ -510,7 +523,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -532,7 +545,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>  
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              
 
                                         <transition name="fade" slot="placeholder">
 
@@ -548,10 +560,13 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
-                            <div class="txt_date">{{value.created_at}}</div>
+                            <div class="txt_date">
+                                <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="second_para">{{value.created_at}}</p>
+                            </div>
                         </div>
                     </div>       
                     <div class="small" v-for="(value,index) in group[2]" :key="index">        
@@ -561,7 +576,7 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
                                 <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
                                 <span class="sm_news_date" v-else>{{value.created_at}}</span>
@@ -587,7 +602,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -603,7 +617,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -613,10 +627,9 @@
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -637,7 +650,6 @@
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
-                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -673,10 +685,9 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -696,7 +707,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -712,33 +722,20 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <!-- <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
-                            <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
-                            <p class="text-truncate news-list-display news-list-display03">
-                                <span class="sm_news_new" v-if="value.new_news == 1">New</span>
-                                <span class="sm_news_fa" v-else><i class="fas fa-building"></i></span> 
-                                <span class="sm_news_mp">
-                                    {{value.title}}
-                                </span> 
-                                <span class="sm_news_date">{{value.created_at}}</span>
-                            </p>
-                            </router-link>
-                        </div> -->
                         <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -760,7 +757,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -798,10 +794,9 @@
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -824,7 +819,6 @@
                                                 <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                             </transition>
-                                            <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                             <transition name="fade" slot="placeholder">
 
@@ -860,10 +854,9 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -883,7 +876,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -899,7 +891,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -910,10 +902,9 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -935,7 +926,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>
 
                                         <transition name="fade" slot="placeholder">
 
@@ -973,10 +963,9 @@
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -996,7 +985,6 @@
                                             <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                         </transition>
-                                        <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                               
 
                                         <transition name="fade" slot="placeholder">
 
@@ -1012,7 +1000,7 @@
 
                                         </transition>
                                     </clazy-load>
-                                    <p>  {{value.title}} </p>
+                                    <p> {{value.title}} </p>
                                 </div>
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
@@ -1023,10 +1011,9 @@
 
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
                                 <span class="sm_news_mp">
-                                    {{value.title}}
+                                   {{value.title}}
                                 </span>
-                                <span v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="sm_news_new">New</span></span>
-                                <span class="sm_news_date" v-else>{{value.created_at}}</span>
+                                <span class="sm_news_date">{{value.created_at}}</span>
                             </p>
                             </router-link>
                         </div>
@@ -1034,13 +1021,9 @@
                 </div>                   
             </slick>
         </div>
-        <!-- <div v-if="more_news.length >1" class="form-group text-center head-btn">
-            <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
-            <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
-        </div>  -->
-    </div>    
+    </div>  
     <!-- end layout design -->
-   
+
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0 moblie">
         <div  class="slick-news m-lr-0 bordertop-color">
             <slick  :options="slickOptions" class="news-slider-width" >
@@ -1054,7 +1037,6 @@
                                     <img v-bind:src="'/upload/news/' + value.photo" class="fit-image img-fluid" @error="imgUrlAlt">
 
                                 </transition>   
-                                <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
 
                                 <transition name="fade" slot="placeholder">
 
@@ -1070,7 +1052,7 @@
 
                                 </transition>
                             </clazy-load>
-                            <p>  {{value.title}} </p>
+                            <p> {{value.title}} </p>
                             
                         </div>
                     </router-link>
@@ -1084,7 +1066,6 @@
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
             <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new pad-new01"> 
-               <!--  <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
                 <p class="first_para">{{value.title}}</p>
                 <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                 <p v-else class="second_para">{{value.created_at}}</p>
@@ -1104,7 +1085,6 @@
                                 <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
 
                             </transition>
-                            <!-- <div v-if="value.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                             <transition name="fade" slot="placeholder">
 
@@ -1121,7 +1101,7 @@
                         </clazy-load>
                     </div>
                     <div class="col-8 pattern-txt-box">
-                        <p> {{value.title}} </p>
+                        <p>{{value.title}} </p>
                     </div>                   
                     <div class="txt_date">
                         <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
@@ -1160,7 +1140,7 @@
 
                                     </transition>
                                 </clazy-load>
-                                <p> {{value.title}} </p>
+                                <p>{{value.title}} </p>
                             </div>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1168,7 +1148,7 @@
                     <div class="square-small news-3-card m-b-5" v-if="index === 1">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1176,7 +1156,7 @@
                     <div class="square-small news-3-card m-b-5" v-if="index === 2">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1184,7 +1164,7 @@
                     <div class="square-small news-3-card m-b-5" v-if="index === 3">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1206,7 +1186,7 @@
                     <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 6">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1214,7 +1194,7 @@
                     <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 8">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1222,7 +1202,7 @@
                     <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 9">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
-                            {{value.title}}
+                           {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1252,7 +1232,7 @@
 
                                     </transition>
                                 </clazy-load>
-                                <p> {{value.title}} </p>
+                                <p>{{value.title}} </p>
                             </div>
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
@@ -1283,9 +1263,9 @@
                                     </clazy-load>
                                 </div>
                                 <div class="col-8 pattern-txt-box">
-                                    <p> {{value.title}} </p>
+                                    <p>{{value.title}} </p>
                                 </div>                   
-                                    <div class="txt_date01"> {{value.created_at}}</div>
+                                    <div class="txt_date01">{{value.created_at}}</div>
                             </div> 
                         </router-link>
                     </div>
@@ -1315,21 +1295,172 @@
                                     </clazy-load>
                                 </div>
                                 <div class="col-8 pattern-txt-box">
-                                    <p> {{value.title}} </p>
+                                    <p>{{value.title}} </p>
                                 </div>                   
-                                    <div class="txt_date01"> {{value.created_at}}</div>
+                                    <div class="txt_date01">{{value.created_at}}</div>
                             </div>
                         </router-link>
                     </div>
                 </div>
             </div>             
         </div>
-        <div v-if="seen"  class="form-group text-center head-btn">
+        <!-- <div v-if="seen"  class="form-group text-center head-btn">
+            <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
+            <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
+        </div>  -->
+    </div>
+
+
+
+    <!-- old -->
+    <!-- <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0">
+        <div  class="slick-news m-lr-0 bordertop-color">
+            <slick  :options="slickOptions" class="news-slider-width" >
+                <div v-for="(value,index) in big_news" :key="index">
+                    <router-link :to="'/newsdetails/'+value.id" >
+                        <div class="col-6  single-news-box single-news-slide">
+                            <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                                <transition name="fade">
+
+                                    <img v-bind:src="'/upload/news/' + value.photo" class="fit-image-0" @error="imgUrlAlt">
+
+                                </transition>                                
+
+                                <transition name="fade" slot="placeholder">
+
+                                    <div class="preloader">
+
+                                        <div class="circle">
+
+                                        <div class="circle-inner"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                </transition>
+                            </clazy-load>
+                            <p> {{value.main_point}} </p>
+                        </div>
+                    </router-link>
+                </div>
+            </slick>
+        </div>
+        <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color">
+            <router-link v-for="(value,index) in group[0]" :key="index" :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+                <div class="col-md-12 row adslist-card news-3-card m-0">
+
+                    <div class="col-4 img-box">
+
+                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                            <transition name="fade">
+
+                                <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+
+                            </transition>
+
+                            <transition name="fade" slot="placeholder">
+
+                            <div class="preloader">
+
+                                <div class="circle">
+
+                                <div class="circle-inner"></div>
+
+                                </div>
+
+                            </div>
+                            </transition>
+                        </clazy-load>
+                    </div>
+                    <div class="col-8 pattern-txt-box">
+                        <p>{{value.main_point}} </p>
+                    </div>
+                </div>
+            </router-link>
+         
+            <router-link v-for="(value,index) in group[1]" :key="index" :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new">  
+            <p class="text-truncate news-list-display">
+               {{value.main_point}}
+            </p>
+            </router-link>
+        </div>
+        <div v-if="seen" id="more" class="slick-news m-lr-0 bordertop-color" >
+            <router-link v-for="(value,index) in more_news" :key="index" :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+                <div class="col-md-12 row adslist-card news-3-card m-0">
+
+                    <div class="col-4 img-box">
+
+                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+
+                            <transition name="fade">
+
+                                <img :src="'/upload/news/' + value.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+
+                            </transition>
+
+                            <transition name="fade" slot="placeholder">
+
+                            <div class="preloader">
+
+                                <div class="circle">
+
+                                <div class="circle-inner"></div>
+
+                                </div>
+
+                            </div>
+                            </transition>
+                        </clazy-load>
+                    </div>
+                    <div class="col-8 pattern-txt-box">
+                        <p>{{value.main_point}} </p>
+                    </div>
+                </div>
+            </router-link>
+             
+        </div>
+        <div v-if="more_news.length >1" class="form-group text-center head-btn">
             <button type="submit" v-if="!seen" v-on:click="showMoreClick" class="btn_more">もっと見る  <i class='fas fa-chevron-down'></i></button>
             <button type="submit" v-if="seen" v-on:click="showLessClick" class="btn_more"><i class='fas fas fa-chevron-up'></i></button>
         </div> 
-    </div>
-     
+    </div> -->
+
+    <!-- <div v-else-if="nonblock" class="row col-12 m-lr-0 p-0">
+        <router-link v-for="(item,index) in searchnews" :key="index" :to="'/newsdetails/'+item.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
+            <div class="col-md-12 row adslist-card news-3-card m-0">
+
+                <div class="col-4 img-box">
+
+                    <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
+                        <transition name="fade">
+
+                            <img :src="'/upload/news/' + item.photo" class="fit-image-0 img-fluid"  @error="imgUrlAlt">
+
+                        </transition>
+
+                        <transition name="fade" slot="placeholder">
+
+                        <div class="preloader">
+
+                            <div class="circle">
+
+                            <div class="circle-inner"></div>
+
+                            </div>
+
+                        </div>
+                        </transition>
+                    </clazy-load>
+                </div>
+                <div class="col-8 pattern-txt-box">
+                    <p>{{item.main_point}} </p>
+                </div>
+            </div>
+        </router-link>
+    </div> -->
 </div>
 </layout>
 </template>
@@ -1337,17 +1468,17 @@
 <script>
     import layout from '../components/home.vue'
     import Slick from 'vue-slick'
-    import { eventBus } from '../event-bus.js';
-export default {
+    import{ eventBus } from '../event-bus.js';
+export default{
 
-    components: {
-        layout,
-        Slick
-    },
-    el:"#more",
-    data() {
+ components:{
+    layout,
+    Slick
+  },
+  el:"#more",
+   data(){
 
-        return {
+        return{
             news:[],
             more_news:[],
             big_news:[],
@@ -1369,14 +1500,16 @@ export default {
             seen: false,
         }
     },
+    mounted(){
+        //this.getAllCat();
+    },
     created(){
         if($(window).width() > 480){
-             this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response => {
+             this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response =>{
                 this.news = response.data.newslist;
                 this.more_news = response.data.moreNews;
-                console.log(this.more_news);
                 if(response.data.newslist.length == 0)
-                {
+               {
                      this.norecord_msg = true;
                 }
                 else{
@@ -1392,13 +1525,12 @@ export default {
               
           });
         }else{
-            this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response => {
+            this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response =>{
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
-
                 if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
-                {
+               {
                      this.norecord_msg = true;
                 }
                 else{
@@ -1409,7 +1541,7 @@ export default {
                 if(response.data.cat.color_code){
                 this.color_code = response.data.cat.color_code;
                 }
-                eventBus.$emit('gotColor', this.color_code);  
+                eventBus.$emit('gotColor', this.color_code);
           });
         }
     },
@@ -1419,14 +1551,14 @@ export default {
     beforeDestroy:function(){
         $(".gNav .router-link-active").removeClass("router-link-exact-active");
     },
-    computed:{ 
-        useStyle () {
-            return {
+    computed:{
+        useStyle (){
+            return{
             '--title-color': this.color_code
             }
         },
-        slickOptions() {
-                return {
+        slickOptions(){
+                return{
                 slidesToShow: 4,
                 infinite: false,
                 accessibility: true,
@@ -1438,21 +1570,21 @@ export default {
                 swipe: true,
                 responsive: [{
                     breakpoint: 1280,
-                        settings: {
+                        settings:{
                             slidesToShow: 3,                           
                             slidesToScroll: 1,  
                             infinite:false 
                         }
-                    }, {
+                    },{
                     breakpoint: 1024,
-                        settings: {
+                        settings:{
                             slidesToShow: 3,
                             slidesToScroll: 1, 
                             infinite: false                           
                         }
                     },{
                     breakpoint: 770,
-                        settings: {
+                        settings:{
                             slidesToShow: 2,
                             slidesToScroll: 1, 
                             infinite: false                           
@@ -1466,57 +1598,46 @@ export default {
                             }
                     },{
                     breakpoint: 481,
-                    settings: {
+                    settings:{
                         slidesToShow: 2,
                     }
                 }]                    
                 }
         }
     },
-    methods:{
-            getAllCat: function() {
+   methods:{
+            getAllCat: function(){
                 this.axios.get('/api/home') 
-                .then(response => {
+                .then(response =>{
                         this.cats = response.data;
-
-                        //this.getPostByCatID();
-
-                        //this.getLatestPostByCatID();
-
                     });
 
             },
-            next() {
+            next(){
                 this.$refs.slick.next();
             },
-            prev() {
+            prev(){
                 this.$refs.slick.prev();
             },
-            reInit() {
+            reInit(){
                 // Helpful if you have to deal with v-for to update dynamic lists
-                this.$nextTick(() => {
+                this.$nextTick(() =>{
                     this.$refs.slick.reSlick();
                 });
             },
-            imgUrlAlt(event) {
+            imgUrlAlt(event){
                             event.target.src = "/images/noimage.jpg"
-            },            
-            showMoreClick(){
-                this.seen = true;
             },
-            showLessClick(){
-                this.seen = false;
-            },  
-            getPostByCatID: function(catId = this.cats[0].id) {
-                if ($('#search-free-word').val() != null) {
+            getPostByCatID: function(catId = this.cats[0].id){
+                if ($('#search-free-word').val() != null){
                     var search_word = $('#search-free-word').val();
-                } else {
+                } else{
                     var search_word = null;
                 }
 
-                if (catId !== undefined) {
+                if (catId !== undefined){
                     var cat_id = catId;
-                } else {
+                } else{
                     var cat_id = this.cats[0].id;
                 }
                 let fd = new FormData();
@@ -1525,26 +1646,26 @@ export default {
                 $('.search-item').css('display', 'none');
                 this.categoryId = cat_id;
                 this.axios.post("/api/posts", fd)
-                    .then(response => {
+                    .then(response =>{
                         this.posts = response.data;
                     });
             },
-            getLatestPostByCatID: function(catId) {
+            getLatestPostByCatID: function(catId){
 
-                if ($('#search-free-word').val()) {
+                if ($('#search-free-word').val()){
 
                     var search_word = $('#search-free-word').val();
-                } else {
+                } else{
 
                     var search_word = null;
 
                 }
 
-                if (catId) {
+                if (catId){
 
                     var cat_id = catId;
 
-                } else {
+                } else{
 
                     var cat_id = this.cats[0].id;
 
@@ -1562,7 +1683,7 @@ export default {
 
                 this.axios.post("/api/get_latest_post" , fd)
 
-                .then(response => {
+                .then(response =>{
 
                     this.latest_post = response.data;
                     if(Object.keys(this.latest_post).length == 0){
@@ -1572,41 +1693,41 @@ export default {
                         this.latest_post_null = false;
                     }
                 });
-            },            
+            },
             searchCategory(){
 
-                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
+                    if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null'){
                         this.clearSearch();
-                    } else {
+                    } else{
                         this.status = 1;
                         this.search_word = $('#search-free-word').val();          
                     }
                     this.getlatestpost();
 
             },            
-            clearSearch() {
+            clearSearch(){
 
                 this.search_word = '';
                 this.getlatestpost();
 
             },
             getlatestpost()
-            {
-                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
+           {
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null'){
                     this.nonblock = false;
                     this.block = true;
                     var searchword = 'all_news_search';                
-                } else {                        
+                } else{                        
                     this.block = false;
                     this.nonblock = true;
                     var searchword = this.search_word;
                     this.searchnews = [];
                 }
-                this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response => {
+                this.axios.get('/api/get_news_by_catId/'+searchword+'/'+this.$route.params.id).then(response =>{
                 this.$loading(false);
                 this.searchnews = response.data;
                 if(response.data.length == 0)
-                {
+               {
                     this.norecord_msg = true;
                 }
                 else{
@@ -1627,14 +1748,14 @@ export default {
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
-.clearfix:after { 
+.clearfix:after{ 
    content: "."; 
    visibility: hidden; 
    display: block; 
    height: 0; 
    clear: both;
 }
-.bordertop-color {
+.bordertop-color{
     border-top: 0px !important;
 }
 .news-slider-width{
@@ -1653,7 +1774,7 @@ export default {
 .news-list-display03{
     padding: 5.7px 10px;
 }
-/*.news-3-card {
+/*.news-3-card{
     background-color: #f7f7f7;
     border:solid #f3efef;
     border-width: 0 1px 1px 0;
@@ -1662,7 +1783,7 @@ export default {
 .news-3-card .img-box{
     padding-left: 10px;
 }
-.single-news-box {
+.single-news-box{
     background: #f7f7f7;
     height: 310px;
     padding: 10px;
@@ -1680,7 +1801,7 @@ export default {
  #slick-slide10{
     width: 170px !important;
 }
-.arr-btn {
+.arr-btn{
     cursor: pointer;
     display: inline-flex;
     display: -webkit-inline-flex;
@@ -1689,22 +1810,22 @@ export default {
     padding: 5px 1px 4px;
     font-size: 25px;
 }
-.left-arr-btn {
+.left-arr-btn{
     position: relative;     
     left: -20px;
     width: 2%;
 }
-.right-arr-btn {
+.right-arr-btn{
     position: relative;      
     right: -47px;
     width: 2%;
 }
-#myTab ul li {
+#myTab ul li{
     display: -ms-inline-flexbox;
     display: inline-flex;
     display: -webkit-inline-flex;
 }
-.nav {
+.nav{
     flex-wrap: nowrap;
 }
 .center{
@@ -1712,34 +1833,34 @@ export default {
     white-space: nowrap;
     display: inline-block;
 }
-.card-header-tabs {
+.card-header-tabs{
     margin-right: -1.65rem;
     margin-left: -1.65rem;
     border-bottom: 0;
     /* margin-right: -1.65rem; */
     /* margin-bottom: 0rem; */
 }
-.cat_slider {
+.cat_slider{
     width: 99%;
     margin: 0 auto 1.65rem;
     padding-left: 0!important;
 }
 
-.cat_slider #myTab {
+.cat_slider #myTab{
     margin: 0 auto;
 }
 
-.cat-nav {
+.cat-nav{
     padding-bottom: 0;
     height: 36px;
     display: flex;
     /* padding-left: 1.65rem !important; */
 }
 
-.cat_slider .nav-tabs .nav-item .nav-link {
+.cat_slider .nav-tabs .nav-item .nav-link{
      padding: 0.3rem 1rem;
 }
-.left-arr-btn {
+.left-arr-btn{
     width: 1.5%;
     position: relative;
     left: 4px;
@@ -1747,20 +1868,20 @@ export default {
     /* left: -20px; */
    
 }
-.right-arr-btn {
+.right-arr-btn{
     position: relative;      
     width: 1.5%;
     left: 10px;
     bottom: 10px;
     /* right: -47px; */
 }
-#top {
+#top{
     border-left: 1px solid #fff;
 }
 .nav-tabs{
     border-bottom: none;
 }
-#myTab .router-link-exact-active {
+#myTab .router-link-exact-active{
     height: 36px;
     color: #fff !important;
     background-color: #828282;
@@ -1819,16 +1940,17 @@ export default {
     height: 100px;
     margin-bottom: 5px;
 }
-.large-b0 .single-news-box .wrapper-3 {
+.large-b0 .single-news-box .wrapper-3{
     height: 73%;
 }
-.large-b0 .single-news-box p {
+.large-b0 .single-news-box p{
     line-height: 1.3rem;
     -webkit-line-clamp: 3;
     height: 60px;
     margin-top: 6px;
 }
-.large-b0 .txt_date .second_para .small_new,.medium-b1 .txt_date .second_para .small_new  {
+.large-b0 .txt_date .second_para .small_new,.medium-b1 .txt_date .second_para .small_new,
+.medium-b3 .txt_date .second_para .small_new {
     margin-left: 5px;
     float: right;
     border-radius: 1px;
@@ -1838,25 +1960,25 @@ export default {
     background-color: red;
     color: white;
 }
-.medium-b1 .second_para {
+.medium-b1 .second_para{
     height: auto;
 }
-.medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p {
+.medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p{
     line-height: 1.5rem!important;
     -webkit-line-clamp: 3;
     height: 70px;
 }
-.bordertop-color i {
+.bordertop-color i{
     color: var(--color);
 }
-.profile-tit {
+.profile-tit{
     color: var(--title-color);
     border-bottom: 1px dashed var(--title-color);
 }
-.large-b0, .medium-b1, .medium-b3 {
+.large-b0, .medium-b1, .medium-b3{
     position: relative;
 }
-.txt_date {
+.txt_date{
     font-size: 12px;
     text-align:right;
     position: absolute;
@@ -1865,7 +1987,7 @@ export default {
     color:#969798;
 }
 .single-news-box > p,
-.pattern-txt-box p {
+.pattern-txt-box p{
     line-height: 1.9em;
     /*height: 3.8em;*/
     overflow: hidden;
@@ -1875,10 +1997,10 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.txt_align {
+.txt_align{
     position: relative;
 }
-.sm_news_new {
+.sm_news_new{
     border-radius: 1px;
     padding: 0 6px 0px 6px;
     font-size: 10px;
@@ -1886,15 +2008,16 @@ export default {
     color: white;
     float: right; 
 }
-.second_para {
+.second_para{
     font-size: 12px;
     float: right;
     color: #969798;
+    font-weight: normal!important;;
 }
-.second_para .sm_news_new {
+.second_para .sm_news_new{
     margin-left: 5px;
 }
-.sm_news_fa {
+.sm_news_fa{
     float: left;
 }
 .sm_news_mp{
@@ -1909,31 +2032,33 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.sm_news_date {
+.sm_news_date{
     color: #969798;
     float: right;
 }
-.text-truncate {
+.text-truncate{
     white-space: unset;
 }
  .more_news p{ 
     height: 51px; 
 }
- .medium-b1 p{
-    height: 41px;
+.medium-b1 p,.medium-b3 p{
+    max-height: 41px;
 }
- .medium p{
-    height: 41px;
+.medium p{
+    height: auto;
 }
 .moblie p{
     font-weight: bold;
 }
-@media only screen and (max-width:767px)  {
-    
+@media only screen and (max-width:767px) {
+    .txt_align{
+        margin-top: 10px;
+    }
     .cat_title{ 
         padding: 0 5px;
     }
-    .cat-nav {
+    .cat-nav{
         padding-left: 0 !important;
         height: auto !important;
     }
@@ -1948,20 +2073,22 @@ export default {
         height: 100%;
         object-fit: contain;
     }
-    .txt_align .single-news-box .wrapper-3 {
+    .txt_align .single-news-box .wrapper-3{
         max-height: 140px;
     }
     .txt_align .single-news-box p{
-         max-height: 50px; 
+        /* max-height: 50px; */
         padding: 5px;
         background: #f7f7f7;
-         line-height: 1.3rem; 
+        /* line-height: 1.3rem; */
     }
     .txt_align .single-news-box .wrapper-3 img{
+        max-height: 140px;
+        min-height: 140px;
         background: #fff;
     }
     .txt_align a 
-    .m_top_left {
+    .m_top_left{
         left: 8px;
     }
     .small_new{
@@ -1973,7 +2100,7 @@ export default {
         background-color: red;
         color: white;
     }
-    .txt_align .txt_date01 {
+    .txt_align .txt_date01{
         background: #f7f7f7;
     }
     #more .pad-new{
@@ -1993,18 +2120,19 @@ export default {
     .txt_align.news-3-card{
         margin-bottom: 5px;
         width: 96% !important;
+        border: 1px solid #f3efef;
     }
     .slick-active .txt_align.news-3-card:first-child{
         width: 96% !important;
     }
-    .txt_date_bg {
+    .txt_date_bg{
         padding-left: 3px;
         background: white;
     }
-    .txt_date {
+    .txt_date{
         bottom: -2px !important;
     }
-    .text-truncate {
+    .text-truncate{
         line-height: 1.5em;
         white-space: normal;
         background: none;
@@ -2031,7 +2159,7 @@ export default {
         display: inline-block;
         padding: 0 !important;
     }
-    .rectangle-medium01 .news-3-card .pattern-txt-box p {
+    .rectangle-medium01 .news-3-card .pattern-txt-box p{
         -webkit-line-clamp: 3;
     }
     .square-medium{
@@ -2040,14 +2168,15 @@ export default {
         margin-bottom: 10px;
     }
     .square-medium .single-news-box .wrapper-3{
-        border: 1px solid #fff;
+        border: 1px solid #f3efef;
         background-color: #fff;
         max-height: 150px;
     }
     .square-medium .single-news-box .wrapper-3 img{
         max-height: 150px;
+        min-height: 150px;
     }
-    .square-medium .single-news-box p {
+    .square-medium .single-news-box p{
         padding: 0 5px;
         line-height: 1.7em;
         max-height: 50px;
@@ -2067,7 +2196,7 @@ export default {
     }
      .square-small .text-truncate{margin-top: 7px;} 
 
-    .rectangle-small {
+    .rectangle-small{
         display: inline-block;
         width: 100%;
     }
@@ -2090,7 +2219,7 @@ export default {
         right: 10px;
         bottom: 0;
     }
-    .square-medium ‌a .txt_date01 {
+    .square-medium ‌a .txt_date01{
         position: relative;
         right: 8px;
     }
@@ -2113,23 +2242,23 @@ export default {
         max-width: 267px;
         margin-top: 2px;
     }
-    .second_para {
+    .second_para{
         margin-top: 4px;
     }
-    .rectangle-small {
+    .rectangle-small{
         margin-bottom: 5px;
         height: 35px;
     }
-    .rectangle-small  a {
+    .rectangle-small  a{
         padding: 3px 2px;
         margin-bottom: 0;
     }
-    .rectangle-small a .text-truncate {
+    .rectangle-small a .text-truncate{
         position: relative;
         top: 18px;
         margin: 0;
     }
-    .rectangle-small a .txt_date01 {
+    .rectangle-small a .txt_date01{
         position: relative;
         top: 19px;
     }
@@ -2137,19 +2266,23 @@ export default {
         height: 35px;
         padding: 4px 2px;
     }
-    .single-news-box p, .tp_small_5 a p.first_para, .rectangle-medium01 a .pattern-txt-box p,.rectangle-medium p, .rectangle-small a p.first_para, .square-small p {
+    .single-news-box p, .tp_small_5 a p.first_para, .rectangle-medium01 a .pattern-txt-box p,.rectangle-medium p, .rectangle-small a p.first_para, .square-small p{
         font-weight: bold;
     }
-    .txt_align a .single-news-box {
+    .txt_align a .single-news-box{
         height: 187px;
+    }
+    .txt_align .single-news-box p{
+        max-height: 45px;
+        line-height: 1.3rem;
     }
 }
 
-@media only screen and (min-width:768px) and (max-width:1024px) {
+@media only screen and (min-width:768px) and (max-width:1024px){
     #more .pad-new{
         width: 50%;
     }
-    .slick-slider {
+    .slick-slider{
         margin-bottom: 0;
     }
 }
@@ -2158,4 +2291,4 @@ export default {
         max-height: 30px;
     }
 }
-</style>    
+</style> 

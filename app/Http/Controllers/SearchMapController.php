@@ -617,7 +617,7 @@ class SearchMapController extends Controller
         $occupationID = $_GET['occupationID'];
         $empstatus = $_GET['empstatus'];
 
-        $query = "SELECT j.id as jobid,j.recordstatus as job_record, j.*,c.*,n.*,h.*,ci.city_name,
+        $query = "SELECT j.id as jobid,j.recordstatus as job_record,t.township_name as township_name,j.*,c.*,n.*,h.*,ci.city_name,
             (CASE c.type_id WHEN '2' THEN CONCAT((200000+j.customer_id),'-',LPAD(h.pro_num, 4, '0'),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((500000+j.customer_id),'-',LPAD(n.pro_num, 4, '0'),'-',LPAD(j.id, 4, '0')) END) as jobnum 
             from  jobs as j              
             join customers as c on c.id = j.customer_id
@@ -708,7 +708,6 @@ class SearchMapController extends Controller
         $query .=" group by j.id ";
  
         $job_data = DB::select($query);
- 
         $city = DB::table('cities')->get();
         $occupation = "SELECT *,'' as child from occupation where parent = " . 0 ." order by id";
         $occupations = DB::select($occupation);
