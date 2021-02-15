@@ -72,8 +72,7 @@
                             <!-- Cropped image previewer -->
                             <img class="ml-2 w-50 bg-light" :src="croppedImageSrc" />
                         </div>
-                        <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary"> Crop </div>
-                        <!-- <button v-if="this.croppedImageSrc" @click="uploadImage">Upload</button> -->
+                        <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary">Crop</div>
                     </div>      
                  
                     <div class="form-group">
@@ -84,7 +83,7 @@
 
                     <div class="form-group">
                         <label>カテゴリー <span class="error sp2">必須</span></label>
-                            <select v-model="selectedValue" class="form-control" @change='getstates()'>
+                            <select v-model="selectedCategory" class="form-control" @change='getCategory()'>
                                 <option v-bind:value="0">選択してください。</option>
                                 <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                     {{category.name}}
@@ -104,7 +103,7 @@
                             </select>
                     </div>
                
-                    <div v-if="selectedValue == 26" class="form-group">
+                    <div v-if="selectedCategory == 26" class="form-group">
                         <div class="row">
                             <div class="col-12 col-sm-4 col-md-4">
                                 <label>掲載開始日 <span class="error sp2">必須</span></label>
@@ -125,7 +124,7 @@
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
                     
-                    <div v-if="selectedValue != 26" class="form-group">
+                    <div v-if="selectedCategory != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
                             <div class="card-body">
@@ -169,10 +168,6 @@
                                     <p class="record-txt01">データが見つかりません。</p>
                                 </div> 
 
-                                <!-- <div class="row">
-                                    <pagination :data="related_news" @pagination-change-page="getPostsByCatId"></pagination>
-                                </div> -->
-
                                 <div>
                                     <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
                                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -187,8 +182,8 @@
                    
                     <div class="form-group">
                         <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
-                        <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 1'> 保存</span>
-                        <span class="btn main-bg-color white all-btn" @click="checkValidate()" v-if='status == 0'> 作成</span>
+                        <span class="btn main-bg-color white all-btn" @click="submitNews()" v-if='status == 1'> 保存</span>
+                        <span class="btn main-bg-color white all-btn" @click="submitNews()" v-if='status == 0'> 作成</span>
                     </div>
                 </form>
             </div>
@@ -227,7 +222,7 @@ export default {
                     date: '年 - 月 - 日',
                     }
                 },
-                selectedValue: 0,
+                selectedCategory: 0,
                 block_id: 0,
                 status:0,
                 arr: [],
@@ -343,7 +338,7 @@ export default {
                                 this.old_photo = '';
                             }
                             
-                            this.selectedValue = this.news.category_id;
+                            this.selectedCategory = this.news.category_id;
                             this.block_id = this.news.block_id ? this.news.block_id : 0;
                     });
                     this.getSearchPostsByCatId();
@@ -352,13 +347,86 @@ export default {
                     this.getSearchPostsByCatId();
                 }
             },
-            reset() {
-                const input = this.$refs.file;
-                input.type = 'text';
-                input.type = 'file';
-            },
             onDetailInfoEditorChange({ editor, html, text }) {
                 this.news['body'] = html
+            },
+            submitNews() {
+                if(this.selectedCategory == 26){
+                    if(this.news.from_date == ''){
+                        this.errors.from_date = '掲載開始日は必須です。'
+                    }
+                    else{
+                        this.errors.from_date = '';
+                    }
+                }
+                if (this.news.title) {
+                    this.errors.title = "";
+                } else {
+                    this.errors.title = "ニュースの題名は必須です。";
+                }
+                if (this.news.main_point) {
+                    this.errors.main_point = "";
+                } else {
+                    this.errors.main_point = "ニュースの内容要約は必須です。";
+                }
+                if (this.news.body) {
+                    this.errors.body = "";
+                } else {
+                    this.errors.body = "ニュースの内容は必須です。";
+                }
+                if (this.news.category_id) {
+                    this.errors.category_id = "";
+                } else {
+                    this.errors.category_id = "ニュースのカテゴリーは必須です。";
+                }
+                if(this.selectedCategory == 26){
+                    if (
+                        !this.errors.title &&
+                        !this.errors.main_point &&
+                        !this.errors.body &&
+                        !this.errors.category_id &&
+                        !this.errors.from_date
+                    ){
+                        //date 
+                        if(this.news.to_date != ''){
+                            var fromd = new Date(this.news.from_date);
+                            var tod = new Date(this.news.to_date)
+                            
+                            if(fromd.getTime() >  tod.getTime()){
+                                this.errors.date_check = "掲載終了日を掲載開始日より後にしてください。";
+                            } else {
+                                this.errors.date_check = '';
+                                if(this.status == 0) {
+                                    this.add();
+                                } else {
+                                    this.updatepost();
+                                } 
+                            } 
+                        }  
+                        else {
+                            if(this.status == 0) {
+                                this.add();
+                            } else {
+                                this.updatepost();
+                            } 
+                        }                                                             
+                    }
+                    
+                }
+                else{
+                    if (
+                        !this.errors.title &&
+                        !this.errors.main_point &&
+                        !this.errors.body &&
+                        !this.errors.category_id
+                    ) {
+                        if(this.status == 0) {
+                            this.add();
+                        } else {
+                            this.updatepost();
+                        } 
+                    }
+                }                        
             },
             updatepost() {
                 this.$swal({
@@ -452,7 +520,6 @@ export default {
                         fData.append('category_id', this.news.category_id)
                         fData.append('block_id', this.news.block_id)
                         fData.append('related_news', this.checkedNews)
-                        //fData.append('quill_photo', this.news.quill_photo)
 
                         this.$loading(true);
                         this.axios.post('/api/new/add', fData)
@@ -477,41 +544,13 @@ export default {
                         });
                     })
             },
-            getstates: function() {
-                this.news.category_id = this.selectedValue;
+            getCategory: function() {
+                this.news.category_id = this.selectedCategory;
                 this.news.from_date = '';
                 this.news.to_date = '';
             },
             getblock: function() {
                 this.news.block_id = this.block_id;
-            },
-            getPostsByCatId: function(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                var cat_id = this.category_id_1;
-                let fd = new FormData();
-                fd.append("cat_id", cat_id);
-                fd.append("search_word",this.search_word);
-                fd.append("post_id",this.$route.params.id);
-                this.axios
-                .post('/api/new/getPostsByCatId?page=' + page,fd)
-                .then(response => {
-                    this.related_news = response.data;
-                    this.norecord = this.related_news.data.length;                      
-
-                    if(this.norecord != 0) {
-                        this.nosearch_msg = false;
-                    }else{
-                        this.nosearch_msg = true;
-                    }
-                    
-                    if(this.related_news.length > this.size) {
-                        this.pagination = true;
-                    }else{
-                        this.pagination = false;
-                    }
-                });
             },
             getSearchPostsByCatId(page) {
                 if (typeof page === 'undefined') {
@@ -539,7 +578,6 @@ export default {
                         this.pagination = false;
                     }
                 });
-                // this.search_word = '1';
             },
             closeBtnMethod: function(old_photo) {
                 if(confirm){
@@ -575,84 +613,6 @@ export default {
                         this.news.photo = "";  
                     });
                 }
-            },
-            checkValidate() {
-                if(this.selectedValue == 26){
-                    if(this.news.from_date == ''){
-                        this.errors.from_date = '掲載開始日は必須です。'
-                    }
-                    else{
-                        this.errors.from_date = '';
-                    }
-                }
-                if (this.news.title) {
-                    this.errors.title = "";
-                } else {
-                    this.errors.title = "ニュースの題名は必須です。";
-                }
-                if (this.news.main_point) {
-                    this.errors.main_point = "";
-                } else {
-                    this.errors.main_point = "ニュースの内容要約は必須です。";
-                }
-                if (this.news.body) {
-                    this.errors.body = "";
-                } else {
-                    this.errors.body = "ニュースの内容は必須です。";
-                }
-                if (this.news.category_id) {
-                    this.errors.category_id = "";
-                } else {
-                    this.errors.category_id = "ニュースのカテゴリーは必須です。";
-                }
-                if(this.selectedValue == 26){
-                    if (
-                        !this.errors.title &&
-                        !this.errors.main_point &&
-                        !this.errors.body &&
-                        !this.errors.category_id &&
-                        !this.errors.from_date
-                    ){
-                        //date 
-                        if(this.news.to_date != ''){
-                            var fromd = new Date(this.news.from_date);
-                            var tod = new Date(this.news.to_date)
-                            
-                            if(fromd.getTime() >  tod.getTime()){
-                                this.errors.date_check = "掲載終了日を掲載開始日より後にしてください。";
-                            } else {
-                                this.errors.date_check = '';
-                                if(this.status == 0) {
-                                    this.add();
-                                } else {
-                                    this.updatepost();
-                                } 
-                            } 
-                        }  
-                        else {
-                            if(this.status == 0) {
-                                this.add();
-                            } else {
-                                this.updatepost();
-                            } 
-                        }                                                             
-                    }
-                    
-                }
-                else{
-                    if (
-                        !this.errors.title &&
-                        !this.errors.main_point &&
-                        !this.errors.body &&
-                        !this.errors.category_id
-                    ) {
-                        if(this.status == 0) {
-                            this.add();
-                        } else {
-                            this.updatepost();
-                        } 
-                    }
-                }                        
             },
             imgUrlAlt(event) {                  
                 event.target.src = "/images/noimage.jpg"
