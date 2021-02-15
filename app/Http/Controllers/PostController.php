@@ -13,15 +13,18 @@ class PostController extends Controller
 {
     public function index()
     {
-        $news_list = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
+        $news_list = Post::join('categories','categories.id','=','posts.category_id')
+                            ->select('posts.*','categories.name as cat_name')
+                            ->orderBy('posts.id', 'desc')
+                            ->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
 
         return response()->json(Array("news"=>$news_list,"category"=>$category_list));
     }
+
     // add news
     public function add(Request $request)
     {
-        
         if(empty($request->photo)){
             $imageName = "";
         }else{
@@ -46,6 +49,7 @@ class PostController extends Controller
         $post->from_date = $request->input('from_date');
         $post->to_date = $request->input('to_date');
         $post->save();
+
         return response()->json('The New successfully added');
     }
 
@@ -61,10 +65,10 @@ class PostController extends Controller
                     ->join('categories', 'categories.id', '=', 'posts.category_id')
                     ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id','categories.color_code')
                     ->where('posts.id',$id)->get();
+
         if($data[0]->photo == "")
         $data[0]->photo = null;
-        return response()->json(array('news'=> $data));
-    
+        return response()->json(array('news'=> $data));    
     }
 
     public function getNewsByCategory($id)
@@ -79,6 +83,7 @@ class PostController extends Controller
                         ->orderBy('posts.created_at', 'DESC')
                         ->get()->toArray();
         $lenght = $tmp = $newarray1 = $newarray2 = $newarray3 = $aryPush = $aryEmpty = $More = [];
+
         //divide array new list by block
         foreach ($newslist as $value) {
             //find time difference
@@ -271,7 +276,6 @@ class PostController extends Controller
                     ->limit('5')->get();
         $data = array("related_news"=>$news, "latest_news" => $latest);
         return $data;
-        // return response()->json($data);
     }
 
     /**
@@ -362,8 +366,7 @@ class PostController extends Controller
         if($cat_id == 0)
         {
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
-        }
-        else{
+        }else{
             $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
         }
 
@@ -393,11 +396,23 @@ class PostController extends Controller
         }
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-            $query = $query->where(function($qu) use ($search_word){
-                        $qu->where('posts.title', 'LIKE', "%{$search_word}%")
-                           ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
-            });
+            if(isset($request['contents']))
+            {                
+                $content = explode(",", $request['contents']);
+                $query = $query->where(function($qu) use ($search_word,$content){
+                        foreach($content as $k => $v){
+                            $qu->orWhere('posts.'.$v, 'LIKE', "%{$search_word}%");
+                        }      
+                });
+            }else{
+                $query = $query->where(function($qu) use ($search_word){
+                    $qu->where('posts.title', 'LIKE', "%{$search_word}%")
+                        ->orWhere('posts.body', 'LIKE', "%{$search_word}%")
+                        ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
+                });
+            }
         }
+        
         $query = $query->orderBy('posts.created_at','DESC')
                         ->paginate(20);
         $postCount = $query->count();
@@ -405,8 +420,8 @@ class PostController extends Controller
         return  response()->json(array('query'=>$query, 'postCount'=>$postCount));
     }
 
-    public function getPostById(Request $request) {
-
+    public function getPostById(Request $request) 
+    {
         $request = $request->all();
         $posts = Post::where('id','<>',$request['post_id'])->where("category_id",$request['cat_id']);
 
@@ -425,15 +440,14 @@ class PostController extends Controller
     public function changeRecordstatus($id)
     {
         $changeActivate =  Post::find($id);
-       if($changeActivate->recordstatus == 0 ) {
+        if($changeActivate->recordstatus == 0 ) {
             $changeActivate->recordstatus =1;
-       }
-       else {
+        }
+        else {
             $changeActivate->recordstatus =0;
-       }
-       $changeActivate->save();
-       $data = array("changeActivate"=> $changeActivate, "success");
-       return response()->json($data);
+        }
+        $changeActivate->save();
+        $data = array("changeActivate"=> $changeActivate, "success");
+        return response()->json($data);
     }
-
 }   
