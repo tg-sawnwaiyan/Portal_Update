@@ -54,11 +54,11 @@
                         </div>
                     </div> -->
                     
-                    <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo ">
+                    <div class="form-group image_update" id="x-image" v-if ="news.photo">
                         <div class="col-md-12" >
                             <div id='x-image' class='col-md-2' >
                                 <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
+                                <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt">
                             </div>
                         </div>
                     </div>
@@ -291,12 +291,10 @@ export default {
                 pagination: false,
                 search_word:'',
                 img_name : '',
-                noimage:0,
                 nosearch_msg:false,
             }
         },
         created() {
-            this.noimage = 0;
             this.getResults();
         }, 
         mounted() {
@@ -324,8 +322,6 @@ export default {
                             {
                                 this.news.to_date = '';
                             }
-                            
-                            this.noimage = 0;
                             this.checkedNews = [];
                             if(this.news.related_news != undefined){
                                 this.checkedNews = this.news.related_news.split(',');
@@ -615,10 +611,6 @@ export default {
                 }
             },
             imgUrlAlt(event) {                  
-                event.target.src = "/images/noimage.jpg"
-            },
-            imgUrlAlt1(event) {                  
-                this.noimage = 1;
                 event.target.src = "/images/noimage.jpg"
             },
             setImage: function (e) {
