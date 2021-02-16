@@ -23,6 +23,7 @@
                             <input type="checkbox" id="title" value="title" name="contents" @change="searchbyCategory()"><label class="chk_label">題名</label>
                             <input type="checkbox" id="main_point" value="main_point" name="contents" @change="searchbyCategory()"><label class="chk_label01">内容要約</label>
                             <input type="checkbox" id="body" value="body" name="contents" @change="searchbyCategory()"><label class="chk_label">内容</label>
+                            <input type="checkbox" id="body" value="created_by_company" name="contents" @change="searchbyCategory()"><label class="chk_label02">記者名・通信社名等</label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
@@ -430,11 +431,14 @@
 }
 .chk_label {
     padding-left: 5px;
-    width: 10% !important;
+    width: 9% !important;
 }
 .chk_label01 {
     padding-left: 5px;
-    width: 17% !important;
+    width: 15% !important;
+}
+.chk_label02 {
+    padding-left: 5px;
 }
 .chk_div {
     padding-top: 5px;

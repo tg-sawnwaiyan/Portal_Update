@@ -408,7 +408,8 @@ class PostController extends Controller
                 $query = $query->where(function($qu) use ($search_word){
                     $qu->where('posts.title', 'LIKE', "%{$search_word}%")
                         ->orWhere('posts.body', 'LIKE', "%{$search_word}%")
-                        ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%"); 
+                        ->orWhere('posts.main_point', 'LIKE', "%{$search_word}%")
+                        ->orWhere('posts.created_by_company', 'LIKE', "%{$search_word}%"); 
                 });
             }
         }
