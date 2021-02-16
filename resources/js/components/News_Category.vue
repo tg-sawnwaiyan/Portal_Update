@@ -1964,7 +1964,7 @@ export default{
     height: auto;
 }
 .medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p{
-    line-height: 1.5rem!important;
+    line-height: 1.5em!important;
     -webkit-line-clamp: 3;
     height: 70px;
 }
