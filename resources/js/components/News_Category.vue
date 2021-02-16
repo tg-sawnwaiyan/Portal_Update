@@ -1,4 +1,3 @@
-before	
 <template>
 <layout>   
 <div class="category_margin">    
@@ -1530,7 +1529,7 @@ export default{
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
-				if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
+                if(response.data.newslist.length == 0 && response.data.bigNews.length == 0)
                {
                      this.norecord_msg = true;
                 }
@@ -1694,7 +1693,7 @@ export default{
                         this.latest_post_null = false;
                     }
                 });
-			},
+            },
             searchCategory(){
 
                     if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null'){
@@ -1965,7 +1964,7 @@ export default{
     height: auto;
 }
 .medium-b1 .pattern-txt-box p, .medium-b3 .pattern-txt-box p{
-    line-height: 1.5rem!important;
+    line-height: 1.5em!important;
     -webkit-line-clamp: 3;
     height: 70px;
 }

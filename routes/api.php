@@ -55,11 +55,12 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('categorylist', 'PostsCategoryController@index');
-        Route::post('add', 'PostsCategoryController@addCategory');
-        Route::get('edit/{id}', 'PostsCategoryController@editCategory');
-        Route::post('update/{id}', 'PostsCategoryController@updateCategory');
-        Route::delete('delete/{id}', 'PostsCategoryController@destroyCategory');
+        Route::get('categorylist', 'CategoryController@getCategory');
+        Route::post('add', 'CategoryController@addCategory');
+        Route::get('edit/{id}', 'CategoryController@editCategory');
+        Route::post('update/{id}', 'CategoryController@updateCategory');
+        Route::delete('delete/{id}', 'CategoryController@destroyCategory');
+        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
     });
     // End Category
 
@@ -171,7 +172,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}/{cat_id}', 'PostController@delete');
         // Route::post('getPostsByCatId', 'PostController@getPostById');
-        Route::post('getPostsByCatId/{id}/{post_id}', 'PostController@getPostById');
+        Route::post('getPostsByCatId', 'PostController@getPostById');
     });
     // End News
 
@@ -254,8 +255,8 @@ Route::group(['middleware' => $middleware], function() {
     });
 
     Route::group(['prefix' => 'category'], function () {
-        Route::get('category_list','PostsCategoryController@list');
-        Route::post('search', 'PostsCategoryController@search');
+        Route::get('category_list','CategoryController@list');
+        Route::post('search', 'CategoryController@search');
     });
 
     Route::group(['prefix' => 'advertisement'], function () {
