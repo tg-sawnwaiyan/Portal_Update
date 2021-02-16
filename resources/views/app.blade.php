@@ -175,7 +175,7 @@ header("Pragma:no-cache");
 <!-- Real map -->
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script> -->
 <!-- Test map -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&callback=initMap"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
 <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
 <!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>
@@ -199,7 +199,6 @@ header("Pragma:no-cache");
  $(document).ready(function() {   
     
     $(".se-pre-con").fadeOut("slow");//for loading
-စ
     /*added for back to top*/
     //  var mybutton = document.getElementById("myBtn");
     //  console.log(mybutton);
