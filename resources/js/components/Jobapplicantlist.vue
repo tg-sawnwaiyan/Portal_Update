@@ -24,10 +24,8 @@
                         <h5 class="subtitle" style=""><strong>施設名:</strong> {{proname}} </h5>                                         
                     </div>    
                 </div>
-                </div>      
-                    
-                <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">求人応募者が登録されていません</div> -->
-                  <div v-if="nosearch_msg" class="card card-default card-wrap">
+                </div> 
+                <div v-if="nosearch_msg" class="card card-default card-wrap">
                     <p class="record-ico">
                     <i class="fa fa-exclamation"></i>
                     </p>                   
@@ -36,7 +34,6 @@
                 <div v-else class="container-fuid">
                     <div class="card card-default m-b-20"  v-for="jobapply in jobapplies.data" :key="jobapply.id">
                             <div class="card-body p-3">
-                              
                                 <div class="row"  v-if="page == null || page == 'profile' ">
                                     <div class="col-9">
                                          <span class="job_id_1"><span>求人番号 :</span>{{jobapply.jobid}}</span>
@@ -47,8 +44,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="joboffer-tit clearfix">
-                                              <!-- <span class="job_id_1"><span>求人番号 :</span>{{jobapply.jobid}}</span> -->
-                                             <router-link class="job_title_1 pseudolink" :to="{path:'/job_details/'+jobapply.job_id}">{{jobapply.job_title}} </router-link>
+                                            <router-link class="job_title_1 pseudolink" :to="{path:'/job_details/'+jobapply.job_id}">{{jobapply.job_title}} </router-link>
                                         </div>
                                     </div> 
                                    
@@ -72,10 +68,6 @@
                                     </div>
                                     <div class="col-xl-11 col-lg-10 col-md-8"><span class="pc-414-inline">: &nbsp;</span>{{jobapply.last_name}}</div>
                                 </div>
-                              
-                                
-                               <!-- <p><span class="font-weight-bold">メールアドレス:&nbsp;</span><span>{{jobapply.email}}</span></p> -->
-                                
                                 <div class="collapse" :id="'changeLink' + jobapply.id">                                    
                                     <table class="table table-bordered jobapp-tb">
                                         <tr>
@@ -83,7 +75,6 @@
                                                     <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="fa fa-calendar-alt" aria-hidden="true"></i></span>生年月日:&nbsp;</span><span class=""> {{jobapply.birthday}}</span></p>
                                             </td>
                                             <td class="w-50">
-                                                <!-- <p><span class="font-weight-bold">性別:</span><span>{{jobapply.gender}}</span></p>   -->
                                                 <p class="mb-2"><span class="text-orange"><span class="job_ico">〒</span> 郵便番号:&nbsp;</span><span class=""> {{jobapply.postal}}</span></p>
                                             </td>
                                         </tr>
@@ -92,7 +83,6 @@
                                                 <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="fa fa-user"></i></span> 性別:&nbsp;</span><span class=""> {{jobapply.gender}}</span></p>
                                                    
                                             </td>
-                                         
                                             <td  class="w-50">
                                                     <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所:&nbsp;</span>{{jobapply.city_name}}{{jobapply.township_name}}{{jobapply.street_address}}</p> 
                                             </td>
@@ -111,10 +101,7 @@
                                     
                             </div>
                         </div>
-
-                   
-                    <!-- <pagination :data="jobapplies" @pagination-change-page="searchApplicantList"></pagination> -->
-                    <pagination :data="jobapplies" @pagination-change-page="searchApplicantList" :limit="limitpc" class="mt-3">
+                        <pagination :data="jobapplies" @pagination-change-page="searchApplicantList" :limit="limitpc" class="mt-3">
                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                     </pagination>
@@ -136,9 +123,7 @@ export default {
     data() {
         return {
 
-            jobapplies: [],
-            items: [],
-            norecord: 0,
+            jobapplies: [],  
             nosearch_msg: false,
             search_id:0,
             job_title: '',
@@ -154,8 +139,7 @@ export default {
     created() {
         this.getJobapplicantList();
         this.axios.get('/api/user').then(response => {
-        
-        this.loginuser = 'true';
+            this.loginuser = 'true';
         }).catch((error) => {
             this.loginuser = 'false';
         })
@@ -163,11 +147,9 @@ export default {
 
     methods: {
         searchApplicantList(page) {
-
             if(typeof page === "undefined"){
                 page = 1;
             }
-           
             var search_word = $("#search-item").val();
 
             let fd = new FormData();

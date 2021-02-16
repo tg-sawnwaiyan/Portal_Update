@@ -1,23 +1,9 @@
 <template>
   <div>
     <div class="tab-content job-detail">
-      <div class="col-md-12 pad-free m-b-20">
-      <!-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-              <router-link to="/" class="router-link-active">ホーム</router-link>
-          </li>
-          <li aria-current="page" class="breadcrumb-item active">求人応募</li>
-        </ol>
-      </nav> -->
-    </div>
-
-        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
-          <h4>求人応募フォーム</h4>
-        </div> -->
-        <div class="col-12 m-b-10 jop-apply-tit-wrap">
-          <h4 class="job-apply-color">{{Job.title}}</h4>
-        </div>
+      <div class="col-12 m-b-10 jop-apply-tit-wrap">
+        <h4 class="job-apply-color">{{Job.title}}</h4>
+      </div>
 
       <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
@@ -41,7 +27,7 @@
                 <input type="text" class="form-control float-left" id="first_name" placeholder="お名前を入力してください。" v-model="jobApply.first_name" @focusout="focusName" @keyup="focusName" @change="aggreBtn"/>
                 <span class="float-left eg-txt">例）探し太郎</span>
                 <span class="error m-l-30" v-if="focus_name">※入力は必須です。</span>
-                <!-- <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div> -->
+                
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -57,9 +43,7 @@
                 <div class="col-md-12 pad-free">
                     <input type="text" class="form-control float-left" id="furigana" placeholder="フリガナを入力してください。" v-model="jobApply.last_name" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
                     <span class="float-left eg-txt"> 例）サガシタロウ</span>
-                    <!-- <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span> -->
                     <span class="error m-l-30" v-if="jobApply.furigana_focus   ">※入力は必須です。</span>
-                    <!-- <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div> -->
                 </div>
                 <span class="float-left text-danger p-l-30" v-if="charErr">カタカナで入力してください!</span>
             </div>
@@ -153,9 +137,7 @@
                     <div class="col-md-12 p-0">
                         <input type="text" class="city form-control float-left" id="str_address" v-model="jobApply.str_address" placeholder="番地を入力してください。"/>
                         <span class="float-left eg-txt">例）丸の内1-9-1 グラントウキョウノースタワー40階</span>
-                        <br>
-                        <!-- <span class="error m-l-30" v-if="focus_city">※入力は必須です。</span> -->
-                        <!-- <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div> -->
+                        <br> 
                     </div>
                 </div>
             </div>
