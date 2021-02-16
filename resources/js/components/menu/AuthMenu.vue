@@ -5,8 +5,8 @@
             <div class="nav-warp d-flex"  :class="visit == 'true' ?  container: ''">
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand logo-text" href="/" v-if="visit == 'true'">
-                    <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
-                    <img src="/images/logo.png" style="width:215px;height:auto;" />                     
+                    <h1 class="logo_subtitle">介護医療福祉の総合サイト</h1>
+                    <img src="/images/logo.png" alt="TIS（ティーズ）" style="width:215px;height:auto;" />                     
                     </a>
                     <a class="" style="color:#fff;font-size:20px;width:230px;text-align:center;background: rgb(36, 84, 113);" href="/"  v-if="visit != 'true'">                     
                       <img src="/images/admin_logo1.png" style="width:230px;height:auto;" />
