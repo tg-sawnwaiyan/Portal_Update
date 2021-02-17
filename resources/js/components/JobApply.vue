@@ -1,23 +1,9 @@
 <template>
   <div>
     <div class="tab-content job-detail">
-      <div class="col-md-12 pad-free m-b-20">
-      <!-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-              <router-link to="/" class="router-link-active">ホーム</router-link>
-          </li>
-          <li aria-current="page" class="breadcrumb-item active">求人応募</li>
-        </ol>
-      </nav> -->
-    </div>
-
-        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
-          <h4>求人応募フォーム</h4>
-        </div> -->
-        <div class="col-12 m-b-10 jop-apply-tit-wrap">
-          <h4 class="job-apply-color">{{Job.title}}</h4>
-        </div>
+      <div class="col-12 m-b-10 jop-apply-tit-wrap">
+        <h4 class="job-apply-color">{{Job.title}}</h4>
+      </div>
 
       <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
@@ -41,7 +27,7 @@
                 <input type="text" class="form-control float-left" id="first_name" placeholder="お名前を入力してください。" v-model="jobApply.first_name" @focusout="focusName" @keyup="focusName" @change="aggreBtn"/>
                 <span class="float-left eg-txt">例）探し太郎</span>
                 <span class="error m-l-30" v-if="focus_name">※入力は必須です。</span>
-                <!-- <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div> -->
+                
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -57,9 +43,7 @@
                 <div class="col-md-12 pad-free">
                     <input type="text" class="form-control float-left" id="furigana" placeholder="フリガナを入力してください。" v-model="jobApply.last_name" @keyup="ChekChar" @focusout="ChekChar" @change="aggreBtn"/>
                     <span class="float-left eg-txt"> 例）サガシタロウ</span>
-                    <!-- <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span> -->
                     <span class="error m-l-30" v-if="jobApply.furigana_focus   ">※入力は必須です。</span>
-                    <!-- <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div> -->
                 </div>
                 <span class="float-left text-danger p-l-30" v-if="charErr">カタカナで入力してください!</span>
             </div>
@@ -153,9 +137,7 @@
                     <div class="col-md-12 p-0">
                         <input type="text" class="city form-control float-left" id="str_address" v-model="jobApply.str_address" placeholder="番地を入力してください。"/>
                         <span class="float-left eg-txt">例）丸の内1-9-1 グラントウキョウノースタワー40階</span>
-                        <br>
-                        <!-- <span class="error m-l-30" v-if="focus_city">※入力は必須です。</span> -->
-                        <!-- <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div> -->
+                        <br> 
                     </div>
                 </div>
             </div>
@@ -167,16 +149,12 @@
             <div class="row pl-3">
                     <div class="col-md-12 p-0">
                         <label class="col-md-12">※ 電話番号またはメールアドレス必須 <span class="error sp1">必須</span></label>
-                        <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @keyup="focusPhone"  @change="aggreBtn"  maxlength="13"/>
-                        <!-- <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span> -->
+                        <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @keyup="focusPhone"  @change="aggreBtn"  maxlength="13"/> 
                         <span class="float-left eg-txt">例）0312345678（半角）</span>
-                        <!-- <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>                                        -->
                     </div>
                         <span class="error m-l-30" v-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
                 </div>
-            </div>
-            <!-- </div>
-            <div class="form-group m-0 row bd-all"> -->
+            </div> 
             <div class="col-md-3 col-sm-12 form-left"><strong>メールアドレス </strong></div>
             <div class="col-md-9 col-sm-12 form-right">
                 <div class="row pl-3">
@@ -370,10 +348,7 @@
           </div>
 
           
-          <br />
-          <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
-
-          <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
+          <br /> 
         </form>
       </div>
       <div class="col-md-12 confirm_box" v-if="type == 'completed'">
@@ -406,8 +381,7 @@ export default {
       lang:{
         days: ['日', '月', '火', '水', '木', '金', '土'],
         months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-        placeholder: {
-          //date: new Date().toISOString().slice(0,10),
+        placeholder: { 
           date: '年 - 月 - 日',
 
         }
@@ -452,11 +426,6 @@ export default {
       },
     Job: {
       title: ''
-        // fields: [
-        //   {
-        //     skills: []
-        //   }
-        // ]
       },
     type: "register",
     city_list: [],
@@ -476,10 +445,7 @@ export default {
     }
   },
   created() {
-    this.jobApply.job_id = this.$route.params.job_id;
-    // this.axios.get("/api/getskill").then(response => {
-    //   this.Job.fields = response.data;
-    // });
+    this.jobApply.job_id = this.$route.params.job_id; 
     this.axios.get("/api/getjobtitle/" + this.jobApply.job_id).then(response => {
       this.Job.title = response.data[0].title;
     });
@@ -526,45 +492,35 @@ export default {
                 });
         }
     },
-      getTownship(town_id){
-                   
-            this.axios.get('/api/auth/township',{
-                params:{
-                city:this.jobApply.selectedValue
-                },
-            }).then((response)=>{
-                if(town_id == 2)
-                {
-                this.jobApply.str_address = ''
-                // this.jobApply.postal = '';
-                this.jobApply.township = 0;
-                }
-                this.town_list = response.data.townships
-                for (var i = 0; i < this.town_list.length; i++) {
-                    if (this.jobApply.township == this.town_list[i].id) {
-                        this.jobApply.townshipname = this.town_list[i].township_name;
-                    }
-                }
-                this.aggreBtn();    
-        })
-      },
-    //   getLocation(){
-    //       // this.comments.postal = '';
-    //       this.comments.city = '';
-    //       this.aggreBtn();    
-    //   },
-
+    getTownship(town_id){
+                 
+          this.axios.get('/api/auth/township',{
+              params:{
+              city:this.jobApply.selectedValue
+              },
+          }).then((response)=>{
+              if(town_id == 2)
+              {
+              this.jobApply.str_address = ''
+              // this.jobApply.postal = '';
+              this.jobApply.township = 0;
+              }
+              this.town_list = response.data.townships
+              for (var i = 0; i < this.town_list.length; i++) {
+                  if (this.jobApply.township == this.town_list[i].id) {
+                      this.jobApply.townshipname = this.town_list[i].township_name;
+                  }
+              }
+              this.aggreBtn();    
+      })
+    },
     apply() {
 
-        this.$loading(true);
-
-      // $("#loader").css("display", "block");
+      this.$loading(true);
       this.axios
         .post("/api/jobapply", this.jobApply)
         .then(response => {
-          // alert("Successful Apply");
           this.$loading(false);
-          // $("#loader").css("display", "none");
           this.jobApply = response.data;
           this.errors.email = this.jobApply;
           this.type = "completed";
@@ -579,8 +535,6 @@ export default {
       this.jobApply.skills.push(job);
     },
     checkValidate() {
-
-    
       if (
         !this.errors.first_name &&
         !this.errors.first_name &&
@@ -681,15 +635,12 @@ export default {
     },
     ChekChar: function(event) {
         var _this = this;
-        // $('.char-err').text('');
         var input_val = $('#furigana').val();
         var each_val = input_val.split('');
-        //_this.btn_disable = false;
         _this.charErr =false;
         var code = 0;
         $.each(each_val, function (key, value) {
             code = value.charCodeAt();
-            // if (!(code > 12352 && code < 12447)) {
             if (!(code > 12448 && code < 12543)) {
                 _this.charErr = true;
                 _this.btn_disable = true;
@@ -698,13 +649,11 @@ export default {
         });    
         if(input_val == ''){
             if(this.jobApply.last_name != ''){
-            //_this.charErr =false;
             this.jobApply.furigana_focus=false;
             
         }else{
             this.jobApply.furigana_focus=true;　
             _this.btn_disable = true;
-             //_this.charErr = true;
         }
         }else{            
             this.jobApply.furigana_focus=false;　

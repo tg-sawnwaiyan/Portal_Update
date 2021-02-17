@@ -26,9 +26,7 @@
                                 <i class="fas fa-plus-circle"></i> <span class="first_txt">広告</span><span class="dinone">新規作成</span>
                             </router-link>
                         </div>
-                    </div>
-                     
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
+                    </div> 
 
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                     <p class="record-ico">
@@ -46,23 +44,21 @@
                                     </div>
                                 </td>
                                 <td class="p-3">
-                                    <!-- <h5  class="mb-2"><strong>タイトル</strong></h5> -->
                                     <h5 class="font-weight-bold">{{ads.title}}</h5>
                                     <div class="mt-4">
-                                    <span class="card-title-rightwrapper model-7">                                                 
+                                    <span class="card-title-rightwrapper model-7">
                                         <div class="checkbox">
                                             <input type='checkbox' :id="ads.id" v-if="ads.recordstatus == 1" @click="changeActivate(ads.id,ads.recordstatus)" checked/>
                                             <input type='checkbox' :id="ads.id" v-if="ads.recordstatus == 0" @click="changeActivate(ads.id,ads.recordstatus)"/>
                                             <label for="checkbox"></label>
                                             <div  class="on" v-if="ads.recordstatus == 1">公開中</div>
                                             <div class="on"  v-if="ads.recordstatus == 0">非公開</div>
-                                        </div>                                                                                             
+                                        </div>
                                     </span>
-                                    <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->
+                                     
                                     <div class="d-flex mt-4">
                                         <router-link :to="{path: '/editads/'+ads.id}" class="btn edit-borderbtn">編集</router-link>
-                                        <button class="btn delete-borderbtn ml-2" @click="deleteAds(ads.id)">削除</button>
-                                        <!-- <button class="btn delete-borderbtn" @click="toggleModal">削除</button>                                 -->
+                                        <button class="btn delete-borderbtn ml-2" @click="deleteAds(ads.id)">削除</button> 
                                     </div>
                                     </div>
                                 </td>
@@ -70,7 +66,7 @@
                         </table>
                         
                     </div>
-                    <!-- <pagination :data="advertisements" @pagination-change-page="searchAdvertisment"></pagination> -->
+                     
                     <pagination :data="advertisements" @pagination-change-page="searchAdvertisment" :limit="limitpc">
                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
@@ -102,9 +98,6 @@
                 this.getAds();
             },
             methods: {
-                // toggleModal() {
-                //     this.isOpen = !this.isOpen;
-                // },
                 getAds(){
                     if(this.$route.params.status == 'update'){
                         var page_no = this.$route.params.page_no;
@@ -148,9 +141,7 @@
                                 }else{
                                     this.norecord_msg = true;
                                 }
-                                //alert("Delete Successfully!");
-                                //   let a = this.advertisements.map(item => item.id).indexOf(id);
-                                //   this.advertisements.splice(a, 1);
+                                this.advertisements.splice(a, 1);
                                 this.$swal({
                                     // title: "削除済",
                                     text: "広告を削除しました。",
