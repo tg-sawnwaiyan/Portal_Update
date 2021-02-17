@@ -10,7 +10,7 @@ use DB;
 use Illuminate\Http\Request;
 
 
-class CategoryController extends Controller
+class PostsCategoryController extends Controller
 {
     public function index()
     {
@@ -32,7 +32,7 @@ class CategoryController extends Controller
     }
 
     //add category
-   public function addCategory(Request $request)
+    public function addCategory(Request $request)
     {
         $category = new Category();
         $category->name = $request->input('name');
@@ -45,6 +45,7 @@ class CategoryController extends Controller
         $category->save();
         return $category;
     }
+
     public function editCategory($id)
     {
         $category = Category::find($id);
@@ -81,9 +82,9 @@ class CategoryController extends Controller
         }
 
     }
-
-    public function search(Request $request) 
-    {
+    
+    //category search and pagination
+    public function search(Request $request) {
         $request = $request->all();
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];

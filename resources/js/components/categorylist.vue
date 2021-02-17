@@ -137,11 +137,7 @@
                                     .then(response => {
                                         this.categories = response.data;
                                         this.norecord = this.categories.data.length;
-                                        if (this.norecord > this.size) {
-                                            this.pagination = true;
-                                        } else {
-                                            this.pagination = false;
-                                        }
+                                        
                                         if (this.norecord != 0) {
                                             this.norecord_msg = false;
                                         }else {
