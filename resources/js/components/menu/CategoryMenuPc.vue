@@ -4,8 +4,8 @@
                 <div class="menu_category" ref="content" v-bind:style="{ width: computed_width }">
                     <ul id="ul_menu_category" class="nav nav-tabs" role="tablist" ref="menu">
                         <li v-for="(cat) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}" v-bind:value="cat.id" ref="itemWidth">
-                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
+                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}"><h2>{{ cat.name }}</h2></router-link>
+                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}"><h2>{{ cat.name }}</h2></router-link>
                         </li>
                     </ul>  
                 </div>                
@@ -223,6 +223,13 @@ export default {
         .menu_category{
             margin: 5px 25px 0 21.7px;
         }
+    }
+    .nav-link h2 {
+        padding: 0.2rem 0.1rem;
+        font-size: 18px;
+    }
+    .router-link-exact-active h2 {
+        font-weight: bold;
     }
 </style>
 
