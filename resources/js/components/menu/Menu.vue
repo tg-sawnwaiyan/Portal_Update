@@ -6,8 +6,8 @@
             <div class="d-flex align-items-center">
                 <a class="navbar-brand logo-text" href="/">
                 <!-- LOGO <span>HERE</span>  -->
-                <h4 class="logo_subtitle">介護医療福祉の総合サイト</h4>
-                <img src="/images/logo.png" style="width:215px;height:auto;" />
+                <h1 class="logo_subtitle">介護医療福祉の総合サイト</h1>
+                <img src="/images/logo.png" alt="TIS（ティーズ）" style="width:215px;height:auto;" />
                 </a>
                 
                 <div class="h-tel">

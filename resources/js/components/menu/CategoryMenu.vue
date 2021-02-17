@@ -5,8 +5,8 @@
                 <div class="nav nav-tabs card-header-tabs center no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul class="nav nav-tabs" role="tablist">
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor(cat.color_code);" ref="itemWidth">
-                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}">{{ cat.name }}</router-link>
-                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}">{{ cat.name }}</router-link>
+                           <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}"><h2>{{ cat.name }}</h2></router-link>
+                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}"><h2>{{ cat.name }}</h2></router-link>
                         </li>
 
                     </ul>                            
@@ -387,6 +387,10 @@ export default {
     #upper-tab {
     margin-top: 5px;
     }
+    }
+    .nav-link h2 {
+        padding: 0.2rem;
+        font-size: 18px;
     }
 
 </style>
