@@ -348,7 +348,6 @@ Route::group(['middleware' => $middleware], function() {
 
     // Home Page
     Route::get('home', 'HomeController@index');
-    Route::post('posts', 'HomeController@getPosts');
     Route::post('get_latest_post', 'HomeController@getLatestPost');
     Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
     Route::post('search', 'HomeController@search');
