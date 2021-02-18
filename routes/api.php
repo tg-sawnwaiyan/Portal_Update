@@ -55,12 +55,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('categorylist', 'CategoryController@getCategory');
-        Route::post('add', 'CategoryController@addCategory');
-        Route::get('edit/{id}', 'CategoryController@editCategory');
-        Route::post('update/{id}', 'CategoryController@updateCategory');
-        Route::delete('delete/{id}', 'CategoryController@destroyCategory');
-        // Route::post('orderupdate/{length}', 'CategoryController@OrderUpdate');
+        Route::get('categorylist', 'PostsCategoryController@index');
+        Route::post('add', 'PostsCategoryController@addCategory');
+        Route::get('edit/{id}', 'PostsCategoryController@editCategory');
+        Route::post('update/{id}', 'PostsCategoryController@updateCategory');
+        Route::delete('delete/{id}', 'PostsCategoryController@destroyCategory');
     });
     // End Category
 
@@ -255,8 +254,8 @@ Route::group(['middleware' => $middleware], function() {
     });
 
     Route::group(['prefix' => 'category'], function () {
-        Route::get('category_list','CategoryController@list');
-        Route::post('search', 'CategoryController@search');
+        Route::get('category_list','PostsCategoryController@list');
+        Route::post('search', 'PostsCategoryController@search');
     });
 
     Route::group(['prefix' => 'advertisement'], function () {
@@ -349,7 +348,6 @@ Route::group(['middleware' => $middleware], function() {
 
     // Home Page
     Route::get('home', 'HomeController@index');
-    Route::post('posts', 'HomeController@getPosts');
     Route::post('get_latest_post', 'HomeController@getLatestPost');
     Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
     Route::post('search', 'HomeController@search');
