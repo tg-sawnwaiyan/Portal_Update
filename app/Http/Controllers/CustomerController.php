@@ -189,7 +189,7 @@ class CustomerController extends Controller
         return response()->json('Customer successfully updated');
     }
 
-    public function destroy($id,$type)
+    public function delete($id,$type)
     {
         $customer = Customer::find($id);
         if($type == 'delete'){
