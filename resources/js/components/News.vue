@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 news-wrapper">
                                                 <ul class="list-group list-group-flush all-item">
-                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;">
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
                                                             <span class="source-img-small d-inline-block text-truncate top_sm_news">
                                                                 <span v-if="post.new_news == '1'" class="s_top_left">New</span>
@@ -544,8 +544,7 @@
                     this.$refs.slick.reSlick();
                 });
             },                  
-            newsToggle(id)
-                {
+            newsToggle(id) {
                     var class_by_id = $('#newstogg'+id).attr('class');
                     if(class_by_id == "fas fa-sort-down animate rotate")
                     {
@@ -575,8 +574,6 @@
                             this.latest_catId = this.cats[0].id;
                             eventBus.$emit('gotColor', this.cats[1].color_code);
                         }
-                        this.getPostByCatID();
-
                         this.getLatestPostByCatID();
 
                     });
@@ -625,46 +622,17 @@
                     });
                 }
             },
-            getPostByCatID: function(catId = this.latest_catId) {
-                
-                var search_word = null;                
-
-                if (catId !== undefined) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.latest_catId;
-                }
-                let fd = new FormData();
-                fd.append('search_word', search_word);
-                fd.append('category_id', cat_id);
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
-                this.axios.post("/api/posts", fd)
-                    .then(response => {
-                        this.posts = this.findNewNews(response.data);
-                    });
-            },
-            getLatestPostByCatID: function(catId) {
-
-                var search_word = null;   
-
-                if (catId) {
-                    var cat_id = catId;
-                } else {
-                    var cat_id = this.latest_catId;
-                }
+            getLatestPostByCatID: function() {
 
                 let fd = new FormData();
-                fd.append('search_word', search_word)
-                fd.append('category_id', cat_id)
-                $('.search-item').css('display', 'none');
-                this.categoryId = cat_id;
+                fd.append('category_id', this.latest_catId);
                 this.axios.post("/api/get_latest_post" , fd)
                 .then(response => {
-                    var posts =[]
-                    posts.push(response.data);
-                    var latest_post = this.findNewNews(posts);
-                    this.latest_post = latest_post[0];                    
+
+                    var latest_post = this.findNewNews(response.data);
+                    this.latest_post = latest_post[0];
+                    latest_post.splice(0, 1);    
+                    this.posts = latest_post;           
                     if(Object.keys(this.latest_post).length == 0) {
                         this.latest_post_null = true;
                     }else{
@@ -683,7 +651,6 @@
             },
             findNewNews: function(posts) {
                         var current_date = new Date().getTime();
-                        var is_within_48 = false;
                         posts.forEach(function(post){
                             const post_date = new Date(post.created_at);
                             var msec = (current_date - post_date.getTime());
