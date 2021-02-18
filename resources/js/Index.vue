@@ -26,7 +26,7 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <adsslider class="d-none d-sm-block"></adsslider>
+                                        <adsslider v-if="w_width > 560" class="d-none d-sm-block"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
                                     <div class="row justify-content-md-center">
