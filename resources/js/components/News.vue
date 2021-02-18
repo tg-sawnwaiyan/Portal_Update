@@ -437,17 +437,12 @@
         async mounted() {
             this.visit = 'true';
             localStorage.setItem('visit', this.visit);
-            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
-            $('#navtab').addClass('news-tabColor');
-            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-            $('#upper-tab').addClass('news-borderColor');
             this.getAllCat();
             this.getLatestPostsByCatID();
             this.getLatestPostFromAllCat();
         },
 
     data() {
-
         return {
             news: [],
             latest_post: [],
@@ -462,19 +457,17 @@
             latest_catId: 0,
         }
     },
-
     created() {
         this.$ga.event({
             eventCategory: 'トップページ',
             eventAction: '-',
         })
-        
+
         this.$nextTick(() => {
             $("#top_a").addClass("active");       
         })
     },
-    computed:{  
-
+    computed:{ 
         categoryslider(){
             return {
                 slidesToShow: 1,
@@ -538,141 +531,139 @@
         }
     },
     methods: {
-            reInit() {
-                // Helpful if you have to deal with v-for to update dynamic lists
-                this.$nextTick(() => {
-                    this.$refs.slick.reSlick();
-                });
-            },                  
-            newsToggle(id) {
-                    var class_by_id = $('#newstogg'+id).attr('class');
-                    if(class_by_id == "fas fa-sort-down animate rotate")
-                    {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
-                        $('.newsChangeLink'+id).addClass("fas fa-sort-down");
-                        $('#newsChangeLink'+id).show('medium');
-                    }
-                    else {
-                        $('#newstogg'+id).removeClass("fas fa-sort-down");
-                        $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
-                        $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
-                        $('#newsChangeLink'+id).hide('medium');
-                    }
-            },
-            log() {
-                // console.log()
-            },
-            getAllCat: function() {
-                this.axios .get('/api/home') 
-                .then(response => {
-                        this.cats = response.data;
+        reInit() {
+            // Helpful if you have to deal with v-for to update dynamic lists
+            this.$nextTick(() => {
+                this.$refs.slick.reSlick();
+            });
+        },                  
+        newsToggle(id) {
+            var class_by_id = $('#newstogg'+id).attr('class');
+            if(class_by_id == "fas fa-sort-down animate rotate")
+            {
+                $('#newstogg'+id).removeClass("fas fa-sort-down animate rotate");
+                $('.newsChangeLink'+id).addClass("fas fa-sort-down");
+                $('#newsChangeLink'+id).show('medium');
+            }
+            else {
+                $('#newstogg'+id).removeClass("fas fa-sort-down");
+                $('.newsChangeLink'+id).removeClass("fas fa-sort-down");
+                $('#newstogg'+id).addClass("fas fa-sort-down animate rotate");
+                $('#newsChangeLink'+id).hide('medium');
+            }
+        },
+        log() {
+            // console.log()
+        },
+        getAllCat: function() {
+            this.axios .get('/api/home') 
+            .then(response => {
+                    this.cats = response.data;
 
-                        if(this.cats[0].name == "トップ"){
-                            eventBus.$emit('gotColor', this.cats[0].color_code);
-                            this.latest_catId = this.cats[1].id;
-                        }else{
-                            this.latest_catId = this.cats[0].id;
-                            eventBus.$emit('gotColor', this.cats[1].color_code);
-                        }
-                        this.getLatestPostByCatID();
-
-                    });
-
-            },
-            getLatestPostsByCatID: function() {
-                this.post_groups = [];
-                
-                var searchword = 'all_news_search';                
-
-                if($(window).width() > 480){
-
-                    this.axios
-                    .get('/api/get_latest_posts_by_catId/'+searchword)
-                    .then(response => {
-                        length = Object.keys(response.data).length;
-                        this.$loading(false);
-                        if(length > 0) {
-                            this.post_groups = response.data;
-                        } else {
-                            this.post_groups = [];                         
-                        }                  
-                        if(this.post_groups.length != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;                        
-                        }
-                    });
-
-                }else{
-                    this.axios
-                    .get('/api/get_latest_posts_by_catId_mobile/'+searchword)
-                    .then(response => {
-                        length = Object.keys(response.data).length;
-                        this.$loading(false);
-                        if(length > 0) {
-                            this.post_groups = response.data;
-                        } else {
-                            this.post_groups = [];                         
-                        }                  
-                        if(this.post_groups.length != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;                        
-                        }
-                    });
-                }
-            },
-            getLatestPostByCatID: function() {
-
-                let fd = new FormData();
-                fd.append('category_id', this.latest_catId);
-                this.axios.post("/api/get_latest_post" , fd)
-                .then(response => {
-
-                    var latest_post = this.findNewNews(response.data);
-                    this.latest_post = latest_post[0];
-                    latest_post.splice(0, 1);    
-                    this.posts = latest_post;           
-                    if(Object.keys(this.latest_post).length == 0) {
-                        this.latest_post_null = true;
+                    if(this.cats[0].name == "トップ"){
+                        eventBus.$emit('gotColor', this.cats[0].color_code);
+                        this.latest_catId = this.cats[1].id;
                     }else{
-                        this.latest_post_null = false;
+                        this.latest_catId = this.cats[0].id;
+                        eventBus.$emit('gotColor', this.cats[1].color_code);
+                    }
+                    this.getLatestPostByCatID();
+                });
+        },
+        getLatestPostsByCatID: function() {
+            this.post_groups = [];
+            
+            var searchword = 'all_news_search';                
+
+            if($(window).width() > 480){
+
+                this.axios
+                .get('/api/get_latest_posts_by_catId/'+searchword)
+                .then(response => {
+                    length = Object.keys(response.data).length;
+                    this.$loading(false);
+                    if(length > 0) {
+                        this.post_groups = response.data;
+                    } else {
+                        this.post_groups = [];                         
+                    }                  
+                    if(this.post_groups.length != 0){
+                        this.norecord_msg = false;
+                    }else{
+                        this.norecord_msg = true;                        
                     }
                 });
 
-            },
-            getLatestPostFromAllCat: function() {
+            }else{
                 this.axios
-                    .get('/api/get_latest_post_all_cat')
-                    .then(response => {                    
-                        this.$loading(false);
-                        this.latest_post_all_cats = this.findNewNews(response.data);
-                    });
-            },
-            findNewNews: function(posts) {
-                        var current_date = new Date().getTime();
-                        posts.forEach(function(post){
-                            const post_date = new Date(post.created_at);
-                            var msec = (current_date - post_date.getTime());
-                            var mins = Math.floor(msec / 60000);
-                            var hrs = Math.floor(mins / 60);
-                            var min = post_date.getMinutes();
-                            var month = post_date.getMonth()+1;
-                            min = min < 10 ? '0' + min : min;
+                .get('/api/get_latest_posts_by_catId_mobile/'+searchword)
+                .then(response => {
+                    length = Object.keys(response.data).length;
+                    this.$loading(false);
+                    if(length > 0) {
+                        this.post_groups = response.data;
+                    } else {
+                        this.post_groups = [];                         
+                    }                  
+                    if(this.post_groups.length != 0){
+                        this.norecord_msg = false;
+                    }else{
+                        this.norecord_msg = true;                        
+                    }
+                });
+            }
+        },
+        getLatestPostByCatID: function() {
 
-                            post.new_news = "";
-                            if(hrs <= 36) {     
-                                post.date_only = month + '/' +  post_date.getDate();
-                                post.new_news = "1";
-                            }                              
-                            post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
-                            
-                        });
-                        return posts;
-            },
-            imgUrlAlt(event) {
-                event.target.src = "/images/noimage.jpg"
-            },
+            let fd = new FormData();
+            fd.append('category_id', this.latest_catId);
+            this.axios.post("/api/get_latest_post" , fd)
+            .then(response => {
+
+                var latest_post = this.findNewNews(response.data);
+                this.latest_post = latest_post[0];
+                latest_post.splice(0, 1);    
+                this.posts = latest_post;           
+                if(Object.keys(this.latest_post).length == 0) {
+                    this.latest_post_null = true;
+                }else{
+                    this.latest_post_null = false;
+                }
+            });
+
+        },
+        getLatestPostFromAllCat: function() {
+            this.axios
+                .get('/api/get_latest_post_all_cat')
+                .then(response => {                    
+                    this.$loading(false);
+                    this.latest_post_all_cats = this.findNewNews(response.data);
+                });
+        },
+        findNewNews: function(posts) {
+                    var current_date = new Date().getTime();
+                    posts.forEach(function(post){
+                        const post_date = new Date(post.created_at);
+                        var msec = (current_date - post_date.getTime());
+                        var mins = Math.floor(msec / 60000);
+                        var hrs = Math.floor(mins / 60);
+                        var min = post_date.getMinutes();
+                        var month = post_date.getMonth()+1;
+                        min = min < 10 ? '0' + min : min;
+
+                        post.new_news = "";
+                        if(hrs <= 36) {     
+                            post.date_only = month + '/' +  post_date.getDate();
+                            post.new_news = "1";
+                        }                              
+                        post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                        
+                    });
+                    return posts;
+        },
+        imgUrlAlt(event) {
+            event.target.src = "/images/noimage.jpg"
+        },
         }
     }
  </script>
