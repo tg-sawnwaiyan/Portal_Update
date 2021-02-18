@@ -39,10 +39,7 @@
                                     {{jobs.data[0].profile_name}}
                                 </span>
                             </h5>
-                        </div>
-                    
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">データが見つかりません。</div> -->
-
+                        </div> 
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -61,8 +58,6 @@
                                         </div>
                                     </div>
                                      <div class="col-12 col-md-5 text-right choose-item">
-                                        <!-- <button :class="'btn drop-bg-color changeLink'+job.id"  @click="jobToggle(job.id)">
-                                        <i :id="'icon' + job.id" class="fas fa-sort-down animate rotate"></i> 詳細</button> -->
                                         <p class="job-no">応募者数:
                                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
                                         </p>
@@ -97,20 +92,14 @@
                                         </li>
                                     </ul>
                                     </div>
-                                    <div class=" col-6">
-                                        
-                                        <!-- <p class="float-right">応募者数:
-                                            <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
-                                        </p> -->
-                                    </div>
+                                     
                                 </div>
                                 
                                   
                             </div>
                         </div>
                         
-                    </div>
-                    <!-- <pagination :data="jobs" @pagination-change-page="searchJobOffer"></pagination> -->
+                    </div> 
                     <div>
                         <pagination :data="jobs" @pagination-change-page="searchJobOffer" :limit="limitpc">
                             <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -127,25 +116,19 @@
 <script>
     export default {
 
-           props:{
+        props:{
           
-          limitpc: {
+            limitpc: {
                 type: Number,
                 default: 5
             },
         },
-        //  mounted(){
-
-        //     this.count = this.countJobapplylist()
-
-        // },
         data() {
                 return {
                     jobs: [],
                     customer_id: "",
                     count: "",
-                    job_id: [],
-                    items: [],
+                    job_id: [], 
                     loginuser: true,
                     norecord_msg: false,
                     nosearch_msg: false,
@@ -156,34 +139,27 @@
             },
 
             created() {
-               
-                
 
                 if(this.$route.name == "profilejobofferlist"){
-                    
                     this.pro_id = this.$route.params.id;
                     this.type = this.$route.params.type;
                     this.hrefroute = "/profilejoboffercreate/"+this.type+"/"+this.pro_id;
                 }
                 else{
-                    
                     this.pro_id = null;
                     this.type = 'admin';
                     this.hrefroute = "/joboffercreate";
                 }
                 this.getAllJobs();
                 
-                this.axios.get('/api/user').then(response => {
-                // this.pro_id = response.data.lat_lng[0].id;
+                this.axios.get('/api/user').then(response => { 
                 this.loginuser = 'true';
                 }).catch((error) => {
                     this.loginuser = 'false';
-                })
-
-                // this.countJobapplylist(this.job_id);
+                }) 
             },
             methods: {
-                   getAllJobs() { 
+                getAllJobs() { 
                     if(this.$route.params.status == 'update'){
                         var page_no = this.$route.params.page_no;
                         this.nextPaginate(page_no);
@@ -206,35 +182,13 @@
 
                         });
                     }
-                },
-                jobToggle(id) {
-                        var class_by_id = $('#icon' + id).attr('class');
-                        if (class_by_id == "fas fa-sort-down animate rotate") {
-                            $('#icon' + id).removeClass("fas fa-sort-down animate rotate");
-                            $('.changeLink' + id).removeClass("fas fa-sort-down animate");
-                            $('#icon' + id).addClass("fas fa-sort-down animate");
-                            $('#changeLink' + id).show('medium');
-                        } else {
-
-                            $('#icon' + id).removeClass("fas fa-sort-down animate");
-                            $('.changeLink' + id).removeClass("fas fa-sort-down animate");
-                            $('#icon' + id).addClass("fas fa-sort-down animate rotate");
-                            $('#changeLink' + id).hide('medium');
-                        }
-
-                    },
-
-                
+                }, 
                 confirm(id) {
 
                     this.axios.get(`/api/job/confirm/${id}`)
                         .then(response => {
-
-
-                            // this.jobs = response.data.jobs;
                             this.getAllJobs();
                         });
-
 
                     },
                 deleteJob(id) {
@@ -256,9 +210,7 @@
                         }).then(response => {
                             this.axios
                                 .delete(`/api/job/delete/${id}/`+this.type+"/"+this.pro_id)
-                                .then(response => {
-                                    // let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
-                                    // this.jobs.splice(i, 1);
+                                .then(response => { 
                                     this.jobs = response.data.profilejob;
                                     this.customer_id = response.data.user;
                                     if(this.jobs.data.length != 0){
@@ -333,11 +285,3 @@
             }
     };
 </script>
-<style>
-
-/*eee*/
-
-
-/*=====================*/
-
-</style>
