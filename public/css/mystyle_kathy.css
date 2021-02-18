@@ -11782,12 +11782,6 @@ ul.nur-caro-card>li.list-group-item {
         float: none;
         text-align: center;
     }
-    ul.menu li.first-submenu {
-        position: absolute;
-        top: 18px;
-        right: 16px;
-        font-size: 20px;
-    }
     .login_nav li.first-submenu {
         top: 18px !important;
     }

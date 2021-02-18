@@ -976,6 +976,9 @@ body.all-bg{
         color: #fff;
         padding: 0.4rem 1rem;
     }
+    #myTab ul li a h2{
+        font-size: 18px;
+    }
     #myTab .router-link-exact-active{
         padding: 0.6rem 1rem 0.4rem 1rem;
     }
