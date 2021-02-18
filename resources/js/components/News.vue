@@ -1079,24 +1079,10 @@
                     posts.push(response.data);
                     var latest_post = this.findNewNews(posts);
                     this.latest_post = latest_post[0];
-                    const post_date = new Date(latest_post.created_at);
-                    var msec = (current_date - post_date.getTime());
-                    var mins = Math.floor(msec / 60000);
-                    var hrs = Math.floor(mins / 60);
-                    var min = post_date.getMinutes();
-                    var month = post_date.getMonth()+1;
-                    min = min < 10 ? '0' + min : min;
-
-                    latest_post.new_news = "";
-                    if(hrs <= 36) {     
-                        latest_post.date_only = month + '/' +  post_date.getDate();
-                        latest_post.new_news = "1";
-                    }       
-                    latest_post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                    
                     if(Object.keys(this.latest_post).length == 0) {
                         this.latest_post_null = true;
-                    }
-                    else{
+                    }else{
                         this.latest_post_null = false;
                     }
                 });
