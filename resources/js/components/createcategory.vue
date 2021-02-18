@@ -87,9 +87,9 @@ export default {
                         }).then(response => { 
                             this.$loading(true);
                             this.axios.post('/api/category/add', this.category)
-                    .then((response) => {
+                        .then((response) => {
                         this.$loading(false);
-                        this.$swal({
+                            this.$swal({
                             position: 'top-end',
                             type: 'success',
                             text: 'ニュースカテゴリーを作成しました。',
@@ -98,14 +98,14 @@ export default {
                             width: 350,
                             height: 200,
                             allowOutsideClick: false,
-                        })
-                     this.$router.push({name: 'categorylist'});
-                    }).catch(error=>{
-                        if(error.response.status == 422){
+                            })
+                            this.$router.push({name: 'categorylist'});
+                            }).catch(error=>{
+                            if(error.response.status == 422){
                             this.errors = error.response.data.errors;
-                        }
-                    });
-                            });     
+                            }
+                        });
+                        });     
             },
             updateCategory() { 
                     this.$loading(true);
