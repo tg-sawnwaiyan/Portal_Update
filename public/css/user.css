@@ -410,6 +410,7 @@ body.all-bg{
     z-index: 9;
     width: 100%;
     max-width: 1600px;
+    overflow: hidden;
 }
 .menu_category{
     margin: 5px 25px 0 21.5px;
