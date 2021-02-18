@@ -433,9 +433,16 @@ body.all-bg{
     color: #fff;
     border: none;
 }
+#ul_menu_category li a h2{
+    font-size: 18px;
+    padding: .2rem .1rem;
+}
 .menu_category .nav-tabs .router-link-exact-active{
     color: #fff;
     padding: 0.75rem 1rem 0.5rem 1rem;
+    font-weight: bold;
+}
+.menu_category .nav-tabs .router-link-exact-active h2{
     font-weight: bold;
 }
 #left-button{
