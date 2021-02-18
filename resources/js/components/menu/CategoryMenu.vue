@@ -1,7 +1,7 @@
 <template>
     <div class="tab-pane" id="tab1">
             <!-- slider -->
-            <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="d-sm-block cat-nav clearfix infoBox" ref="infoBox" style="margin: 0 0.4rem 1.65rem 0.4rem;">
+            <div v-if="this.$route.path === '/' || this.$route.path.includes('/newscategory')" class="d-sm-block cat-nav clearfix infoBox" ref="infoBox">
                 <div class="no-scrollbar" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
                     <ul role="tablist">
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor(cat.color_code);" ref="itemWidth">
@@ -77,12 +77,12 @@ export default {
         scrollUp(index){
             if(localStorage.getItem("clicked")){
                 if(index >= localStorage.getItem('clicked')){
-                    var pos = $('div.nav').scrollLeft() + 100;
+                    var pos = $('div#myTab').scrollLeft() + 100;
                 }else{
-                    var pos = $('div.nav').scrollLeft() - 100;
+                    var pos = $('div#myTab').scrollLeft() - 100;
                 }
             }
-            $('div.nav').scrollLeft(pos);
+            $('div#myTab').scrollLeft(pos);
             localStorage.setItem('clicked', index);    
         },
     }
