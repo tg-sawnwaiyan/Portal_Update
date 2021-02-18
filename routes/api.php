@@ -158,7 +158,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
         Route::post('account_update','CustomerController@accountStatusUpdate');
-        Route::delete('delete/{id}/{type}','CustomerController@destroy');
+        Route::delete('delete/{id}/{type}','CustomerController@delete');
     });
     // End Customer
 
@@ -348,7 +348,6 @@ Route::group(['middleware' => $middleware], function() {
 
     // Home Page
     Route::get('home', 'HomeController@index');
-    Route::post('posts', 'HomeController@getPosts');
     Route::post('get_latest_post', 'HomeController@getLatestPost');
     Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
     Route::post('search', 'HomeController@search');

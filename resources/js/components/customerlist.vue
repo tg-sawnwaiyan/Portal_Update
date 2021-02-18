@@ -115,9 +115,9 @@
                     </div>
                     <div>
                         <pagination :data="customers" @pagination-change-page="searchCustomer" :limit="limitpc">
-                                <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
-                                <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
-                          </pagination>
+                            <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
+                            <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
+                        </pagination>
                     </div>
                 </div>
             </div>
@@ -126,220 +126,199 @@
 </template>
 
 <script>
-  import Autocomplete from 'vuejs-auto-complete'
+    import Autocomplete from 'vuejs-auto-complete'
     export default {
          components: {
             Autocomplete,
         },
 
-         props:{
+        props:{
             limitpc: {
                 type: Number,
                 default: 5
             },
         },
         data() {
-                return {
-                    customers: [], items: [], norecord: 0, norecord_msg: false, nosearch_msg: false, title: '', type: null, status:'', searchkeyword:'', customerList:'', profileList:[], recordstatus :[], status:[], table_name: { profile: '' }, cusid:'',                  
-                };
+            return {
+                customers: [], items: [], norecord: 0, norecord_msg: false, nosearch_msg: false, title: '', type: null, status:'', searchkeyword:'', customerList:'', profileList:[], recordstatus :[], status:[], table_name: { profile: '' }, cusid:'',                  
+            };
+        },
+        created() {
+            this.$loading(true);
+            this.initialCall();               
+            this.axios.get('/api/job/customerList/'+this.type).then(response=> {
+                this.customerList = response.data;
+            });
+        },
+        methods: {               
+            initialCall(){
+                
+                if(this.$route.path == "/nuscustomerlist"){
+                    if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                        this.searchCustomer();
+                    }else{
+                    this.type = "nursing";
+                    this.title = "介護施設事業者一覧";
+                    this.axios.get("/api/customers/3").then(response => {
+                        this.$loading(false);
+                        this.customers = response.data;
+                        this.norecord = this.customers.data.length;
+                        if(this.norecord != 0){
+                            this.norecord_msg = false;
+                        }else{
+                            this.norecord_msg = true;
+                        }
+                    });
+                    }
+                }
+                else if(this.$route.path == "/hoscustomerlist"){
+                    
+                    if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
+                        this.searchCustomer();
+                    }else{
+                    this.type = "hospital";
+                    this.title = "病院事業者一覧";
+                    this.axios.get("/api/customers/2").then(response => {
+                        this.$loading(false);
+                        this.customers = response.data;
+                        this.norecord = this.customers.data.length;
+                        if(this.norecord != 0){
+                            this.norecord_msg = false;
+                        }else{
+                            this.norecord_msg = true;
+                        }
+                    });
+                    }
+                }
             },
-            created() {
-                this.$loading(true);
-                this.initialCall();               
-                  this.axios.get('/api/job/customerList/'+this.type).then(response=> {
-                    this.customerList = response.data;
+            getselected($event){         
+                this.cusid = $event.display;
+                this.searchCustomer();
+            },
+            clearcustomer(){
+                this.cusid = '';
+                this.searchCustomer();
+            },                          
+            deleteCustomer(id,type) {
+                if(type == 'delete'){
+                    var textval = '事業者を削除してよろしいでしょうか。';
+                }
+                else{
+                    var textval = '本当に承認しなくてよろしいでしょうか。<br/>承認しない場合事業者情報が削除されます。';
+                }
+                
+                this.$swal({
+                    html: textval,
+                    type: "warning",
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: "#eea025",
+                    cancelButtonColor: "#b1abab",
+                    cancelButtonTextColor: "#000",
+                    confirmButtonText: "はい",
+                    cancelButtonText: "キャンセル",
+                    confirmButtonClass: "all-btn",
+                    cancelButtonClass: "all-btn",
+                    allowOutsideClick: false,
+                    
+                }).then(response => {
+                    this.$loading(true);
+                    this.axios.delete(`/api/customer/delete/${id}/${type}`).then(response => {
+                        this.$loading(false);
+                        this.initialCall();
+                        if(this.norecord != 0){
+                            this.norecord_msg = false;
+                        }else{
+                            this.norecord_msg = true;
+                        }
+                    });
+                    
+                }).catch(error => {
+                    this.$loading(false);
                 });
             },
-            methods: {               
-                initialCall(){
+            comfirm(id) {
+                this.$swal({
+                    text: "本当に承認してよろしいでしょうか。",
+                    type: "warning",
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: "#eea025",
+                    cancelButtonColor: "#b1abab",
+                    cancelButtonTextColor: "#000",
+                    confirmButtonText: "はい",
+                    cancelButtonText: "キャンセル",
+                    confirmButtonClass: "all-btn",
+                    cancelButtonClass: "all-btn",
+                    allowOutsideClick: false,
                     
-                    if(this.$route.path == "/nuscustomerlist"){
-                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
-                            this.searchCustomer();
-                        }else{
-                        this.type = "nursing";
-                        this.title = "介護施設事業者一覧";
-                        this.axios.get("/api/customers/3").then(response => {
-                            this.$loading(false);
-                            this.customers = response.data;
-                            this.norecord = this.customers.data.length;
-                            if(this.norecord != 0){
-                                this.norecord_msg = false;
-                            }else{
-                                this.norecord_msg = true;
-                            }
-                        });
-                        }
-                    }
-                    else if(this.$route.path == "/hoscustomerlist"){
-                        
-                        if(this.status != "" || this.recordstatus != "" || this.cusid != ""){
-                            this.searchCustomer();
-                        }else{
-                        this.type = "hospital";
-                        this.title = "病院事業者一覧";
-                        this.axios.get("/api/customers/2").then(response => {
-                            this.$loading(false);
-                            this.customers = response.data;
-                            this.norecord = this.customers.data.length;
-                            if(this.norecord != 0){
-                                this.norecord_msg = false;
-                            }else{
-                                this.norecord_msg = true;
-                            }
-                        });
-                        }
-                    }
-                },
-                getselected($event){                  
-                    this.cusid = $event.display;
-                    this.searchCustomer();
-                },
-                clearcustomer(){
-                    this.cusid = '';
-                    this.searchCustomer();
-                },                          
-                deleteCustomer(id,type) {
-                    if(type == 'delete'){
-                        var textval = '事業者を削除してよろしいでしょうか。';
-                    }
-                    else{
-                        var textval = '本当に承認しなくてよろしいでしょうか。<br/>承認しない場合事業者情報が削除されます。';
-                    }
-                    
-                        this.$swal({
-                            html: textval,
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                            
-                        }).then(response => {
-                            this.$loading(true);
-                            this.axios.delete(`/api/customer/delete/${id}/${type}`).then(response => {
-                                this.$loading(false);
-                                // this.customers = response.data.customers;
-                                this.initialCall();
-                                // this.$swal({
-                                // // title: "削除済",
-                                // text: "事業者を削除しました。",
-                                // type: "success",
-                                // width: 350,
-                                // height: 200,
-                                // confirmButtonText: "閉じる",
-                                // confirmButtonColor: "#dc3545",
-                                // allowOutsideClick: false,
-                                // });
-                                if(this.norecord != 0){
-                                    this.norecord_msg = false;
-                                }else{
-                                    this.norecord_msg = true;
-                                }
-                                // let a = this.customers.map(item => item.id).indexOf(id);
-                                // this.customers.splice(a, 1);
-
+                }).then(response => {
+                    this.$loading(true);
+                    this.axios.get(`/api/confirm/${id}`).then(response => {
+                        this.initialCall();
+                        if (response.data.status == 'success') {
+                            this.$swal({
+                                title: "新規登録承認",
+                                text: "事業者にメールを送信しました。",
+                                type: "success",
+                                width: 350,
+                                height: 200,
+                                confirmButtonText: "閉じる",
+                                confirmButtonColor: "#31cd38",
+                                allowOutsideClick: false,
                             });
-                            
-                        }).catch(error => {
-                            this.$loading(false);
-                        });
-                    },
-                    comfirm(id) {
-                        this.$swal({
-                            // title: "確認",
-                            text: "本当に承認してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                            
-                        }).then(response => {
-                            this.$loading(true);
-                            this.axios.get(`/api/confirm/${id}`).then(response => {
-                                this.initialCall();
-                                // this.displayItems();
-                                if (response.data.status == 'success') {
-                                    this.$swal({
-                                        title: "新規登録承認",
-                                        text: "事業者にメールを送信しました。",
-                                        type: "success",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "閉じる",
-                                        confirmButtonColor: "#31cd38",
-                                        allowOutsideClick: false,
-                                    });
-                                } else {
-                                    this.$swal({
-                                        title: "新規登録承認",
-                                        text: "顧客はすでに確認されています。",
-                                        type: "warning",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "閉じる",
-                                        confirmButtonColor: "#31cd38",
-                                        allowOutsideClick: false,
-                                    });
-                                }
-                                this.$loading(false);
+                        } else {
+                            this.$swal({
+                                title: "新規登録承認",
+                                text: "顧客はすでに確認されています。",
+                                type: "warning",
+                                width: 350,
+                                height: 200,
+                                confirmButtonText: "閉じる",
+                                confirmButtonColor: "#31cd38",
+                                allowOutsideClick: false,
                             });
-                        }).catch(error => {
-                            this.$loading(false);
-                        })
-                        
-                    },
-                  
+                        }
+                        this.$loading(false);
+                    });
+                }).catch(error => {
+                    this.$loading(false);
+                })
+                
+            },               
 
-                    searchCustomer(page) {
+            searchCustomer(page) {
 
-                        if(typeof page === "undefined"){
-                            page = 1;
-                        }
-                      
-                        let fd = new FormData();
-                        fd.append("status",this.status)
-                        fd.append("recordstatus",this.recordstatus);
-                        fd.append("cusid",this.cusid);
-                      
-                        if(this.$route.path == "/nuscustomerlist"){
-                            fd.append("type",3)
-                        }
-                        else{
-                            fd.append("type",2)
-                        }
-                        this.$loading(true);
-                        $("html, body").animate({ scrollTop: 0 }, "slow");
-                        this.axios.post("/api/customer/search?page="+page, fd).then(response => {
-                            this.$loading(false);
-                            this.customers = response.data;
-                            this.norecord = this.customers.data.length; 
-                         
-                            if(this.customers.data.length != 0) {
-                                this.nosearch_msg = false;
-                            }else{
-                                this.nosearch_msg = true;
-                            }
-                        });
-                    },
-                    imgUrlAlt(event) {
-                        event.target.src = "/images/noimage.jpg"
-                    },                    
-            }
+                if(typeof page === "undefined"){
+                    page = 1;
+                }
+                
+                let fd = new FormData();
+                fd.append("status",this.status)
+                fd.append("recordstatus",this.recordstatus);
+                fd.append("cusid",this.cusid);
+                
+                if(this.$route.path == "/nuscustomerlist"){
+                    fd.append("type",3)
+                }
+                else{
+                    fd.append("type",2)
+                }
+                this.$loading(true);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                this.axios.post("/api/customer/search?page="+page, fd).then(response => {
+                    this.$loading(false);
+                    this.customers = response.data;
+                    this.norecord = this.customers.data.length;                     
+                    if(this.customers.data.length != 0) {
+                        this.nosearch_msg = false;
+                    }else{
+                        this.nosearch_msg = true;
+                    }
+                });
+            },                 
+        }
     };
 </script>

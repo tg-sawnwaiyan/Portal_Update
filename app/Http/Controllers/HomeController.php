@@ -55,34 +55,19 @@ class HomeController extends Controller
         return view("home");
     }
 
-    public function getPosts(Request $request)
-    {
-        $request = $request->all();
-        $cat_id = $request['category_id'];
-
-        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
-        // if(isset($request['search_word'])) {
-        //     $search_word = $request['search_word'];
-        //     $posts = $posts->where(function($qu) use ($search_word){
-        //         $qu->where('title', 'LIKE', "%{$search_word}%");
-        //     });
-        // }
-        // $posts = $posts->orderBy('created_at', 'desc')->get();
-        return response()->json($posts);
-    }
-
     public function getLatestPost(Request $request)
     {
         $request = $request->all();
         $cat_id = $request['category_id'];
         $latest_post = Post::where("category_id",$cat_id,"and")->where('recordstatus',1);
-        $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
+        $latest_post = $latest_post->orderBy('created_at', 'desc')->limit(10)->get();
         return response()->json($latest_post);
     }
 
     public function getLatestPostFromAllCat()
     {
-        $to_date = [];$from_date=[];
+        $to_date = [];
+        $from_date=[];
         $getTime = Carbon\Carbon::now()->toDateString();
         // toDateTimeString
         $query = "SELECT *,'' as cname from posts 
@@ -91,7 +76,11 @@ class HomeController extends Controller
         $break_news = DB::select($query);
   
         $limit = 16 - count($break_news);
-        $latestpost = Post::join('categories', 'posts.category_id', '=', 'categories.id' )->select('posts.*','categories.name as cname','categories.color_code')->where('category_id','!=',26)->where('posts.recordstatus',1)->orderBy('posts.created_at', 'desc')->limit("$limit")->get()->toArray();
+        $latestpost = Post::join('categories', 'posts.category_id', '=', 'categories.id' )
+                            ->select('posts.*','categories.name as cname','categories.color_code')
+                            ->where('category_id','!=',26)->where('posts.recordstatus',1)
+                            ->orderBy('posts.created_at', 'desc')
+                            ->limit("$limit")->get()->toArray();
 
         $merge_arr = array_merge($break_news,$latestpost);
         shuffle($merge_arr);
