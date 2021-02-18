@@ -18,6 +18,8 @@
                                     {{occupations.name}}
                                 </option>
                             </select>
+
+                            <span v-if="errors.parent" class="error">{{errors.parent}}</span>
                     </div>
                     <div class="form-group">
                             <label>職種<span class="error sp2">必須</span></label>
@@ -43,7 +45,8 @@ export default {
           data() {
             return {
                  errors:{
-                     name:""
+                     name:"",
+                     parent:""
                  },
                  occupation: {
                         name: '',
@@ -69,10 +72,7 @@ export default {
                .get(`/api/occupation/edit/${this.$route.params.id}`)
                 .then((response) => {
                     if( `${this.$route.params.id}` == "undefined")
-                    {
-
-                    }
-                    else{
+                    { }else{
 
                         this.occupation.name = response.data.name;
                         this.occupation.parent = response.data.parent;
@@ -91,24 +91,24 @@ export default {
 
          methods: {
              checkValidate() {
-                     if (this.occupation.name) {
-                        // console.log('exist');
+                    if (this.occupation.name) {
                         this.errors.name = "";
                     } else {
-                        // console.log('null');
                         this.errors.name = " 職種は必須です。";
                     }
-                   if (
-                        !this.errors.name
-                        
-                    ) {
+                    if (this.selectedValue > 0) {
+                        this.errors.parent = "";
+                    } else {
+                        this.errors.parent = " 職種カテゴリーを選択してください。";
+                    }
+                    
+                    if ( !this.errors.name && !this.errors.parent ) {
                         this.add();
                     }
                 },
             add() {
-                          if( `${this.$route.params.id}` == "undefined")
-                {
-                    this.$swal({
+                    if( `${this.$route.params.id}` == "undefined") {
+                        this.$swal({
                             //  title: "確認",
                             text: "求人職種を作成してよろしいでしょうか。",
                             type: "warning",
@@ -142,17 +142,14 @@ export default {
                             height: 200,
                             allowOutsideClick: false,
                         })
-                        // alert('Successfully Created')
                         this.$router.push({name: 'occupationlist'});
                         }).catch(error=>{
 
-                    if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                    }
-                })
-                            })
+                            if(error.response.status == 422){
+                                this.errors = error.response.data.errors
+                            }
+                        })
+                    })
 
                 }
                 else{
@@ -160,63 +157,54 @@ export default {
                 }
             },
 
-               getOccupation: function(){
-
+            getOccupation: function(){
                this.occupation.parent = this.selectedValue;
-                },
+            },
 
-              updateType() {
-                  this.$swal({
-                            // title: "確認",
-                            text: "求人職種を更新してよろしいでしょうか。",
-                            type: "warning",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
-                            allowOutsideClick: false,
-                        }).then(response => {
-                            this.$loading(true);
-                            this.axios.post(`/api/occupation/update/${this.$route.params.id}`, this.occupation)
-                    .then(response => {
-                        this.$loading(false);
-                        // this.name = ''
-                        //   alert('Successfully Updated!')
-                        this.$swal({
-                            position: 'top-end',
-                            type: 'success',
-                            text: '求人職種を更新しました。',
-                            confirmButtonText: "閉じる",
-                            confirmButtonColor: "#31cd38 ",
-                            width: 350,
-                            height: 200,
-                            allowOutsideClick: false,
-                        })
-                        var num = localStorage.getItem('page_no');//comment get from occupationlist.vue/searchOccupation()
-                        // this.$router.push({ name: 'occupationlist', params: { status: 'update','page_no':num } })
+            updateType() {
+                this.$swal({
+                        // title: "確認",
+                        text: "求人職種を更新してよろしいでしょうか。",
+                        type: "warning",
+                        width: 350,
+                        height: 200,
+                        showCancelButton: true,
+                        confirmButtonColor: "#eea025",
+                        cancelButtonColor: "#b1abab",
+                        cancelButtonTextColor: "#000",
+                        confirmButtonText: "はい",
+                        cancelButtonText: "キャンセル",
+                        confirmButtonClass: "all-btn",
+                        cancelButtonClass: "all-btn",
+                        allowOutsideClick: false,
+                    }).then(response => {
+                        this.$loading(true);
+                        this.axios.post(`/api/occupation/update/${this.$route.params.id}`, this.occupation)
+                .then(response => {
+                    this.$loading(false); 
+                    this.$swal({
+                        position: 'top-end',
+                        type: 'success',
+                        text: '求人職種を更新しました。',
+                        confirmButtonText: "閉じる",
+                        confirmButtonColor: "#31cd38 ",
+                        width: 350,
+                        height: 200,
+                        allowOutsideClick: false,
+                    })
+                    var num = localStorage.getItem('page_no');//comment get from occupationlist.vue/searchOccupation()
+                    // this.$router.push({ name: 'occupationlist', params: { status: 'update','page_no':num } })
 
-                        this.$router.push({name: 'occupationlist'});
-                    }).catch(error=>{
-
+                    this.$router.push({name: 'occupationlist'});
+                }).catch(error=>{
                     if(error.response.status == 422){
-
                         this.errors = error.response.data.errors
-
                     }
                 });
-                         });
+            });
                 
             },
 
-
-
         }
-
 }
 </script>
