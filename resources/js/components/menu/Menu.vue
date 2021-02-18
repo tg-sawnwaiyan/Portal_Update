@@ -7,7 +7,7 @@
                 <a class="navbar-brand logo-text" href="/">
                 <!-- LOGO <span>HERE</span>  -->
                 <h1 class="logo_subtitle">介護医療福祉の総合サイト</h1>
-                <img src="/images/logo.png" alt="TIS（ティーズ）" style="width:215px;height:auto;" />
+                <img src="/images/logo.png" alt="TIS（ティーズ）"/>
                 </a>
                 
                 <div class="h-tel">
