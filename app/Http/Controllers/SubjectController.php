@@ -98,7 +98,7 @@ class SubjectController extends Controller
         return response()->json('The Subject successfully updated');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $Subject = Subject::find($id);
         $sub_junction = "SELECT * FROM subject_junctions WHERE subject_junctions.subject_id = $id";
@@ -107,9 +107,9 @@ class SubjectController extends Controller
             return response()->json(['error' => 'この診療科目に関連している病院施設がありますので削除できません。'], 404);
         }else{
             $Subject->delete();
-        // return response()->json('The Subject was successfully deleted');
-        $subjects = Subject::orderBy('id', 'DESC')->paginate(20);
-        return response()->json($subjects);
+            // return response()->json('The Subject was successfully deleted');
+            $subjects = Subject::orderBy('id', 'DESC')->paginate(20);
+            return response()->json($subjects);
         }        
     }
 

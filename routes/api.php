@@ -119,7 +119,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'SubjectController@store');
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
-        Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::delete('delete/{id}', 'SubjectController@delete');
         Route::post('search', 'SubjectController@search');
     });
     //End Subject
