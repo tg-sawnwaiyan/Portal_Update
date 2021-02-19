@@ -27,10 +27,7 @@
                                 <i class="fas fa-plus-circle"></i> <span class="first_txt">院内施設</span><span class="dinone">新規作成</span>
                             </router-link>
                         </div>
-                    </div>
-                    
-                    <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
-
+                    </div> 
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
@@ -53,8 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- <pagination :data="facilities" @pagination-change-page="searchFacility"></pagination> -->
+                    </div> 
                     <div>
                         <pagination :data="facilities" @pagination-change-page="searchFacility" :limit="limitpc">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
@@ -127,10 +123,7 @@
                                         this.norecord_msg = false;
                                     }else {
                                         this.norecord_msg = true;
-                                    }
-                                    //alert('Delete Successfully!');
-                                    // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
-                                    // this.facilities.splice(i, 1);
+                                    } 
                                     this.$swal({
                                         // title: "削除済",
                                         text: "院内施設を削除しました。",

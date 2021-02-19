@@ -217,22 +217,10 @@
     export default {
 
         data() {
-                return {
-                    errors: [],
+                return { 
                     fav_hospital: [],
                     fav_hos:'',
-                    local_sto: "",
-                    post_list: [],
-                    city_list: [],
-                    post: "",
-                    selectedCity: "",
-                    zipStreet: "",
-                    zipPref: "",
-                    selectedValue: 0,
-                    fav_email: [],
-                    arr_email: [],
-                    type: 'nursing',
-                    specialfeature: [],
+                    local_sto: "",   
                     currentOffset: 0,
                     windowSize: 5,
                     paginationFactor: 272,
@@ -361,7 +349,6 @@
                                     this.fav_hos =this.local_sto.split(",").length;
                                     this.getAllFavourite(this.local_sto);
                                 } else {
-                                    // window.location.reload();
                                     this.$router.push({
                                         name: 'hospital_search',                                        
                                     });
@@ -396,7 +383,6 @@
                                     allowOutsideClick: false,
                                     });
                                     var hos_id = '';
-                                //   this.message = "現在本サイトに掲載されていない病院についてはお気に入りリストから削除しました。"
                                     for(var i= 0;i<this.fav_hospital.length;i++)
                                      {
                                          if(i== this.fav_hospital.length-1)
