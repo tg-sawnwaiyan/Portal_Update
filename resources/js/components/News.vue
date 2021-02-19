@@ -101,7 +101,7 @@
 
                                                     <transition name="fade">
                                                       
-                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
+                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                     </transition>
 
@@ -319,7 +319,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -382,7 +382,7 @@
 
                                             <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                             </transition>
                                             <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -468,7 +468,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
@@ -510,7 +510,7 @@
 
                                                     <transition name="fade">
 
-                                                        <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
+                                                        <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                     </transition>
                                                     <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -577,7 +577,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
@@ -619,7 +619,7 @@
 
                                                     <transition name="fade">
 
-                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                     </transition>
                                                     <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
