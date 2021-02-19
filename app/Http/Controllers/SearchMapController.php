@@ -100,11 +100,19 @@ class SearchMapController extends Controller
         }
         if($moving_in != -1)
         {
-            $query .= " and n.moving_in_to <=".$moving_in;
+            if($moving_in > 30000000){
+                $query .= " and n.moving_in_to > 30000000";
+            }else{
+                $query .= " and n.moving_in_to <=".$moving_in;
+            }            
         }
         if($per_month != -1)
         {
-            $query .= " and n.per_month_to <=".$per_month;
+            if($moving_in > 500000){
+                $query .= " and n.per_month_to > 500000";
+            }else{
+                $query .= " and n.per_month_to <=".$per_month;
+            }     
         }
 
         if($SpecialFeatureID != 0)
