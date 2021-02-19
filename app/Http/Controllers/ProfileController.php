@@ -21,7 +21,7 @@ class ProfileController extends Controller
         return auth()->user();
     }
 
-    public function movelatlng($id,Request $request)
+    public function movelatlng($id)
     {   
        
         $insert = array(
