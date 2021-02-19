@@ -45,7 +45,6 @@
                                     <tr>
                                         <th>特長名</th>
                                         <th>略語</th>
-                                        <!-- <th>カテゴリー</th> -->
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -86,126 +85,124 @@
             },
         },
         data() {
-                return {
-                    features: [],
-                    norecord: 0,
-                    norecord_msg: false,
-                    nosearch_msg: false, 
-                    title: '',
-                };
-            },
+            return {
+                features: [],
+                norecord: 0,
+                norecord_msg: false,
+                nosearch_msg: false, 
+                title: '',
+            };
+        },
 
-            created() {
-                this.$loading(true);
-                if(this.$route.path == "/nusfeaturelist"){
-                    this.type = 'nursing';
-                    this.title = "特長一覧";
-                    this.axios.get("/api/feature/featurelist/nursing").then(response => {
-                        this.$loading(false);
+        created() {
+            this.$loading(true);
+            if(this.$route.path == "/nusfeaturelist"){
+                this.type = 'nursing';
+                this.title = "特長一覧";
+                this.axios.get("/api/feature/featurelist/nursing").then(response => {
+                    this.$loading(false);
+                    this.features = response.data;
+                    this.norecord = this.features.data.length;
+                    if (this.norecord != 0){
+                        this.norecord_msg = false;
+                    }else {
+                        this.norecord_msg = true;
+                    }
+                });
+            }
+            else if(this.$route.path == "/hosfeaturelist"){
+                this.type = 'hospital';
+                this.title = "特長一覧";
+                this.axios.get("/api/feature/featurelist/hospital").then(response => {
+                    this.$loading(false);
+                    this.features = response.data;
+                    this.norecord = this.features.data.length;
+                    if (this.norecord != 0){
+                        this.norecord_msg = false;
+                    }else {
+                        this.norecord_msg = true;
+                    }
+                });
+            }
+
+        },
+        methods: {
+            deleteFeature(id,type) {
+                this.$swal({
+                    text: "特長を削除してよろしいでしょうか。",
+                    type: "warning",
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: "#eea025",
+                    cancelButtonColor: "#b1abab",
+                    cancelButtonTextColor: "#000",
+                    confirmButtonText: "はい",
+                    cancelButtonText: "キャンセル",
+                    confirmButtonClass: "all-btn",
+                    cancelButtonClass: "all-btn",
+                    allowOutsideClick: false,
+                }).then(response => {
+                    this.axios
+                    .delete(`/api/feature/delete/${id}/${type}`)
+                    .then(response => {
                         this.features = response.data;
                         this.norecord = this.features.data.length;
+                        if (this.norecord > this.size) {
+                            this.pagination = true;
+                        } else {
+                            this.pagination = false;
+                        }
                         if (this.norecord != 0){
                             this.norecord_msg = false;
                         }else {
                             this.norecord_msg = true;
                         }
-                    });
-                }
-                else if(this.$route.path == "/hosfeaturelist"){
-                    this.type = 'hospital';
-                    this.title = "特長一覧";
-                    this.axios.get("/api/feature/featurelist/hospital").then(response => {
-                        this.$loading(false);
-                        this.features = response.data;
-                        this.norecord = this.features.data.length;
-                        if (this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else {
-                            this.norecord_msg = true;
-                        }
-                    });
-                }
-
-            },
-            methods: {
-                deleteFeature(id,type) {
                         this.$swal({
-                            // title: "確認",
-                            text: "特長を削除してよろしいでしょうか。",
-                            type: "warning",
+                            text: "特長を削除しました。",
+                            type: "success",
                             width: 350,
                             height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#eea025",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "はい",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn",
+                            confirmButtonText: "閉じる",
+                            confirmButtonColor: "#31cd38",
                             allowOutsideClick: false,
-                        }).then(response => {
-                            this.axios
-                                .delete(`/api/feature/delete/${id}/${type}`)
-                                .then(response => {
-                                    this.features = response.data;
-                                    this.norecord = this.features.data.length;
-                                    if (this.norecord > this.size) {
-                                        this.pagination = true;
-                                    } else {
-                                        this.pagination = false;
-                                    }
-                                    if (this.norecord != 0){
-                                        this.norecord_msg = false;
-                                    }else {
-                                        this.norecord_msg = true;
-                                    }
-                                    this.$swal({
-                                        // title: "削除済",
-                                        text: "特長を削除しました。",
-                                        type: "success",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "閉じる",
-                                        confirmButtonColor: "#31cd38",
-                                        allowOutsideClick: false,
-                                        
-                                    });
-                                }).catch(error=>{
-                                    if(error.response.status == 404){ 
-                                        this.$swal({
-                                            html: "削除に失敗しました。<br/>削除しようとした特長の施設が存在するため削除できません。 ",
-                                            type: "error",
-                                            width: 350,
-                                            height: 200,
-                                            confirmButtonText: "閉じる",
-                                            confirmButtonColor: "#ff5462",
-                                            allowOutsideClick: false,
-                                        });
-                                    }
-                                });
+                            
                         });
-                    },
-
-                    searchFeature(page) {
-                        if (typeof page === 'undefined') {
-                        page = 1;
+                    }).catch(error=>{
+                        if(error.response.status == 404){ 
+                            this.$swal({
+                                html: "削除に失敗しました。<br/>削除しようとした特長の施設が存在するため削除できません。 ",
+                                type: "error",
+                                width: 350,
+                                height: 200,
+                                confirmButtonText: "閉じる",
+                                confirmButtonColor: "#ff5462",
+                                allowOutsideClick: false,
+                            });
                         }
-                        var search_word = $("#search-item").val();
-                        let fd = new FormData();
-                        fd.append("search_word", search_word);
-                        this.$loading(true);
-                        $("html, body").animate({ scrollTop: 0 }, "slow");
-                        this.axios.post("/api/feature/search/"+this.type+"?page="+page, fd).then(response => {
-                            this.$loading(false);
-                            this.features = response.data;
-                            if(this.features.data.length != 0){
-                                this.nosearch_msg = false;
-                            }else {
-                                this.nosearch_msg = true;
-                            }
-                        });
-                    },
-            }
+                    });
+                });
+            },
+
+            searchFeature(page) {
+                if (typeof page === 'undefined') {
+                    page = 1;
+                }
+                var search_word = $("#search-item").val();
+                let fd = new FormData();
+                fd.append("search_word", search_word);
+                this.$loading(true);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                this.axios.post("/api/feature/search/"+this.type+"?page="+page, fd).then(response => {
+                    this.$loading(false);
+                    this.features = response.data;
+                    if(this.features.data.length != 0){
+                        this.nosearch_msg = false;
+                    }else {
+                        this.nosearch_msg = true;
+                    }
+                });
+            },
+        }
     };
 </script>
