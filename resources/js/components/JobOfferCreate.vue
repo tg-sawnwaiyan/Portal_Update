@@ -39,7 +39,6 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="title" class="form-control box" id="title" name="title" v-model="joboffer.title" placeholder="タイトルを入力してください。" />
-                                <!-- <span v-if="errors.title" class="error">{{ errors.title }}</span> -->
                                  <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
 
@@ -49,8 +48,6 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <textarea name="description" class="form-control" cols="50" rows="5" v-model="joboffer.description" placeholder="仕事内容を入力してください。"></textarea>
-                                <!-- <span v-if="errors.description" class="error">{{errors.description}}</span> -->
-                                 <!-- <span v-if="errors.includes('description')" class="error">題名は必須です。(description)</span> -->
                                 <span v-if="errors.description" class="error">{{errors.description}}</span>
                             </div>                         
 
@@ -69,7 +66,6 @@
                             <div class="form-group">
                                 <label for="location">
                                     郵便番号 
-                                    <!-- <span class="error sp2">必須</span> -->
                                 </label>
                                 <div class="row m-0">
                                     <div class="col-sm-6 col-12 pl-0 tel-input">
@@ -80,9 +76,7 @@
                                         <span class="float-left eg-txt">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank" class="pseudolink">郵便番号検索</a>)</span>
                                     </div>
                                 </div>
-                                <span id="jsErrorMessage" class="m-t-8"></span>                                
-                                <!-- <span v-if="errors.includes('postal')" class="error">題名は必須です。(postal)</span> -->
-                                 <!-- <span v-if="errors.postal" class="error">{{errors.postal}}</span> -->
+                                <span id="jsErrorMessage" class="m-t-8"></span> 
                             </div>
                             <div class="form-group">
                               <div class="row">
@@ -115,26 +109,19 @@
                                         <option v-for="tw in townships" :key="tw.id" v-bind:value="tw.id">
                                             {{tw.township_name}}
                                         </option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control box" v-model="joboffer.str_address" placeholder="市区町村、番地を入力してください。" /> -->
-                                    <span v-if="errors.str_address" class="error">{{errors.str_address}}</span>
-                                    <!-- <span v-if="errors.includes('str_address')" class="error">題名は必須です。(str_address)</span> -->
-                                    <!-- <span v-if="errors.name" class="error">{{errors.str_address}}</span> -->
+                                    </select> 
+                                    <span v-if="errors.str_address" class="error">{{errors.str_address}}</span> 
                                 </div>
                               </div>
                                 
-                            </div>
-                            <!-- <div class="form-group">
-                                
-                            </div> -->
+                            </div> 
                             <div class="form-group">
                                 <label for="location">
                                     勤務地
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location" placeholder="勤務地を入力してください。"></textarea>
-                                 <span v-if="errors.location" class="error">{{errors.location}}</span>
-                                 <!-- <span v-if="errors.includes('location')" class="error">題名は必須です。(location)</span> -->
+                                 <span v-if="errors.location" class="error">{{errors.location}}</span> 
 
                             </div>                           
 
@@ -187,8 +174,7 @@
                                     <div class="ml-0 joboffer-salary col-6" style="padding-left:0px;">
                                       <input type="text" class="form-control" v-model="joboffer.salary" name="salary" placeholder="給与を入力してください。"/>
                                       <p v-if="errors.salary" class="error">{{errors.salary}}</p>
-                                    </div>
-                                    <!-- <span v-if="errors.includes('salary')" class="error">題名は必須です。(salary)</span> -->
+                                    </div> 
                                     <span class="pt-1 pl-1 col-6">例：時給1000～2000円</span>
                                 </div>
                             </div>
@@ -216,9 +202,7 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="workhour" class="form-control" name="workhour" v-model="joboffer.working_hours" placeholder="就業時間を入力してください。" />
-                                <span v-if="errors.working_hours" class="error">{{errors.working_hours}}</span>
-                                <!-- <span v-if="errors.includes('working_hours')" class="error">題名は必須です。(working_hours)</span> -->
-
+                                <span v-if="errors.working_hours" class="error">{{errors.working_hours}}</span> 
                             </div>
 
                             <div class="form-group">
@@ -502,15 +486,6 @@ import Autocomplete from 'vuejs-auto-complete'
                         } else {
                             this.errors.description = "";
                         }
-                        
-                        
-
-                        // if (this.joboffer.postal == '') {
-                        //     this.errors.postal = '郵便番号は必須です。';
-                        // } else {
-                        //     this.errors.postal = "";
-                        // }
-
                         if (this.joboffer.pref == '') {
                             this.errors.pref = '都道府県は必須です。';
                         } else {
@@ -528,13 +503,6 @@ import Autocomplete from 'vuejs-auto-complete'
                         } else {
                             this.errors.location = "";
                         }
-
-                        // if (this.joboffer.salary_type == '-1') {
-                        //     this.errors.salary_type = " 給与タイプは必須です。";
-                        // }
-                        // else {
-                        //     this.errors.salary_type = null;
-                        // }
 
                         if (this.joboffer.salary == '') {
                             this.errors.salary = '給与は必須です。';
@@ -563,7 +531,6 @@ import Autocomplete from 'vuejs-auto-complete'
                         if (
                             !this.errors.title &&
                             !this.errors.description &&
-                            // !this.errors.postal &&
                             !this.errors.pref &&
                             !this.errors.location &&
                             !this.errors.description &&
@@ -610,8 +577,8 @@ import Autocomplete from 'vuejs-auto-complete'
                         });
                     }
                 },
-                    getTownship(town_id){
-                   
+                getTownship(town_id){
+               
                     this.axios.get('/api/auth/township',{
                       params:{
                         city:this.joboffer.pref
@@ -620,22 +587,18 @@ import Autocomplete from 'vuejs-auto-complete'
                        if(town_id == 2)
                       {
                         this.joboffer.location = ''
-                        // this.joboffer.postal = '';
                         this.joboffer.zipcode_id = null;
                         this.joboffer.str_address = 0;
                       }
                       this.townships = response.data.townships
                     })
-                  },
-                  getLocation(){
-    
-                    //  this.joboffer.postal = '';
-                     this.joboffer.location = '';
-                  },
+                },
+                getLocation(){
+
+                    this.joboffer.location = '';
+                },
 
                 add() {
-               
-              
                     if (this.$route.name == 'jobedit') {
                         this.updateJob();
                     } else {
@@ -657,8 +620,6 @@ import Autocomplete from 'vuejs-auto-complete'
                            
                         }
                         ).then(response => {
-                         
-                    
                            this.$loading(true);
                          
                              this.axios.post("/api/job/add", this.joboffer)
@@ -669,8 +630,6 @@ import Autocomplete from 'vuejs-auto-complete'
                                         position: "top-end",
                                         type: "success",
                                         text: "求人を作成しました。",
-                                        // text: "ファイルが作成されました。",
-                                        // type: "success",
                                         width: 350,
                                         height: 200,
                                         confirmButtonText: "閉じる",
@@ -678,13 +637,7 @@ import Autocomplete from 'vuejs-auto-complete'
                                         allowOutsideClick: false,
                                     });
 
-                                    // alert('Successfully Created')
                                     this.$router.go(-1);
-                                    // this.$router.push({
-                                    //     name: "jobofferlist"
-                                    // });
-
-                                    // this.$route.params.id = null;
                                 })
                                 .catch(error => {
                                    this.$loading(false);
@@ -694,40 +647,7 @@ import Autocomplete from 'vuejs-auto-complete'
                                 });
                         });
                     }
-                },
-
-                getParent: function() {
-                  this.joboffer.occupation_id = this.selectedValue;
-                },
-           
-
-                addRow: function() {
-                    this.joboffer.fields.push({
-                        skills: "",
-
-                        id: ""
-                    });
-                },
-
-                delRow: function(id) {
-                    this.joboffer.fields.splice(id, 1);
-
-                    // this.joboffer.fields.pop();
-                },
-
-                createskill: function(arr) {
-                    this.joboffer.fields.shift();
-
-                    for (var i = 0; i < arr.length; i++) {
-                        this.joboffer.fields.push({
-                            skills: arr[i],
-
-                            id: arr[i]
-                        });
-                    }
-                },
-
-              
+                }, 
 
                 updateJob() {
                         this.$swal({
@@ -753,9 +673,7 @@ import Autocomplete from 'vuejs-auto-complete'
                             this.joboffer = response.data.job;
                            this.$loading(false);
                         
-                                this.$swal({
-                                    // title: "求人を更新しました",
-                                    // text: "ファイルが更新されました。",
+                                this.$swal({ 
                                     text:"求人を更新しました。",
                                     type: "success",
                                     width: 350,

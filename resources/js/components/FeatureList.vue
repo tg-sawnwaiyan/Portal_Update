@@ -31,9 +31,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 pad-free scrolldiv p0-480">
-                        
-                        <!-- <div v-if="nosearch_msg" class="container-fuid no_search_data">新規作成するデタが消える。</div> -->
-
+                     
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                         <i class="fa fa-exclamation"></i>
@@ -55,9 +53,7 @@
                                     <tr v-for="feature in features.data" :key="feature.id">
                                         <td>{{feature.name}}</td>
                                         <td>{{feature.short_name}}</td>
-                                        <!-- <td>{{feature.type}}</td> -->
                                         <td class="text-right">
-                                            <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
                                             <router-link :to="{name:'specialfeature', params:{id : feature.id}}" class="btn edit-borderbtn">編集</router-link>
                                             <button class="btn text-danger delete-borderbtn" @click="deleteFeature(feature.id,feature.type)">削除</button>
                                         </td>
@@ -66,9 +62,8 @@
                             </table>
                             
                         </div>
-                        <!-- <pagination :data="features" @pagination-change-page="searchFeature"></pagination> -->
-                            <div>
-                              <pagination :data="features" @pagination-change-page="searchFeature" :limit="limitpc" class="mt-3">
+                        <div>
+                            <pagination :data="features" @pagination-change-page="searchFeature" :limit="limitpc" class="mt-3">
                                 <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                                 <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                             </pagination>
@@ -95,8 +90,7 @@
                     features: [],
                     norecord: 0,
                     norecord_msg: false,
-                    nosearch_msg: false,
-                    items: [],
+                    nosearch_msg: false, 
                     title: '',
                 };
             },
@@ -178,10 +172,8 @@
                                         
                                     });
                                 }).catch(error=>{
-                                    if(error.response.status == 404){
-                                        // this.$swal("このカテゴリーに関連するニュースがあるため、削除できません。");
+                                    if(error.response.status == 404){ 
                                         this.$swal({
-                                            // title: "削除に失敗しました",
                                             html: "削除に失敗しました。<br/>削除しようとした特長の施設が存在するため削除できません。 ",
                                             type: "error",
                                             width: 350,
