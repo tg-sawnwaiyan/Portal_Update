@@ -101,7 +101,7 @@
 
                                                     <transition name="fade">
                                                       
-                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
+                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
 
                                                     </transition>
 
@@ -319,7 +319,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
 
                                                 </transition>
                                                 <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
