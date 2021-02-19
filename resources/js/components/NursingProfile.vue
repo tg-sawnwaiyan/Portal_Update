@@ -454,7 +454,7 @@
                                 <table class="table table-striped table-bordered nursing_table_title">
                                     <tr>
                                         <td class="width15 title-bg font-weight-bold">介護に関わる職員体制（入居者：職員）</td>
-                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td>                                              -->
+                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td>
                                     </tr>
                                     <tr>
                                         <td class="width15 title-bg font-weight-bold">介護職員</td>
