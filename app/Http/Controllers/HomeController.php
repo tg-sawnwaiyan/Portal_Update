@@ -75,9 +75,11 @@ class HomeController extends Controller
     {
         $request = $request->all();
         $cat_id = $request['category_id'];
+        $cat = DB::table('categories')->where('id', $cat_id)
+                    ->first('name');
         $latest_post = Post::where("category_id",$cat_id,"and")->where('recordstatus',1);
         $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
-        return response()->json($latest_post);
+        return response()->json(["cat" => $cat, "latest_post" => $latest_post]);
     }
 
     public function getLatestPostFromAllCat()

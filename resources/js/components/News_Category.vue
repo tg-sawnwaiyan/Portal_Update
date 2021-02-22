@@ -1082,7 +1082,7 @@
 
                             <transition name="fade">
 
-                                <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
+                                <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt" :alt="cat_name+'ニュース画像'">
 
                             </transition>
 
@@ -1246,7 +1246,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                         <transition name="fade">
-                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt" :alt="cat_name+'ニュース画像'">
                                         </transition>
                                         <transition name="fade" slot="placeholder">
 
@@ -1278,7 +1278,7 @@
                                     <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="index" >
 
                                         <transition name="fade">
-                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt">
+                                            <img :src="'/upload/news/' + value.photo" class="fit-image img-fluid"  @error="imgUrlAlt" :alt="cat_name+'ニュース画像'">
                                         </transition>
                                         <transition name="fade" slot="placeholder">
 
