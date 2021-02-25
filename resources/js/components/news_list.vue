@@ -1,7 +1,7 @@
 <template>
     <!-- Page Content  -->
     <div id="news_list">       
-        <div class="col-12  tab-content">
+        <div class="col-12 tab-content">
             <div class="p-2 p0-480">                
                 <div v-if="norecord_msg" class="card card-default card-wrap">
                     <p class="record-ico">
@@ -44,7 +44,7 @@
                                 <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
                             </div>
                             <div v-else class="">
-                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索条件当てはまるデータはありません</p>                                  
+                                <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索条件当てはまるデータはありません</p>
                             </div>
                             <!-- end of linked news -->
                         </div>
@@ -82,9 +82,9 @@
                                                     <th :class="'title'+(5-(Math.floor(newsList.category_id%5)))">
                                                         <span> {{newsList.cat_name}}</span>
                                                         <i class="fa fa-calendar-alt"></i>&nbsp;
-                                                        {{newsList.created_at}}                                                    
+                                                        {{newsList.created_at}}
                                                     </th>
-                                                </td>                                            
+                                                </td>                                       
                                             </tr>
                                         </table>                                   
                                         <table class="table table-borderless text-right m-b-0 posting-per cmt" >
@@ -99,7 +99,7 @@
                                                     </th>
                                                     <th>
                                                         ~
-                                                    </th>                                                
+                                                    </th>                              
                                                 </td>
                                             </tr>
                                             <tr v-else>
@@ -125,23 +125,23 @@
                                     <div class="sp-414 m-b-10">
                                         <div class="set-date posting-per posting-period"  v-if="newsList.cat_name != 'PR'">
                                             <div :class="'title'+ newsList.category_id ">
-                                                <span class="m-b-2"> {{newsList.cat_name}}</span>                                         
+                                                <span class="m-b-2"> {{newsList.cat_name}}</span>                                    
                                                 <i class="fa fa-calendar-alt common-fa"></i>&nbsp;
-                                                {{newsList.created_at}}                                           
+                                                {{newsList.created_at}}
                                             </div>   
                                         </div>
                                         <div class="row col-12 p-0 m-0 posting-per" v-if="newsList.category_id == 26 && (newsList.to_date == null || newsList.to_date == '')"> 
-                                            <span v-if="newsList.category_id == 26" class="breaking-tip">PR</span>                                           
+                                            <span v-if="newsList.category_id == 26" class="breaking-tip">PR</span>                  
                                             <div class="posting-firstwrap"> 
-                                                <span>&nbsp;<i class="fa fa-calendar-alt common-fa"></i></span>                                              
+                                                <span>&nbsp;<i class="fa fa-calendar-alt common-fa"></i></span>            
                                                 <span>{{newsList.from_date}} ~ </span>
                                             </div>           
                                             <div class="posting-secondwrap">
-                                            </div>                                                                           
+                                            </div>                       
                                         </div>
                                         <div v-else>
                                             <div class="row m-0 posting-per" v-if="newsList.category_id == 26"> 
-                                                <span v-if="newsList.category_id == 26" class="breaking-tip">PR</span>                                    
+                                                <span v-if="newsList.category_id == 26" class="breaking-tip">PR</span>           
                                                 <div class="p-0 posting-firstwrap">
                                                     <span>&nbsp;<i class="fa fa-calendar-alt common-fa"></i></span>
                                                     <span>{{newsList.from_date}} ~</span>
@@ -151,7 +151,7 @@
                                                 </div>
                                             </div>                                        
                                         </div>
-                                    </div>                                                                        
+                                    </div>         
                                      <h5 class="align-middle">
                                         <router-link
                                             :to="{path: '/newsdetails/'+newsList.id}"
@@ -159,14 +159,14 @@
                                         >{{newsList.title}}</router-link>
                                     </h5>                                   
                                     <p class="mt-4">{{newsList.main_point}}</p>
-                                    <div class="card-title-rightwrapper model-7 mt-2">                                                 
+                                    <div class="card-title-rightwrapper model-7 mt-2">
                                         <div class="checkbox">
                                             <input type='checkbox' :id="newsList.id" v-if="newsList.recordstatus == 1" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)" checked/>
                                             <input type='checkbox' :id="newsList.id" v-if="newsList.recordstatus == 0" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)"  />
                                             <label for="checkbox"></label>
                                             <div  v-if="newsList.recordstatus == 1" class="on">公開中</div>
                                             <div v-if="newsList.recordstatus == 0" class="on">非公開</div>
-                                        </div>                                                                                             
+                                        </div>                                 
                                     </div>
                                     <div class="d-flex mt-4">
                                         <router-link :to="{ path:'/editPost/'+ newsList.id}" class="btn edit-borderbtn">編集</router-link>
@@ -188,7 +188,6 @@
     </div>
     <!-- Page Content end  -->
 </template>
-
 <script>
     export default {
         components: {
@@ -274,11 +273,6 @@
                     this.news_list = response.data.news;
                     this.categories = response.data.category;
                     this.norecord = this.news_list.data.length                       
-                    // if(this.norecord > this.size) {
-                    //     this.pagination = true;
-                    // } else {
-                    //     this.pagination = false;
-                    // }
                     if(this.norecord != 0){
                         this.norecord_msg = false;
                     }else{
@@ -298,7 +292,6 @@
                     selected_category = 0;
                 }              
                 this.$swal({
-                    // title: "確認",
                     text: (catid == 26? "PR":"ニュース") +"を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -319,11 +312,6 @@
                     .then(response => {
                         this.news_list = response.data;
                         this.norecord = this.news_list.length;
-                        // if (this.norecord > this.size) {
-                        //     this.pagination = true;
-                        // } else {
-                        //     this.pagination = false;
-                        // }
                         if(this.norecord != 0){
                             this.norecord_msg = false;
                         }else{
@@ -363,8 +351,7 @@
                 });
                 console.log(contents);
                 var search_word = $("#search-item").val();
-                var selected_category = document.getElementById("selectBox").value;                    
-                //var selected_date = document.getElementById("hidden_select_date").value;//linked news
+                var selected_category = document.getElementById("selectBox").value;
                 let fd = new FormData();
                 fd.append("search_word", search_word);
                 fd.append("selected_category", selected_category);
@@ -384,7 +371,7 @@
                     }else{
                         this.nosearch_msg = true;
                     }
-                    localStorage.setItem('page_no',page);//set to editNewsPost.vue/updatepost()
+                    localStorage.setItem('page_no',page);
                 });
             },
             /** linked news */
@@ -415,32 +402,3 @@
         }
     };
 </script>
-<style>
-.width-20 {
-    width: 20% !important;
-}
-.width-300 {
-    width: 300px !important;
-}
-.width-auto {
-    width: auto !important;
-}
-.posting-period {
-    text-indent: 0em !important;
-    float:none !important;
-}
-.chk_label {
-    padding-left: 5px;
-    width: 9% !important;
-}
-.chk_label01 {
-    padding-left: 5px;
-    width: 15% !important;
-}
-.chk_label02 {
-    padding-left: 5px;
-}
-.chk_div {
-    padding-top: 5px;
-}
-</style>
