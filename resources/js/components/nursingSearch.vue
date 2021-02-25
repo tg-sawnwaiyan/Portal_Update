@@ -37,21 +37,18 @@
                         <div class="freeword-responsive">
                             <h3 class="map-resicon">
                             <div class="map-text-wrapper">
-                              <!--   <div>
-                                <i class="fa icon map-fa-icon map-fa-icon-nursing"></i>
-                                </div> -->
                                 <div>
                                 <p class="text-left nursing-map-header"> &nbsp;あなたらしい暮らしができる。そん<br class="pc-768"/>な老人ホームが見つかります。</p>
                                 </div>
                             </div>
                             </h3>
                             <!--search input-->
-                            <div class="search nursing-search-box">
+                            <!-- <div class="search nursing-search-box">
                                 <input type="text" class="searchTerm" id="search-free-word-res" placeholder="地名、施設名などを入力">
                                 <button type="submit" class="searchButton" @click="searchfreeword">
                                     <i class="fas fa-search"></i> 検索
                                 </button>
-                            </div>
+                            </div> -->
                             <!--end search input-->
                         </div>
                         <bulcomponent v-if="!clicksearch && (!ci || (ci && nus_data.length < 1))"></bulcomponent>
@@ -92,7 +89,6 @@
                                         <div class="col-lg-6">
                                     <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData()" v-model="moving_in">
                                         <option data-price-type="" value="-1" >▼入居一時金</option>
-                                        <!-- <option data-price-type="" value="0">一時金なし</option> -->
                                         <option data-price-type="" value="500000">50万円以下</option>
                                         <option data-price-type="" value="1000000">100万円以下</option>
                                         <option data-price-type="" value="2000000">200万円以下</option>
@@ -174,7 +170,6 @@
                                 <div class="card-carousel">
                                 <div class="card-carousel--overflow-container">
                                     <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                                    <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nus_data" :id="items.alphabet"  :key="items.nursing_id"> -->
                                     <div class="card-carousel--card">
                                         <div class="MarkerHover">
                                             <table class="nursingSearch-tbl">
@@ -217,10 +212,8 @@
                                                                 </div>
                                                                 <div class="col-7 col-lg-7 col-sm-6 m-b-15 p-l-0">
                                                                     <ul class="nursingSearch-list">
-                                                                        <!-- <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}} {{items.address}}</span></p></li> -->
                                                                         <li class="d-flex"><p class="text-truncate"><span>運営事業者名</span></p></li><span> {{items.cus_name}}</span>
                                                                         <li class="d-flex"><span>電話 </span></li><span class="text-truncate">{{items.phone}}</span>
-                                                                        <!-- <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li> -->
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -349,7 +342,6 @@
                                                     <a data-value="option">
                                                         <div class="row">
                                                         <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                                            <!-- <label class="form-check-label" > -->
                                                             <label class="form-check-label control control--checkbox">
                                                             <input  class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
                                                             {{feature.name}}
@@ -363,7 +355,6 @@
                                                     <a v-if="w_width >= 420">
                                                         <div class="row">
                                                         <div class="col-lg-2 col-md-4 col-sm-4" v-for="feature in special_features" :key="feature.id">
-                                                            <!-- <label class="form-check-label" > -->
                                                             <label class="form-check-label control control--checkbox">
                                                             <input  class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
                                                             {{feature.name}}
@@ -528,13 +519,8 @@
                                         </div>
                                         <div class="col-md-8 col-sm-12 job-box">
                                             <table  class="table table-bordered table-sm">
-                                                <!-- <tr>
-                                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
-                                                <td>{{nus.name}}</td              >
-                                                </tr> -->
                                                 <tr>
                                                     <td><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                                    <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
                                                     <td class="cash-lbl">
                                                         <span v-if="Number(nus.moving_in_from) == 0">0円</span>
                                                         <span v-else>
@@ -563,10 +549,6 @@
                                                         </font>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
-                                                <td>{{nus.email}}</td>
-                                                </tr> -->
                                                 <tr>
                                                 <td><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                                                 <td>{{nus.city_name}}{{nus.township_name}}{{nus.address}}</td>
@@ -580,10 +562,6 @@
                                                 <td><span class="job_ico"><i class="fa fa-building"></i></span>運営事業者名 </td>
                                                 <td>{{nus.cus_name}}</td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td style="width:30%;"><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                                <td>{{nus.moving_in}} </td>
-                                                </tr> -->
                                             </table>
                                             <h5 class="header m-t-10">こだわりの特長</h5>                                              
                                             <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
@@ -830,35 +808,29 @@
                 this.window.height = window.innerHeight;
             },            
 
-            searchfreeword(){
-           
-                this.ci = true;
-             
+            searchfreeword(){           
+                this.ci = true;             
                 //clear all drop down
                 this.id = -1;
                 this.township_id = -1;
                 this.moving_in = -1;
                 this.per_month = -1;
 
-                // if(this.townshipID == null || this.townshipID == '')
-                // {
-                // this.townshipID[0] = 0;
-                // }
                 if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
                 {
-                this.SpecialFeatureID[0] = 0;
+                    this.SpecialFeatureID[0] = 0;
                 }
                 if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
                 {
-                this.MedicalAcceptanceID[0] = 0;
+                    this.MedicalAcceptanceID[0] = 0;
                 }
                 if(this.FacTypeID == null || this.FacTypeID == '')
                 {
-                this.FacTypeID[0] = 0;
+                    this.FacTypeID[0] = 0;
                 }
                 if(this.MoveID == null || this.MoveID == '')
                 {
-                this.MoveID[0] = 0;
+                    this.MoveID[0] = 0;
                 }
 
                 if ($('#search-free-word').val() != '')
@@ -867,12 +839,12 @@
                     var search_word = $('#search-free-word').val();
                     this.searchword = search_word;
                 }
-                else if($('#search-free-word-res').val() != '')
-                {
-                    this.id = -1;
-                    var search_word = $('#search-free-word-res').val();
-                    this.searchword = search_word;
-                }
+                // else if($('#search-free-word-res').val() != '')
+                // {
+                //     this.id = -1;
+                //     var search_word = $('#search-free-word-res').val();
+                //     this.searchword = search_word;
+                // }
                 else{
                     var search_word = 'all';
                     this.searchword = 'all';
@@ -886,27 +858,22 @@
                 }
 
                 this.axios.get('/api/getnursingsearch/'+search_word,{
-                params:{
-                
-                id: this.id,
-                townshipID:this.township_id,
-                Moving_in:this.moving_in,
-                Per_month:this.per_month,
-                local:this.locast,
-                // townshipID:this.townshipID,
-                SpecialFeatureID:this.SpecialFeatureID,
-                MedicalAcceptanceID:this.MedicalAcceptanceID,
-                FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID,
-
-                },
+                    params:{                
+                        id: this.id,
+                        townshipID:this.township_id,
+                        Moving_in:this.moving_in,
+                        Per_month:this.per_month,
+                        local:this.locast,
+                        SpecialFeatureID:this.SpecialFeatureID,
+                        MedicalAcceptanceID:this.MedicalAcceptanceID,
+                        FacTypeID:this.FacTypeID,
+                        MoveID:this.MoveID,
+                    },
                 })
-                .then((response) => { 
-                     
+                .then((response) => {                      
                     $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
                     $("#filtertable").css("display", "block");
-                    $("#nursing-search").css("display", "block");
-                   
+                    $("#nursing-search").css("display", "block");                   
     
                     if(response.data.nursing.length != 0){
                      
@@ -982,7 +949,6 @@
                 $('#searchMap').addClass('select');
                 $('#showSearchMap').removeClass('select');
                 $('#filter').removeClass('select');
-                // this.$loading(true);
                 _this.loading = true;
                localStorage.setItem('features', 'nursing');
                 _this.ci = false;
@@ -1005,8 +971,6 @@
                     _this.locast = localStorage.getItem("nursing_fav");
                 }
                 _this.searchword = '';
-             
-                // _this.$loading(true);
                 
                 _this.axios.get('/api/getmap',{
                     params:{
@@ -1025,16 +989,12 @@
                     },
                 })
                     .then((response) => {
-                    //   _this.$loading(false);
                     $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
-                    // $("#mymap").css('display', 'block');
                     $("#nursing-search").css("display", "block");
                     $("#filtertable").css("display", "block");
                     
                     _this.changeMap(response,2)
                     })
-
-                //  _this.changeSearch();
             },
 
             // map onclick function
@@ -1092,7 +1052,6 @@
                     var lng = 140.8694;
                 }
                 if(this.map == null){ 
-                 
               
                     this.createMap(theCity,lat,lng)
                     if(freewordornot == 1)
@@ -1106,64 +1065,53 @@
                         this.infoWindow(item, mmarker,response);
                     }
                 }else{
-
                 
-                        var map = this.map
-                        var callback = function(feature) {
-                            map.data.remove(feature);
-                        };
-                        map.data.forEach(callback);
-                        if(freewordornot != 1)
-                        {
-                            this.coordinates(theCity,lat,lng);
-                        }
-                        this.infoWindow(item, mmarker,response); 
-                        this.loading = false;
+                    var map = this.map
+                    var callback = function(feature) {
+                        map.data.remove(feature);
+                    };
+                    map.data.forEach(callback);
+                    if(freewordornot != 1)
+                    {
+                        this.coordinates(theCity,lat,lng);
+                    }
+                    this.infoWindow(item, mmarker,response); 
+                    this.loading = false;
                   
-                   
-                 
-                 
                 }
             },
-            nursingSearchData(id){
-               
+            nursingSearchData(id){               
 
                 this.searchword = '';
                 this.loading = true;
                 this.ci = false;
                 if(id == 1) //if choose city
-                {
-               
+                {               
                     this.township_id = -1;
                     this.townshipID = [];
                 }
                 else{ //if choose township
-                this.townshipID = [];
-                this.townshipID[0] = this.township_id;
+                    this.townshipID = [];
+                    this.townshipID[0] = this.township_id;
                 }
 
-                 if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+                if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
                 {
-                this.SpecialFeatureID[0] = 0;
+                    this.SpecialFeatureID[0] = 0;
                 }
                 if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
                 {
-                this.MedicalAcceptanceID[0] = 0;
+                    this.MedicalAcceptanceID[0] = 0;
                 }
                 if(this.FacTypeID == null || this.FacTypeID == '')
                 {
-                this.FacTypeID[0] = 0;
+                    this.FacTypeID[0] = 0;
                 }
                 if(this.MoveID == null || this.MoveID == '')
                 {
-                this.MoveID[0] = 0;
+                    this.MoveID[0] = 0;
                 }
 
-                //if change dropdown , clear array
-                // this.MoveID = [];
-                // this.MedicalAcceptanceID = [];
-                // this.FacTypeID = [];
-                // this.SpecialFeatureID = [];
                 this.onchangeid = 1;
                 if(localStorage.getItem("nursing_fav") == null){
                     this.locast = 0;
@@ -1174,16 +1122,16 @@
 
                 this.axios.get('/api/getmap',{
                     params:{
-                    id: this.id,
-                    township_id:this.township_id,
-                    moving_in:this.moving_in,
-                    per_month:this.per_month,
-                    local:this.locast,
-                    feature:'nursing',
-                    SpecialFeatureID:this.SpecialFeatureID,
-                    MedicalAcceptanceID:this.MedicalAcceptanceID,
-                    FacTypeID:this.FacTypeID,
-                    MoveID:this.MoveID,
+                        id: this.id,
+                        township_id:this.township_id,
+                        moving_in:this.moving_in,
+                        per_month:this.per_month,
+                        local:this.locast,
+                        feature:'nursing',
+                        SpecialFeatureID:this.SpecialFeatureID,
+                        MedicalAcceptanceID:this.MedicalAcceptanceID,
+                        FacTypeID:this.FacTypeID,
+                        MoveID:this.MoveID,
 
                     },
 
@@ -1227,8 +1175,6 @@
                 
             },
             coordinates(theCity,lat,lng){
-              
-                // this.loading = false
                 let  coor =[];
                 var townshipName = [];
                 var town = [];
@@ -1254,14 +1200,9 @@
                 }
 
                var township_name = townshipName;
-            //    this.coordinate = []; 
-            //    this.coordinate = [
-            //        {"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"MultiPolygon"}}]}
-            //    ]
 
                if(this.ci == true && (this.townshipID[0] == "-1" || this.townshipID.length == 0))
-               {              
-                  
+               {                  
                     this.loading = false;                    
                }
                else if(this.ci == false && (this.townshipID[0] == 0 || this.townshipID[0] == "-1" || this.townshipID.length == 0)){ 
@@ -1280,25 +1221,22 @@
                     var jsonfile = theCity+".json";
                     jsonfile = jsonfile.toLowerCase();
                     this.axios.get('https://test.t-i-s.jp/json/Townships/'+jsonfile).then(res => {
-                     var township_coor = []
-                    for(var i = 0; i < res.data.features.length; i++)
-                    {
-                      
-                         if(res.data.features[i]['properties']['N03_007'] == township_name)
-                         {
-                            //  console.log(res.data);
-                              township_coor.push(res.data.features[i]);
-                               this.boundariesGoogleMap(lat,lng,township_coor);       
-                         }
-                     }                     
+                        var township_coor = []
+                        for(var i = 0; i < res.data.features.length; i++)
+                        {
+                        
+                            if(res.data.features[i]['properties']['N03_007'] == township_name)
+                            {
+                                township_coor.push(res.data.features[i]);
+                                this.boundariesGoogleMap(lat,lng,township_coor);       
+                            }
+                        }                     
                     })
                 }
             },
 
             boundariesGoogleMap(lat,lng,coor){        
-                // var bb = coor.reduce((acc, val) => acc.concat(val), []);   
                 var data = coor.reduce((acc, val) => acc.concat(val), []);   
-                // var data = coor; 
         
                 for (let i = 0; i < data.length; i++) {
                     this.map.data.addGeoJson(data[i]); 
@@ -1312,13 +1250,12 @@
                     });
                 });
                 this.map.data.setStyle({
-                strokeColor: "red",
-                fillColor: 'red',
-                strokeOpacity: 0.8,
-                fillOpacity: 0.1,
-                strokeWeight: 1
-                })
-              
+                    strokeColor: "red",
+                    fillColor: 'red',
+                    strokeOpacity: 0.8,
+                    fillOpacity: 0.1,
+                    strokeWeight: 1
+                })              
                 
                 if(this.boundsval == 'no marker'){
                     this.boundsval = bounds;
@@ -1394,9 +1331,9 @@
               
                 if(this.marker.length)
                 {
-                   for (let index = 0; index < this.marker.length; index++) {
-                       this.marker[index].setMap(null);
-                   }
+                    for (let index = 0; index < this.marker.length; index++) {
+                        this.marker[index].setMap(null);
+                    }
                 }
             
                 var marker = [];
@@ -1407,17 +1344,15 @@
                 var infoWindow = [];
                 infoWindow = new google.maps.InfoWindow();
                
-                   var i = [];
-                   for (let i = 0; i < this.markers.length; i++) {
+                var i = [];
+                for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
                     var lats = this.markers[i]['lat']
                     var lngs = this.markers[i]['lng']
                     var img = this.markers[i]['alphabet']
                     var myLatLng = new google.maps.LatLng(lats, lngs);
                     var  position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                    // var trafficLayer = new google.maps.TrafficLayer();
-                    // trafficLayer.setMap(this.map);
-            
+        
                     this.marker[i] = new google.maps.Marker({
                             position: position,
                             map: this.map,
@@ -1430,18 +1365,17 @@
                         }
                     });
                     marker = this.marker[i]
-                    // this.googleMarker = marker;
                     bounds.extend(position);
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
                         infoWindow.setContent(infoWindowContent[i][0]);
                         infoWindow.open(this.map, marker);
-                         jQuery(".gm-ui-hover-effect").attr('title', '閉じる');                   
-                         }
+                        jQuery(".gm-ui-hover-effect").attr('title', '閉じる');                   
+                        }
                     })(marker, i));
                     this.markerHover.push(marker)
                     var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
-                    google.maps.event.removeListener(boundsListener);
+                        google.maps.event.removeListener(boundsListener);
                     });
 
                 }
@@ -1491,60 +1425,26 @@
                 })
             },
 
-            search(){              
-
-                // if(this.townshipID == null || this.townshipID == '')
-                // {
-                // this.townshipID[0] = 0;
-                // }
+            search(){
                 
                 if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
                 {
-                this.SpecialFeatureID[0] = 0;
+                    this.SpecialFeatureID[0] = 0;
                 }
                 if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
                 {
-                this.MedicalAcceptanceID[0] = 0;
+                    this.MedicalAcceptanceID[0] = 0;
                 }
                 if(this.FacTypeID == null || this.FacTypeID == '')
                 {
-                this.FacTypeID[0] = 0;
+                    this.FacTypeID[0] = 0;
                 }
                 if(this.MoveID == null || this.MoveID == '')
                 {
-                this.MoveID[0] = 0;
+                    this.MoveID[0] = 0;
                 }
-                // if(this.onchangeid == 1)
-                // {
-                //     if(this.township_id == -1)
-                //     {
-                //         this.townshipID[0] = 0;
-                //     }
-                //     else{
-                //         this.townshipID[0] = this.township_id;
-                //         this.township_id = -1;
-                //     }
-                // }
-                // else{
 
-                //     this.township_id = -1;
-                // }
-           
-
-                // this.moving_in = -1;
-                // this.per_month = -1;
-               
-             
-                // if ($('#search-free-word').val() != '')
-                // {
-                    // this.id = -1;
-                //     var search_word = $('#search-free-word').val();
-                  
-                // }
-               
-               
-              
-                 var  search_word= 'null';
+                var  search_word= 'null';
 
                 if(localStorage.getItem("nursing_fav") == null){
 
@@ -1554,78 +1454,76 @@
                     this.locast = localStorage.getItem("nursing_fav");
                 }
 
-                 this.searchword = '';
+                this.searchword = '';
       
-                 this.axios.get('api/getnursingsearch/'+search_word,{
-              
-                params:{
-                    id: this.id,
-                    townshipID:this.township_id,
-                    // townshipID:this.townshipID,
-                    SpecialFeatureID:this.SpecialFeatureID,
-                    MedicalAcceptanceID:this.MedicalAcceptanceID,
-                    FacTypeID:this.FacTypeID,
-                    MoveID:this.MoveID,
-                    Moving_in:this.moving_in,
-                    Per_month:this.per_month,
-                    local:this.locast,
-                },
+                this.axios.get('api/getnursingsearch/'+search_word,{              
+                    params:{
+                        id: this.id,
+                        townshipID:this.township_id,
+                        SpecialFeatureID:this.SpecialFeatureID,
+                        MedicalAcceptanceID:this.MedicalAcceptanceID,
+                        FacTypeID:this.FacTypeID,
+                        MoveID:this.MoveID,
+                        Moving_in:this.moving_in,
+                        Per_month:this.per_month,
+                        local:this.locast,
+                    },
                 }).then((response)=>{
-                this.nus_data = response.data.nursing;
-                this.specialfeature = response.data.specialfeature;
-                this.medicalacceptance = response.data.medicalacceptance;
-                this.factype = response.data.factype;
-                this.searchmarkers = response.data.nursing;
-                this.citylatlng = response.data.getCity;
-                this.markers = response.data.nursing;
-                var mmarker = new Array()
-                var item = []
-                if(this.map != null){
-                    var map = this.map
-                    var callback = function(feature) {
-                            map.data.remove(feature);
-                    };
-                    map.data.forEach(callback);
-                }
-                if(this.nus_data.length > 0){
-                    for (var i = 0; i < this.searchmarkers.length; i++) {
-                        mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
-                        item.push(this.searchmarkers[i])
+                    this.nus_data = response.data.nursing;
+                    this.specialfeature = response.data.specialfeature;
+                    this.medicalacceptance = response.data.medicalacceptance;
+                    this.factype = response.data.factype;
+                    this.searchmarkers = response.data.nursing;
+                    this.citylatlng = response.data.getCity;
+                    this.markers = response.data.nursing;
+                    var mmarker = new Array()
+                    var item = []
+                    if(this.map != null){
+                        var map = this.map
+                        var callback = function(feature) {
+                                map.data.remove(feature);
+                        };
+                        map.data.forEach(callback);
                     }
-                    const theCity = this.searchmarkers[0]['city_eng'].trim();
-                    const lat = this.searchmarkers[0]['lat']
-                    const lng = this.searchmarkers[0]['lng']
+                    if(this.nus_data.length > 0){
+                        for (var i = 0; i < this.searchmarkers.length; i++) {
+                            mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
+                            item.push(this.searchmarkers[i])
+                        }
+                        const theCity = this.searchmarkers[0]['city_eng'].trim();
+                        const lat = this.searchmarkers[0]['lat']
+                        const lng = this.searchmarkers[0]['lng']
 
-                    // google map
-                    this.coordinates(theCity,lat,lng)
-                    this.infoWindow(item, mmarker);
-                    this.norecord_msg = false;
-                }
-                else{
-                    //if choose city
-                    if(this.citylatlng.length > 0)
-                    {
-                        const theCity = this.citylatlng[0]['city_eng'].trim();
-                        const lat = this.citylatlng[0]['latitude']
-                        const lng = this.citylatlng[0]['longitude']
-                        this.coordinates(theCity,lat,lng);
+                        // google map
+                        this.coordinates(theCity,lat,lng)
                         this.infoWindow(item, mmarker);
+                        this.norecord_msg = false;
                     }
                     else{
-                        var mapProp = {
-                        center: new google.maps.LatLng(35.6804, 139.7690),
-                        zoom: 5,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                        };
-                        this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                        //if choose city
+                        if(this.citylatlng.length > 0)
+                        {
+                            const theCity = this.citylatlng[0]['city_eng'].trim();
+                            const lat = this.citylatlng[0]['latitude']
+                            const lng = this.citylatlng[0]['longitude']
+                            this.coordinates(theCity,lat,lng);
+                            this.infoWindow(item, mmarker);
+                        }
+                        else{
+                            var mapProp = {
+                            center: new google.maps.LatLng(35.6804, 139.7690),
+                            zoom: 5,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            };
+                            this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                        }
+                        this.norecord_msg = true;
                     }
-                    this.norecord_msg = true;
-                }
-                if (this.nus_data > this.size){
-                this.show_paginate = true;
-              }else {
-                this.show_paginate = false;
-              }
+                    if (this.nus_data > this.size){
+                        this.show_paginate = true;
+                    }else {
+                        this.show_paginate = false;
+                    }
                 });
             },
             // hover animate function
@@ -1696,7 +1594,6 @@
                         fav_arr.splice(index, 1);
                         localStorage.setItem("nursing_fav", fav_arr);
                     }
-                    // $("#nus-fav-local").html(fav_arr.length);
                     this.nusFav = fav_arr.length;
 
                     if(fav_arr.length == 0){
@@ -1718,96 +1615,96 @@
                     let el2 = document.querySelector('.el2');
                     el1.classList.add('disabled');
                     el2.classList.remove('disabled');
-                    }
-                },
+                }
+            },
 
-                last() {
-                    this.currentPage = this.pages - 1;
-                    const page = Math.ceil(this.nus_data.length / this.size);
-                    const currentPage = this.currentPage + 1; 
-                    if(currentPage == page){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.remove('disabled');
-                        el2.classList.add('disabled');
-                    }
-                },
-
-                prev() {
-                    if(0<this.currentPage) {
-                        this.currentPage--;
-                    }
-                    const page = Math.ceil(this.nus_data.length / this.size);
-                    const currentPage = this.currentPage + 1; 
-                    if(currentPage > 1 && currentPage < page){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.remove('disabled');
-                        el2.classList.remove('disabled');
-                    }
-                    else if(currentPage == page){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.remove('disabled');
-                        el2.classList.add('disabled');
-                    }
-                    else if(currentPage == 1){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.add('disabled');
-                        el2.classList.remove('disabled');
-                    }
-                },
-
-                next() {
-                    if(this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                    const page = Math.ceil(this.nus_data.length / this.size);
-                    const currentPage = this.currentPage + 1; 
-                    if(currentPage > 1 && currentPage < page){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.remove('disabled');
-                        el2.classList.remove('disabled');
-                    }
-                    else if(currentPage == page){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.remove('disabled');
-                        el2.classList.add('disabled');
-                    }
-                    else if(currentPage == 1){
-                        let el1 = document.querySelector('.el1');
-                        let el2 = document.querySelector('.el2');
-                        el1.classList.add('disabled');
-                        el2.classList.remove('disabled');
-                    }
-                },
-
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                    const page = Math.ceil(this.nus_data.length / this.size);
-                    const currentPage = this.currentPage + 1; 
-                    if(currentPage > 1 && currentPage < page){
-                    let el1 = document.querySelector('.el1');
-                    let el2 = document.querySelector('.el2');
-                    el1.classList.remove('disabled');
-                    el2.classList.remove('disabled');
-                    }
-                    else if(currentPage == page){
+            last() {
+                this.currentPage = this.pages - 1;
+                const page = Math.ceil(this.nus_data.length / this.size);
+                const currentPage = this.currentPage + 1; 
+                if(currentPage == page){
                     let el1 = document.querySelector('.el1');
                     let el2 = document.querySelector('.el2');
                     el1.classList.remove('disabled');
                     el2.classList.add('disabled');
-                    }
-                    else if(currentPage == 1){
+                }
+            },
+
+            prev() {
+                if(0<this.currentPage) {
+                    this.currentPage--;
+                }
+                const page = Math.ceil(this.nus_data.length / this.size);
+                const currentPage = this.currentPage + 1; 
+                if(currentPage > 1 && currentPage < page){
+                    let el1 = document.querySelector('.el1');
+                    let el2 = document.querySelector('.el2');
+                    el1.classList.remove('disabled');
+                    el2.classList.remove('disabled');
+                }
+                else if(currentPage == page){
+                    let el1 = document.querySelector('.el1');
+                    let el2 = document.querySelector('.el2');
+                    el1.classList.remove('disabled');
+                    el2.classList.add('disabled');
+                }
+                else if(currentPage == 1){
                     let el1 = document.querySelector('.el1');
                     let el2 = document.querySelector('.el2');
                     el1.classList.add('disabled');
                     el2.classList.remove('disabled');
-                    }
-                },
+                }
+            },
+
+            next() {
+                if(this.currentPage < this.pages - 1) {
+                    this.currentPage++;
+                }
+                const page = Math.ceil(this.nus_data.length / this.size);
+                const currentPage = this.currentPage + 1; 
+                if(currentPage > 1 && currentPage < page){
+                    let el1 = document.querySelector('.el1');
+                    let el2 = document.querySelector('.el2');
+                    el1.classList.remove('disabled');
+                    el2.classList.remove('disabled');
+                }
+                else if(currentPage == page){
+                    let el1 = document.querySelector('.el1');
+                    let el2 = document.querySelector('.el2');
+                    el1.classList.remove('disabled');
+                    el2.classList.add('disabled');
+                }
+                else if(currentPage == 1){
+                    let el1 = document.querySelector('.el1');
+                    let el2 = document.querySelector('.el2');
+                    el1.classList.add('disabled');
+                    el2.classList.remove('disabled');
+                }
+            },
+
+            pageSelect(index) {
+                this.currentPage = index - 1;
+                const page = Math.ceil(this.nus_data.length / this.size);
+                const currentPage = this.currentPage + 1; 
+                if(currentPage > 1 && currentPage < page){
+                let el1 = document.querySelector('.el1');
+                let el2 = document.querySelector('.el2');
+                el1.classList.remove('disabled');
+                el2.classList.remove('disabled');
+                }
+                else if(currentPage == page){
+                let el1 = document.querySelector('.el1');
+                let el2 = document.querySelector('.el2');
+                el1.classList.remove('disabled');
+                el2.classList.add('disabled');
+                }
+                else if(currentPage == 1){
+                let el1 = document.querySelector('.el1');
+                let el2 = document.querySelector('.el2');
+                el1.classList.add('disabled');
+                el2.classList.remove('disabled');
+                }
+            },
 
             toggleContent() {
                 this.toggleCheck = !this.toggleCheck;
@@ -1850,7 +1747,7 @@
                 }
 
                 this.axios.get('api/getmap',{
-                        params:{
+                    params:{
                         id: this.id,
                         township_id:-1,
                         moving_in:-1,
@@ -1861,9 +1758,6 @@
                         MedicalAcceptanceID:this.MedicalAcceptanceID,
                         FacTypeID:this.FacTypeID,
                         MoveID:this.MoveID,
-
-                    
-                  
                     },
                 })
                 .then((response) => {
@@ -1873,11 +1767,7 @@
                     this.getTownships = response.data.getTownships
                     this.special_features = response.data.special_features
                     this.subjects = response.data.subjects;
-                    //   this.sub_child = response.data.sub_child;
-                    //console.log("aaa",this.subjects);
-                    // this.id = id;
                 })
-                    // this.search();
             },
         }
   };
