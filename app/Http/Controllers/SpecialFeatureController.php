@@ -74,7 +74,7 @@ class SpecialFeatureController extends Controller
     }
 
 
-    public function destroy($id,$type)
+    public function delete($id,$type)
     {
         $feature = special_feature::find($id);
         if($type == 'nursing') {

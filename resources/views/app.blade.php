@@ -44,8 +44,11 @@ header("Pragma:no-cache");
 <!--mailbox-->
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/mystyle.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/mystyle_kathy.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/user.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/mystyle_yatanar.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
+<!-- <link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">

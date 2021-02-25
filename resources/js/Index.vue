@@ -4,8 +4,8 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
-            <CategoryMenu v-if="w_width <= 560"></CategoryMenu>
-            <CategoryMenuPc v-if="w_width > 560"></CategoryMenuPc>
+            <CategoryMenu v-if="w_width <= 575"></CategoryMenu>
+            <CategoryMenuPc v-if="w_width > 575"></CategoryMenuPc>
 
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
@@ -26,7 +26,7 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <adsslider class="d-none d-sm-block"></adsslider>
+                                        <adsslider v-if="w_width > 480" class="d-none d-sm-block"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
                                     <div class="row justify-content-md-center">
@@ -153,60 +153,11 @@
   transform: translateX(-100%);
   transition: all 0.5s ease-in 0s;
 }
-/* .sidebar-scroll {
-    padding-left: 280px;
-} */
 .content-all.collapsed {
     padding-left: 50px;
 }
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
-}
-.footer-nav{
-    width: 100%;
-    display: inline-block;
-}
-.footer-nav .gNav{
-    display: inline-flex;
-    border-left: none;
-}
-.footer-nav .gNav li{
-    margin-left: 50px;
-    margin-right: 50px;
-}
-.footer-nav .gNav li a {
-    font-size: 15px;
-    font-weight: bold;
-}
-.footer-nav .gNav li a:after{
-    display: none;
-}
-.footer-nav .gNav li a .fa-envelope{
-    color: #2980b9;
-    margin-right: 5px;
-}
-.copyright-text{
-    margin-top: 10px;
-    width: 100%;
-}
-@media only screen and (max-width: 767px) {
-    .footer {
-        padding-top: 0;
-    }
-    .footer-nav .gNav {
-        display: none;
-    }
-    .copyright-text{
-        margin-top: 0;
-    }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    .footer-nav .gNav li:first-child {
-        margin-left: 0;
-    }
-    .footer-nav .gNav li{
-        margin-left: 75px;
-    }
 }
 </style>
 <script>

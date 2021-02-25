@@ -84,16 +84,12 @@
         <table class="table table-bordered table-wrapper">
             <tr>
                 <th class="nursing_table pc-414-table sp-768-block" style="border:none;"> <label class="heading-lbl hos_lbl pad-free">医院からのお知らせ </label></th>
-                <td class="nursing_table1 pc-414-table sp-768-block" style="border:none;">
-                    <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
+                <td class="nursing_table1 pc-414-table sp-768-block" style="border:none;"> 
                     <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" @change="onDetailInfoEditorChange($event)" v-model="hospital_info.details_info" :options="editorOption"/>
                 </td>
             </tr>
         </table>
-        <!-- <div class="form-group">
-                            <label class="heading-lbl">診療科目<span class="error">*</span></label>
-                            <textarea name="subject" class="form-control"></textarea>
-        </div>-->
+        
 
         <table class="table table-bordered table-wrapper">
           <tr>
@@ -803,12 +799,10 @@
                         <div class="col-md-12">
                         <span class="error pro-1" style="margin-top:0px!important;margin-bottom:10px;" v-if="loc == true">※都道府県と市区町村をを入力してください。</span>
                             <GoogleMap  :address="address_show" :township="hospital_info.townships_id" :latnum='hospital_info.latitude' :lngnum='hospital_info.longitude' :city="city_id" :township_list="township_list"></GoogleMap>
-                            <!-- <GoogleMap :address="hospital_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="hospital_info.latitude == 0"></GoogleMap> -->
-
+                            
                             <div class="form-group">
                                 <label>交通 / アクセス</label>
-                                <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="hospital_info.access"/>
+                                  <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="hospital_info.access"/>
                             </div>
                         </div>
                     </div>
@@ -838,10 +832,7 @@ import GoogleMap from './GoogleMap.vue'
 export default {
          components: {
                 GoogleMap,
-                quillEditor,
-                // Button,
-                // Input,
-                // Select,
+                quillEditor, 
                  email:''
         },
        data() {
@@ -1139,19 +1130,11 @@ export default {
                     else{
                         this.btn_disable = true;
                     }
-                }       
-
-            //   if($('#new_lat').val() == "" || $('#new_long').val() == "" || $('#gmaptownship').val() == 0 || this.mail_focus == true || this.ph_num == true )
-            //   {
-            //     this.btn_disable = true;
-            //   }
-            //   else{
-            //     this.btn_disable = false;
-            //   }
+                } 
             
                 if(this.btn_disable){
            
-                    // console.log("mail");
+                  
                     this.$swal({
                         html: "保存できません。<br/>必須項目を確認してください。",
                         type: "error",
@@ -1159,12 +1142,9 @@ export default {
                         height: 200,
                         showCancelButton: false,
                         confirmButtonColor: "#FF5462",
-                        // cancelButtonColor: "#b1abab",
                         cancelButtonTextColor: "#000",
                         confirmButtonText: "閉じる",
-                        // cancelButtonText: "キャンセル",
                         confirmButtonClass: "all-btn",
-                        // cancelButtonClass: "all-btn",
                         allowOutsideClick: false,
                     })  
                     this.hospital_info.townships_id = $('#gmaptownship').val();
@@ -1224,15 +1204,7 @@ export default {
                         pt.append(i ,file )
                     }
                   
-                }
-
-         
-
-                // if(logo){
-                //     this.hospital_info.logo = logo.name;
-                //     pt.append('logo', logo)
-                // }
-
+                } 
                 for(var i =this.video_arr.length-1;i>=0;i--)
                 {
                     this.video_arr[i]['type'] = 'video';

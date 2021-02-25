@@ -119,7 +119,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'SubjectController@store');
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
-        Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::delete('delete/{id}', 'SubjectController@delete');
         Route::post('search', 'SubjectController@search');
     });
     //End Subject
@@ -158,7 +158,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
         Route::post('account_update','CustomerController@accountStatusUpdate');
-        Route::delete('delete/{id}/{type}','CustomerController@destroy');
+        Route::delete('delete/{id}/{type}','CustomerController@delete');
     });
     // End Customer
 
@@ -207,7 +207,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('featurelist/{type}', 'SpecialFeatureController@index');
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
-        Route::delete('delete/{id}/{type}','SpecialFeatureController@destroy');
+        Route::delete('delete/{id}/{type}','SpecialFeatureController@delete');
         Route::post('search/{type}','SpecialFeatureController@search');
     });
     //End SpecialFeature
@@ -348,7 +348,6 @@ Route::group(['middleware' => $middleware], function() {
 
     // Home Page
     Route::get('home', 'HomeController@index');
-    Route::post('posts', 'HomeController@getPosts');
     Route::post('get_latest_post', 'HomeController@getLatestPost');
     Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
     Route::post('search', 'HomeController@search');

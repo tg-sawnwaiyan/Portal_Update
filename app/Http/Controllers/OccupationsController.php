@@ -36,23 +36,13 @@ class OccupationsController extends Controller
         $request->validate([
             'name' => 'required|unique:occupation',
         ]);
-
-        if( $request->parent != null)
-        {
-            $occupation = new Occupations();
-            $occupation->name    = $request->input('name');
-            $occupation->user_id = 1;
-            $occupation ->parent = $request->parent;
-            $occupation ->recordstatus = 1;
-        }
-        else if( $request->parent == null)
-        {
-            $occupation = new Occupations();
-            $occupation->name    = $request->input('name');
-            $occupation->user_id = 1;
-            $occupation ->parent = 0;
-            $occupation ->recordstatus = 2;
-        }
+         
+        $occupation = new Occupations();
+        $occupation->name    = $request->input('name');
+        $occupation->user_id = 1;
+        $occupation ->parent = $request->parent;
+        $occupation ->recordstatus = 1;
+         
 
         $occupation->save();
 
@@ -82,23 +72,14 @@ class OccupationsController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-        if($request->parent != null)
-        {
-            $occupation = Occupations::find($id);
-            $occupation->name    = $request->input('name');
-            $occupation->user_id = 1;
-            $occupation ->parent = $request->parent;
-            $occupation ->recordstatus = 2;
-            $occupation->save();
-        }
-        else{
-            $occupation = Occupations::find($id);
-            $occupation->name    = $request->input('name');
-            $occupation->user_id = 1;
-            $occupation ->parent = 0;
-            $occupation ->recordstatus = 2;
-            $occupation->save();
-        }
+    
+        $occupation = Occupations::find($id);
+        $occupation->name    = $request->input('name');
+        $occupation->user_id = 1;
+        $occupation ->parent = $request->parent;
+        $occupation ->recordstatus = 2;
+        $occupation->save();
+        
         return response()->json('The Type successfully updated');
     }
 

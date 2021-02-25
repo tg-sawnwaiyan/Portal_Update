@@ -1,4 +1,4 @@
-# TIS ティーズ
+# TISティーズ
 
 This project can provide portal of Nursing Home and Hospitals in JAPAN. Their related news and related job offers can be searched.
 

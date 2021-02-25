@@ -6,11 +6,6 @@
                     <i class="fa fa-exclamation"></i>
                 </p>  
                 <p class="record-txt01">アカウントが無効になりました。</p>
-                
-                <!-- <router-link :to="{name:'profiledit'}" class="main-bg-color create-btn all-btn">
-                    アクティベートへ
-                </router-link> -->
-
             </div>
 
             <!-- Create account Area --> 
@@ -70,12 +65,6 @@
                                                 <router-link :to="{ path:'/jobapplicantlist/nursing/profile/'+ nursingprofiles.id}" style="font-weight:bold;text-decoration:underline;">
                                                 <i class="vsm--icon fa fa-list" style="color: #585858;"></i>求人応募者一覧</router-link>
                                             </p>
-                                            <!-- <p v-else>
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                <i class="vsm--icon fa fa-edit fa-fw" style="color: #ccc;"></i>求人編集</a>&nbsp;&nbsp;
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                <i class="vsm--icon fa fa-list" style="color: #ccc;"></i>求人応募者一覧</a>
-                                            </p> -->
                                         </div>
                                         <div class="card-read-more">
                                             <router-link :to="{ path:'/profile/nursing/'+ nursingprofiles.id}" class="btn edit-borderbtn" style="float:left;">施設情報編集</router-link>
@@ -113,12 +102,6 @@
                                                 <router-link :to="{ path:'/jobapplicantlist/hospital/profile/'+ hospitalprofiles.id}" class="" style="font-weight:bold;text-decoration:underline;">
                                                     <i class="vsm--icon fa fa-list fa-fw" style="color: #585858;"></i>求人応募者一覧</router-link>
                                             </p>
-                                            <!-- <p v-else>
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                    <i class="vsm--icon fa fa-edit fa-fw" style="color: #ccc;"></i>求人編集</a>&nbsp;&nbsp;
-                                                <a style="font-weight:bold;color:#ccc;">
-                                                    <i class="vsm--icon fa fa-list fa-fw" style="color: #ccc;"></i>求人応募者一覧</a>
-                                            </p> -->
                                         </div>
                                         <div class="card-read-more">
                                             <router-link :to="{ path:'/profile/hospital/'+ hospitalprofiles.id}" class="btn edit-borderbtn" style="float:left;">病院情報編集</router-link>
@@ -235,6 +218,7 @@ export default {
             if(this.type == "nursing") {
                 this.axios.get(`/api/account_nursing/${this.cusid}`).then(response => {
                 this.nursingprofile = response.data.nuscustomer;
+                console.log(this.nursingprofile);
                 if(response.data.status == 0) {
                     this.acc_status = false;
                 }
@@ -306,29 +290,28 @@ export default {
         },
         profileDelete(id){
             this.type = this.$route.params.type;
-
-                this.$swal({
-                    allowOutsideClick: false,
-                    text: "施設を削除してよろしいでしょうか。",
-                    type: "warning",
-                    width: 350,
-                    height: 200,
-                    showCancelButton: true,
-                    confirmButtonColor: "#eea025",
-                    cancelButtonColor: "#b1abab",
-                    cancelButtonTextColor: "#000",
-                    confirmButtonText: "はい",
-                    cancelButtonText: "キャンセル",
-                    confirmButtonClass: "all-btn",
-                    cancelButtonClass: "all-btn"
-                }).then(response => {
-                    this.$loading(true);
-                    this.axios.delete(`/api/profileDelete/${id}/`+this.type)
-                    .then(response => {
-                        this.$loading(false);
-                        this.getAccountList();
-                    });                   
-                });
+            this.$swal({
+                allowOutsideClick: false,
+                text: "施設を削除してよろしいでしょうか。",
+                type: "warning",
+                width: 350,
+                height: 200,
+                showCancelButton: true,
+                confirmButtonColor: "#eea025",
+                cancelButtonColor: "#b1abab",
+                cancelButtonTextColor: "#000",
+                confirmButtonText: "はい",
+                cancelButtonText: "キャンセル",
+                confirmButtonClass: "all-btn",
+                cancelButtonClass: "all-btn"
+            }).then(response => {
+                this.$loading(true);
+                this.axios.delete(`/api/profileDelete/${id}/`+this.type)
+                .then(response => {
+                    this.$loading(false);
+                    this.getAccountList();
+                });                   
+            });
         }
     }
 }

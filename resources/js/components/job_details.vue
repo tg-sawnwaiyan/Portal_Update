@@ -23,8 +23,6 @@
 
       </div>
       <div class="col-xl-10 col-md-12 col-12 offset-xl-1 p0-480">
-        <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
-
         <div class="form-wrap mt-3 mb-3">
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
@@ -74,7 +72,6 @@
               <label><span class="job_ico">&#xa5;</span>給料</label>
             </div>
             <div class="col-md-10 col-sm-12 form-right"> {{jobDetail.salary}}  <span v-if="jobDetail.salary_remark"> ( {{ jobDetail.salary_remark }} ) </span></div>
-            <!-- {{jobDetail.salary_type}} : {{(Number(jobDetail.salary)).toLocaleString()}} 円 -->
           </div>
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
@@ -129,11 +126,8 @@
               
             </div>
           </div>
-          <!-- <h4 style="padding:3px;"></h4> -->
           <div class="row mt-4">
             <div class="col-md-12 text-center">
-              <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-              <!-- <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span> -->
               <router-link :to="{name: 'jobapply', params: { job_id: job_id }}"
               class="btn job_detail_btn" v-if="!$auth.check()">この案件に応募する</router-link>
             </div>
@@ -160,7 +154,6 @@ export default {
       .get(`/api/job_details/${this.$route.params.id}`)
       .then(response => {
         this.job_details = response.data;
-        // console.log("res",response.data);
         var catname = this.job_details[0].type_id == 2? '病院':'介護';
 
         this.$ga.event({
