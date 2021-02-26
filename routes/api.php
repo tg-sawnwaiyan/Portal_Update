@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'NewsByCatController@edit');
         Route::get('news', 'NewsByCatController@index');
         Route::post('update/{id}', 'NewsByCatController@update');
-        Route::delete('delete/{id}','NewsByCatController@destroy');
+        Route::delete('delete/{id}','NewsByCatController@delete');
         Route::post('search', 'NewsByCatController@search');
 
     });
