@@ -15,8 +15,7 @@
               </li>
               <li class="breadcrumb-item active" aria-current="page">ニュース詳細</li>
             </ol>
-          </nav>
-          <!-- <span v-else>Back</span> -->
+          </nav> 
           <div v-else class="d-flex justify-content-end mb-4">
               <router-link to="/news_list" class="mr-2 btn btn-danger all-btn submit"><i class="fas fa-arrow-left"></i>&nbsp;戻る</router-link>
               <router-link v-if="getData"  :to="{ path:'/editPost/'+ newdetails[0].id}" class="btn edit-borderbtn">編集</router-link>&nbsp;
@@ -29,7 +28,6 @@
              
                 <div class="col-md-12" >
                   <h4 class="header news_detail_tit" style="margin-bottom: 0px;">                  
-                    <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
                   </h4>  
                   <div style="text-align: center;margin-bottom: 20px;">
@@ -58,11 +56,7 @@
                   </div>
                   <div>
                     <p class="p5 mb-2 text-justify" v-html="news.body"></p>
-                    <!--for quill upload image (@author: pzo) -->
-                    <!-- <div class="img-wrap mb-2" v-if="news.quill_photo" >
-                      <img :src="'/upload/news/'+ news.quill_photo"  class="img-responsive img_2" alt="img" @error="imgUrlAlt" style="max-width:100%;"  />
-                    </div> -->
-                    <!-- end quill image -->
+                    
                   </div>
                 </div>
                 <span v-if="news.created_by" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin: 1rem auto 0;">
@@ -182,8 +176,7 @@ export default {
         {
           this.latest_post_all_cats = response.data.related_news;
         }
-      
-        // this.latest_news = response.data.latest_news;
+       
       });
     },
     changeRoute(e,tab){
@@ -198,12 +191,7 @@ export default {
 };
 </script>
 
-<style>
-/* .hospital-tabColor .nav-link {
-        background: #63b7ff !important;
-        color: #fff;
-        border-right: 1px solid #fff;
-} */
+<style> 
 .news-tabColor .nav-link {
         background: #75b777 !important;
         color: #fff;
@@ -222,10 +210,7 @@ export default {
 
 .job-borderColor {
         border: 1px solid #ccc !important;
-}
-/*.news-borderColor {
-        border: 1px solid #75b777 !important;
-}*/
+} 
 .hospital-borderColor {
         border: 1px solid #63b7ff !important;
 }
