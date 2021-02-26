@@ -32,7 +32,7 @@
 
                                                     <transition name="fade">
 
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
+                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " :alt="latest_post_all_cat.cname+'ニュース画像'" class="img-responsive fit-image" @error="imgUrlAlt">
 
                                                     </transition>
                                                     <!-- <div v-if="latest_post_all_cat.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -101,7 +101,7 @@
 
                                                     <transition name="fade">
                                                       
-                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
+                                                        <img v-bind:src="'/upload/news/' + latest_post.photo" :alt="latest_catName+'ニュース画像'" class="source-img img-responsive"  @error="imgUrlAlt">
 
                                                     </transition>
 
@@ -182,11 +182,11 @@
 
                                                     <router-link :to="'/newsdetails/'+item.id">
 
-                                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="item.id">
+                                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="item.id" :alt="item.cname+'ニュース画像'">
 
                                                             <transition name="fade">
 
-                                                                <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
+                                                                <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt" :alt="item.cname+'ニュース画像'">
 
 
                                                             </transition>
@@ -247,11 +247,11 @@
 
                                                     <router-link :to="'/newsdetails/'+item.id">
 
-                                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="item.id">
+                                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="item.id" :alt="item.cname+'ニュース画像'">
 
                                                             <transition name="fade">
 
-                                                                <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
+                                                                <img :src="'/upload/news/' + item.photo"  :alt="item.cname+'ニュース画像'" class="fit-image-0"  @error="imgUrlAlt">
 
                                                             </transition>
                                                             <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -319,7 +319,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="item.cname+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -382,7 +382,7 @@
 
                                             <transition name="fade">
 
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="item.cname+'ニュース画像'">
 
                                             </transition>
                                             <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div>
@@ -468,7 +468,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[0].photo" class="fit-image img-fluid" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="value[0].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
@@ -510,7 +510,7 @@
 
                                                     <transition name="fade">
 
-                                                        <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
+                                                        <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                     </transition>
                                                     <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -577,7 +577,7 @@
 
                                                 <transition name="fade">
 
-                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt">
+                                                    <img :src="'/upload/news/' + value[1].photo" class="fit-image img-fluid" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                 </transition>
                                                 <!-- <div v-if="value[1].new_news == '1'" class="m_top_left"><span>New</span></div>                              -->
@@ -608,6 +608,7 @@
                             </div>                 
                         </slick>
                         <slick :options="slickOptions" class="news-slider-width" v-else>
+
                                 <div class="pad-new pattern-child">
                                     <div v-for="(item,inx) in group.slice(0, 3)" :key="inx" class="txt_align">
                                     <router-link  :to="'/newsdetails/'+item.pid">
@@ -618,7 +619,7 @@
 
                                                     <transition name="fade">
 
-                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
+                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt" :alt="name.split(',')[1]+'ニュース画像'">
 
                                                     </transition>
                                                     <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
@@ -771,6 +772,7 @@
             itemSize: '',
             li_width: 0,
             latest_catId: 0,
+            latest_catName: '',
             // w_width: $(window).width() + 16,
         }
     },
@@ -1075,27 +1077,14 @@
                 .then(response => {
 
                     var posts =[]
-                    posts.push(response.data);
+                    posts.push(response.data.latest_post);
                     var latest_post = this.findNewNews(posts);
                     this.latest_post = latest_post[0];
-                    const post_date = new Date(latest_post.created_at);
-                    var msec = (current_date - post_date.getTime());
-                    var mins = Math.floor(msec / 60000);
-                    var hrs = Math.floor(mins / 60);
-                    var min = post_date.getMinutes();
-                    var month = post_date.getMonth()+1;
-                    min = min < 10 ? '0' + min : min;
-
-                    latest_post.new_news = "";
-                    if(hrs <= 36) {     
-                        latest_post.date_only = month + '/' +  post_date.getDate();
-                        latest_post.new_news = "1";
-                    }       
-                    latest_post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                    this.latest_catName = response.data.cat.name;
+                    
                     if(Object.keys(this.latest_post).length == 0) {
                         this.latest_post_null = true;
-                    }
-                    else{
+                    }else{
                         this.latest_post_null = false;
                     }
                 });
