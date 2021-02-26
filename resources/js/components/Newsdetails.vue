@@ -180,7 +180,6 @@ export default {
       this.axios.get(`/api/relatednews/${pid}`).then(response => {
         if(response.data.related_news != null)
         {
-          console.log(response.data.related_news);
           this.latest_post_all_cats = response.data.related_news;
         }
       
