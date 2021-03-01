@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $news_list = Post::join('categories','categories.id','=','posts.category_id')
                             ->select('posts.*','categories.name as cat_name')
-                            ->orderBy('posts.id', 'desc')
+                            ->orderBy('posts.created_at','DESC')
                             ->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
 
@@ -263,9 +263,13 @@ class PostController extends Controller
     public function show_related($id)
     {
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
+
+        $post_id = explode(",",$related_news[0]["related_news"]);
+
         if($related_news[0]["related_news"] != null) {
-            $sql = "select * from posts where id in(".$related_news[0]["related_news"].")";
-            $news = DB::select($sql);
+            $news = Post::join('categories','categories.id','=','posts.category_id')
+                            ->select('posts.*','categories.name as cat_name')
+                            ->whereIn('posts.id', $post_id)->get();
         }
         else{
             $news = null;
@@ -363,14 +367,15 @@ class PostController extends Controller
         $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-        if($cat_id == 0)
-        {
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
-        }else{
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
-        }
+        // if($cat_id == 0)
+        // {
+        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.created_at','DESC')->paginate(20);
+        // }else{
+        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.created_at','DESC')->paginate(20);
+        // }
 
-        return response()->json($posts);
+        //return response()->json($posts);
+        return response()->json('The news successfully deleted');
     }
 
     public function search(Request $request)
