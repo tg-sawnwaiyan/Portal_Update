@@ -124,10 +124,6 @@ export default {
                     title: '',
                     description:'',
                     link:'',
-                    // location : [{
-                    //     topbars: false,
-                    //     sidebars:false
-                    // }],
                     location:'',
                     photo:'',
                     pdf:'',
@@ -154,13 +150,10 @@ export default {
                 .then((response) => {
                     this.advertisement.title = response.data.title;
                     this.advertisement.description = response.data.description == null ? '':response.data.description;
-                    this.advertisement.link = response.data.link == null ? '':response.data.link;
-                    //this.advertisement.link = response.data.link;
+                    this.advertisement.link = response.data.link == null ? '':response.data.link; 
                     this.advertisement.pdf = response.data.pdf;
                     this.advertisement.show_flag = response.data.show_flag;
-                    this.advertisement.location = "topbar";
-                    // this.ischeck = response.data.location;
-                    // this.updateCheck(this.ischeck);
+                    this.advertisement.location = "topbar"; 
                     this.advertisement.photo=response.data.photo;
                 });
                 this.header = '広告編集';
@@ -340,7 +333,6 @@ export default {
                                 height: 200,
                                 allowOutsideClick: false,
                             })
-                            //this.$router.push({name: 'ads'});
                             var num = localStorage.getItem('page_no');//get from adslist/searchAds()
                             // this.$router.push({ name: 'ads', params: { status: 'update','page_no':num } });
                             this.$router.push({
@@ -427,38 +419,7 @@ export default {
                 } else 
                 {    
                     this.errors.photo = "写真は必須です。";
-                }
-                // if(this.advertisement.pdf)
-                // {
-                //     this.errors.pdf = "";     
-                // } else 
-                // {    
-                //     this.errors.pdf = "PDF ファイルは必須です。";
-                // }
-
-                // if(this.advertisement.link)
-                // {
-                //     this.errors.link = "";     
-                // } else 
-                // {    
-                //     this.errors.link = "広告リンクは必須です。";
-                // }
-
-               /* if((this.advertisement.pdf) && (this.advertisement.link))
-                {
-                    this.errors.link = "";
-                    this.errors.pdf = "";     
                 } 
-                else if ((this.advertisement.pdf) || (this.advertisement.link))
-                {    
-                    this.errors.link = "";
-                    this.errors.pdf = "";  
-                }
-                else
-                {
-                    this.errors.link = "「広告リンク」または「PDF ファイル」を入力してください。";
-                    this.errors.pdf = "「広告リンク」または「PDF ファイル」を入力してください。"; 
-                }*/
                 if(!(this.advertisement.link) && (this.advertisement.show_flag == "link")){
                 this.errors.link = "広告リンクは必須です。";
                 this.errors.pdf = "";  
