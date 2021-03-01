@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="d-flex mt-4">
                                         <router-link :to="{ path:'/editPost/'+ newsList.id}" class="btn edit-borderbtn">編集</router-link>
-                                        <button class="btn delete-borderbtn ml-2" @click="deletePost(newsList.category_id,newsList.id)">削除</button>
+                                        <button class="btn delete-borderbtn ml-2" @click="deletePost(newsList.id)">削除</button>
                                     </div>
                                 </td>
                             </tr>
@@ -286,12 +286,9 @@
                     }
                 });                    
             },
-            deletePost(catid,id) {
-                var selected_category = document.getElementById("selectBox").value;
-                if(selected_category == null || selected_category == '')
-                {
-                    selected_category = 0;
-                }              
+            deletePost(id) {
+                var catid = document.getElementById("selectBox").value;
+
                 this.$swal({
                     text: (catid == 26? "PR":"ニュース") +"を削除してよろしいでしょうか。",
                     type: "warning",
@@ -309,12 +306,12 @@
                 }).then(response => {                       
                     this.$loading(true);
                     this.axios
-                    .delete(`/api/new/delete/${id}`+'/'+selected_category)
+                    .delete(`/api/new/delete/${id}`)
                     .then(response => {
                         this.searchbyCategory(this.page);
                         this.$loading(false);
                         this.$swal({
-                            text: "ニュースを削除しました。",
+                            text: (catid == 26? "PR":"ニュース") +"を削除しました。",
                             type: "success",
                             width: 350,
                             height: 200,
