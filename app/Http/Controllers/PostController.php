@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $news_list = Post::join('categories','categories.id','=','posts.category_id')
                             ->select('posts.*','categories.name as cat_name')
-                            ->orderBy('posts.id', 'desc')
+                            ->orderBy('posts.created_at','DESC')
                             ->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
 
@@ -369,9 +369,9 @@ class PostController extends Controller
         $post->delete();
         if($cat_id == 0)
         {
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
+            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.created_at','DESC')->paginate(20);
         }else{
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
+            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.created_at','DESC')->paginate(20);
         }
 
         return response()->json($posts);
