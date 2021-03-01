@@ -49,7 +49,7 @@
                   <div class="float-left mr-4 newsDetail_leftwrapper">
               
                     <div class="img-wrap mb-2" v-if="!noimage" >
-                      <img :src="'/upload/news/'+ news.photo"  class="img-responsive img_2" alt="img" @error="imgUrlAlt" style="max-width:100%;"  />
+                      <img :src="'/upload/news/'+ news.photo"  class="img-responsive img_2" :alt="news.cat_name+'ニュース画像'" @error="imgUrlAlt" style="max-width:100%;"  />
                     </div>
                    
                     <p class="img_2 details_title mb-1">{{news.main_point}}</p>
@@ -75,7 +75,7 @@
                 <div class="related_box mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id" >
                   <router-link :to="'/newsdetails/'+ latest_post_all_cat.id">
                     <div class="hovereffect fit-image" style="cursor:pointer;">
-                      <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="img"  @error="imgUrlAlt1"/>
+                      <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" :alt="latest_post_all_cat.cat_name+'ニュース画像'"  @error="imgUrlAlt1"/>
                       <div class="overlay">
                         <span class="btn btn-sm all-btn secondary-bg-color m-t-20">詳細</span>
                       </div>
