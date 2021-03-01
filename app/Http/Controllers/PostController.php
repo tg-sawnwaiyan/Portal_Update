@@ -360,21 +360,13 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function delete($id,$cat_id)
+    public function delete($id)
     {
         $post = Post::find($id);
         $file= $post->photo;
         $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-        // if($cat_id == 0)
-        // {
-        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.created_at','DESC')->paginate(20);
-        // }else{
-        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.created_at','DESC')->paginate(20);
-        // }
-
-        //return response()->json($posts);
         return response()->json('The news successfully deleted');
     }
 
