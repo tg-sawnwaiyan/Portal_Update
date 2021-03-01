@@ -140,7 +140,17 @@
         },
         data() {
             return {
-                customers: [], items: [], norecord: 0, norecord_msg: false, nosearch_msg: false, title: '', type: null, status:'', searchkeyword:'', customerList:'', profileList:[], recordstatus :[], status:[], table_name: { profile: '' }, cusid:'',                  
+                customers: [], 
+                norecord: 0,
+                nosearch_msg: false, 
+                title: '', 
+                type: null, 
+                status:'', 
+                searchkeyword:'', 
+                customerList:'', 
+                recordstatus :[], 
+                status:[], 
+                cusid:'',                  
             };
         },
         created() {
