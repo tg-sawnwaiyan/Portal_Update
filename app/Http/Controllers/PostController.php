@@ -367,14 +367,15 @@ class PostController extends Controller
         $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-        if($cat_id == 0)
-        {
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.created_at','DESC')->paginate(20);
-        }else{
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.created_at','DESC')->paginate(20);
-        }
+        // if($cat_id == 0)
+        // {
+        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.created_at','DESC')->paginate(20);
+        // }else{
+        //     $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.created_at','DESC')->paginate(20);
+        // }
 
-        return response()->json($posts);
+        //return response()->json($posts);
+        return response()->json('The news successfully deleted');
     }
 
     public function search(Request $request)

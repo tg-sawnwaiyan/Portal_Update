@@ -311,13 +311,7 @@
                     this.axios
                     .delete(`/api/new/delete/${id}`+'/'+selected_category)
                     .then(response => {
-                        this.news_list = response.data;
-                        this.norecord = this.news_list.length;
-                        if(this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;
-                        }
+                        this.searchbyCategory(this.page);
                         this.$loading(false);
                         this.$swal({
                             text: "ニュースを削除しました。",
