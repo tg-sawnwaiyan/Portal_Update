@@ -35,6 +35,7 @@ header("Pragma:no-cache");
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
 <script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
+<script src="https://cse.google.com/cse.js?cx=8f501e7f8a9c94ad7"></script>
 <!-- <script src="/js/manifest.js"></script> -->
 <!-- <script src="/js/vendor.js"></script> -->
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
@@ -194,7 +195,6 @@ header("Pragma:no-cache");
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script> -->
 <!-- <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>      -->
-<script async src="https://cse.google.com/cse.js?cx=54be33ae406986a1f"></script>
 
 
 <script type="text/javascript">
