@@ -27,10 +27,10 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <div class="one">          
+                                        <div class="google_div">          
                                             <div class="gcse-search"></div>
                                         </div>
-                                        <adsslider class="d-none d-sm-block two"></adsslider>
+                                        <adsslider class="d-none d-sm-block slider_div"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
                                     <div class="row justify-content-md-center">
@@ -117,12 +117,6 @@
         </div>
     </div>
 </template>
-<style>
-input.gsc-input { 
-    background: url(/images/google-icon.png) no-repeat scroll 7px 7px;
-    text-indent: 60px;  
-}
-</style>
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
@@ -200,19 +194,11 @@ input.gsc-input {
     width: 100%;
 }
 @media only screen and (min-width: 767px) {
-.pad-free{
-    width: 100%;
+    .pad-free{
+        width: 100%;
+    }
 }
-.one{
-    width: 50%; 
-    height: 100px; 
-    float: left;
-}
-.two{
-    margin-left: 50%; 
-    height: 100px;
-}
-}
+
 @media only screen and (max-width: 767px) {
     .footer {
         padding-top: 0;

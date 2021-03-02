@@ -1,3 +1,4 @@
+
 <template>
 <layout>
 <div class="tab_pane_02">
@@ -1976,4 +1977,11 @@ div#holder {
     display: none;
 }
 }
+/*for google search*/
+@media only screen and (max-width: 767px){
+    .google_div{
+        top: -8px;
+    }
+}
+/*end of google search*/
 </style>
