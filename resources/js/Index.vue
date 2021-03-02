@@ -4,6 +4,7 @@
             <button @click="topFunction()" id="myBtn">Top</button>
             <HeaderMenu v-if="!$auth.check()"></HeaderMenu>
             <AuthHeaderMenu v-if="$auth.check()"></AuthHeaderMenu>
+            <!-- <div v-if="w_width <= 560" style="padding-top:66px;" class="google"><div class="gcse-search"></div></div> -->
             <CategoryMenu v-if="w_width <= 560"></CategoryMenu>
             <CategoryMenuPc v-if="w_width > 560"></CategoryMenuPc>
 
@@ -26,7 +27,9 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <adsslider class="d-none d-sm-block"></adsslider>
+                            <div class="one">          
+<div class="gcse-search"></div></div>
+                                        <adsslider class="d-none d-sm-block two"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
                                     <div class="row justify-content-md-center">
@@ -113,6 +116,12 @@
         </div>
     </div>
 </template>
+<style>
+input.gsc-input { 
+    background: url(/images/google-icon.png) no-repeat scroll 7px 7px;
+    text-indent: 60px;  
+}
+</style>
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
@@ -188,6 +197,20 @@
 .copyright-text{
     margin-top: 10px;
     width: 100%;
+}
+@media only screen and (min-width: 767px) {
+.pad-free{
+    
+ width: 100%;
+
+}
+.one {
+  width: 50%; height: 100px; float: left;
+}
+
+.two {
+ margin-left: 50%; height: 100px;
+}
 }
 @media only screen and (max-width: 767px) {
     .footer {

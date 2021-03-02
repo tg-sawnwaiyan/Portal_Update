@@ -194,6 +194,8 @@ header("Pragma:no-cache");
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script> -->
 <!-- <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>      -->
+<script async src="https://cse.google.com/cse.js?cx=54be33ae406986a1f"></script>
+
 
 <script type="text/javascript">
  $(document).ready(function() {   
