@@ -1012,7 +1012,7 @@ $(document).on('click','.btn-2019',function(){
 /*for google search*/
 @media only screen and (max-width: 767px){
     .google_div{
-        top: -8px;
+        top: -8px !important;
     }
 }
 /*end of google search*/
