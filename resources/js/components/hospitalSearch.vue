@@ -1016,11 +1016,4 @@ import bulcomponent from './bulcomponent.vue'
   }
 
 }
-/*for google search*/
-@media only screen and (max-width: 767px){
-    .google_div{
-        top: -8px !important;
-    }
-}
-/*end of google search*/
 </style>

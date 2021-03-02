@@ -282,6 +282,14 @@
         return response
         })
     },
+    updated() {       
+        if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
+            $('.google_div').removeClass('google_div_top');
+        }else{
+             console.log("Index.vue");
+            $('.google_div').addClass('google_div_top');
+        }
+    },
     destroyed() {
         document.removeEventListener('scroll', this.handleScroll);
     },

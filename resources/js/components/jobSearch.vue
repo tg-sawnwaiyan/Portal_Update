@@ -1009,12 +1009,5 @@ $(document).on('click','.btn-2019',function(){
     display: none;
 }
 }
-/*for google search*/
-@media only screen and (max-width: 767px){
-    .google_div{
-        top: -8px !important;
-    }
-}
-/*end of google search*/
 </style>
 

@@ -14763,6 +14763,9 @@ input.gsc-input {
     width: 50%; 
     float: left;
 }
+.google_div_top{
+    top: -8px !important;
+}
 .slider_div{
     margin-left: 50%; 
 }
