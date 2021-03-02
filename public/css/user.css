@@ -1,3 +1,884 @@
+/* style for individual page and overall */
+.for-ie-browser {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+    padding: 100px;
+    color: #2980b9;
+    border: 3px solid #2980b9;
+    width: 96%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li,
+a,
+dl,
+dt,
+dd {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+    background: #fff;
+    scrollbar-width: thin;
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+p {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #000;
+}
+
+a{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+img{
+    object-fit: contain;
+}
+
+.all-btn {
+    font-size: 16px;
+    color: #fff !important;
+    border: none !important;
+    min-width: 100px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.all-btn:hover {
+    text-decoration: none;
+}
+
+
+/* setup class */
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.p-lr-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px !important;
+}
+
+.p-l-75 {
+    padding-left: 75px;
+}
+
+.p-r-0 {
+    padding-right: 0px !important;
+}
+
+.pad-10 {
+    padding: 10px !important;
+}
+
+.p-l-162 {
+    padding-left: 162px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.m-t-71 {
+    margin-top: 71px;
+}
+
+.m-t-8 {
+    margin-top: 8px;
+}
+
+.m-lr-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+    font-size: 16px;
+}
+
+.m-l-15 {
+    margin-left: 15px;
+}
+
+.m-l-17 {
+    margin-left: 17px;
+}
+
+.m-t-10 {
+    margin-top: 10px !important;
+}
+
+.m-t-15 {
+    margin-top: 15px !important;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
+.m-t-17 {
+    margin-top: 17px;
+}
+
+.m-t-6 {
+    margin-top: 6px;
+}
+
+.m-t-55 {
+    margin-top: 55px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-t-22 {
+    margin-top: 22px;
+}
+
+.m-t-100 {
+    margin-top: 100px;
+}
+
+.m-l-10p {
+    margin-left: 10% !important;
+}
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0px !important;
+}
+
+.m-r-8 {
+    margin-right: 8px;
+}
+
+.m-r-15 {
+    margin-right: 15px;
+}
+
+.m-r-5 {
+    margin-right: 5px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+.m-l-14 {
+    margin-left: 14px;
+}
+
+.p-t-0 {
+    padding-top: 0px;
+}
+
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-t-15 {
+    padding-top: 15px;
+}
+
+.p-t-30 {
+    padding-top: 30px;
+}
+
+.p-b-0 {
+    padding-bottom: 0px !important;
+}
+
+.p-b-5 {
+    padding-bottom: 5px;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.max-width12 {
+    max-width: 12%;
+}
+
+.max-width13 {
+    max-width: 13%;
+}
+
+.max-width16 {
+    max-width: 16%;
+}
+
+.main-color {
+    color: #333;
+}
+
+.primary-color {
+    color: #118063 !important;
+}
+
+.white {
+    color: #fff;
+}
+
+.main-bg-color {
+    background-color: #0cc72c !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-b-5 {
+    margin-bottom: 5px !important;
+}
+
+.news-wrapper::-webkit-scrollbar,
+.ql-editor::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.scrolldiv::-webkit-scrollbar,
+.scroll2::-webkit-scrollbar,
+.scrolldiv2::-webkit-scrollbar,
+.main-wrap::-webkit-scrollbar {
+    width: 6px !important;
+    background: #f7f7f7 !important;
+}
+
+.news-wrapper::-webkit-scrollbar-track,
+.ql-editor::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.scrolldiv::-webkit-scrollbar-track,
+.scroll2::-webkit-scrollbar-track,
+.scrolldiv2::-webkit-scrollbar-track,
+.main-wrap::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(3, 1, 1, 0.3) !important;
+    border-radius: 0px !important;
+}
+
+.news-wrapper::-webkit-scrollbar-thumb,
+.ql-editor::-webkit-scrollbar-thumb,
+.main-wrap::-webkit-scrollbar-thumb,
+.scrolldiv::-webkit-scrollbar-thumb,
+.scroll2::-webkit-scrollbar-thumb,
+.scrolldiv2::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+    background-color: #d7d7d7 !important;
+    border-radius: 0px !important;
+}
+
+::-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+/* firefox 19+ */
+
+input:-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+
+input::-ms-clear {
+    display: none;
+}
+
+.disablefun {
+    cursor: 'not-allowed'!important;
+    pointer-events: 'none'!important;
+}
+
+button:focus {
+    outline: none;
+}
+
+input:disabled,
+textarea:disabled,
+input:disabled::placeholder,
+textarea:disabled::placeholder {
+    -webkit-text-fill-color: #212529;
+    opacity: 1;
+}
+
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #c7c2c2;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #c7c2c2;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #c7c2c2;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #c7c2c2;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #c7c2c2;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: #c7c2c2;
+}
+
+label {
+    margin-bottom: 0.2rem;
+    font-size: 16px;
+}
+
+.p5 {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.p_3 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: justify;
+    color: white;
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.main-wrapper {
+    max-width: 1600px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* setup class */
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.p-lr-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px !important;
+}
+
+.p-r-0 {
+    padding-right: 0px !important;
+}
+
+.pad-10 {
+    padding: 10px !important;
+}
+
+.pad-r-10 {
+    padding-right: 10px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.m-t-71 {
+    margin-top: 71px;
+}
+
+.pt {
+    padding-top: 70px;
+}
+
+.p-t-10 {
+    padding-top: 10px !important;
+}
+
+.m-t-0 {
+    margin-top: 0px;
+}
+
+.m-t-8 {
+    margin-top: 8px;
+}
+
+.m-t-39 {
+    margin-top: 39px;
+}
+
+.m-t-50 {
+    margin-top: 50px;
+}
+
+.m-lr-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.m-l1 {
+    margin-left: -1px;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+.m-l-8 {
+    margin-left: 8px !important;
+}
+
+.m-l-3 {
+    margin-left: 3px !important;
+}
+
+.m-l-15 {
+    margin-left: 15px;
+}
+
+.m-l-17 {
+    margin-left: 17px;
+}
+
+.m-l-20 {
+    margin-left: 20px !important;
+}
+
+.m-l-30 {
+    margin-left: 30px;
+}
+
+.m-t-10 {
+    margin-top: 10px !important;
+}
+
+.m-t-15 {
+    margin-top: 15px !important;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-25 {
+    margin-top: 25px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
+.m-t-55 {
+    margin-top: 55px;
+}
+
+.m-b-8 {
+    margin-bottom: 8px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-t-22 {
+    margin-top: 22px;
+}
+
+.m-t-50 {
+    margin-top: 50px;
+}
+
+.m-l-10p {
+    margin-left: 10% !important;
+}
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0px !important;
+}
+
+.m-r-8 {
+    margin-right: 8px;
+}
+
+.m-r-15 {
+    margin-right: 15px;
+}
+
+.m-r-5 {
+    margin-right: 5px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+.m-r-15 {
+    margin-right: 15px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.m-l-14 {
+    margin-left: 14px;
+}
+
+.p-t-0 {
+    padding-top: 0px;
+}
+
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-t-130 {
+    padding-top: 130px;
+}
+
+.p-t-65 {
+    padding-top: 65px;
+}
+
+.p-t-110 {
+    padding-top: 110px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px;
+}
+
+.p-l-30 {
+    padding-left: 30px !important;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.max-width12 {
+    max-width: 12%;
+}
+
+.max-width13 {
+    max-width: 13%;
+}
+
+.max-width16 {
+    max-width: 16%;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width17 {
+    width: 17%;
+}
+
+.w-65 {
+    width: 65%;
+}
+
+.main-color {
+    color: #333;
+}
+
+.primary-color {
+    color: #118063 !important;
+}
+
+.white {
+    color: #fff;
+}
+
+.main-bg-color {
+    background-color: #118063 !important;
+}
+
+.drop-bg-color {
+    background-color: #fff !important;
+    float: right;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dropdown-arrow {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dropdown-arrow:hover {
+    cursor: pointer;
+}
+
+.bg-trans {
+    background-color: transparent !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px!important;
+}
+
+.orange-bg-color {
+    background-color: #2980b9 !important;
+}
+
+.white-bg-color {
+    background-color: #fff !important;
+}
+
+.custom-bg-color {
+    background-color: #f0f0f0 !important;
+}
+
+.toggle-btn .icon-arrow:before {
+    content: '\25BC';
+}
+
+.inner-btn {
+    background: #0cc72c !important;
+    color: #fff !important;
+    font-weight: bold;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -ms-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #c6c6c6;
+    background: #ebeaea;
+    background: linear-gradient(to bottom, #fafafa 0, #ebeaea 100%);
+    color: #48555a;
+    font-size: 94.4%;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: normal;
+    vertical-align: middle;
+}
+
+.inner-btn:hover,
+.inner-btn:focus {
+    text-decoration: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.all-btn {
+    color: #fff !important;
+    border: none !important;
+    min-width: 100px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.all-btn:hover {
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+/*end of common*/
+
+/*for sp menu common*/
+#sp_headerbar {
+    display: none;
+}
+
+.sp_social {
+    display: none;
+}
+
+#map-responsive {
+    display: none;
+}
+
+.sp_nav {
+    display: none;
+}
+
+.sp_panonav {
+    display: none;
+}
+
+.pc-1024 {
+    display: block;
+}
+
+.sp-1024 {
+    display: none;
+}
+
+.pc-990 {
+    display: block;
+}
+
+.pc-9-180 {
+    display: none;
+}
+.pc-991-1880{
+    display: none;
+}
+.pc-2000{
+    display: none;
+}
+.sp-9-180 {
+    display: block;
+}
+
+.sp-990 {
+    display: none;
+}
+
+.sp-576 {
+    display: none;
+}
+
+.pc-768 {
+    display: block;
+}
+
+.sp-414 {
+    display: none !important;
+}
+
+.pc-414 {
+    display: block;
+}
+
+.pc-750 {
+    display: block;
+}
+
+.sp-750 {
+    display: none;
+}
+
+.pc-414-table {
+    display: table-cell;
+}
+
+.pc-rsp-table {
+    display: table-cell;
+}
+
+.pc-414-inline {
+    display: inline-block;
+}
+
+.sp-768 {
+    display: none;
+}
+
+.sp-768-block {
+    display: table-cell;
+}
+
+.sp-rsp-block {
+    display: table-cell;
+}
+
+
+
+
+@media (min-width: 1200px) {
+    .boot-xl .col-xl-1 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 13.666667% !important;
+        flex: 0 0 13.666667% !important;
+        max-width: 13.666667% !important;
+    }
+    .boot-xl .col-xl-11 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 86.333333% !important;
+        flex: 0 0 86.333333% !important;
+        max-width: 86.333333% !important;
+    }
+}
+/*end of sp menu common*/
+
 /*user header*/
 .main-header{
     position: fixed;
@@ -96,7 +977,11 @@ ul.menu_list li a.router-link-exact-active{
     color: #2980b9;
     font-size: 16px;
 }
+.h-tel {
+    display: none;
+}
 /*end of user header*/
+
 
 /*footer*/
 .footer{
@@ -420,7 +1305,7 @@ body.all-bg{
 }
 .menu_tab_category{
     position: absolute;
-    top: 192px;
+    top: 192.5px;
     z-index: 9;
     width: 100%;
     max-width: 1600px;
@@ -2130,6 +3015,494 @@ ul.sub-ul li {
     
 }
 
+/*nursing slider*/
+#nursing-search {
+    display: none;
+}
+
+#nursing-search .card-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #666a73;
+    font-size: 16px;
+}
+
+#nursing-search .card-carousel {
+    display: flex;
+    justify-content: center;
+    width: 1318px;
+    overflow: auto;
+}
+
+#nursing-search .card-carousel--overflow-container {
+    overflow: hidden;
+}
+
+#nursing-search .card-carousel--nav__left,
+#nursing-search .card-carousel--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-top: 5px solid #2980b9;
+    border-right: 5px solid #2980b9;
+    margin: 4px 0px;
+    transition: transform 150ms linear;
+}
+
+#nursing-search .card-carousel--nav__left[disabled],
+#nursing-search .card-carousel--nav__right[disabled] {
+    opacity: 0.2;
+    border-color: black;
+}
+
+#nursing-search .card-carousel--nav__left {
+    transform: rotate(-135deg);
+}
+
+#nursing-search .card-carousel--nav__left:active {
+    transform: rotate(-135deg) scale(0.9);
+}
+
+#nursing-search .card-carousel--nav__right {
+    transform: rotate(45deg);
+}
+
+#nursing-search .card-carousel--nav__right:active {
+    transform: rotate(45deg) scale(0.9);
+}
+
+#nursing-search .card-carousel-cards {
+    display: flex;
+    transition: transform 150ms ease-out;
+    transform: translatex(0px);
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card:first-child {
+    margin-left: 0;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card:last-child {
+    margin-right: 0;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card img:hover {
+    opacity: 0.5;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card--footer {
+    border-top: 0;
+    padding: 7px 15px;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card--footer p {
+    padding: 3px 0;
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #2c3e50;
+    user-select: none;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 6px;
+    background: rgba(40, 44, 53, 0.06);
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    color: #666a73;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+}
+
+#nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    float: left;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: -0px -0px 0px #004977;
+}
+
+#nursing-search .nav-box[disabled] .card-carousel--nav__left,
+#nursing-search .nav-box[disabled] .card-carousel--nav__right {
+    border-top: 5px solid #000;
+    border-right: 5px solid #000;
+}
+
+#nursing-search .nav-box[disabled] .nav-content {
+    border: 2px solid #000;
+    background: #fff
+}
+
+#nursing-search .nav-content {
+    width: 40px;
+    height: 40px;
+    line-height: 50px;
+    vertical-align: middle;
+    background: #fffff4;
+    border: 2px solid #2980b9;
+    border-radius: 50%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 360px) {
+    .bottom-mail-btn {
+        width: 113px !important;
+    }
+    .bottom-fav-btn {
+        width: 160px !important;
+    }
+    #nursing-search .card-carousel {
+        width: 200px!important;
+    }
+    #nursing-search .card-carousel {
+        overflow: visible;
+    }
+    #nursing-search .nav-content {
+        border: none;
+        width: 0px;
+    }
+    #nursing-search .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #nursing-search .card-carousel {
+        width: 278px!important;
+    }
+    #nursing-search .card-carousel {
+        overflow: visible;
+    }
+    #nursing-search .nav-content {
+        border: none;
+        width: 0px;
+    }
+    #nursing-search .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff;
+    }
+    #nursing-search .card-carousel--nav__left,
+    #nursing-search .card-carousel--nav__right {
+        margin-left: -7px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #nursing-search .card-carousel {
+        width: 280px !important;
+    }
+    #nursing-search .card-carousel {
+        overflow: visible;
+    }
+    #nursing-search .nav-content {
+        border: none;
+        width: 0px;
+    }
+    #nursing-search .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff;
+    }
+    #nursing-search .card-carousel--nav__left,
+    #nursing-search .card-carousel--nav__right {
+        margin-left: -7px;
+    }
+    .wd-in .carousel-img {
+        width: 100px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    #nursing-search .card-carousel {
+        width: 415px!important;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 449px) {
+    #nursing-search .card-carousel {
+        width: 279px!important;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+    #nursing-search .card-carousel {
+        width: 564px!important;
+    }
+    .wd-in {
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 1020px) and (min-width: 992px) {
+    #nursing-search .card-carousel {
+        width: 823px!important;
+    }
+    .wd-in {
+        width: 377px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1024px) {
+    #nursing-search .card-carousel {
+        width: 827px!important;
+    }
+    .wd-in {
+        width: 250px !important;
+    }
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (max-width: 1440px) and (min-width: 1201px) {
+    #nursing-search .card-carousel {
+        width: 988px!important;
+    }
+    .wd-in {
+        width: 308px !important;
+    }
+}
+
+@media only screen and (max-width: 1880px) and (min-width: 1440px) {
+    #nursing-search .card-carousel {
+        width: 1033px!important;
+    }
+    .wd-in {
+        width: 319px !important;
+    }
+}
+/*end of nursing slider*/
+
+
+/*nursing*/
+.nur-content {
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    border: 1px solid #63b7ff;
+    border-radius: 5px;
+}
+
+.nur-tit {
+    margin-bottom: 10px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.nur-tit a {
+    color: #3490dc;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.nur-content .detail-btn {
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.nur-content .detail-btn .btn {
+    width: 100%;
+    background: #63b7ff;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.nur_date {
+    font-size: 15px;
+}
+
+ul.nur-caro-card>li.list-group-item {
+    padding: 5px !important;
+    border: none !important;
+}
+
+.fac_list {
+    padding: 2px 6px;
+    margin-right: 20px;
+    background: #0cc72c;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+#sp_panonav>.slick-list {
+    height: 100% !important;
+}
+
+.backwrapper {
+    padding: 10px;
+    background: #f8fdff;
+}
+
+/*Loading */
+
+.loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    flex-direction: column;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.loading-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    border-left-color: #2980b9 !important;
+    animation: circleanimation .45s linear infinite
+}
+
+.loading-text {
+    margin-top: 15px;
+    color: #808080;
+    font-size: 12px;
+    text-align: center;
+}
+
+@keyframes circleanimation {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+/*for Job*/
+
+.job-title-color {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/icons8-survey-job.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.job-apply-color {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/google-forms-24.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#job_apply .custom-table thead th,
+#job_apply .table td {
+    width: 100px;
+    word-break: break-all;
+    vertical-align: middle;
+}
+
+
+/* start nursing information */
+
+.nursing-info {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/informations.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
+}
+/* end nursing information */
+
+/*for date time picker*/
+
+.mx-calendar-content .cell {
+    border-radius: 3px;
+    /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+.mx-panel-date tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mx-panel-date {
+    border: 1px solid #dee2e6;
+}
+
+.mx-panel-date thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    border: 1px solid #dee2e6;
+}
+
+.mx-panel-date td.today {
+    color: #009bf9 !important;
+    font-weight: bold;
+}
+
+.mx-calendar-content .cell {
+    border: 1px solid #dee2e6;
+}
+
+.mx-calendar-content .cell:hover {
+    background-color: #2980b9 !important;
+    color: #fff;
+}
+
+.mx-calendar-header {
+    background: #2980b9 !important;
+    color: #fff !important;
+    border-radius: 3px !important;
+}
+
+.mx-calendar-content .cell.actived {
+    color: #fff !important;
+    background-color: #2980b9 !important;
+}
+/*end for date time picker*/
+/*end of nursing*/
+
 
 /*navtab for SP*/
 @media only screen and (max-width: 575px){
@@ -2362,3 +3735,2952 @@ ul.sub-ul li {
      
 }
 /*end of header*/
+
+@media only screen and (max-width:1440px) {
+    .card-title-leftwrapper {
+        width: 56% !important;
+    }
+    .card-title-rightwrapper {
+        width: 40% !important;
+    }
+    .fit-image-profile {
+        height: 165px;
+    }
+    /* hos and nursing account */
+    .img_title {
+        height: 165px;
+    }
+    /* end hos and nursing account */
+    .hos_lbl {
+        width: 165px;
+    }
+    .card_height {
+        float: left;
+        height: 170px;
+        cursor: pointer;
+    }
+    /*login*/
+    .login_2 {
+        margin-left: 18px;
+    }
+    .login_1 {
+        margin-right: 18px;
+    }
+    .login_top {
+        top: 0px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {    
+    .menu_tab_category {
+        width: 99% !important;
+    }
+    .fixed-ads-fluid {
+        width: 100%;
+    }
+    #headerbar {
+        display: block;
+        top: 86px;
+        right: 20px;
+    }
+    #headerbar li {
+        display: inline-block;
+    }
+    
+    .social-link:nth-child(3) {
+        margin-left: 5px;
+    }
+    
+    .adslist-card {
+        height: auto;
+    }
+    .ads-img {
+        display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+    }
+    .fav-profile {
+        right: 37px;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    .sub-title>.ads-title {
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    .job-img {
+        margin: 0 auto 20px;
+        flex: unset;
+    }
+    .job-box {
+        flex: unset;
+    }
+    .compare-wrap {
+        max-width: 82%;
+    }
+    .fav-update-wrap {
+        max-width: 19%;
+        flex: 0 0 18%;
+    }
+    .map-wrap {
+        overflow: hidden;
+    }
+    #register.loginwrapper {
+        height: auto;
+        padding: 30px 0;
+    }
+}
+
+@media only screen and (max-width:1280px) {
+    
+
+    .card-title-leftwrapper {
+        width: 48% !important;
+    }
+    .card-title-rightwrapper {
+        width: 52% !important;
+    }
+    .gSecondNav li {
+        background: transparent;
+        border-left: solid 1px #a7b7c7;
+        border-right: none;
+        border-top: none;
+        border-bottom: none;
+        padding: 5px;
+        border-radius: 0px;
+        color: #000;
+        margin: 0px;
+        font-size: 12px;
+    }
+    .img_title {
+        height: 135px;
+    }
+    /* Register */
+    /* hospital and nursing profile */
+    .hos_lbl {
+        width: 60%;
+    }
+    /* end hospital and nursing profile */
+    .card_height {
+        float: left;
+        height: 170px;
+        cursor: pointer;
+    }
+    .t-r {
+        margin-right: 59px;
+    }
+    .divisions {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 670px;
+    }
+    .map-leftwrapper {
+        padding-left: 15px;
+    }
+    
+    /* job apply list */
+    #job_apply .scroll_responsive {
+        overflow: auto;
+    }
+    #job_apply .custom-table {
+        width: 1100px;
+    }
+    #job_apply .scroll_responsive .table {
+        margin-bottom: 0 !important;
+    }
+    /*End job apply list */
+}
+
+@media only screen and (max-width: 1240px) {
+    .card-title-leftwrapper {
+        width: 60% !important;
+    }
+    .card-title-rightwrapper {
+        width: 40% !important;
+    }
+    .comform {
+        width: 100%;
+        max-width: 100%;
+    }
+    /* common */
+    .pc-1024 {
+        display: none;
+    }
+    .sp-1024 {
+        display: block;
+    }
+    /*end  common */
+    #app .logo-text {
+        padding: 0;
+    }
+    /*end header */
+    
+
+    .nav-txt {
+        display: none;
+    }
+    .custom-sidebar {
+        width: 70px;
+        z-index: 99;
+    }
+    .custom-sidebar:hover {
+        width: 280px !important;
+    }
+    
+
+    .custom-sidebar:hover .nav-txt {
+        display: inline-block;
+    }
+    
+
+}
+
+@media only screen and (max-width:1113px) {
+    .rightwrap .first_txt {
+        display: none;
+    }
+    .card-title-leftwrapper {
+        width: 60% !important;
+    }
+    .card-title-rightwrapper {
+        width: 40% !important;
+    }
+    .nursing_responsive {
+        max-width: 40%;
+    }
+    /* nursing profile */
+    .heading-lbl {
+        font-size: 1.05em;
+    }
+    .heading-lbl1 {
+        font-size: 1.05em;
+        flex: 0 0 17%;
+        max-width: 125px;
+    }
+    .news-post-btn {
+        font-size: 13px;
+    }
+    .nursing_map {
+        padding-left: 0px;
+    }
+    .nursing_radiobtn {
+        float: none !important;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .hos_lbl {
+        width: 75%;
+    }
+    .hos_lbl1 {
+        max-width: 18%;
+    }
+    .hos_toggle {
+        max-width: 100%;
+    }
+    .m-l-20 {
+        margin-left: 15px !important;
+    }
+    /* end nursing profile */
+    /* common */
+    .col-slg-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .pc-1024 {
+        display: none;
+    }
+    .sp-1024 {
+        display: block;
+    }
+    /*End common */
+    /* create news */
+    .related_post_box {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 49%;
+        flex: 0 0 49%;
+        max-width: 49%;
+    }
+    /*job search*/
+    .multiple-box {
+        width: 156px !important;
+    }
+    .multiple-boxa {
+        width: 156px !important;
+    }
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass {
+        margin-right: 1px;
+    }
+    /*end job search*/
+    /* profile publish */
+    .gallery-list .gallery-item {
+        height: 160px;
+    }
+    .lightbox-arrow svg {
+        width: 30px !important;
+        height: 30px !important;
+        line-height: 30px;
+    }
+    /*End profile publish */
+    .wd-in {
+        width: 249px;
+    }
+    /*.map-wrap {
+        overflow: auto;
+        padding: 20px 10px;
+    }*/
+    .divisions {
+        width: 550px;
+    }
+    /*news_start*/
+    .t_card {
+        max-width: none;
+    }
+    .t_card2 {
+        margin-left: 40px;
+    }
+    .t_card4 {
+        margin-left: 40px;
+    }
+    .create_nw_p {
+        padding: 0px;
+    }
+    /*news_end*/
+    /*category*/
+    .t-r {
+        margin-right: 45px;
+    }
+    /*subject*/
+    .o-r1 {
+        margin-right: 21px;
+        margin-top: 20px;
+    }
+    /*advertisement*/
+    .a-d1 {
+        margin-right: 0px;
+    }
+    .a-d2 {
+        margin-top: 20px;
+    }
+    /*create_news*/
+    .title {
+        font-size: 13px;
+    }
+    .unauth-title {
+        font-size: 23px;
+        padding: 10px;
+    }
+    .card_height {
+        float: left;
+        height: 170px;
+        cursor: pointer;
+    }
+    .fav-update-btn {
+        margin: 22px auto;
+    }
+    .divisions {
+        width: 550px;
+    }
+    /*.map-wrap {
+        padding: 20px 10px;
+    }*/
+    .top-fixed-btn,
+    .top-fixed-btn.active {
+        margin-bottom: 10px;
+    }
+    .top-fixed-btn {
+        text-align: center;
+        font-size: 12px;
+    }
+    #create_news .title {
+        padding: 2px;
+        font-size: 11px;
+        padding-left: 10px;
+        margin-top: -7px;
+    }
+    
+    .fixed-nav {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .pc-990{
+        display: none;
+    }
+    .job_id4 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    /*nursing-search*/
+    .p-0-990 {
+        padding: 0px !important;
+    }
+    /*nursing-search*/
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 11px;
+        text-align: center;
+        display: inline-block;
+    }
+    .job_id3 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        display: inline-block;
+        text-align: center;
+    }
+    /*comment*/
+    .cmt {
+        text-align: left;
+        font-size: 12px;
+        color: #777;
+        margin-top: 3px;
+    }
+    /*comment*/
+    .form-wrap .mailbox {
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+    .successful-resetpwd {
+        width: 100% !important;
+        margin-top: 34px;
+        background-color: #f8f8f8;
+        border: none;
+    }
+    .card-title-leftwrapper {
+        width: 60% !important;
+    }
+    .card-title-rightwrapper {
+        width: 40% !important;
+    }
+    .addbtn-right {
+        text-align: right;
+    }
+    .nursing_toggle_responsive {
+        float: right;
+    }
+    .map-fa-icon {
+        float: left;
+    }
+    #myTabContent {
+        margin-bottom: 10px;
+    }
+    /* common */
+    ul li {
+        list-style: none;
+        margin-right: 0px !important;
+    }
+    /*end common */
+    /* header */
+    .main-header {
+        padding: 4px 0;
+        height: auto;
+    }
+    .nav-warp .d-flex {
+        align-items: center;
+        width: 100%;
+    }
+    .gSecondNav {
+        display: none;
+    }
+    .logo_subtitle {
+        display: none;
+    }
+    #navbarSupportedContent {
+        display: none !important;
+    }
+    #headerbar {
+        display: none;
+    }
+    #sp_headerbar {
+        display: block;
+        width: 83%;
+        margin: 0px auto;
+        background: #fff;
+        margin-left: 6px;
+        font-size: 16px;
+    }
+    #sp_headerbar .fav_his {
+        float: left;
+        text-align: center;
+    }
+    #sp_headerbar .fav_his li {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+    #sp_headerbar .fav_his li .t-show {
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        width: 100%;
+        z-index: 2;
+    }
+    #sp_headerbar .fav_his li p {
+        padding: 0 10px;
+        border: 1px solid;
+        border-radius: 4px;
+    }
+    #sp_headerbar .fav_his li:first-child {
+        margin-right: 20px;
+    }
+    #sp_headerbar .count {
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-left: 6px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 35px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    #sp_headerbar .count2 {
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-right: -5px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .sp_social {
+        display: block;
+        margin-left: auto;
+    }
+    .sp_social .social-link {
+        float: left;
+        list-style: none;
+    }
+    .sp_social .social-link a {
+        width: 20px;
+    }
+    .sp_social .social-link a i {
+        color: #fff;
+    }
+    .social-link:first-child a {
+        background: #0080aa;
+    }
+   
+
+    .login_socail {
+        margin-top: -20px !important;
+    }
+    .login_nav .sp_nav {
+        top: 65px;
+    }
+    .sp_nav {
+        display: block;
+        position: fixed;
+        top: 59px;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 150px;
+        background: #f7f7f7;
+        overflow-y: auto;
+        z-index: 1;
+    }
+    .sp_panonav {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 99999999;
+        overflow-y: hidden;
+    }
+    ul.contact_list {
+        text-align: center;
+    }
+    ul.contact_list li {
+        padding: 10px;
+        line-height: 1;
+        border: none;
+    }
+    ul.contact_list li:first-child span {
+        padding: 10px 0 0 0;
+        line-height: 1.1;
+        font-size: 20px;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+    ul.contact_list i {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        font-size: 15px;
+        color: #c91616;
+        text-align: center;
+        line-height: 25px;
+        background: #ddd;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+    .d-none-768 {
+        display: none;
+    }
+    .sp_social .social-link {
+        float: none;
+        display: inline-block;
+    }
+    /*end  header */
+    
+
+    
+    /*map responsive*/
+    #map-responsive {
+        display: block;
+    }
+    .map-wrap {
+        display: none;
+    }
+    .highlight {
+        background-color: #ccff60 !important;
+        background-image: none;
+        border: 1px solid #8e3c15;
+        color: #2980b9;
+    }
+    .resHighlight {
+        background: #ccff6029 !important;
+    }
+    /* profile publish */
+    .photocard-carousel-wrapper {
+        height: auto;
+    }
+    #Profile-page .accept-box {
+        margin: 5px 2px;
+        font-size: 14px;
+    }
+    .gallery-list .gallery-item {
+        height: 130px;
+    }
+    .lightbox-arrow-left {
+        left: -20px !important;
+    }
+    .lightbox-arrow-right {
+        right: -20px !important;
+    }
+    .fixed-nav {
+        width: 100%;
+    }
+    .top-fixed-btn,
+    .top-fixed-btn.active {
+        margin-bottom: 10px !important;
+        border-radius: 0px;
+    }
+    .top-fixed-btn {
+        text-align: center;
+        font-size: 12px;
+        border-radius: 0px;
+    }
+    .ele {
+        margin-top: 0px;
+    }
+    .top-mail-btn-res {
+        background: #0cc72c;
+        margin-bottom: 10px;
+        color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+        font-weight: bold;
+        width: 100%;
+    }
+    .displayFlex {
+        display: block;
+    }
+    .gallery-area-payment .delete-borderbtn,
+    .gallery-area-cooperate .delete-borderbtn {
+        background-color: transparent;
+        border: none !important;
+    }
+    .gallery-area-payment .delete-borderbtn>i.fa,
+    .gallery-area-cooperate .delete-borderbtn>i.fa {
+        display: none !important;
+    }
+    /*End  profile publish */
+    /* job details */
+    .job_id {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .search_jobid {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+    .search_jobid1 {
+        width: 71%;
+        position: relative;
+        margin-right: 78px;
+    }
+    .search_jobid3 {
+        float: right;
+        margin-top: 5px;
+        width: 55%;
+        float: left;
+        margin-bottom: 10px;
+    }
+    .job_status {
+        margin-top: 7px;
+        margin-right: 2%;
+    }
+    .form-wrap .form-left {
+        padding: 10px 15px 5px 15px;
+        /* border-bottom: 1px solid #ced4da; */
+    }
+    .form-wrap label {
+        display: block;
+    }
+    .form-wrap .form-control,
+    .form-wrap .full-wd.form-control {
+        width: 85% !important;
+    }
+    .form-group .rightwrap .postal {
+        width: 30% !important;
+    }
+    .eg-txt {
+        margin-top: 10px;
+        width: 100%;
+    }
+    /*End job details */
+    /* comment list */
+    .commentWrap .d-flex {
+        flex-wrap: wrap;
+    }
+    /*END comment list */
+    /* customer list */
+    #customer_list .table.List_tbl td {
+        display: block;
+        width: 100%;
+    }
+    #customer_list .table.List_tbl td:last-child {
+        border-top: 0;
+    }
+    /*End customer list */
+}
+
+
+/* Media Queries*/
+
+@media (max-width: 1024px) and (min-width: 320px) {
+    
+
+    .customer-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) and (min-width: 400px) {
+    .source-img-small {
+        width: 500px;
+    }
+    .ads-card {
+        width: 120px;
+    }
+    
+
+}
+
+@media (min-width: 320px) {
+    
+    .today .adslist-card .smallads-title {
+        font-size: 12px;
+        line-height: 1.357;
+        color: #333;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        top: -0.2rem;
+        max-height: 65px;
+    }
+    .today .smallads-title {
+        display: block;
+        white-space: normal;
+    }
+    .userview-sidebar {
+        background-color: #f5f5f5;
+        padding-top: 35%;
+        padding-left: 25px;
+        margin-top: 2px;
+    }
+}
+
+@media screen and (max-width: 979px) and (max-width:752px) {
+    /* create new */
+    .related_post_box .create_news img {
+        max-width: 100px;
+    }
+    .related_post_box .card-body {
+        padding: 1rem 0.8rem;
+    }
+    /*end create new */
+    #news.t_card2 {
+        margin-left: 40px;
+    }
+    #news.t_card4 {
+        margin-left: 30px;
+    }
+    .news_catsearch label {
+        width: 30%;
+    }
+    .news_catsearch section {
+        width: 265px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    /*fav nursing*/
+    /*comment*/
+    .cmt {
+        font-size: 12px;
+        color: #777;
+        text-align: right;
+        margin-top: 0px;
+    }
+    .test {
+        display: none;
+    }
+    /*comment*/
+    .lbl-size {
+        width: 355px;
+    }
+    .lbl-width {
+        width: 92px;
+    }
+    dl.favnur dt {
+        width: 22%;
+    }
+    #nursing dl dd {
+        padding-left: 0px;
+    }
+    #headerbar {
+        z-index: 999;
+    }
+    /*end fav nursing*/
+    /*news_start*/
+    .t_card {
+        max-width: none;
+    }
+    .t_card2 {
+        margin-left: 40px;
+    }
+    .t_card4 {
+        margin-left: 40px;
+    }
+    /*news_end*/
+}
+
+@media only screen and (max-width:768px) {
+    .posting-per {
+        text-align: unset;
+    }
+    .card-title-rightwrapper {
+        width: 100% !important;
+    }
+    .form-wrap .form-right {
+        border-left: none !important;
+    }
+    .form-wrap .form-left {
+        border-right: 1px solid #ced4da;
+    }
+    .form-wrap .form-left {
+        padding: 10px 15px 5px 15px;
+        ;
+    }
+    .m-t-768 {
+        margin-top: 0px;
+    }
+    .m-b-768 {
+        margin-bottom: 20px !important;
+    }
+    .successful-resetpwd {
+        width: 100% !important;
+        margin-top: 34px;
+        background-color: #f8f8f8;
+        border: none;
+    }
+    .choose-item {
+        margin-top: 10px;
+    }
+    .title {
+        padding-bottom: 0px;
+    }
+    #register.loginwrapper {
+        height: 100vh;
+        padding-top: 0;
+    }
+    .user_registercard {
+        width: 100%;
+        margin: -85px auto 0;
+    }
+    
+    .img-wrap {
+        padding-bottom: 0px;
+    }
+    
+    .nursing_responsive {
+        max-width: 33%;
+    }
+    .p-l-162 {
+        padding-left: 200px;
+    }
+    .nus-town-m-t {
+        margin-top: 10px;
+    }
+    .pc-768 {
+        display: none;
+    }
+    /* start pagination */
+    .pagination {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item {
+        padding: 1px;
+    }
+    .page-item .spanclass {
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+    .spanclass {
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a {
+        position: relative;
+    }
+    /* end pagination */
+    /* nursing profile */
+    .heading-lbl {
+        font-size: 1.05em;
+        flex: 0 0 16%;
+    }
+    .heading-lbl1 {
+        font-size: 1.05em;
+        flex: 0 0 20%;
+        /* max-width: 122px; */
+    }
+    .nursing_btn {
+        margin-top: 0px;
+    }
+    .nursing_input {
+        flex: 0 0 85%;
+    }
+    .hos_lbl {
+        width: 78%;
+    }
+    .hos_map_lbl {
+        padding-bottom: 10px;
+    }
+    /* end nursing profile */
+    .sp-768 {
+        display: block;
+    }
+    .sp-768-block {
+        display: block;
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .sp-768-block {
+        display: block;
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .tab {
+        max-width: 100% !important;
+        flex: 100% !important;
+    }
+    /* create new */
+    .related_post_box .create_news img {
+        max-width: 100px;
+    }
+    .related_post_box .card-body {
+        padding: 1rem 0.8rem;
+    }
+    /*end create new */
+    .map-text-wrapper {
+        display: flex;
+    }
+    /* job apply */
+    .register_box,
+    .confirm_box {
+        padding: 0;
+    }
+    .register_box .multi-step span,
+    .confirm_box .multi-step span {
+        display: none;
+    }
+    .multi-step {
+        margin-bottom: 20px;
+    }
+    .multi-step li {
+        width: 28.73%;
+        padding: 5px 10px;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .multi-step li::before {
+        border-width: 9px;
+        margin-top: -9px;
+    }
+    .multi-step li.no-active::after {
+        border-left-color: #fff;
+        border-width: 8px;
+        margin-top: -8px;
+    }
+    .form-wrap .form-control,
+    .form-wrap .full-wd.form-control {
+        width: 93% !important;
+        margin: 10px;
+    }
+    .eg-txt {
+        padding-left: 5px;
+        width: 100%;
+    }
+    /*End job apply */
+    .wd-in {
+        width: 256px;
+    }
+    .t_card {
+        max-width: none;
+    }
+    .t_card2 {
+        margin-left: 40px;
+    }
+    .t_card4 {
+        margin-left: 40px;
+    }
+    /*news_end*/
+    .card_height {
+        float: left;
+        height: 190px;
+        cursor: pointer;
+    }
+    /*category*/
+    .t-r {
+        margin-left: 17px;
+        margin-right: 0px;
+        margin-top: 20px;
+    }
+    .t-l {
+        margin-left: 39px;
+    }
+    /*category*/
+    /*occupation*/
+    .o-r1 {
+        margin-right: 0px;
+    }
+    .o-r2 {
+        margin-left: 48px;
+        margin-top: 20px;
+    }
+    /*occupation*/
+    /*advertisement*/
+    .a-d1 {
+        margin-right: 53px;
+    }
+    .a-d2 {
+        margin-left: 78px;
+        margin-top: 20px;
+    }
+    
+    #pc-hos-fav-local,
+    #pc-nus-fav-local,
+    #pc-hos-his-local,
+    #pc-nus-his-local {
+        color: #C40000;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .job-content .detail-btn .btn {
+        width: 90%;
+    }
+    .hospital-subject {
+        display: table-cell;
+    }
+    .hos-content .detail-btn .btn {
+        width: 100%;
+    }
+    .sp_hos_phone {
+        padding: 5px;
+    }
+    .circle-phone {
+        width: 30px;
+        height: 30px;
+    }
+    .phone-no {
+        padding: 0px;
+        font-size: 20px;
+    }
+    .hos_phone i,
+    .sp_hos_phone i {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 15px;
+    }
+    #job_detail .fav-profile {
+        width: 100%;
+        padding: 10px !important;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    table.consultTable tr > * {
+        display: block;
+    }
+    table.consultTable tr {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .first-row{
+        border: none;
+        padding: 0px;
+    }
+    table.consultTable th, table.consultTable td{
+        width: 100% !important;
+
+    }   
+    .mt-750-10 {
+        margin-top: 10px;
+    }
+    .backbtn {
+        top: 0px;
+    }
+    .form-group .rightwrap .postal {
+        width: 90% !important;
+    }
+    .form-wrap .form-left {
+        border-bottom: 1px solid #ced4da;
+    }
+    #register.loginwrapper {
+        height: auto;
+        padding: 30px 0;
+    }
+    #register .user_registercard {
+        width: 90%;
+        margin: -85px auto 0;
+    }
+    .login_1,
+    .login_2 {
+        top: 0px;
+    }
+    .pc-750 {
+        display: none;
+    }
+    .sp-750 {
+        display: block;
+    }
+    .pad-t-10 {
+        padding: 10px 0px 0px 0px;
+    }
+    .pad-0-res {
+        padding: 0px;
+    }
+    .profile-tit {
+        padding: 0px;
+        margin: 0px;
+    }
+    table.timeTable th,
+    table.timeTable td {
+        vertical-align: middle !important;
+        width: 50px !important;
+        padding: 5px !important;
+    }
+    .public-nurheader {
+        margin-bottom: 10px;
+    }
+    .dropdown {
+        display: inline-block;
+        width: 100%;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: 6px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #495057;
+        vertical-align: middle;
+        background-color: #f5f5f5;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        -webkit-appearance: none;
+    }
+    .dropdown-men.show {
+        display: inline-flex !important;
+    }
+    .dropdown-menu-form {
+        padding: 5px 10px 0;
+        width: 100%;
+        max-height: 260px;
+        overflow-y: scroll;
+        transform: translate3d(0px, 33px, 0px) !important;
+    }
+    .btn-sm {
+        padding: 2px;
+    }
+    ul.tab-menu-responsive {
+        font-size: 10px;
+    }
+    ul.tab-menu-responsive li a i {
+        display: block;
+        font-size: 15px;
+    }
+    div.div1 a.router-link-exact-active,
+    div.div2 a.router-link-exact-active {
+        border-left: 1px solid transparent !important;
+    }
+    .btn-group {
+        display: flex;
+        flex-direction: row;
+    }
+    .pad-free-750 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .margin-free-750 {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin-bottom750 {
+        margin-bottom: 0px !important;
+    }
+    .facility_tbl th,
+    .cost_table th,
+    .map_tbl th {
+        width: 120px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .choose-item .job-no {
+        float: left;
+    }
+    .pagination {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item {
+        padding: 1px;
+    }
+    .page-item .spanclass {
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+    .spanclass {
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a {
+        position: relative;
+    }
+    /* profile publish */
+    .gallery-list .gallery-item {
+        height: 100px;
+    }
+    /*End  profile publish */
+    /*job search*/
+    .job-content {
+        margin-bottom: 60px;
+        padding: 10px;
+    }
+    .form-wrap .form-right {
+        border-left: none;
+    }
+    /*end job search*/
+    .width17 {
+        width: 48%;
+    }
+    .fixed-nav {
+        display: none;
+        width: 100%;
+    }
+    
+    
+}
+
+@media only screen and (max-width:576px) {
+    .deactive {
+        display: block;
+        margin-bottom: 0px;
+        position: relative;
+        top: 0px;
+        left: 0;
+    }
+    .mt-567-10 {
+        margin-top: 10px;
+    }
+    
+
+    .searchButtonNews {
+        width: 20%;
+    }
+    #news_list .select_label {
+        width: 25% !important;
+    }
+    .w-sm-65 {
+        width: 65% !important;
+    }
+    .w-sm-100 {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .sp-576 {
+        display: block;
+    }
+    /* create news */
+    .related-card .cat_box {
+        width: 100%;
+    }
+    .related-card .cat_select {
+        width: 71%;
+        margin-left: auto;
+    }
+    .related-card .search_box {
+        width: 100%;
+    }
+    .related_post_box .create_news img {
+        max-width: 40%;
+    }
+    #news_list .select_box {
+        width: 75%;
+    }
+    .joboffer-salary-type {
+        padding: 0;
+    }
+    .joboffer-salary {
+        margin: 10px 0 0 0;
+        padding: 0;
+    }
+    .tel-input {
+        padding: 0;
+    }
+    .tel-button {
+        margin-top: 10px;
+        padding: 0;
+    }
+    ul.menu li.first-submenu {
+        top: 13px;
+    }
+    /*end create news */
+}
+
+
+/*fav_slider*/
+
+@media only screen and (max-width:480px) {
+    
+
+    .cmt2 {
+        float: left;
+        margin-left: -13px;
+    }
+    .cmt3 {
+        display: none;
+    }
+    .search_jobid {
+        float: none;
+    }
+    .data-success {
+        font-size: 16px;
+    }
+    .successful-resetpwd {
+        background-color: #fff;
+        margin-top: 0px;
+        border: none;
+    }
+    /*news*/
+    
+    .news-3-card .img-box {
+        padding: 0 5px !important;
+    }
+    .wrapper-4 img {
+        width: auto !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .wrapper-4 {
+        border: 1px solid #fff;
+        background-color: #fff;
+    }
+    .wrapper-3 img.fit-image {
+        height: 100%;
+    }
+    .single-news-box p {
+        overflow: hidden;
+        height: -webkit-fill-available;
+    }
+    .category_box {
+        margin-top: 0px;
+    }
+    .category_box h4 {
+        font-size: 16px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .category_news_title {
+        padding: 0px 10px 10px 0px;
+    }
+    /*fav nursing*/
+    .close-480 {
+        display: block;
+        line-height: 2px;
+        font-size: 20px;
+        height: 30px;
+        width: 35px;
+        padding: 0px;
+    }
+    .check-resize {
+        display: block;
+    }
+    dl.favnur dt {
+        display: block;
+        width: auto;
+    }
+    #nursing dl dd {
+        padding-left: 0px;
+    }
+    .fav-update-wrap {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .fav-update-wrap {
+        padding: 0;
+        background: #BCDDF3;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .favnur {
+        border-right: 1px solid #ccc !important;
+    }
+    .compare-wrap {
+        max-width: 100%;
+    }
+    .fav-update-btn {
+        width: 35%;
+        line-height: 25px;
+        margin: 8px auto;
+    }
+    .fnt-title {
+        font-size: 15px;
+    }
+    .fnt-check {
+        font-size: 13px;
+    }
+    .pb-4,
+    .py-4 {
+        padding-bottom: 0px !important;
+    }
+    #nursing .modal-footer {
+        padding: 0px;
+    }
+    .modal-hr hr {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .lbl-size {
+        width: auto;
+    }
+    .job_count {
+        font-size: 15px;
+        padding: 0px 5px 0px;
+    }
+    /*end fav nursing*/
+    
+    .pc-480 {
+        display: none;
+    }
+    .page-item:first-child .spanclass,
+    .page-item:last-child .spanclass,
+    .page-item:nth-child(2) .spanclass,
+    .page-item:nth-last-child(2) .spanclass {
+        width: 51px;
+        height: 30px;
+        transition: background-color .3s;
+    }
+    .pagination {
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+        /* margin-right: 20%; */
+    }
+    .pagination .page-item {
+        padding: 1px;
+    }
+    .spanclass {
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a {
+        position: relative;
+    }
+    .pc-paginate {
+        display: none;
+    }
+    /*create_news*/
+    .news_catsearch {
+        padding: 15px;
+    }
+    .news_catsearch label {
+        display: none;
+    }
+    
+
+    .custom_title {
+        position: relative;
+        margin: 5px 0;
+    }
+    .custom_title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        display: inline-block;
+        width: 25px;
+        height: 3px;
+        left: 0;
+        border-radius: 2px;
+        background: #2980b9;
+    }
+    #customer_list .custom_title:after {
+        left: 15px;
+    }
+    .scroll_responsive {
+        overflow-x: auto;
+    }
+    .scroll_responsive .table {
+        margin-bottom: 0 !important;
+    }
+    .custom-table {
+        width: 555px;
+    }
+    
+
+    .t_card {
+        margin-left: 22px;
+    }
+    #create_news .title {
+        padding: 14px;
+        font-size: 12px;
+        padding-left: 10px;
+        margin-top: -7px;
+    }
+    .card_height {
+        float: left;
+        height: 236px;
+        cursor: pointer;
+    }
+    .pc-m-0-10 {
+        margin: 0px 10px;
+    }
+    .pc-m-r-10 {
+        margin-right: 10px;
+    }
+    .mb-10 {
+        margin-bottom: 10px;
+    }
+    .related-card .cat_wrap {
+        width: 100%;
+    }
+    /* end create news */
+    /* news list */
+    .List_tbl tr {
+        width: 100%;
+    }
+    .List_tbl tr td {
+        display: block;
+        width: 100% !important;
+    }
+    .table.List_tbl td:first-child {
+        width: 100%;
+    }
+    .List_tbl tr td:first-child div {
+        width: 95%;
+        height: auto;
+        margin: 5px auto;
+    }
+    .table.List_tbl td:nth-child(2) {
+        border: none;
+    }
+    #customer_list .table.List_tbl td:last-child {
+        border: none;
+        text-align: left !important;
+    }
+    /*end news list */
+    
+    /*category*/
+    .t-r {
+        margin-right: -8px;
+    }
+    .t-l {
+        margin-left: 1px;
+    }
+    /*occupation*/
+    .o-r1 {
+        margin-right: 19px;
+    }
+    .o-r2 {
+        margin-left: 29px;
+    }
+    /*occupation*/
+    /*advertisement*/
+    .a-d1 {
+        margin-right: 0px;
+    }
+    .a-d2 {
+        margin-left: 12px;
+        margin-top: 20px;
+    }
+    .job-box table tr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+
+    }
+    .job-box table th{
+        width: 100% !important;
+        border: none;
+    }
+    .job-box td{
+        width: 100% !important;
+        min-height: 45px;  
+    }
+    .info_tbl tr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+    }
+    .info_tbl th {
+        width: 100%;
+        border: none;
+    }
+    .info_tbl td{
+        width: 100%;
+        min-height: 45px;    
+    }
+    .cash-lbl {
+        font-size: 1.4em;
+    }
+    .facility_tbl th {
+        width: 80px;
+    }
+    .main-cost-wrap {
+        width: 330px;
+        overflow-x: scroll;
+    }
+    .main-cost-table {
+        width: 550px !important;
+        float: none !important;
+    }
+    .changeLink {
+        font-size: 12px;
+    }
+    .staff_tbl tr,
+    .moving-in_tbl tr,
+    .cost_table tr,
+    .map_tbl tr {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+    }
+    .staff_tbl th,
+    .moving-in_tbl th {
+        width: 100% !important;
+        min-height: 40px;
+    }
+    .staff_tbl td,
+    .moving-in_tbl td {
+        /* width: calc(100% - 100px); */
+        width: 100%;
+        min-height: 40px;
+    }
+    .cost_table th,
+    .map_tbl th {
+        /* width: 100px; */
+        width: 100%;
+        min-height: 40px;        
+    }
+    .cost_table td,
+    .map_tbl td {
+        width: 100%;
+        min-height: 40px;
+    }
+    #googlemap {
+        min-height: 200px;
+    }
+    .comment-btn-wrapper {
+        width: 100%;
+    }
+    .no-data-size {
+        font-size: 16px !important;
+    }
+    .nocomment-phone {
+        font-size: 25px !important;
+    }
+    .no-comment-title span {
+        display: block;
+        line-height: 1.2;
+    }
+    .no-comment-title a {
+        font-size: 20px;
+    }
+    .phone-color {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 18px !important;
+        line-height: 30px !important;
+    }
+    .fav-profile {
+        width: 128px;
+        right: 11px;
+        padding: 5px 2px !important;
+        font-size: 14px;
+    }
+    .top-mail-btn {
+        right: 135px !important;
+        width: 128px !important;
+        font-size: 12px !important;
+    }
+    .top-fixed-btn,
+    .top-fixed-btn.active {
+        /* padding: 3.29999%; */
+    }
+    /*End  profile publish */
+    /* Job Detail */
+    .job-title-color {
+        padding-left: 23px;
+        font-size: 16px;
+        background-size: 22px;
+    }
+    /*End Job Detail */
+    /* job apply */
+    .jop-apply-tit-wrap {
+        padding: 0;
+    }
+    .job-apply-color {
+        padding-left: 23px;
+        font-size: 16px;
+        background-size: 22px;
+    }
+    /*End job apply */
+    /* common */
+    .p0-480 {
+        padding: 0 !important;
+    }
+    
+    /*End common */
+    .map-text-wrapper {
+        display: block;
+    }
+    .searchButton {
+        width: 28%;
+    }
+    .freeword-responsive h3 {
+        padding: 0px;
+    }
+    .map-fa-icon {
+        width: 100%;
+    }
+    .freeword-responsive p {
+        text-align: center !important;
+        font-size: 20px;
+    }
+    .offset {
+        width: 100% !important;
+    }
+    /* comment list */
+    .commentlist_tbl td {
+        display: block;
+        width: 100% !important;
+    }
+    .commentlist_tbl td:nth-child(2) {
+        padding-left: 5px;
+    }
+    /*END comment list */
+    #customer_list .table.List_tbl .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+
+    #news_post .card-body,
+    #cat_post .card-body,
+    #ads_post .card-body,
+    #create_fact .card-body,
+    #create_subject .card-body {
+        padding: 13px;
+    }
+    
+
+    
+
+}
+
+@media only screen and (min-width: 414px) {
+    .date-witdh-410 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .span-height {
+        line-height: 0px;
+    }
+    .sp-t {
+        margin-left: 73px !important;
+        margin-top: -23px !important;
+    }
+    .sp-t2 {
+        margin-left: 114px !important;
+        margin-top: -23px !important;
+    }
+    .dateTime {
+        display: none;
+    }
+    .date-witdh-410 {
+        display: block;
+        border: 1px solid #DEE2E6;
+    }
+    .date-label {
+        border: 1px solid #DEE2E6;
+        padding: 0.50rem;
+        font-weight: 700 !important;
+        background: #f5f5f5;
+    }
+    .datepicker {
+        border: 1px solid #DEE2E6;
+    }
+    /* create news */
+    .related_post_box {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 96%;
+        max-width: 100%;
+        margin: 2%;
+    }
+    /*End create news */
+    
+    .nursing_responsive {
+        max-width: 100%;
+    }
+    /*register*/
+    .login_wp {
+        height: 105vh;
+        padding: 10px !important;
+        position: fixed;
+        width: 100%;
+        background-color: #fbfbfb;
+    }
+    .registerform_container {
+        margin-top: 142px;
+    }
+    .mb-7,
+    .my-3 {
+        margin-bottom: 2px !important;
+    }
+    #psd_reset .reset_form {
+        padding: 90px 15px 0 15px;
+    }
+    #psd_reset_form .form_content {
+        padding: 90px 15px 60px 15px;
+    }
+    #psd_reset .reset_txt {
+        font-size: 13px;
+    }
+    .links_2 {
+        top: 78px;
+    }
+    .p-l-162 {
+        padding-left: 0px;
+    }
+    .links {
+        position: relative;
+    }
+    .sp-414 {
+        display: block !important;
+    }
+    .sp-414-table {
+        display: table-cell !important;
+    }
+    .pc-414 {
+        display: none !important;
+    }
+    .pc-414-table {
+        display: none !important;
+    }
+    .pc-rsp-table {
+        display: table-cell;
+    }
+    .pc-414-inline {
+        display: none !important;
+    }
+    /*create_news*/
+    .sp-414-timetable .table th,
+    .sp-414-timetable .table td {
+        padding: 5px !important;
+        vertical-align: middle;
+    }
+    .hos-content {
+        padding: 10px;
+    }
+    .m-b-414 {
+        margin-bottom: 10px;
+    }
+    div#sp-414-block .nur_date {
+        display: inline-block;
+        margin-top: 10px;
+    }
+    div#sp-414-block .fac_list {
+        padding: 6px;
+        display: inline-block;
+        width: auto;
+    }
+    /* nursing profile */
+    /* .d-flex {
+        flex-wrap: wrap !important;
+    } */
+    .nursing_input {
+        flex: 0 0 100%;
+        padding: 0;
+        margin: 0;
+        padding: 0 7px;
+    }
+    .heading-lbl {
+        font-size: 1.05em;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .heading-lbl1 {
+        font-size: 1.05em;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .nursing_btn {
+        margin-top: 0px;
+    }
+    .nusing_btn1 {
+        background-color: #0cc72c !important;
+        min-width: 68px;
+    }
+    .nursing_table {
+        display: block;
+        width: 100%;
+    }
+    .nursing_table1 {
+        display: block;
+    }
+    .nursing-addbtn {
+        margin-top: 10px;
+        padding-left: 1px;
+    }
+    .nursing_cost {
+        padding: 0px;
+        margin-left: 16px;
+    }
+    .nursing_title_lbl {
+        display: block;
+    }
+    #gallery-payment table tr>th:first-child {
+        width: 100%;
+    }
+    .nursing_table_title th,
+    .nursing_table_title td {
+        display: block;
+        width: 100% !important;
+    }
+    .nursing_p-r-2 {
+        padding-right: 2px !important;
+    }
+    .nursing_p-l-2 {
+        padding-left: 2px !important;
+    }
+    .nursing-m-b-15 {
+        margin-bottom: 10px !important;
+    }
+    .p-t-10 {
+        padding-top: 10px !important;
+        margin-left: 13px;
+    }
+    .hos-del {
+        padding-bottom: 10px;
+    }
+    .m-l-20 {
+        margin-left: 5px !important;
+        margin-top: 5px;
+    }
+    .postal {
+        width: 100%;
+    }
+    /* end nursing profile */
+    #news_list .select_box {
+        width: 72%;
+    }
+    .related-card .cat_select {
+        width: 65%;
+    }
+    #joboffer_list .all-btn {
+        padding: 10px;
+    }
+    
+
+}
+
+@media only screen and (max-width: 380px) {
+    .searchButtonNews {
+        width: 30%;
+    }
+    
+
+    /*register*/
+    .login_wp {
+        height: 105vh;
+        padding: 10px;
+        position: fixed;
+        top: 22px;
+        background-color: #fbfbfb;
+    }
+    .registerform_container {
+        margin-top: 60px;
+    }
+    .brand_logo_container {
+        height: 150px;
+        width: 150px;
+    }
+    .user_card {
+        width: 330px;
+    }
+    .form_content {
+        padding: 70px 15px 40px 15px;
+    }
+    .brand_logo {
+        width: 100px
+    }
+    .mb-7,
+    .my-3 {
+        margin-bottom: 7px !important;
+    }
+    /*register*/
+    .links {
+        position: relative;
+    }
+    /* header */
+    #sp_headerbar .fav_his {
+        float: none;
+        text-align: center;
+    }
+    .login_nav li.first-submenu {
+        top: 18px !important;
+    }
+    ul.menu_list li i.fa-twitter,
+    ul.menu_list li i.fa-facebook-f {
+        color: inherit !important;
+    }
+    .first-submenu span {
+        display: none;
+    }
+    .d-none-380 {
+        display: none !important;
+    }
+    .backwrapper {
+        padding: 10px;
+        background: #f8fdff;
+    }
+    .d-none-768 {
+        display: block;
+        text-align: center;
+    }
+    .d-none-380 {
+        display: none;
+    }
+    /*end header */
+    /* Profile Publish */
+    .gallery-list .gallery-item {
+        font-size: 12px;
+    }
+    .top-mail-btn {
+        right: 125px !important;
+        width: 98px !important;
+        font-size: 12px !important;
+    }
+    .fav-profile {
+        right: 0px;
+        font-size: 12px;
+        top: 0px !important;
+    }
+    /*End  Profile Publish */
+    .related-card .cat_lbl {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 979px) and (min-width: 752px) {
+    .map-box-reponsive {
+        display: block;
+    }
+    .fav-update-btn {
+        margin: 33px auto;
+    }
+    .form-group .rightwrap>.rightwrap-child {
+        margin-top: 25px;
+    }
+    .stepper-result-form {
+        padding-top: 20px !important;
+    }
+    .stepper-result-form .label-result {
+        padding: 10px 15px 5px 15px !important;
+    }
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1880px) {
+    .customer-id {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 16px;
+    }
+    .pc-9-180 {
+        display: block;
+    }
+    .sp-9-180 {
+        display: none;
+    }    
+}
+@media only screen and (min-width: 1881px) {
+    .pc-2000 {
+        display: block;
+    }   
+}
+@media only screen and (min-width: 991px) and (max-width: 1880px) {
+    .pc-991-1880{
+        display: block;
+    }
+    .customer-id {
+        padding: 0 10px;       
+        line-height: 26px;
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+}
+
+/**************card carousel***********************/
+
+@media only screen and (max-width:768px) {
+    #fav-history-page .card-carousel-cards .card-carousel--card--footer {
+        padding: 0px;
+    }
+    #hospital .nav-content,
+    #nursing .nav-content {
+        border: none;
+        background: transparent !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 25px !important;
+    }
+    #fav-history-page .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff !important;
+        width: 25px !important;
+    }
+    .slick-dotted.slick-slider {
+        margin-bottom: 0px;
+    }
+    
+    .news_detail_tit {
+        line-height: 1.3;
+    }
+    .details_title {
+        margin-bottom: 20px !important;
+        line-height: 1.3;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+    #fav-history-page .card-carousel {
+        width: 263px !important;
+    }
+    #fav-history-page .card-carousel {
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper {
+        margin-left: -16px;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 375px) {
+    #fav-history-page .card-carousel {
+        width: 261px !important;
+    }
+    #fav-history-page .card-carousel {
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper {
+        margin-left: -34px;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper.m-l-4 {
+        margin-left: -4px;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 450px) {
+    #fav-history-page .card-carousel {
+        width: 261px !important;
+    }
+    #fav-history-page .card-carousel {
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper {
+        margin-left: -18px;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 414px) and (max-width: 768px) {
+    #fav-history-page .card-carousel {
+        width: 261px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper {
+        margin-left: 5px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    .form-wrap .form-left-child {
+        padding: 10px 15px 5px 15px;
+        margin-top: 25px;
+    }
+    .rightwrap-child span {
+        margin-top: 10px !important;
+    }
+    #fav-history-page .card-carousel {
+        width: 521px!important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 545px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper {
+        margin-left: -13px;
+    }
+    #fav-history-page .card-carousel {
+        overflow: visible;
+    }
+    .maintab-content {
+        margin: 36px 0 0 0;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+    #fav-history-page .card-carousel {
+        width: 799px!important;
+    }
+    .custom-table>.table th,
+    .table td {
+        padding: 6px;
+    }
+    .nav-content {
+        margin-left: 3px;
+        margin-right: -10px;
+    }
+    .profile_wd {
+        width: 242px !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    #fav-history-page .card-carousel {
+        width: 768px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 800px !important;
+    }
+}
+
+@media only screen and (min-width: 1023px) and (max-width: 1200px) {
+    .map-leftwrapper {
+        padding-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1280px) {
+    #fav-history-page .card-carousel {
+        width: 783px!important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 814px !important;
+    }
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1280px) and (max-width: 1440px) {
+    #fav-history-page .card-carousel {
+        width: 1503px!important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 1084px !important;
+    }
+    /*.map-wrap {
+        overflow: hidden;
+    }*/
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1880px) {
+    
+    /*.main-content {
+        width: 100%;
+    }*/
+    #fav-history-page .card-carousel {
+        width: 1046px!important;
+        margin-left: 20px;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel {
+        width: 1084px !important;
+    }
+    
+    
+    
+    
+    
+    .menu_tab_category {
+        width: 98.7% !important;
+    }
+    .fixed-ads-fluid {
+        width: 100%;
+    }
+    #headerbar {
+        display: block;
+        top: 86px;
+    }
+    #headerbar li {
+        display: inline-block;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .social-link:nth-child(3) {
+        margin-left: 5px;
+    }
+    .adslist-card {
+        height: auto;
+    }
+    .ads-img {
+        display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+    }
+    .fav-profile {
+        right: 37px;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    .sub-title>.ads-title {
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    .job-img {
+        margin: 0 auto 20px;
+        flex: unset;
+    }
+    .job-box {
+        flex: unset;
+    }
+    .compare-wrap {
+        max-width: 82%;
+    }
+    .fav-update-wrap {
+        max-width: 19%;
+        flex: 0 0 18%;
+    }
+}
+
+#nusNew {
+    display: none;
+}
+
+
+/**************end card carousel***********************/
+
+strong {
+    font-weight: bold!important;
+}
+
+@media only screen and (max-width:320px) {
+    .bottom-mail-btn {
+        width: 108px !important;
+        margin-right: 0px;
+    }
+    .searchButtonNews {
+        width: 30%;
+    }
+    /*comment*/
+    .comment {
+        padding: 13px;
+        left: -40px;
+        /* width: 290px; */
+    }
+    .fnumericzip {
+        margin-bottom: 10px;
+    }
+    .com-mt {
+        margin-top: 44px;
+    }
+    /*comment*/
+    
+    .registerform_container {
+        margin-top: 0px;
+    }
+    /*create_news*/
+    .searchButton {
+        width: 35% !important;
+    }
+    .news_catsearch label {
+        width: 55%;
+    }
+    .nursing_btn span {
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .postal {
+        width: 100%;
+    }
+    #news_list .select_box {
+        width: 70%;
+    }
+    #news_list .select_label {
+        width: 26% !important;
+    }
+}
+
+
+/*comment*/
+
+@media only screen and (max-width:360px) {
+    .comment {
+        padding: 7px;
+        width: 323px;
+        left: -7px;
+    }
+    .comform {
+        max-width: none;
+    }
+    .fnumericzip {
+        margin-bottom: 10px;
+    }
+    .com-mt {
+        margin-top: 44px;
+    }
+    .title_comment2 {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 12px;
+    }
+    .t-t {
+        margin-left: 5px;
+        margin-top: -45px;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    
+    .user_card {
+        width: 290px;
+    }
+    .comment {
+        padding: 10px;
+        width: 288px;
+        left: -30px;
+    }
+    .fnumericzip {
+        margin-bottom: 10px;
+    }
+    .com-mt {
+        margin-top: 44px;
+    }
+    .title_comment2 {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 18px;
+    }
+    .t-t {
+        margin-left: 5px;
+        margin-top: -45px;
+    }
+}
+
+
+/*comment*/
+
+
+/*nursing_search_dropdown*/
+
+@media (max-width: 767px) and (min-width: 420px) {
+   
+    .sp-rsp-block {
+        display: block;
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .search_wd {
+        width: auto;
+    }
+    .search_rsp {
+        width: 100%;
+        height: auto;
+        display: contents;
+    }
+}
+
+
+/*nursing_search_dropdown*/
+
+
+/* checkbox */
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+}
+
+.checkbox:after,
+.checkbox:before {
+    font-family: FontAwesome;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    -webkit-font-kerning: auto;
+    font-kerning: auto;
+    -webkit-font-language-override: normal;
+    font-language-override: normal;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal;
+    text-rendering: auto;
+}
+
+.checkbox label {
+    width: 90px;
+    height: 42px;
+    background: #ccc;
+    position: relative;
+    display: inline-block;
+    border-radius: 46px;
+    transition: 0.4s;
+}
+
+.checkbox label:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    left: 0;
+    top: -5px;
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+}
+
+.checkbox input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox input:hover+label:after {
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.checkbox input:checked+label:after {
+    left: 40px;
+}
+
+.model-7 .checkbox label {
+    background: none;
+    border: 2px solid #555;
+    height: 22px;
+    width: 50px;
+}
+
+.model-7 .checkbox label:after {
+    background: #555;
+    box-shadow: none;
+    top: 1px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.model-7 .checkbox input:checked+label {
+    border-color: #329043;
+}
+
+.model-7 .checkbox input:checked+label:after {
+    background: #3fb454;
+    left: 26px;
+}
+
+.model-7 .checkbox:after,
+.model-11 .checkbox:before {
+    /* content: 'ON'; */
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9px;
+    color: #555;
+}
+
+.model-7 .checkbox:before {
+    /* content: 'OFF'; */
+    position: absolute;
+    left: -1px;
+    top: 6px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9px;
+    color: #555;
+}
+
+.on {
+    margin-left: 56px;
+    margin-top: -31px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* checkbox end */
+
+
+/*all_pages_btn_red*/
+
+.bt-red {
+    color: #fff;
+    background-color: #e3342f;
+    border-color: #e3342f;
+}
+
+.pro_num {
+    font-size: .9em;
+    color: #346e90;
+}
+
+.bt-suc {
+    color: #fff;
+    background-color: #0cc72c;
+    border-color: #0cc72c;
+}
+
+
+/*menu*/
+
+.wt-1 {
+    width: 98%;
+    margin-left: 15px;
+}
+
+.wt-2 {
+    margin-left: -29px;
+    position: absolute;
+}
+
+.wt-3 {
+    position: absolute;
+    margin-left: -40px;
+    margin-top: 19px;
+    font-size: 12px;
+}
+
+.wt-4 {
+    position: absolute;
+    right: 7px;
+    top: 55px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/*end_menu*/
+
+
+
+
+.pro-1 {
+    margin-top: -19px !important;
+    display: block;
+}
+
+
+/*nursing-search*/
+
+@media only screen and (min-width: 320px) {
+    /*nursing-search*/
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 14px;
+        margin-bottom: 11px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .search_jobid1 {
+        width: 71%;
+        position: relative;
+        margin-right: 96px;
+    }
+    /*nursing-search*/
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        display: inline-block;
+        margin-bottom: 11px;
+        text-align: center;
+    }
+    .job_id3 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
+        text-align: center; 
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .choose-item {
+        /* margin-top: 10px; */
+    }
+    .search_jobid1 {
+        position: relative;
+        margin-left: 192px;
+    }
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 16px;
+        margin-bottom: 11px;
+        text-align: center;
+    }
+    .job_id3 {
+        float: right!important;
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .job_id6 {
+        float: left!important;
+        padding: 2px 10px;
+        margin-top: -22px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
+        width: 17%;
+        text-align: center;
+        position: absolute;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .search_jobid1 {
+        /* width: 53%; */
+        margin-left: 153px;
+    }
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 16px;
+        /* width: 31%; */
+        margin-bottom: 11px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width:1280px) {
+    .search_jobid1 {
+        width: 53%;
+        margin-left: 153px;
+    }
+    .job_id2 {
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        /* width: 31%; */
+        margin-bottom: 11px;
+        text-align: center;
+    }
+   
+}
+
+@media only screen and (max-width: 1880px) {
+    .job_id6 {
+        float: right !important;
+        padding: 2px 10px;
+        margin-top: -21px !important;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        width: 14%;
+        text-align: center;
+    }
+}
+
+
+/*hospital-search*/
+
+.job_id4 {
+    padding: 2px 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    /* width: 18%; */
+    text-align: center;
+    display: inline-block;
+    /* float: left; */
+}
+
+@media (max-width: 767px){
+    .maintab-content {
+        margin: 34px 0 0 0;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 560px){
+    .category_margin{
+        margin: 0;
+    }
+}
+/*end of menu_category*/
+
+
