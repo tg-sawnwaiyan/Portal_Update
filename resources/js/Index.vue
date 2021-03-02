@@ -27,8 +27,9 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                            <div class="one">          
-<div class="gcse-search"></div></div>
+                                        <div class="one">          
+                                            <div class="gcse-search"></div>
+                                        </div>
                                         <adsslider class="d-none d-sm-block two"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
@@ -200,16 +201,16 @@ input.gsc-input {
 }
 @media only screen and (min-width: 767px) {
 .pad-free{
-    
- width: 100%;
-
+    width: 100%;
 }
-.one {
-  width: 50%; height: 100px; float: left;
+.one{
+    width: 50%; 
+    height: 100px; 
+    float: left;
 }
-
-.two {
- margin-left: 50%; height: 100px;
+.two{
+    margin-left: 50%; 
+    height: 100px;
 }
 }
 @media only screen and (max-width: 767px) {
