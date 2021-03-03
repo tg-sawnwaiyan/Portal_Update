@@ -11472,9 +11472,9 @@ padding: 0;
     .map-fa-icon {
         float: left;
     }
-    .ads-slider {
+    /*.ads-slider {
         top: 30px;
-    }
+    }*/
     .tab {
         margin-top: 20px;
     }
@@ -11512,70 +11512,7 @@ padding: 0;
         display: none !important;
     }
    
-    #sp_headerbar {
-        display: block;
-        width: 83%;
-        margin: 0px auto;
-        background: #fff;
-        margin-left: 6px;
-        font-size: 16px;
-    }
-    #sp_headerbar .fav_his {
-        float: left;
-        text-align: center;
-    }
-    #sp_headerbar .fav_his li {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
-    #sp_headerbar .fav_his li .t-show {
-        position: absolute;
-        top: 30px;
-        left: 0px;
-        width: 100%;
-        z-index: 2;
-    }
-    #sp_headerbar .fav_his li p {
-        padding: 0 10px;
-        border: 1px solid;
-        border-radius: 4px;
-    }
-    #sp_headerbar .fav_his li:first-child {
-        margin-right: 20px;
-    }
-    #sp_headerbar .count {
-        position: absolute;
-        top: -12px;
-        right: -7px;
-        width: 35px;
-        height: 35px;
-        padding: 2px;
-        margin-left: 6px;
-        background: #2980b9;
-        font-size: 11px;
-        color: #fff;
-        border-radius: 50%;
-        line-height: 35px;
-        vertical-align: middle;
-        text-align: center;
-    }
-    #sp_headerbar .count2 {
-        position: absolute;
-        top: -12px;
-        right: -7px;
-        width: 35px;
-        height: 35px;
-        padding: 2px;
-        margin-right: -5px;
-        background: #2980b9;
-        font-size: 11px;
-        color: #fff;
-        border-radius: 50%;
-        line-height: 30px;
-        vertical-align: middle;
-        text-align: center;
-    }
+    
     .sp_social {
         display: block;
         margin-left: auto;
@@ -12154,7 +12091,6 @@ width: 18rem;
     }
     .form-wrap .form-left {
         padding: 10px 15px 5px 15px;
-        ;
     }
     .m-t-768 {
         margin-top: 0px;
@@ -12174,9 +12110,7 @@ width: 18rem;
     .title {
         padding-bottom: 0px;
     }
-    .ads-slider {
-        top: 30px;
-    }
+    
     #register.loginwrapper {
         height: 100vh;
         padding-top: 0;
@@ -12185,9 +12119,7 @@ width: 18rem;
         width: 100%;
         margin: -85px auto 0;
     }
-    .tab {
-        margin-top: 53px;
-    }
+    
     .newsDetail_leftwrapper {
         max-width: 320px;
     }
@@ -14720,9 +14652,6 @@ input.gsc-input {
     width: 30%; 
     float: left;
 }
-.google_div_top{
-    top: -8px !important;
-}
 .slider_div{
     margin-left: 23%; 
 }
@@ -14735,7 +14664,7 @@ input.gsc-input {
         float: none;
         width: 50%;
         position: relative;
-        top: 30px;
+        top: 55px;
         left: 28%;
     }
     .slider_div{
@@ -14744,19 +14673,33 @@ input.gsc-input {
     .menu_tab_category{
         top: 250px !important;
     }
+    .slider_div .slick-dotted.slick-slider{
+        margin-bottom: 0 !important;
+    }
 }
 @media only screen and (max-width: 767px){
     .google_div{
         float: none;
         width: 100%;
         position: absolute;
-        top: -59px;
+        top: -23px;
+    }
+    .google_div_top{
+        top: 30px;
     }
     .gsc-search-button{
         display: none;
     }
     .infoBox{
-        top: 120px !important;
+        top: 158px !important;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1300px){
+    .ads-slider{
+        width: 40%;
+    }
+    .slider_div .slick-dotted.slick-slider{
+        margin-bottom: 0 !important;
     }
 }
 /*end of google search*/
@@ -14813,23 +14756,109 @@ input.gsc-input {
 .menu_tab_category{
     top: 233px !important;
 }
-@media only screen and (max-width: 1299px){
+@media only screen and (max-width: 1300px){
     .upper-tab {
-        margin-top: 64.48px;
+        margin-top: 75.48px !important;
     }
     .menu_tab_category {
-        top: 204px  !important;
+        top: 220px  !important;
     }
-    #headerbar{
+    #sp_headerbar{
         display: none;
     }
 }
-@media only screen and (min-width: 561px) and (max-width: 900px){
+@media only screen and (min-width: 561px) and (max-width: 990px){
     .menu_tab_category {
-        top: 238px !important;
+        top: 253px !important;
     }
     .upper-tab {
-        margin-top: 15.45px !important;
+        margin-top: 63.45px !important;
+    }
+    .ads-slider {
+        top: 50px;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1300px){
+    .upper-tab {
+        margin-top: 90.48px !important;
+    }
+}
+
+@media only screen and (max-width: 990px){
+    #headerbar{
+        display: none;
+    }
+    #sp_headerbar {
+        display: block;
+        width: 83%;
+        margin: 0px auto;
+        background: #fff;
+        margin-left: 6px;
+        font-size: 16px;
+    }
+    #sp_headerbar .fav_his {
+        float: left;
+        text-align: center;
+    }
+    #sp_headerbar .fav_his li {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+    #sp_headerbar .fav_his li .t-show {
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        width: 100%;
+        z-index: 2;
+    }
+    #sp_headerbar .fav_his li p {
+        padding: 0 10px;
+        border: 1px solid;
+        border-radius: 4px;
+    }
+    #sp_headerbar .fav_his li:first-child {
+        margin-right: 20px;
+    }
+    #sp_headerbar .count {
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-left: 6px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 35px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    #sp_headerbar .count2 {
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-right: -5px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+
+
+@media only screen and (min-width: 560px) and (max-width: 767px){
+    .tab {
+        margin-top: 91px;
     }
 }
 
