@@ -977,6 +977,281 @@ li.userprofile-name>a{
     background: transparent !important;
 }
 /*end of admin news_list & category list content*/
+/*Edit News Post*/
+#search-word{
+    border: 1px solid #ced4da;
+}
+.form-group{
+    margin-bottom: 1.5rem;
+}
+.form-wrap .sp1,
+.sp2{
+    margin: 0 5px;
+    padding: 0 5px 0 5px;
+    background: #F54336;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    vertical-align: text-top;
+    display: inline-block;
+}
+.img-close-btn{
+    position: absolute;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    padding: 0px 6px;
+    background: white;
+    color: red;
+    font-size: 0.9em;
+}
+.img-close-btn:hover{
+    color: blue;
+}
+.show-img{
+    width: 100%;
+    margin: 15px 0px;
+    border-radius: 5px;
+    padding: 0px;
+}
+.quill-editor{
+      background-color: #fff;
+}
+ .bt-red
+{
+    color: #fff;
+    background-color: #e3342f;
+    border-color: #e3342f;
+}
+.bt-suc
+{   
+    color: #fff;
+    background-color: #0cc72c; 
+    border-color: #0cc72c;
+}
+.bd-form{   
+    border:1px solid #ccc;  
+}   
+.nosearch_msg{  
+    height:250px;   
+    padding-top:30px;   
+}
+.ql-editor{
+    min-height: 170px !important;
+    scrollbar-width: thin;
+}
+.related-card{
+    margin-bottom: 20px;
+    background: #f5f5f5;
+}
+.related-card .form-control{
+    background: #fff;
+}
+.mg{
+    margin-bottom: -0.2rem;
+}
+.related-card .cat_box{
+    width: 50%;
+    margin-bottom: 10px;
+}
+.related-card .cat_lbl{
+    margin-right: 10px;
+}
+.related-card .cat_select{
+    width: 60%;
+}
+.related-card .search_box{
+    width: 30%;
+    margin-left: auto;
+}
+.related-card .form_search{
+    width: 100%;
+}
+.related_post_box{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 32.3%;
+    flex: 0 0 32.3%;
+    max-width: 32.3%;
+    margin: .5%;
+}
+.related_post_box .create_news img{
+    max-width: 120px;
+}
+.related_post_box .control{
+    margin-left: 0;
+}
+.m-r-10{
+    margin-right: 10px;
+}
+.white{
+    color: #fff;
+}
+/*end of Edit News Post*/
+
+/*for custom checkbox and radio*/
+.control-group{
+    display: inline-block;
+    vertical-align: top;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 200px;
+    height: 210px;
+    margin: 10px;
+}
+.control__indicator{
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #e6e6e6;
+    border: 1px solid #5d5957;
+    border-radius: 3px;
+}
+.control--radio .control__indicator{
+    border-radius: 50%;
+}
+.control:hover input~.control__indicator,
+.control input:focus~.control__indicator{
+    background: #ccc;
+}
+.control input:checked~.control__indicator{
+    background: #2980b9;
+    border: 1px solid #2980b9;
+}
+.control:hover input:not([disabled]):checked~.control__indicator,
+.control input:checked:focus~.control__indicator{
+    background: #2980b9;
+}
+.control input:disabled~.control__indicator{
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control__indicator:after{
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control--checkbox:hover{
+    cursor: pointer;
+}
+.control input:checked~.control__indicator:after{
+    display: block;
+}
+.control--checkbox .control__indicator:after{
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control--checkbox input:disabled~.control__indicator:after{
+    border-color: #2980b9;
+}
+.control--radio:hover{
+    cursor: pointer;
+}
+.control--radio .control__indicator:after{
+    left: 4px;
+    top: 4px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #fff;
+}
+.control--radio input:disabled~.control__indicator:after{
+    background: #2980b9;
+}
+/*for inner checkbox*/
+.control{
+    font-size: 16px;
+    width: auto !important;
+    position: relative;
+    padding-left: 30px;
+    margin-left: 10px;
+}
+.control input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.controlinner__indicator{
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    height: 16px;
+    width: 16px;
+    background: #e6e6e6;
+    border: 1px solid #5d5957;
+    border-radius: 3px;
+}
+.controlinner--radio .controlinner__indicator{
+    border-radius: 50%;
+}
+.control:hover input~.controlinner__indicator,
+.control input:focus~.controlinner__indicator{
+    background: #ccc;
+}
+.control input:checked~.controlinner__indicator{
+    background: #ffffff !important;
+    border: 1px solid #fff;
+}
+.control:hover input:not([disabled]):checked~.controlinner__indicator,
+.control input:checked:focus~.controlinner__indicator{
+    background: #2980b9;
+}
+.control input:disabled~.controlinner__indicator{
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.controlinner__indicator:after{
+    content: '';
+    position: absolute;
+    display: none;
+}
+.controlinner--checkbox:hover{
+    cursor: pointer;
+}
+.control input:checked~.controlinner__indicator:after{
+    display: block;
+}
+.controlinner--checkbox .controlinner__indicator:after{
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.controlinner--checkbox input:disabled~.controlinner__indicator:after{
+    border-color: #2980b9;
+}
+.controlinner--radio:hover{
+    cursor: pointer;
+}
+.controlinner--radio .controlinner__indicator:after{
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #101010;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.controlinner--radio input:disabled~.controlinner__indicator:after{
+    background: #2980b9;
+}
+/*end for inner checkbox*/
+/*end for custom checkbox and radio*/
 /*for date time picker*/
 .mx-calendar-content .cell{
     border-radius: 3px;
@@ -1188,7 +1463,14 @@ li.userprofile-name>a{
     .pc-414{
         display: none !important;
     }
-    /*end of news_list & category list*/  
+    .mb-7, 
+    .my-3 {
+        margin-bottom: 2px !important;
+    }
+    /*end of news_list & category list*/ 
+    /*Edit News Post*/
+
+    /*end of Edit News Post*/ 
 }
 @media only screen and (max-width: 480px){
     body.all-bg{
@@ -1224,6 +1506,9 @@ li.userprofile-name>a{
         text-align: left !important;
     }
     /*end news_list & category list */
+    /*Edit News Post*/
+
+    /*end of Edit News Post*/
 }
 @media only screen and (max-width: 576px){
     /*news_list & category list*/
@@ -1247,14 +1532,6 @@ li.userprofile-name>a{
     }
     /*end of news_list & category list*/
     /*pagination*/
-    .pagination{
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .pagination li.page-item{
-        padding: 1px;
-    }
     .page-item:first-child, 
     .page-item:nth-child( 2), 
     .page-item:nth-last-child( 2), 
@@ -1302,6 +1579,47 @@ li.userprofile-name>a{
         margin: -85px auto 0;
     }
     /*End of Login And Register*/
+    /*news list*/
+    .posting-per {
+        text-align: unset;
+    }
+    .set-date{
+        margin: 0 auto;
+        text-indent: 1em;
+    }
+    .card-title-rightwrapper{
+        width: 100% !important;
+    }
+    /*end of news list*/
+    /* start pagination */
+    .pagination{
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item{
+        padding: 1px;
+    }
+    .page-item .spanclass{
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+    .spanclass{
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a{
+        position: relative;
+    }
+    /* end pagination */
+    /*Edit News Post*/
+    .related_post_box .create_news img{
+        max-width: 100px;
+    }
+    /*end of Edit News Post*/
 }
 @media only screen and (max-width: 990px){
     ul li{
@@ -1691,7 +2009,18 @@ li.userprofile-name>a{
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    /*comment*/
+    .cmt{
+        text-align: left;
+        font-size: 12px;
+        color: #777;
+        margin-top: 3px;
+    }
+    /*comment*/
     /*end of admin SP new list*/
+    /*Edit News Post*/
+
+    /*end of Edit News Post*/
 }
 @media only screen and (max-device-width: 990px) and (orientation: landscape){
     /*Login And Register*/
@@ -1703,6 +2032,9 @@ li.userprofile-name>a{
         margin-bottom: 30px;
     }
     /*End of Login And Register*/
+    /*Edit News Post*/
+
+    /*end of Edit News Post*/
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 991px){
@@ -1759,6 +2091,16 @@ li.userprofile-name>a{
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
     }
+}
+@media only screen and (max-width: 1113px){
+    /*Edit News Post*/
+    .related_post_box{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 49%;
+        flex: 0 0 49%;
+        max-width: 49%;
+    }
+    /*End of Edit News Post*/
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1280px){

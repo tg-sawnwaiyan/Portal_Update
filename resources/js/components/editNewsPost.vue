@@ -3,11 +3,9 @@
     <div id="news_post">
         <div class="card">
             <div class="card-body">
-                
                 <div v-if='status == 1'>
                     <h4 class="page-header header">ニュース編集</h4>
                 </div>
-                
                 <div v-else>
                     <h4 class="page-header header">ニュース新規作成</h4>
                 </div>
@@ -27,33 +25,6 @@
                         <label>プロフィル</label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
-
-                    <!-- <div class="form-group" id="showimage">
-                        <label class="">写真</label>
-                        
-                        <div class="d-flex align-items-center">
-                            <span class="btn-file d-inline-block">画像を選択        
-                                <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                            </span> 
-                            <span class="pl-4">{{img_name}}</span>
-                        </div>                    
-                        
-                    </div>                    
-                    <div class="image_show" v-if="upload_img ">
-                        <div class='col-md-2'>
-                            
-                            <img :src="upload_img" class='show-img' @error="imgUrlAlt">
-                        </div>
-                    </div>  
-                    <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
-                        <div class="col-md-12" >
-                            <div id='x-image' class='col-md-2' >
-                                <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
-                            </div>
-                        </div>
-                    </div> -->
-                    
                     <div class="form-group image_update" id="x-image" v-if ="news.photo">
                         <div class="col-md-12" >
                             <div id='x-image' class='col-md-2' >
@@ -62,10 +33,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group p-3 bg-white shadow rounded-lg">
                         <input type="file" name="image" accept="image/*" @change="setImage" />
-                        
                         <!-- Cropper container -->
                         <div v-if="this.imageSrc" class="my-3 d-flex align-items-center justify-content-center mx-auto">
                             <vue-cropper class="mr-2 w-50" ref="cropper" :guides="true" :src="imageSrc"></vue-cropper>
@@ -74,13 +43,11 @@
                         </div>
                         <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary">Crop</div>
                     </div>      
-                 
                     <div class="form-group">
                         <label>内容要約 <span class="error sp2">必須</span></label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="ニュースの内容要約を入力してください。" v-model="news.main_point">
                         <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                     </div>
-
                     <div class="form-group">
                         <label>カテゴリー <span class="error sp2">必須</span></label>
                             <select v-model="selectedCategory" class="form-control" @change='getCategory()'>
@@ -91,7 +58,6 @@
                             </select>
                         <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                     </div>
-
                     <div class="form-group">
                         <label>ブロック</label>
                             <select v-model="block_id" class="form-control" @change='getblock()'>
@@ -102,7 +68,6 @@
                                 <option v-bind:value="3">小さなブロックサイズ</option>
                             </select>
                     </div>
-               
                     <div v-if="selectedCategory == 26" class="form-group">
                         <div class="row">
                             <div class="col-12 col-sm-4 col-md-4">
@@ -117,13 +82,11 @@
                         </div>
                         <span v-if="errors.date_check" class="error">{{errors.date_check}}</span>
                     </div>
-
                     <div class="form-group bd-form">
                         <label>内容 <span class="error sp2">必須</span></label>
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
                     </div>
-                    
                     <div v-if="selectedCategory != 26" class="form-group">
                         <label>関連ニュース</label>
                         <div class="card related-card">
@@ -143,7 +106,6 @@
                                     </div>
                                 </div>
                                 <br>                            
-
                                 <div class="row m-0">
                                     <div class="related_post_box card card-default" v-for="r_news in related_news.data" :key="r_news.id">
                                         <div class="card-body">
@@ -160,26 +122,22 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div v-if="nosearch_msg" class="card card-default card-wrap noseaech_msg">
                                     <p class="record-ico">
                                         <i class="fa fa-exclamation"></i>
                                     </p>
                                     <p class="record-txt01">データが見つかりません。</p>
                                 </div> 
-
                                 <div>
                                     <pagination :data="related_news" @pagination-change-page="getSearchPostsByCatId" :limit="limitpc" class="mt-3">
                                         <span slot="prev-nav"><i class="fas fa-angle-left"></i> 前へ</span>
                                         <span slot="next-nav">次へ <i class="fas fa-angle-right"></i></span>
                                     </pagination>
                                 </div>
-                                
                                 <input type="hidden" v-model="checkedNews" >
                             </div>
                         </div>
                     </div>
-                   
                     <div class="form-group">
                         <span @click="returnPreviousPage()" :to="{name: 'news_list'}" class="btn bt-red all-btn">キャンセル</span>
                         <span class="btn main-bg-color white all-btn" @click="submitNews()" v-if='status == 1'> 保存</span>
@@ -190,26 +148,22 @@
         </div>
     </div>
 </template>
-
 <script>
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
 import VueCropper from "vue-cropperjs"
 import "cropperjs/dist/cropper.css"
-
 export default {
     components: {
         VueCropper,
         quillEditor
     },
-
     props:{
         limitpc: {
             type: Number,
             default: 5
         },
     },
-
     data(){
             return {
                 imageSrc: "",
@@ -426,7 +380,6 @@ export default {
             },
             updatepost() {
                 this.$swal({
-                    // title:"確認",
                     text: "ニュースを更新してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -474,11 +427,8 @@ export default {
                             height: 200,
                             allowOutsideClick: false,                                   
                         })
-                        var num = localStorage.getItem('page_no');//comment get from newslist.vue/searchbyCategory()
-
+                        var num = localStorage.getItem('page_no');//comment get from
                         this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
-                        
-                        //this.$router.go(-1);
                     })
                     .catch(error=>{
                         if(error.response.status == 422){
@@ -489,7 +439,6 @@ export default {
             },
             add() {
                     this.$swal({
-                    // title: "確認",
                     text: "ニュースを投稿してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -578,7 +527,6 @@ export default {
             closeBtnMethod: function(old_photo) {
                 if(confirm){
                     this.$swal({
-                    // title: "削除",
                     text: "画像を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -637,30 +585,4 @@ export default {
             },            
         }               
 }
-
 </script>
-
-<style>
- .quill-editor{
-          background-color: #fff;
-  }
-     .bt-red
-    {
-    color: #fff;
-    background-color: #e3342f;
-    border-color: #e3342f;
-    }
-    .bt-suc
-    {   
-        color: #fff;
-        background-color: #0cc72c; 
-        border-color: #0cc72c;
-    }
-    .bd-form{	
-        border:1px solid #ccc;	
-    }	
-    .nosearch_msg{	
-        height:250px;	
-        padding-top:30px;	
-    }
-</style>

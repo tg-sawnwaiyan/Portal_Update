@@ -118,12 +118,6 @@
     border: 1px solid #eee;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
-#search-word{
-    border: 1px solid #ced4da;
-}
-.form-group{
-    margin-bottom: 1.5rem;
-}
 .stepper-form>div.form-group{
     margin-bottom: 10px;
 }
@@ -310,9 +304,6 @@ textarea:disabled::placeholder{
     min-width: 81px;
     position: absolute;
     right: 15px;
-}
-.card-body{
-    padding: 1rem !important;
 }
 .deactive{
     color: #ea0f0f;
@@ -579,26 +570,6 @@ span.video_txt{
     margin-bottom: 15px;
     border-left: 3px solid #2980b9;
     font-weight: 700;
-}
-.show-img{
-    width: 100%;
-    margin: 15px 0px;
-    border-radius: 5px;
-    padding: 0px;
-}
-.img-close-btn{
-    position: absolute;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #aaa;
-    border-radius: 50%;
-    padding: 0px 6px;
-    background: white;
-    color: red;
-    font-size: 0.9em;
-}
-.img-close-btn:hover{
-    color: blue;
 }
 .show-pdf{
     width: 93.75%;
@@ -1580,58 +1551,12 @@ input::-ms-clear{
     position: relative;
     left: 15px;
 }
-.related-card{
-    margin-bottom: 20px;
-    background: #f5f5f5;
-}
-.related-card .form-control{
-    background: #fff;
-}
-.related-card #search-word{
-    border: 1px solid #ced4da;
-}
-.mg{
-    margin-bottom: -0.2rem;
-}
-.related-card .cat_box{
-    width: 50%;
-    margin-bottom: 10px;
-}
-.related-card .cat_lbl{
-    margin-right: 10px;
-}
-.related-card .cat_select{
-    width: 60%;
-}
-.related-card .search_box{
-    width: 30%;
-    margin-left: auto;
-}
-.related-card .form_search{
-    width: 100%;
-}
-.related_post_box{
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 32.3%;
-    flex: 0 0 32.3%;
-    max-width: 32.3%;
-    margin: .5%;
-}
-.related_post_box .create_news img{
-    max-width: 120px;
-}
-.related_post_box .control{
-    margin-left: 0;
-}
+
 /* End Create News */
 /*Job Apply Form*/
 textarea.form-control,
 textarea{
     height: 100px !important;
-}
-.ql-editor{
-    min-height: 170px !important;
-    scrollbar-width: thin;
 }
 .multi-step{
     margin-bottom: 40px;
@@ -2113,9 +2038,6 @@ ul.sub-ul li{
 .pad-r-10{
     padding-right: 10px;
 }
-.m-0{
-    margin: 0px;
-}
 .m-t-71{
     margin-top: 71px;
 }
@@ -2213,9 +2135,6 @@ ul.sub-ul li{
 .m-r-15{
     margin-right: 15px;
 }
-.m-r-10{
-    margin-right: 10px;
-}
 .m-l-14{
     margin-left: 14px;
 }
@@ -2243,9 +2162,6 @@ ul.sub-ul li{
 .p-5{
     padding: 5px;
 }
-.m-r-10{
-    margin-right: 10px;
-}
 .max-width12{
     max-width: 12%;
 }
@@ -2266,9 +2182,6 @@ ul.sub-ul li{
 }
 .primary-color{
     color: #118063 !important;
-}
-.white{
-    color: #fff;
 }
 .drop-bg-color{
     background-color: #fff !important;
@@ -3475,9 +3388,6 @@ div.b{
 .p-l-162{
     padding-left: 162px;
 }
-.m-0{
-    margin: 0px;
-}
 .m-t-71{
     margin-top: 71px;
 }
@@ -3570,9 +3480,6 @@ div.b{
 .p-5{
     padding: 5px;
 }
-.m-r-10{
-    margin-right: 10px;
-}
 .max-width12{
     max-width: 12%;
 }
@@ -3584,9 +3491,6 @@ div.b{
 }
 .primary-color{
     color: #118063 !important;
-}
-.white{
-    color: #fff;
 }
 .m-b-5{
     margin-bottom: 5px !important;
@@ -4819,18 +4723,6 @@ button.confirmed{
     background: #f5f5f5;
     background: #f5f5f2;
     padding: 15px;
-}
-.form-wrap .sp1,
-.sp2{
-    margin: 0 5px;
-    padding: 0 5px 0 5px;
-    background: #F54336;
-    font-size: 16px;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 3px;
-    vertical-align: text-top;
-    display: inline-block;
 }
 .form-wrap .bd{
     border: 1px solid #ced4da;
@@ -6173,178 +6065,6 @@ ul.nur-caro-card>li.list-group-item{
     letter-spacing: 1px;
 }
 /* end nursing information */
-/*for custom checkbox and radio*/
-.control-group{
-    display: inline-block;
-    vertical-align: top;
-    background: #fff;
-    text-align: left;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 200px;
-    height: 210px;
-    margin: 10px;
-}
-.control{
-    position: relative;
-    padding-left: 20px;
-    margin-left: 10px;
-}
-.control input{
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-}
-.control__indicator{
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 16px;
-    width: 16px;
-    background: #e6e6e6;
-    border: 1px solid #5d5957;
-    border-radius: 3px;
-}
-.control--radio .control__indicator{
-    border-radius: 50%;
-}
-.control:hover input~.control__indicator,
-.control input:focus~.control__indicator{
-    background: #ccc;
-}
-.control input:checked~.control__indicator{
-    background: #2980b9;
-    border: 1px solid #2980b9;
-}
-.control:hover input:not([disabled]):checked~.control__indicator,
-.control input:checked:focus~.control__indicator{
-    background: #2980b9;
-}
-.control input:disabled~.control__indicator{
-    background: #e6e6e6;
-    opacity: 0.6;
-    pointer-events: none;
-}
-.control__indicator:after{
-    content: '';
-    position: absolute;
-    display: none;
-}
-.control--checkbox:hover{
-    cursor: pointer;
-}
-.control input:checked~.control__indicator:after{
-    display: block;
-}
-.control--checkbox .control__indicator:after{
-    left: 4px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.control--checkbox input:disabled~.control__indicator:after{
-    border-color: #2980b9;
-}
-.control--radio:hover{
-    cursor: pointer;
-}
-.control--radio .control__indicator:after{
-    left: 4px;
-    top: 4px;
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background: #fff;
-}
-.control--radio input:disabled~.control__indicator:after{
-    background: #2980b9;
-}
-/*for inner checkbox*/
-.control{
-    font-size: 16px;
-    width: auto !important;
-    position: relative;
-    padding-left: 30px;
-    margin-left: 10px;
-}
-.control input{
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-}
-.controlinner__indicator{
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    height: 16px;
-    width: 16px;
-    background: #e6e6e6;
-    border: 1px solid #5d5957;
-    border-radius: 3px;
-}
-.controlinner--radio .controlinner__indicator{
-    border-radius: 50%;
-}
-.control:hover input~.controlinner__indicator,
-.control input:focus~.controlinner__indicator{
-    background: #ccc;
-}
-.control input:checked~.controlinner__indicator{
-    background: #ffffff !important;
-    border: 1px solid #fff;
-}
-.control:hover input:not([disabled]):checked~.controlinner__indicator,
-.control input:checked:focus~.controlinner__indicator{
-    background: #2980b9;
-}
-.control input:disabled~.controlinner__indicator{
-    background: #e6e6e6;
-    opacity: 0.6;
-    pointer-events: none;
-}
-.controlinner__indicator:after{
-    content: '';
-    position: absolute;
-    display: none;
-}
-.controlinner--checkbox:hover{
-    cursor: pointer;
-}
-.control input:checked~.controlinner__indicator:after{
-    display: block;
-}
-.controlinner--checkbox .controlinner__indicator:after{
-    left: 4px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid #000;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.controlinner--checkbox input:disabled~.controlinner__indicator:after{
-    border-color: #2980b9;
-}
-.controlinner--radio:hover{
-    cursor: pointer;
-}
-.controlinner--radio .controlinner__indicator:after{
-    left: 4px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid #101010;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.controlinner--radio input:disabled~.controlinner__indicator:after{
-    background: #2980b9;
-}
-/*end for inner checkbox*/
-/*end for custom checkbox and radio*/
 
 /* nursingSearch */
 #info_content table tr td{
@@ -7045,12 +6765,12 @@ strong{
     .postal{
         width: 100%;
     }
-    #news_list .select_box{
+    /*#news_list .select_box{
         width: 70%;
-    }
-    #news_list .select_label{
+    }*/
+    /*#news_list .select_label{
         width: 26% !important;
-    }
+    }*/
 }
 @media only screen and (max-width: 360px){
     .bottom-mail-btn{
@@ -7148,10 +6868,10 @@ strong{
     .brand_logo{
         width: 100px
     }
-    .mb-7,
+    /*.mb-7,
     .my-3{
         margin-bottom: 7px !important;
-    }
+    }*/
     /*register*/
     .links{
         position: relative;
@@ -7240,13 +6960,13 @@ strong{
         border: 1px solid #DEE2E6;
     }
     /* create news */
-    .related_post_box{
+    /*.related_post_box{
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
         flex: 0 0 96%;
         max-width: 100%;
         margin: 2%;
-    }
+    }*/
     /*End create news */
     .newsDetail_leftwrapper{
         max-width: 100%;
@@ -7266,10 +6986,6 @@ strong{
     .registerform_container{
         margin-top: 142px;
     }
-    .mb-7,
-    .my-3{
-        margin-bottom: 2px !important;
-    }
     #psd_reset .reset_form{
         padding: 90px 15px 0 15px;
     }
@@ -7288,14 +7004,8 @@ strong{
     .links{
         position: relative;
     }
-    .sp-414{
-        display: block !important;
-    }
     .sp-414-table{
         display: table-cell !important;
-    }
-    .pc-414{
-        display: none !important;
     }
     .pc-414-table{
         display: none !important;
@@ -7401,18 +7111,11 @@ strong{
         width: 100%;
     }
     /* end nursing profile */
-    #news_list .select_box{
-        width: 72%;
-    }
     .related-card .cat_select{
         width: 65%;
     }
     #joboffer_list .all-btn{
-        /* min-width: 50px; */
         padding: 10px;
-    }
-    .admin_header div span.dinone{
-        display: none;
     }
 }
 @media only screen and (max-width: 450px){
@@ -7561,38 +7264,7 @@ strong{
         padding: 0px 5px 0px;
     }
     /*end fav nursing*/
-    /*pagination*/
-    .pc-480{
-        display: none;
-    }
-    .page-item:first-child .spanclass,
-    .page-item:last-child .spanclass,
-    .page-item:nth-child(2) .spanclass,
-    .page-item:nth-last-child(2) .spanclass{
-        width: 51px;
-        height: 30px;
-        transition: background-color .3s;
-    }
-    .pagination{
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .pagination .page-item{
-        padding: 1px;
-    }
-    .spanclass{
-        float: left;
-        margin-top: 2px;
-        border: 1px solid #2980b9;
-        border-radius: 3px;
-    }
-    .spanclass a{
-        position: relative;
-    }
-    .pc-paginate{
-        display: none;
-    }
+    
     /*create_news*/
     .news_catsearch{
         padding: 15px;
@@ -7666,30 +7338,6 @@ strong{
         width: 100%;
     }
     /* end create news */
-    /* news list */
-    .List_tbl tr{
-        width: 100%;
-    }
-    .List_tbl tr td{
-        display: block;
-        width: 100% !important;
-    }
-    .table.List_tbl td:first-child{
-        width: 100%;
-    }
-    .List_tbl tr td:first-child div{
-        width: 95%;
-        height: auto;
-        margin: 5px auto;
-    }
-    .table.List_tbl td:nth-child(2){
-        border: none;
-    }
-    #customer_list .table.List_tbl td:last-child{
-        border: none;
-        text-align: left !important;
-    }
-    /*end news list */
     /* new details */
     .related_box{
         width: 100%;
@@ -7904,9 +7552,6 @@ strong{
         width: 100%;
         margin-bottom: 10px;
     }
-    .admin_header .first_txt{
-        display: none;
-    }
     #news_post .card-body,
     #cat_post .card-body,
     #ads_post .card-body,
@@ -7952,17 +7597,6 @@ strong{
     }
     .searchButtonNews{
         width: 25%;
-    }
-    .pagination li.page-item{
-        padding: 1px;
-    }
-    .page-item:first-child,
-    .page-item:nth-child( 2),
-    .page-item:nth-last-child( 2),
-    .page-item:last-child,
-    .page-item.active,
-    .page-item.disabled{
-        display: block;
     }
     .upper-tab{
         border: none !important;
@@ -8052,14 +7686,6 @@ strong{
 @media only screen and (max-width: 620px){
     .choose-item .job-no{
         float: left;
-    }
-    .pagination{
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .pagination .page-item{
-        padding: 1px;
     }
     .page-item .spanclass{
         width: 30px;
@@ -8518,12 +8144,6 @@ strong{
         margin-bottom: 20px !important;
         line-height: 1.3;
     }
-    .posting-per{
-        text-align: unset;
-    }
-    .card-title-rightwrapper{
-        width: 100% !important;
-    }
     .form-wrap .form-right{
         border-left: none !important;
     }
@@ -8564,10 +8184,6 @@ strong{
     .img-wrap{
         padding-bottom: 0px;
     }
-    .set-date{
-        margin: 0 auto;
-        text-indent: 1em;
-    }
     .nursing_responsive{
         max-width: 33%;
     }
@@ -8580,30 +8196,6 @@ strong{
     .pc-768{
         display: none;
     }
-    /* start pagination */
-    .pagination{
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .pagination .page-item{
-        padding: 1px;
-    }
-    .page-item .spanclass{
-        width: 30px;
-        height: 30px;
-        background-image: none;
-    }
-    .spanclass{
-        float: left;
-        margin-top: 2px;
-        border: 1px solid #2980b9;
-        border-radius: 3px;
-    }
-    .spanclass a{
-        position: relative;
-    }
-    /* end pagination */
     /* nursing profile */
     .heading-lbl{
         font-size: 1.05em;
@@ -8643,14 +8235,6 @@ strong{
         max-width: 100% !important;
         flex: 100% !important;
     }
-    /* create new */
-    .related_post_box .create_news img{
-        max-width: 100px;
-    }
-    .related_post_box .card-body{
-        padding: 1rem 0.8rem;
-    }
-    /*end create new */
     .map-text-wrapper{
         display: flex;
     }
@@ -9018,14 +8602,6 @@ strong{
         display: inline-block;
         text-align: center;
     }
-    /*comment*/
-    .cmt{
-        text-align: left;
-        font-size: 12px;
-        color: #777;
-        margin-top: 3px;
-    }
-    /*comment*/
     .form-wrap .mailbox{
         width: 100%;
         margin-left: 0px;
@@ -9039,9 +8615,6 @@ strong{
     }
     .card-title-leftwrapper{
         width: 60% !important;
-    }
-    .card-title-rightwrapper{
-        width: 40% !important;
     }
     .addbtn-right{
         text-align: right;
@@ -9536,14 +9109,6 @@ strong{
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (max-width: 979px) and (max-width: 752px){
-    /* create new */
-    .related_post_box .create_news img{
-        max-width: 100px;
-    }
-    .related_post_box .card-body{
-        padding: 1rem 0.8rem;
-    }
-    /*end create new */
     #news.t_card2{
         margin-left: 40px;
     }
@@ -9641,9 +9206,6 @@ strong{
     .card-title-leftwrapper{
         width: 60% !important;
     }
-    .card-title-rightwrapper{
-        width: 40% !important;
-    }
     .nursing_responsive{
         max-width: 40%;
     }
@@ -9695,12 +9257,6 @@ strong{
     }
     /*End common */
     /* create news */
-    .related_post_box{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 49%;
-        flex: 0 0 49%;
-        max-width: 49%;
-    }
     /*job search*/
     ul.hokkaido-wrap{
         left: 65px;
@@ -9868,9 +9424,6 @@ strong{
 @media only screen and (max-width: 1240px){
     .card-title-leftwrapper{
         width: 60% !important;
-    }
-    .card-title-rightwrapper{
-        width: 40% !important;
     }
     .comform{
         width: 100%;
@@ -10131,9 +9684,6 @@ strong{
 @media only screen and (max-width: 1440px){
     .card-title-leftwrapper{
         width: 56% !important;
-    }
-    .card-title-rightwrapper{
-        width: 40% !important;
     }
     .fit-image-profile{
         height: 165px;
@@ -10518,14 +10068,6 @@ strong{
     }
 }
 @media screen and (max-width: 979px) and (max-width:752px){
-    /* create new */
-    .related_post_box .create_news img{
-        max-width: 100px;
-    }
-    .related_post_box .card-body{
-        padding: 1rem 0.8rem;
-    }
-    /*end create new */
     #news.t_card2{
         margin-left: 40px;
     }
@@ -10633,17 +10175,6 @@ strong{
     }
     .searchButtonNews{
         width: 25%;
-    }
-    .pagination li.page-item{
-        padding: 1px;
-    }
-    .page-item:first-child,
-    .page-item:nth-child( 2),
-    .page-item:nth-last-child( 2),
-    .page-item:last-child,
-    .page-item.active,
-    .page-item.disabled{
-        display: block;
     }
     .upper-tab{
         border: none !important;
