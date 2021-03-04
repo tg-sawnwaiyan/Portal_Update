@@ -3529,7 +3529,7 @@ width: 18rem;
 .ads-slider {
     position: relative;
     top: 10px;
-    width: 50%;
+    width: 46%;
     margin: 0 auto 20px;
 }
 
@@ -14619,7 +14619,7 @@ input.gsc-input {
     z-index: 9;
 }
 .slider_div{
-    margin-left: 23%; 
+    margin-left: 28%; 
 }
 .gsc-input-box{
     border-top-left-radius: 0 !important;
@@ -14632,7 +14632,8 @@ input.gsc-input {
         position: relative;
         top: 70px;
         left: 28%;
-        padding: 0;
+        padding: 1em;
+        background: #eee;
     }
     .slider_div{
         margin: 0 auto 20px;
@@ -14650,6 +14651,9 @@ input.gsc-input {
         width: 100%;
         position: absolute;
         top: -15px;
+        padding: 1em;
+        background: #eee;
+        margin: 10px 10px 0 0;
     }
     .google_div_top{
         top: 40px;
@@ -14776,18 +14780,24 @@ input.gsc-input {
 }
 
 @media only screen and (min-width: 901px){
-    
-
-    .gsc-control-cse{
+    .google_div{
+        padding: 1.4% 1em;
+        background: #eee;
+        margin: 10px 25px 0 0;
+    }
+    /*.gsc-control-cse{
         background-color: #eee !important;
         padding: 4% 1em !important;
-    }
-
+    }*/
     .gsc-input-box{
         padding-top: 0 !important;
         padding-bottom: 0 !important;
     }
+    .gsib_a {
+        padding: 1% 9px 1% 9px !important;
+    }
 }
+
 
 @media only screen and (max-width: 1300px){
     .upper-tab {
@@ -14802,7 +14812,7 @@ input.gsc-input {
 }
 @media only screen and (min-width: 561px) and (max-width: 990px){
     .menu_tab_category {
-        top: 295px !important;
+        top: 296px !important;
     }
     .upper-tab {
         margin-top: 105.5px !important;
@@ -14896,5 +14906,10 @@ input.gsc-input {
 }
 
 /*end of header bar*/
+
+.google_div_mb {
+    top: 56px;
+    padding: 0.5em;
+}
 
 
