@@ -27,8 +27,8 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <div class="google_div" @keyup="googleSearchEnter" @click="cancelButton">          
-                                            <div class="gcse-searchbox"></div>
+                                        <div class="google_div">          
+                                            <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div>
                                         </div>
                                         <adsslider class="d-none d-sm-block slider_div"></adsslider>
                                     </div>
