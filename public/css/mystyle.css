@@ -14619,11 +14619,16 @@ input.gsc-input {
     z-index: 9;
 }
 .slider_div{
-    margin-left: 28%; 
+    margin: 0 auto 20px auto;
 }
 .gsc-input-box{
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
+}
+@media only screen and (max-width: 1400px){
+    .ads-slider {
+        width: 40%;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 990px){
     .google_div{
