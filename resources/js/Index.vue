@@ -27,8 +27,8 @@
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
                                     <div class="col-md-auto pad-free">
-                                        <div class="google_div">          
-                                            <div class="gcse-search"></div>
+                                        <div class="google_div" @keyup="googleSearchEnter" @click="cancelButton">          
+                                            <div class="gcse-searchbox"></div>
                                         </div>
                                         <adsslider class="d-none d-sm-block slider_div"></adsslider>
                                     </div>
@@ -41,6 +41,7 @@
                                         
                                     </div>
                                 </div>
+                                <div class="gcse-searchresults"></div>
                                 <div class="container-fluid footer footer-div">
                                     <div class="footer-nav">
                                         <ul class="gNav">
@@ -282,13 +283,22 @@
         return response
         })
     },
-    updated() {       
-        if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
-            $('.google_div').removeClass('google_div_top');
+    updated() {     
+     
+        if(this.$route.path !== '/'){
+            $('.google_div').css("display", "none");
+                if(document.getElementById("___gcse_1")){
+                $('#___gcse_1').css("display", "none");
+                }
         }else{
-             console.log("Index.vue");
-            $('.google_div').addClass('google_div_top');
+            $('.google_div').css("display", "block");
         }
+        // if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
+        //     $('.google_div').removeClass('google_div_top');
+        // }else{
+        //      console.log("Index.vue");
+        //     $('.google_div').addClass('google_div_top');
+        // }
     },
     destroyed() {
         document.removeEventListener('scroll', this.handleScroll);
@@ -355,6 +365,21 @@
         }
     },
     methods: {
+        cancelButton (e){
+            if(e.target.id == "gs_cb50" || $(e.target).attr('class') == "gsst_a"){
+                console.log("her");
+                $('.news-borderColor').css('display','block');
+                $('#tab1').css('display','block');
+            }
+        },
+        googleSearchEnter (e) {
+            $('#___gcse_1').css("display", "block");
+            if (e.keyCode === 13) {
+                $('.news-borderColor').css('display','none');
+                $('#tab1').css('display','none');
+              //  $('.tab-pane').css('display','none');
+            } 
+        },
         handleResize() {
             this.window.width = window.innerWidth;
             this.window.height = window.innerHeight;
