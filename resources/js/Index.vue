@@ -26,7 +26,7 @@
                             <section>
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
-                                    <div class="col-md-auto pad-free">
+                                    <div class="col-md-auto pad-free google_search_div">
                                         <div class="google_div">          
                                             <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div>
                                         </div>
@@ -288,7 +288,6 @@
         if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
             $('.google_div').removeClass('google_div_top');
         }else{
-             console.log("Index.vue");
             $('.google_div').addClass('google_div_top');
         }
     },

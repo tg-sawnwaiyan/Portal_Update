@@ -154,6 +154,6 @@ export default {
          border: 1px solid #63b7ff !important;
     }
     .margin-none {
-        margin-top: 50px;
+        margin-top: 73px !important;
     }
 </style>
