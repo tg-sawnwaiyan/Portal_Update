@@ -14875,17 +14875,18 @@ input.gsc-input {
 
 /*google_search_div*/
 .google_search_div{
-    text-align: left;
-    padding: 10px 0;
+    text-align: center;
+    margin: 10px;
+    background: #eee;
+    width: auto !important;
 }
 .slider_div{
-    display: inline-block !important;
-    width: 57%;
+    display: none !important;
+    width: 100%;
 }
 .google_div{
-    width: 40%; 
+    width: 70%; 
     display: inline-block;
-    background: #eee;
     padding: 1em;
     height: 100px;
     position: relative;
