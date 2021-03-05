@@ -3537,24 +3537,6 @@ width: 18rem;
     margin-left: 3px;
 }
 
-.ads-slider .slide-img {
-    float: left;
-    /*width: 90px;*/
-    height: 65px;
-    /*margin-right: 18px;*/
-    overflow: hidden;
-    width: 50%;
-    margin-right: 5%;
-}
-
-.ads-slider .adslist-card {
-    padding: 6px 10px;
-    height: 80px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 1px;
-    margin-left: -2px;
-}
-
 .ads-slider h3 {
     /* width: 100px; */
     width: auto;
@@ -3566,10 +3548,10 @@ width: 18rem;
     text-overflow: ellipsis;
 }
 
-.ads-slider .ads-img {
+/*.ads-slider .ads-img {
     width: auto;
     max-width: 90px;
-}
+}*/
 
 .source-img {
     width: 1.6rem;
@@ -13717,9 +13699,6 @@ transition: background-color .3s;
     .social-link:nth-child(3) {
         margin-left: 5px;
     }
-    .ads-slider {
-        margin: 0 0 20px 35px;
-    }
     .adslist-card {
         height: auto;
     }
@@ -14284,11 +14263,10 @@ strong {
     }
 }
 
-.img-fluid {
+/*.img-fluid {
     max-width: 670px !important;
     width: 100% !important;
-    /*height: auto;*/
-}
+}*/
 
 
 @media (min-width: 991px) {
@@ -14756,7 +14734,7 @@ input.gsc-input {
         
 
 .menu_tab_category{
-    top: 183px !important;
+    top: 199px !important;
 }
 
 @media only screen and (min-width: 901px){
@@ -14898,11 +14876,10 @@ input.gsc-input {
 /*google_search_div*/
 .google_search_div{
     text-align: left;
-    padding: 10px 0 0 0;
+    padding: 10px 0;
 }
 .slider_div{
     display: inline-block !important;
-    margin: 0 0 20px auto;
     width: 57%;
 }
 .google_div{
@@ -14910,7 +14887,7 @@ input.gsc-input {
     display: inline-block;
     background: #eee;
     padding: 1em;
-    height: 80px;
+    height: 100px;
     position: relative;
     margin: 0 25px 0 0;
 }
@@ -14928,6 +14905,25 @@ input.gsc-input {
 }
 .gsib_a {
     padding: 9px 9px 8px 9px !important;
+}
+.ads-slider .adslist-card {
+    padding: 6px 10px;
+    height: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 1px;
+    margin-left: -2px;
+}
+.ads-slider .slide-img {
+    float: left;
+    height: 84px;
+    overflow: hidden;
+    width: 50%;
+    margin-right: 5%;
+}
+.img-fluid {
+    max-width: 670px;
+    width: 100%;
+    height: 100%;
 }
 /*end of google search div*/
 
