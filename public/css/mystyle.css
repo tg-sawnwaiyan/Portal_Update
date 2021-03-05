@@ -14897,21 +14897,22 @@ input.gsc-input {
 
 /*google_search_div*/
 .google_search_div{
-    text-align: right;
+    text-align: left;
     padding: 10px 0 0 0;
 }
 .slider_div{
     display: inline-block !important;
     margin: 0 0 20px auto;
-    width: 46%;
+    width: 57%;
 }
 .google_div{
-    width: 30%; 
+    width: 40%; 
     display: inline-block;
     background: #eee;
     padding: 1em;
     height: 80px;
     position: relative;
+    margin: 0 25px 0 0;
 }
 .gsc-control-searchbox-only-ja{
     position: absolute;
@@ -14925,7 +14926,9 @@ input.gsc-input {
     margin-top: 44px;
     background: #fff;
 }
-
+.gsib_a {
+    padding: 9px 9px 8px 9px !important;
+}
 /*end of google search div*/
 
 
