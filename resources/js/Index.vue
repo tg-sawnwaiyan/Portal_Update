@@ -252,6 +252,22 @@
       adsslider
     }, 
     created() {
+        (function() {
+            var cx = '8f501e7f8a9c94ad7';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+          window.onload = function(){
+            document.getElementById('gsc-i-id1').placeholder = 'Googleで検索';
+            $(".gsc-search-button-v2").text("検索");
+          };
+
+          
+
         window.addEventListener('resize', this.handleResize)
         this.handleResize();
         if(this.window.width <= 1440) {
@@ -287,6 +303,8 @@
      
         if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
             $('.google_div').removeClass('google_div_top');
+            $('.google_search_div').removeClass('google_search_all');
+            $('#headerbar').removeClass('headerbarblock');
         }else{
             $('.google_div').addClass('google_div_top');
         }

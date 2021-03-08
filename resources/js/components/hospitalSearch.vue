@@ -473,6 +473,7 @@ import bulcomponent from './bulcomponent.vue'
             $('#navtab').addClass('hospital-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('hospital-borderColor margin-none');
+            $('#headerbar').addClass('headerbarblock');
         },
     methods: {
     /**added by maythirihtet */
