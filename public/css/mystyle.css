@@ -14866,6 +14866,13 @@ input.gsc-input {
     padding: 9px 0 !important;
 }
 
+.gsc-search-button-v2, 
+.gsc-search-button-v2:hover,
+ .gsc-search-button-v2:focus {
+    border-color: #2980B9 !important;
+    background-color: #2980B9 !important;
+}
+
 @media only screen and (min-width: 991px) and (max-width: 1360px){
     .slider_div{
         width: 32%;
