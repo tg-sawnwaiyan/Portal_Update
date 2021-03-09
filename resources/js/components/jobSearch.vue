@@ -516,6 +516,7 @@ export default {
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('job-borderColor margin-none');
             $('#headerbar').addClass('headerbarblock');
+            $('.google_search_div').addClass('google_search_all');
         },
   methods:{
     /**added by maythirihtet */
