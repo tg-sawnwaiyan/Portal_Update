@@ -14789,7 +14789,8 @@ input.gsc-input {
     width: auto !important;
 }
 .slider_div{
-    display: none !important;
+    visibility: hidden;
+    height: 0;
     width: 44%;
 }
 .google_div{
@@ -14838,6 +14839,8 @@ input.gsc-input {
 
 .google_search_all .slider_div{
     display: inline-block !important;
+    visibility: visible;
+    height: auto;
 }
 .google_search_all{
     background: none;
