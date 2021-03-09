@@ -28,31 +28,10 @@
                         <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
 
-                    <!-- <div class="form-group" id="showimage">
-                        <label class="">写真</label>
-                        
-                        <div class="d-flex align-items-center">
-                            <span class="btn-file d-inline-block">画像を選択        
-                                <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                            </span> 
-                            <span class="pl-4">{{img_name}}</span>
-                        </div>                    
-                        
-                    </div>                    
-                    <div class="image_show" v-if="upload_img ">
-                        <div class='col-md-2'>
-                            
-                            <img :src="upload_img" class='show-img' @error="imgUrlAlt">
-                        </div>
-                    </div>  
-                    <div  class="form-group image_update" id="x-image" v-if ="noimage == 0 && news.photo && !upload_img && !old_photo">
-                        <div class="col-md-12" >
-                            <div id='x-image' class='col-md-2' >
-                                <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                <img :src="'/upload/news/'+ news.photo" class='show-img' alt="" @error="imgUrlAlt1">
-                            </div>
-                        </div>
-                    </div> -->
+                    <div class="form-group">
+                        <label>smartnews</label>
+                        <input type="checkbox" id="smartnew" name="smartnew" v-model="news.smartnew" value="0">
+                    </div>
                     
                     <div class="form-group image_update" id="x-image" v-if ="news.photo">
                         <div class="col-md-12" >
@@ -270,6 +249,7 @@ export default {
                     to_date:'',
                     created_by:'',
                     created_by_company:'',
+                    smartnew: 0,
                 },
                 categories: {
                     id: '',
@@ -426,7 +406,7 @@ export default {
             },
             updatepost() {
                 this.$swal({
-                    // title:"確認",
+
                     text: "ニュースを更新してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -460,6 +440,10 @@ export default {
                     fData.append('block_id', this.news.block_id)
                     fData.append('related_news', this.checkedNews)
                     fData.append('old_photo',this.old_photo)
+                    if(this.news.smartnew == true){
+                        this.news.smartnew = 1;
+                    }
+                    fData.append('smartnew', this.news.smartnew)
                         
                     this.$loading(true);
                     this.axios.post(`/api/new/update/${this.$route.params.id}`, fData).then(response => {
@@ -477,8 +461,7 @@ export default {
                         var num = localStorage.getItem('page_no');//comment get from newslist.vue/searchbyCategory()
 
                         this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
-                        
-                        //this.$router.go(-1);
+
                     })
                     .catch(error=>{
                         if(error.response.status == 422){
@@ -489,7 +472,7 @@ export default {
             },
             add() {
                     this.$swal({
-                    // title: "確認",
+                    
                     text: "ニュースを投稿してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -516,6 +499,10 @@ export default {
                         fData.append('category_id', this.news.category_id)
                         fData.append('block_id', this.news.block_id)
                         fData.append('related_news', this.checkedNews)
+                        if(this.news.smartnew == true){
+                        this.news.smartnew = 1;
+                        }
+                        fData.append('smartnew', this.news.smartnew)
 
                         this.$loading(true);
                         this.axios.post('/api/new/add', fData)
@@ -578,7 +565,7 @@ export default {
             closeBtnMethod: function(old_photo) {
                 if(confirm){
                     this.$swal({
-                    // title: "削除",
+                        
                     text: "画像を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,

@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $news_list = Post::join('categories','categories.id','=','posts.category_id')
                             ->select('posts.*','categories.name as cat_name')
-                            ->orderBy('posts.id', 'desc')
+                            ->orderBy('posts.created_at','DESC')
                             ->paginate(20);
         $category_list = Category::select('id','name')->get()->toArray();
 
@@ -48,6 +48,8 @@ class PostController extends Controller
         $post->created_by_company = $request->input('created_by_company');
         $post->from_date = $request->input('from_date');
         $post->to_date = $request->input('to_date');
+        $post->smartnew = $request->input('smartnew');
+
         $post->save();
 
         return response()->json('The New successfully added');
@@ -336,6 +338,7 @@ class PostController extends Controller
         $post->related_news=$request->input('related_news');
         $post->from_date = $request->input('from_date');
         $post->to_date = $request->input('to_date');
+        $post->smartnew = $request->input('smartnew');      
 
         if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
             $post->created_by_company = '';
@@ -360,21 +363,14 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function delete($id,$cat_id)
-    {
-        $post = Post::find($id);
-        $file= $post->photo;
-        $filename = './upload/news/'.$file;
-        \File::delete($filename);
-        $post->delete();
-        if($cat_id == 0)
-        {
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->orderBy('posts.id', 'desc')->paginate(20);
-        }else{
-            $posts = Post::join('categories','categories.id','=','posts.category_id')->select('posts.*','categories.name as cat_name')->where('category_id',$cat_id)->orderBy('posts.id', 'desc')->paginate(20);
-        }
-
-        return response()->json($posts);
+    public function delete($id)	
+    {	
+        $post = Post::find($id);	
+        $file= $post->photo;	
+        $filename = './upload/news/'.$file;	
+        \File::delete($filename);	
+        $post->delete();	
+        return response()->json('The news successfully deleted');	
     }
 
     public function search(Request $request)

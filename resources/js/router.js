@@ -50,8 +50,6 @@ import admincreate from './components/AdminCreate'
 import sitepolicy from './components/sitepolicy'
 import Accountlist from './components/Accountlist'
 import NewsCategory from './components/News_Category'
-import smartnews from './components/smartnews'
-
 
 // import menu from './components/menu/Menu';
 
@@ -598,11 +596,6 @@ const routes = [
     meta: {
         auth: {roles: 2, redirect: {name: 'login'}, forbiddenRedirect: '/Unauthorized'}
     }
-},
-{
-    name: 'smartnews',
-    path: '/feed/smartnews.xml',
-    component: smartnews,
 },
 ]
 const router = new VueRouter({
