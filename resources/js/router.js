@@ -51,7 +51,6 @@ import sitepolicy from './components/sitepolicy'
 import Accountlist from './components/Accountlist'
 import NewsCategory from './components/News_Category'
 
-
 // import menu from './components/menu/Menu';
 
 function guard(to, from, next){
