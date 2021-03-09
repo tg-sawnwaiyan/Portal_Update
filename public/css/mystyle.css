@@ -14789,7 +14789,7 @@ input.gsc-input {
     width: auto !important;
 }
 .slider_div{
-    visibility: none;
+    visibility: hidden;
     height: 0;
     width: 44%;
 }
