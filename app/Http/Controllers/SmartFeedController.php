@@ -12,6 +12,7 @@ class SmartFeedController extends Controller
         $news = Post::join('categories','categories.id','=','posts.category_id')
                 ->select('posts.*','categories.name as cat_name')
                 ->where('categories.name', '!=', 'PR')
+                ->where('posts.recordstatus', '=', 1)
                 ->where('posts.smartnew', '=', 1)
                 ->orderBy('posts.created_at', 'desc')->skip(0)->take(30)->get()->toArray();
         
@@ -50,13 +51,19 @@ class SmartFeedController extends Controller
         $item .= "<dc:creator><![CDATA[" . $data["created_by_company"] . "]]></dc:creator>\n";
         $item .= "<category><![CDATA[" . $data["cat_name"] . "]]></category>\n";
         $item .= "<guid isPermaLink='false'>https://test.t-i-s.jp/newsdetails/".$data["id"]."</guid>\n";
-        $item .= "<dc:language>ja</dc:language>";
-        if(!empty($data["photo"])){
+        $item .= "<dc:language>ja</dc:language>\n";
         $item .= "<media:thumbnail url=\"https://test.t-i-s.jp/upload/news/".$data["photo"]."\" />";
-        }
         $item .= "<description><![CDATA[" . $data["main_point"] . "]]></description>\n";
         $item .= "<pubDate><![CDATA[" .date(DATE_RSS,strtotime($data["created_at"])) . "]]></pubDate>\n";
-        $item .= "<content:encoded><![CDATA[" . $data["body"] . "]]></content:encoded>\n";
+        $item .= "<content:encoded><![CDATA[" . $data["body"];
+        if(!empty($data["photo"])){
+            $item .= "<figure>\n";
+            $item .= "<img src=\"https://test.t-i-s.jp/upload/news/".$data["photo"]."\" />\n";
+            $item .= "<figcaption>病院・医療ニュース画像</figcaption>\n";
+            $item .= "</figure>\n";
+        }
+        $item .= "]]></content:encoded>";
+        
         $item .= "</item>\n";
         return $item;
     }
