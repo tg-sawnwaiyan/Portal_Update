@@ -51,7 +51,9 @@ class SmartFeedController extends Controller
         $item .= "<category><![CDATA[" . $data["cat_name"] . "]]></category>\n";
         $item .= "<guid isPermaLink='false'>https://test.t-i-s.jp/newsdetails/".$data["id"]."</guid>\n";
         $item .= "<dc:language>ja</dc:language>";
-        $item .= "<media:thumbnail>https://test.t-i-s.jp/upload/news/".$data["photo"]."</media:thumbnail>";
+        if(!empty($data["photo"])){
+        $item .= "<media:thumbnail url=\"https://test.t-i-s.jp/upload/news/".$data["photo"]."\" />";
+        }
         $item .= "<description><![CDATA[" . $data["main_point"] . "]]></description>\n";
         $item .= "<pubDate><![CDATA[" .date(DATE_RSS,strtotime($data["created_at"])) . "]]></pubDate>\n";
         $item .= "<content:encoded><![CDATA[" . $data["body"] . "]]></content:encoded>\n";
