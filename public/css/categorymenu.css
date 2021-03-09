@@ -89,9 +89,7 @@
     .hospital-tabColor li.subtab3 > .router-link-active {
         padding-top: 13px !important;
     }
-    #upper-tab {
-    margin-top: 5px;
-    }
+    
     .d-none-sp {
         display: none !important;
     }
