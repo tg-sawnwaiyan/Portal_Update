@@ -179,9 +179,9 @@ export default {
             /*width: 86.5% !important;*/
             margin: 5px 25px 0 21.5px;
         }
-        .upper-tab {
+        /*.upper-tab {
             margin-top: 62.45px;
-        }
+        }*/
         #right-button{
             right: 14px;
         }
@@ -215,9 +215,9 @@ export default {
         #left-button{
             right: 39px;
         }
-        .upper-tab {
+        /*.upper-tab {
             margin-top: 64.48px;
-        }
+        }*/
     }
     @media only screen and (min-width: 1201px) and (max-width: 1280px) {
         .menu_category{

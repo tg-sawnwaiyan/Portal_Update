@@ -430,11 +430,13 @@ import bulcomponent from './bulcomponent.vue'
         linkednews: [],
         yeararr: [],
         /**end of added by maythirihtet */
-        id: -1, timetable:[], hos_data:[], townshipID: [], township_id: [], cities: [], getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
+        id: -1, timetable:[], hos_data:[], townshipID: [], township_id: [], cities: '', getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
       }
     },
     created(){
-   	this.axios.get('api/getmap',{
+
+
+        this.axios.get('api/getmap',{
             params:{
             id: this.id,
             township_id:-1,
@@ -471,7 +473,7 @@ import bulcomponent from './bulcomponent.vue'
             $('#navtab').addClass('hospital-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('hospital-borderColor margin-none');
-
+            $('#headerbar').addClass('headerbarblock');
         },
     methods: {
     /**added by maythirihtet */

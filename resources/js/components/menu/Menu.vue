@@ -320,9 +320,6 @@
             localStorage.setItem('logintoken', '');
             this.$router.push('/login');
         },
-        activeTopMenu(){
-             $("#top_a").addClass("active");
-        },
     }
 }
 </script>

@@ -456,7 +456,8 @@ export default {
       }
     },
     created() {
-		this.axios.get('api/getmap',{
+
+         this.axios.get('api/getmap',{
             params:{ id: this.id, township_id:-1, moving_in:-1, per_month:-1, local:0, feature:'job', SpecialFeatureID:[0], MedicalAcceptanceID:[0], FacTypeID:[0], MoveID:[0], },
           })
           .then((response)=>{
@@ -513,7 +514,8 @@ export default {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
             $('#navtab').addClass('job-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-             $('#upper-tab').addClass('job-borderColor margin-none');
+            $('#upper-tab').addClass('job-borderColor margin-none');
+            $('#headerbar').addClass('headerbarblock');
         },
   methods:{
     /**added by maythirihtet */
@@ -1009,3 +1011,4 @@ $(document).on('click','.btn-2019',function(){
 }
 }
 </style>
+

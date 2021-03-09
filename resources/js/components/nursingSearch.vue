@@ -106,7 +106,7 @@
                                         <option data-price-type="" value="1000000">1,000万円以下</option>
                                         <option data-price-type="" value="20000000">2,000万円以下</option>
                                         <option data-price-type="" value="30000000">3,000万円以下</option>
-                                        <option data-price-type="more" value="30000000">3,000万円以上</option>
+                                        <option data-price-type="more" value="30000001">3,000万円以上</option>
                                     </select>
                                         </div>
                                         <div class="col-lg-6">
@@ -127,7 +127,7 @@
                                         <option data-price-type="" value="400000">40万円以下</option>
                                         <option data-price-type="" value="450000">45万円以下</option>
                                         <option data-price-type="" value="500000">50万円以下</option>
-                                        <option data-price-type="more" value="500000">50万円以上</option>
+                                        <option data-price-type="more" value="500001">50万円以上</option>
                                     </select>
                                         </div>
                                     </div>
@@ -773,7 +773,9 @@
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
             $('#navtab').addClass('nursing-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-             $('#upper-tab').addClass('nursing-borderColor margin-none');
+            $('#upper-tab').addClass('nursing-borderColor margin-none');
+            $('.google_search_div').addClass('google_search_all');
+            $('#headerbar').addClass('headerbarblock');
         },
 
         computed: {

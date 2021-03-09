@@ -6,7 +6,7 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li v-for="(cat, index) in cats" :key="cat.id" class="nav-item nav-line tab_color" id="category-id" :style="{'--bkgColor': cat.color_code ? cat.color_code : '#287db4'}"  v-bind:value="cat.id" v-on:click="scrollUp(index);changeBgColor(cat.color_code);" ref="itemWidth">
                            <router-link v-if="cat.name != 'トップ'"  class="nav-link" :to="{ path:'/newscategory/'+ cat.id}"><h2>{{ cat.name }}</h2></router-link>
-                           <!-- <router-link v-else id="top" class="nav-link" :to="{ path:'/'}"><h2>{{ cat.name }}</h2></router-link> -->
+                           <router-link v-else id="top" class="nav-link" :to="{ path:'/'}"><h2>{{ cat.name }}</h2></router-link>
                         </li>
 
                     </ul>                            
