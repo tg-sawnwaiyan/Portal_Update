@@ -1,7 +1,7 @@
 <template>
     <!-- Page Content  -->
     <div id="news_list">       
-        <div class="col-12  tab-content">
+        <div class="col-12 tab-content">
             <div class="p-2 p0-480">                
                 <div v-if="norecord_msg" class="card card-default card-wrap">
                     <p class="record-ico">
@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="d-flex mt-4">
                                         <router-link :to="{ path:'/editPost/'+ newsList.id}" class="btn edit-borderbtn">編集</router-link>
-                                        <button class="btn delete-borderbtn ml-2" @click="deletePost(newsList.category_id,newsList.id)">削除</button>
+                                        <button class="btn delete-borderbtn ml-2" @click="deletePost(newsList.id)">削除</button>
                                     </div>
                                 </td>
                             </tr>
@@ -216,6 +216,7 @@
                 select_date:null,
                 month_count:0,
                 date_flag:false,
+                page: 1,
             };
         },
         created() {
@@ -258,7 +259,7 @@
                 }).then(response => {
                     this.axios.get(`/api/changeRecordstatus/${id}`)
                     .then(response => {
-                        this.getResults();
+                        this.searchbyCategory(this.page);
                     });                
                 }).catch(error =>{
                     if(activate == 1){
@@ -274,11 +275,7 @@
                     this.news_list = response.data.news;
                     this.categories = response.data.category;
                     this.norecord = this.news_list.data.length                       
-                    // if(this.norecord > this.size) {
-                    //     this.pagination = true;
-                    // } else {
-                    //     this.pagination = false;
-                    // }
+                    
                     if(this.norecord != 0){
                         this.norecord_msg = false;
                     }else{
@@ -291,14 +288,14 @@
                     }
                 });                    
             },
-            deletePost(catid,id) {
-                var selected_category = document.getElementById("selectBox").value;
-                if(selected_category == null || selected_category == '')
-                {
-                    selected_category = 0;
-                }              
+            deletePost(id) {
+                if(this.norecord > 0){
+                        this.page = this.page > 1 ? this.page-1 : this.page;
+                        }
+                var catid = document.getElementById("selectBox").value;
+
                 this.$swal({
-                    // title: "確認",
+
                     text: (catid == 26? "PR":"ニュース") +"を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -315,23 +312,14 @@
                 }).then(response => {                       
                     this.$loading(true);
                     this.axios
-                    .delete(`/api/new/delete/${id}`+'/'+selected_category)
+                    .delete(`/api/new/delete/${id}`)
                     .then(response => {
-                        this.news_list = response.data;
-                        this.norecord = this.news_list.length;
-                        // if (this.norecord > this.size) {
-                        //     this.pagination = true;
-                        // } else {
-                        //     this.pagination = false;
-                        // }
-                        if(this.norecord != 0){
-                            this.norecord_msg = false;
-                        }else{
-                            this.norecord_msg = true;
-                        }
+                        
+                        
+                        this.searchbyCategory(this.page);
                         this.$loading(false);
                         this.$swal({
-                            text: "ニュースを削除しました。",
+                            text: (catid == 26? "PR":"ニュース") +"を削除しました。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -361,10 +349,10 @@
                 $.each($("input[name='contents']:checked"), function(){
                 contents.push($(this).val());
                 });
-                console.log(contents);
+                
                 var search_word = $("#search-item").val();
-                var selected_category = document.getElementById("selectBox").value;                    
-                //var selected_date = document.getElementById("hidden_select_date").value;//linked news
+                var selected_category = document.getElementById("selectBox").value;       
+
                 let fd = new FormData();
                 fd.append("search_word", search_word);
                 fd.append("selected_category", selected_category);
@@ -379,12 +367,14 @@
                     this.$loading(false);
                     this.news_list = response.data.query;
                     this.norecord = response.data.postCount;
+    
                     if(this.norecord != 0) {
                         this.nosearch_msg = false;
                     }else{
                         this.nosearch_msg = true;
                     }
-                    localStorage.setItem('page_no',page);//set to editNewsPost.vue/updatepost()
+                    this.page = page;
+                    
                 });
             },
             /** linked news */
