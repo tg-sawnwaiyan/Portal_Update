@@ -33,8 +33,8 @@ export default {
         return {
             ads_list: [],
             slickOptions: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 accessibility: true,
                 adaptiveHeight: false,
@@ -55,8 +55,8 @@ export default {
                     {
                     breakpoint: 990,
                     settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
+                        slidesToShow: 2,
+                        slidesToScroll: 2
                     }
                     },
                     {

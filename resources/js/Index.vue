@@ -7,6 +7,7 @@
             <CategoryMenu v-if="w_width <= 575"></CategoryMenu>
             <CategoryMenuPc v-if="w_width > 575"></CategoryMenuPc>
 
+
             <div class="sidebar-scroll container-fluid">
                 <div class="row"> 
                     <asideMenu v-if="$auth.check()"></asideMenu>
@@ -25,8 +26,13 @@
                             <section>
                                 <div class="main-wrapper">
                                     <!--slider for ads-->
-                                    <div class="col-md-auto pad-free">
-                                        <adsslider v-if="w_width > 480" class="d-none d-sm-block"></adsslider>
+
+                                    <div class="col-md-auto pad-free google_search_div">
+                                        <div class="google_div">          
+                                            <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div>
+                                            <a href="/startpage" class="homepage_btn"><i class="fas fa-home"></i>ホームページに設定する</a>
+                                        </div>
+                                        <adsslider class="d-none d-sm-block slider_div"></adsslider>
                                     </div>
                                         <!--end slider for ads-->
                                     <div class="row justify-content-md-center">
@@ -37,6 +43,7 @@
                                         
                                     </div>
                                 </div>
+                                <div class="gcse-searchresults"></div>
                                 <div class="container-fluid footer footer-div">
                                     <div class="footer-nav">
                                         <ul class="gNav">
@@ -56,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="navbar-nav pad-free" id="headerbar" v-if="!$auth.check()" style="display: none;">
+            <ul class="navbar-nav pad-free" id="headerbar" v-if="!$auth.check()">
                 <li class="fav-item fav-color btn all-btn m-r-10" style="color: #000 !important;">
                     <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g id="original-icon" fill="#c40000" opacity="0" visibility="hidden"><path d="M50.16667,78.83333h107.5v14.33333h-107.5zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h107.5v14.33333h-107.5zM21.5,75.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,118.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,32.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"></path></g><g id="subtracted-icon" fill="#c40000"><path d="M50.16667,78.83333h107.5l0,10.81336c-1.5126,0.69131 -2.92913,1.65951 -4.17264,2.90462l-0.6155,0.61535h-102.71186zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h24.29256c-1.88479,4.7147 -1.16582,10.22759 2.1569,14.33333h-26.44946zM32.25,86c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,129c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,43c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM123.60062,122.43755l-0.6045,-0.60422l1.20887,0z"></path></g><g><g id="Filled_3_" fill="#c40000"><path d="M123.60062,162.99169l-35.82908,-35.82908l10.13652,-10.13652l25.69256,25.69256l40.02993,-40.02993l10.13652,10.13652z"></path></g><g id="Filled_3_" fill="#000000" opacity="0"><path d="M183.90358,122.96087l-50.16644,50.16644c-2.79579,2.80295 -6.46615,4.20085 -10.13652,4.20085c-3.67037,0 -7.34073,-1.39789 -10.13652,-4.20085l-35.82908,-35.82908c-5.59874,-5.59874 -5.59874,-14.67429 0,-20.27304l10.13652,-10.13652c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l15.55604,15.54887l29.89341,-29.88624c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l10.13652,10.13652c5.59874,5.59874 5.59874,14.67429 0,20.27304z"></path></g></g></g></svg>
 
@@ -159,6 +166,58 @@
 .router-link-exact-active>i.fa, .router-link-exact-active>i.fas {
     color: #fff !important;
 }
+.footer-nav{
+    width: 100%;
+    display: inline-block;
+}
+.footer-nav .gNav{
+    display: inline-flex;
+    border-left: none;
+}
+.footer-nav .gNav li{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.footer-nav .gNav li a {
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer-nav .gNav li a:after{
+    display: none;
+}
+.footer-nav .gNav li a .fa-envelope{
+    color: #2980b9;
+    margin-right: 5px;
+}
+.copyright-text{
+    margin-top: 10px;
+    width: 100%;
+}
+@media only screen and (min-width: 767px) {
+    .pad-free{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        padding-top: 0;
+    }
+    .footer-nav .gNav {
+        display: none;
+    }
+    .copyright-text{
+        margin-top: 0;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .footer-nav .gNav li:first-child {
+        margin-left: 0;
+    }
+    .footer-nav .gNav li{
+        margin-left: 75px;
+    }
+}
 </style>
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
@@ -192,6 +251,22 @@
       adsslider
     }, 
     created() {
+        (function() {
+            var cx = '8f501e7f8a9c94ad7';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+          window.onload = function(){
+            document.getElementById('gsc-i-id1').placeholder = 'Googleで検索';
+            $(".gsc-search-button-v2").text("検索");
+          };
+
+          
+
         window.addEventListener('resize', this.handleResize)
         this.handleResize();
         if(this.window.width <= 1440) {
@@ -222,6 +297,16 @@
         
         return response
         })
+    },
+    updated() {     
+     
+        if(this.$route.path === '/' || this.$route.path.includes('/newscategory')){
+            $('.google_div').removeClass('google_div_top');
+            $('.google_search_div').removeClass('google_search_all');
+            $('#headerbar').removeClass('headerbarblock');
+        }else{
+            $('.google_div').addClass('google_div_top');
+        }
     },
     destroyed() {
         document.removeEventListener('scroll', this.handleScroll);
@@ -288,6 +373,34 @@
         }
     },
     methods: {
+        // cancelButton (e){
+        //     if(e.target.id == "gs_cb50" || $(e.target).attr('class') == "gsst_a"){
+        //         if(this.w_width <= 560){
+        //             $('.google_div').removeClass('google_div_mb');
+        //             $('.tab-pane').css('display','block');
+        //             $('.slick-track').css('width', '100% !important')
+        //             return;
+        //         }
+
+        //         $('.news-borderColor').css('display','block');
+        //         $('#tab1').css('display','block');
+        //     }
+        // },
+        // googleSearchEnter (e) {
+        //     $('#___gcse_1').css("display", "block");
+            
+            
+        //     if (e.keyCode === 13) {
+        //         if(this.w_width <= 560){
+        //             $('.google_div').addClass('google_div_mb');
+        //             $('.tab-pane').css('display','none');
+        //             return;
+        //         }
+        //         $('.news-borderColor').css('display','none');
+        //         $('#tab1').css('display','none');
+        //       //  $('.tab-pane').css('display','none');
+        //     } 
+        // },
         handleResize() {
             this.window.width = window.innerWidth;
             this.window.height = window.innerHeight;

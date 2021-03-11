@@ -50,7 +50,7 @@ import admincreate from './components/AdminCreate'
 import sitepolicy from './components/sitepolicy'
 import Accountlist from './components/Accountlist'
 import NewsCategory from './components/News_Category'
-
+import startpage from './components/startpage'
 
 // import menu from './components/menu/Menu';
 
@@ -513,17 +513,17 @@ const routes = [
     name: 'privacyPolicy',
     path: '/privacyPolicy',
     component: privacyPolicy,
-    meta: {
-        auth: false
-    }
   },
   {
     name: 'sitepolicy',
     path: '/sitepolicy',
     component: sitepolicy,
-    meta: {
-        auth: false
-    }
+  },
+
+  {
+    name: 'startpage',
+    path: '/startpage',
+    component: startpage,
   },
 
     {

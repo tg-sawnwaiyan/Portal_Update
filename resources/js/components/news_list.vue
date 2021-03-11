@@ -274,6 +274,7 @@
                     this.news_list = response.data.news;
                     this.categories = response.data.category;
                     this.norecord = this.news_list.data.length                       
+
                     if(this.norecord != 0){
                         this.norecord_msg = false;
                     }else{
@@ -287,9 +288,14 @@
                 });                    
             },
             deletePost(id) {
+
+                if(this.norecord > 0){
+                        this.page = this.page > 1 ? this.page-1 : this.page;
+                        }
                 var catid = document.getElementById("selectBox").value;
 
                 this.$swal({
+
                     text: (catid == 26? "PR":"ニュース") +"を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -308,6 +314,7 @@
                     this.axios
                     .delete(`/api/new/delete/${id}`)
                     .then(response => {
+
                         this.searchbyCategory(this.page);
                         this.$loading(false);
                         this.$swal({
@@ -341,8 +348,10 @@
                 $.each($("input[name='contents']:checked"), function(){
                 contents.push($(this).val());
                 });
+
                 var search_word = $("#search-item").val();
                 var selected_category = document.getElementById("selectBox").value;
+
                 let fd = new FormData();
                 fd.append("search_word", search_word);
                 fd.append("selected_category", selected_category);
@@ -357,12 +366,14 @@
                     this.$loading(false);
                     this.news_list = response.data.query;
                     this.norecord = response.data.postCount;
+    
                     if(this.norecord != 0) {
                         this.nosearch_msg = false;
                     }else{
                         this.nosearch_msg = true;
                     }
                     this.page = page;
+
                 });
             },
             /** linked news */

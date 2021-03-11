@@ -25,6 +25,12 @@
                         <label>プロフィル</label>
                         <input type="text" autocomplete="off" class="form-control" placeholder="プロフィルを入力してください。" v-model="news.created_by">
                     </div>
+
+                    <div class="form-group">
+                        <label>SmartNewsに掲載する</label>
+                        <input type="checkbox" id="smartnew" name="smartnew" v-model="news.smartnew" value="0">
+                    </div>
+                    
                     <div class="form-group image_update" id="x-image" v-if ="news.photo">
                         <div class="col-md-12" >
                             <div id='x-image' class='col-md-2' >
@@ -224,6 +230,7 @@ export default {
                     to_date:'',
                     created_by:'',
                     created_by_company:'',
+                    smartnew: 0,
                 },
                 categories: {
                     id: '',
@@ -380,6 +387,7 @@ export default {
             },
             updatepost() {
                 this.$swal({
+
                     text: "ニュースを更新してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -413,6 +421,10 @@ export default {
                     fData.append('block_id', this.news.block_id)
                     fData.append('related_news', this.checkedNews)
                     fData.append('old_photo',this.old_photo)
+                    if(this.news.smartnew == true){
+                        this.news.smartnew = 1;
+                    }
+                    fData.append('smartnew', this.news.smartnew)
                         
                     this.$loading(true);
                     this.axios.post(`/api/new/update/${this.$route.params.id}`, fData).then(response => {
@@ -429,6 +441,7 @@ export default {
                         })
                         var num = localStorage.getItem('page_no');//comment get from
                         this.$router.push({ name: 'news_list', params: { status: 'update','page_no':num } })
+
                     })
                     .catch(error=>{
                         if(error.response.status == 422){
@@ -439,6 +452,7 @@ export default {
             },
             add() {
                     this.$swal({
+
                     text: "ニュースを投稿してよろしいでしょうか。",
                     type: "warning",
                     width: 350,
@@ -465,6 +479,10 @@ export default {
                         fData.append('category_id', this.news.category_id)
                         fData.append('block_id', this.news.block_id)
                         fData.append('related_news', this.checkedNews)
+                        if(this.news.smartnew == true){
+                        this.news.smartnew = 1;
+                        }
+                        fData.append('smartnew', this.news.smartnew)
 
                         this.$loading(true);
                         this.axios.post('/api/new/add', fData)
@@ -527,6 +545,7 @@ export default {
             closeBtnMethod: function(old_photo) {
                 if(confirm){
                     this.$swal({
+
                     text: "画像を削除してよろしいでしょうか。",
                     type: "warning",
                     width: 350,

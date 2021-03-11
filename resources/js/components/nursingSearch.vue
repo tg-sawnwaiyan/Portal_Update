@@ -1,3 +1,4 @@
+
 <template>
 <layout>
 <div class="tab_pane_02">
@@ -752,6 +753,8 @@
             $('#navtab').addClass('nursing-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('nursing-borderColor margin-none');
+            $('.google_search_div').addClass('google_search_all');
+            $('#headerbar').addClass('headerbarblock');
         },
 
         computed: {
@@ -1856,14 +1859,32 @@ div#holder {
   margin: 20px auto;
 }
 @media only screen and (max-width: 767px){
-.select {
-    display: block;
+    .select {
+        display: block;
+    }
+    .profile_header, #searchMap {
+        display: none;
+    }
+    #map-responsive {
+        display: none;
+    }
 }
-.profile_header, #searchMap {
-    display: none;
-}
-#map-responsive {
-    display: none;
-}
-}
+</style>
+
+<style>
+    /*.google_search_all .slider_div{
+        display: inline-block !important;
+    }
+    #headerbar{
+        display: block;
+    }
+    .google_search_all .google_search_div{
+        background: none;
+        text-align: left;
+    }
+    .google_search_all .google_div{
+        padding: 0;
+        width: 30%;
+        background: #eee;
+    }*/
 </style>
