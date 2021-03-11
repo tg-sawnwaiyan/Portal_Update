@@ -13,11 +13,14 @@
         <div class="sitepolicy_home">
             <span>下記のブラウザを選択し、手順どおりに操作してください。下記以外のブラウザを使う場合は、お使いのブラウザの [ヘルプ] から、ブラウザのホームページを変更する方法をご確認ください。</span>
             
+
         </div>     -->
-        <div class="title">
+
+        <div class="title" v-on:click="isActive1 = !isActive1">
+          <i class="fal fa-angle-down"></i>
           <h5>Google Chrome</h5>
         </div>
-        <div class="privacy">
+        <div class="privacy" v-if="isActive1">
              <ol class="sub-ol">
                 <li>
                     ブラウザの右上にある 「三点マーク」をクリックし、 <strong>「設定」</strong> を選択します。
@@ -31,10 +34,10 @@
             </ol>    
         </div>
 
-        <div class="title">
+        <div class="title" v-on:click="isActive2 = !isActive2">
           <h5>Microsoft Edge</h5>
         </div>
-        <div class="privacy">
+        <div class="privacy" v-if="isActive2">
              <ol class="sub-ol">
                 <li>
                     ブラウザの右上にある「・・・」 をクリックし、 <strong>「設定」</strong> を選択します。
@@ -54,10 +57,10 @@
             </ol>    
         </div>
 
-        <div class="title">
+        <div class="title" v-on:click="isActive3 = !isActive3">
           <h5>Internet Explorer</h5>
         </div>
-        <div class="privacy">
+        <div class="privacy" v-if="isActive3">
              <ol class="sub-ol">
                 <li>
                     ブラウザ上部の <strong>「歯車マーク」</strong>をクリックします。
@@ -77,10 +80,10 @@
             </ol>    
         </div>
 
-        <div class="title">
+        <div class="title" v-on:click="isActive4 = !isActive4">
           <h5>Firefox</h5>
         </div>
-        <div class="privacy">
+        <div class="privacy" v-if="isActive4">
             <ol class="sub-ol">
                 <li>
                     ブラウザを開いて <a href="https://www.t-i-s.jp" target="_blank" rel="noopener">t-i-s.jp</a> にアクセスします。
@@ -94,10 +97,10 @@
             </ol>      
         </div>
 
-        <div class="title">
+        <div class="title" v-on:click="isActive5 = !isActive5">
           <h5>Safari</h5>
         </div>
-        <div class="privacy">
+        <div class="privacy" v-if="isActive5">
             <ol class="sub-ol">
                 <li>
                     画面の左上にある <strong>「Safari」</strong> <strong>「環境設定」</strong> <strong>「一般」</strong> を選択します。
@@ -116,4 +119,24 @@
       </div>
   </div>
 </template>
+<script>
+  export default {
+   // el: "#aa",
+    data: function() {        
+      return {
+         isActive1: true,
+         isActive2: true,
+         isActive3: true,
+         isActive4: true,
+         isActive5: true,
+      }
+    },
+    method: {
+        aa: function () {
+          alert("hi");
+      this.isActive = !this.isActive;
+    }  
+    }
+  }
+</script>
 
