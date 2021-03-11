@@ -1,91 +1,32 @@
 <template>
   <div>
-      <h2 class="site_header">Google をホームページに設定する</h2>
+      <h2 class="site_header">TIS（ティーズ） のホームページへの設定方法</h2>
       <div class="container pad-free-750">
        <div class="sitepolicy_home">
-            <span>Google をホームページに設定することで、ブラウザを開いてすぐに Google を使うことができます。</span>
-            
+            <span>TIS（ティーズ） をホームページに設定すると、ご利用のブラウザを開いてすぐに TIS（ティーズ） を使うことができます。<br>
+            ご利用のブラウザを選択し、手順の通りに操作してください。</span>
         </div>    
 
-        <div class="title">
+        <!-- <div class="title">
           <h5>ホームページを変更する方法</h5>
         </div>  
         <div class="sitepolicy_home">
             <span>下記のブラウザを選択し、手順どおりに操作してください。下記以外のブラウザを使う場合は、お使いのブラウザの [ヘルプ] から、ブラウザのホームページを変更する方法をご確認ください。</span>
             
-        </div>    
-
+        </div>     -->
         <div class="title">
-          <h5>Firefox</h5>
-        </div>
-        <div class="privacy">
-            <ol class="sub-ol">
-                <li>
-                    ブラウザを開いて <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> にアクセスします。
-                </li>
-                <li>
-                    ホームボタンにタブをドラッグ＆ドロップします。
-                </li>
-                <li>
-                    [はい] をクリックします。
-                </li>
-            </ol>      
-        </div>
-          <div class="title">
           <h5>Google Chrome</h5>
         </div>
         <div class="privacy">
              <ol class="sub-ol">
                 <li>
-                    ブラウザの右上にあるその他アイコン その他 次の操作 <strong>[設定]</strong> をクリックします。
+                    ブラウザの右上にある 「三点マーク」をクリックし、 <strong>「設定」</strong> を選択します。
                 </li>
                 <li>
-                   [デザイン] の <strong>[ホームボタンを表示する]</strong> を有効にします。
+                  「デザイン」の <strong>「ホームボタンを表示する」</strong> を有効にします。
                 </li>
                 <li>
-                   番目のオプションを選択し、「www.google.com」と入力します。
-                </li>
-            </ol>    
-        </div>
-        <div class="title">
-          <h5>Safari</h5>
-        </div>
-        <div class="privacy">
-             <ol class="sub-ol">
-                <li>
-                    画面の左上にある <strong>[Safari]</strong> > <strong>[環境設定]</strong> > <strong>[一般]</strong> を選択します。
-                </li>
-                <li>
-                   [新規ウィンドウを開く場合] と [新規タブを開く場合] で <strong>[ホームページ]</strong> を選択します。
-                </li>
-                <li>
-                   [ホームページ] 欄に「www.google.com」と入力します。
-                </li>
-            </ol>    
-        </div>
-
-        <div class="title">
-          <h5>Internet Explorer</h5>
-        </div>
-        <div class="privacy">
-             <ol class="sub-ol">
-                <li>
-                    ブラウザ上部のメニューバーにある <strong>[ツール]</strong> をクリックします。
-                </li>
-                <li>
-                   <strong>[インターネット オプション]</strong> を選択します。
-                </li>
-                <li>
-                   <strong>[全般]</strong> タブをクリックします。
-                </li>
-                <li>
-                   [ホームページ] のテキスト ボックスに「//www.google.com」と入力します。
-                </li>
-                <li>
-                   <strong>[OK]</strong> をクリックします。
-                </li>
-                <li>
-                   ブラウザを再起動します。
+                   2 番目のオプションを選択し、「<span style="color: green">https://t-i-s.jp</span>」と入力します。
                 </li>
             </ol>    
         </div>
@@ -96,16 +37,79 @@
         <div class="privacy">
              <ol class="sub-ol">
                 <li>
-                    ブラウザの右上にあるアイコン その他 次の操作 <strong>[設定]</strong> を選択します。
+                    ブラウザの右上にある「・・・」 をクリックし、 <strong>「設定」</strong> を選択します。
                 </li>
                 <li>
-                   [プログラムから開く] まで下にスクロールし、<strong>[特定のページ]</strong> を選択します。
+                   「起動時」を選択し、<strong>「特定のページを開く」</strong> に変更します。
                 </li>
                 <li>
-                   リストを開いて <strong>[カスタム]</strong> を選択し、 在設定されているホームページの横にある [X] を選択します。
+                   <strong>「新しいページを追加してください」</strong> を選択します。
                 </li>
                 <li>
-                   [Web アドレスを入力してください] 欄に「www.google.com」と入力し、プラス記号を選択します。
+                    <strong>「URLを入力してください」</strong> 欄に「<span style="color: green">https://t-i-s.jp</span>」と入力し、<strong>「追加」</strong>を選択します。
+                </li>
+                <li>
+                    ブラウザを再起動します。
+                </li>
+            </ol>    
+        </div>
+
+        <div class="title">
+          <h5>Internet Explorer</h5>
+        </div>
+        <div class="privacy">
+             <ol class="sub-ol">
+                <li>
+                    ブラウザ上部の <strong>「歯車マーク」</strong>をクリックします。
+                </li>
+                <li>
+                   <strong> 「インターネット オプション」</strong> を選択します。
+                </li>
+                <li>
+                   <strong>「全般」</strong> タブの「ホームページ」のテキスト ボックスに「<span style="color: green">https://t-i-s.jp</span>」と入力します。
+                </li>
+                <li>
+                   <strong>「OK」</strong> をクリックします。
+                </li>
+                <li>
+                   ブラウザを再起動します。
+                </li>
+            </ol>    
+        </div>
+
+        <div class="title">
+          <h5>Firefox</h5>
+        </div>
+        <div class="privacy">
+            <ol class="sub-ol">
+                <li>
+                    ブラウザを開いて <a href="https://www.t-i-s.jp" target="_blank" rel="noopener">t-i-s.jp</a> にアクセスします。
+                </li>
+                <li>
+                    ホームボタンにタブをドラッグ＆ドロップします。
+                </li>
+                <li>
+                    <strong>「はい」</strong> をクリックします。
+                </li>
+            </ol>      
+        </div>
+
+        <div class="title">
+          <h5>Safari</h5>
+        </div>
+        <div class="privacy">
+            <ol class="sub-ol">
+                <li>
+                    画面の左上にある <strong>「Safari」</strong> <strong>「環境設定」</strong> <strong>「一般」</strong> を選択します。
+                </li>
+                <li>
+                   「新規ウィンドウを開く場合」と 「新規タブを開く場合」で <strong>「ホームページ」</strong> を選択します。
+                </li>
+                <li>
+                   「ホームページ」欄に「<span style="color: green">https://t-i-s.jp</span>」と入力します。
+                </li>
+                <li>
+                   ブラウザを再起動します。
                 </li>
             </ol>    
         </div>
