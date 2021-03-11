@@ -14782,6 +14782,21 @@ input.gsc-input {
 /*end of header bar*/
 
 /*google_search_div*/
+#___gcse_0{
+    height: 57px;
+}
+.homepage_btn{
+    position: absolute;
+    bottom: 0;
+    right: 44px;
+}
+.fa-home{
+    margin: 0 5px 0 0;
+}
+.homepage_btn:hover{
+    color: #3490dc;
+}
+
 .google_search_div{
     text-align: center;
     margin: 10px;
@@ -14799,7 +14814,7 @@ input.gsc-input {
     padding: 1em;
     height: 100px;
     position: relative;
-    margin: 0 25px 0 0;
+    margin: 0;
 }
 .gsc-control-searchbox-only-ja{
     position: absolute;
@@ -14850,6 +14865,7 @@ input.gsc-input {
     padding: 0;
     width: 30%;
     background: #eee;
+    margin: 0 25px 0 0;
 }
 #headerbar.headerbarblock{
     display: block;
@@ -14874,6 +14890,11 @@ input.gsc-input {
  .gsc-search-button-v2:focus {
     border-color: #2980B9 !important;
     background-color: #2980B9 !important;
+}
+
+.google_search_all .homepage_btn {
+    bottom: 3px;
+    right: 19px;
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1360px){
@@ -14943,6 +14964,10 @@ input.gsc-input {
     }
     .gsc-search-button{
         display: none !important;
+    }
+    .homepage_btn {
+        bottom: 3px;
+        right: 17px;
     }
 }
 
