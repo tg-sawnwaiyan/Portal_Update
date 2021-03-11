@@ -513,26 +513,17 @@ const routes = [
     name: 'privacyPolicy',
     path: '/privacyPolicy',
     component: privacyPolicy,
-    meta: {
-        auth: false
-    }
   },
   {
     name: 'sitepolicy',
     path: '/sitepolicy',
     component: sitepolicy,
-    meta: {
-        auth: false
-    }
   },
 
   {
     name: 'startpage',
     path: '/startpage',
     component: startpage,
-    meta: {
-        auth: false
-    }
   },
 
     {
