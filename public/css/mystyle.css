@@ -10657,6 +10657,7 @@ padding: 11px;
     font-size: 36px;
     padding: 20px;
     color: #636b6f;
+    position: relative;
 }
 
 .unauth-title {
@@ -14782,6 +14783,21 @@ input.gsc-input {
 /*end of header bar*/
 
 /*google_search_div*/
+#___gcse_0{
+    height: 57px;
+}
+.homepage_btn{
+    position: absolute;
+    bottom: 0;
+    right: 44px;
+}
+.fa-home{
+    margin: 0 5px 0 0;
+}
+.homepage_btn:hover{
+    color: #3490dc;
+}
+
 .google_search_div{
     text-align: center;
     margin: 10px;
@@ -14799,7 +14815,7 @@ input.gsc-input {
     padding: 1em;
     height: 100px;
     position: relative;
-    margin: 0 25px 0 0;
+    margin: 0;
 }
 .gsc-control-searchbox-only-ja{
     position: absolute;
@@ -14850,6 +14866,7 @@ input.gsc-input {
     padding: 0;
     width: 30%;
     background: #eee;
+    margin: 0 25px 0 0;
 }
 #headerbar.headerbarblock{
     display: block;
@@ -14875,6 +14892,32 @@ input.gsc-input {
     border-color: #2980B9 !important;
     background-color: #2980B9 !important;
 }
+
+.google_search_all .homepage_btn {
+    bottom: 3px;
+    right: 19px;
+}
+
+.fa-angle-up,
+.fa-angle-down{
+    font-size: x-large;
+    position: absolute;
+    right: 20px;
+}
+
+
+.startpage .title{
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.startpage .active{
+    background: #f1f3f4;
+}
+
+.startpage .title h5{
+    margin-bottom: 0;
+}
+
 
 @media only screen and (min-width: 991px) and (max-width: 1360px){
     .slider_div{
@@ -14910,7 +14953,7 @@ input.gsc-input {
         margin: 10px 0 0 0;
     }
     #upper-tab {
-        margin-top: 68px;
+        margin-top: 40px;
     }
     .infoBox{
         top: 210px !important;
@@ -14929,7 +14972,7 @@ input.gsc-input {
         border-bottom-right-radius: 0 !important;
     }
     .gsc-search-box-tools .gsc-search-box .gsc-input{
-        padding-right: 12px !important;
+        padding-right: 0 !important;
     }
     .gsib_a {
         padding: 9px 9px 8px 9px !important;
@@ -14940,6 +14983,12 @@ input.gsc-input {
     }
     .margin-none {
         margin-top: 15px !important;
+    }
+    .gsc-search-button{
+        display: none !important;
+    }
+    .homepage_btn {
+        display: none;
     }
 }
 
