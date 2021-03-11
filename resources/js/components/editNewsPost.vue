@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>smartnews</label>
+                        <label>SmartNewsに掲載する</label>
                         <input type="checkbox" id="smartnew" name="smartnew" v-model="news.smartnew" value="0">
                     </div>
                     
