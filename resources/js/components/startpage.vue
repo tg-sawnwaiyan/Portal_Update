@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="startpage">
       <h2 class="site_header">TIS（ティーズ） のホームページへの設定方法</h2>
       <div class="container pad-free-750">
        <div class="sitepolicy_home">
@@ -16,8 +16,9 @@
 
         </div>     -->
 
-        <div class="title" v-on:click="isActive1 = !isActive1">
-          <i class="fal fa-angle-down"></i>
+        <div class="title" id="browser1" v-on:click="toggle(1);isActive1 = !isActive1" >
+          <i class="fas fa-angle-up" v-if="isActive1"></i>
+          <i class="fas fa-angle-down" v-if="!isActive1"></i>
           <h5>Google Chrome</h5>
         </div>
         <div class="privacy" v-if="isActive1">
@@ -34,7 +35,9 @@
             </ol>    
         </div>
 
-        <div class="title" v-on:click="isActive2 = !isActive2">
+        <div class="title" id="browser2" v-on:click="toggle(2);isActive2 = !isActive2">
+          <i class="fas fa-angle-up" v-if="isActive2"></i>
+          <i class="fas fa-angle-down" v-if="!isActive2"></i>
           <h5>Microsoft Edge</h5>
         </div>
         <div class="privacy" v-if="isActive2">
@@ -57,30 +60,20 @@
             </ol>    
         </div>
 
-        <div class="title" v-on:click="isActive3 = !isActive3">
+        <div class="title" id="browser3" v-on:click="toggle(3);isActive3 = !isActive3">
+          <i class="fas fa-angle-up" v-if="isActive3"></i>
+          <i class="fas fa-angle-down" v-if="!isActive3"></i>
           <h5>Internet Explorer</h5>
         </div>
         <div class="privacy" v-if="isActive3">
-             <ol class="sub-ol">
-                <li>
-                    ブラウザ上部の <strong>「歯車マーク」</strong>をクリックします。
-                </li>
-                <li>
-                   <strong> 「インターネット オプション」</strong> を選択します。
-                </li>
-                <li>
-                   <strong>「全般」</strong> タブの「ホームページ」のテキスト ボックスに「<span style="color: green">https://t-i-s.jp</span>」と入力します。
-                </li>
-                <li>
-                   <strong>「OK」</strong> をクリックします。
-                </li>
-                <li>
-                   ブラウザを再起動します。
-                </li>
-            </ol>    
+             <span>
+                    非対応です。別のブラウザでご利用ください。
+             </span><br><br>
         </div>
 
-        <div class="title" v-on:click="isActive4 = !isActive4">
+        <div class="title" id="browser4" v-on:click="toggle(4);isActive4 = !isActive4">
+          <i class="fas fa-angle-up" v-if="isActive4"></i>
+          <i class="fas fa-angle-down" v-if="!isActive4"></i>
           <h5>Firefox</h5>
         </div>
         <div class="privacy" v-if="isActive4">
@@ -97,7 +90,9 @@
             </ol>      
         </div>
 
-        <div class="title" v-on:click="isActive5 = !isActive5">
+        <div class="title" id="browser5" v-on:click="toggle(5);isActive5 = !isActive5">
+          <i class="fas fa-angle-up" v-if="isActive5"></i>
+          <i class="fas fa-angle-down" v-if="!isActive5"></i>
           <h5>Safari</h5>
         </div>
         <div class="privacy" v-if="isActive5">
@@ -121,7 +116,6 @@
 </template>
 <script>
   export default {
-   // el: "#aa",
     data: function() {        
       return {
          isActive1: true,
@@ -131,11 +125,11 @@
          isActive5: true,
       }
     },
-    method: {
-        aa: function () {
-          alert("hi");
-      this.isActive = !this.isActive;
-    }  
+    methods: {
+      toggle(id) {
+          $('.title').removeClass('active');
+          $('#browser'+id).addClass('active');
+      }
     }
   }
 </script>
