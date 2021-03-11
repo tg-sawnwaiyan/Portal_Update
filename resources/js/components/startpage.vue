@@ -27,7 +27,16 @@
                     ブラウザの右上にある 「三点マーク」をクリックし、 <strong>「設定」</strong> を選択します。
                 </li>
                 <li>
-                  「デザイン」の <strong>「ホームボタンを表示する」</strong> を有効にします。
+                  左側にある「起動時」 の <strong>「特定のページまたはページセットを開く」</strong> を選択します。
+                </li>
+                <li>
+                  「新しいページを追加」をクリックし、サイトのURLに「<span style="color: green">https://t-i-s.jp</span>」と入力します。
+                </li>
+                <li>
+                  「追加」をクリックします。
+                </li>
+                <li>
+                  左側にある「デザイン」の<strong>「ホームボタンを表示する」</strong> を有効にします。
                 </li>
                 <li>
                    2 番目のオプションを選択し、「<span style="color: green">https://t-i-s.jp</span>」と入力します。
@@ -118,11 +127,11 @@
   export default {
     data: function() {        
       return {
-         isActive1: true,
-         isActive2: true,
-         isActive3: true,
-         isActive4: true,
-         isActive5: true,
+         isActive1: false,
+         isActive2: false,
+         isActive3: false,
+         isActive4: false,
+         isActive5: false,
       }
     },
     methods: {
