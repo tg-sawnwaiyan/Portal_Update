@@ -29,6 +29,7 @@
                                     <div class="col-md-auto pad-free google_search_div">
                                         <div class="google_div">          
                                             <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div>
+                                            <a href="/startpage" class="homepage_btn"><i class="fas fa-home"></i>ホームページに設定する</a>
                                         </div>
                                         <adsslider class="d-none d-sm-block slider_div"></adsslider>
                                     </div>

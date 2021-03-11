@@ -50,6 +50,7 @@ import admincreate from './components/AdminCreate'
 import sitepolicy from './components/sitepolicy'
 import Accountlist from './components/Accountlist'
 import NewsCategory from './components/News_Category'
+import startpage from './components/startpage'
 
 // import menu from './components/menu/Menu';
 
@@ -520,6 +521,15 @@ const routes = [
     name: 'sitepolicy',
     path: '/sitepolicy',
     component: sitepolicy,
+    meta: {
+        auth: false
+    }
+  },
+
+  {
+    name: 'startpage',
+    path: '/startpage',
+    component: startpage,
     meta: {
         auth: false
     }
