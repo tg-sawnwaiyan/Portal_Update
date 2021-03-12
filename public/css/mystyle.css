@@ -14914,6 +14914,14 @@ input.gsc-input {
     border-radius: 8px !important;
 }
 
+table.gsc-search-box td.gsc-input{
+    padding-right: 12px !important;
+}
+
+.gsc-input-box {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
 
 @media only screen and (min-width: 991px) and (max-width: 1360px){
     .slider_div{
@@ -14924,10 +14932,6 @@ input.gsc-input {
     }
     .gsib_a {
         padding: 9px 9px 8px 9px !important;
-    }
-    .gsc-input-box {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
     }
 }
 
