@@ -14801,8 +14801,15 @@ input.gsc-input {
 .google_search_div{
     text-align: center;
     margin: 10px;
-    background: #eee;
+    background: #fff;
     width: auto !important;
+}
+
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-input-box-focus{
+    border: 2px solid #2980b9 !important;
+    border-radius: 8px !important;
 }
 .slider_div{
     visibility: hidden;
@@ -14891,6 +14898,7 @@ input.gsc-input {
  .gsc-search-button-v2:focus {
     border-color: #2980B9 !important;
     background-color: #2980B9 !important;
+    border: 2px solid #2980B9 !important;
 }
 
 .google_search_all .homepage_btn {
@@ -14916,6 +14924,10 @@ input.gsc-input {
 
 .startpage .title h5{
     margin-bottom: 0;
+}
+
+.gsc-search-button-v2{
+    border-radius: 8px !important;
 }
 
 
@@ -14948,15 +14960,15 @@ input.gsc-input {
     }
     .google_div{
         width: 100%;
-        padding: 1em;
-        background: #eee;
-        margin: 10px 0 0 0;
+        padding: 0;
+        margin: 0;
+        height: auto;
     }
     #upper-tab {
-        margin-top: 40px;
+        margin-top: 38px;
     }
     .infoBox{
-        top: 210px !important;
+        top: 148px !important;
     }
     #headerbar.headerbarblock{
         display: none;
@@ -14982,14 +14994,19 @@ input.gsc-input {
         padding-bottom: 0 !important;
     }
     .margin-none {
-        margin-top: 15px !important;
+        margin-top: 0 !important;
     }
     .gsc-search-button{
         display: none !important;
     }
     .homepage_btn {
-        bottom: 3px;
-        right: 17px;
+        display: none;
+    }
+    .gsc-control-searchbox-only-ja{
+        width: 100%;
+    }
+    .google_search_all .google_div{
+        background: #fff;
     }
 }
 
