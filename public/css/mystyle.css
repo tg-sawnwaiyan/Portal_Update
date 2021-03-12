@@ -10511,6 +10511,8 @@ background-color: #f57e46;
     flex: 1 0 33.333%;
     position: relative;
     overflow: hidden;
+    height: 75%;
+    margin: 0 0 5px 0;
 }
 
 .wrapper-3 img {
