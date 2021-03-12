@@ -14919,10 +14919,6 @@ input.gsc-input {
     .slider_div{
         width: 32%;
     }
-     .gsc-search-button-v2{
-        border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-    }
     .gsc-search-box-tools .gsc-search-box .gsc-input{
         padding-right: 12px !important;
     }
