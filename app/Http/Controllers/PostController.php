@@ -386,6 +386,12 @@ class PostController extends Controller
                 $query = $query->where('posts.category_id', $category_id);
             }
         }
+
+        if(isset($request['smartnew'])) {
+            $smartnew = $request['smartnew'];
+            $query = $query->where('posts.smartnew', $smartnew);
+        }
+
         if(isset($request['selected_date'])) {
             $selected_date = $request['selected_date'];
             $from = Carbon\Carbon::parse($request['selected_date'])->startOfDay();
