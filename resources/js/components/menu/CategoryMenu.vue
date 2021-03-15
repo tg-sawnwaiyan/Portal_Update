@@ -92,7 +92,7 @@ export default {
 <style>
     .tab_color{
         height: auto;
-        border-left: 5px solid var(--bkgColor);
+        /*border-left: 5px solid var(--bkgColor);*/
         background-color: var(--bkgColor);
     }
     #myTab ul li {
@@ -240,12 +240,12 @@ export default {
         margin-left: -1.65rem;
         border-bottom: 0;
     }
-    .cat-nav {
+    /*.cat-nav {
         padding-bottom: 0;
         height: 36px;
         display: flex;
         padding-left: 1.65rem;
-    }
+    }*/
     
     .left-arr-btn {
         position: relative;     
@@ -259,9 +259,9 @@ export default {
         width: 2%;
     }
 
-    #top {
+    /*#top {
         border-left: 1px solid #fff;
-    }
+    }*/
 
     .nav-tabs{
         border-bottom: none;
@@ -276,7 +276,6 @@ export default {
     .cat-nav {
         margin: 0 auto 15px auto !important;
         padding-left: 0 !important;
-        max-height: 43px;
         position: relative;
         height: auto;
         margin: 0 auto 15px auto !important;
