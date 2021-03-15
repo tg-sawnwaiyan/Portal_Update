@@ -2868,9 +2868,9 @@ border-top: 5px solid #e66527; */
     width: 80%;
 }
 
-.menu_tab_category {
+/* .menu_tab_category {
     width: 78.8% !important;
-}
+} */
 
 #app .logo-text {
     padding: 0;
@@ -10511,6 +10511,8 @@ background-color: #f57e46;
     flex: 1 0 33.333%;
     position: relative;
     overflow: hidden;
+    height: 75%;
+    margin: 0 0 5px 0;
 }
 
 .wrapper-3 img {
@@ -14565,8 +14567,9 @@ strong {
 
 /*for google search*/
 input.gsc-input { 
-    background: url(/images/google_icon.png) no-repeat center left;
-    text-indent: 60px;  
+    background: url(/images/icon_google.png) no-repeat center left;
+    text-indent: 38px;
+    background-size: auto 100%;
 }
 
 .gsc-input-box{
@@ -14579,8 +14582,8 @@ input.gsc-input {
         width: 50%;
         position: relative;
         top: 70px;
-        padding: 1em;
-        background: #eee;
+        padding: 0;
+        background: #fff;
         margin-left: auto;
         margin-right: auto;
         left: 0;
@@ -14689,17 +14692,7 @@ input.gsc-input {
         display: none;
     }
 }
-@media only screen and (min-width: 561px) and (max-width: 990px){
-    .menu_tab_category {
-        top: 296px !important;
-    }
-    .upper-tab {
-        margin-top: 105.5px !important;
-    }
-    .ads-slider {
-        top: 85px;
-    }
-}
+
 
 @media only screen and (max-width: 990px){
     #headerbar,
@@ -14773,13 +14766,6 @@ input.gsc-input {
 }
 
 
-@media only screen and (min-width: 560px) and (max-width: 767px){
-    .tab {
-        margin-top: 91px;
-    }
-}
-
-
 /*end of header bar*/
 
 /*google_search_div*/
@@ -14801,8 +14787,15 @@ input.gsc-input {
 .google_search_div{
     text-align: center;
     margin: 10px;
-    background: #eee;
+    background: #fff;
     width: auto !important;
+}
+
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-input-box-focus{
+    border: 2px solid #2980b9 !important;
+    border-radius: 8px !important;
 }
 .slider_div{
     visibility: hidden;
@@ -14891,6 +14884,7 @@ input.gsc-input {
  .gsc-search-button-v2:focus {
     border-color: #2980B9 !important;
     background-color: #2980B9 !important;
+    border: 2px solid #2980B9 !important;
 }
 
 .google_search_all .homepage_btn {
@@ -14918,24 +14912,28 @@ input.gsc-input {
     margin-bottom: 0;
 }
 
+.gsc-search-button-v2{
+    border-radius: 8px !important;
+}
+
+table.gsc-search-box td.gsc-input{
+    padding-right: 12px !important;
+}
+
+.gsc-input-box {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
 
 @media only screen and (min-width: 991px) and (max-width: 1360px){
     .slider_div{
         width: 32%;
-    }
-     .gsc-search-button-v2{
-        border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
     }
     .gsc-search-box-tools .gsc-search-box .gsc-input{
         padding-right: 12px !important;
     }
     .gsib_a {
         padding: 9px 9px 8px 9px !important;
-    }
-    .gsc-input-box {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
     }
 }
 
@@ -14948,15 +14946,15 @@ input.gsc-input {
     }
     .google_div{
         width: 100%;
-        padding: 1em;
-        background: #eee;
-        margin: 10px 0 0 0;
+        padding: 0;
+        margin: 0;
+        height: auto;
     }
     #upper-tab {
-        margin-top: 40px;
+        margin-top: 38px;
     }
     .infoBox{
-        top: 210px !important;
+        top: 148px !important;
     }
     #headerbar.headerbarblock{
         display: none;
@@ -14981,15 +14979,40 @@ input.gsc-input {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
     }
-    .margin-none {
-        margin-top: 15px !important;
-    }
     .gsc-search-button{
         display: none !important;
     }
     .homepage_btn {
         display: none;
     }
+    .gsc-control-searchbox-only-ja{
+        width: 100%;
+    }
+    .google_search_all .google_div{
+        background: #fff;
+    }
 }
 
+
+@media only screen and (min-width: 561px) and (max-width: 990px){
+    .menu_tab_category {
+        top: 142px !important;
+    }
+    .upper-tab {
+        margin-top: 83px !important;
+    }
+    .ads-slider {
+        top: 85px;
+    }
+    .margin-none {
+        margin-top: 50px !important;
+    }
+}
+
+
+@media only screen and (max-width: 560px){
+    .margin-none {
+        margin-top: 0 !important;
+    }
+}
 
