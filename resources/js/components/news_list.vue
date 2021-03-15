@@ -311,10 +311,10 @@
                 }).then(response => {
                     this.axios.get(`/api/changeSmartStatus/${postid}`)
                     .then(response => {
-                        this.searchbyCategory(this.page);
+                       // this.searchbyCategory(this.page);
                     });                
                 }).catch(error =>{
-                    if(activate == 1){
+                    if(smartnew == 1){
                         $("#"+postid).prop("checked", true);
                     }else{
                         $("#"+postid).prop("checked", false);
