@@ -299,9 +299,9 @@
                 });                    
             },
             deletePost(id) {
-                if(this.norecord > 0){
+                if(this.norecord == 1){
                         this.page = this.page > 1 ? this.page-1 : this.page;
-                        }
+                }
                 var catid = document.getElementById("selectBox").value;
 
                 this.$swal({
