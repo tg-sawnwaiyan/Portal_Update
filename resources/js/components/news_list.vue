@@ -48,7 +48,7 @@
                             <div id="date_picker" @click="changeCalendarHeader" class=" d-flex  justify-content-md-end align-items-center my-3">
                                 <label class="width-20">日付</label><br>
                                 <input type="hidden" id="hidden_select_date" v-bind:value="select_date">
-                                <date-picker @change="showDate" class="width-300" :lang="lang" v-model="select_date" valueType="format" placeholder="日付を選択してください"></date-picker>
+                                <date-picker @change="showDate" class="width-65" :lang="lang" v-model="select_date" valueType="format" placeholder="日付を選択してください"></date-picker>
                             </div>
                             <div v-if="news_list.total" class="">
                                 <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
@@ -421,8 +421,8 @@
 .width-20 {
     width: 20% !important;
 }
-.width-300 {
-    width: 300px !important;
+.width-65 {	
+    width: 65%;	
 }
 .width-auto {
     width: auto !important;
