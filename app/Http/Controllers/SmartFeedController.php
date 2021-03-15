@@ -14,6 +14,7 @@ class SmartFeedController extends Controller
         $news = Post::join('categories','categories.id','=','posts.category_id')
                 ->select('posts.*','categories.name as cat_name')
                 ->where('categories.name', '!=', 'PR')
+                ->where('posts.recordstatus', '=', 1)
                 ->where('posts.smartnew', '=', 1)
                 ->orderBy('posts.created_at', 'desc')->skip(0)->take(30)->get()->toArray();
 
@@ -59,14 +60,14 @@ class SmartFeedController extends Controller
         }
         $item .= "<description><![CDATA[" . $data["main_point"] . "]]></description>\n";
         $item .= "<pubDate><![CDATA[" .date(DATE_RSS,strtotime($data["created_at"])) . "]]></pubDate>\n";
-        $item .= "<content:encoded><![CDATA[" . $data["body"];
+        $item .= "<content:encoded><![CDATA[";
         if(!empty($data["photo"])){
             $item .= "<figure>\n";
             $item .= "<img src=\"".$url."upload/news/".$data["photo"]."\" />\n";
             $item .= "<figcaption>".$data["cat_name"]."ニュース画像</figcaption>\n";
             $item .= "</figure>\n";
         }
-        $item .= "]]></content:encoded>\n";
+        $item .=  $data["body"]."]]></content:encoded>\n";
         $item .= "<snf:advertisement>\n";
         foreach ($ads as $ads) {
             $item .= $this->create_ads($ads,$url);
@@ -90,10 +91,11 @@ class SmartFeedController extends Controller
 
     private function create_ads($ads,$url)
     {
-        $link = $ads["link"];
+        $link = $ads["link"] ? $ads["link"] : $url."upload/static/".$ads["pdf"];
+        $advertiser = $ads["description"] ? $ads["description"] : $ads["title"];
         $thumbnail = "".$url."upload/advertisement/".$ads["photo"];
         
-        $advertisement = "<snf:sponsoredLink link=\"".htmlspecialchars($link)."\" title=\"".$ads["title"]."\"  thumbnail=\"".htmlspecialchars($thumbnail)."\" advertiser =\"".$ads["description"]."\"/>\n";
+        $advertisement = "<snf:sponsoredLink link=\"".htmlspecialchars($link)."\" title=\"".$ads["title"]."\"  thumbnail=\"".htmlspecialchars($thumbnail)."\" advertiser =\"".$advertiser."\"/>\n";
         
         return $advertisement;
     }
