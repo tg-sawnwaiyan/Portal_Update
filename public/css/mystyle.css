@@ -15033,5 +15033,11 @@ table.gsc-search-box td.gsc-input{
     color: #2980b9;
     background: #f8f9fc;
 }
+@media only screen and (max-width: 767px){
+    .aboutus table th,
+    .aboutus table td{
+        display: block;
+    }
+}
 /*end of aboutus*/
 
