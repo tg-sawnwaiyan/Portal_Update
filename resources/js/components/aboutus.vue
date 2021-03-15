@@ -1,9 +1,8 @@
 <template>
   <div class="aboutus">
-      <h2 class="site_header">会社概要</h2>
+      <h2 class="site_header">運営会社</h2>
       <div class="container pad-free-750">
         <div class="title" id="browser1" v-on:click="toggle(1);isActive1 = !isActive1" >
-          <h5>会社概要</h5>
           <table>
         <tbody>
           <tr>
