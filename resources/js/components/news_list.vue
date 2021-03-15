@@ -34,11 +34,21 @@
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
                                 </select>
                             </div>
-                            <!-- linked news -->
+
+                            <!-- smart news -->
+                            <div class=" d-flex  justify-content-md-end align-items-center my-3">
+                                <label for="smartnew" class="select_label  mr-2">SmartNews掲載</label>
+                                <select  id="smartnew" class="form-control select_box" @change="searchbyCategory()">
+                                    <option selected="selected" value>指定なし</option>
+                                    <option v-bind:value="1">揭載</option>
+                                    <option v-bind:value="0">非揭載</option>
+                                </select>
+                            </div>
+
                             <div id="date_picker" @click="changeCalendarHeader" class=" d-flex  justify-content-md-end align-items-center my-3">
                                 <label class="width-20">日付</label><br>
                                 <input type="hidden" id="hidden_select_date" v-bind:value="select_date">
-                                <date-picker @change="showDate" class="width-300" :lang="lang" v-model="select_date" valueType="format" placeholder="日付を選択してください"></date-picker>
+                                <date-picker @change="showDate" class="width-65" :lang="lang" v-model="select_date" valueType="format" placeholder="日付を選択してください"></date-picker>
                             </div>
                             <div v-if="news_list.total" class="">
                                 <p class=" d-flex  justify-content-md-end align-items-center my-3" id="showTotal">検索結果：{{news_list.total}}件が該当しました</p>                                  
@@ -350,11 +360,14 @@
                 });
 
                 var search_word = $("#search-item").val();
-                var selected_category = document.getElementById("selectBox").value;
+
+                var selected_category = document.getElementById("selectBox").value; 
+                var smartnew = document.getElementById("smartnew").value;       
 
                 let fd = new FormData();
                 fd.append("search_word", search_word);
                 fd.append("selected_category", selected_category);
+                fd.append("smartnew", smartnew);
                 fd.append("contents", contents);
                 if(this.select_date != null){
                     fd.append("selected_date", this.select_date);//linked news
@@ -403,4 +416,5 @@
             },
         }
     };
+
 </script>
