@@ -48,9 +48,6 @@
     font-weight: bold;
     z-index: 99;
 }
-.box{
-    padding: 10px;
-}
 .con{
     padding-top: 38px;
 }
@@ -79,30 +76,7 @@
 #content .news-post p{
     font-size: 14px;
 }
-.img_2{
-    font-size: 17px;
-    font-weight: bold;
-}
-.info{
-    width: 100%;
-    height: 120px;
-    position: absolute;
-    top: 140px;
-    background-color: #2a2d2cb0;
-    color: #fff;
-    text-align: justify !important;
-}
-.info div{
-    padding: 10px 10px 0px 10px;
-    font-size: 12px;
-    text-align: justify;
-    border-right: 1px solid #fff;
-}
 .scrolldiv{
-    background: white;
-    padding-top: 15px;
-}
-.scrolldiv2{
     background: white;
     padding-top: 15px;
 }
@@ -133,30 +107,6 @@
 }
 .rightwrap{
     margin-top: 10px;
-}
-.btn-file{
-    border: 1px dashed #eee;
-    background: #ccc9c9;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-.btn-file input[type=file]{
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
 }
 /* nursing and hospital accountlist */
 .img_title{
@@ -267,12 +217,6 @@ input:disabled::placeholder,
 textarea:disabled::placeholder{
     -webkit-text-fill-color: #212529;
     opacity: 1;
-}
-.tab-pane{
-    padding: 10px;
-}
-.tab-pane h5{
-    font-size: 18px;
 }
 ::-webkit-input-placeholder{
     /* WebKit, Blink, Edge */
@@ -571,28 +515,6 @@ span.video_txt{
     border-left: 3px solid #2980b9;
     font-weight: 700;
 }
-.show-pdf{
-    width: 93.75%;
-    float: left;
-}
-.pdf-close-btn{
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #aaa;
-    border-radius: 3px;
-    background: white;
-    color: red;
-    font-size: 0.9em;
-    padding: 8.25px 15.2px;
-    float: right;
-}
-.pdf-close-btn:hover{
-    color: blue;
-}
-.show-flag{
-    padding-left: 2px;
-    padding-right: 15px;
-}
 #image_preview{
     border-radius: 5px;
     padding: 10px 0px;
@@ -614,14 +536,6 @@ span.video_txt{
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
-}
-.p_3{
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-align: justify;
-    color: white;
-    max-height: 60px;
-    overflow: hidden;
 }
 .h_4{
     width: 100%;
@@ -766,75 +680,6 @@ input::-ms-clear{
 }
 .bordertop-color5 i{
     color: #63b7ff;
-}
-.hovereffect{
-    height: 100%;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    cursor: default;
-}
-.hovereffect .overlay{
-    position: absolute;
-    overflow: hidden;
-    width: 80%;
-    height: 80%;
-    left: 10%;
-    top: 10%;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transform: scale(0, 1);
-    -ms-transform: scale(0, 1);
-    transform: scale(0, 1);
-    z-index: 100;
-}
-.hovereffect:hover .overlay{
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-}
-.hovereffect img{
-    display: block;
-    position: relative;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-}
-.hovereffect:hover img{
-    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
-    filter: brightness(0.6);
-    -webkit-filter: brightness(0.6);
-}
-.hovereffect h2{
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    background-color: transparent;
-    color: #fff;
-    padding: 1em 0;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-}
-.hovereffect:hover a,
-.hovereffect:hover p,
-.hovereffect:hover h2{
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-.fit-image{
-    width: 100%;
-    object-fit: contain;
-    height: 214px;
-    padding: 10px 0;
 }
 /********************************** End News **********************************/
 /****************************** no search data *************************/
@@ -1554,10 +1399,6 @@ input::-ms-clear{
 
 /* End Create News */
 /*Job Apply Form*/
-textarea.form-control,
-textarea{
-    height: 100px !important;
-}
 .multi-step{
     margin-bottom: 40px;
     text-align: center;
@@ -2050,18 +1891,11 @@ ul.sub-ul li{
 .m-t-0{
     margin-top: 0px;
 }
-.m-t-8{
-    margin-top: 8px;
-}
 .m-t-39{
     margin-top: 39px;
 }
 .m-t-50{
     margin-top: 50px;
-}
-.m-lr-0{
-    margin-left: 0px;
-    margin-right: 0px;
 }
 .m-l-10{
     margin-left: 10px !important;
@@ -2086,12 +1920,6 @@ ul.sub-ul li{
 }
 .m-t-10{
     margin-top: 10px !important;
-}
-.m-t-15{
-    margin-top: 15px !important;
-}
-.m-t-20{
-    margin-top: 20px;
 }
 .m-t-25{
     margin-top: 25px;
@@ -2310,9 +2138,6 @@ ul.sub-ul li{
     background: #fff;
     margin: 10px 0px 0px 0px;
     border-radius: 0.25rem;
-}
-.tab-content1{
-    min-height: 350px;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;
@@ -2671,38 +2496,6 @@ ul.main-tab li:after{
 }
 /* end for main tab*/
 /*related news*/
-.next-title{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    clear: both;
-    margin-top: 20px;
-    color: #000;
-    text-align: left;
-}
-#news_details .related_content{
-    width: 100%;
-}
-.newsDetail_leftwrapper{
-    max-width: 500px;
-}
-.img-wrap{
-    width: 100%;
-    text-align: center;
-    padding: 30px;
-}
-.related_box{
-    float: left;
-    width: 25%;
-    padding-right: 10px;
-}
-.related_box:nth-child(4n){
-    padding-right: 0;
-}
-#news_details .info p{
-    color: #fff;
-    padding: 0px 15px;
-}
 /* Hospital Search */
 .table-innertitle{
     position: relative;
@@ -3391,13 +3184,6 @@ div.b{
 .m-t-71{
     margin-top: 71px;
 }
-.m-t-8{
-    margin-top: 8px;
-}
-.m-lr-0{
-    margin-left: 0px;
-    margin-right: 0px;
-}
 .m-l-10{
     margin-left: 10px !important;
     font-size: 16px;
@@ -3410,12 +3196,6 @@ div.b{
 }
 .m-t-10{
     margin-top: 10px !important;
-}
-.m-t-15{
-    margin-top: 15px !important;
-}
-.m-t-20{
-    margin-top: 20px;
 }
 .m-t-30{
     margin-top: 30px;
@@ -3501,9 +3281,6 @@ div.b{
     left: 8px;
 }
 /*comment*/
-.secondary-bg-color{
-    background-color: #0cc72c !important;
-}
 .toggle-btn .icon-arrow:before{
     content: '\25BC';
 }
@@ -3583,13 +3360,6 @@ div.b{
     background: #fff;
     margin: 10px 0px 0px 0px;
     border-radius: 0.25rem;
-}
-.upper-tab{
-    margin-top: 62.48px;
-    background: #fff;
-}
-.tab-content1{
-    min-height: 350px;
 }
 .tab-card-header{
     background-color: #e0e0e0 !important;
@@ -4063,15 +3833,6 @@ ul.main-tab li:after{
 }
 /*end for breadcrumb*/
 /*related news*/
-.next-title{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    clear: both;
-    margin-top: 20px;
-    color: #000;
-    text-align: left;
-}
 /* listadmin .pagination */
 .page-item:first-child .spanclass,
 .page-item:last-child .spanclass,
@@ -4111,10 +3872,6 @@ ul.main-tab li:after{
 }
 /* end listadmin .pagination */
 /* Newdetails */
-.p5{
-    font-size: 18px;
-    letter-spacing: 2px;
-}
 .news_photo{
     height: 250px;
     width: 80%;
@@ -4125,11 +3882,6 @@ ul.main-tab li:after{
     color: rgb(255, 72, 0);
     font-size: 14px;
 }
-.news_detail_tit{
-    text-align: center;
-    letter-spacing: normal;
-    line-height: 1.5;
-}
 .seemore_tit{
     position: relative;
     display: inline-block;
@@ -4138,21 +3890,6 @@ ul.main-tab li:after{
     font-weight: bold;
     border-bottom: 1px dashed #2980b9;
     color: #2980b9;
-}
-/*End Newdetails */
-/* Newdetails */
-.p5{
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-.news_photo{
-    width: 100%;
-    margin-bottom: 24px;
-    border-radius: 3px;
-}
-.related-area span{
-    color: #6c757d;
-    font-size: 14px;
 }
 /*End Newdetails */
 /*jssor slider*/
@@ -6352,9 +6089,6 @@ ul.nur-caro-card>li.list-group-item{
 .pc-rsp-table{
     display: table-cell;
 }
-.pc-414-inline{
-    display: inline-block;
-}
 .sp-768{
     display: none;
 }
@@ -6367,15 +6101,7 @@ ul.nur-caro-card>li.list-group-item{
 #nusNew{
     display: none;
 }
-strong{
-    font-weight: bold!important;
-}
 /*all_pages_btn_red*/
-.bt-red{
-    color: #fff;
-    background-color: #e3342f;
-    border-color: #e3342f;
-}
 .pro_num{
     font-size: .9em;
     color: #346e90;
@@ -6428,10 +6154,6 @@ strong{
     margin-bottom: 10px;
     text-align: center;
     display: inline-block;
-}
-.img-fluid{
-    max-width: 670px !important;
-    width: 100% !important;
 }
 #job_search .profile_header{
     font-size: 20px;
@@ -6646,131 +6368,59 @@ strong{
     background-color: red;
     color: white;
 }
-/* Media Queries*/
-@media only screen and (min-width: 320px){
-    .source-img-small{
-        width: 100%;
+@media only screen and (max-device-width: 990px) and (orientation: landscape){
+    .successful-resetpwd{
+        width: 100% !important;
+        margin-top: 34px;
+        background-color: #f8f8f8;
+        border: none;
     }
-    .smallads-title{
-        font-size: 12px;
-        line-height: 1.357;
-        color: #333;
-        overflow: hidden;
-        position: relative;
-        padding: 0;
-        top: -0.2rem;
-        max-height: 200px;
+    .loginwrapper{
+        padding: 30px 0 0 0;
+        height: auto;
     }
-    .today .adslist-card .smallads-title{
-        font-size: 12px;
-        line-height: 1.357;
-        color: #333;
-        overflow: hidden;
-        position: relative;
-        padding: 0;
-        top: -0.2rem;
-        max-height: 65px;
+    .user_card{
+        margin-bottom: 30px;
     }
-    .today .smallads-title{
-        display: block;
-        white-space: normal;
+    #register.loginwrapper{
+        height: auto;
+        padding: 30px 0;
     }
-    .adslist-card{
-        width: 100%;
-        padding: 10px 0px 10px 0px;
+    .admin-list-wrapper{
+        background-color: #fff;
+        padding: 20px 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    .userview-sidebar{
-        background-color: #f5f5f5;
-        padding-top: 35%;
-        padding-left: 25px;
-        margin-top: 2px;
+    .admin-create-wrapper{
+        height: auto !important;
+        top: 0px !important;
+        margin-top: 0px !important;
+        transform: none !important;
     }
-    /*nursing-search*/
-    .job_id2{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 14px;
-        margin-bottom: 11px;
-        text-align: center;
+    .admin-list-container>.admin_card{
+        margin-top: 0px;
+        transform: none;
+        top: 0px;
     }
 }
-@media only screen and (min-width: 414px){
-    .date-witdh-410{
+@media only screen and (max-width: 480px){
+    .dropdown-toggle::after{
+        position: absolute;
+        right: 12px;
+        top: 15px;
+    }
+}
+@media only screen and (max-width: 480px){
+    .previous span{
         display: none;
     }
-}
-@media only screen and (max-width: 320px){
-    .user_card{
-        width: 290px;
+    .next span{
+        display: none;
     }
-    .comment{
-        padding: 10px;
-        width: 288px;
-        left: -30px;
+    .pagination .pages{
+        display: none;
     }
-    .fnumericzip{
-        margin-bottom: 10px;
-    }
-    .com-mt{
-        margin-top: 44px;
-    }
-    .title_comment2{
-        margin-left: -15px;
-        margin-right: -15px;
-        padding: 18px;
-    }
-    .t-t{
-        margin-left: 5px;
-        margin-top: -45px;
-    }
-    .bottom-mail-btn{
-        width: 108px !important;
-        margin-right: 0px;
-    }
-    .searchButtonNews{
-        width: 30%;
-    }
-    /*comment*/
-    .comment{
-        padding: 13px;
-        left: -40px;
-    }
-    .fnumericzip{
-        margin-bottom: 10px;
-    }
-    .com-mt{
-        margin-top: 44px;
-    }
-    /*comment*/
-    .set-date{
-        text-indent: 0em;
-    }
-    .registerform_container{
-        margin-top: 0px;
-    }
-    /*create_news*/
-    .searchButton{
-        width: 35% !important;
-    }
-    .news_catsearch label{
-        width: 55%;
-    }
-    .nursing_btn span{
-        margin-left: 0;
-        margin-top: 0;
-    }
-    .postal{
-        width: 100%;
-    }
-    /*#news_list .select_box{
-        width: 70%;
-    }*/
-    /*#news_list .select_label{
-        width: 26% !important;
-    }*/
 }
 @media only screen and (max-width: 360px){
     .bottom-mail-btn{
@@ -6793,29 +6443,6 @@ strong{
         border: none;
         background: #fff;
     }
-    .comment{
-        padding: 7px;
-        width: 323px;
-        left: -7px;
-    }
-    .comform{
-        max-width: none;
-    }
-    .fnumericzip{
-        margin-bottom: 10px;
-    }
-    .com-mt{
-        margin-top: 44px;
-    }
-    .title_comment2{
-        margin-left: -15px;
-        margin-right: -15px;
-        padding: 12px;
-    }
-    .t-t{
-        margin-left: 5px;
-        margin-top: -45px;
-    }
 }
 @media only screen and (max-width: 375px){
     #nursing-search .card-carousel{
@@ -6835,287 +6462,6 @@ strong{
     #nursing-search .card-carousel--nav__left,
     #nursing-search .card-carousel--nav__right{
         margin-left: -7px;
-    }
-}
-@media only screen and (max-width: 380px){
-    .searchButtonNews{
-        width: 30%;
-    }
-    .wt-admin{      
-        right: 45px !important;      
-    }
-    /*register*/
-    .login_wp{
-        height: 105vh;
-        padding: 10px;
-        position: fixed;
-        top: 22px;
-        background-color: #fbfbfb;
-    }
-    .registerform_container{
-        margin-top: 60px;
-    }
-    .brand_logo_container{
-        height: 150px;
-        width: 150px;
-    }
-    .user_card{
-        width: 330px;
-    }
-    .form_content{
-        padding: 70px 15px 40px 15px;
-    }
-    .brand_logo{
-        width: 100px
-    }
-    /*.mb-7,
-    .my-3{
-        margin-bottom: 7px !important;
-    }*/
-    /*register*/
-    .links{
-        position: relative;
-    }
-    /* header */
-    #sp_headerbar .fav_his{
-        float: none;
-        text-align: center;
-    }
-    ul.menu li.first-submenu{
-        position: absolute;
-        top: 18px;
-        right: 16px;
-        font-size: 20px;
-    }
-    .login_nav li.first-submenu{
-        top: 18px !important;
-    }
-    ul.menu_list li i.fa-twitter,
-    ul.menu_list li i.fa-facebook-f{
-        color: inherit !important;
-    }
-    .first-submenu span{
-        display: none;
-    }
-    .d-none-380{
-        display: none !important;
-    }
-    .backwrapper{
-        padding: 10px;
-        background: #f8fdff;
-    }
-    .d-none-768{
-        display: block;
-        text-align: center;
-    }
-    .d-none-380{
-        display: none;
-    }
-    /*end header */
-    /* Profile Publish */
-    .gallery-list .gallery-item{
-        font-size: 12px;
-    }
-    .top-mail-btn{
-        right: 125px !important;
-        width: 98px !important;
-        font-size: 12px !important;
-    }
-    .fav-profile{
-        right: 0px;
-        font-size: 12px;
-        top: 0px !important;
-    }
-    /*End  Profile Publish */
-    .related-card .cat_lbl{
-        font-size: 12px;
-    }
-}
-@media only screen and (max-width: 414px){
-    .span-height{
-        line-height: 0px;
-    }
-    .sp-t{
-        margin-left: 73px !important;
-        margin-top: -23px !important;
-    }
-    .sp-t2{
-        margin-left: 114px !important;
-        margin-top: -23px !important;
-    }
-    .dateTime{
-        display: none;
-    }
-    .date-witdh-410{
-        display: block;
-        border: 1px solid #DEE2E6;
-    }
-    .date-label{
-        border: 1px solid #DEE2E6;
-        padding: 0.50rem;
-        font-weight: 700 !important;
-        background: #f5f5f5;
-    }
-    .datepicker{
-        border: 1px solid #DEE2E6;
-    }
-    /* create news */
-    /*.related_post_box{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 96%;
-        max-width: 100%;
-        margin: 2%;
-    }*/
-    /*End create news */
-    .newsDetail_leftwrapper{
-        max-width: 100%;
-        margin-right: 0px !important;
-    }
-    .nursing_responsive{
-        max-width: 100%;
-    }
-    /*register*/
-    .login_wp{
-        height: 105vh;
-        padding: 10px !important;
-        position: fixed;
-        width: 100%;
-        background-color: #fbfbfb;
-    }
-    .registerform_container{
-        margin-top: 142px;
-    }
-    #psd_reset .reset_form{
-        padding: 90px 15px 0 15px;
-    }
-    #psd_reset_form .form_content{
-        padding: 90px 15px 60px 15px;
-    }
-    #psd_reset .reset_txt{
-        font-size: 13px;
-    }
-    .links_2{
-        top: 78px;
-    }
-    .p-l-162{
-        padding-left: 0px;
-    }
-    .links{
-        position: relative;
-    }
-    .sp-414-table{
-        display: table-cell !important;
-    }
-    .pc-414-table{
-        display: none !important;
-    }
-    .pc-rsp-table{
-        display: table-cell;
-    }
-    .pc-414-inline{
-        display: none !important;
-    }
-    /*create_news*/
-    .sp-414-timetable .table th,
-    .sp-414-timetable .table td{
-        padding: 5px !important;
-        vertical-align: middle;
-    }
-    .hos-content{
-        padding: 10px;
-    }
-    .m-b-414{
-        margin-bottom: 10px;
-    }
-    div#sp-414-block .nur_date{
-        display: inline-block;
-        margin-top: 10px;
-    }
-    div#sp-414-block .fac_list{
-        padding: 6px;
-        display: inline-block;
-        width: auto;
-    }
-    /* nursing profile */
-    .nursing_input{
-        flex: 0 0 100%;
-        padding: 0;
-        margin: 0;
-        padding: 0 7px;
-    }
-    .heading-lbl{
-        font-size: 1.05em;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .heading-lbl1{
-        font-size: 1.05em;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .nursing_btn{
-        margin-top: 0px;
-    }
-    .nusing_btn1{
-        background-color: #0cc72c !important;
-        min-width: 68px;
-    }
-    .nursing_table{
-        display: block;
-        width: 100%;
-    }
-    .nursing_table1{
-        display: block;
-    }
-    .nursing-addbtn{
-        margin-top: 10px;
-        padding-left: 1px;
-    }
-    .nursing_cost{
-        padding: 0px;
-        margin-left: 16px;
-    }
-    .nursing_title_lbl{
-        display: block;
-    }
-    #gallery-payment table tr>th:first-child{
-        width: 100%;
-    }
-    .nursing_table_title th,
-    .nursing_table_title td{
-        display: block;
-        width: 100% !important;
-    }
-    .nursing_p-r-2{
-        padding-right: 2px !important;
-    }
-    .nursing_p-l-2{
-        padding-left: 2px !important;
-    }
-    .nursing-m-b-15{
-        margin-bottom: 10px !important;
-    }
-    .p-t-10{
-        padding-top: 10px !important;
-        margin-left: 13px;
-    }
-    .hos-del{
-        padding-bottom: 10px;
-    }
-    .m-l-20{
-        margin-left: 5px !important;
-        margin-top: 5px;
-    }
-    .postal{
-        width: 100%;
-    }
-    /* end nursing profile */
-    .related-card .cat_select{
-        width: 65%;
-    }
-    #joboffer_list .all-btn{
-        padding: 10px;
     }
 }
 @media only screen and (max-width: 450px){
@@ -7141,612 +6487,63 @@ strong{
         width: 100px;
     }
 }
-@media only screen and (max-width: 480px){
-    .admin-backbtn{
-        min-width: 62px;
-        position: absolute;
-        right: 0px;
-    }
-    .cmt2{
-        float: left;
-        margin-left: -13px;
-    }
-    .cmt3{
-        display: none;
-    }
-    .search_jobid{
-        float: none;
-    }
-    .data-success{
-        font-size: 16px;
-    }
-    .successful-resetpwd{
-        background-color: #fff;
-        margin-top: 0px;
-        border: none;
-    }
-    /*news*/
-    .ads-slider{
-        top: 10px;
-    }
-    .news-3-card .img-box{
-        padding: 0 5px !important;
-    }
-    .wrapper-4 img{
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-    }
-    .wrapper-4{
-        border: 1px solid #fff;
-        background-color: #fff;
-    }
-    .wrapper-3 img.fit-image{
-        height: 100%;
-    }
-    .single-news-box p{
-        overflow: hidden;
-        height: -webkit-fill-available;
-    }
-    .category_box{
-        margin-top: 0px;
-    }
-    .category_box h4{
-        font-size: 16px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    .category_news_title{
-        padding: 0px 10px 10px 0px;
-    }
-    /*fav nursing*/
-    .close-480{
-        display: block;
-        line-height: 2px;
-        font-size: 20px;
-        height: 30px;
-        width: 35px;
-        padding: 0px;
-    }
-    .check-resize{
-        display: block;
-    }
-    dl.favnur dt{
-        display: block;
-        width: auto;
-    }
-    #nursing dl dd{
-        padding-left: 0px;
-    }
-    .fav-update-wrap{
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-    .fav-update-wrap{
-        padding: 0;
-        background: #BCDDF3;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-    .favnur{
-        border-right: 1px solid #ccc !important;
-    }
-    .compare-wrap{
-        max-width: 100%;
-    }
-    .fav-update-btn{
-        width: 35%;
-        line-height: 25px;
-        margin: 8px auto;
-    }
-    .fnt-title{
-        font-size: 15px;
-    }
-    .fnt-check{
-        font-size: 13px;
-    }
-    .pb-4,
-    .py-4{
-        padding-bottom: 0px !important;
-    }
-    #nursing .modal-footer{
-        padding: 0px;
-    }
-    .modal-hr hr{
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-    .lbl-size{
-        width: auto;
-    }
-    .job_count{
-        font-size: 15px;
-        padding: 0px 5px 0px;
-    }
-    /*end fav nursing*/
-    
-    /*create_news*/
-    .news_catsearch{
-        padding: 15px;
-    }
-    .news_catsearch label{
-        display: none;
-    }
-    .admin_page_edit{
-        text-align: justify !important;
-        padding: 10px;
-    }
-    .admin_page_edit .edit-borderbtn,
-    .admin_page_edit .delete-borderbtn{
-        min-width: 55px;
-        font-size: 12px;
-    }
-    .custom_title{
-        position: relative;
-        margin: 5px 0;
-    }
-    .custom_title:after{
-        content: '';
-        position: absolute;
-        bottom: 0;
-        display: inline-block;
-        width: 25px;
-        height: 3px;
-        left: 0;
-        border-radius: 2px;
-        background: #2980b9;
-    }
-    #customer_list .custom_title:after{
-        left: 15px;
-    }
-    .scroll_responsive{
-        overflow-x: auto;
-    }
-    .scroll_responsive .table{
-        margin-bottom: 0 !important;
-    }
-    .custom-table{
-        width: 555px;
-    }
-    .admin-list .custom-table{
-        width: 100%;
-    }
-    .t_card{
-        margin-left: 22px;
-    }
-    #create_news .title{
-        padding: 14px;
-        font-size: 12px;
-        padding-left: 10px;
-        margin-top: -7px;
-    }
-    .card_height{
-        float: left;
-        height: 236px;
-        cursor: pointer;
-    }
-    .pc-m-0-10{
-        margin: 0px 10px;
-    }
-    .pc-m-r-10{
-        margin-right: 10px;
-    }
-    .mb-10{
-        margin-bottom: 10px;
-    }
-    .related-card .cat_wrap{
-        width: 100%;
-    }
-    /* end create news */
-    /* new details */
-    .related_box{
-        width: 100%;
-        padding: 0 !important;
-    }
-    /*End new details */
-    /*category*/
-    .t-r{
-        margin-right: -8px;
-    }
-    .t-l{
-        margin-left: 1px;
-    }
-    /*occupation*/
-    .o-r1{
-        margin-right: 19px;
-    }
-    .o-r2{
-        margin-left: 29px;
-    }
-    /*occupation*/
-    /*advertisement*/
-    .a-d1{
-        margin-right: 0px;
-    }
-    .a-d2{
-        margin-left: 12px;
-        margin-top: 20px;
-    }
-    .job-box table tr{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        border-bottom: 0;
-
-    }
-    .job-box table th{
-        width: 100% !important;
-        border: none;
-    }
-    .job-box td{
-        width: 100% !important;
-        min-height: 45px;  
-    }
-    .info_tbl tr{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        border-bottom: 0;
-    }
-    .info_tbl th{
-        width: 100%;
-        border: none;
-    }
-    .info_tbl td{
-        width: 100%;
-        min-height: 45px;    
-    }
-    .cash-lbl{
-        font-size: 1.4em;
-    }
-    .facility_tbl th{
-        width: 80px;
-    }
-    .main-cost-wrap{
-        width: 330px;
-        overflow-x: scroll;
-    }
-    .main-cost-table{
-        width: 550px !important;
-        float: none !important;
-    }
-    .changeLink{
-        font-size: 12px;
-    }
-    .staff_tbl tr,
-    .moving-in_tbl tr,
-    .cost_table tr,
-    .map_tbl tr{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        border-bottom: 0;
-    }
-    .staff_tbl th,
-    .moving-in_tbl th{
-        width: 100% !important;
-        min-height: 40px;
-    }
-    .staff_tbl td,
-    .moving-in_tbl td{
-        width: 100%;
-        min-height: 40px;
-    }
-    .cost_table th,
-    .map_tbl th{
-        width: 100%;
-        min-height: 40px;        
-    }
-    .cost_table td,
-    .map_tbl td{
-        width: 100%;
-        min-height: 40px;
-    }
-    #googlemap{
-        min-height: 200px;
-    }
-    .comment-btn-wrapper{
-        width: 100%;
-    }
-    .no-data-size{
-        font-size: 16px !important;
-    }
-    .nocomment-phone{
-        font-size: 25px !important;
-    }
-    .no-comment-title span{
-        display: block;
-        line-height: 1.2;
-    }
-    .no-comment-title a{
-        font-size: 20px;
-    }
-    .phone-color{
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 18px !important;
-        line-height: 30px !important;
-    }
-    .fav-profile{
-        width: 128px;
-        right: 11px;
-        padding: 5px 2px !important;
-        font-size: 14px;
-    }
-    .top-mail-btn{
-        right: 135px !important;
-        width: 128px !important;
-        font-size: 12px !important;
-    }
-    /*End  profile publish */
-    /* Job Detail */
-    .job-title-color{
-        padding-left: 23px;
-        font-size: 16px;
-        background-size: 22px;
-    }
-    /*End Job Detail */
-    /* job apply */
-    .jop-apply-tit-wrap{
-        padding: 0;
-    }
-    .job-apply-color{
-        padding-left: 23px;
-        font-size: 16px;
-        background-size: 22px;
-    }
-    /*End job apply */
-    /* common */
-    .breadcrumb{
-        padding: 0 !important;
-    }
-    /*End common */
-    .map-text-wrapper{
-        display: block;
-    }
-    .searchButton{
-        width: 28%;
-    }
-    .searchTerm{
-        width: 80%;
-    }
-    .freeword-responsive h3{
-        padding: 0px;
-    }
-    .map-fa-icon{
-        width: 100%;
-    }
-    .freeword-responsive p{
-        text-align: center !important;
-        font-size: 20px;
-    }
-    .offset{
-        width: 100% !important;
-    }
-    /* comment list */
-    .commentlist_tbl td{
-        display: block;
-        width: 100% !important;
-    }
-    .commentlist_tbl td:nth-child(2){
-        padding-left: 5px;
-    }
-    /*END comment list */
-    #customer_list .table.List_tbl .btn{
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    #news_post .card-body,
-    #cat_post .card-body,
-    #ads_post .card-body,
-    #create_fact .card-body,
-    #create_subject .card-body{
-        padding: 13px;
-    }
-    .admin-create-container>.admin-create-wrapper{
-        margin: 0px;
-        width: 100%;
-        height: 100% !important;
-        top: 0px;
-        position: relative;
-        transform: none !important;
-        box-shadow: none;
-    }
-    .admin-list-container>.admin-list-wrapper{
-        margin: 0px;
-        width: 100%;
-        height: 100% !important;
-        top: 0px;
-        position: relative;
-        transform: none !important;
-        box-shadow: none;
-    }
-    .bottom-mail-btn{
-        width: 152px;
-        margin-right: 3px;
-    }
-    .bottom-fav-btn{
-        width: 165px;
-    }
-    .pagination-prev-nav,
-    .pagination-next-nav{
-        display: none !important;
-    }
-    table.jobapp-tb th,
-    table.jobapp-tb td{
-        vertical-align: top !important;
-    }
-    .admin-list-container .admin_registercard{
-        width: auto;
-    }
-    .searchButtonNews{
-        width: 25%;
-    }
-    .upper-tab{
-        border: none !important;
-    }
-    .slick-prev{
-        left: -15px;
-        transform: rotate(-135deg);
-        z-index: 1000;
-    }
-    .previous span{
-        display: none;
-    }
-    .next span{
-        display: none;
-    }
-    .pagination .pages{
-        display: none;
-    }
-    .dropdown-toggle::after{
-        position: absolute;
-        right: 12px;
-        top: 15px;
+@media only screen and (max-width: 1023px) and (min-width: 768px){
+    #nursing-search .card-carousel{
+        width: 415px!important;
+    }
+    .wd-in .carousel-img{
+        /* width: 140px; */
     }
 }
-@media only screen and (max-width: 560px){
-    .category_margin{
-        margin: 0;
+@media only screen and (max-width: 768px) and (min-width: 449px){
+    #nursing-search .card-carousel{
+        width: 279px!important;
     }
 }
-@media only screen and (max-width:576px){
-    .deactive{
-        display: block;
-        margin-bottom: 0px;
-        position: relative;
-        top: 0px;
-        left: 0;
+@media only screen and (max-width: 992px) and (min-width: 768px){
+    #nursing-search .card-carousel{
+        width: 564px!important;
     }
-    .mt-567-10{
-        margin-top: 10px;
-    }
-    .admin-list-table>table{
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    .searchButtonNews{
-        width: 20%;
-    }
-    .w-sm-65{
-        width: 65% !important;
-    }
-    .sp-576{
-        display: block;
-    }
-    /* create news */
-    .related-card .cat_box{
-        width: 100%;
-    }
-    .related-card .cat_select{
-        width: 71%;
-        margin-left: auto;
-    }
-    .related-card .search_box{
-        width: 100%;
-    }
-    .related_post_box .create_news img{
-        max-width: 40%;
-    }
-    .joboffer-salary-type{
-        padding: 0;
-    }
-    .joboffer-salary{
-        margin: 10px 0 0 0;
-        padding: 0;
-    }
-    .tel-input{
-        padding: 0;
-    }
-    .tel-button{
-        margin-top: 10px;
-        padding: 0;
-    }
-    ul.menu li.first-submenu{
-        top: 13px;
-    }
-    /*end create news */
-}
-@media only screen and (max-width: 620px){
-    .choose-item .job-no{
-        float: left;
-    }
-    .page-item .spanclass{
-        width: 30px;
-        height: 30px;
-        background-image: none;
-    }
-    .spanclass{
-        float: left;
-        margin-top: 2px;
-        border: 1px solid #2980b9;
-        border-radius: 3px;
-    }
-    .spanclass a{
-        position: relative;
-    }
-    /* profile publish */
-    .gallery-list .gallery-item{
-        height: 100px;
-    }
-    /*End  profile publish */
-    /*job search*/
-    .job-content{
-        margin-bottom: 60px;
-        padding: 10px;
-    }
-    .form-wrap .form-right{
-        border-left: none;
-    }
-    /*end job search*/
-    .width17{
-        width: 48%;
-    }
-    .fixed-nav{
-        display: none;
-        width: 100%;
-    }
-    /* new details */
-    .related_box{
-        width: 50%;
-    }
-    .related_box:nth-child(3n){
-        padding-right: 10px;
-    }
-    .related_box:nth-child(2n){
-        padding-right: 0;
-    }
-    /*End new details */
-}
-@media only screen and (min-width: 400px) and (max-width: 600px){
-    .source-img-small{
-        width: 500px;
-    }
-    .ads-card{
-        width: 120px;
-    }
-    .adminview-sidebar{
-        height: auto;
+    .wd-in{
+        width: 320px;
     }
 }
-@media print,screen and (min-width: 750px){
+@media only screen and (max-width: 1020px) and (min-width: 992px){
+    #nursing-search .card-carousel{
+        width: 823px!important;
+    }
+    .wd-in{
+        width: 377px;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 1024px){
+    #nursing-search .card-carousel{
+        width: 827px!important;
+    }
+    .wd-in{
+        width: 250px !important;
+    }
+}
+@media only screen and (max-width: 1440px) and (min-width: 1201px){
+    #nursing-search .card-carousel{
+        width: 988px!important;
+    }
+    .wd-in{
+        width: 308px !important;
+    }
+}
+@media only screen and (max-width: 1880px) and (min-width: 1440px){
+    #nursing-search .card-carousel{
+        width: 1033px!important;
+    }
+    .wd-in{
+        width: 319px !important;
+    }
+}
+@media print,
+screen and (min-width: 750px){
     #nursingView .top-fixed-btn:hover{
+        /* background: #fff9cb; */
         background: #cbf3ff;
         color: #000;
     }
@@ -7760,7 +6557,9 @@ strong{
     }
     .spanclass{
         letter-spacing: normal;
+        /* width: 50%; */
         display: inline-block;
+        /* margin-bottom: 5px; */
         font-weight: bold;
         text-align: center;
         padding: 5px;
@@ -7822,6 +6621,39 @@ strong{
         font-size: 14px;
     }
     /*End Newdetails */
+    /* Scrollbar */
+    .news-wrapper::-webkit-scrollbar,
+    .ql-editor::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    .scrolldiv::-webkit-scrollbar,
+    .scroll2::-webkit-scrollbar,
+    .scrolldiv2::-webkit-scrollbar,
+    .main-wrap::-webkit-scrollbar{
+        width: 6px !important;
+        background: #f7f7f7 !important;
+    }
+    .news-wrapper::-webkit-scrollbar-track,
+    .ql-editor::-webkit-scrollbar-track,
+    body::-webkit-scrollbar-track,
+    .scrolldiv::-webkit-scrollbar-track,
+    .scroll2::-webkit-scrollbar-track,
+    .scrolldiv2::-webkit-scrollbar-track,
+    .main-wrap::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+        border-radius: 0px !important;
+    }
+    .news-wrapper::-webkit-scrollbar-thumb,
+    .ql-editor::-webkit-scrollbar-thumb,
+    .main-wrap::-webkit-scrollbar-thumb,
+    .scrolldiv::-webkit-scrollbar-thumb,
+    .scroll2::-webkit-scrollbar-thumb,
+    .scrolldiv2::-webkit-scrollbar-thumb,
+    body::-webkit-scrollbar-thumb{
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+        background-color: #d7d7d7 !important;
+        border-radius: 0px !important;
+    }
+    /* End Scrollbar */
     /* Newdetails */
     .p5{
         font-size: 18px;
@@ -7835,6 +6667,11 @@ strong{
     .related-area span{
         color: #6c757d;
         font-size: 14px;
+    }
+    .set-date{
+        float: right;
+        text-indent: 2em;
+        margin-bottom: 2px;
     }
     /*End Newdetails */
     /*jssor slider*/
@@ -7978,6 +6815,104 @@ strong{
         padding: 0;
     }
     /*end job search*/
+    /*register form*/
+}
+@media (max-width: 720px) and (min-width: 450px){
+    .pad-free-74{
+        margin-left: -14px;
+    }
+    .compare-wrap{
+        max-width: 100%;
+    }
+}
+@media (max-width:515px) and (min-width:470px){
+    .fav-update-wrap{
+        max-width: 100% !important;
+        flex: none !important;
+    }
+    .fav-update-wrap{
+        padding: 0;
+        background: #BCDDF3;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .compare-wrap{
+        max-width: 100% !important;
+        border: 1px solid #ccc;
+    }
+    .fav-update-btn{
+        width: 50% !important;
+        margin: 21px auto;
+        color: #48555a !important;
+        font-size: 13px;
+        border: 1px solid #bdc8ca !important;
+        text-shadow: 1px 1px 0 #fff, 1px 1px 1px #fff;
+        border-radius: 20px;
+        background: #fff;
+        padding: 3px 0;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    }
+}
+@media (max-width: 1024px) and (min-width: 320px){
+    .adminview-sidebar{
+        height: auto;
+    }
+    .customer-sidebar{
+        display: none;
+    }
+}
+@media (max-width: 600px) and (min-width: 400px){
+    .source-img-small{
+        width: 500px;
+    }
+    .ads-card{
+        width: 120px;
+    }
+    .adminview-sidebar{
+        height: auto;
+    }
+}
+@media screen and (max-width: 480px){
+    .bottom-mail-btn{
+        width: 152px;
+        margin-right: 3px;
+    }
+    .bottom-fav-btn{
+        width: 165px;
+    }
+    .pagination-prev-nav,
+    .pagination-next-nav{
+        display: none !important;
+    }
+    table.jobapp-tb th,
+    table.jobapp-tb td{
+        vertical-align: top !important;
+    }
+    .admin-list-container .admin_registercard{
+        width: auto;
+    }
+    .searchButtonNews{
+        width: 25%;
+    }
+    .pagination li.page-item{
+        padding: 1px;
+    }
+    .page-item:first-child,
+    .page-item:nth-child( 2),
+    .page-item:nth-last-child( 2),
+    .page-item:last-child,
+    .page-item.active,
+    .page-item.disabled{
+        display: block;
+    }
+    .slick-prev{
+        left: -15px;
+        transform: rotate(-135deg);
+        z-index: 1000;
+    }
+}
+@media print,
+screen and (min-width: 750px){
     .map-text a{
         color: #000 !important;
     }
@@ -8044,6 +6979,7 @@ strong{
         letter-spacing: 1px;
         line-height: 1.3rem;
         padding: 0 0 0 10px;
+        /* white-space: pre-line; */
     }
     /*End Newdetails */
     /* Newdetails */
@@ -8059,6 +6995,11 @@ strong{
     .related-area span{
         color: #6c757d;
         font-size: 14px;
+    }
+    .set-date{
+        float: right;
+        text-indent: 2em;
+        margin-bottom: 2px;
     }
     /*End Newdetails */
     /*jssor slider*/
@@ -8114,170 +7055,387 @@ strong{
         height: 120px;
     }
 }
-@media only screen and (max-width: 768px){
-    #fav-history-page .card-carousel-cards .card-carousel--card--footer{
-        padding: 0px;
+@media (min-width: 1200px){
+    .boot-xl .col-xl-1{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 13.666667% !important;
+        flex: 0 0 13.666667% !important;
+        max-width: 13.666667% !important;
     }
-    #hospital .nav-content,
-    #nursing .nav-content{
-        border: none;
-        background: transparent !important;
-        margin-right: 0px !important;
-        margin-left: 0px !important;
-        width: 25px !important;
+    .boot-xl .col-xl-11{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 86.333333% !important;
+        flex: 0 0 86.333333% !important;
+        max-width: 86.333333% !important;
     }
-    #fav-history-page .nav-box[disabled] .nav-content{
-        border: none;
-        background: #fff !important;
-        width: 25px !important;
+}
+@media only screen and (max-width:1440px){
+    .card-title-leftwrapper{
+        width: 56% !important;
     }
-    .slick-dotted.slick-slider{
-        margin-bottom: 0px;
+    .fit-image-profile{
+        height: 165px;
     }
-    .p5{
-        font-size: 16px;
+    /* hos and nursing account */
+    .img_title{
+        height: 165px;
     }
-    .news_detail_tit{
-        line-height: 1.3;
+    /* end hos and nursing account */
+    .hos_lbl{
+        width: 165px;
     }
-    .details_title{
-        margin-bottom: 20px !important;
-        line-height: 1.3;
+    .card_height{
+        float: left;
+        height: 170px;
+        cursor: pointer;
     }
-    .form-wrap .form-right{
-        border-left: none !important;
+    /*login*/
+    .login_2{
+        margin-left: 18px;
     }
-    .form-wrap .form-left{
-        border-right: 1px solid #ced4da;
+    .login_1{
+        margin-right: 18px;
     }
-    .form-wrap .form-left{
-        padding: 10px 15px 5px 15px;
-        ;
+    .login_top{
+        top: 0px;
     }
-    .m-t-768{
-        margin-top: 0px;
+}
+@media only screen and (max-width: 1400px){
+    .main-content{
+        width: 100%;
     }
-    .m-b-768{
-        margin-bottom: 20px !important;
+    .menu_tab_category{
+        width: 99% !important;
     }
-    .successful-resetpwd{
-        width: 100% !important;
-        margin-top: 34px;
-        background-color: #f8f8f8;
-        border: none;
+    .fixed-ads-fluid{
+        width: 100%;
     }
-    .choose-item{
-        margin-top: 10px;
+    #headerbar li{
+        display: inline-block;
     }
-    .title{
-        padding-bottom: 0px;
+    .gNav li a{
+        padding: 0px 5px 0px 20px;
     }
-    .ads-slider{
-        top: 30px;
+    .navbar-expand-lg .navbar-nav .nav-link{
+        padding-right: 5px;
+        padding-left: 5px;
     }
-    .tab{
-        margin-top: 20px;
+    .social-link:nth-child(3){
+        margin-left: 5px;
     }
-    .newsDetail_leftwrapper{
-        max-width: 320px;
+    .adslist-card{
+        height: auto;
     }
-    .img-wrap{
-        padding-bottom: 0px;
+    .ads-img{
+        display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+    }
+    .fav-profile{
+        right: 37px;
+    }
+    .today .adslist-card .smallads-title{
+        top: 7px;
+    }
+    .sub-title>.ads-title{
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    .job-img{
+        margin: 0 auto 20px;
+        flex: unset;
+    }
+    .job-box{
+        flex: unset;
+    }
+    .compare-wrap{
+        max-width: 82%;
+    }
+    .fav-update-wrap{
+        max-width: 19%;
+        flex: 0 0 18%;
+    }
+    .map-wrap{
+        overflow: hidden;
+    }
+    #register.loginwrapper{
+        height: auto;
+        padding: 30px 0;
+    }
+}
+@media only screen and (max-width:1280px){
+    .admin-backbtn{
+        min-width: 81px;
+        position: absolute;
+        right: 15px;
+    }
+    .card-title-leftwrapper{
+        width: 48% !important;
+    }
+    .h-tel{
+        padding-left: 12px;
+        margin: 10px 0;
+        width: 142px;
+    }
+    .gSecondNav li{
+        background: transparent;
+        border-left: solid 1px #a7b7c7;
+        border-right: none;
+        border-top: none;
+        border-bottom: none;
+        padding: 5px;
+        border-radius: 0px;
+        color: #000;
+        margin: 0px;
+        font-size: 12px;
+    }
+    .img_title{
+        height: 135px;
+    }
+    /* Register */
+    /* hospital and nursing profile */
+    .hos_lbl{
+        width: 60%;
+    }
+    /* end hospital and nursing profile */
+    .card_height{
+        float: left;
+        height: 170px;
+        cursor: pointer;
+    }
+    .t-r{
+        margin-right: 59px;
+    }
+    .divisions{
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 670px;
+    }
+    .map-leftwrapper{
+        padding-left: 15px;
+    }
+    /*job search*/
+    ul.hokkaido-wrap{
+        left: 0px;
+    }
+    /*end job search*/
+    /* job apply list */
+    #job_apply .scroll_responsive{
+        overflow: auto;
+    }
+    #job_apply .custom-table{
+        width: 1100px;
+    }
+    #job_apply .scroll_responsive .table{
+        margin-bottom: 0 !important;
+    }
+    /*End job apply list */
+    .slick-next, .slick-prev{
+        border: 1px solid #807777;
+        outline: none;
+        background: #f7f7f7;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
+        z-index: 999;
+    } 
+    .slick-disabled{
+        opacity: 0;
+    }
+}
+@media only screen and (max-width: 1240px){
+    .card-title-leftwrapper{
+        width: 60% !important;
+    }
+    .comform{
+        width: 100%;
+        max-width: 100%;
+    }
+    /* common */
+    .pc-1024{
+        display: none;
+    }
+    .sp-1024{
+        display: block;
+    }
+    /*end  common */
+    /* header */
+    .main-header .nav-item{
+        padding: 3px 8px 5px 8px;
+    }
+    .main-header .navbar-nav .nav-link{
+        width: 145px;
+    }
+    .main-header .navbar-nav .nav-link span{
+        font-size: 14px;
+    }
+    #app .logo-text{
+        padding: 0;
+    }
+    .h-tel span{
+        display: none;
+    }
+    .h-tel{
+        width: auto;
+        padding-left: 8px;
+        margin-right: 20px;
+    }
+    .tel{
+        display: block;
+        margin: 0 0 1px;
+        cursor: pointer;
+    }
+    /*end header */
+    /* Admin Sidebar  */
+    .custom-sidebar .admin-tit{
+        margin: 20px 0 10px 0;
+        text-align: center;
+    }
+    .admin-tit span{
+        display: none;
+    }
+    .custom-sidebar:hover .admin-tit{
+        display: flex;
+        margin: 20px 0 10px 40px;
+        align-items: center;
+    }
+    .nav-txt{
+        display: none;
+    }
+    .custom-sidebar{
+        width: 70px;
+        z-index: 99;
+    }
+    .custom-sidebar:hover{
+        width: 280px !important;
+    }
+    .custom-sidebar:hover .admin-tit span{
+        display: block;
+    }
+    .custom-sidebar:hover .nav-txt{
+        display: inline-block;
+    }
+    .custom-sidebar:hover ul.adminview-sidebar li a{
+        text-align: left !important;
+    }
+    .custom-sidebar ul.adminview-sidebar li a{
+        padding: 0 !important;
+        text-align: center;
+    }
+    .custom-sidebar ul.adminview-sidebar li i{
+        padding-right: 0;
+    }
+    .custom-sidebar:hover ul.adminview-sidebar li i{
+        padding-right: 10px;
+    }
+    .custom-sidebar:hover ul.adminview-sidebar li a{
+        padding: 5px 25px !important;
+    }
+}
+@media only screen and (max-width:1113px){
+    .rightwrap .first_txt{
+        display: none;
+    }
+    .card-title-leftwrapper{
+        width: 60% !important;
     }
     .nursing_responsive{
-        max-width: 33%;
-    }
-    .p-l-162{
-        padding-left: 200px;
-    }
-    .nus-town-m-t{
-        margin-top: 10px;
-    }
-    .pc-768{
-        display: none;
+        max-width: 40%;
     }
     /* nursing profile */
     .heading-lbl{
         font-size: 1.05em;
-        flex: 0 0 16%;
     }
     .heading-lbl1{
         font-size: 1.05em;
-        flex: 0 0 20%;
+        flex: 0 0 17%;
+        max-width: 125px;
     }
-    .nursing_btn{
-        margin-top: 0px;
+    .news-post-btn{
+        font-size: 13px;
     }
-    .nursing_input{
-        flex: 0 0 85%;
+    .nursing_map{
+        padding-left: 0px;
+    }
+    .nursing_radiobtn{
+        float: none !important;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
     .hos_lbl{
-        width: 78%;
+        width: 75%;
     }
-    .hos_map_lbl{
-        padding-bottom: 10px;
+    .hos_lbl1{
+        max-width: 18%;
+    }
+    .hos_toggle{
+        max-width: 100%;
+    }
+    .m-l-20{
+        margin-left: 15px !important;
     }
     /* end nursing profile */
-    .sp-768{
-        display: block;
+    /* common */
+    .col-slg-12{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
-    .sp-768-block{
-        display: block;
-        width: 100% !important;
-        padding: 5px 10px !important;
-    }
-    .sp-768-block{
-        display: block;
-        width: 100% !important;
-        padding: 5px 10px !important;
-    }
-    .tab{
-        max-width: 100% !important;
-        flex: 100% !important;
-    }
-    .map-text-wrapper{
-        display: flex;
-    }
-    /* job apply */
-    .register_box,
-    .confirm_box{
-        padding: 0;
-    }
-    .register_box .multi-step span,
-    .confirm_box .multi-step span{
+    .pc-1024{
         display: none;
     }
-    .multi-step{
-        margin-bottom: 20px;
+    .sp-1024{
+        display: block;
     }
-    .multi-step li{
-        width: 28.73%;
-        padding: 5px 10px;
-        margin-left: 10px;
-        font-size: 12px;
+    /*End common */
+    /*job search*/
+    ul.hokkaido-wrap{
+        left: 65px;
     }
-    .multi-step li::before{
-        border-width: 9px;
-        margin-top: -9px;
+    .divisions span{
+        margin-right: 10px;
     }
-    .multi-step li.no-active::after{
-        border-left-color: #fff;
-        border-width: 8px;
-        margin-top: -8px;
+    .hokkaido-box{
+        position: absolute;
+        right: 10%;
+        z-index: 2;
     }
-    .form-wrap .form-control,
-    .form-wrap .full-wd.form-control{
-        width: 93% !important;
-        margin: 10px;
+    .multiple-box{
+        width: 156px !important;
     }
-    .eg-txt{
-        padding-left: 5px;
-        width: 100%;
+    .multiple-boxa{
+        width: 156px !important;
     }
-    /*End job apply */
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass{
+        margin-right: 1px;
+    }
+    /*end job search*/
+    /* profile publish */
+    .gallery-list .gallery-item{
+        height: 160px;
+    }
+    .lightbox-arrow svg{
+        width: 30px !important;
+        height: 30px !important;
+        line-height: 30px;
+    }
+    /*End profile publish */
     .wd-in{
-        width: 256px;
+        width: 249px;
     }
+    .map-wrap{
+        overflow: auto;
+        padding: 20px 10px;
+    }
+    .divisions{
+        width: 550px;
+    }
+    /*news_start*/
     .t_card{
         max-width: none;
     }
@@ -8287,278 +7445,64 @@ strong{
     .t_card4{
         margin-left: 40px;
     }
-    /*news_end*/
-    .card_height{
-        float: left;
-        height: 190px;
-        cursor: pointer;
+    .create_nw_p{
+        padding: 0px;
     }
+    /*news_end*/
     /*category*/
     .t-r{
-        margin-left: 17px;
-        margin-right: 0px;
-        margin-top: 20px;
+        margin-right: 45px;
     }
-    .t-l{
-        margin-left: 39px;
-    }
-    /*category*/
-    /*occupation*/
+    /*subject*/
     .o-r1{
-        margin-right: 0px;
-    }
-    .o-r2{
-        margin-left: 48px;
+        margin-right: 21px;
         margin-top: 20px;
     }
-    /*occupation*/
     /*advertisement*/
     .a-d1{
-        margin-right: 53px;
+        margin-right: 0px;
     }
     .a-d2{
-        margin-left: 78px;
         margin-top: 20px;
     }
-    .map-wrap{
-        display: none;
-    }
-    .searchButton{
-        width: 20%;
-    }
-    .searchTerm{
-        width: 80%;
-    }
-    #pc-hos-fav-local,
-    #pc-nus-fav-local,
-    #pc-hos-his-local,
-    #pc-nus-his-local{
-        color: #C40000;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    .job-content .detail-btn .btn{
-        width: 90%;
-    }
-    .hospital-subject{
-        display: table-cell;
-    }
-    .hos-content .detail-btn .btn{
-        width: 100%;
-    }
-    .sp_hos_phone{
-        padding: 5px;
-    }
-    .circle-phone{
-        width: 30px;
-        height: 30px;
-    }
-    .phone-no{
-        padding: 0px;
-        font-size: 20px;
-    }
-    .hos_phone i,
-    .sp_hos_phone i{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        font-size: 15px;
-    }
-    #job_detail .fav-profile{
-        width: 100%;
-        padding: 10px !important;
-    }
-    .container_news .new-1{
-        margin-bottom: 10px;
-    }
-    .container_news .new-2{
-        width: 100%;
-    }
-}
-@media only screen and (min-width: 320px) and (max-width: 360px){
-    #fav-history-page .card-carousel{
-        width: 263px !important;
-    }
-    #fav-history-page .card-carousel{
-        overflow: visible;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel{
-        width: 272px !important;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
-        margin-left: -16px;
-    }
-}
-@media only screen and (min-width: 360px) and (max-width: 375px){
-    #fav-history-page .card-carousel{
-        width: 261px !important;
-    }
-    #fav-history-page .card-carousel{
-        overflow: visible;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel{
-        width: 272px !important;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
-        margin-left: -34px;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel-wrapper.m-l-4{
-        margin-left: -4px;
-    }
-}
-@media only screen and (min-width: 375px) and (max-width: 450px){
-    #fav-history-page .card-carousel{
-        width: 261px !important;
-    }
-    #fav-history-page .card-carousel{
-        overflow: visible;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel{
-        width: 272px !important;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
-        margin-left: -18px;
-    }
-}
-@media only screen and (min-width: 400px) and (max-width: 600px){
-    .source-img-small{
-        width: 500px;
-    }
-    .ads-card{
-        width: 120px;
-    }
-    .adminview-sidebar{
-        height: auto;
-    }
-}
-@media only screen and (min-width: 449px) and (max-width: 768px){
-    #nursing-search .card-carousel{
-        width: 279px!important;
-    }
-}
-@media only screen and (min-width: 470px) and (max-width: 515px){
-    .fav-update-wrap{
-        max-width: 100% !important;
-        flex: none !important;
-    }
-    .fav-update-wrap{
-        padding: 0;
-        background: #BCDDF3;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-    .compare-wrap{
-        max-width: 100% !important;
-        border: 1px solid #ccc;
-    }
-    .fav-update-btn{
-        width: 50% !important;
-        margin: 21px auto;
-        color: #48555a !important;
+    /*create_news*/
+    .title{
         font-size: 13px;
-        border: 1px solid #bdc8ca !important;
-        text-shadow: 1px 1px 0 #fff, 1px 1px 1px #fff;
-        border-radius: 20px;
-        background: #fff;
-        padding: 3px 0;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     }
-}
-@media only screen and (min-width: 320px) and (max-width: 1024px){
-    .adminview-sidebar{
-        height: auto;
+    .unauth-title{
+        font-size: 23px;
+        padding: 10px;
     }
-    .customer-sidebar{
-        display: none;
-    }
-}
-@media only screen and (min-width: 450px) and (max-width: 720px){
-    .pad-free-74{
-        margin-left: -14px;
-    }
-    .compare-wrap{
-        max-width: 100%;
-    }
-}
-@media only screen and (min-width: 420px) and (max-width: 767px){
-    .sp-rsp-block{
-        display: block;
-        width: 100% !important;
-        padding: 5px 10px !important;
-    }
-    .search_wd{
-        width: auto;
-    }
-    .search_rsp{
-        width: 100%;
-        height: auto;
-        display: contents;
-    }
-}
-@media only screen and (min-width: 414px) and (max-width: 768px){
-    #fav-history-page .card-carousel{
-        width: 261px !important;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel{
-        width: 272px !important;
-    }
-    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
-        margin-left: 5px;
-    }
-}
-@media only screen and (min-width: 752px) and (max-width: 979px){
-    .map-box-reponsive{
-        display: block;
+    .card_height{
+        float: left;
+        height: 170px;
+        cursor: pointer;
     }
     .fav-update-btn{
-        margin: 33px auto;
+        margin: 22px auto;
     }
-    .form-group .rightwrap>.rightwrap-child{
-        margin-top: 25px;
+    .divisions{
+        width: 550px;
     }
-    .stepper-result-form{
-        padding-top: 20px !important;
+    .map-wrap{
+        padding: 20px 10px;
     }
-    .stepper-result-form .label-result{
-        padding: 10px 15px 5px 15px !important;
-    }
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px){
-    .search_jobid1{
-        width: 71%;
-        position: relative;
-        margin-right: 96px;
-    }
-    /*nursing-search*/
-    .job_id2{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
-        display: inline-block;
-        margin-bottom: 11px;
-        text-align: center;
-    }
-    .job_id3{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
+    .top-fixed-btn,
+    .top-fixed-btn.active{
         margin-bottom: 10px;
-        text-align: center; 
     }
-}
-@media only screen and (min-width: 768px) and (max-width: 992px){
-    #nursing-search .card-carousel{
-        width: 564px!important;
+    .top-fixed-btn{
+        text-align: center;
+        font-size: 12px;
     }
-    .wd-in{
-        width: 320px;
+    #create_news .title{
+        padding: 2px;
+        font-size: 11px;
+        padding-left: 10px;
+        margin-top: -7px;
+    }
+    .fixed-nav{
+        width: 100%;
     }
 }
 @media only screen and (max-width: 990px){
@@ -8566,6 +7510,7 @@ strong{
         display: none;
     }
     .job_id4{
+        /* float: left; */
         padding: 2px 10px;
         margin-top: 5px;
         font-weight: bold;
@@ -8573,6 +7518,7 @@ strong{
         border-radius: 12px;
         font-size: 12px;
         margin-bottom: 10px;
+        /* width: 62%; */
         text-align: center;
     }
     /*nursing-search*/
@@ -8587,6 +7533,7 @@ strong{
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 12px;
+        /* width: 43%; */
         margin-bottom: 11px;
         text-align: center;
         display: inline-block;
@@ -8600,8 +7547,17 @@ strong{
         font-size: 16px;
         margin-bottom: 10px;
         display: inline-block;
+        /* width: 60%; */
         text-align: center;
     }
+    /*comment*/
+    .cmt{
+        text-align: left;
+        font-size: 12px;
+        color: #777;
+        margin-top: 3px;
+    }
+    /*comment*/
     .form-wrap .mailbox{
         width: 100%;
         margin-left: 0px;
@@ -8625,15 +7581,21 @@ strong{
     .map-fa-icon{
         float: left;
     }
-    .ads-slider{
+    /*.ads-slider{
         top: 30px;
-    }
+    }*/
     .tab{
         margin-top: 20px;
     }
     #myTabContent{
         margin-bottom: 10px;
     }
+    /* common */
+    ul li{
+        list-style: none;
+        margin-right: 0px !important;
+    }
+    /*end common */
     /* header */
     .main-header{
         padding: 4px 0;
@@ -8642,78 +7604,17 @@ strong{
     .h-tel{
         display: none;
     }
+    .gNav{
+        display: none;
+    }
     .gSecondNav{
         display: none;
     }
     .logo_subtitle{
         display: none;
     }
-    #headerbar{
-        display: none;
-    }
-    #sp_headerbar{
-        display: block;
-        width: 83%;
-        margin: 0px auto;
-        background: #fff;
-        margin-left: 6px;
-        font-size: 16px;
-    }
-    #sp_headerbar .fav_his{
-        float: left;
-        text-align: center;
-    }
-    #sp_headerbar .fav_his li{
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
-    #sp_headerbar .fav_his li .t-show{
-        position: absolute;
-        top: 30px;
-        left: 0px;
-        width: 100%;
-        z-index: 2;
-    }
-    #sp_headerbar .fav_his li p{
-        padding: 0 10px;
-        border: 1px solid;
-        border-radius: 4px;
-    }
-    #sp_headerbar .fav_his li:first-child{
-        margin-right: 20px;
-    }
-    #sp_headerbar .count{
-        position: absolute;
-        top: -12px;
-        right: -7px;
-        width: 35px;
-        height: 35px;
-        padding: 2px;
-        margin-left: 6px;
-        background: #2980b9;
-        font-size: 11px;
-        color: #fff;
-        border-radius: 50%;
-        line-height: 35px;
-        vertical-align: middle;
-        text-align: center;
-    }
-    #sp_headerbar .count2{
-        position: absolute;
-        top: -12px;
-        right: -7px;
-        width: 35px;
-        height: 35px;
-        padding: 2px;
-        margin-right: -5px;
-        background: #2980b9;
-        font-size: 11px;
-        color: #fff;
-        border-radius: 50%;
-        line-height: 30px;
-        vertical-align: middle;
-        text-align: center;
+    #navbarSupportedContent{
+        display: none !important;
     }
     .sp_social{
         display: block;
@@ -8786,6 +7687,7 @@ strong{
     ul.menu_list{
         width: 90%;
         margin: 20px auto;
+        /* border: 1px solid #8c9090; */
     }
     ul.menu_list>li{
         border-top: 1px solid #8c9090;
@@ -8970,6 +7872,7 @@ strong{
     }
     .form-wrap .form-left{
         padding: 10px 15px 5px 15px;
+        /* border-bottom: 1px solid #ced4da; */
     }
     .form-wrap label{
         display: block;
@@ -9001,9 +7904,1420 @@ strong{
     }
     /*End customer list */
 }
-@media only screen and (min-width: 993px) and (max-width: 1023px){
-    #nursing-search .card-carousel{
-        width: 415px!important;
+@media (max-width: 1024px) and (min-width: 320px){
+    .adminview-sidebar{
+        height: auto;
+    }
+    .customer-sidebar{
+        display: none;
+    }
+}
+@media (max-width: 600px) and (min-width: 400px){
+    .source-img-small{
+        width: 500px;
+    }
+    .ads-card{
+        width: 120px;
+    }
+    .adminview-sidebar{
+        height: auto;
+    }
+}
+@media (min-width: 320px){
+    .source-img-small{
+        width: 100%;
+    }
+    .smallads-title{
+        font-size: 12px;
+        line-height: 1.357;
+        color: #333;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        top: -0.2rem;
+        max-height: 200px;
+    }
+    .today .adslist-card .smallads-title{
+        font-size: 12px;
+        line-height: 1.357;
+        color: #333;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        top: -0.2rem;
+        max-height: 65px;
+    }
+    .today .smallads-title{
+        display: block;
+        white-space: normal;
+    }
+    .adslist-card{
+        /* height: 71px; */
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+    }
+    .userview-sidebar{
+        background-color: #f5f5f5;
+        /* height: 91vh; */
+        padding-top: 35%;
+        padding-left: 25px;
+        margin-top: 2px;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+    /*fav nursing*/
+    /*comment*/
+    .cmt{
+        font-size: 12px;
+        color: #777;
+        text-align: right;
+        margin-top: 0px;
+    }
+    .test{
+        display: none;
+    }
+    /*comment*/
+    .lbl-size{
+        width: 355px;
+    }
+    .lbl-width{
+        width: 92px;
+    }
+    dl.favnur dt{
+        width: 22%;
+    }
+    #nursing dl dd{
+        padding-left: 0px;
+    }
+    /*end fav nursing*/
+    /*news_start*/
+    .t_card{
+        max-width: none;
+    }
+    .t_card2{
+        margin-left: 40px;
+    }
+    .t_card4{
+        margin-left: 40px;
+    }
+    /*news_end*/
+}
+@media only screen and (max-width:768px){
+    .posting-per{
+        text-align: unset;
+    }
+    .form-wrap .form-right{
+        border-left: none !important;
+    }
+    .form-wrap .form-left{
+        border-right: 1px solid #ced4da;
+    }
+    .form-wrap .form-left{
+        padding: 10px 15px 5px 15px;
+    }
+    .m-t-768{
+        margin-top: 0px;
+    }
+    .m-b-768{
+        margin-bottom: 20px !important;
+    }
+    .successful-resetpwd{
+        width: 100% !important;
+        margin-top: 34px;
+        background-color: #f8f8f8;
+        border: none;
+    }
+    .choose-item{
+        margin-top: 10px;
+    }
+    .title{
+        padding-bottom: 0px;
+    }
+    #register.loginwrapper{
+        height: 100vh;
+        padding-top: 0;
+    }
+    .user_registercard{
+        width: 100%;
+        margin: -85px auto 0;
+    }
+    .nursing_responsive{
+        max-width: 33%;
+    }
+    .p-l-162{
+        padding-left: 200px;
+    }
+    .nus-town-m-t{
+        margin-top: 10px;
+    }
+    .pc-768{
+        display: none;
+    }
+    /* start pagination */
+    .pagination{
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item{
+        padding: 1px;
+    }
+    .page-item .spanclass{
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+    .spanclass{
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a{
+        position: relative;
+    }
+    /* end pagination */
+    /* nursing profile */
+    .heading-lbl{
+        font-size: 1.05em;
+        flex: 0 0 16%;
+    }
+    .heading-lbl1{
+        font-size: 1.05em;
+        flex: 0 0 20%;
+    }
+    .nursing_btn{
+        margin-top: 0px;
+    }
+    .nursing_btn span{
+    }
+    .nursing_input{
+        flex: 0 0 85%;
+    }
+    .hos_lbl{
+        width: 78%;
+    }
+    .hos_map_lbl{
+        padding-bottom: 10px;
+    }
+    /* end nursing profile */
+    .sp-768{
+        display: block;
+    }
+    .sp-768-block{
+        display: block;
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .sp-768-block{
+        display: block;
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .tab{
+        max-width: 100% !important;
+        flex: 100% !important;
+    }
+    .map-text-wrapper{
+        display: flex;
+    }
+    /* job apply */
+    .register_box,
+    .confirm_box{
+        padding: 0;
+    }
+    .register_box .multi-step span,
+    .confirm_box .multi-step span{
+        display: none;
+    }
+    .multi-step{
+        margin-bottom: 20px;
+    }
+    .multi-step li{
+        width: 28.73%;
+        padding: 5px 10px;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .multi-step li::before{
+        border-width: 9px;
+        margin-top: -9px;
+    }
+    .multi-step li.no-active::after{
+        border-left-color: #fff;
+        border-width: 8px;
+        margin-top: -8px;
+    }
+    .form-wrap .form-control,
+    .form-wrap .full-wd.form-control{
+        width: 93% !important;
+        margin: 10px;
+    }
+    .eg-txt{
+        padding-left: 5px;
+        width: 100%;
+    }
+    /*End job apply */
+    .wd-in{
+        width: 256px;
+    }
+    .t_card{
+        max-width: none;
+    }
+    .t_card2{
+        margin-left: 40px;
+    }
+    .t_card4{
+        margin-left: 40px;
+    }
+    /*news_end*/
+    .card_height{
+        float: left;
+        height: 190px;
+        cursor: pointer;
+    }
+    /*category*/
+    .t-r{
+        margin-left: 17px;
+        margin-right: 0px;
+        margin-top: 20px;
+    }
+    .t-l{
+        margin-left: 39px;
+    }
+    /*category*/
+    /*occupation*/
+    .o-r1{
+        margin-right: 0px;
+    }
+    .o-r2{
+        margin-left: 48px;
+        margin-top: 20px;
+    }
+    /*occupation*/
+    /*advertisement*/
+    .a-d1{
+        margin-right: 53px;
+    }
+    .a-d2{
+        margin-left: 78px;
+        margin-top: 20px;
+    }
+    .map-wrap{
+        display: none;
+    }
+    .searchButton{
+        width: 20%;
+    }
+    .searchTerm{
+        width: 80%;
+    }
+    #pc-hos-fav-local,
+    #pc-nus-fav-local,
+    #pc-hos-his-local,
+    #pc-nus-his-local{
+        color: #C40000;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .job-content .detail-btn .btn{
+        width: 90%;
+    }
+    .hospital-subject{
+        display: table-cell;
+    }
+    .hos-content .detail-btn .btn{
+        width: 100%;
+    }
+    .sp_hos_phone{
+        padding: 5px;
+    }
+    .circle-phone{
+        width: 30px;
+        height: 30px;
+    }
+    .phone-no{
+        padding: 0px;
+        font-size: 20px;
+    }
+    .hos_phone i,
+    .sp_hos_phone i{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 15px;
+    }
+    #job_detail .fav-profile{
+        width: 100%;
+        padding: 10px !important;
+    }
+}
+@media only screen and (max-width:750px){
+    table.consultTable tr > *{
+        display: block;
+    }
+    table.consultTable tr{
+        display: table-cell;
+        vertical-align: top;
+    }
+    .first-row{
+        border: none;
+        padding: 0px;
+    }
+    table.consultTable th, table.consultTable td{
+        width: 100% !important;
+
+    }   
+    .mt-750-10{
+        margin-top: 10px;
+    }
+    .backbtn{
+        top: 0px;
+    }
+    .form-group .rightwrap .postal{
+        width: 90% !important;
+    }
+    .form-wrap .form-left{
+        border-bottom: 1px solid #ced4da;
+    }
+    #register.loginwrapper{
+        height: auto;
+        padding: 30px 0;
+    }
+    #register .user_registercard{
+        width: 90%;
+        margin: -85px auto 0;
+    }
+    .login_1,
+    .login_2{
+        top: 0px;
+    }
+    .pc-750{
+        display: none;
+    }
+    .sp-750{
+        display: block;
+    }
+    .pad-t-10{
+        padding: 10px 0px 0px 0px;
+    }
+    .pad-0-res{
+        padding: 0px;
+    }
+    .profile-tit{
+        padding: 0px;
+        margin: 0px;
+    }
+    table.timeTable th,
+    table.timeTable td{
+        vertical-align: middle !important;
+        width: 50px !important;
+        padding: 5px !important;
+    }
+    .public-nurheader{
+        margin-bottom: 10px;
+    }
+    .dropdown{
+        display: inline-block;
+        width: 100%;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: 6px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #495057;
+        vertical-align: middle;
+        background-color: #f5f5f5;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        -webkit-appearance: none;
+    }
+    .dropdown-men.show{
+        display: inline-flex !important;
+    }
+    .dropdown-menu-form{
+        padding: 5px 10px 0;
+        width: 100%;
+        max-height: 260px;
+        overflow-y: scroll;
+        transform: translate3d(0px, 33px, 0px) !important;
+    }
+    ul.tab-menu-responsive{
+        font-size: 10px;
+    }
+    ul.tab-menu-responsive li{
+        width: 25%;
+        text-align: center;
+    }
+    ul.tab-menu-responsive li a{
+        font-size: 12px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+    ul.tab-menu-responsive li a i{
+        display: block;
+        font-size: 15px;
+    }
+    div.div1 a.router-link-exact-active,
+    div.div2 a.router-link-exact-active{
+        border-left: 1px solid transparent !important;
+    }
+    .btn-group{
+        display: flex;
+        flex-direction: row;
+    }
+    .pad-free-750{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .margin-bottom750{
+        margin-bottom: 0px !important;
+    }
+    .facility_tbl th,
+    .cost_table th,
+    .map_tbl th{
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 620px){
+    .choose-item .job-no{
+        float: left;
+    }
+    .pagination{
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item{
+        padding: 1px;
+    }
+    .page-item .spanclass{
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+    .spanclass{
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a{
+        position: relative;
+    }
+    /* profile publish */
+    .gallery-list .gallery-item{
+        height: 100px;
+    }
+    /*End  profile publish */
+    /*job search*/
+    .job-content{
+        margin-bottom: 60px;
+        padding: 10px;
+    }
+    .form-wrap .form-right{
+        border-left: none;
+    }
+    /*end job search*/
+    .width17{
+        width: 48%;
+    }
+    .fixed-nav{
+        display: none;
+        width: 100%;
+    }
+    #myBtn{
+        right: 0px;
+    }
+}
+@media only screen and (max-width:576px){
+    .deactive{
+        display: block;
+        margin-bottom: 0px;
+        position: relative;
+        top: 0px;
+        left: 0;
+    }
+    .mt-567-10{
+        margin-top: 10px;
+    }
+    .admin-list-table>table{
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .searchButtonNews{
+        width: 20%;
+    }
+    #news_list .select_label{
+        width: 25% !important;
+    }
+    .w-sm-65{
+        width: 65% !important;
+    }
+    .w-sm-100{
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .sp-576{
+        display: block;
+    }
+    
+}
+@media only screen and (max-width:480px){
+    .admin-backbtn{
+        min-width: 62px;
+        position: absolute;
+        right: 0px;
+    }
+    .cmt2{
+        float: left;
+        margin-left: -13px;
+    }
+    .cmt3{
+        display: none;
+    }
+    .search_jobid{
+        float: none;
+    }
+    .data-success{
+        font-size: 16px;
+    }
+    .successful-resetpwd{
+        background-color: #fff;
+        margin-top: 0px;
+        border: none;
+    }
+    /*news*/
+    .ads-slider{
+        top: 10px;
+    }
+    .news-3-card .img-box{
+        padding: 0 5px !important;
+    }
+    .wrapper-4 img{
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .wrapper-4{
+        border: 1px solid #fff;
+        background-color: #fff;
+    }
+    .wrapper-3 img.fit-image{
+        height: 100%;
+    }
+    .single-news-box p{
+        overflow: hidden;
+        height: -webkit-fill-available;
+    }
+    .category_box{
+        margin-top: 0px;
+    }
+    .category_box h4{
+        font-size: 16px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .category_news_title{
+        padding: 0px 10px 10px 0px;
+    }
+    /*fav nursing*/
+    .close-480{
+        display: block;
+        line-height: 2px;
+        font-size: 20px;
+        height: 30px;
+        width: 35px;
+        padding: 0px;
+    }
+    .check-resize{
+        display: block;
+    }
+    dl.favnur dt{
+        display: block;
+        width: auto;
+    }
+    #nursing dl dd{
+        padding-left: 0px;
+    }
+    .fav-update-wrap{
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .fav-update-wrap{
+        padding: 0;
+        background: #BCDDF3;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .favnur{
+        border-right: 1px solid #ccc !important;
+    }
+    .compare-wrap{
+        max-width: 100%;
+    }
+    .fav-update-btn{
+        width: 35%;
+        line-height: 25px;
+        margin: 8px auto;
+    }
+    .fnt-title{
+        font-size: 15px;
+    }
+    .fnt-check{
+        font-size: 13px;
+    }
+    .pb-4,
+    .py-4{
+        padding-bottom: 0px !important;
+    }
+    #nursing .modal-footer{
+        padding: 0px;
+    }
+    .modal-hr hr{
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .lbl-size{
+        width: auto;
+    }
+    .job_count{
+        font-size: 15px;
+        padding: 0px 5px 0px;
+    }
+    /*end fav nursing*/
+    .pc-480{
+        display: none;
+    }
+    .page-item:first-child .spanclass,
+    .page-item:last-child .spanclass,
+    .page-item:nth-child(2) .spanclass,
+    .page-item:nth-last-child(2) .spanclass{
+        width: 51px;
+        height: 30px;
+        transition: background-color .3s;
+    }
+    .pagination{
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .pagination .page-item{
+        padding: 1px;
+    }
+    .spanclass{
+        float: left;
+        margin-top: 2px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+    }
+    .spanclass a{
+        position: relative;
+    }
+    .pc-paginate{
+        display: none;
+    }
+    /*create_news*/
+    .news_catsearch{
+        padding: 15px;
+    }
+    .news_catsearch label{
+        display: none;
+    }
+    .custom_title{
+        position: relative;
+        margin: 5px 0;
+    }
+    .custom_title:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        display: inline-block;
+        width: 25px;
+        height: 3px;
+        left: 0;
+        border-radius: 2px;
+        background: #2980b9;
+    }
+    #customer_list .custom_title:after{
+        left: 15px;
+    }
+    .scroll_responsive{
+        overflow-x: auto;
+    }
+    .scroll_responsive .table{
+        margin-bottom: 0 !important;
+    }
+    .custom-table{
+        width: 555px;
+    }
+    .admin-list .custom-table{
+        width: 100%;
+    }
+    .t_card{
+        margin-left: 22px;
+    }
+    #create_news .title{
+        padding: 14px;
+        font-size: 12px;
+        padding-left: 10px;
+        margin-top: -7px;
+    }
+    .card_height{
+        float: left;
+        height: 236px;
+        cursor: pointer;
+    }
+    .pc-m-0-10{
+        margin: 0px 10px;
+    }
+    .pc-m-r-10{
+        margin-right: 10px;
+    }
+    .mb-10{
+        margin-bottom: 10px;
+    }
+    .related-card .cat_wrap{
+        width: 100%;
+    }
+    /* end create news */
+    /*category*/
+    .t-r{
+        margin-right: -8px;
+    }
+    .t-l{
+        margin-left: 1px;
+    }
+    /*occupation*/
+    .o-r1{
+        margin-right: 19px;
+    }
+    .o-r2{
+        margin-left: 29px;
+    }
+    /*occupation*/
+    /*advertisement*/
+    .a-d1{
+        margin-right: 0px;
+    }
+    .a-d2{
+        margin-left: 12px;
+        margin-top: 20px;
+    }
+    .job-box table tr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+
+    }
+    .job-box table th{
+        width: 100% !important;
+        border: none;
+    }
+    .job-box td{
+        width: 100% !important;
+        min-height: 45px;  
+    }
+    .info_tbl tr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+    }
+    .info_tbl th{
+        width: 100%;
+        border: none;
+    }
+    .info_tbl td{
+        width: 100%;
+        min-height: 45px;    
+    }
+    .cash-lbl{
+        font-size: 1.4em;
+    }
+    .facility_tbl th{
+        width: 80px;
+    }
+    .main-cost-wrap{
+        width: 330px;
+        overflow-x: scroll;
+    }
+    .main-cost-table{
+        width: 550px !important;
+        float: none !important;
+    }
+    .changeLink{
+        font-size: 12px;
+    }
+    .staff_tbl tr,
+    .moving-in_tbl tr,
+    .cost_table tr,
+    .map_tbl tr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        border-bottom: 0;
+    }
+    .staff_tbl th,
+    .moving-in_tbl th{
+        width: 100% !important;
+        min-height: 40px;
+    }
+    .staff_tbl td,
+    .moving-in_tbl td{
+        width: 100%;
+        min-height: 40px;
+    }
+    .cost_table th,
+    .map_tbl th{
+        width: 100%;
+        min-height: 40px;        
+    }
+    .cost_table td,
+    .map_tbl td{
+        width: 100%;
+        min-height: 40px;
+    }
+    #googlemap{
+        min-height: 200px;
+    }
+    .comment-btn-wrapper{
+        width: 100%;
+    }
+    .no-data-size{
+        font-size: 16px !important;
+    }
+    .nocomment-phone{
+        font-size: 25px !important;
+    }
+    .no-comment-title span{
+        display: block;
+        line-height: 1.2;
+    }
+    .no-comment-title a{
+        font-size: 20px;
+    }
+    .phone-color{
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 18px !important;
+        line-height: 30px !important;
+    }
+    .fav-profile{
+        width: 128px;
+        right: 11px;
+        padding: 5px 2px !important;
+        font-size: 14px;
+    }
+    .top-mail-btn{
+        right: 135px !important;
+        width: 128px !important;
+        font-size: 12px !important;
+    }
+    .top-fixed-btn,
+    .top-fixed-btn.active{
+        /* padding: 3.29999%; */
+    }
+    /*End  profile publish */
+    /* Job Detail */
+    .job-title-color{
+        padding-left: 23px;
+        font-size: 16px;
+        background-size: 22px;
+    }
+    /*End Job Detail */
+    /* job apply */
+    .jop-apply-tit-wrap{
+        padding: 0;
+    }
+    .job-apply-color{
+        padding-left: 23px;
+        font-size: 16px;
+        background-size: 22px;
+    }
+    /*End job apply */
+    /* common */
+    .breadcrumb{
+        padding: 0 !important;
+    }
+    /*End common */
+    .map-text-wrapper{
+        display: block;
+    }
+    .searchButton{
+        width: 28%;
+    }
+    .searchTerm{
+        width: 80%;
+    }
+    .freeword-responsive h3{
+        padding: 0px;
+    }
+    .map-fa-icon{
+        width: 100%;
+    }
+    .freeword-responsive p{
+        text-align: center !important;
+        font-size: 20px;
+    }
+    .offset{
+        width: 100% !important;
+    }
+    /* comment list */
+    .commentlist_tbl td{
+        display: block;
+        width: 100% !important;
+    }
+    .commentlist_tbl td:nth-child(2){
+        padding-left: 5px;
+    }
+    /*END comment list */
+    #customer_list .table.List_tbl .btn{
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .admin-create-container>.admin-create-wrapper{
+        margin: 0px;
+        width: 100%;
+        height: 100% !important;
+        top: 0px;
+        position: relative;
+        transform: none !important;
+        box-shadow: none;
+    }
+    .admin-list-container>.admin-list-wrapper{
+        margin: 0px;
+        width: 100%;
+        height: 100% !important;
+        top: 0px;
+        position: relative;
+        transform: none !important;
+        box-shadow: none;
+    }
+}
+@media only screen and (min-width: 414px){
+    .date-witdh-410{
+        display: none;
+    }
+}
+@media only screen and (max-width: 414px){
+    .span-height{
+        line-height: 0px;
+    }
+    .sp-t{
+        margin-left: 73px !important;
+        margin-top: -23px !important;
+    }
+    .sp-t2{
+        margin-left: 114px !important;
+        margin-top: -23px !important;
+    }
+    .dateTime{
+        display: none;
+    }
+    .date-witdh-410{
+        display: block;
+        border: 1px solid #DEE2E6;
+    }
+    .date-label{
+        border: 1px solid #DEE2E6;
+        padding: 0.50rem;
+        font-weight: 700 !important;
+        background: #f5f5f5;
+    }
+    .datepicker{
+        border: 1px solid #DEE2E6;
+    }
+    .nursing_responsive{
+        max-width: 100%;
+    }
+    /*register*/
+    .login_wp{
+        height: 105vh;
+        padding: 10px !important;
+        position: fixed;
+        width: 100%;
+        background-color: #fbfbfb;
+    }
+    .registerform_container{
+        margin-top: 142px;
+    }
+    .mb-7,
+    .my-3{
+        margin-bottom: 2px !important;
+    }
+    #psd_reset .reset_form{
+        padding: 90px 15px 0 15px;
+    }
+    #psd_reset_form .form_content{
+        padding: 90px 15px 60px 15px;
+    }
+    #psd_reset .reset_txt{
+        font-size: 13px;
+    }
+    .links_2{
+        top: 78px;
+    }
+    .p-l-162{
+        padding-left: 0px;
+    }
+    .links{
+        position: relative;
+    }
+    .sp-414{
+        display: block !important;
+    }
+    .sp-414-table{
+        display: table-cell !important;
+    }
+    .pc-414{
+        display: none !important;
+    }
+    .pc-414-table{
+        display: none !important;
+    }
+    .pc-rsp-table{
+        display: table-cell;
+    }
+    .pc-414-inline{
+        display: none !important;
+    }
+    /*create_news*/
+    .sp-414-timetable .table th,
+    .sp-414-timetable .table td{
+        padding: 5px !important;
+        vertical-align: middle;
+    }
+    .hos-content{
+        padding: 10px;
+    }
+    .m-b-414{
+        margin-bottom: 10px;
+    }
+    div#sp-414-block .nur_date{
+        display: inline-block;
+        margin-top: 10px;
+    }
+    div#sp-414-block .fac_list{
+        padding: 6px;
+        display: inline-block;
+        width: auto;
+    }
+    .nursing_input{
+        flex: 0 0 100%;
+        padding: 0;
+        margin: 0;
+        padding: 0 7px;
+    }
+    .heading-lbl{
+        font-size: 1.05em;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .heading-lbl1{
+        font-size: 1.05em;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .nursing_btn{
+        margin-top: 0px;
+    }
+    .nusing_btn1{
+        background-color: #0cc72c !important;
+        min-width: 68px;
+    }
+    .nursing_table{
+        display: block;
+        width: 100%;
+    }
+    .nursing_table1{
+        display: block;
+    }
+    .nursing-addbtn{
+        margin-top: 10px;
+        padding-left: 1px;
+    }
+    .nursing_cost{
+        padding: 0px;
+        margin-left: 16px;
+    }
+    .nursing_title_lbl{
+        display: block;
+    }
+    #gallery-payment table tr>th:first-child{
+        width: 100%;
+    }
+    .nursing_table_title th,
+    .nursing_table_title td{
+        display: block;
+        width: 100% !important;
+    }
+    .nursing_p-r-2{
+        padding-right: 2px !important;
+    }
+    .nursing_p-l-2{
+        padding-left: 2px !important;
+    }
+    .nursing-m-b-15{
+        margin-bottom: 10px !important;
+    }
+    .p-t-10{
+        padding-top: 10px !important;
+        margin-left: 13px;
+    }
+    .hos-del{
+        padding-bottom: 10px;
+    }
+    .m-l-20{
+        margin-left: 5px !important;
+        margin-top: 5px;
+    }
+    .postal{
+        width: 100%;
+    }
+    /* end nursing profile */
+    #news_list .select_box{
+        width: 72%;
+    }
+    #joboffer_list .all-btn{
+        padding: 10px;
+    }
+}
+@media only screen and (max-width: 380px){
+    .searchButtonNews{
+        width: 30%;
+    }
+    .wt-admin{      
+        right: 45px !important;      
+    }
+    /*register*/
+    .login_wp{
+        height: 105vh;
+        padding: 10px;
+        position: fixed;
+        top: 22px;
+        background-color: #fbfbfb;
+    }
+    .registerform_container{
+        margin-top: 60px;
+    }
+    .brand_logo_container{
+        height: 150px;
+        width: 150px;
+    }
+    .user_card{
+        width: 330px;
+    }
+    .form_content{
+        padding: 70px 15px 40px 15px;
+    }
+    .brand_logo{
+        width: 100px
+    }
+    .mb-7,
+    .my-3{
+        margin-bottom: 7px !important;
+    }
+    /*register*/
+    .links{
+        position: relative;
+    }
+    /* header */
+    #sp_headerbar .fav_his{
+        float: none;
+        text-align: center;
+    }
+    ul.menu li.first-submenu{
+        position: absolute;
+        top: 18px;
+        right: 16px;
+        font-size: 20px;
+    }
+    .login_nav li.first-submenu{
+        top: 18px !important;
+    }
+    ul.menu_list li i.fa-twitter,
+    ul.menu_list li i.fa-facebook-f{
+        color: inherit !important;
+    }
+    .first-submenu span{
+        display: none;
+    }
+    .d-none-380{
+        display: none !important;
+    }
+    .backwrapper{
+        padding: 10px;
+        background: #f8fdff;
+    }
+    .d-none-768{
+        display: block;
+        text-align: center;
+    }
+    .d-none-380{
+        display: none;
+    }
+    /*end header */
+    /* Profile Publish */
+    .gallery-list .gallery-item{
+        font-size: 12px;
+    }
+    .top-mail-btn{
+        right: 125px !important;
+        width: 98px !important;
+        font-size: 12px !important;
+    }
+    .fav-profile{
+        right: 0px;
+        font-size: 12px;
+        top: 0px !important;
+    }
+    /*End  Profile Publish */
+    .related-card .cat_lbl{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 979px) and (min-width: 752px){
+    .map-box-reponsive{
+        display: block;
+    }
+    .fav-update-btn{
+        margin: 33px auto;
+    }
+    .form-group .rightwrap>.rightwrap-child{
+        margin-top: 25px;
+    }
+    .stepper-result-form{
+        padding-top: 20px !important;
+    }
+    .stepper-result-form .label-result{
+        padding: 10px 15px 5px 15px !important;
+    }
+}
+@media only screen and (min-width: 980px) and (max-width: 1880px){
+    .customer-id{
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 16px;
+    }
+    .pc-9-180{
+        display: block;
+    }
+    .sp-9-180{
+        display: none;
+    }    
+}
+@media only screen and (min-width: 1881px){
+    .pc-2000{
+        display: block;
+    }   
+}
+@media only screen and (min-width: 991px) and (max-width: 1880px){
+    .pc-991-1880{
+        display: block;
+    }
+    .customer-id{
+        padding: 0 10px;       
+        line-height: 26px;
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+}
+@media only screen and (max-width:768px){
+    #fav-history-page .card-carousel-cards .card-carousel--card--footer{
+        padding: 0px;
+    }
+    #hospital .nav-content,
+    #nursing .nav-content{
+        border: none;
+        background: transparent !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 25px !important;
+    }
+    #fav-history-page .nav-box[disabled] .nav-content{
+        border: none;
+        background: #fff !important;
+        width: 25px !important;
+    }
+    .slick-dotted.slick-slider{
+        margin-bottom: 0px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 360px){
+    #fav-history-page .card-carousel{
+        width: 263px !important;
+    }
+    #fav-history-page .card-carousel{
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel{
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
+        margin-left: -16px;
+    }
+}
+@media only screen and (min-width: 360px) and (max-width: 375px){
+    #fav-history-page .card-carousel{
+        width: 261px !important;
+    }
+    #fav-history-page .card-carousel{
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel{
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
+        margin-left: -34px;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper.m-l-4{
+        margin-left: -4px;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 450px){
+    #fav-history-page .card-carousel{
+        width: 261px !important;
+    }
+    #fav-history-page .card-carousel{
+        overflow: visible;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel{
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
+        margin-left: -18px;
+    }
+}
+@media only screen and (min-width: 414px) and (max-width: 768px){
+    #fav-history-page .card-carousel{
+        width: 261px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel{
+        width: 272px !important;
+    }
+    #fav-hospital-page #fav-history-page .card-carousel-wrapper{
+        margin-left: 5px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 990px){
@@ -9030,718 +9344,8 @@ strong{
         margin: 36px 0 0 0;
     }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    /*fav nursing*/
-    /*comment*/
-    .cmt{
-        font-size: 12px;
-        color: #777;
-        text-align: right;
-        margin-top: 0px;
-    }
-    .test{
-        display: none;
-    }
-    /*comment*/
-    .lbl-size{
-        width: 355px;
-    }
-    .lbl-width{
-        width: 92px;
-    }
-    dl.favnur dt{
-        width: 22%;
-    }
-    #nursing dl dd{
-        padding-left: 0px;
-    }
-    #headerbar{
-        z-index: 999;
-    }
-    /*end fav nursing*/
-    /*news_start*/
-    .t_card{
-        max-width: none;
-    }
-    .t_card2{
-        margin-left: 40px;
-    }
-    .t_card4{
-        margin-left: 40px;
-    }
-    /*news_end*/
-}
-@media only screen and (min-width: 991px) and (max-width: 1880px){
-    .pc-991-1880{
-        display: block;
-    }
-    .customer-id{
-        padding: 0 10px;       
-        line-height: 26px;
-        margin-left: 10px;
-        margin-top: 0px;
-    }
-}
-@media only screen and (max-device-width: 990px) and (orientation: landscape){
-    .successful-resetpwd{
-        width: 100% !important;
-        margin-top: 34px;
-        background-color: #f8f8f8;
-        border: none;
-    }
-    .admin-list-wrapper{
-        background-color: #fff;
-        padding: 20px 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .admin-create-wrapper{
-        height: auto !important;
-        top: 0px !important;
-        margin-top: 0px !important;
-        transform: none !important;
-    }
-    .admin-list-container>.admin_card{
-        margin-top: 0px;
-        transform: none;
-        top: 0px;
-    }
-}
 /* Large devices (laptops/desktops, 992px and up) */
-@media screen and (max-width: 979px) and (max-width: 752px){
-    #news.t_card2{
-        margin-left: 40px;
-    }
-    #news.t_card4{
-        margin-left: 30px;
-    }
-    /*.tab-pane{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }*/
-    .news_catsearch label{
-        width: 30%;
-    }
-    .news_catsearch section{
-        width: 265px;
-    }
-}
-@media only screen and (min-width: 991px){
-    .map-wrap .col-lg-5{
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 41.6666666667%;
-            flex: 0 0 41.6666666667%;
-    max-width: 40%;
-    }
-    .map-wrap .col-lg-7{
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 58.3333333333%;
-            flex: 0 0 58.3333333333%;
-    max-width: 58.3333333333%;
-    }
-}
-@media only screen and (min-width: 991px) and (max-width: 1000px){
-    .maintab-content{
-        margin: 80px 0 0 0;
-    }
-}
-@media only screen and (min-width: 991px) and (max-width: 1114px){
-    .spanclass{
-        font-size: 12px;
-    }
-}
-@media only screen and (min-width: 991px) and (max-width: 1179px){
-    .spanclass{
-        padding: 5px 3px;
-        width: 60px;
-    }
-    .map-leftwrapper{
-        padding-left: 0;
-    }
-}
-@media only screen and (min-width: 991px) and (max-width: 1200px){
-    .map-wrap{
-        padding: 20px 10px;
-    }
-    .map-header{
-        font-size: 43px;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1020px){
-    #nursing-search .card-carousel{
-        width: 823px!important;
-    }
-    .wd-in{
-        width: 377px;
-    }
-}
-@media only screen and (min-width: 980px) and (max-width: 1880px){
-    .customer-id{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 16px;
-    }
-    .pc-9-180{
-        display: block;
-    }
-    .sp-9-180{
-        display: none;
-    }    
-}
-@media only screen and (min-width: 320px) and (max-width: 1024px){
-    .adminview-sidebar{
-        height: auto;
-    }
-    .customer-sidebar{
-        display: none;
-    }
-}
-@media only screen and (max-width: 1113px){
-    .rightwrap .first_txt{
-        display: none;
-    }
-    .card-title-leftwrapper{
-        width: 60% !important;
-    }
-    .nursing_responsive{
-        max-width: 40%;
-    }
-    /* nursing profile */
-    .heading-lbl{
-        font-size: 1.05em;
-    }
-    .heading-lbl1{
-        font-size: 1.05em;
-        flex: 0 0 17%;
-        max-width: 125px;
-    }
-    .news-post-btn{
-        font-size: 13px;
-    }
-    .nursing_map{
-        padding-left: 0px;
-    }
-    .nursing_radiobtn{
-        float: none !important;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .hos_lbl{
-        width: 75%;
-    }
-    .hos_lbl1{
-        max-width: 18%;
-    }
-    .hos_toggle{
-        max-width: 100%;
-    }
-    .m-l-20{
-        margin-left: 15px !important;
-    }
-    /* end nursing profile */
-    /* common */
-    .col-slg-12{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .pc-1024{
-        display: none;
-    }
-    .sp-1024{
-        display: block;
-    }
-    /*End common */
-    /* create news */
-    /*job search*/
-    ul.hokkaido-wrap{
-        left: 65px;
-    }
-    .divisions span{
-        margin-right: 10px;
-    }
-    .hokkaido-box{
-        position: absolute;
-        right: 10%;
-        z-index: 2;
-    }
-    .multiple-box{
-        width: 156px !important;
-    }
-    .multiple-boxa{
-        width: 156px !important;
-    }
-    .hokkaido-box .spanclass,
-    .kanto-box .spanclass,
-    .okinawa-box .spanclass{
-        margin-right: 1px;
-    }
-    /*end job search*/
-    /* profile publish */
-    .gallery-list .gallery-item{
-        height: 160px;
-    }
-    .lightbox-arrow svg{
-        width: 30px !important;
-        height: 30px !important;
-        line-height: 30px;
-    }
-    /*End profile publish */
-    .wd-in{
-        width: 249px;
-    }
-    .map-wrap{
-        overflow: auto;
-        padding: 20px 10px;
-    }
-    .divisions{
-        width: 550px;
-    }
-    /*news_start*/
-    .t_card{
-        max-width: none;
-    }
-    .t_card2{
-        margin-left: 40px;
-    }
-    .t_card4{
-        margin-left: 40px;
-    }
-    .create_nw_p{
-        padding: 0px;
-    }
-    /*news_end*/
-    /*category*/
-    .t-r{
-        margin-right: 45px;
-    }
-    /*subject*/
-    .o-r1{
-        margin-right: 21px;
-        margin-top: 20px;
-    }
-    /*advertisement*/
-    .a-d1{
-        margin-right: 0px;
-    }
-    .a-d2{
-        margin-top: 20px;
-    }
-    /*create_news*/
-    .title{
-        font-size: 13px;
-    }
-    .unauth-title{
-        font-size: 23px;
-        padding: 10px;
-    }
-    .card_height{
-        float: left;
-        height: 170px;
-        cursor: pointer;
-    }
-    .fav-update-btn{
-        margin: 22px auto;
-    }
-    .divisions{
-        width: 550px;
-    }
-    .map-wrap{
-        padding: 20px 10px;
-    }
-    .top-fixed-btn,
-    .top-fixed-btn.active{
-        margin-bottom: 10px;
-    }
-    .top-fixed-btn{
-        text-align: center;
-        font-size: 12px;
-    }
-    #create_news .title{
-        padding: 2px;
-        font-size: 11px;
-        padding-left: 10px;
-        margin-top: -7px;
-    }
-    .related_box{
-        width: 33.33%;
-    }
-    .related_box:nth-child(4n){
-        padding-right: 10px;
-    }
-    .related_box:nth-child(3n){
-        padding-right: 0;
-    }
-    .fixed-nav{
-        width: 100%;
-    }
-}
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1024px){
-    .search_jobid1{
-        position: relative;
-        margin-left: 192px;
-    }
-    .job_id2{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 16px;
-        margin-bottom: 11px;
-        text-align: center;
-    }
-    .job_id3{
-        float: right!important;
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .job_id6{
-        float: left!important;
-        padding: 2px 10px;
-        margin-top: -22px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
-        margin-bottom: 10px;
-        width: 17%;
-        text-align: center;
-        position: absolute;
-    }
-}
-@media only screen and (max-width: 1240px){
-    .card-title-leftwrapper{
-        width: 60% !important;
-    }
-    .comform{
-        width: 100%;
-        max-width: 100%;
-    }
-    /* common */
-    .pc-1024{
-        display: none;
-    }
-    .sp-1024{
-        display: block;
-    }
-    /*end  common */
-    /* header */
-    .main-header .nav-item{
-        padding: 3px 8px 5px 8px;
-    }
-    .main-header .navbar-nav .nav-link{
-        width: 145px;
-    }
-    .main-header .navbar-nav .nav-link span{
-        font-size: 14px;
-    }
-    #app .logo-text{
-        padding: 0;
-    }
-    .h-tel span{
-        display: none;
-    }
-    .h-tel{
-        width: auto;
-        padding-left: 8px;
-        margin-right: 20px;
-    }
-    .tel{
-        display: block;
-        margin: 0 0 1px;
-        cursor: pointer;
-    }
-    /*end header */
-    /* Admin Sidebar  */
-    .custom-sidebar .admin-tit{
-        margin: 20px 0 10px 0;
-        text-align: center;
-    }
-    .admin-tit span{
-        display: none;
-    }
-    .custom-sidebar:hover .admin-tit{
-        display: flex;
-        margin: 20px 0 10px 40px;
-        align-items: center;
-    }
-    .nav-txt{
-        display: none;
-    }
-    .custom-sidebar{
-        width: 70px;
-        z-index: 99;
-    }
-    .custom-sidebar:hover{
-        width: 280px !important;
-    }
-    .custom-sidebar:hover .admin-tit span{
-        display: block;
-    }
-    .custom-sidebar:hover .nav-txt{
-        display: inline-block;
-    }
-    .custom-sidebar:hover ul.adminview-sidebar li a{
-        text-align: left !important;
-    }
-    .custom-sidebar ul.adminview-sidebar li a{
-        padding: 0 !important;
-        text-align: center;
-    }
-    .custom-sidebar ul.adminview-sidebar li i{
-        padding-right: 0;
-    }
-    .custom-sidebar:hover ul.adminview-sidebar li i{
-        padding-right: 10px;
-    }
-    .custom-sidebar:hover ul.adminview-sidebar li a{
-        padding: 5px 25px !important;
-    }
-}
-@media only screen and (min-width: 1200px){
-    .boot-xl .col-xl-1{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 13.666667% !important;
-        flex: 0 0 13.666667% !important;
-        max-width: 13.666667% !important;
-    }
-    .boot-xl .col-xl-11{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 86.333333% !important;
-        flex: 0 0 86.333333% !important;
-        max-width: 86.333333% !important;
-    }
-}
-@media only screen and (min-width: 1280px){
-    .search_jobid1{
-        margin-left: 153px;
-    }
-    .job_id2{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 16px;
-        margin-bottom: 11px;
-        text-align: center;
-    }
-    .admin-backbtn{
-        min-width: 81px;
-        position: absolute;
-        right: 15px;
-    }
-    .h-tel{
-        padding-left: 12px;
-        margin: 10px 0;
-        width: 142px;
-    }
-    .gSecondNav li{
-        background: transparent;
-        border-left: solid 1px #a7b7c7;
-        border-right: none;
-        border-top: none;
-        border-bottom: none;
-        padding: 5px;
-        border-radius: 0px;
-        color: #000;
-        margin: 0px;
-        font-size: 12px;
-    }
-    .img_title{
-        height: 135px;
-    }
-    /* Register */
-    /* hospital and nursing profile */
-    .hos_lbl{
-        width: 60%;
-    }
-    /* end hospital and nursing profile */
-    .card_height{
-        float: left;
-        height: 170px;
-        cursor: pointer;
-    }
-    .t-r{
-        margin-right: 59px;
-    }
-    .divisions{
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 670px;
-    }
-    .map-leftwrapper{
-        padding-left: 15px;
-    }
-    /*job search*/
-    ul.hokkaido-wrap{
-        left: 0px;
-    }
-    /*end job search*/
-    /* job apply list */
-    #job_apply .scroll_responsive{
-        overflow: auto;
-    }
-    #job_apply .custom-table{
-        width: 1100px;
-    }
-    #job_apply .scroll_responsive .table{
-        margin-bottom: 0 !important;
-    }
-    /*End job apply list */
-    .slick-next, .slick-prev{
-        border: 1px solid #807777;
-        outline: none;
-        background: #f7f7f7;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-        z-index: 999;
-    } 
-    .slick-disabled{
-        opacity: 0;
-    }
-}
-@media only screen and (max-width: 1400px){
-    .main-content{
-        width: 100%;
-    }
-    .menu_tab_category{
-        width: 99% !important;
-    }
-    .fixed-ads-fluid{
-        width: 100%;
-    }
-    #headerbar{
-        display: block;
-        top: 86px;
-        right: 20px;
-    }
-    #headerbar li{
-        display: inline-block;
-    }
-    
-    .navbar-expand-lg .navbar-nav .nav-link{
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-    .social-link:nth-child(3){
-        margin-left: 5px;
-    }
-    .ads-slider{
-        margin: 0 0 20px 35px;
-    }
-    .adslist-card{
-        height: auto;
-    }
-    .ads-img{
-        display: block;
-        float: none;
-        max-width: 100%;
-        width: auto;
-        margin: 0 auto;
-    }
-    .fav-profile{
-        right: 37px;
-    }
-    .today .adslist-card .smallads-title{
-        top: 7px;
-    }
-    .sub-title>.ads-title{
-        position: unset;
-        margin: 10px 0 30px;
-    }
-    .job-img{
-        margin: 0 auto 20px;
-        flex: unset;
-    }
-    .job-box{
-        flex: unset;
-    }
-    .compare-wrap{
-        max-width: 82%;
-    }
-    .fav-update-wrap{
-        max-width: 19%;
-        flex: 0 0 18%;
-    }
-    .map-wrap{
-        overflow: hidden;
-    }
-}
-@media only screen and (max-width: 1440px){
-    .card-title-leftwrapper{
-        width: 56% !important;
-    }
-    .fit-image-profile{
-        height: 165px;
-    }
-    /* hos and nursing account */
-    .img_title{
-        height: 165px;
-    }
-    /* end hos and nursing account */
-    .hos_lbl{
-        width: 165px;
-    }
-    .card_height{
-        float: left;
-        height: 170px;
-        cursor: pointer;
-    }
-    /*login*/
-    .login_2{
-        margin-left: 18px;
-    }
-    .login_1{
-        margin-right: 18px;
-    }
-    .login_top{
-        top: 0px;
-    }
-}
-@media only screen and (max-width: 1880px){
-    .job_id6{
-        float: right !important;
-        padding: 2px 10px;
-        margin-top: -21px !important;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
-        width: 14%;
-        text-align: center;
-    }
-}
-@media screen and (min-width: 1440px) and (max-width:1280px){
-    .search_jobid1{
-        width: 53%;
-        margin-left: 153px;
-    }
-    .job_id2{
-        padding: 2px 10px;
-        margin-top: 5px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 12px;
-        margin-bottom: 11px;
-        text-align: center;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1023px){
+@media only screen and (min-width: 992px) and (max-width: 1024px){
     #fav-history-page .card-carousel{
         width: 799px!important;
     }
@@ -9764,36 +9368,21 @@ strong{
     #fav-hospital-page #fav-history-page .card-carousel{
         width: 800px !important;
     }
+}
+@media only screen and (min-width: 1023px) and (max-width: 1200px){
     .map-leftwrapper{
         padding-left: 0px;
     }
-    #nursing-search .card-carousel{
-        width: 827px!important;
-    }
-    .wd-in{
-        width: 250px !important;
-    }
 }
-@media only screen and (min-width: 1115px) and (max-width: 1179px){
-    .spanclass{
-        font-size: 14px;
-    }
-}
-@media only screen and (min-width: 1201px) and (max-width: 1280px){
+@media only screen and (min-width: 1200px) and (max-width: 1280px){
     #fav-history-page .card-carousel{
         width: 783px!important;
     }
     #fav-hospital-page #fav-history-page .card-carousel{
         width: 814px !important;
     }
-    #nursing-search .card-carousel{
-        width: 988px!important;
-    }
-    .wd-in{
-        width: 308px !important;
-    }
 }
-@media only screen and (min-width: 1281px) and (max-width: 1440px){
+@media only screen and (min-width: 1280px) and (max-width: 1440px){
     #fav-history-page .card-carousel{
         width: 1503px!important;
     }
@@ -9804,7 +9393,7 @@ strong{
         overflow: hidden;
     }
 }
-@media only screen and (min-width: 1441px) and (max-width: 1880px){
+@media only screen and (min-width: 1440px) and (max-width: 1880px){
     .main-content{
         width: 100%;
     }
@@ -9821,25 +9410,12 @@ strong{
     .fixed-ads-fluid{
         width: 100%;
     }
-    #headerbar{
-        display: block;
-        top: 86px;
-    }
-    #headerbar li{
-        display: inline-block;
-    }
-    .gNav li a{
-        padding: 0px 5px 0px 20px;
-    }
     .navbar-expand-lg .navbar-nav .nav-link{
         padding-right: 5px;
         padding-left: 5px;
     }
     .social-link:nth-child(3){
         margin-left: 5px;
-    }
-    .ads-slider{
-        margin: 0 0 20px 35px;
     }
     .adslist-card{
         height: auto;
@@ -9875,18 +9451,134 @@ strong{
         max-width: 19%;
         flex: 0 0 18%;
     }
-    #nursing-search .card-carousel{
-        width: 1033px!important;
+}
+@media only screen and (max-width:320px){
+    .bottom-mail-btn{
+        width: 108px !important;
+        margin-right: 0px;
     }
-    .wd-in{
-        width: 319px !important;
+    .searchButtonNews{
+        width: 30%;
+    }
+    /*comment*/
+    .comment{
+        padding: 13px;
+        left: -40px;
+    }
+    .fnumericzip{
+        margin-bottom: 10px;
+    }
+    .com-mt{
+        margin-top: 44px;
+    }
+    /*comment*/
+    .set-date{
+        text-indent: 0em;
+    }
+    .registerform_container{
+        margin-top: 0px;
+    }
+    /*create_news*/
+    .searchButton{
+        width: 35% !important;
+    }
+    .news_catsearch label{
+        width: 55%;
+    }
+    .nursing_btn span{
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .postal{
+        width: 100%;
+    }
+    #news_list .select_box{
+        width: 70%;
+    }
+    #news_list .select_label{
+        width: 26% !important;
     }
 }
-@media only screen and (min-width: 1881px){
-    .pc-2000{
+@media only screen and (max-width:360px){
+    .comment{
+        padding: 7px;
+        width: 323px;
+        left: -7px;
+    }
+    .comform{
+        max-width: none;
+    }
+    .fnumericzip{
+        margin-bottom: 10px;
+    }
+    .com-mt{
+        margin-top: 44px;
+    }
+    .title_comment2{
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 12px;
+    }
+    .t-t{
+        margin-left: 5px;
+        margin-top: -45px;
+    }
+}
+@media only screen and (max-width:320px){
+    .user_card{
+        width: 290px;
+    }
+    .comment{
+        padding: 10px;
+        width: 288px;
+        left: -30px;
+    }
+    .fnumericzip{
+        margin-bottom: 10px;
+    }
+    .com-mt{
+        margin-top: 44px;
+    }
+    .title_comment2{
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 18px;
+    }
+    .t-t{
+        margin-left: 5px;
+        margin-top: -45px;
+    }
+}
+@media (max-width: 767px) and (min-width: 420px){
+    .pc-rsp-table{
+    }
+    .sp-rsp-block{
         display: block;
-    }   
+        width: 100% !important;
+        padding: 5px 10px !important;
+    }
+    .search_wd{
+        width: auto;
+    }
+    .search_rsp{
+        width: 100%;
+        height: auto;
+        display: contents;
+    }
 }
+@media only screen and (min-width: 320px){
+    /*nursing-search*/
+    .job_id2{
+        padding: 2px 10px;
+        margin-top: 5px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 14px;
+        margin-bottom: 11px;
+        text-align: center;
+    }
+} 
 @media screen and (min-width: 768px){
     .search_jobid1{
         width: 71%;
@@ -9985,6 +9677,46 @@ strong{
         font-size: 12px;
         margin-bottom: 11px;
         text-align: center;
+    }   
+}
+@media only screen and (max-width: 1880px){
+    .job_id6{
+        float: right !important;
+        padding: 2px 10px;
+        margin-top: -21px !important;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 12px;
+        width: 14%;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1179px){
+    .spanclass{
+        padding: 5px 3px;
+        width: 60px;
+    }
+    .map-leftwrapper{
+        padding-left: 0;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1200px){
+    .map-wrap{
+        padding: 20px 10px;
+    }
+    .map-header{
+        font-size: 43px;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1114px){
+    .spanclass{
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width: 1115px) and (max-width: 1179px){
+    .spanclass{
+        font-size: 14px;
     }
 }
 @media (max-width: 768px){
@@ -9995,483 +9727,175 @@ strong{
         width: 100%;
     }
 }
-@media (min-width: 1200px){
-    .boot-xl .col-xl-1{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 13.666667% !important;
-        flex: 0 0 13.666667% !important;
-        max-width: 13.666667% !important;
-    }
-    .boot-xl .col-xl-11{
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 86.333333% !important;
-        flex: 0 0 86.333333% !important;
-        max-width: 86.333333% !important;
+@media only screen and (max-width: 560px){
+    .category_margin{
+        margin: 0;
     }
 }
-@media (max-width: 1024px) and (min-width: 320px){
-    .adminview-sidebar{
-        height: auto;
+@media only screen and (min-width: 768px) and (max-width: 990px){
+    .google_div{
+        float: none;
+        width: 50%;
+        position: relative;
+        top: 70px;
+        padding: 0;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
-    .customer-sidebar{
+    .slider_div{
+        margin: 0 auto 20px;
+    }
+    .menu_tab_category{
+        top: 250px !important;
+    }
+    .slider_div .slick-dotted.slick-slider{
+        margin-bottom: 0 !important;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1330px){
+    .ads-slider{
+        width: 40%;
+    }
+    .slider_div .slick-dotted.slick-slider{
+        margin-bottom: 0 !important;
+    }
+}
+@media only screen and (max-width: 1300px){
+    #sp_headerbar{
         display: none;
     }
 }
-@media (max-width: 600px) and (min-width: 400px){
-    .source-img-small{
-        width: 500px;
-    }
-    .ads-card{
-        width: 120px;
-    }
-    .adminview-sidebar{
-        height: auto;
-    }
-}
-@media (min-width: 320px){
-    .source-img-small{
-        width: 100%;
-    }
-    .smallads-title{
-        font-size: 12px;
-        line-height: 1.357;
-        color: #333;
-        overflow: hidden;
-        position: relative;
-        padding: 0;
-        top: -0.2rem;
-        max-height: 200px;
-    }
-    .today .adslist-card .smallads-title{
-        font-size: 12px;
-        line-height: 1.357;
-        color: #333;
-        overflow: hidden;
-        position: relative;
-        padding: 0;
-        top: -0.2rem;
-        max-height: 65px;
-    }
-    .today .smallads-title{
-        display: block;
-        white-space: normal;
-    }
-    .adslist-card{
-        width: 100%;
-        padding: 10px 0px 10px 0px;
-    }
-    .userview-sidebar{
-        background-color: #f5f5f5;
-        padding-top: 35%;
-        padding-left: 25px;
-        margin-top: 2px;
-    }
-}
-@media screen and (max-width: 979px) and (max-width:752px){
-    #news.t_card2{
-        margin-left: 40px;
-    }
-    #news.t_card4{
-        margin-left: 30px;
-    }
-    .news_catsearch label{
-        width: 30%;
-    }
-    .news_catsearch section{
-        width: 265px;
-    }
-}
-@media screen and (max-width: 1024px) and (min-width: 768px){
-    /*fav nursing*/
-    /*comment*/
-    .cmt{
-        font-size: 12px;
-        color: #777;
-        text-align: right;
-        margin-top: 0px;
-    }
-    .test{
+@media only screen and (max-width: 990px){
+    #headerbar,
+    .fav-dropdown{
         display: none;
     }
-    /*comment*/
-    .lbl-size{
-        width: 355px;
-    }
-    .lbl-width{
-        width: 92px;
-    }
-    dl.favnur dt{
-        width: 22%;
-    }
-    #nursing dl dd{
-        padding-left: 0px;
-    }
-    #headerbar{
-        z-index: 999;
-    }
-    /*end fav nursing*/
-    /*news_start*/
-    .t_card{
-        max-width: none;
-    }
-    .t_card2{
-        margin-left: 40px;
-    }
-    .t_card4{
-        margin-left: 40px;
-    }
-    /*news_end*/
-}
-@media screen and (max-width: 979px) and (min-width: 752px){
-    .map-box-reponsive{
+    #sp_headerbar{
         display: block;
+        width: 83%;
+        margin: 0px auto;
+        background: #fff;
+        margin-left: 6px;
+        font-size: 16px;
     }
-    .fav-update-btn{
-        margin: 33px auto;
+    #sp_headerbar .fav_his{
+        float: left;
+        text-align: center;
     }
-    .form-group .rightwrap>.rightwrap-child{
-        margin-top: 25px;
+    #sp_headerbar .fav_his li{
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
     }
-    .stepper-result-form{
-        padding-top: 20px !important;
-    }
-    .stepper-result-form .label-result{
-        padding: 10px 15px 5px 15px !important;
-    }
-}
-@media (max-width: 767px) and (min-width: 420px){
-    .sp-rsp-block{
-        display: block;
-        width: 100% !important;
-        padding: 5px 10px !important;
-    }
-    .search_wd{
-        width: auto;
-    }
-    .search_rsp{
+    #sp_headerbar .fav_his li .t-show{
+        position: absolute;
+        top: 30px;
+        left: 0px;
         width: 100%;
-        height: auto;
-        display: contents;
+        z-index: 2;
+    }
+    #sp_headerbar .fav_his li p{
+        padding: 0 10px;
+        border: 1px solid;
+        border-radius: 4px;
+    }
+    #sp_headerbar .fav_his li:first-child{
+        margin-right: 20px;
+    }
+    #sp_headerbar .count{
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-left: 6px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 35px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    #sp_headerbar .count2{
+        position: absolute;
+        top: -12px;
+        right: -7px;
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin-right: -5px;
+        background: #2980b9;
+        font-size: 11px;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
     }
 }
-@media screen and (max-width: 480px){
-    .bottom-mail-btn{
-        width: 152px;
-        margin-right: 3px;
+@media only screen and (min-width: 991px) and (max-width: 1360px){
+    .slider_div{
+        width: 32%;
     }
-    .bottom-fav-btn{
-        width: 165px;
+    .gsc-search-box-tools .gsc-search-box .gsc-input{
+        padding-right: 12px !important;
     }
-    .pagination-prev-nav,
-    .pagination-next-nav{
+    .gsib_a{
+        padding: 9px 9px 8px 9px !important;
+    }
+}
+@media only screen and (max-width: 990px){
+    .google_search_div{
+        margin: 0;
+    }
+    .google_div{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: auto;
+    }
+    .infoBox{
+        top: 148px !important;
+    }
+    #headerbar.headerbarblock{
+        display: none;
+    }
+    .google_search_all .slider_div{
         display: none !important;
     }
-    table.jobapp-tb th,
-    table.jobapp-tb td{
-        vertical-align: top !important;
+    .google_search_all .google_div{
+        width: 100%;
     }
-    .admin-list-container .admin_registercard{
-        width: auto;
+    .gsc-search-button-v2{
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
     }
-    .searchButtonNews{
-        width: 25%;
+    .gsc-search-box-tools .gsc-search-box .gsc-input{
+        padding-right: 0 !important;
     }
-    .upper-tab{
-        border: none !important;
+    .gsib_a{
+        padding: 9px 9px 8px 9px !important;
     }
-    .slick-prev{
-        left: -15px;
-        transform: rotate(-135deg);
-        z-index: 1000;
+    .gsc-input-box{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
-}
-@media (max-width: 600px) and (min-width: 400px){
-    .source-img-small{
-        width: 500px;
+    .gsc-search-button{
+        display: none !important;
     }
-    .ads-card{
-        width: 120px;
+    .homepage_btn{
+        display: none;
     }
-    .adminview-sidebar{
-        height: auto;
+    .gsc-control-searchbox-only-ja{
+        width: 100%;
     }
-}
-@media (max-width: 720px) and (min-width: 450px){
-    .pad-free-74{
-        margin-left: -14px;
-    }
-    .compare-wrap{
-        max-width: 100%;
-    }
-}
-@media (max-width:515px) and (min-width:470px){
-    .fav-update-wrap{
-        max-width: 100% !important;
-        flex: none !important;
-    }
-    .fav-update-wrap{
-        padding: 0;
-        background: #BCDDF3;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-    .compare-wrap{
-        max-width: 100% !important;
-        border: 1px solid #ccc;
-    }
-    .fav-update-btn{
-        width: 50% !important;
-        margin: 21px auto;
-        color: #48555a !important;
-        font-size: 13px;
-        border: 1px solid #bdc8ca !important;
-        text-shadow: 1px 1px 0 #fff, 1px 1px 1px #fff;
-        border-radius: 20px;
+    .google_search_all .google_div{
         background: #fff;
-        padding: 3px 0;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     }
-}
-@media (max-width: 1024px) and (min-width: 320px){
-    .adminview-sidebar{
-        height: auto;
-    }
-    .customer-sidebar{
-        display: none;
-    }
-}
-@media print,screen and (min-width: 750px){
-    #nursingView .top-fixed-btn:hover{
-        background: #cbf3ff;
-        color: #000;
-    }
-    #hospitalView .top-fixed-btn.active:hover{
-        background: #cbf3ff;
-        color: #000;
-    }
-    #hospitalView .top-fixed-btn:hover{
-        background: #cbf3ff;
-        color: #000;
-    }
-    .spanclass{
-        letter-spacing: normal;
-        display: inline-block;
-        font-weight: bold;
-        text-align: center;
-        padding: 5px;
-        font-size: 12px;
-        margin-top: 1px;
-        margin-left: 3px;
-    }
-    .spanclass a{
-        position: relative;
-    }
-    .map-text a{
-        color: #000 !important;
-    }
-    .map-text a:after{
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-right: 2px solid #118063;
-        border-bottom: 2px solid #118063;
-        -webkit-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-        position: absolute;
-        top: 50%;
-        left: 40px;
-        margin-top: -3px;
-    }
-    .map-text a.Wakayama:after,
-    .map-text a.Kagoshima:after,
-    .map-text a.Kanagawa:after{
-        left: 50px;
-    }
-    .info-box{
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        z-index: 1;
-        background-color: #212121;
-        color: #ffffff;
-        border: 0px solid #ffffff;
-        border-radius: 5px;
-        padding: 15px;
-        font-family: arial;
-    }
-    /* End Hospital Search */
-    /* Newdetails */
-    .p5{
-        font-size: 18px;
-        letter-spacing: 2px;
-    }
-    .news_photo{
-        height: 250px;
-        width: 80%;
-        margin-bottom: 24px;
-        border-radius: 3px;
-    }
-    .related-area span{
-        color: rgb(255, 72, 0);
-        font-size: 14px;
-    }
-    /*End Newdetails */
-    /* Newdetails */
-    .p5{
-        font-size: 18px;
-        letter-spacing: 2px;
-    }
-    .news_photo{
-        width: 100%;
-        margin-bottom: 24px;
-        border-radius: 3px;
-    }
-    .related-area span{
-        color: #6c757d;
-        font-size: 14px;
-    }
-    /*End Newdetails */
-    /*jssor slider*/
-    /*jssor slider loading skin spin css*/
-    .jssorl-009-spin{
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.7);
-    }
-    .jssorl-009-spin img{
-        animation-name: jssorl-009-spin;
-        animation-duration: 1.6s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        margin-top: -19px;
-        position: relative;
-        top: 50%;
-        width: 38px;
-        height: 38px;
-    }
-    .jssor-slider{
-        position: relative;
-        top: 0px;
-        width: 700px;
-        height: 100px;
-        overflow: hidden;
-        visibility: hidden;
-        margin: 0 auto 10px;
-    }
-    .top-ad-slider{
-        position: relative;
-        top: 0px;
-        left: 0px;
-        width: 700px;
-        height: 100px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .top-ad-slider .slide-img{
-        width: 100px;
-        margin: 10px 0 5px 10px;
-    }
-    .top-ad-slider .slide-img img{
-        width: auto;
-        max-width: 100px;
-    }
-    .top-ad-slider .list-group-item{
-        padding: 2px;
-        height: 120px;
-    }
-    /*job search*/
-    ul.hokkaido-wrap{
-        left: 0px;
-    }
-    .divisions span{
-        margin-right: 10px;
-    }
-    .hokkaido-box{
-        position: absolute;
-        top: 11%;
-        right: -2%;
-        z-index: 2;
-        padding: 0;
-    }
-    .tohoku-box{
-        position: absolute;
-        top: 26%;
-        right: 10%;
-        z-index: 2;
-        padding: 0;
-    }
-    .multiple-box{
-        width: 153px !important;
-    }
-    .multiple-boxa{
-        width: 152px !important;
-    }
-    .hokkaido-box .spanclass,
-    .kanto-box .spanclass,
-    .okinawa-box .spanclass{
-        margin-right: 1px;
-    }
-    .kanto-box{
-        position: absolute;
-        top: 56%;
-        right: 13%;
-        z-index: 2;
-        padding: 0;
-    }
-    .hokuriku-box{
-        position: absolute;
-        top: 23%;
-        left: 55.5%;
-        z-index: 2;
-        padding: 0;
-    }
-    .tokai-box{
-        position: absolute;
-        bottom: 28%;
-        right: 30%;
-        z-index: 2;
-        padding: 0;
-    }
-    .kinki-box{
-        position: absolute;
-        top: 38%;
-        left: 30.5%;
-        z-index: 2;
-        padding: 0;
-    }
-    .chugoku-box{
-        position: absolute;
-        top: 27.5%;
-        left: 16%;
-        z-index: 2;
-        padding: 0;
-    }
-    .shikoku-box{
-        position: absolute;
-        left: 18%;
-        bottom: 23%;
-        z-index: 2;
-        padding: 0;
-    }
-    .kyushu-box{
-        position: absolute;
-        bottom: 69%;
-        left: -0.5%;
-        z-index: 2;
-        padding: 0;
-    }
-    .okinawa-box{
-        position: absolute;
-        bottom: 5%;
-        left: 16%;
-        z-index: 2;
-        padding: 0;
-    }
-    /*end job search*/
-    /*register form*/
 }
