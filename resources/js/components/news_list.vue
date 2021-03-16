@@ -171,17 +171,17 @@
                                     <p class="mt-4">{{newsList.main_point}}</p>
                                     <div class="card-title-rightwrapper model-7 mt-2">                                                 
                                         <div class="checkbox">
-                                            <input type='checkbox' :id="newsList.id" v-if="newsList.recordstatus == 1" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)" checked/>
-                                            <input type='checkbox' :id="newsList.id" v-if="newsList.recordstatus == 0" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)"  />
+                                            <input type='checkbox' :id="'recordstatus_' + newsList.id" v-if="newsList.recordstatus == 1" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)" checked/>
+                                            <input type='checkbox' :id="'recordstatus_' + newsList.id" v-if="newsList.recordstatus == 0" @click="changeActivate(newsList.category_id,newsList.id,newsList.recordstatus)"  />
                                             <label for="checkbox"></label>
-                                            <div  v-if="newsList.recordstatus == 1" class="on">公開中</div>
+                                            <div v-if="newsList.recordstatus == 1" class="on">公開中</div>
                                             <div v-if="newsList.recordstatus == 0" class="on">非公開</div>
                                         </div>
                                         <div class="checkbox">
-                                            <input type='checkbox' :id="newsList.id" v-if="newsList.smartnew == 1" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)" checked/>
-                                            <input type='checkbox' :id="newsList.id" v-if="newsList.smartnew == 0" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)"  />
+                                            <input type='checkbox' :id="'smartstatus_' + newsList.id" v-if="newsList.smartnew == 1" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)" checked/>
+                                            <input type='checkbox' :id="'smartstatus_' + newsList.id" v-if="newsList.smartnew == 0" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)"  />
                                             <label for="checkbox"></label>
-                                            <div  v-if="newsList.smartnew == 1" class="on">SmartNewsに掲載する</div>
+                                            <div v-if="newsList.smartnew == 1" class="on">SmartNewsに掲載する</div>
                                             <div v-if="newsList.smartnew == 0" class="on">SmartNewsに掲載しない</div>
                                         </div>                                                                                             
                                     </div>
@@ -280,20 +280,20 @@
                     });                
                 }).catch(error =>{
                     if(activate == 1){
-                        $("#"+id).prop("checked", true);
+                        $("#recordstatus_"+id).prop("checked", true);
                     }else{
-                        $("#"+id).prop("checked", false);
+                        $("#recordstatus_"+id).prop("checked", false);
                     }                
                 });
             },
             smartActive(catid,postid,smartnew){                
-                if(smartnew == 1)
+                 if(smartnew == 1)
                 {                    
-                    this.smartnew_text = (catid == 26? "PR":"ニュース") +"をSmartNewsに掲載しないでしょうか";
+                    this.smartnew_text = (catid == 26? "PR":"この記事") +"をSmartNewsから削除しますか？";
                 }
                 else{
-                    this.smartnew_text = (catid == 26? "PR":"ニュース") +"をSmartNewsに掲載してよろしいでしょうか。";
-                }            
+                    this.smartnew_text = (catid == 26? "PR":"この記事") +"をSmartNewsに掲載しますか？";
+                }             
                 this.$swal({
                     allowOutsideClick: false,
                     text: this.smartnew_text,
@@ -311,13 +311,13 @@
                 }).then(response => {
                     this.axios.get(`/api/changeSmartStatus/${postid}`)
                     .then(response => {
-                       // this.searchbyCategory(this.page);
+                       this.searchbyCategory(this.page,true);
                     });                
                 }).catch(error =>{
                     if(smartnew == 1){
-                        $("#"+postid).prop("checked", true);
+                        $("#smartstatus_"+postid).prop("checked", true);
                     }else{
-                        $("#"+postid).prop("checked", false);
+                        $("#smartstatus_"+postid).prop("checked", false);
                     }                
                 });
             },
@@ -393,7 +393,7 @@
                     });
                 });
             },
-            searchbyCategory(page) {
+            searchbyCategory(page, isSmart = false) {
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
@@ -415,8 +415,10 @@
                     fd.append("selected_date", this.select_date);//linked news
                 }
                 fd.append("postid",null);
-                this.$loading(true);
-                $("html, body").animate({ scrollTop: 0 }, "slow");
+                if(isSmart != true){
+                    this.$loading(true);
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                }
                 this.axios.post("/api/news_list/search?page="+page, fd).then(response => {
                     this.$loading(false);
                     this.news_list = response.data.query;
