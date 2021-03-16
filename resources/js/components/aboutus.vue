@@ -1,9 +1,8 @@
 <template>
   <div class="aboutus">
-      <h2 class="site_header">会社概要</h2>
+      <h2 class="site_header">運営会社</h2>
       <div class="container pad-free-750">
         <div class="title" id="browser1" v-on:click="toggle(1);isActive1 = !isActive1" >
-          <h5>会社概要</h5>
           <table>
         <tbody>
           <tr>
@@ -12,10 +11,10 @@
           </tr>
           <tr>
           <th>所在地</th>
-          <td>〒164-0003　東京都中野区東中野１－５９－９　リックビル2階<br>東中野駅西口徒歩1分</td>
+          <td>〒164-0003　<br>東京都中野区東中野１－５９－９　リックビル2階<br>東中野駅西口徒歩1分</td>
           </tr>
           <tr>
-          <th>電話:</th>
+          <th>電話</th>
           <td>
             <a href="tel:(+81)3-6279-1951 /">(+81)3-6279-1951   &nbsp;/</a>
             <a href="tel:03-6279-1951">03-6279-1951</a>
@@ -29,8 +28,8 @@
           </td>
           </tr>
           <tr>
-          <th>メール:</th>
-          <td><a class="email" href="mailto: mail@trust-estate.jp">mail@trust-estate.jp</a></td>
+          <th>メール</th>
+          <td><a class="email" href="mailto: info@t-i-s.jp">info@t-i-s.jp</a></td>
           </tr>
           <tr>
           <th>設立</th>
