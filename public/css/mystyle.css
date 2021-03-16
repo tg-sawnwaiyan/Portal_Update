@@ -13899,6 +13899,7 @@ strong {
 .checkbox {
     position: relative;
     display: inline-block;
+    padding-right: 30px;
 }
 
 .checkbox:after,
