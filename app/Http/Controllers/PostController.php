@@ -458,4 +458,18 @@ class PostController extends Controller
         $data = array("changeActivate"=> $changeActivate, "success");
         return response()->json($data);
     }
+
+    public function changeSmartStatus($id)
+    {
+        $smartStatus =  Post::find($id);
+        if($smartStatus->smartnew == 0 ) {
+            $smartStatus->smartnew =1;
+        }
+        else {
+            $smartStatus->smartnew =0;
+        }
+        $smartStatus->save();
+        $data = array("smartStatus"=> $smartStatus, "success");
+        return response()->json($data);
+    }
 }   

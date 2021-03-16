@@ -814,6 +814,7 @@ li.userprofile-name>a{
     position: relative;
     display: inline-block;
     vertical-align: middle;
+    padding-right: 30px;
 }
 .checkbox:after,
 .checkbox:before{

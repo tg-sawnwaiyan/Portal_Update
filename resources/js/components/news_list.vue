@@ -176,7 +176,14 @@
                                             <label for="checkbox"></label>
                                             <div  v-if="newsList.recordstatus == 1" class="on">公開中</div>
                                             <div v-if="newsList.recordstatus == 0" class="on">非公開</div>
-                                        </div>                                 
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type='checkbox' :id="newsList.id" v-if="newsList.smartnew == 1" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)" checked/>
+                                            <input type='checkbox' :id="newsList.id" v-if="newsList.smartnew == 0" @click="smartActive(newsList.category_id,newsList.id,newsList.smartnew)"  />
+                                            <label for="checkbox"></label>
+                                            <div  v-if="newsList.smartnew == 1" class="on">SmartNewsに掲載する</div>
+                                            <div v-if="newsList.smartnew == 0" class="on">SmartNewsに掲載しない</div>
+                                        </div>         
                                     </div>
                                     <div class="d-flex mt-4">
                                         <router-link :to="{ path:'/editPost/'+ newsList.id}" class="btn edit-borderbtn">編集</router-link>
@@ -243,7 +250,7 @@
                 $('div.mx-calendar-content table thead tr th:nth-child(7)').text('土');
             },            
             /** end of linked news */
-            changeActivate(catid,id,activate, $event){                
+            changeActivate(catid,id,activate){                
                 if(activate == 1)
                 {                    
                     this.activate_text = (catid == 26? "PR":"ニュース") +"を非公開にしてよろしいでしょうか。";
@@ -278,6 +285,41 @@
                     }                
                 });
             },
+            smartActive(catid,postid,smartnew){                
+                if(smartnew == 1)
+                {                    
+                    this.smartnew_text = (catid == 26? "PR":"ニュース") +"をSmartNewsに掲載しないでしょうか";
+                }
+                else{
+                    this.smartnew_text = (catid == 26? "PR":"ニュース") +"をSmartNewsに掲載してよろしいでしょうか。";
+                }            
+                this.$swal({
+                    allowOutsideClick: false,
+                    text: this.smartnew_text,
+                    type: "warning",
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: "#eea025",
+                    cancelButtonColor: "#b1abab",
+                    cancelButtonTextColor: "#000",
+                    confirmButtonText: "はい",
+                    cancelButtonText: "キャンセル",
+                    confirmButtonClass: "all-btn",
+                    cancelButtonClass: "all-btn"
+                }).then(response => {
+                    this.axios.get(`/api/changeSmartStatus/${postid}`)
+                    .then(response => {
+                        this.searchbyCategory(this.page);
+                    });                
+                }).catch(error =>{
+                    if(activate == 1){
+                        $("#"+postid).prop("checked", true);
+                    }else{
+                        $("#"+postid).prop("checked", false);
+                    }                
+                });
+            },
             getResults() {
                 this.$http.get('/api/news_list')
                 .then(response => {
@@ -299,9 +341,9 @@
             },
             deletePost(id) {
 
-                if(this.norecord > 0){
+                if(this.norecord == 1){
                         this.page = this.page > 1 ? this.page-1 : this.page;
-                        }
+                }
                 var catid = document.getElementById("selectBox").value;
 
                 this.$swal({

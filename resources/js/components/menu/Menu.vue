@@ -147,6 +147,9 @@
                         <router-link :to="{ name: 'jobSearch' }"><i class="fas fa-users"></i> 求人検索</router-link>
                         </li>
                         <li>
+                            <router-link :to="{name: 'aboutus'}"><i class="far fa-building"></i> 運営会社</router-link>
+                        </li>
+                        <li>
                             <router-link :to="{name: 'sitepolicy'}"><i class="fas fa-info-circle"></i> 利用規約</router-link>
                         </li>
                         <li>
