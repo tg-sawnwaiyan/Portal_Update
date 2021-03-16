@@ -327,6 +327,7 @@ Route::group(['middleware' => $middleware], function() {
     Route::get('account_hospital/{id}','CustomerController@hosaccount');
     Route::get('changeActivate/{id}/{type}','CustomerController@changeActivate');
     Route::get('changeRecordstatus/{id}','PostController@changeRecordstatus');
+    Route::get('changeSmartStatus/{id}','PostController@changeSmartStatus');
     // Route::get('changeActivateHos/{id}','CustomerController@changeActivateHos');
     Route::delete('profileDelete/{id}/{type}','CustomerController@profileDelete');
     // Route::delete('profileDeleteHos/{id}','CustomerController@profileDeleteHos');
