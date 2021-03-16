@@ -10813,9 +10813,9 @@ padding: 11px;
     .card-title-leftwrapper {
         width: 56% !important;
     }
-    .card-title-rightwrapper {
+    /* .card-title-rightwrapper {
         width: 40% !important;
-    }
+    } */
     .fit-image-profile {
         height: 165px;
     }
