@@ -276,7 +276,7 @@
                 }).then(response => {
                     this.axios.get(`/api/changeRecordstatus/${id}`)
                     .then(response => {
-                        this.searchbyCategory(this.page);
+                        this.searchbyCategory(this.page,true);
                     });                
                 }).catch(error =>{
                     if(activate == 1){
@@ -393,7 +393,7 @@
                     });
                 });
             },
-            searchbyCategory(page) {
+            searchbyCategory(page, isActive = false) {
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
@@ -415,8 +415,12 @@
                     fd.append("selected_date", this.select_date);//linked news
                 }
                 fd.append("postid",null);
-                this.$loading(true);
-                $("html, body").animate({ scrollTop: 0 }, "slow");
+
+                if(isActive != true){
+                    this.$loading(true);
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                }
+                
                 this.axios.post("/api/news_list/search?page="+page, fd).then(response => {
                     this.$loading(false);
                     this.news_list = response.data.query;
