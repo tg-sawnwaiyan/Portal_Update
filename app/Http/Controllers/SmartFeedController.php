@@ -16,7 +16,7 @@ class SmartFeedController extends Controller
                 ->where('categories.name', '!=', 'PR')
                 ->where('posts.recordstatus', '=', 1)
                 ->where('posts.smartnew', '=', 1)
-                ->orderBy('posts.created_at', 'desc')->skip(0)->take(30)->get()->toArray();
+                ->orderBy('posts.created_at', 'desc')->get()->toArray();
 
         $ads =  Advertisement::where('recordstatus',1)->orderBy('id', 'DESC')->skip(0)->take(2)->get()->toArray();
         
