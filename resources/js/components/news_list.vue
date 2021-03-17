@@ -394,7 +394,6 @@
                 });
             },
             searchbyCategory(page, isActive = false) {
-
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
@@ -416,12 +415,10 @@
                     fd.append("selected_date", this.select_date);//linked news
                 }
                 fd.append("postid",null);
-
                 if(isActive != true){
                     this.$loading(true);
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                 }
-                
                 this.axios.post("/api/news_list/search?page="+page, fd).then(response => {
                     this.$loading(false);
                     this.news_list = response.data.query;
@@ -468,8 +465,8 @@
 .width-20 {
     width: 20% !important;
 }
-.width-65 {	
-    width: 65%;	
+.width-65 {
+    width: 65%;
 }
 .width-auto {
     width: auto !important;
