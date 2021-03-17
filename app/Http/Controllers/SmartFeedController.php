@@ -92,7 +92,7 @@ class SmartFeedController extends Controller
     private function create_ads($ads,$url)
     {
         $link = $ads["link"] ? $ads["link"] : $url."upload/static/".$ads["pdf"];
-        $advertiser = $ads["description"] ? $ads["description"] : $ads["title"];
+        $advertiser = $ads["description"] ? strtok($ads["description"], " \n\t") : $ads["title"];
         $thumbnail = "".$url."upload/advertisement/".$ads["photo"];
         
         $advertisement = "<snf:sponsoredLink link=\"".htmlspecialchars($link)."\" title=\"".$ads["title"]."\"  thumbnail=\"".htmlspecialchars($thumbnail)."\" advertiser =\"".$advertiser."\"/>\n";
