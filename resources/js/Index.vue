@@ -48,6 +48,9 @@
                                         <ul class="gNav">
                                             <li><a class="tel" href="mailto:info@t-i-s.jp"><i class="fas fa-envelope"></i><span>info@t-i-s.jp</span></a></li>
                                             <li>
+                                            <router-link :to="{name: 'aboutus'}">運営会社</router-link>
+                                            </li>
+                                            <li>
                                             <router-link :to="{name: 'sitepolicy'}">利用規約</router-link>
                                             </li>
                                             <li>

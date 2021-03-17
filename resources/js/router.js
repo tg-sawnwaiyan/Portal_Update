@@ -51,6 +51,7 @@ import sitepolicy from './components/sitepolicy'
 import Accountlist from './components/Accountlist'
 import NewsCategory from './components/News_Category'
 import startpage from './components/startpage'
+import aboutus from './components/aboutus'
 
 // import menu from './components/menu/Menu';
 
@@ -519,10 +520,17 @@ const routes = [
     path: '/sitepolicy',
     component: sitepolicy,
   },
+
   {
     name: 'startpage',
     path: '/startpage',
     component: startpage,
+  },
+
+  {
+    name: 'aboutus',
+    path: '/aboutus',
+    component: aboutus,
   },
 
     {

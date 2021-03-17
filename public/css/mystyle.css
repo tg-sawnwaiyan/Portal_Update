@@ -10813,9 +10813,9 @@ padding: 11px;
     .card-title-leftwrapper {
         width: 56% !important;
     }
-    .card-title-rightwrapper {
+    /* .card-title-rightwrapper {
         width: 40% !important;
-    }
+    } */
     .fit-image-profile {
         height: 165px;
     }
@@ -15016,4 +15016,29 @@ table.gsc-search-box td.gsc-input{
         margin-top: 0 !important;
     }
 }
+
+
+/*aboutus*/
+.aboutus table{
+    width: 100%;
+}
+.aboutus table th,
+.aboutus table td{
+    border: 1px solid #e9e9e9;
+    font-size: 14px;
+    color: #606161;
+    padding: 12px 30px;
+    vertical-align: middle;
+}
+.aboutus table th{
+    color: #2980b9;
+    background: #f8f9fc;
+}
+@media only screen and (max-width: 767px){
+    .aboutus table th,
+    .aboutus table td{
+        display: block;
+    }
+}
+/*end of aboutus*/
 
