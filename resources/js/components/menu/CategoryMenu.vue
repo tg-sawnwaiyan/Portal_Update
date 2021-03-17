@@ -384,9 +384,6 @@ export default {
         padding: 0;
         height: 60px !important;
     }
-    #upper-tab {
-    margin-top: 5px;
-    }
     }
     .nav-link h2 {
         padding: 0.2rem;
