@@ -29,7 +29,8 @@
 
                                     <div class="col-md-auto pad-free google_search_div">
                                         <div class="google_div">          
-                                            <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div>
+                                            <!-- <div class="gcse-searchbox-only" data-resultsUrl="https://www.google.com/search"></div> -->
+                                            <div v-html="html"></div>
                                             <a href="/startpage" class="homepage_btn"><i class="fas fa-home"></i>ホームページに設定する</a>
                                         </div>
                                         <adsslider class="d-none d-sm-block slider_div"></adsslider>
@@ -254,21 +255,7 @@
       adsslider
     }, 
     created() {
-        (function() {
-            var cx = '8f501e7f8a9c94ad7';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse, s);
-          })();
-          window.onload = function(){
-            document.getElementById('gsc-i-id1').placeholder = 'Googleで検索';
-            $(".gsc-search-button-v2").text("検索");
-          };
-
-          
+        this.createScriptGoogleSearch();
 
         window.addEventListener('resize', this.handleResize)
         this.handleResize();
@@ -314,7 +301,7 @@
     destroyed() {
         document.removeEventListener('scroll', this.handleScroll);
     },
-    mounted(){
+    mounted(){        
         
         if(localStorage.getItem("visit")){
             this.visit = localStorage.getItem("visit");       
@@ -376,6 +363,25 @@
         }
     },
     methods: {
+        window:onload = function() {  
+            var textBox = document.querySelector('#gsc-i-id1');
+            var button = document.querySelector('.gsc-search-button-v2');
+            if(textBox) textBox.placeholder = "Googleで検索";
+            if(button) button.innerHTML  = "検索";
+        },
+       
+        createScriptGoogleSearch(){
+            this.html = '<div class="gcse-searchbox-only" :placeholder="placeholderValue" data-resultsUrl="https://www.google.com/search"></div>';
+
+            var cx = '8f501e7f8a9c94ad7';
+            var gcse = document.createElement('script');
+            gcse.id = 'google-search';
+            gcse.type = 'text/javascript';           
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);            
+        },
         // cancelButton (e){
         //     if(e.target.id == "gs_cb50" || $(e.target).attr('class') == "gsst_a"){
         //         if(this.w_width <= 560){
