@@ -35,17 +35,23 @@ class PostController extends Controller
         }
 
         $post = new Post() ;
-        $post->title = $request->input('title');
-        $post->main_point = $request->input('main_point');
-        $post->body=$request->input('body');
+        $title = str_replace('&', '＆', $request->input('title'));
+        $main_point = str_replace('&', '＆', $request->input('main_point'));
+        $body = str_replace('&', '＆', $request->input('body'));
+        $created_by = str_replace('&', '＆', $request->input('created_by'));
+        $created_by_company = str_replace('&', '＆', $request->input('created_by_company'));
+        
+        $post->title = $title;
+        $post->main_point = $main_point;
+        $post->body= $body;
         $post->photo = $imageName;
         $post->category_id=$request->input('category_id');
         $post->block_id=$request->input('block_id');
         $post->related_news=$request->input('related_news');
         $post->user_id = 1;
         // $post->recordstatus=1;
-        $post->created_by = $request->input('created_by');
-        $post->created_by_company = $request->input('created_by_company');
+        $post->created_by = $created_by;
+        $post->created_by_company = $created_by_company;
         $post->from_date = $request->input('from_date');
         $post->to_date = $request->input('to_date');
         $post->smartnew = $request->input('smartnew');
@@ -329,9 +335,15 @@ class PostController extends Controller
             $imageName = "";
         }
 
-        $post->title = $request->input('title');
-        $post->main_point = $request->input('main_point');
-        $post->body=$request->input('body');
+        $title = str_replace('&', '＆', $request->input('title'));
+        $main_point = str_replace('&', '＆', $request->input('main_point'));
+        $body = str_replace('&', '＆', $request->input('body'));
+        $created_by = str_replace('&', '＆', $request->input('created_by'));
+        $created_by_company = str_replace('&', '＆', $request->input('created_by_company'));
+
+        $post->title = $title;
+        $post->main_point = $main_point;
+        $post->body = $body;
         $post->photo = $imageName;
         $post->category_id=$request->input('category_id');
         $post->block_id=$request->input('block_id');
@@ -340,17 +352,17 @@ class PostController extends Controller
         $post->to_date = $request->input('to_date');
         $post->smartnew = $request->input('smartnew');      
 
-        if (is_null($request->input('created_by_company')) || $request->input('created_by_company') == 'null' ) {
+        if (is_null($created_by_company) || $created_by_company == 'null' ) {
             $post->created_by_company = '';
         }
         else {
-            $post->created_by_company = $request->input('created_by_company');
+            $post->created_by_company = $created_by_company;
         }
-        if (is_null($request->input('created_by')) || $request->input('created_by') == 'null' ) {
+        if (is_null($created_by) || $created_by == 'null' ) {
             $post->created_by = '';
         }
         else {
-            $post->created_by = $request->input('created_by');
+            $post->created_by = $created_by;
         }
         $post->user_id = 1;
         $post->save();
