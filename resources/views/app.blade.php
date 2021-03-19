@@ -35,10 +35,6 @@ header("Pragma:no-cache");
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
 <script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
-<!-- <script src="https://cse.google.com/cse.js?cx=8f501e7f8a9c94ad7" defer></script> -->
-
-<!-- <script src="/js/manifest.js"></script> -->
-<!-- <script src="/js/vendor.js"></script> -->
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 <script src="{{ asset('js/vue-clazy-load.js') }}"></script>
@@ -46,11 +42,8 @@ header("Pragma:no-cache");
 <!--mailbox-->
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<!-- <link href="{{ asset('css/mystyle_kathy.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
 <link href="{{ asset('css/user.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<!-- <link href="{{ asset('css/mystyle_yatanar.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
-<!-- <link href="{{ asset('css/categorymenu.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
@@ -174,32 +167,20 @@ header("Pragma:no-cache");
     
 </div>
 
-<!-- <script src="/js/app.js" type="text/javascript"></script> -->
-<!-- <script src="{{ asset('js/map-api.js') }}"></script> -->
-
 <!-- Real map -->
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script> -->
 <!-- Test map -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
-<!-- <script src="http://maps.google.com/maps/api/js"></script> -->
-<!-- <script src="{{ asset('js/vue2-5-13.js') }}"></script>
-<script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 <script src="{{ asset('js/vue.min.js') }}"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
 <!-- Include after Vue (before closing body) -->
 <script src="{{ asset('js/vue-fullpage.min.js') }}"></script>
-<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
 <!-- script for editor -->    
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <!-- end script for editor -->
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
-<!-- <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script> -->
-<!-- <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>      -->
-
 
 <script type="text/javascript">
  $(document).ready(function() {   
