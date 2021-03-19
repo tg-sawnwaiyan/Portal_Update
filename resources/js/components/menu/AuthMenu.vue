@@ -394,6 +394,8 @@
 <script>
 
 
+//vue sweetaler
+import VueSweetAlert from 'vue-sweetalert';
 
   export default {
     data(){
@@ -413,6 +415,9 @@
         isActive: localStorage.getItem("isActive")? Number(localStorage.getItem("isActive")):null,
         isRotate : localStorage.getItem("isRotate")? Number(localStorage.getItem("isRotate")):null,
       }
+    },
+    created(){
+        Vue.use(VueSweetAlert)
     },
 
     mounted() {
