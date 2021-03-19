@@ -173,10 +173,10 @@ header("Pragma:no-cache");
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
 <script src="{{ asset('js/vue.min.js') }}"></script>
-<script src="{{ asset('js/vue-scrollto.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
+<!-- <script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
+<!-- <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script> -->
 <!-- Include after Vue (before closing body) -->
-<script src="{{ asset('js/vue-fullpage.min.js') }}"></script>
+<!-- <script src="{{ asset('js/vue-fullpage.min.js') }}"></script> -->
 <!-- script for editor -->    
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <!-- end script for editor -->

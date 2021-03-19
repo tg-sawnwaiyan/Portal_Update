@@ -162,6 +162,7 @@
 
         },
         created() {
+            Vue.use(require('vue-moment'));
             this.selectedValue = 0;
             this.profileid = 0;
             this.$loading(true);
