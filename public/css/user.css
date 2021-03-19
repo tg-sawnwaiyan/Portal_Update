@@ -8652,8 +8652,6 @@ ul.nur-caro-card>li.list-group-item {
 /*fav_slider*/
 
 @media only screen and (max-width:480px) {
-    
-
     .cmt2 {
         float: left;
         margin-left: -13px;
@@ -10362,6 +10360,7 @@ table.gsc-search-box td.gsc-input{
         width: 100%;
         padding: 0;
         margin: 0;
+        height: auto;
     }
     #upper-tab {
         margin-top: 38px;
