@@ -10,7 +10,6 @@ import VueSidebarMenu from 'vue-sidebar-menu'
 import router from './router'
 import Vuex from 'vuex';
 import * as VueGoogleMaps from "vue2-google-maps";
-import DatePicker from 'vue2-datepicker';
 import { BulmaAccordion, BulmaAccordionItem } from "vue-bulma-accordion";
 import Slick from 'vue-slick'; //vue slick
 import VueAnalytics from 'vue-analytics'
@@ -25,7 +24,6 @@ Vue.use(VueAnalytics, {
 Vue.use(Slick);
 Vue.use(BulmaAccordion, BulmaAccordionItem)
 Vue.use(Vuex);
-Vue.use(DatePicker);
 Vue.use(VueSidebarMenu);
 //start editor
 
@@ -112,8 +110,6 @@ Vue.use(ReadMore);
 import Lightbox from 'vue-my-photos'
 Vue.use(Lightbox)
     //end Light Gallery
-
-Vue.use(require('vue-moment'));
 // Vue.use(require('vue-moment'));
 
 //autocomplete

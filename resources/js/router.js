@@ -26,8 +26,15 @@ const hospitalSearch = () => System.import(/* webpackChunkName: "search" */'./co
 const nursingSearch = () => System.import(/* webpackChunkName: "search" */'./components/nursingSearch')
 const jobSearch = () => System.import(/* webpackChunkName: "search" */'./components/jobSearch')
 
-import Register from './pages/Register'
+import NotFound from './components/404';
+import Unauthorized from './components/419';
+import sitepolicy from './components/sitepolicy'
+import startpage from './components/startpage'
+import aboutus from './components/aboutus'
+import privacyPolicy from './components/privacyPolicy';
 import Contract from './pages/Contract'
+
+import Register from './pages/Register'
 import Login from './pages/Login'
 import PasswordResetMail from './pages/Passwordreset'
 import PasswordResetForm from './pages/Passwordresetform'
@@ -37,16 +44,10 @@ import subject from "./components/Subject";
 import comment from "./components/Comment";
 import specialfeature from "./components/CreateSpecialFeature";
 import nursingMailConfirm from "./components/nursingMailConfirm";
-import privacyPolicy from './components/privacyPolicy';
 import occupation from './components/occupation';
 import News from './components/News';
-import Unauthorized from './components/419';
-import NotFound from './components/404';
 import adminlist from './components/AdminList'
 import admincreate from './components/AdminCreate'
-import sitepolicy from './components/sitepolicy'
-import startpage from './components/startpage'
-import aboutus from './components/aboutus'
 
 const JobApply = () => System.import(/* webpackChunkName: "JobApply" */'./components/JobApply')
 const Profile = () => System.import(/* webpackChunkName: "Profile" */'./components/Profile')

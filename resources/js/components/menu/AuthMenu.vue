@@ -396,6 +396,7 @@
 
 //vue sweetaler
 import VueSweetAlert from 'vue-sweetalert';
+import DatePicker from 'vue2-datepicker';
 
   export default {
     data(){
@@ -417,6 +418,8 @@ import VueSweetAlert from 'vue-sweetalert';
       }
     },
     created(){
+        Vue.use(require('vue-moment'));
+        Vue.use(DatePicker);
         Vue.use(VueSweetAlert)
     },
 

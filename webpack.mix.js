@@ -10,11 +10,11 @@ require('laravel-mix-bundle-analyzer');
 
 // }
 
-// if (mix.isWatching()) {
+if (mix.isWatching()) {
 
-//    mix.bundleAnalyzer();
+   mix.bundleAnalyzer();
 
-// }
+}
 
 
 
@@ -45,7 +45,7 @@ require('laravel-mix-bundle-analyzer');
 
 
 mix.js('resources/js/app.js', 'public/js')
-   .extract(['vue','bootstrap'])
+   .extract(['vue','bootstrap','quill'])
    .sass('resources/sass/app.scss', 'public/css');
 // mix.css('resources/css/mystyle.css', 'public/css'); //V
 
