@@ -1,57 +1,62 @@
 import VueRouter from 'vue-router'
 // Pages
+//admin
+const news_list = () => System.import(/* webpackChunkName: "admin" */'./components/news_list')
+const editPost = () => System.import(/* webpackChunkName: "admin" */'./components/editNewsPost')
+const categorylist = () => System.import(/* webpackChunkName: "admin" */'./components/categorylist')
+const advertisementlist = () => System.import(/* webpackChunkName: "admin" */'./components/advertisementlist')
+const editadvertisement = () => System.import(/* webpackChunkName: "admin" */'./components/editadvertisement')
+const linkedNews = () => System.import(/* webpackChunkName: "admin" */'./components/LinkedNewslist')
+const editlinkedNews = () => System.import(/* webpackChunkName: "admin" */'./components/EditLinkedNews')
+const customerlist = () => System.import(/* webpackChunkName: "admin" */'./components/customerlist')
+const commentlist = () => System.import(/* webpackChunkName: "admin" */'./components/commentlist')
+const FacilitiesListComponent = () => System.import(/* webpackChunkName: "admin" */'./components/FacilitiesListComponent')
+const CreateFacilityComponent = () => System.import(/* webpackChunkName: "admin" */'./components/CreateFacilityComponent')
+const featurelist = () => System.import(/* webpackChunkName: "admin" */'./components/FeatureList')
+const subjectlist = () => System.import(/* webpackChunkName: "admin" */'./components/SubjectList')
+const occupationlist = () => System.import(/* webpackChunkName: "admin" */'./components/occupationlist')
+const JobOfferList = () => System.import(/* webpackChunkName: "admin" */'./components/JobOfferList')
+const Jobapplicantlist = () => System.import(/* webpackChunkName: "admin" */'./components/Jobapplicantlist')
+const createcategory = () => System.import(/* webpackChunkName: "admin" */'./components/createcategory')
+const joboffercreate = () => System.import(/* webpackChunkName: "admin" */'./components/joboffercreate')
+const ProfileEdit = () => System.import(/* webpackChunkName: "admin" */'./components/ProfileEdit')
+
+// search
+const hospitalSearch = () => System.import(/* webpackChunkName: "search" */'./components/hospitalSearch')
+const nursingSearch = () => System.import(/* webpackChunkName: "search" */'./components/nursingSearch')
+const jobSearch = () => System.import(/* webpackChunkName: "search" */'./components/jobSearch')
+
 import Register from './pages/Register'
 import Contract from './pages/Contract'
 import Login from './pages/Login'
 import PasswordResetMail from './pages/Passwordreset'
 import PasswordResetForm from './pages/Passwordresetform'
 import Newsdetails from "./components/Newsdetails";
-import hospitalSearch from "./components/hospitalSearch";
-import JobApply from "./components/JobApply";
-import customerlist from "./components/customerlist";
 import job_details from "./components/job_details";
-import news_list from "./components/news_list";
-import editPost from "./components/editNewsPost";
-import categorylist from "./components/categorylist";
-import createcategory from "./components/createcategory";
-import FacilitiesListComponent from "./components/FacilitiesListComponent";
-import CreateFacilityComponent from "./components/CreateFacilityComponent";
-import joboffercreate from "./components/JobOfferCreate";
-import Profile from "./components/Profile";
-import JobOfferList from "./components/JobOfferList";
-import ProfileEdit from "./components/ProfileEdit";
-import HospitalHistory from "./components/HospitalHistory";
-import favouriteHospital from "./components/favouriteHospital";
-import NursingHistory from "./components/NursingHistory";
 import subject from "./components/Subject";
-import subjectlist from "./components/SubjectList";
-import advertisementlist from "./components/advertisementlist";
-import editadvertisement from "./components/editadvertisement";
-import linkedNews from "./components/LinkedNewslist";
-import editlinkedNews from "./components/EditLinkedNews";
 import comment from "./components/Comment";
-import commentlist from "./components/commentlist";
-import featurelist from "./components/FeatureList";
-import favouriteNursing from "./components/favouriteNursing";
 import specialfeature from "./components/CreateSpecialFeature";
-import nursingFavouriteMail from "./components/nursingFavouriteMail";
 import nursingMailConfirm from "./components/nursingMailConfirm";
 import privacyPolicy from './components/privacyPolicy';
 import occupation from './components/occupation';
-import occupationlist from './components/occupationlist';
-import nursingSearch from './components/nursingSearch';
-import jobSearch from './components/jobSearch';
 import News from './components/News';
 import Unauthorized from './components/419';
 import NotFound from './components/404';
-import Jobapplicantlist from './components/Jobapplicantlist'
 import adminlist from './components/AdminList'
 import admincreate from './components/AdminCreate'
 import sitepolicy from './components/sitepolicy'
-import Accountlist from './components/Accountlist'
-import NewsCategory from './components/News_Category'
 import startpage from './components/startpage'
 import aboutus from './components/aboutus'
+
+const JobApply = () => System.import(/* webpackChunkName: "JobApply" */'./components/JobApply')
+const Profile = () => System.import(/* webpackChunkName: "Profile" */'./components/Profile')
+const HospitalHistory = () => System.import(/* webpackChunkName: "HospitalHistory" */'./components/HospitalHistory')
+const favouriteHospital = () => System.import(/* webpackChunkName: "favouriteHospital" */'./components/favouriteHospital')
+const NursingHistory = () => System.import(/* webpackChunkName: "NursingHistory" */'./components/NursingHistory')
+const favouriteNursing = () => System.import(/* webpackChunkName: "favouriteNursing" */'./components/favouriteNursing')
+const nursingFavouriteMail = () => System.import(/* webpackChunkName: "nursingFavouriteMail" */'./components/nursingFavouriteMail')
+const Accountlist = () => System.import(/* webpackChunkName: "Accountlist" */'./components/Accountlist')
+const NewsCategory = () => System.import(/* webpackChunkName: "NewsCategory" */'./components/News_Category')
 
 // import menu from './components/menu/Menu';
 

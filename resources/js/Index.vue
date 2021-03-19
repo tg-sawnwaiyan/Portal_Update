@@ -225,7 +225,8 @@
 </style>
 <script>
   import HeaderMenu from './components/menu/Menu.vue'
-  import AuthHeaderMenu from './components/menu/AuthMenu.vue'
+//   import AuthHeaderMenu from './components/menu/AuthMenu.vue'
+  const AuthHeaderMenu = () => System.import(/* webpackChunkName: "admin" */'./components/menu/AuthMenu')
   import CategoryMenu from './components/menu/CategoryMenu.vue'
   import CategoryMenuPc from './components/menu/CategoryMenuPc.vue'
   import asideMenu from './components/menu/asideMenu.vue'
