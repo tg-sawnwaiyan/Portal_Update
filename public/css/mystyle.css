@@ -13684,7 +13684,7 @@ transition: background-color .3s;
         padding: 0;
     }
     .menu_tab_category {
-        width: 98.7% !important;
+        width: 100% !important;
     }
     .fixed-ads-fluid {
         width: 100%;
@@ -14476,17 +14476,16 @@ strong {
 
 /*menu_category*/
 .menu_category{
-    margin: 5px 25px 0 21.5px;
+    margin: 5px auto 0 auto;
     white-space: nowrap;
     overflow: hidden;
-    width: 97.5% !important;
+    width: 100% !important;
+    max-width: 1570px;
 }
 #ul_menu_category{
-    /*align-items: center;
-    justify-content: center;*/
     flex-wrap: nowrap;
     border-bottom: none;
-    width: 95.5%;
+    width: 100%;
 }
 #ul_menu_category li{
     text-align: center;
@@ -14685,6 +14684,12 @@ input.gsc-input {
 
 .menu_tab_category{
     top: 200px !important;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 22px;
+    max-width: 1620px !important;
 }
 
 
