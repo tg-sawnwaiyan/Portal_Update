@@ -43,7 +43,6 @@
     }
     .infoBox {
         position: absolute;
-        top: 64px;
         z-index: 1;
         left: -0.5%;
         /*right: 2.5%;*/
@@ -104,8 +103,5 @@
     @media (max-width: 320px){
     #upper-tab {
         margin-top: 16px;
-    }
-    .infoBox {
-        top: 63px !important;
     }
     }
