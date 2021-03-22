@@ -25,7 +25,7 @@ class SmartFeedController extends Controller
     }
     public function create_xml()
     {
-        $url = "https://t-i-s.jp/";
+        $url = "https://test.t-i-s.jp/";
         $title = "TIS（ティーズ）";
         $description = "介護医療福祉の総合サイト";
         $today_date = date('Y-m-d H:i:s');
@@ -81,7 +81,7 @@ class SmartFeedController extends Controller
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n";
         $google .= "ga('create', 'UA-161193570-2', 't-i-s.jp');\n";
         $google .= "ga('require', 'displayfeatures');\n";
-        $google .= "ga('set', 'referrer', 'https://t-i-s.jp/');\n";
+        $google .= "ga('set', 'referrer', $url);\n";
         $google .= "ga('send', 'pageview', '$pagview');\n";
         $google .= " </script>\n";
         $item = new Item();
