@@ -46,17 +46,17 @@ export default {
             this.menu_width = ulWidth;
             if(this.menu_width > this.cat_box_width){
             this.is_cat_overflow = true;
-            if(this.w_width >= 1440 && this.width <= 1888){
-                this.computed_width = '94.2% !important';
-            }else if(this.w_width <= 768){                
-                    this.computed_width = '87.7% !important';                
-            }else if(this.w_width <= 1024){                
-                    this.computed_width = '90.7% !important';                
-            }else if(this.w_width >= 1024 && this.w_width <= 1400){                
-                    this.computed_width = '92.8% !important';                
-            }else{
-                this.computed_width = '93.5% !important';
-            }        
+            // if(this.w_width >= 1440 && this.width <= 1888){
+            //     this.computed_width = '94.2% !important';
+            // }else if(this.w_width <= 768){                
+            //         this.computed_width = '87.7% !important';                
+            // }else if(this.w_width <= 1024){                
+            //         this.computed_width = '90.7% !important';                
+            // }else if(this.w_width >= 1024 && this.w_width <= 1400){                
+            //         this.computed_width = '92.8% !important';                
+            // }else{
+            //     this.computed_width = '93.5% !important';
+            // }        
             }
         })
     },
@@ -148,14 +148,12 @@ export default {
         background: #fff;
         border: 1px solid #2980b9;
         padding: 1px 5px;
-        /*right: 47px;*/
-        right: 34px;
+        right: 49px;
     }
     #right-button{
         position: absolute;
         top: 21px;
-        /*right: 22px;*/
-        right: 9px;
+        right: 22px;
         width: auto;
         line-height: 1;
         background: #fff;
@@ -177,17 +175,17 @@ export default {
     @media only screen and (min-width: 561px) and (max-width: 1000px){
         .menu_category{
             /*width: 86.5% !important;*/
-            margin: 5px 25px 0 21.5px;
+            /*margin: 5px 25px 0 21.5px;*/
         }
         /*.upper-tab {
             margin-top: 62.45px;
         }*/
-        #right-button{
+        /*#right-button{
             right: 14px;
         }
         #left-button{
             right: 40px;
-        }
+        }*/
     }
     @media only screen and (min-width: 991px) and (max-width: 1099px){
         .menu_tab_category{
@@ -207,21 +205,21 @@ export default {
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
         .menu_category{
              /*width: 90% !important;*/
-             margin: 5px 25px 0 21.5px;
+             /*margin: 5px 25px 0 21.5px;*/
         }
-        #right-button{
+        /*#right-button{
             right: 13px;
         }
         #left-button{
             right: 39px;
-        }
+        }*/
         /*.upper-tab {
             margin-top: 64.48px;
         }*/
     }
     @media only screen and (min-width: 1201px) and (max-width: 1280px) {
         .menu_category{
-            margin: 5px 25px 0 21.7px;
+            /*margin: 5px 25px 0 21.7px;*/
         }
     }
     .nav-link h2 {
