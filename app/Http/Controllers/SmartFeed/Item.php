@@ -210,7 +210,7 @@ class Item
     
                 if (isset($ads)) {
                     $link = $ads["link"] ? $ads["link"] : $this->url."upload/static/".$ads["pdf"];
-                    $advertiser = $ads["description"] ? $ads["description"] : $ads["title"];
+                    $advertiser = $ads["description"] ? strtok($ads["description"], " \n\t") : $ads["title"];
                     $thumbnail = "".$this->url."upload/advertisement/".$ads["photo"];
                     $element->addAttribute('link', $link);
                     $element->addAttribute('title', $ads['title']);
