@@ -94,7 +94,7 @@ class SmartFeedController extends Controller
              ->description($data["main_point"])
              ->pubDate(strtotime($data["created_at"]))
              ->contentEncoded($content)
-             ->guid($url, false)
+             ->guid($url)
              ->preferCdata(true) // By this, title and description become CDATA wrapped HTML.
              ->advertisements($ads)
              ->googleanalytics($google)

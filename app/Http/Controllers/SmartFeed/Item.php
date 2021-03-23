@@ -26,7 +26,7 @@ class Item
     protected $guid;
 
     /** @var bool */
-    protected $isPermalink;
+    // protected $isPermalink;
 
     /** @var int */
     protected $pubDate;
@@ -84,7 +84,7 @@ class Item
     public function guid($guid, $isPermalink = false)
     {
         $this->guid = $guid;
-        $this->isPermalink = $isPermalink;
+        //$this->isPermalink = $isPermalink;
         return $this;
     }
 
@@ -178,9 +178,9 @@ class Item
         if ($this->guid) {
             $guid = $xml->addChild('guid', $this->guid);
 
-            if ($this->isPermalink === false) {
-                $guid->addAttribute('isPermaLink', 'false');
-            }
+            // if ($this->isPermalink === false) {
+            //     $guid->addAttribute('isPermaLink', 'false');
+            // }
         }
 
         if (!empty($this->status)) {
