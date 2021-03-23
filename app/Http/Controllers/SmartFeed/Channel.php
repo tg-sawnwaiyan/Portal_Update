@@ -31,6 +31,12 @@ class Channel
     /** @var int */
     protected $ttl;
 
+    /** @var string */
+    protected $logo;
+
+    /** @var string */
+    protected $darklogo;
+
     /** @var Item[] */
     protected $items = [];
 
@@ -122,6 +128,28 @@ class Channel
     }
 
     /**
+     * Set channel logo
+     * @param string $logo
+     * @return $this
+     */
+    public function logo($logo)
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * Set channel darklogo
+     * @param string $darklogo
+     * @return $this
+     */
+    public function darklogo($darklogo)
+    {
+        $this->darklogo = $darklogo;
+        return $this;
+    }
+
+    /**
      * Add item object
      * @param Item $item
      * @return $this
@@ -153,6 +181,22 @@ class Channel
         $xml->addChild('title', $this->title);
         $xml->addChild('link', $this->url);
         $xml->addChild('description', $this->description);
+
+        if ($this->logo !== null) {
+            $logoxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><snf:logo></snf:logo>', LIBXML_NOERROR | LIBXML_ERR_NONE | LIBXML_ERR_FATAL);
+            $element = $logoxml->addChild('url', $this->logo);
+            $toDom = dom_import_simplexml($xml);
+            $fromDom = dom_import_simplexml($logoxml);
+            $toDom->appendChild($toDom->ownerDocument->importNode($fromDom, true));
+        }
+
+        if ($this->darklogo !== null) {
+            $logoxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><snf:darkModeLogo></snf:darkModeLogo>', LIBXML_NOERROR | LIBXML_ERR_NONE | LIBXML_ERR_FATAL);
+            $element = $logoxml->addChild('url', $this->darklogo);
+            $toDom = dom_import_simplexml($xml);
+            $fromDom = dom_import_simplexml($logoxml);
+            $toDom->appendChild($toDom->ownerDocument->importNode($fromDom, true));
+        }
 
         if ($this->language !== null) {
             $xml->addChild('language', $this->language);

@@ -31,6 +31,8 @@ class SmartFeedController extends Controller
         $today_date = date('Y-m-d H:i:s');
         $language = 'ja';
         $copyright = '(c) TRUST-ESTATE Co,Ltd.';
+        $logo = $url."images/logo.png";
+        $darklogo = $url."images/logo.png";
         
         $news = Post::join('categories','categories.id','=','posts.category_id')
                 ->select('posts.*','categories.name as cat_name')
@@ -51,6 +53,9 @@ class SmartFeedController extends Controller
                 ->pubDate(strtotime($today_date))
                 ->language($language)
                 ->copyright($copyright)
+                ->ttl(1)
+                ->logo($logo)
+                ->darklogo($darklogo)
                 ->appendTo($feed);
                
         foreach ($news as $news) {
@@ -86,6 +91,7 @@ class SmartFeedController extends Controller
         $google .= " </script>\n";
         $item = new Item();
         $item->title($data['title'])
+             ->language('ja')
              ->url($link)
              ->creator($data["created_by_company"])
              ->category($data["cat_name"])
@@ -94,7 +100,7 @@ class SmartFeedController extends Controller
              ->description($data["main_point"])
              ->pubDate(strtotime($data["created_at"]))
              ->contentEncoded($content)
-             ->guid($url)
+             ->guid($link, false)
              ->preferCdata(true) // By this, title and description become CDATA wrapped HTML.
              ->advertisements($ads)
              ->googleanalytics($google)

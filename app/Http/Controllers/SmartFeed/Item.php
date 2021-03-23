@@ -26,7 +26,10 @@ class Item
     protected $guid;
 
     /** @var bool */
-    // protected $isPermalink;
+    protected $isPermalink;
+
+    /** @var string */
+    protected $language;
 
     /** @var int */
     protected $pubDate;
@@ -84,7 +87,7 @@ class Item
     public function guid($guid, $isPermalink = false)
     {
         $this->guid = $guid;
-        //$this->isPermalink = $isPermalink;
+        $this->isPermalink = $isPermalink;
         return $this;
     }
 
@@ -130,6 +133,16 @@ class Item
         return $this;
     }
 
+    /**
+     * @param string $language
+     * @return $this
+     */
+    public function language($language)
+    {
+        $this->language = $language;
+        return $this;
+    }
+
     public function googleanalytics($googleanalytics)
     {
         $this->googleanalytics = $googleanalytics;
@@ -154,8 +167,16 @@ class Item
             }
         }
 
+        if ($this->language !== null) {
+            $xml->addChild('language', $this->language);
+        }
+
         if ($this->url) {
             $xml->addChild('link', $this->url);
+        }
+        
+        if ($this->category) {
+            $xml->addChild('category', $this->category);
         }
 
         // At least one of <title> or <description> must be present
@@ -170,17 +191,21 @@ class Item
         if ($this->contentEncoded) {
             $xml->addCdataChild('xmlns:content:encoded', $this->contentEncoded);
         }
-        
-        if ($this->category) {
-            $xml->addChild('category', $this->category);
-        }
-
+     
         if ($this->guid) {
             $guid = $xml->addChild('guid', $this->guid);
 
-            // if ($this->isPermalink === false) {
-            //     $guid->addAttribute('isPermaLink', 'false');
-            // }
+            if ($this->isPermalink === false) {
+                $guid->addAttribute('isPermaLink', 'false');
+            }
+        }
+
+        if (!empty($this->author)) {
+            $xml->addChild('author', $this->author);
+        }
+
+        if (!empty($this->creator)) {
+            $xml->addChild('xmlns:dc:creator', $this->creator);
         }
 
         if (!empty($this->status)) {
@@ -191,16 +216,10 @@ class Item
             $xml->addChild('pubDate', date(DATE_RSS, $this->pubDate));
         }
 
-        if (!empty($this->author)) {
-            $xml->addChild('author', $this->author);
-        }
+        
 
         if (!empty($this->media)) {
             $xml->addChild('xmlns:media:thumbnail', $this->media);
-        }
-
-        if (!empty($this->creator)) {
-            $xml->addChild('xmlns:dc:creator', $this->creator);
         }
 
         if(isset($this->advertisements)){
