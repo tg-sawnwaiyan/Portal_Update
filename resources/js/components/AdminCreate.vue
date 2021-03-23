@@ -1,12 +1,10 @@
 <template>
-    
     <div class="d-flex justify-content-center h-100 admin-create-container">
         <div class="admin_card admin_registercard admin-create-wrapper">
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="page-header header" style="background:transparent;">{{ header }} <span v-if="show" class="btn btn-danger all-btn float-right m-b-10" @click="$router.go(-1)"><i class="fas fa-arrow-left"></i>&nbsp;戻る</span></h4>                  
                 </div>
-                
                 <div class="col-md-12">
                     <form @submit.prevent="add" autocomplete="off">                       
                                 <div class="row">
@@ -75,7 +73,6 @@
             </div>
         </div>
     </div>
-
 </template>
 <script>
     export default {
@@ -362,17 +359,3 @@
             }
     }
 </script>
-<style>
-    .error-star {
-        color: #ff0000;
-    }
-    
-    .password-setting {
-        display: none;
-    }
-    .password-setting{
-        padding: 10px;
-        border: 1px dashed #2980b9;
-        margin-top: 10px;
-    }
-</style>

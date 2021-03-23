@@ -38,9 +38,6 @@ kbd,
 samp{
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
 }
-body.all-bg{
-    background: #f8f8f8;
-}
 p{
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-size: 1em;
@@ -509,23 +506,12 @@ body::-webkit-scrollbar-thumb{
 .admin-header .gNav li a:after{
     background: #fff;
 }
-.gNav{
-    border-left: 1px solid #ccc;
-}
 .gNav .router-link-exact-active>i.fas{
     color: #2980b9 !important;
 }
 .gNav li{
     float: left;
     list-style: none;
-}
-.gNav li a{
-    padding: 0px 5px 0px 20px;
-    font-size: 16px;
-    color: #444;
-}
-.gNav li a{
-    position: relative;
 }
 .gNav li a:after{
     position: absolute;
@@ -573,23 +559,7 @@ li.userprofile-name>a{
 #sp_adminheader ul.menu li.first-submenu{
     display: none;
 }
-.content-all{
-    width: 100%;
-    min-height: 100vh;
-    padding-left: 230px;
-    overflow: hidden;
-}
 /*end of admin header & sidebar menu*/
-.full-content{
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0px 1px 2px 0px #ccc !important;
-    -webkit-box-shadow: 0px 1px 2px 0px #ccc !important;
-    -ms-box-shadow: 0px 1px 2px 0px #ccc !important;
-    -moz-box-shadow: 0px 1px 2px 0px #ccc !important;
-    min-height: 100vh;
-    background: #F9FAFB;
-}
 /*page top Button*/
 #myBtn{
     position: fixed;
@@ -610,14 +580,25 @@ li.userprofile-name>a{
     background: url(../images/top-arrow.png) no-repeat left center;
 }
 /*end of page top Button*/
+/*admin create*/
+.error-star{
+    color: #ff0000;
+}
+.password-setting{
+    display: none;
+}
+.password-setting{
+    padding: 10px;
+    border: 1px dashed #2980b9;
+    margin-top: 10px;
+}
+/*end of admin create*/
+
 /*admin news_list & category list content*/
 .maintab-content{
     padding: 7px;
     /*for no scroll*/
     margin: 75px 0 0 0;
-}
-.pad-free{
-    padding: 0px;
 }
 .tab-content{
     padding: 13px !important;
@@ -2453,7 +2434,7 @@ h1.heading{
         display: none !important;
     }
     .content-all{
-        padding-left: 0;
+        padding-left: 0 !important;
     }
     /* header */
     .main-header{
@@ -2563,7 +2544,7 @@ h1.heading{
     .social-link:first-child a{
         background: #0080aa;
     }
-    .menu{
+    /*.menu{
         float: right;
         cursor: pointer;
         width: 100%;
@@ -2575,7 +2556,7 @@ h1.heading{
         right: 10px;
         top: 18px;
         z-index: 99;
-    }
+    }*/
     .wt-admin{
         border-right: 1px solid #2980b9;
         padding-right: 10px;
@@ -2613,10 +2594,6 @@ h1.heading{
         background: #fff;
         z-index: 99999999;
         overflow-y: hidden;
-    }
-    ul.menu_list{
-        width: 90%;
-        margin: 20px auto;
     }
     ul.menu_list>li{
         border-top: 1px solid #8c9090;
