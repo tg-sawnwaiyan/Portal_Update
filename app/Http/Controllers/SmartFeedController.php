@@ -37,7 +37,7 @@ class SmartFeedController extends Controller
         $news = Post::join('categories','categories.id','=','posts.category_id')
                 ->select('posts.*','categories.name as cat_name')
                 ->where('categories.name', '!=', 'PR')
-                ->where('posts.recordstatus', '=', 1)
+                //->where('posts.recordstatus', '=', 1)
                 ->where('posts.smartnew', '=', 1)
                 ->orderBy('posts.created_at', 'desc')->skip(0)->take(150)->get()->toArray();
 
