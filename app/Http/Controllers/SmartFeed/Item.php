@@ -157,6 +157,7 @@ class Item
 
     public function asXML()
     {
+        $site_url = "https://t-i-s.jp/";
         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><item></item>', LIBXML_NOERROR | LIBXML_ERR_NONE | LIBXML_ERR_FATAL);
 
         if ($this->title) {
@@ -230,7 +231,7 @@ class Item
                 if (isset($ads)) {
                     $link = $ads["link"] ? $ads["link"] : $this->url."upload/static/".$ads["pdf"];
                     $advertiser = $ads["description"] ? strtok($ads["description"], " \n\t") : $ads["title"];
-                    $thumbnail = "".$this->url."upload/advertisement/".$ads["photo"];
+                    $thumbnail = "".$site_url."upload/advertisement/".$ads["photo"];
                     $element->addAttribute('link', $link);
                     $element->addAttribute('title', $ads['title']);
                     $element->addAttribute('thumbnail', htmlspecialchars($thumbnail));
