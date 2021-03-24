@@ -423,7 +423,6 @@ Route::group(['middleware' => $middleware], function() {
     Route::delete('jobApplicantDelete/{id}','JobApplyController@jobApplicantDelete');
     Route::post('jobapplicant/search','JobApplyController@search');
 
-    Route::get('feed/smartnews.xml','SmartFeedController@get_xml');
     Route::get('updatefeed','SmartFeedController@update_xml')->name('updatefeed');
 
 });

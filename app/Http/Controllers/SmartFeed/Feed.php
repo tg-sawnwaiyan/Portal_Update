@@ -45,7 +45,7 @@ class Feed
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->appendChild($dom->importNode(dom_import_simplexml($xml), true));
         $dom->formatOutput = true;
-        $xml_file_name = './xml/smartfeed.xml';	
+        $xml_file_name = './api/feed/smartnews.xml';	
         //$xml_file_name = 'smartfeed1.xml';
         $dom->save($xml_file_name);
     }
