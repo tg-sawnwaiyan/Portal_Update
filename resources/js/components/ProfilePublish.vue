@@ -1720,6 +1720,7 @@ export default {
     },
 
     created(){       
+         Vue.use(Pannellum);
          Vue.use(require('vue-moment'));
        
          window.addEventListener('scroll', this.handleScroll);

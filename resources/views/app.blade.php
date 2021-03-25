@@ -47,7 +47,7 @@ header("Pragma:no-cache");
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
+<!-- <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/> -->
 <link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
 <script src="{{asset('js/nprogress.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -173,7 +173,7 @@ header("Pragma:no-cache");
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
 <script src="{{ asset('js/vue.min.js') }}"></script>
-<!-- <script src="{{ asset('js/vue-scrollto.js') }}"></script> -->
+<script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <!-- <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script> -->
 <!-- Include after Vue (before closing body) -->
 <!-- <script src="{{ asset('js/vue-fullpage.min.js') }}"></script> -->

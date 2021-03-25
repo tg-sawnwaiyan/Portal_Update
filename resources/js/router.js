@@ -20,11 +20,19 @@ const Jobapplicantlist = () => System.import(/* webpackChunkName: "admin" */'./c
 const createcategory = () => System.import(/* webpackChunkName: "admin" */'./components/createcategory')
 const joboffercreate = () => System.import(/* webpackChunkName: "admin" */'./components/joboffercreate')
 const ProfileEdit = () => System.import(/* webpackChunkName: "admin" */'./components/ProfileEdit')
+const adminlist = () => System.import(/* webpackChunkName: "admin" */'./components/AdminList')
+const admincreate = () => System.import(/* webpackChunkName: "admin" */'./components/AdminCreate')
+const occupation = () => System.import(/* webpackChunkName: "admin" */'./components/occupation')
+const subject = () => System.import(/* webpackChunkName: "admin" */'./components/Subject')
+const specialfeature = () => System.import(/* webpackChunkName: "admin" */'./components/CreateSpecialFeature')
+const Accountlist = () => System.import(/* webpackChunkName: "admin" */'./components/Accountlist')
 
 // search
 const hospitalSearch = () => System.import(/* webpackChunkName: "search" */'./components/hospitalSearch')
 const nursingSearch = () => System.import(/* webpackChunkName: "search" */'./components/nursingSearch')
 const jobSearch = () => System.import(/* webpackChunkName: "search" */'./components/jobSearch')
+const JobApply = () => System.import(/* webpackChunkName: "search" */'./components/JobApply')
+const Profile = () => System.import(/* webpackChunkName: "search" */'./components/Profile')
 
 import NotFound from './components/404';
 import Unauthorized from './components/419';
@@ -33,30 +41,23 @@ import startpage from './components/startpage'
 import aboutus from './components/aboutus'
 import privacyPolicy from './components/privacyPolicy';
 import Contract from './pages/Contract'
-
 import Register from './pages/Register'
 import Login from './pages/Login'
 import PasswordResetMail from './pages/Passwordreset'
 import PasswordResetForm from './pages/Passwordresetform'
 import Newsdetails from "./components/Newsdetails";
 import job_details from "./components/job_details";
-import subject from "./components/Subject";
 import comment from "./components/Comment";
-import specialfeature from "./components/CreateSpecialFeature";
 import nursingMailConfirm from "./components/nursingMailConfirm";
-import occupation from './components/occupation';
 import News from './components/News';
-import adminlist from './components/AdminList'
-import admincreate from './components/AdminCreate'
 
-const JobApply = () => System.import(/* webpackChunkName: "JobApply" */'./components/JobApply')
-const Profile = () => System.import(/* webpackChunkName: "Profile" */'./components/Profile')
-const HospitalHistory = () => System.import(/* webpackChunkName: "HospitalHistory" */'./components/HospitalHistory')
-const favouriteHospital = () => System.import(/* webpackChunkName: "favouriteHospital" */'./components/favouriteHospital')
-const NursingHistory = () => System.import(/* webpackChunkName: "NursingHistory" */'./components/NursingHistory')
-const favouriteNursing = () => System.import(/* webpackChunkName: "favouriteNursing" */'./components/favouriteNursing')
-const nursingFavouriteMail = () => System.import(/* webpackChunkName: "nursingFavouriteMail" */'./components/nursingFavouriteMail')
-const Accountlist = () => System.import(/* webpackChunkName: "Accountlist" */'./components/Accountlist')
+
+const HospitalHistory = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/HospitalHistory')
+const favouriteHospital = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteHospital')
+const NursingHistory = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/NursingHistory')
+const favouriteNursing = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteNursing')
+const nursingFavouriteMail = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/nursingFavouriteMail')
+
 const NewsCategory = () => System.import(/* webpackChunkName: "NewsCategory" */'./components/News_Category')
 
 // import menu from './components/menu/Menu';

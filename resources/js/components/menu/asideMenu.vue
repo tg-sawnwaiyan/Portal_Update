@@ -138,6 +138,7 @@
 
 <script>
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import VueSidebarMenu from 'vue-sidebar-menu'
 
   export default {
     data() {
@@ -293,6 +294,7 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
       }
     },
 created() {
+    Vue.use(VueSidebarMenu);
     this.url_name = this.$auth.user().type_id == 2 ? 'hospital/': 'nursing/' + this.$auth.user().customer_id;
     axios.interceptors.response.use((response) => {
         // console.log(response.data)

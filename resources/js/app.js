@@ -6,7 +6,6 @@ import VueAxios from 'vue-axios'
 import VueRouter from 'vue-router'
 import Index from './Index'
 import auth from './auth'
-import VueSidebarMenu from 'vue-sidebar-menu'
 import router from './router'
 import Vuex from 'vuex';
 import * as VueGoogleMaps from "vue2-google-maps";
@@ -24,7 +23,6 @@ Vue.use(VueAnalytics, {
 Vue.use(Slick);
 Vue.use(BulmaAccordion, BulmaAccordionItem)
 Vue.use(Vuex);
-Vue.use(VueSidebarMenu);
 //start editor
 
 //start onepage
@@ -90,17 +88,17 @@ var VueScrollactive = require('vue-scrollactive');
 Vue.use(VueScrollactive);
 
 //vue-pannellum
-import VuePannellum from '../js/components/vue-pannellum.vue'
-Vue.use(VuePannellum);
-Vue.component('VPannellumn', VuePannellum)
+// import VuePannellum from '../js/components/vue-pannellum.vue'
+// Vue.use(VuePannellum);
+// Vue.component('VPannellumn', VuePannellum)
 
 //vue Panorama
 // import Panorama from 'vuejs-panorama';
 // Vue.use(Panorama);
 
 //vue sweetaler
-import VueSweetAlert from 'vue-sweetalert';
-Vue.use(VueSweetAlert)
+// import VueSweetAlert from 'vue-sweetalert';
+// Vue.use(VueSweetAlert)
 
 import ReadMore from 'vue-read-more';
 Vue.use(ReadMore);
