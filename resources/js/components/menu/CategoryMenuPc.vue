@@ -46,17 +46,17 @@ export default {
             this.menu_width = ulWidth;
             if(this.menu_width > this.cat_box_width){
             this.is_cat_overflow = true;
-            if(this.w_width >= 1440 && this.width <= 1888){
-                this.computed_width = '94.2% !important';
-            }else if(this.w_width <= 768){                
-                    this.computed_width = '87.7% !important';                
-            }else if(this.w_width <= 1024){                
-                    this.computed_width = '90.7% !important';                
-            }else if(this.w_width >= 1024 && this.w_width <= 1400){                
-                    this.computed_width = '92.8% !important';                
-            }else{
-                this.computed_width = '93.5% !important';
-            }        
+            // if(this.w_width >= 1440 && this.width <= 1888){
+            //     this.computed_width = '94.2% !important';
+            // }else if(this.w_width <= 768){                
+            //         this.computed_width = '87.7% !important';                
+            // }else if(this.w_width <= 1024){                
+            //         this.computed_width = '90.7% !important';                
+            // }else if(this.w_width >= 1024 && this.w_width <= 1400){                
+            //         this.computed_width = '92.8% !important';                
+            // }else{
+            //     this.computed_width = '93.5% !important';
+            // }        
             }
         })
     },
@@ -132,13 +132,70 @@ export default {
         border-left: 5px solid var(--bkgColor);
         background-color: var(--bkgColor);
     }
-    
+    .menu_tab_category{
+        position: absolute;
+        max-width: 1500px;
+        /* top: 192px; */
+        z-index: 9;
+        width: 100%;
+        max-width: 1600px;
+    }
+    #left-button{
+        position: absolute;
+        top: 21px;
+        left: auto;
+        width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
+        right: 49px;
+    }
+    #right-button{
+        position: absolute;
+        top: 21px;
+        right: 22px;
+        width: auto;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #2980b9;
+        padding: 1px 5px;
+    }
+    .left-arr-btn .fas,
+    .right-arr-btn .fas{
+        color: #2980b9 !important;
+    }
+    .hidden {
+        display: none;
+    }
+    /*@media only screen and (min-width: 561px) and (max-width: 989px){ 
+        .tab {
+            margin-top: 52px;
+        }
+    }*/
     @media only screen and (min-width: 561px) and (max-width: 1000px){
-        #right-button{
+        .menu_category{
+            /*width: 86.5% !important;*/
+            /*margin: 5px 25px 0 21.5px;*/
+        }
+        /*.upper-tab {
+            margin-top: 62.45px;
+        }*/
+        /*#right-button{
             right: 14px;
         }
         #left-button{
             right: 40px;
+        }*/
+    }
+    @media only screen and (min-width: 991px) and (max-width: 1099px){
+        .menu_tab_category{
+            top: 204px;
+        }
+    }
+    @media only screen and (min-width: 561px) and (max-width: 900px){
+        .menu_tab_category{
+            top: 173px;
         }
     }
     @media only screen and (min-width: 561px){
@@ -147,21 +204,31 @@ export default {
         }
     }
     @media only screen and (min-width: 1020px) and (max-width: 1050px) {
-        #right-button{
+        .menu_category{
+             /*width: 90% !important;*/
+             /*margin: 5px 25px 0 21.5px;*/
+        }
+        /*#right-button{
             right: 13px;
         }
         #left-button{
             right: 39px;
-        }
+        }*/
+        /*.upper-tab {
+            margin-top: 64.48px;
+        }*/
     }
     @media only screen and (min-width: 1201px) and (max-width: 1280px) {
-        .nav-link h2 {
-            padding: 0.2rem 0.1rem;
-            font-size: 18px;
+        .menu_category{
+            /*margin: 5px 25px 0 21.7px;*/
         }
-        .router-link-exact-active h2 {
-            font-weight: bold;
-        }
+    }
+    .nav-link h2 {
+        padding: 0.2rem 0.1rem;
+        font-size: 18px;
+    }
+    .router-link-exact-active h2 {
+        font-weight: bold;
     }
 </style>
 

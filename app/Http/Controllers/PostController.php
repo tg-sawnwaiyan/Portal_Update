@@ -482,6 +482,7 @@ class PostController extends Controller
         }
         $smartStatus->save();
         $data = array("smartStatus"=> $smartStatus, "success");
-        return response()->json($data);
+        return redirect()->route('updatefeed');
+        //return response()->json($data);
     }
 }   
