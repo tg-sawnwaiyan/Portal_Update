@@ -7,34 +7,29 @@
                     <p class="record-ico">
                     <i class="fa fa-exclamation"></i>
                     </p>
-                  
                     <p class="record-txt01">口コミが登録されていません。</p>
                 </div>
                 <div v-else class="container-fuid">
                     <h4 class="main-color mb-3">口コミ検索</h4>
                     <div class="row mb-4">
-                                         
                         <div class="col-md-12 choose-item">
                             <autocomplete id="cusname"  placeholder="施設名で検索" input-class="form-control" :source=profileList :results-display="formattedDisplay" @clear="cleartext()"   @selected="getProfile($event)">
                             </autocomplete> 
                         </div>
                     </div>
-                    <hr />
-                                             
+                    <hr />              
                     <h5 class="header">{{title}}</h5>
-                    
                     <div v-if="nosearch_msg" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
                         </p>
                         <p class="record-txt01">データが見つかりません。</p>
                     </div>
-                    
                     <div v-else class="container-fuid">
                         <div class="card card-default m-b-20" v-for="comment in comments.data" :key="comment.id">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-12 col-md-10 col-xl-9">                                    
+                                    <div class="col-12 col-md-10 col-xl-9">   
                                         <div class="row boot-xl" id="customer_list">
                                             <div class="col-xl-1 col-lg-2 col-md-4 custom_title">
                                                 <strong>事業者名</strong>
@@ -60,7 +55,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-12 col-md-2 col-xl-3 text-right cmt3 pc-414">                                    
                                         <button :class="'btn drop-bg-color changeLink'+comment.id" style="min-width: 65px;font-size:13px;" @click="commentToggle(comment.id)">
                                             詳細 <i :id="'icon' + comment.id" class="fas fa-sort-down animate rotate"></i></button>
@@ -70,13 +64,12 @@
                                     <span><i class="fa fa-calendar-alt"></i>&nbsp;{{comment.created_date | moment("YYYY年MM月DD日") }}</span>
                                     <span><i class="fa fa-clock"></i>&nbsp;{{comment.created_time}}&nbsp;投稿</span>
                                 </div>
-                                
-                                <div class="cmt2 test sp-414">                                    
+                                <div class="cmt2 test sp-414">                           
                                     <button :class="'btn drop-bg-color changeLink'+comment.id" style="min-width: 65px;font-size:13px;" @click="commentToggle(comment.id)">
                                             詳細 <i :id="'icon' + comment.id" class="fas fa-sort-down animate rotate"></i></button>
                                 </div>
                                 <!--comment-->
-                                <div class="collapse" :id="'changeLink' + comment.id" style="margin-top:15px;">                                                                   -->
+                                <div class="collapse" :id="'changeLink' + comment.id" style="margin-top:15px;">
                                     <table class="table table-bordered">
                                         <tr>
                                             <td  class="w-50">
@@ -94,11 +87,10 @@
                                                     <p class="mb-2"><span class="text-orange"><span class="job_ico">〒<i aria-hidden="true"></i></span>郵便番号:&nbsp;</span><span class=""> {{comment.zipcode}}</span></p>
                                             </td>
                                         </tr>
-
                                         <tr>
                                             <td  class="w-50" colspan="2">
-                                                    <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="far fa-comment" aria-hidden="true"></i></span>口コミ内容:&nbsp;</span><span class=""> {{comment.comment}}</span></p>
-                                            </td>
+                                                <p class="mb-2"><span class="text-orange"><span class="job_ico"><i class="far fa-comment" aria-hidden="true"></i></span>口コミ内容:&nbsp;</span><span class=""> {{comment.comment}}</span></p>
+                                        </td>
                                         </tr>                                  
                                     </table>
                                     <div class="d-inline-block mt-2">
@@ -123,16 +115,12 @@
         <!--end card-->
     </div>
 </template>
-
 <script>
-
-     import Autocomplete from 'vuejs-auto-complete';
+    import Autocomplete from 'vuejs-auto-complete';
     export default {
-       
         components: {
             Autocomplete,
         },
-    
         props:{
             limitpc: {
                 type: Number,
@@ -159,7 +147,6 @@
                 cusname:'',
                 selectedValue:0
             }
-
         },
         created() {
             Vue.use(require('vue-moment'));
@@ -403,19 +390,3 @@
         }
     }
 </script>
-<style scoped>
-    .comment-title {
-    background-size: 29px;
-    color: #2980b9;
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-    padding-bottom: 10px;
-}
-.comment-date {
-    margin-left: auto;
-    font-size: 12px;
-    color: #777;
-
-}
-</style>

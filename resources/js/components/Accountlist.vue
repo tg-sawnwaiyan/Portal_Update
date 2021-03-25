@@ -1,13 +1,12 @@
 <template>
     <div>
-        <div class="">            
+        <div >            
             <div v-if="!acc_status" class="card card-default card-wrap">
                 <p class="record-ico">
                     <i class="fa fa-exclamation"></i>
                 </p>  
                 <p class="record-txt01">アカウントが無効になりました。</p>
             </div>
-
             <!-- Create account Area --> 
             <div v-else >
                 <div v-if="norecord_msg && !createNew" class="card card-default card-wrap">
@@ -28,7 +27,7 @@
                                 <h5 v-if="type == 'nursing'">施設一覧</h5>
                                 <h5 v-else>病院一覧</h5>
                                 <div class="ml-auto">
-                                    <a class="" id="newcreate">
+                                    <a id="newcreate">
                                         <span v-if="type == 'nursing'" class="main-bg-color create-btn all-btn"  @click="ShowHideDiv()">
                                             <span><i class="fas fa-plus-circle"></i> <span class="dinone">介護施設新規作成</span></span>
                                         </span>
@@ -44,7 +43,7 @@
                                     <div class="card_1">
                                         <img :src="'/upload/nursing_profile/'+ nursingprofiles.logo" alt="aa" @error="imgUrlAlt" />
                                         <div class="card-content">
-                                            <div class="title-toggle" style="width:100%;">
+                                            <div class="title-toggle full_width">
                                             <span class="d-inline-block text-truncate font-weight-bold card-title card-title-leftwrapper">
                                                 {{nursingprofiles.name}}
                                             </span>
@@ -55,19 +54,18 @@
                                                     <label for="checkbox"></label>
                                                     <div  v-if="nursingprofiles.activate == 1" class="on">公開中</div>
                                                     <div v-if="nursingprofiles.activate == 0" class="on">非公開</div>
-                                                </div>                                                                                             
+                                                </div>
                                             </span>
                                             </div>
-                                            
                                             <p>
-                                                <router-link :to="{ path:'/profilejobofferlist/nursing/'+ nursingprofiles.id}" style="font-weight:bold;text-decoration:underline;">
-                                                <i class="vsm--icon fa fa-edit fa-fw" style="color: #585858;"></i>求人編集</router-link>&nbsp;&nbsp;
-                                                <router-link :to="{ path:'/jobapplicantlist/nursing/profile/'+ nursingprofiles.id}" style="font-weight:bold;text-decoration:underline;">
-                                                <i class="vsm--icon fa fa-list" style="color: #585858;"></i>求人応募者一覧</router-link>
+                                                <router-link :to="{ path:'/profilejobofferlist/nursing/'+ nursingprofiles.id}" class="ft_style">
+                                                <i class="vsm--icon fa fa-edit fa-fw cl_code"></i>求人編集</router-link>&nbsp;&nbsp;
+                                                <router-link :to="{ path:'/jobapplicantlist/nursing/profile/'+ nursingprofiles.id}" class="ft_style">
+                                                <i class="vsm--icon fa fa-list cl_code"></i>求人応募者一覧</router-link>
                                             </p>
                                         </div>
                                         <div class="card-read-more">
-                                            <router-link :to="{ path:'/profile/nursing/'+ nursingprofiles.id}" class="btn edit-borderbtn" style="float:left;">施設情報編集</router-link>
+                                            <router-link :to="{ path:'/profile/nursing/'+ nursingprofiles.id}" class="btn edit-borderbtn fl_style">施設情報編集</router-link>
                                             
                                             <span class="btn text-danger delete-borderbtn" @click="profileDelete(nursingprofiles.id)" ><i class="fa fa-trash-o" aria-hidden="true"></i>削除</span>
                                         </div>
@@ -92,33 +90,29 @@
                                                     <label for="checkbox"></label>
                                                     <div   v-if="hospitalprofiles.activate == 1" class="on">公開中</div>
                                                     <div v-if="hospitalprofiles.activate == 0" class="on">非公開</div>
-                                                </div>                                            
+                                                </div>                                   
                                             </span>
                                             </div>
-                                            
                                             <p>
-                                                <router-link :to="{ path:'/profilejobofferlist/hospital/'+ hospitalprofiles.id}" class="" style="font-weight:bold;text-decoration:underline;">
-                                                    <i class="vsm--icon fa fa-edit fa-fw" style="color: #585858;"></i>求人編集</router-link>&nbsp;&nbsp;
-                                                <router-link :to="{ path:'/jobapplicantlist/hospital/profile/'+ hospitalprofiles.id}" class="" style="font-weight:bold;text-decoration:underline;">
-                                                    <i class="vsm--icon fa fa-list fa-fw" style="color: #585858;"></i>求人応募者一覧</router-link>
+                                                <router-link :to="{ path:'/profilejobofferlist/hospital/'+ hospitalprofiles.id}" class="ft_style">
+                                                    <i class="vsm--icon fa fa-edit fa-fw cl_code"></i>求人編集</router-link>&nbsp;&nbsp;
+                                                <router-link :to="{ path:'/jobapplicantlist/hospital/profile/'+ hospitalprofiles.id}" class="ft_style">
+                                                    <i class="vsm--icon fa fa-list fa-fw cl_code"></i>求人応募者一覧</router-link>
                                             </p>
                                         </div>
                                         <div class="card-read-more">
-                                            <router-link :to="{ path:'/profile/hospital/'+ hospitalprofiles.id}" class="btn edit-borderbtn" style="float:left;">病院情報編集</router-link>
+                                            <router-link :to="{ path:'/profile/hospital/'+ hospitalprofiles.id}" class="btn edit-borderbtn fl_style">病院情報編集</router-link>
                                                 
                                             <span class="btn text-danger delete-borderbtn" @click="profileDelete(hospitalprofiles.id)" ><i class="fa fa-trash-o" aria-hidden="true"></i>削除</span>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <!-- hospital -->
                         </div>
                     </div>
                 </div>
-                
-            </div>               
-            
+            </div>
         </div>
     </div>
 </template>
@@ -316,207 +310,3 @@ export default {
     }
 }
 </script>
-
-
-<style scoped>
- .acc_color{
-        color:#2980b9
-    }
-img{
-    vertical-align: middle;
-    border-style: none;
-    width: 100%;
-    height: 230px;
-}
-.email{
-    color:#8e8c8c;
-}
-
-
-.img-card {
-  width: 100%;
-  height:200px;
-  border-top-left-radius:2px;
-  border-top-right-radius:2px;
-  display:block;
-    overflow: hidden;
-}
-.img-card img{
-  width: 100%;
-  height: 200px;
-  object-fit:cover; 
-  transition: all .25s ease;
-} 
-.rl{
-    padding:0px;
-}
-
-.column{
-    padding-right: 7px;
-    padding-left: 7px;
-}
-.model-7{
-    text-align:end;
-}
-.checkbox{
-    text-align:left;
-}
-
-.container-fostrap {
-  display: table-cell;
-  padding: 1em;
-
-  vertical-align: middle;
-}
-.fostrap-logo {
-  width: 100px;
-  margin-bottom:15px
-}
-h1.heading {
-  color: #fff;
-  font-size: 1.15em;
-  font-weight: 900;
-  margin: 0 0 0.5em;
-  color: #505050;
-}
-@media (min-width: 450px) {
-  h1.heading {
-    font-size: 3.55em;
-  }
-}
-@media (min-width: 760px) {
-  h1.heading {
-    font-size: 3.05em;
-  }
-}
-@media (min-width: 900px) {
-  h1.heading {
-    font-size: 3.25em;
-    margin: 0 0 0.3em;
-  }
-} 
-.card_1 {
-  display: block; 
-    margin-bottom: 20px;
-    line-height: 1.42857143;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
-    transition: box-shadow .25s; 
-}
-.card_1:hover {
-  opacity: 0.9;
-}
-.img-card {
-  width: 100%;
-  height:200px;
-  border-top-left-radius:2px;
-  border-top-right-radius:2px;
-  display:block;
-    overflow: hidden;
-}
-.img-card img{
-  width: 100%;
-  height: 200px;
-  object-fit:cover; 
-  transition: all .25s ease;
-} 
-.title-toggle{
-    margin-bottom:10px;
-}
-.card-content {
-  padding:10px;
-  text-align:left;
-}
-.card-title { 
-  font-size: 20px;
-}
-.card-title-leftwrapper{
-  width: 70%;
-    min-height: 30px;
-}
-.card-title-rightwrapper{
-  width: 30%;
-}
-.card-title-rightwrapper .checkbox{
-    vertical-align: top;
-}
-.card-title a {
-  color: #000;
-  text-decoration: none !important;
-}
-.card-read-more {
-  border-top: 1px solid #D4D4D4;
-  padding:10px 10px;
-  text-align:right;
-}
-.card-read-more a {
-  text-decoration: none !important;
-  font-weight:600;
-  text-transform: uppercase
-}
-/* toggle */
-.switch-input {
-  display: none;
-}
-.switch-label {
-    float:right;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  color: #727272;
-  font-weight: 500;
-  text-align: left;
-  padding: 5px 0 4px 44px;
-}
-.switch-label:before, .switch-label:after {
-  content: "";
-  position: absolute;
-  margin: 0;
-  outline: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.switch-label:before {
-  left: 1px;
-  width: 34px;
-  height: 14px;
-  background-color: #b6b6b6;
-  border-radius: 8px;
-}
-.switch-label:after {
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: #FAFAFA;
-  border-radius: 50%;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
-}
-.switch-label .toggle--on {
-  display: none;
-}
-.switch-label .toggle--off {
-  display: inline-block;
-}
-.switch-input:checked + .switch-label:before {
-  background-color: #2F6FA8;
-}
-.switch-input:checked + .switch-label:after {
-  background-color: #428BCA;
-  -webkit-transform: translate(80%, -50%);
-  transform: translate(80%, -50%);
-}
-.switch-input:checked + .switch-label .toggle--on {
-  display: inline-block;
-}
-.switch-input:checked + .switch-label .toggle--off {
-  display: none;
-}
-.switch-input:checked + .switch-label .toggle--option {
-  color: #428BCA;
-}
-
-</style>
