@@ -39,7 +39,7 @@ if (mix.isWatching()) {
  */
  mix.webpackConfig({
    output: {
-       chunkFilename: "js/chunk/[name].[chunkhash].js",
+       chunkFilename: "js/chunk/[name].js",
    }
 })
 

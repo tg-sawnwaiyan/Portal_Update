@@ -30,8 +30,11 @@ const Accountlist = () => System.import(/* webpackChunkName: "admin" */'./compon
 // search
 const hospitalSearch = () => System.import(/* webpackChunkName: "search" */'./components/hospitalSearch')
 const nursingSearch = () => System.import(/* webpackChunkName: "search" */'./components/nursingSearch')
+const nursingMailConfirm = () => System.import(/* webpackChunkName: "search" */'./components/nursingMailConfirm')
 const jobSearch = () => System.import(/* webpackChunkName: "search" */'./components/jobSearch')
 const JobApply = () => System.import(/* webpackChunkName: "search" */'./components/JobApply')
+const comment = () => System.import(/* webpackChunkName: "search" */'./components/Comment')
+const job_details = () => System.import(/* webpackChunkName: "search" */'./components/job_details')
 const Profile = () => System.import(/* webpackChunkName: "search" */'./components/Profile')
 
 import NotFound from './components/404';
@@ -45,12 +48,6 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import PasswordResetMail from './pages/Passwordreset'
 import PasswordResetForm from './pages/Passwordresetform'
-import Newsdetails from "./components/Newsdetails";
-import job_details from "./components/job_details";
-import comment from "./components/Comment";
-import nursingMailConfirm from "./components/nursingMailConfirm";
-import News from './components/News';
-
 
 const HospitalHistory = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/HospitalHistory')
 const favouriteHospital = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteHospital')
@@ -58,6 +55,8 @@ const NursingHistory = () => System.import(/* webpackChunkName: "favouritehistor
 const favouriteNursing = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteNursing')
 const nursingFavouriteMail = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/nursingFavouriteMail')
 
+const News = () => System.import(/* webpackChunkName: "News" */'./components/News')
+const Newsdetails = () => System.import(/* webpackChunkName: "News" */'./components/Newsdetails')
 const NewsCategory = () => System.import(/* webpackChunkName: "NewsCategory" */'./components/News_Category')
 
 // import menu from './components/menu/Menu';

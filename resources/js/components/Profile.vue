@@ -47,11 +47,9 @@
 </template>
 
 <script>
-import hospitalProfile from "./HospitalProfile.vue";
-
-import nursingProfile from "./NursingProfile.vue";
-
-import profilePublish from "./ProfilePublish.vue";
+const hospitalProfile = () => System.import(/* webpackChunkName: "search" */'./HospitalProfile')
+const nursingProfile = () => System.import(/* webpackChunkName: "search" */'./NursingProfile')
+const profilePublish = () => System.import(/* webpackChunkName: "search" */'./ProfilePublish')
 
 export default {
   ready: function() {
