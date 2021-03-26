@@ -428,7 +428,7 @@
     export default {
 
         components: {
-            News,         
+           // News,         
             layout,
             adsslider,
             Slick

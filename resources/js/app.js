@@ -1,6 +1,6 @@
 // import 'es6-promise/auto'
 import axios from 'axios'
-import './bootstrap'
+// import './bootstrap'
 import VueAuth from '@websanova/vue-auth'
 import VueAxios from 'vue-axios'
 import VueRouter from 'vue-router'
@@ -10,7 +10,7 @@ import router from './router'
 import Vuex from 'vuex';
 import * as VueGoogleMaps from "vue2-google-maps";
 import { BulmaAccordion, BulmaAccordionItem } from "vue-bulma-accordion";
-import Slick from 'vue-slick'; //vue slick
+// import Slick from 'vue-slick'; //vue slick
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
@@ -20,13 +20,13 @@ Vue.use(VueAnalytics, {
 // id: 'UA-164662727-1',
 // id: 'UA-161193570-2',
 
-Vue.use(Slick);
+// Vue.use(Slick);
 Vue.use(BulmaAccordion, BulmaAccordionItem)
 Vue.use(Vuex);
 //start editor
 
 //start onepage
-import 'animate.css'
+//import 'animate.css'
 let globalData = new Vue({
     data: {
         nusFav: 0,
