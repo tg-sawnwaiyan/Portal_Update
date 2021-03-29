@@ -377,6 +377,7 @@
             var cx = '8f501e7f8a9c94ad7';
             var gcse = document.createElement('script');
             gcse.id = 'google-search';
+            gcse.rel = "preconnect";
             gcse.type = 'text/javascript';           
             gcse.async = true;
             gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;

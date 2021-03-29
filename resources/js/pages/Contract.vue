@@ -190,7 +190,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
 .contract-fee-header {
     position: relative;
     margin: 30px 0;

@@ -31,23 +31,29 @@ header("Pragma:no-cache");
 <meta name="description" content="ティーズ（TIS）は介護医療福祉の総合サイトです。病院・医療、特養・介護、有料老人ホーム、訪問介護・看護、デイサービス、グループホーム、新型コロナなど、
 様々なカテゴリのニュースの掲載をしております。また、介護施設や病院の検索も行うことができます。さらに老人ホームや病院の求人も掲載しております。">
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
+<link rel="preload" href="{{ asset('webfonts') }}" as="font" type="font/woff2" crossorigin> 
+<script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('js/vue.min.js') }}"></script>
+<script src="{{asset('js/nprogress.js')}}"></script>
+<script src="{{ asset('js/vue-clazy-load.js') }}"></script>
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
-<script src="{{asset('js/nprogress.js')}}"></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
-<script src="{{ asset('js/vue-clazy-load.js') }}" async></script>
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('js/vue.min.js') }}"></script>
 
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
-<link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/user_mini.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
+<link rel="preload" href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}"></noscript>
+<link rel="preload" href="{{ asset('css/user_mini.css') }}?{{ Config::get('version.date') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('css/user_mini.css') }}?{{ Config::get('version.date') }}"></noscript>
+<!-- <link href="{{ asset('css/user_mini.css') }}?{{ Config::get('version.date') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/all_mini.css') }}" rel="stylesheet">
-<link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link rel="preload" href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}"></noscript>
 
 
 <!-- <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}"> -->
@@ -213,6 +219,5 @@ header("Pragma:no-cache");
 
 
 </script>
-
 </body>
 </html>
