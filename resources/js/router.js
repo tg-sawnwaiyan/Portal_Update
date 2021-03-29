@@ -36,6 +36,7 @@ const JobApply = () => System.import(/* webpackChunkName: "search" */'./componen
 const comment = () => System.import(/* webpackChunkName: "search" */'./components/Comment')
 const job_details = () => System.import(/* webpackChunkName: "search" */'./components/job_details')
 const Profile = () => System.import(/* webpackChunkName: "search" */'./components/Profile')
+const nursingFavouriteMail = () => System.import(/* webpackChunkName: "search" */'./components/nursingFavouriteMail')
 
 import NotFound from './components/404';
 import Unauthorized from './components/419';
@@ -53,7 +54,6 @@ const HospitalHistory = () => System.import(/* webpackChunkName: "favouritehisto
 const favouriteHospital = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteHospital')
 const NursingHistory = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/NursingHistory')
 const favouriteNursing = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/favouriteNursing')
-const nursingFavouriteMail = () => System.import(/* webpackChunkName: "favouritehistory" */'./components/nursingFavouriteMail')
 
 const News = () => System.import(/* webpackChunkName: "News" */'./components/News')
 const Newsdetails = () => System.import(/* webpackChunkName: "News" */'./components/Newsdetails')
