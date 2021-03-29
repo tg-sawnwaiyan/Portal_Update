@@ -31,12 +31,12 @@ header("Pragma:no-cache");
 <meta name="description" content="ティーズ（TIS）は介護医療福祉の総合サイトです。病院・医療、特養・介護、有料老人ホーム、訪問介護・看護、デイサービス、グループホーム、新型コロナなど、
 様々なカテゴリのニュースの掲載をしております。また、介護施設や病院の検索も行うことができます。さらに老人ホームや病院の求人も掲載しております。">
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}" async></script>
+<script src="{{ asset('js/vue.min.js') }}" defer></script>
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
 <script src="{{asset('js/nprogress.js')}}"></script>
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}" async></script>
-<script src="{{ asset('js/vue.min.js') }}" async></script>
 <script src="{{ asset('js/vue-clazy-load.js') }}" async></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
