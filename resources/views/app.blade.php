@@ -34,22 +34,24 @@ header("Pragma:no-cache");
 <script src="{{ asset('js/manifest.js') }}" defer></script> 
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}?{{ Config::get('version.date') }}" defer></script>
-<script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{asset('js/nprogress.js')}}"></script>
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}" async></script>
+<script src="{{ asset('js/vue.min.js') }}" async></script>
+<script src="{{ asset('js/vue-clazy-load.js') }}" async></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
-<script src="{{ asset('js/vue-clazy-load.js') }}"></script>
+
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/user.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
-<link href="{{ asset('css/all.css') }}" rel="stylesheet">
-<link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
-<!-- <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/> -->
 <link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
-<script src="{{asset('js/nprogress.js')}}"></script>
+<link href="{{ asset('css/app.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/user_mini.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+<link href="{{ asset('css/all_mini.css') }}" rel="stylesheet">
+<link href="{{ asset('css/admin.css') }}?{{ Config::get('version.date') }}" rel="stylesheet">
+
+
+<!-- <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}"> -->
+<!-- <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/> -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161193570-2"></script>
 <script>
@@ -172,7 +174,8 @@ header("Pragma:no-cache");
 <!-- Test map -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
 
-<script src="{{ asset('js/vue.min.js') }}"></script>
+<script src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js" async></script>
+<!-- <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet"> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <!-- <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script> -->
 <!-- Include after Vue (before closing body) -->
