@@ -31,7 +31,7 @@ header("Pragma:no-cache");
 <meta name="description" content="ティーズ（TIS）は介護医療福祉の総合サイトです。病院・医療、特養・介護、有料老人ホーム、訪問介護・看護、デイサービス、グループホーム、新型コロナなど、
 様々なカテゴリのニュースの掲載をしております。また、介護施設や病院の検索も行うことができます。さらに老人ホームや病院の求人も掲載しております。">
 <link rel="shortcut icon" href="{{ asset('/images/icon1.ico') }}">
-<link rel="preload" href="{{ asset('webfonts') }}" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="{{ asset('webfonts/fa-solid-900.woff2') }}" as="font" type="font/woff2" crossorigin> 
 <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/vue.min.js') }}"></script>
 <script src="{{asset('js/nprogress.js')}}"></script>
