@@ -4738,18 +4738,17 @@ body.all-bg{
     background-color: var(--bkgColor);
 }
 .menu_tab_category{
-    position: absolute;
     top: 200px;
-    z-index: 9;
-    width: 100%;
-    max-width: 1600px;
-    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 92px 0 22px;
+    max-width: 1598px !important;
 }
 .menu_category{
-    margin: 5px 25px 0 21.5px;
+    margin: 5px 0 0 0;
     white-space: nowrap;
     overflow: hidden;
-    width: 97.5%;
+    width: 100%;
 }
 #ul_menu_category{
     flex-wrap: nowrap;
@@ -7341,9 +7340,9 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 @media only screen and (max-width: 1400px) {    
-    .menu_tab_category {
+    /*.menu_tab_category {
         width: 99% !important;
-    }
+    }*/
     .fixed-ads-fluid {
         width: 100%;
     }
@@ -9597,9 +9596,9 @@ ul.nur-caro-card>li.list-group-item {
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 1084px !important;
     }
-    .menu_tab_category {
+    /*.menu_tab_category {
         width: 98.7% !important;
-    }
+    }*/
     .fixed-ads-fluid {
         width: 100%;
     }
@@ -10406,9 +10405,9 @@ table.gsc-search-box td.gsc-input{
 }
 
 @media only screen and (min-width: 561px) and (max-width: 990px){
-    .menu_tab_category {
+    /*.menu_tab_category {
         top: 142px;
-    }
+    }*/
     .upper-tab {
         margin-top: 83px !important;
     }

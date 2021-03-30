@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 require('laravel-mix-bundle-analyzer');
-const CompressionPlugin = require('compression-webpack-plugin');
  
 // if (!mix.inProduction()) {
 //     mix.bundleAnalyzer();
@@ -17,29 +16,6 @@ if (mix.isWatching()) {
 
 }
 
-module.exports = {
-   pluginOptions: {
-     compression:{
-       brotli: {
-         filename: '[path].br[query]',
-         algorithm: 'brotliCompress',
-         include: /\.(js|css|html|svg|json)(\?.*)?$/i,
-         compressionOptions: {
-           params: {
-             [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
-           },
-         },
-         minRatio: 0.8,
-       },
-       gzip: {
-         filename: '[path].gz[query]',
-         algorithm: 'gzip',
-         include: /\.(js|css|html|svg|json)(\?.*)?$/i,
-         minRatio: 0.8,
-       }
-     }
-   }
- }
 
 /*
 
