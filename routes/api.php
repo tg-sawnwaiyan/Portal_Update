@@ -425,5 +425,7 @@ Route::group(['middleware' => $middleware], function() {
 
     Route::get('updatefeed','SmartFeedController@update_xml')->name('updatefeed');
 
+    Route::get('sitemap','SitemapController@index')->name('sitemap');
+
 });
 // public route api end

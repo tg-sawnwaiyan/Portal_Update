@@ -409,7 +409,10 @@ class JobController extends Controller
 
            $jobs->save();
            $data = array("jobs"=> $jobs, "success", "Comment successfully confirmed");
-           return response()->json($data);
+           //サイトマップを追加 20210402 ここから
+           return redirect()->route('sitemap');
+           //20210402 ここまで
+           //return response()->json($data);
 
     }
     

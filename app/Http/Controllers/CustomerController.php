@@ -74,7 +74,11 @@ class CustomerController extends Controller
        }
        $changeActivate->save();
        $data = array("changeActivate"=> $changeActivate, "success");
-       return response()->json($data);
+       //return response()->json($data);
+       
+       //サイトマップを追加 20210402 ここから
+       return redirect()->route('sitemap');
+       //20210402 ここまで
     }
 
     public function profileDelete($id,$type)
