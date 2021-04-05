@@ -254,8 +254,8 @@ Route::group(['middleware' => $middleware], function() {
     });
 
     Route::group(['prefix' => 'category'], function () {
-        Route::get('category_list','CategoryController@list');
-        Route::post('search', 'CategoryController@search');
+        Route::get('category_list','PostsCategoryController@list');
+        Route::post('search', 'PostsCategoryController@search');
     });
 
     Route::group(['prefix' => 'advertisement'], function () {
@@ -423,8 +423,9 @@ Route::group(['middleware' => $middleware], function() {
     Route::delete('jobApplicantDelete/{id}','JobApplyController@jobApplicantDelete');
     Route::post('jobapplicant/search','JobApplyController@search');
 
-    //Route::get('feed/smartnews.xml','SmartFeedController@get_xml');
     Route::get('updatefeed','SmartFeedController@update_xml')->name('updatefeed');
+
+    Route::get('sitemap','SitemapController@index')->name('sitemap');
 
 });
 // public route api end
