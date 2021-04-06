@@ -277,6 +277,7 @@ class PostController extends Controller
         if($related_news[0]["related_news"] != null) {
             $news = Post::join('categories','categories.id','=','posts.category_id')
                             ->select('posts.*','categories.name as cat_name')
+                            ->orderBy('created_at','DESC')
                             ->whereIn('posts.id', $post_id)->get();
         }
         else{
