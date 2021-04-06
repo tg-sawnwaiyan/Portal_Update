@@ -90,8 +90,8 @@ class SitemapController extends Controller
         }else{
            // dump($data);die();
             $item .= "<loc>" . $data['id'] . "</loc>\n";
-            $item .= "<lastmod>" . $data['updated_at'] . "</lastmod>\n";
-            $item .= "<changefreq>daily</changefreq>\n";
+            // $item .= "<lastmod>" . $data['updated_at'] . "</lastmod>\n";
+            // $item .= "<changefreq>daily</changefreq>\n";
             $item .= "<priority>0.9</priority>\n";
         }
         $item .= "</url>\n";
