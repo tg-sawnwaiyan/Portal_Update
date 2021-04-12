@@ -45,7 +45,8 @@ samp {
 }
 
 body.all-bg {
-    background: #f8f8f8;
+    /*background: #f8f8f8;*/
+    background: #f4f4f2;
 }
 
 p {
@@ -14560,7 +14561,7 @@ strong {
     border-radius: 1px;
     padding: 0px 6px 0px 6px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
 }
 

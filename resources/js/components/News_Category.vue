@@ -1764,9 +1764,10 @@ export default{
 .news-list-display{
     padding: 5px 10px;
     margin-bottom: 5px;
-    background: #f7f7f7;
-    border:solid #f3efef;
-    border-width: 0 1px 1px 0;
+    /*background: #f7f7f7;*/
+    background: #fff;
+    border: 1px solid #f3efef;
+    /*border-width: 0 1px 1px 0;*/
     box-sizing: border-box;
     /* max-height: 47px; */
     /*height: 47.5px;*/
@@ -1784,11 +1785,12 @@ export default{
     padding-left: 10px;
 }
 .single-news-box{
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
     height: 310px;
     padding: 10px;
-    border:solid #f3efef;
-    border-width: 0 1px 1px 0;
+    border: 1px solid #f3efef;
+    /*border-width: 0 1px 1px 0;*/
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -1888,7 +1890,9 @@ export default{
     border: none !important;
 }
 .head-news .adslist-card{
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
+    border: 1px solid #f3efef;
     height: 100px;
 }
 .wrapper-4{
@@ -1957,7 +1961,7 @@ export default{
     padding: 0px 6px 0px 6px;
     height: 18px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
 }
 .medium-b1 .second_para{
@@ -2004,7 +2008,7 @@ export default{
     border-radius: 1px;
     padding: 0 6px 0px 6px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
     float: right; 
 }
