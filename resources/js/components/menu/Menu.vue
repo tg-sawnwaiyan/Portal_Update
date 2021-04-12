@@ -247,7 +247,7 @@
 
 .btn_login {
     border: 0;
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 </style>
 <script>
