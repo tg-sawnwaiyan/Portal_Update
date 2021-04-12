@@ -1180,6 +1180,7 @@
     position: relative;
     padding-left: 5px !important;
     padding-right: 5px !important;
+    background: none;
 }
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
