@@ -1771,6 +1771,9 @@ export default{
     box-sizing: border-box;
     /* max-height: 47px; */
     /*height: 47.5px;*/
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    border-radius: .2rem;
 }
 .news-list-display03{
     padding: 5.7px 10px;
@@ -1793,6 +1796,9 @@ export default{
     /*border-width: 0 1px 1px 0;*/
     overflow: hidden;
     box-sizing: border-box;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    border-radius: .2rem;
 }
 .single-news-slide{
     max-width: 100%;
@@ -1894,6 +1900,9 @@ export default{
     background: #fff;
     border: 1px solid #f3efef;
     height: 100px;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    border-radius: .2rem;
 }
 .wrapper-4{
     padding-bottom: 79px;
