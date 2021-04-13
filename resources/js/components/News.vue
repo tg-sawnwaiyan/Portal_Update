@@ -1193,7 +1193,7 @@
     /*border-width: 0 .1rem .1rem 0;*/
     border: none;
     box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
-    border-radius: .2rem;
+    /*border-radius: .2rem;*/
 }
 
 .news-tabColor .nav-link {
@@ -1520,10 +1520,10 @@
     /* box-shadow: 0 0 2px #ddd; */
     border: .1rem solid #f3efef;
     /*border-width: 0 .1rem .1rem 0;*/
-    padding: 11px 0;
+    padding: 10.7px 0;
     border: none;
     box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
-    border-radius: .2rem;
+    /*border-radius: .2rem;*/
 }
 
 .news-3-card .img-box{
