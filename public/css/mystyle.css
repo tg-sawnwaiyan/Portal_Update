@@ -252,7 +252,7 @@ scrollbar-width: thin;*/
     /* height: 700px;
 overflow-y: auto;
 scrollbar-width: thin;*/
-    background: white;
+    /*background: white;*/
     padding-top: 15px;
 }
 
@@ -7371,6 +7371,7 @@ font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "�
     text-align: center;
     letter-spacing: normal;
     line-height: 1.5;
+    background: none;
 }
 
 .seemore_tit {
