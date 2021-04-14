@@ -2576,7 +2576,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     font-weight: bold;
     display: inline-block;
     position: relative;
-    background: #fff;
+    /*background: #fff;*/
     border-radius: 1px;
     border-bottom: 1px dashed #2980b9;
     width: 100%;
@@ -8581,7 +8581,9 @@ color: green;
     border-left: 1px solid #2980b9;
     vertical-align: top;
 }
-
+.nursingSearch-tbl .table-bordered td{
+    background: #fff;
+}
 .nursingSearch-list span:first-child {
     display: inline-block;
     width: 65px;
@@ -9329,6 +9331,7 @@ border-bottom: none;
     font-size: 12px;
     font-weight: bold;
     display: inline-block;
+    background: #fff;
 }
 
 .job_id1 {
@@ -14187,6 +14190,7 @@ strong {
         /* width: 31%; */
         margin-bottom: 11px;
         text-align: center;
+        background: #fff;
     }
 }
 
