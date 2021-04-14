@@ -4290,6 +4290,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 #myTabContent {
     border: 1px solid #ccc;
     height: 410px;
+    background: #fff;
 }
 
 .nav-tabs .nav-link {
