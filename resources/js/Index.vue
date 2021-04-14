@@ -268,6 +268,7 @@
           window.onload = function(){
             document.getElementById('gsc-i-id1').placeholder = 'Googleで検索';
             $(".gsc-search-button-v2").text("検索");
+            document.getElementById('gsc-i-id1').focus();
           };
 
           
