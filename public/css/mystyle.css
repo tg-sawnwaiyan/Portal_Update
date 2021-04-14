@@ -4900,14 +4900,8 @@ ul.hospital-subject>li:before {
 
 
 /********************************* Map *****************************/
-
 .search-map {
-    background: white;
-    padding: 15px !important;
-}
-
-.search-map {
-    background: #fff;
+    background: #f4f4f2;
     padding: 0px 15px 0px 15px !important;
 }
 
@@ -14868,7 +14862,7 @@ input.gsc-input {
 .google_search_all .google_div{
     padding: 0;
     width: 30%;
-    background: #eee;
+    /*background: #eee;*/
     margin: 0 25px 0 0;
 }
 #headerbar.headerbarblock{

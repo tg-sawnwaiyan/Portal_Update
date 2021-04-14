@@ -450,7 +450,7 @@
                 <div v-for="(group,name,index) in post_groups" :key="index" class="bordertop-color col-md-12 category_box" id="view-1024-pattern" :style="{'--color': name.slice(name.lastIndexOf(',')+1)}">
                     <h4  class="category_news_title h-color" :style="{'--color': name.split(',')[2]}">
                         <router-link :to="'/newscategory/'+name.split(',')[0]"><span >{{name.split(',')[1]}} </span> </router-link>
-                        <label class="list-label" for="">新着ニュース一覧</label>
+                        <!-- <label class="list-label" for="">新着ニュース一覧</label> -->
                         <label class="list-label sp-414">                         
                                 <p :class="'newsChangeLink'+index" @click="newsToggle(index)" ><i :id="'newstogg' + index" class="fas fa-sort-down"></i></p>                      
                         </label>
