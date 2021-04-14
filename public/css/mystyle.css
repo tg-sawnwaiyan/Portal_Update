@@ -2451,6 +2451,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 #nursingView .profile_header {
     /* border-left: 5px solid #ff9563; */
     border-left: 5px solid #63b7ff;
+    background: #fff;
 }
 
 .profile_header {
@@ -2544,6 +2545,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 #nursingView .header {
     /* color: #ec7338; */
     color: #2981cc;
+    background: none;
 }
 
 .public-nurheader {
@@ -4028,11 +4030,12 @@ ul.sub-ul li {
 }
 
 .white-bg-color {
-    background-color: #fff !important;
+    /*background-color: #fff !important;*/
 }
 
 .custom-bg-color {
-    background-color: #f0f0f0 !important;
+    /*background-color: #f0f0f0 !important;*/
+    background: #fff;
 }
 
 .toggle-btn .icon-arrow:before {
