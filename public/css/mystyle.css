@@ -2446,6 +2446,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 
 #hospitalView .profile_header {
     border-left: 5px solid #63b7ff;
+    background: #fff;
 }
 
 #nursingView .profile_header {
@@ -2540,6 +2541,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 
 #hospitalView .header {
     color: #2981cc;
+    background: none;
 }
 
 #nursingView .header {
@@ -4211,8 +4213,8 @@ li.userprofile-name>a {
 .tab-content {
     padding: 13px !important;
     /*for no scroll*/
-    background: white;
-    border: 1px solid #eee;
+    /*background: white;*/
+    border: 1px solid #ccc;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -8344,8 +8346,8 @@ color: green;
 }
 
 .form-wrap .form-left {
-    background: #f5f5f5;
-    background: #f5f5f2;
+    /*background: #f5f5f5;*/
+    background: #fff;
     padding: 15px;
 }
 
@@ -8820,8 +8822,8 @@ font-weight: bold;
 }
 
 .form-wrap .form-left {
-    background: #f5f5f5;
-    background: #f5f5f2;
+    /*background: #f5f5f5;*/
+    background: #fff;
     padding: 10px 10px 0px 10px;
 }
 
