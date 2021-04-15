@@ -90,7 +90,8 @@
           <div id="job_search" class="row jobselect">
               
             <div class="col-12">
-             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>
+            <!-- <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5> -->
+            <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
             <table class="table table-bordered col-12" style="border:none;">
               <tbody>
                 <tr>
@@ -992,7 +993,8 @@ $(document).on('click','.btn-2019',function(){
     display: none;
 }
 #job-search-ui table > tbody > tr th{
-  background-color: #eeeeee;
+  /*background-color: #eeeeee;*/
+  background: #e8e7e7;
   width:140px;
   padding:25px;
 }
