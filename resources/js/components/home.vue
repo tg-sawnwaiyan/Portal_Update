@@ -144,7 +144,8 @@ export default {
         color: #828282 !important;
     }
     .job-borderColor {
-        border: 1px solid #828282 !important;
+        /*border: 1px solid #828282 !important;*/
+        border: 1px solid #63b7ff !important;
     }
     .hospital-borderColor {
         border: 1px solid #63b7ff !important;

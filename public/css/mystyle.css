@@ -4958,7 +4958,8 @@ ul.hospital-subject>li:before {
 }
 
 .job-map-header {
-    color: #332f2f!important;
+    /*color: #332f2f!important;*/
+    color: #2c3e50!important;
 }
 
 .wrap {
@@ -14383,13 +14384,13 @@ strong {
     padding-left: 10px;
     margin-top: 30px;
 }
-.job_container_news .text-new{
+/*.job_container_news .text-new{
     width: 100%;
     border-left: 6px #828282 solid;
     background-color: rgb(236, 236, 236);
     padding-left: 10px;
     margin-top: 30px;
-}
+}*/
 .container_news .text-new span{
     font-size: 30px;
     color: #63b7ff;
@@ -14397,7 +14398,7 @@ strong {
     line-height: 50px;
 }
 .job_container_news .text-new span{
-    color: #828282;
+    /*color: #828282;*/
 }
 .container_news .button-year{
     margin-top: 20px;
