@@ -126,22 +126,22 @@ export default {
         color: #63b7ff !important;
     }
     .job-tabColor .nav-link {
-        background: #828282 !important;
+        background: #63b7ff !important;
         color: #fff;
         border-right: 1px solid #fff;
         border-bottom: 0px !important;
     }
     .job-tabColor li.subtab4 > .router-link-active{
         background: #fff!important;
-        color: #828282 !important;
+        color: #63b7ff !important;
         border-bottom-color: transparent !important;
-        border-top: 3px solid #828282 !important;
-        /* border-left: 1px solid #828282 !important; */
-        border-right: 1px solid #828282 !important;
+        border-top: 3px solid #63b7ff !important;
+        /* border-left: 1px solid #63b7ff !important; */
+        border-right: 1px solid #63b7ff !important;
         border-bottom: 0px !important;
     }
     .job-tabColor li.subtab4 > .router-link-exact-active>i.fa, .job-tabColor li.subtab4 > .router-link-active>i.fas {
-        color: #828282 !important;
+        color: #63b7ff !important;
     }
     .job-borderColor {
         /*border: 1px solid #828282 !important;*/
