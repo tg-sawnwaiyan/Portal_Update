@@ -2898,7 +2898,8 @@ h3 img{
     border: 1px solid #ccc;
     padding: 8px 10px;
     /* text-align: center; */
-    background: #f0f0f0;
+    /*background: #f0f0f0;*/
+    background: #fff;
     color: #000;
     line-height: 1.7;
     vertical-align: top;
@@ -2910,7 +2911,8 @@ h3 img{
     padding: 8px 10px;
     /* text-align: center; */
     line-height: 1.7;
-    background: #fff;
+    /*background: #fff;*/
+    background: none;
 
 }
 .main-cost-table td{
@@ -2996,7 +2998,8 @@ h3 img{
     vertical-align: middle;
     border: 1px solid #b7dad2;
     border-bottom: 1px solid #b7dad2;
-    background-color: #f5f5f2;
+    /*background-color: #f5f5f2;*/
+    background: #fff;
     margin: 0 auto 20px;
     text-align: center;
 }

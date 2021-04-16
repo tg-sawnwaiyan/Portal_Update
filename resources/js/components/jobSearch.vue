@@ -3,8 +3,9 @@
 <div id="job-search-ui" class="tab_pane_02">
   
  
-   <div class="col-md-12" style="border-bottom: 1px dashed #828282;padding-bottom: 10px; margin-bottom: 20px;">
-     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#828282;"></i>&nbsp;地図検索  
+   <!-- <div class="col-md-12" style="border-bottom: 1px dashed #828282;padding-bottom: 10px; margin-bottom: 20px;"> -->
+    <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
+     <h5 class="font-weight-bold"><!-- <i class="fas fa-map" style="color:#828282;"></i> --><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索  
 
         <span v-if="count == false  && searchword != '' && searchword == 'all' && job_data.length && !stateclick "> 「<span class="result-span">全国</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
         <span v-if="count == false && searchword != '' && searchword != 'all' && job_data.length && !stateclick "> 「<span class="result-span">{{searchword}}</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>
@@ -23,8 +24,8 @@
         <div>
           <!-- <div class="info-box"></div> --> 
           <!--start map-->
-          <div class="row map-wrap" style="background-color:#ececec;">
-
+          <!-- <div class="row map-wrap" style="background-color:#ececec;"> -->
+          <div class="row map-wrap">
           <!-- free word left wrapper--->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
               <!-- <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2> -->
@@ -34,9 +35,13 @@
               <!--search input-->
                 <div class="wrap">
                   <div class="search">
-                      <input type="text" class="searchTerm" style="border: 3px solid #828282;" id="search-free-word" placeholder="地名、求人タイトルなどを入力">
-                      <button type="submit" class="searchButton" style="border: 1px solid #828282;background: #828282;" @click="searchfreeword">
+                      <!-- <input type="text" class="searchTerm" style="border: 3px solid #828282;" id="search-free-word" placeholder="地名、求人タイトルなどを入力"> -->
+                    <input type="text" class="searchTerm" id="search-free-word" placeholder="地名、求人タイトルなどを入力" style="border: 3px solid #63b7ff;">
+                    <!-- <button type="submit" class="searchButton" style="border: 1px solid #828282;background: #828282;" @click="searchfreeword">
                         <i class="fas fa-search"></i> 検索
+                    </button> -->
+                    <button type="submit" class="searchButton" style="border: 1px solid #63b7ff;background: #63b7ff;" @click="searchfreeword">
+                      <i class="fas fa-search"></i> 検索
                     </button>
                   </div>
                 </div>
@@ -85,7 +90,8 @@
           <div id="job_search" class="row jobselect">
               
             <div class="col-12">
-             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>
+            <!-- <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5> -->
+            <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
             <table class="table table-bordered col-12" style="border:none;">
               <tbody>
                 <tr>
@@ -515,8 +521,8 @@ export default {
             $('#navtab').addClass('job-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('job-borderColor margin-none');
-            $('#headerbar').addClass('headerbarblock');
             $('.google_search_div').addClass('google_search_all');
+            $('#headerbar').addClass('headerbarblock');
         },
   methods:{
     /**added by maythirihtet */
@@ -987,7 +993,8 @@ $(document).on('click','.btn-2019',function(){
     display: none;
 }
 #job-search-ui table > tbody > tr th{
-  background-color: #eeeeee;
+  /*background-color: #eeeeee;*/
+  background: #e8e7e7;
   width:140px;
   padding:25px;
 }
@@ -997,7 +1004,8 @@ $(document).on('click','.btn-2019',function(){
   border-right: 1px solid #fff;
 }
 #job-search-ui .job-borderColor {
-  border: 1px solid #828282 !important;
+  /*border: 1px solid #828282 !important;*/
+  border: 1px solid #63b7ff!important;
 }
 #job-search-ui .offset{
   width: 500px !important;

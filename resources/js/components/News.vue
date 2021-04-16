@@ -450,7 +450,7 @@
                 <div v-for="(group,name,index) in post_groups" :key="index" class="bordertop-color col-md-12 category_box" id="view-1024-pattern" :style="{'--color': name.slice(name.lastIndexOf(',')+1)}">
                     <h4  class="category_news_title h-color" :style="{'--color': name.split(',')[2]}">
                         <router-link :to="'/newscategory/'+name.split(',')[0]"><span >{{name.split(',')[1]}} </span> </router-link>
-                        <label class="list-label" for="">新着ニュース一覧</label>
+                        <!-- <label class="list-label" for="">新着ニュース一覧</label> -->
                         <label class="list-label sp-414">                         
                                 <p :class="'newsChangeLink'+index" @click="newsToggle(index)" ><i :id="'newstogg' + index" class="fas fa-sort-down"></i></p>                      
                         </label>
@@ -1180,15 +1180,20 @@
     position: relative;
     padding-left: 5px !important;
     padding-right: 5px !important;
+    background: none;
 }
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
     margin-bottom: 5px;
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
     /* box-shadow: 0px 0px 1px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
+    border:.1rem solid #f3efef;
+    /*border-width: 0 .1rem .1rem 0;*/
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    /*border-radius: .2rem;*/
 }
 
 .news-tabColor .nav-link {
@@ -1500,20 +1505,27 @@
     display: inline-flex;
 } */
 .single-news-box {
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
     height: 307px;
     padding: 10px;
     /* box-shadow: 0px 0px 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
+    border: .1rem solid #f3efef;
+    /*border-width: 0 .1rem .1rem 0;*/
     overflow: hidden;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
 }
 .news-3-card {
-    background-color: #f7f7f7;
+    /*background-color: #f7f7f7;*/
+    background: #fff;
     /* box-shadow: 0 0 2px #ddd; */
-    border:solid #f3efef;
-    border-width: 0 .1rem .1rem 0;
-    padding: 10px 0;
+    border: .1rem solid #f3efef;
+    /*border-width: 0 .1rem .1rem 0;*/
+    padding: 10.7px 0;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    /*border-radius: .2rem;*/
 }
 
 .news-3-card .img-box{
@@ -1563,7 +1575,7 @@
     border-radius: 1px;
     padding: 0px 6px 0px 6px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
     font-style: normal;
 }

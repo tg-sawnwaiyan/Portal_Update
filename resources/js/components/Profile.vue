@@ -175,5 +175,6 @@ export default {
 .nursing-borderColor {
         /* border: 1px solid #ff9563 !important; */
         border: 1px solid #63b7ff !important;
+        background: none;
 }
 </style>

@@ -1764,12 +1764,16 @@ export default{
 .news-list-display{
     padding: 5px 10px;
     margin-bottom: 5px;
-    background: #f7f7f7;
-    border:solid #f3efef;
-    border-width: 0 1px 1px 0;
+    /*background: #f7f7f7;*/
+    background: #fff;
+    border: 1px solid #f3efef;
+    /*border-width: 0 1px 1px 0;*/
     box-sizing: border-box;
     /* max-height: 47px; */
     /*height: 47.5px;*/
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    /*border-radius: .2rem;*/
 }
 .news-list-display03{
     padding: 5.7px 10px;
@@ -1784,13 +1788,17 @@ export default{
     padding-left: 10px;
 }
 .single-news-box{
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
     height: 310px;
     padding: 10px;
-    border:solid #f3efef;
-    border-width: 0 1px 1px 0;
+    border: 1px solid #f3efef;
+    /*border-width: 0 1px 1px 0;*/
     overflow: hidden;
     box-sizing: border-box;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    /*border-radius: .2rem;*/
 }
 .single-news-slide{
     max-width: 100%;
@@ -1888,8 +1896,13 @@ export default{
     border: none !important;
 }
 .head-news .adslist-card{
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
+    background: #fff;
+    border: 1px solid #f3efef;
     height: 100px;
+    border: none;
+    box-shadow: 0 0.03rem 0.09rem rgb(0 0 0 / 11%), 0 0.16rem 0.36rem rgb(0 0 0 / 13%);
+    /*border-radius: .2rem;*/
 }
 .wrapper-4{
     padding-bottom: 79px;
@@ -1957,7 +1970,7 @@ export default{
     padding: 0px 6px 0px 6px;
     height: 18px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
 }
 .medium-b1 .second_para{
@@ -2004,7 +2017,7 @@ export default{
     border-radius: 1px;
     padding: 0 6px 0px 6px;
     font-size: 10px;
-    background-color: red;
+    background-color: #FE2E2E;
     color: white;
     float: right; 
 }
