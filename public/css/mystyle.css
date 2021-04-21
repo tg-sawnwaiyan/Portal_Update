@@ -11518,7 +11518,7 @@ padding: 0;
     .sp_nav {
         display: block;
         position: fixed;
-        top: 59px;
+        top: 55px;
         right: 0;
         width: 100%;
         height: 100%;
@@ -13822,6 +13822,18 @@ strong {
     #news_list .select_label {
         width: 26% !important;
     }
+    .infoBox {
+        top: 200px !important;
+    }
+    #___gcse_0{
+        height: 120px;
+    }
+    #upper-tab{
+        margin-top: 30px;
+    }
+    .gsc-control-searchbox-only-ja{
+        top: 85% !important;
+    }
 }
 
 
@@ -14606,7 +14618,8 @@ input.gsc-input {
         position: relative;
         top: 70px;
         padding: 0;
-        background: #fff;
+        /*background: #fff;*/
+        background: #f4f4f2;
         margin-left: auto;
         margin-right: auto;
         left: 0;
@@ -14718,7 +14731,7 @@ input.gsc-input {
 
 @media only screen and (max-width: 1300px){
     #sp_headerbar{
-        display: none;
+        /*display: none;*/
     }
 }
 
@@ -14726,13 +14739,15 @@ input.gsc-input {
 @media only screen and (max-width: 990px){
     #headerbar,
     .fav-dropdown{
-        display: none;
+        /*display: none;*/
+        background: #f4f4f2;
     }
     #sp_headerbar {
         display: block;
         width: 83%;
         margin: 0px auto;
-        background: #fff;
+        /*background: #fff;*/
+        background: #f4f4f2;
         margin-left: 6px;
         font-size: 16px;
     }
@@ -14984,7 +14999,7 @@ table.gsc-search-box td.gsc-input{
         margin-top: 38px;
     }
     .infoBox{
-        top: 148px !important;
+        top: 148px;
     }
     #headerbar.headerbarblock{
         display: none;
@@ -15026,10 +15041,10 @@ table.gsc-search-box td.gsc-input{
 
 @media only screen and (min-width: 561px) and (max-width: 990px){
     .menu_tab_category {
-        top: 142px !important;
+        top: 180px !important;
     }
     .upper-tab {
-        margin-top: 83px !important;
+        margin-top: 53px !important;
     }
     .ads-slider {
         top: 85px;
@@ -15037,12 +15052,28 @@ table.gsc-search-box td.gsc-input{
     .margin-none {
         margin-top: 50px !important;
     }
+    #___gcse_0 {
+        height: 125px;
+    }
 }
 
 
 @media only screen and (max-width: 560px){
     .margin-none {
         margin-top: 0 !important;
+    }
+    .infoBox {
+        top: 175px;
+    }
+    #___gcse_0{
+        height: 100px;
+        background: #f4f4f2;
+    }
+    #upper-tab{
+        margin-top: 20px;
+    }
+    .gsc-control-searchbox-only-ja{
+        top: 60%;
     }
 }
 
