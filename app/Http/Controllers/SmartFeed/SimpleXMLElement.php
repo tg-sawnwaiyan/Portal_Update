@@ -16,9 +16,7 @@ class SimpleXMLElement extends \SimpleXMLElement
     public function addChild($name, $value = null, $namespace = null)
     {
         if ($value !== null and is_string($value) === true) {
-            $find = ['&','&nbsp;'];
-            $replace = ['&amp;',''];
-            $value = str_replace($find, $replace, $value);
+            $value = str_replace('&', '&amp;', $value);
         }
 
         return parent::addChild($name, $value, $namespace);
