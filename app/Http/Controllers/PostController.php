@@ -35,15 +35,15 @@ class PostController extends Controller
         }
 
         $post = new Post() ;
-        $title = str_replace('&', '＆', $request->input('title'));
-        $main_point = str_replace('&', '＆', $request->input('main_point'));
-        $body = str_replace('&', '＆', $request->input('body'));
-        $created_by = str_replace('&', '＆', $request->input('created_by'));
-        $created_by_company = str_replace('&', '＆', $request->input('created_by_company'));
+        $title = $request->input('title');
+        $main_point = $request->input('main_point');
+        $body = $request->input('body');
+        $created_by = $request->input('created_by');
+        $created_by_company = $request->input('created_by_company');
         
         $post->title = $title;
         $post->main_point = $main_point;
-        $post->body= $body;
+        $post->body= nl2br($request->input('body'));
         $post->photo = $imageName;
         $post->category_id=$request->input('category_id');
         $post->block_id=$request->input('block_id');
@@ -336,15 +336,14 @@ class PostController extends Controller
             $imageName = "";
         }
 
-        $title = str_replace('&', '＆', $request->input('title'));
-        $main_point = str_replace('&', '＆', $request->input('main_point'));
-        $body = str_replace('&', '＆', $request->input('body'));
-        $created_by = str_replace('&', '＆', $request->input('created_by'));
-        $created_by_company = str_replace('&', '＆', $request->input('created_by_company'));
+        $title = $request->input('title');
+        $main_point = $request->input('main_point');
+        $created_by = $request->input('created_by');
+        $created_by_company = $request->input('created_by_company');
 
         $post->title = $title;
         $post->main_point = $main_point;
-        $post->body = $body;
+        $post->body = nl2br($request->input('body'));
         $post->photo = $imageName;
         $post->category_id=$request->input('category_id');
         $post->block_id=$request->input('block_id');
