@@ -242,7 +242,14 @@ export default {
             this.comments.gender = 0;
             this.comments.profile_id = this.$route.params.id;
         },
-
+        mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('hospital-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('hospital-borderColor margin-none');
+            $('.google_search_div').addClass('google_search_all');
+            $('#headerbar').addClass('headerbarblock');
+        },
 
          methods: {
              checkValidate() {
