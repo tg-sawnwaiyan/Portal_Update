@@ -97,7 +97,7 @@
                         <span v-if="errors.date_check" class="error">{{errors.date_check}}</span>
                     </div>
 
-                    <div class="form-group bd-form">
+                    <div class="form-group">
                         <label>内容 <span class="error sp2">必須</span></label>
                         <quill-editor  ref="myQuilEditor" id="exampleFormControlTextarea1" class="rounded-0" placeholder="内容を入力してください。"  @change="onDetailInfoEditorChange($event)" v-model="news.body" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                         <span v-if="errors.body" class="error">{{errors.body}}</span>
