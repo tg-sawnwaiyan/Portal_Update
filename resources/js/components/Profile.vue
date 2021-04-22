@@ -30,7 +30,7 @@
 
       </ul>
 
-      <div class="tab-content tab-content1 tabs" :class="type == 'nursing'? 'nursing-borderColor': 'hospital-borderColor'">
+      <div class="tab-content tab-content1 tabs margin-none" :class="type == 'nursing'? 'nursing-borderColor': 'hospital-borderColor'">
         <form class="col-md-12 pad-free" autocomplete="off">
           <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
             <nursingProfile v-if="type == 'nursing'"></nursingProfile>

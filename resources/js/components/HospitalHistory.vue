@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-3 tab-content" id="hospital">
+        <div class="col-12 scrolldiv2 pb-3 tab-content margin-none" id="hospital">
             <div class="col-12 pad-free pad-free-75">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb" style="padding-left:0px !important;padding-right:0px !important;">

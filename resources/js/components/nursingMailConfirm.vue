@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="tab-content job-detail">
+        <div class="tab-content job-detail margin-none">
             <div class="row">               
                 <div class="col-12 pad-free m-b-10">
                     <nav aria-label="breadcrumb">
@@ -301,6 +301,14 @@
 
 
            
+        },
+        mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('hospital-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('hospital-borderColor margin-none');
+            $('.google_search_div').addClass('google_search_all');
+            $('#headerbar').addClass('headerbarblock');
         },
         methods: {
             add() {

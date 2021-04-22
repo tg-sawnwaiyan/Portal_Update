@@ -1,5 +1,5 @@
 <template>
-    <div class="scrolldiv2 pb-5 tab-content" id="nursing">
+    <div class="scrolldiv2 pb-5 tab-content margin-none" id="nursing">
         <div class="row m-0">
             <div class="col-12 pad-free pad-free-75">
                 <nav aria-label="breadcrumb">

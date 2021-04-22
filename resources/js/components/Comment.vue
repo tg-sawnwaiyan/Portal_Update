@@ -1,7 +1,7 @@
 <template>
  <div class="">     
       <div class="col-12 col-lg-12 col-md-12 tab" >       
-          <div class="card title_comment title_comment2" style="background:#edf2f4;">     
+          <div class="card title_comment title_comment2 margin-none" style="background:#edf2f4;">     
                        <div class="col-12 m-b-10 m-t-8 com-mt"><h4 class="comment-apply-color t-t" style="margin-left:5px;"><i class="fa fa-comments com_ic"></i> 口コミ投稿</h4></div>
                     <div class="card-body ">
                         <div class="row">
