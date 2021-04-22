@@ -74,7 +74,8 @@ class SmartFeedController extends Controller
             $content .= "<figcaption>".$data["cat_name"]."ニュース画像</figcaption>\n";
             $content .= "</figure>\n";
         }
-        $content .=  $data["body"];
+        $body = str_replace('&nbsp;','',$data["body"]);
+        $content .=  $body;
         if(!empty($data["photo"])){
             $media = $url."upload/news/".$data["photo"];
         }
