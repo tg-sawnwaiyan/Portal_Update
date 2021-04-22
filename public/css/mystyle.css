@@ -4893,7 +4893,7 @@ ul.hospital-subject>li:before {
     border-radius: 20px;
     /* border: 1px solid #ff9563; */
     border: 1px solid #63b7ff;
-    background: #fff;
+    /*background: #fff;*/
 }
 
 .hos_feature_list {
@@ -8583,7 +8583,7 @@ color: green;
 .nursingSearch-tbl {
     padding: 20px 0 10px 0;
     border: 1px solid #2980b9;
-    background: #fff;
+    background: #f8fafc;
 }
 
 .nursingSearch-tbl td:first-child {
@@ -8596,9 +8596,12 @@ color: green;
     border-left: 1px solid #2980b9;
     vertical-align: top;
 }
-.nursingSearch-tbl .table-bordered td{
-    /*background: #fff;*/
-    background: #f4f4f2;
+#filtertable .table-bordered{
+    background: #f8fafc;
+
+}
+#filtertable .table-bordered td{
+    background: #f8fafc;
 }
 .nursingSearch-list span:first-child {
     display: inline-block;
@@ -8607,7 +8610,6 @@ color: green;
     color: #2980b9;
     font-size: 16px;
 }
-
 .wd-in {
     width: 307px;
 }
@@ -8616,8 +8618,8 @@ color: green;
     width: 100%;
     padding: 3px 10px;
     font-size: 16px;
-    /*background-color: #fff;*/
-    background: #f4f4f2;
+    background-color: #fff;
+    /*background: #f4f4f2;*/
     border: 1px solid #544e4e;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -9415,7 +9417,6 @@ border-bottom: none;
     width: 30%;
     background: #f9f9f9;
 }
-
 .job-content .detail-btn {
     position: absolute;
     left: 0;
@@ -9622,6 +9623,7 @@ table.consultTable >tbody>tr th.second-hos-row{
     /* border: 1px solid #ff9563; */
     border: 1px solid #63b7ff;
     border-radius: 5px;
+    background: #f8fafc;
 }
 
 .nur-tit {

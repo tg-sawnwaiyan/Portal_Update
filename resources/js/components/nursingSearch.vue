@@ -1968,6 +1968,9 @@ div#holder {
   width: 500px !important;
   margin: 20px auto;
 }
+.profile_header{
+    background: #fff;
+}
 @media only screen and (max-width: 767px){
     .select {
         display: block;
