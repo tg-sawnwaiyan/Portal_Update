@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-content job-detail">
+  <div class="tab-content job-detail margin-none">
     <div class="col-md-12 pad-free m-b-20">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb" v-if="!$auth.check()">
