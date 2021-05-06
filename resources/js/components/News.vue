@@ -86,85 +86,64 @@
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
-                            <div class="card col-md-12 col-lg-6 pad-new d-none d-sm-block first-child" style="border:0px!important;">
+                            <div class="card col-md-12 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
-
-                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
-
-                                        <div class="row">
-
-                                            <div class="active-users col-md-6 col-sm-6">
-
+                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab" style="height: 100%;">
+                                        <div class="row" style="height: 100%;">
+                                            <div class="active-users col-md-12 col-sm-12">
                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-
                                                  <clazy-load class="wrapper-0" @load="log"  src="/images/noimage.jpg" :key="latest_post.id">
-
-                                                    <transition name="fade">
-                                                      
+                                                    <transition name="fade"> 
                                                         <img v-bind:src="'/upload/news/' + latest_post.photo" :alt="latest_catName+'ニュース画像'" class="source-img img-responsive"  @error="imgUrlAlt">
-
                                                     </transition>
-
                                                     <!-- <div v-if="latest_post.new_news == '1'" class="m_top_left"><span>New</span></div> -->
-
                                                     <transition name="fade" slot="placeholder">
-
                                                         <div class="preloader">
-
                                                             <div class="circle">
-
                                                             <div class="circle-inner"></div>
-
                                                             </div>
-
                                                         </div>
-
                                                     </transition>
-
                                                  </clazy-load>
-
                                                     <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
-
-                                                    <span class="source-subtitle" v-if="latest_post.created_at">                                                        
+                                                    <span class="source-subtitle" v-if="latest_post.created_at"> 
                                                         <p v-if="latest_post.new_news == '1'" class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.date_only}}<span class="small_new">New</span></p>
                                                         <p v-else class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.created_at}}</p>
                                                     </span>
-
                                                 </router-link>
-
                                             </div>
-
-                                            <div class="col-md-6 col-sm-6 news-wrapper">
-
-                                                <ul class="list-group list-group-flush all-item">
-
-                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:6px 0px 2px 0px!important;"  v-if = "posts[0].id != post.id">
-                                                        
-
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card col-md-12 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
+                                <div class="tab-content tab-content2 scroll2" id="myTabContent">
+                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 news-wrapper">
+                                                <ul class="list-group list-group-flush all-item" style="padding-top:5px;">
+                                                    <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:1px 0px 1px 0px!important; border: none; background: none;"  v-if = "posts[0].id != post.id">
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
-                                                            
                                                             <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
-
-                                                            <span class="source-img-small d-inline-block text-truncate top_sm_news">
+                                                            <p class="text-truncate news-list-display" style="height: 34px;">
+                                                                <span class="sm_news_fa"><i class="fas fa-building" style="color: #d1281c;"></i></span> 
+                                                                <span class="sm_news_mp" style="max-width: 65%;">
+                                                                    {{ post.title }}
+                                                                </span>
+                                                                <span v-if="post.new_news == '1'" class="sm_news_date">{{post.date_only}}<em class="small_new">New</em></span>
+                                                                <span v-else class="sm_news_date">{{post.created_at}}</span>
+                                                            </p>
+                                                            <!-- <span class="source-img-small d-inline-block text-truncate top_sm_news">
                                                                 <span v-if="post.new_news == '1'" class="s_top_left">New</span>
                                                                 {{ post.title }}
-                                                            </span>
-
+                                                            </span> -->
                                                         </router-link>
-
-
                                                     </li>
-
                                                 </ul>
-
                                             </div>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
                             <!-- end category box -->
 
