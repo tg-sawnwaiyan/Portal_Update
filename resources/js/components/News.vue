@@ -1085,7 +1085,7 @@
                         var current_date = new Date().getTime();
                         var is_within_48 = false;
                         posts.forEach(function(post){
-                            const post_date = new Date(post.created_at);
+                            const post_date = new Date(post.created_at.replace(/-/g,"/"));
                             var msec = (current_date - post_date.getTime());
                             var mins = Math.floor(msec / 60000);
                             var hrs = Math.floor(mins / 60);
