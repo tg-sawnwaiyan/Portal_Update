@@ -86,7 +86,7 @@
                         
                         <div class="row col-12 m-lr-0 p-0" v-if="status == '0' && !latest_post_null" id="view-1024">
                             <!-- category box -->
-                            <div class="card col-md-12 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
+                            <div class="card col-sm-6 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab" style="height: 100%;">
                                         <div class="row" style="height: 100%;">
@@ -116,7 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card col-md-12 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
+                            <div class="card col-sm-6 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
                                 <!-- <div class="tab-content tab-content2 scroll2" id="myTabContent2"> -->
                                    <!--  <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab"> -->
                                         <!-- <div class="row"> -->
@@ -1338,8 +1338,8 @@
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
-        max-width: 66.666667%;
-        flex: 0 0 66.666667%;
+        max-width: 33.33%;
+        flex: 0 0 33.33%;
     }
     #view-1024 .last-child {
         max-width: 33.33%;
