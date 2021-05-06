@@ -138,7 +138,7 @@ class HomeController extends Controller
             foreach($posts as $aryPosts){
                 $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
                 $todayDate = Carbon\Carbon::now();
-                $createdDate = $aryPosts->created_at;
+                $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
                 if($hourInterval <= 36)
@@ -189,7 +189,7 @@ class HomeController extends Controller
 
             foreach($posts as $aryPosts){ 
                 $todayDate = Carbon\Carbon::now();
-                $createdDate = $aryPosts->created_at;
+                $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
 
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
