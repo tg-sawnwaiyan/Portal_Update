@@ -120,7 +120,7 @@
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
                                         <div class="row">
-                                            <div class="col-md-12 col-sm-12 news-wrapper">
+                                            <div class="col-md-12 col-sm-12 news-wrapper" style="padding: 0 5px;">
                                                 <ul class="list-group list-group-flush all-item" style="padding-top:5px;">
                                                     <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:1px 0px 1px 0px!important; border: none; background: none;"  v-if = "posts[0].id != post.id">
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
