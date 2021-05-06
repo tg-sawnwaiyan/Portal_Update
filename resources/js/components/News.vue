@@ -1319,7 +1319,7 @@
 .tab_title_n {
     color: #E83015!important;
 }
-.pattern-txt-box .medium_text {
+.pattern-txt-box.medium_text {
     height: 62px;
     overflow: hidden;
 }
@@ -1334,7 +1334,7 @@
     height: 34px;
 }
 .top_sm_pc a .news-list-display .sm_news_mp {
-    max-width: 70%;
+    max-width: 69.5%;
 }
 @media only screen and (min-width: 769px) and (max-width: 1200px){
     #view-1024 .first-child {
