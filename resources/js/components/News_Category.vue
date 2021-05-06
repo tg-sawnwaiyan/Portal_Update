@@ -590,7 +590,8 @@
         <div v-for="(group,ind) in more_news" :key="ind" class="slick-news row m-lr-0 bordertop-color more_news">
             <slick :options="slickOptions" class="news-slider-width" >             
                 <div class="pad-new pattern-child group-0">
-                    <div class="small" v-for="(value,index) in group.slice(0, 2)" :key="index" >
+                    <!-- <div class="small" v-for="(value,index) in group.slice(0, 2)" :key="index" > -->
+                    <div v-for="(value,index) in group.slice(0, 2)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -637,7 +638,8 @@
                 </div>
 
                 <div class="pad-new pattern-child group-1"   >
-                    <div class="small" v-for="(value,index) in group.slice(2, 10)" :key="index" >
+                    <!-- <div class="small" v-for="(value,index) in group.slice(2, 10)" :key="index" > -->
+                    <div v-for="(value,index) in group.slice(2, 10)" :key="index" >
                         <div class="medium-b1">
                             <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
                                 <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -679,7 +681,7 @@
                             <div v-if="index === 0" class="txt_date">{{value.created_at}}</div>
                         </div>
 
-                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -695,7 +697,8 @@
                 </div>
 
                 <div class="pad-new pattern-child group-2"  >
-                    <div class="small" v-for="(value,index) in group.slice(10, 12)" :key="index" >
+                    <!-- <div class="small" v-for="(value,index) in group.slice(10, 12)" :key="index" > -->
+                    <div v-for="(value,index) in group.slice(10, 12)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -848,7 +851,7 @@
                             <div v-if="index === 0"  class="txt_date">{{value.created_at}}</div>
                         </div>
 
-                        <div class="small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b1" v-if="index !== 0" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -2056,7 +2059,7 @@ export default{
     height: 51px; 
 }
 .medium-b1 p,.medium-b3 p{
-    max-height: 41px;
+    max-height: 65px;
 }
 .medium p{
     height: auto;

@@ -117,15 +117,14 @@
                                 </div>
                             </div>
                             <div class="card col-md-12 col-lg-3 pad-new d-none d-sm-block first-child" style="border:0px!important;">
-                                <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12 news-wrapper" style="padding: 0 5px;">
-                                                <ul class="list-group list-group-flush all-item" style="padding-top:5px;">
+                                <!-- <div class="tab-content tab-content2 scroll2" id="myTabContent2"> -->
+                                   <!--  <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab"> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="col-md-12 col-sm-12 news-wrapper" style="padding: 0 5px;"> -->
+                                                <ul class="list-group list-group-flush all-item">
                                                     <li v-for="post in posts" :key="post.id" class="list-group-item" style="padding:1px 0px 1px 0px!important; border: none; background: none;"  v-if = "posts[0].id != post.id">
                                                         <router-link :to="{path:'/newsdetails/'+post.id}" class="display_align">
-                                                            <!-- <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt"> -->
-                                                            <p class="text-truncate news-list-display" style="height: 34px;">
+                                                            <p class="text-truncate news-list-display" style="height: 34.5px;">
                                                                 <span class="sm_news_fa"><i class="fas fa-building" style="color: #d1281c;"></i></span> 
                                                                 <span class="sm_news_mp" style="max-width: 65%;">
                                                                     {{ post.title }}
@@ -140,10 +139,10 @@
                                                         </router-link>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                <!-- </div> -->
                             </div>
                             <!-- end category box -->
 
