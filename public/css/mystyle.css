@@ -10511,9 +10511,11 @@ background-color: #f57e46;
 .wrapper-0 {
     flex: 1 0 33.333%;
     position: relative;
-    height: 0;
+    /*height: 0;*/
+    height: 60%;
     padding-bottom: 130px;
-    margin: 40px 0;
+    /*margin: 40px 0;*/
+    margin: 0 0 40px 0;
 }
 
 .wrapper-0 img {
