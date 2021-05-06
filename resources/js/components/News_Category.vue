@@ -623,7 +623,7 @@
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
                                 <span class="sm_news_fa"><i class="fas fa-building"></i></span> 
@@ -730,7 +730,7 @@
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -899,7 +899,7 @@
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
@@ -1008,7 +1008,7 @@
                             </router-link>
                             <div class="txt_date">{{value.created_at}}</div>
                         </div>
-                        <div class="small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
+                        <div class="small small-b0" v-if="index === 1" :style="{'--color': value.color_code ? value.color_code : '#287db4'}">
                             <router-link  :to="'/newsdetails/'+value.id" style="color:#333;">  
                             <p class="text-truncate news-list-display news-list-display03">
 
