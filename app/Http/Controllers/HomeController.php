@@ -60,7 +60,7 @@ class HomeController extends Controller
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(10)->get();
+        $posts = Post::where(["category_id"=>$cat_id, 'recordstatus'=>1])->orderBy('created_at', 'desc')->limit(11)->get();
         // if(isset($request['search_word'])) {
         //     $search_word = $request['search_word'];
         //     $posts = $posts->where(function($qu) use ($search_word){
@@ -138,7 +138,7 @@ class HomeController extends Controller
             foreach($posts as $aryPosts){
                 $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
                 $todayDate = Carbon\Carbon::now();
-                $createdDate = $aryPosts->created_at;
+                $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
                 if($hourInterval <= 36)
@@ -189,7 +189,7 @@ class HomeController extends Controller
 
             foreach($posts as $aryPosts){ 
                 $todayDate = Carbon\Carbon::now();
-                $createdDate = $aryPosts->created_at;
+                $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
 
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
@@ -209,7 +209,7 @@ class HomeController extends Controller
                 $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
                 $aryNewsMobile[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
- 	
+           
         return response()->json($aryNewsMobile);
         }
     }

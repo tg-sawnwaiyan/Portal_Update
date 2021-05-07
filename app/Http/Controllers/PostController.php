@@ -96,7 +96,7 @@ class PostController extends Controller
         foreach ($newslist as $value) {
             //find time difference
             $todayDate = Carbon\Carbon::now();
-            $createdDate = $value['created_at'];
+            $createdDate = str_replace('-', '/', $value['created_at']);
             $hourInterval = $todayDate->diffInHours($createdDate);
             
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
@@ -185,7 +185,7 @@ class PostController extends Controller
         foreach ($newslist as $value) {
             //find time difference
             $todayDate = Carbon\Carbon::now();
-            $createdDate = $value['created_at'];
+            $createdDate = str_replace('-', '/', $value['created_at']);
             $hourInterval = $todayDate->diffInHours($createdDate);
             
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
