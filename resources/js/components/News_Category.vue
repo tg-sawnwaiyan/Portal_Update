@@ -809,7 +809,7 @@
             <slick :options="slickOptions" class="news-slider-width"  >             
                 
                 <div class="pad-new pattern-child group-1"   >
-                    <div class="small" v-for="(value,index) in group.slice(18, 26)" :key="index" >
+                    <div v-for="(value,index) in group.slice(18, 26)" :key="index" >
                         <div class="medium-b1">
                             <router-link :to="'/newsdetails/'+value.id" v-if="index === 0"> 
                                 <div class="col-12 row m-b-5 adslist-card m-lr-0 news-3-card">
@@ -867,7 +867,7 @@
                 </div>
 
                 <div class="pad-new pattern-child group-0">
-                    <div class="small" v-for="(value,index) in group.slice(26, 28)" :key="index" >
+                    <div v-for="(value,index) in group.slice(26, 28)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
@@ -976,7 +976,7 @@
                 </div> 
 
                 <div class="pad-new pattern-child group-2"  >
-                    <div class="small" v-for="(value,index) in group.slice(34, 36)" :key="index" >
+                    <div v-for="(value,index) in group.slice(34, 36)" :key="index" >
                         <div class="large-b0 m-b-5" v-if="index === 0">
                             <router-link :to="'/newsdetails/'+value.id" >
                                 <div class="col-12 single-news-box">
