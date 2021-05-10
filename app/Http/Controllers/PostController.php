@@ -100,6 +100,7 @@ class PostController extends Controller
             $hourInterval = $todayDate->diffInHours($createdDate);
             
             $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $value['new_news'] = 0;
             if($hourInterval <= 36)
             {
             $value['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
@@ -194,6 +195,7 @@ class PostController extends Controller
             $minute = $carbonCreated_dt->minute;
             $minute = $minute < 10 ? '0'.$minute : $minute;
             $value['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
+            $value['new_news'] = 0;
             if($hourInterval <= 36)
             {
             $value['new_news'] = 1;

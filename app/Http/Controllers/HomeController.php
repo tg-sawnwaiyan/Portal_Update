@@ -141,6 +141,7 @@ class HomeController extends Controller
                 $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $aryPosts->new_news = 0;
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
@@ -193,6 +194,7 @@ class HomeController extends Controller
                 $hourInterval = $todayDate->diffInHours($createdDate);
 
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $aryPosts->new_news = 0;
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
