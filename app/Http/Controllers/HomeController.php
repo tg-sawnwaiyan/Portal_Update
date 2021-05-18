@@ -185,7 +185,7 @@ class HomeController extends Controller
                             ->where(['posts.block_id'=> 1,'posts.recordstatus'=> 1])
                             ->join('categories', 'posts.category_id', '=', 'categories.id')
                             ->orderBy('posts.created_at', 'desc')
-                            ->limit(13)->get()->toArray();
+                            ->limit(12)->get()->toArray();
 
         $large = $large_news[0];
         unset($large_news[0]);
@@ -195,13 +195,13 @@ class HomeController extends Controller
                             ->where(['posts.block_id'=> 2,'posts.recordstatus'=> 1])
                             ->join('categories', 'posts.category_id', '=', 'categories.id')
                             ->orderBy('posts.created_at', 'desc')
-                            ->limit(21)->get()->toArray();
+                            ->limit(19)->get()->toArray();
 
         $small_news = Post::select('categories.name','categories.color_code','posts.id as pid','posts.title','posts.created_at', 'posts.photo', 'posts.main_point', 'posts.block_id')
                             ->where(['posts.block_id'=> 3,'posts.recordstatus'=> 1])
                             ->join('categories', 'posts.category_id', '=', 'categories.id')
                             ->orderBy('posts.created_at', 'desc')
-                            ->limit(21)->get()->toArray();
+                            ->limit(19)->get()->toArray();
         
         $result = array();
         while(!empty($small_news) || !empty($medium_news)) {

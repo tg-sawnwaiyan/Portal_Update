@@ -590,15 +590,15 @@
                     </div>
                 </div>
                 <div v-else>
-                    <div class="sm_card col-sm-6 col-lg-3 pad-new d-sm-block first-child">
-                        <div class="tab-content scroll2" id="sm_tab">
+                    <div class="col-sm-6 col-lg-3 pad-new d-sm-block first-child">
+                        <div class="scroll2" id="sm_tab">
                             <div class="sm_tab_pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab" style="height: 100%;">
                                 <div class="row" style="height: 100%;">
                                     <div class="active-users col-md-12 col-sm-12">
                                         <router-link :to="'/newsdetails/'+large_new.pid">
-                                            <clazy-load class="wrapper-0" @load="log"  src="/images/noimage.jpg" :key="large_new.id">
+                                            <clazy-load class="sm_large_new" @load="log"  src="/images/noimage.jpg" :key="large_new.id">
                                                 <transition name="fade"> 
-                                                    <img v-bind:src="'/upload/news/' + large_new.photo" :alt="large_new.name+'ニュース画像'" class="source-img img-responsive"  @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/' + large_new.photo" :alt="large_new.name+'ニュース画像'" class="img-responsive"  @error="imgUrlAlt">
                                                 </transition>
                                                 <transition name="fade" slot="placeholder">
                                                     <div class="preloader">
@@ -609,10 +609,17 @@
                                                 </transition>
                                             </clazy-load>
                                             <p class="source-title" v-if="large_new.title" aria-label="">{{ large_new.title }}</p>
-                                            <span class="source-subtitle" v-if="large_new.created_at"> 
-                                                <p v-if="large_new.new_news == '1'" class=""><img v-if="large_new.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{large_new.date_only}}<span class="small_new">New</span></p>
-                                                <p v-else class=""><img v-if="large_new.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{large_new.created_at}}</p>
-                                            </span>
+                                            <div class="sm_cat_date_large">
+                                                <div class="sm_left_cat_large">
+                                                    <span :style="{'--bkgColor': large_new.color_code ? large_new.color_code : '#287db4'}" class="tab_title_color">
+                                                    <span>{{large_new.name}}</span>                                                        
+                                                    </span>
+                                                </div>
+                                                <div class="sm_right_date_large">
+                                                    <p v-if="large_new.new_news == '1'" class="">{{large_new.date_only}}<span class="small_new">New</span></p>
+                                                    <p v-else class="">{{large_new.created_at}}</p>
+                                                </div>
+                                            </div>
                                         </router-link>
                                     </div>
                                 </div>
@@ -931,6 +938,7 @@
                         if(length>0) {
                             this.large_new = response.data.large;
                             this.post_groups = response.data.aryNewsMobile;
+                            console.log(response.data.aryNewsMobile.length);
                         } else {
                             this.post_groups = [];                         
                         }                  
@@ -1551,9 +1559,10 @@
 }
 #sm_tab {
     background: #fff;
-}
-.sm_card {
-    bottom: 11px;
+    margin-bottom: 10px;
+    padding: 13px 13px 0px 13px !important;
+    border: 1px solid #ccc;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 10%);
 }
 .sm_txt_box {
     padding-left: 0px;
@@ -1563,5 +1572,23 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+}
+.sm_large_new img {
+    height: 100%;
+    transition: all 250ms ease-out;
+    width: 100%;
+    object-fit: contain;
+}
+.sm_cat_date_large {
+    display: flex;
+    width: 100%;
+}
+.sm_left_cat_large {
+    flex: 1;
+}
+
+.sm_right_date_large {
+   text-align: right;
+   flex: 1;
 }
 </style>
