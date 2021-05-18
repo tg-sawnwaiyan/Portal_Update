@@ -609,18 +609,19 @@
                                                 </transition>
                                             </clazy-load>
                                             <p class="sm_source_title" v-if="large_new.title" aria-label="">{{ large_new.title }}</p>
-                                            <div class="sm_cat_date_large">
-                                                <div class="sm_left_cat_large">
-                                                    <span :style="{'--bkgColor': large_new.color_code ? large_new.color_code : '#287db4'}" class="tab_title_color">
-                                                    <span>{{large_new.name}}</span>                                                        
-                                                    </span>
-                                                </div>
-                                                <div class="sm_right_date_large">
-                                                    <p v-if="large_new.new_news == '1'" class="">{{large_new.date_only}}<span class="small_new">New</span></p>
-                                                    <p v-else class="">{{large_new.created_at}}</p>
-                                                </div>
-                                            </div>
+                                            
                                         </router-link>
+                                        <div class="sm_cat_date_large">
+                                            <div class="sm_left_cat_large">
+                                                <span :style="{'--bkgColor': large_new.color_code ? large_new.color_code : '#287db4'}" class="tab_title_color">
+                                                <span>{{large_new.name}}</span>                                                        
+                                                </span>
+                                            </div>
+                                            <div class="sm_right_date_large">
+                                                <p v-if="large_new.new_news == '1'" class="">{{large_new.date_only}}<span class="small_new">New</span></p>
+                                                <p v-else class="">{{large_new.created_at}}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
