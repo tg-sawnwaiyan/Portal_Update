@@ -1558,5 +1558,7 @@
     text-transform: uppercase;
     color: #333;
     font-weight: bold;
+    min-height: 72px;
+    margin-top: 6px;
 }
 </style>
