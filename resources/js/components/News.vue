@@ -646,14 +646,14 @@
                                 </div>
                             </router-link>
                             <div class="sm_cat_date">
-                                <div class="left_cat">
+                                <div class="sm_left_cat">
                                     <span :style="{'--bkgColor': group.color_code ? group.color_code : '#287db4'}" class="tab_title_color">
                                         <span>{{group.name}}</span>                                                        
                                     </span>
                                 </div>
-                                <div class="right_date">
-                                <p v-if="group.new_news == '1'" class="second_para">{{group.date_only}}<span class="small_new">New</span></p>
-                                <p v-else class="second_para">{{group.created_at}}</p>
+                                <div class="sm_right_date">
+                                <p v-if="group.new_news == '1'" class="">{{group.date_only}}<span class="small_new">New</span></p>
+                                <p v-else class="">{{group.created_at}}</p>
                                 </div>
                             </div>
                         </div>                                                    
@@ -1537,15 +1537,16 @@
     display: flex;
     position: absolute;
     bottom: 5px;
-    right: 0;
-    width: 66%;
+    right: 17px;
+    width: 60%;
     height: 25%;
 }
-.left_cat {
+.sm_left_cat {
     flex: 1;
 }
 
-.right_date {
+.sm_right_date {
+   text-align: right;
    flex: 1;
 }
 #sm_tab {
