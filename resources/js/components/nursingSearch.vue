@@ -71,7 +71,7 @@
                                         <div class="row">
                                         <div class="col-lg-6"> 
                                         <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #f4f4f2;" v-model="id">
-                                        <option value="-1" disabled>▼市区町村</option>
+                                        <option value="-1" disabled>▼都道府県</option>
                                         <option  :value="city.id" v-for="(city,index) in cities" :key="index" >{{city.city_name}} </option>
                                         </select>
                                         </div>
