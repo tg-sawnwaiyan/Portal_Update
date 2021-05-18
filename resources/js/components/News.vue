@@ -608,7 +608,7 @@
                                                     </div>
                                                 </transition>
                                             </clazy-load>
-                                            <p class="source-title" v-if="large_new.title" aria-label="">{{ large_new.title }}</p>
+                                            <p class="sm_source_title" v-if="large_new.title" aria-label="">{{ large_new.title }}</p>
                                             <div class="sm_cat_date_large">
                                                 <div class="sm_left_cat_large">
                                                     <span :style="{'--bkgColor': large_new.color_code ? large_new.color_code : '#287db4'}" class="tab_title_color">
@@ -711,61 +711,18 @@
     data() {
 
         return {
-
             cats: [],
-
             posts: [],
-
             latest_post: [],
             latest_post_null: false,
-
             latest_post_all_cats: [],
-
-            search_posts:[],
-
-            tmp_arr:[],
-
             categoryId: 1,
-
-            index:[0,3],
-
-            second_index:[1,2],
-
-            third_index:[4,5],
-
-            tmp_title:[],
-
-            title_arr:[],
-
-            tmp_photo:[],
-
-            photo_arr:[],
-
-            tmp_post_id:[],
-
-            id_arr:[],
-
             post_groups : [],
-
             status:'0',
-
             search_word:null,
-
-            first_search_word:'',
-
-            pattern:[],
-
-            is_cat_overflow: false,
-
-            is_cat_slided: false,
-
             computed_width: '100%',
             w_width: window.innerWidth,
             norecord_msg: false,
-            cat_box_width: null,
-            menuWrapperSize: '',
-            itemSize: '',
-            li_width: 0,
             latest_catId: 0,
             latest_catName: '',
             large_new: '',
@@ -1568,6 +1525,7 @@
     padding-left: 0px;
 }
 .sm_txt_box p{
+    font-weight: bold;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
@@ -1590,5 +1548,15 @@
 .sm_right_date_large {
    text-align: right;
    flex: 1;
+}
+.sm_source_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
 }
 </style>
