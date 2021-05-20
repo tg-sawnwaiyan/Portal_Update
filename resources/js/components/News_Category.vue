@@ -1029,7 +1029,7 @@
 
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0 moblie">
         <div  class="slick-news m-lr-0 bordertop-color">
-            <slick  :options="slickOptions" class="news-slider-width" >
+            <!-- <slick  :options="slickOptions" class="news-slider-width" > -->
                 <div v-for="(value,index) in big_news" :key="index" class="txt_align news-3-card">
                     <router-link :to="'/newsdetails/'+value.id" >
                         <div class="col-6  single-news-box single-news-slide">
@@ -1059,12 +1059,12 @@
                             
                         </div>
                     </router-link>
-                    <div class="txt_date01">
+                    <div class="txt_date01 txt_date01_sp">
                         <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                         <p v-else class="second_para">{{value.created_at}}</p>
                     </div>
                 </div>
-            </slick>
+            <!-- </slick> -->
         </div>
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
@@ -2136,8 +2136,12 @@ export default{
     }
     .txt_align.news-3-card{
         margin-bottom: 5px;
-        width: 96% !important;
+        width: 49% !important;
         border: 1px solid #f3efef;
+        display: inline-block;
+    }
+    .txt_align.news-3-card:last-child{
+        float: right;
     }
     .slick-active .txt_align.news-3-card:first-child{
         width: 96% !important;
@@ -2292,6 +2296,9 @@ export default{
     .txt_align .single-news-box p{
         max-height: 45px;
         line-height: 1.3rem;
+    }
+    .txt_date01_sp {
+        margin-right: 5px;
     }
 
 }
