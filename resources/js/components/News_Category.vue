@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 cat_title">
-        <h4 class="profile-tit" :style="useStyle">{{cat_name}}
+        <h4 class="profile-tit " :style="useStyle">{{cat_name}}
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -2073,6 +2073,7 @@ export default{
     }
     .cat_title{ 
         padding: 0 5px;
+        display: none;
     }
     .cat-nav{
         padding-left: 0 !important;
@@ -2292,6 +2293,7 @@ export default{
         max-height: 45px;
         line-height: 1.3rem;
     }
+
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px){
