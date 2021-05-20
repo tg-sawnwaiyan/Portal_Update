@@ -6,7 +6,7 @@
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="row ">
                         <div class="col-lg-4 col-md-5">
-                            <div class="form-group form-group-wrapper logo-area" style="height:91%;">
+                            <div class="form-group form-group-wrapper logo-area">
                                 <img :src="profile_img" id="thumbnil" class="profile_logo m-b-8 img-fluid fit-image-profile" alt="Logo"  @error="imgUrlAlt">                              
                                 <div class="m-t-10">
                                     <span class="btn-file d-inline-block">画像を選択                     
