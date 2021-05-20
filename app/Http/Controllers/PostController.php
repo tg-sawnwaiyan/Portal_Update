@@ -214,13 +214,22 @@ class PostController extends Controller
                 $newarray3 = array_chunk($value, 5);
             } 
         }
- 
+        
+
         $two = $three = 0; 
-        $moreNews  = $moreNews_concat = [];
+        $moreNews  = $moreNews_concat = $new1 =[];
 
         $lenght[] = count($newarray2);
         $lenght[] = count($newarray3);
-                 
+
+        foreach ($newarray1 as $key => $val) {
+             if($key == 0 || $key == 1){ 
+                array_push($new1, $val);
+             }else{
+                array_push($moreNews, $val);
+
+             }
+        }
         for ($i=0; $i <= max($lenght); $i++) { 
             /***for block id two***/       
             if(isset($newarray2[$i]) && $two < 1){
@@ -265,7 +274,7 @@ class PostController extends Controller
                         'cat_id' => $id,
                         'newslist'=>$aryResults,
                         'moreNews'=>$moreNews,
-                        'bigNews'=>$newarray1
+                        'bigNews'=>$new1
                     );
         return response()->json($result);
     }
