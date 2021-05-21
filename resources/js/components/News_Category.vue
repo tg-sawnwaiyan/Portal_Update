@@ -1504,11 +1504,17 @@ export default{
         }
     },
     mounted(){
-        //this.getAllCat();
+         $(".footer").css("display","none");
+         $(".category_margin").css("display","none");
     },
     created(){
+        this.$loading(true);
+       
         if($(window).width() > 480){
              this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response =>{
+                this.$loading(false);
+                $(".category_margin").css("display","block");
+                $(".footer").css("display","block");
                 this.news = response.data.newslist;
                 this.more_news = response.data.moreNews;
                 if(response.data.newslist.length == 0)
@@ -1529,6 +1535,9 @@ export default{
           });
         }else{
             this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response =>{
+                this.$loading(false);
+                $(".category_margin").css("display","block");
+                $(".footer").css("display","block");
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
