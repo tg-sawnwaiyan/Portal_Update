@@ -123,7 +123,7 @@ Vue.use(require('vue-moment'));
 import VueLoading from 'vuejs-loading-plugin'
 // import { Button } from 'iview'
 Vue.use(VueLoading, {
-    text: '送信中'
+    text: ''
 })
 
 window.events = new Vue();
