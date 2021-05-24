@@ -1506,6 +1506,7 @@ export default{
     mounted(){
          $(".footer").css("display","none");
          $(".category_margin").css("display","none");
+         $(".main-content").css("background","#f4f4f2");
     },
     created(){
         this.$loading(true);
