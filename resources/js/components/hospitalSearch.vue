@@ -1009,6 +1009,13 @@ import bulcomponent from './bulcomponent.vue'
   };
 </script>
 <style type="text/css">
+.profile_header{
+  background: #fff;
+}
+#hos_search .table-bordered,
+#job_detail{
+  background: #f8fafc;
+}
 @media only screen and (max-width: 560px){
   #hos_search {
       display: block;
