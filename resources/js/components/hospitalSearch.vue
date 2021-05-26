@@ -1025,4 +1025,14 @@ import bulcomponent from './bulcomponent.vue'
   }
 
 }
+@media only screen and (min-width: 1245px){
+  #job_detail .consultTable td{
+    font-size: 20px !important;
+  }
+}
+@media only screen and (min-width: 1400px){
+  #job_detail .consultTable td{
+    font-size: 23px !important;
+  }
+}
 </style>
