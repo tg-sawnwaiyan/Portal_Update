@@ -297,16 +297,16 @@
                                                     <th>日</th>
                                                 </tr>
                                                 <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.hos_id" class="text-center">
-                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</th>
-                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.mon}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.tue}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.wed}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.thu}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.fri}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sat}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sun}}</th>
-                                                </tr>
+                                                  <td class="second-hos-row" style="width:8%; font-weight: bold;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</td>
+                                                  <td class="second-hos-row" style="width:8%; font-weight: bold;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.mon}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.tue}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.wed}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.thu}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.fri}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.sat}}</td>
+                                                  <td style="font-weight: bold; font-size: 16px;" v-if="hos.hos_id == time.profile_id">{{time.sun}}</td>
+                                              </tr>
                                                 </tbody>
                                             </table>
                                             <span v-if="hos.closed_day"> <strong> 休診日：</strong>{{hos.closed_day}}</span>
