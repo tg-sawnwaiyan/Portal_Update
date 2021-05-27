@@ -15114,6 +15114,19 @@ table.gsc-search-box td.gsc-input{
     .aboutus table td{
         display: block;
     }
+    .aboutus table th,
+    .aboutus table td{
+        border: none;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .aboutus table th{
+        background: transparent;
+    }
+    .aboutus table td{
+        padding-top: 0;
+        padding-bottom: 20px;
+    }
 }
 /*end of aboutus*/
 
