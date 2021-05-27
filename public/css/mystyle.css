@@ -13599,6 +13599,12 @@ transition: background-color .3s;
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: -18px;
     }
+    .aboutus .site_header {
+        margin: 15px 0 10px;
+    }
+    .aboutus .title {
+        padding-top: 0;
+    }
 }
 
 

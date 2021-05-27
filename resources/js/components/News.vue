@@ -896,7 +896,7 @@
                         if(length>0) {
                             this.large_new = response.data.large;
                             this.post_groups = response.data.aryNewsMobile;
-                            console.log(response.data.aryNewsMobile.length);
+                            // console.log(response.data.aryNewsMobile.length);
                         } else {
                             this.post_groups = [];                         
                         }                  
