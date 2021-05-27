@@ -2199,18 +2199,25 @@ export default{
         margin-bottom: 10px;
     }
     .square-medium .single-news-box .wrapper-3{
-        border: 1px solid #f3efef;
+        border: 1px solid #fff;
         background-color: #fff;
         max-height: 150px;
+        margin: 0;
+        padding-bottom: 0;
     }
     .square-medium .single-news-box .wrapper-3 img{
         max-height: 150px;
         min-height: 150px;
+        padding-bottom: 0;
     }
     .square-medium .single-news-box p{
         padding: 0 5px;
         line-height: 1.7em;
         max-height: 50px;
+        
+    }
+    .square-medium .txt_date01 {
+        margin-right: 5px;
     }
     .square-small{
         float: right;
