@@ -141,6 +141,7 @@ class HomeController extends Controller
                 $createdDate = str_replace('-', '/', $aryPosts->created_at);
                 $hourInterval = $todayDate->diffInHours($createdDate);
                 $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+                $aryPosts->new_news = 0;
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
@@ -165,52 +166,94 @@ class HomeController extends Controller
     }
 
     public function getLatestPostsByAllCatIdForMobile($search_word) 
-    {
-        $sql = "";
-        if($search_word == 'all_news_search'){
-            $wh = '';
-        }
-        else{
-            $wh = " AND (posts.title LIKe '%{$search_word}%' OR posts.main_point LIKe '%{$search_word}%' OR posts.body LIKe '%{$search_word}%')";
-        }
-        $cat = Category::where('id','!=',26)->select('id')->orderBy('order_number','desc')->get();
-        if(count($cat) == 0){
-            $posts = [];
-            return response()->json($posts);
-        }else{
-            for($i = 0; $i < count($cat); $i++) {
+    {        
+        $large_news = Post::select('categories.name','categories.color_code','posts.id as pid','posts.title','posts.created_at', 'posts.photo', 'posts.main_point', 'posts.block_id')
+                            ->where(['posts.block_id'=> 1,'posts.recordstatus'=> 1])
+                            ->join('categories', 'posts.category_id', '=', 'categories.id')
+                            ->orderBy('posts.created_at', 'desc')
+                            ->limit(24)->get()->toArray();
 
-                $sql.= "(SELECT categories.name,categories.pattern,categories.id,categories.color_code,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point, posts.block_id FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.recordstatus=1 and posts.block_id != 0 and categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 11) UNION ";
+        $large = $large_news[0];
+        unset($large_news[0]);
+        $large_news = array_values($large_news);
+        
+        $medium_news = Post::select('categories.name','categories.color_code','posts.id as pid','posts.title','posts.created_at', 'posts.photo', 'posts.main_point', 'posts.block_id')
+                            ->where(['posts.block_id'=> 2,'posts.recordstatus'=> 1])
+                            ->join('categories', 'posts.category_id', '=', 'categories.id')
+                            ->orderBy('posts.created_at', 'desc')
+                            ->limit(38)->get()->toArray();
 
+        $small_news = Post::select('categories.name','categories.color_code','posts.id as pid','posts.title','posts.created_at', 'posts.photo', 'posts.main_point', 'posts.block_id')
+                            ->where(['posts.block_id'=> 3,'posts.recordstatus'=> 1])
+                            ->join('categories', 'posts.category_id', '=', 'categories.id')
+                            ->orderBy('posts.created_at', 'desc')
+                            ->limit(38)->get()->toArray();
+        
+        $result = array();
+        while(!empty($small_news) || !empty($medium_news)) {
+            if(!empty($small_news)) {
+                $result[] = array_shift($small_news);
             }
-            $sql = trim($sql,' UNION '); 
-            $posts = DB::select($sql);
-            $tmp = array();
-
-            foreach($posts as $aryPosts){ 
-                $todayDate = Carbon\Carbon::now();
-                $createdDate = str_replace('-', '/', $aryPosts->created_at);
-                $hourInterval = $todayDate->diffInHours($createdDate);
-
-                $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
-                if($hourInterval <= 36)
-                {
-                $aryPosts->new_news = 1;
-                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
-                }
-                $hour = $carbonCreated_dt->hour;
-                $hour = $hour < 10 ? '0'.$hour : $hour;
-                $minute = $carbonCreated_dt->minute;
-                $minute = $minute < 10 ? '0'.$minute : $minute;
-
-                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
-
-
-                $color = $aryPosts->color_code ? $aryPosts->color_code : "#287db4";
-                $aryNewsMobile[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
+            if(!empty($medium_news)) {
+                $result[] = array_shift($medium_news);
             }
-           
-        return response()->json($aryNewsMobile);
         }
+
+        $index = 3.1;
+        foreach($large_news as $key=>$l_news){
+            $index = strval($index);
+            $result[$index] = $l_news;
+            
+            if($key % 2 == 0){
+                $index += 2.0; 
+            }
+            else{
+                $index += 4.0;
+            }
+        }
+        ksort($result);
+        $result = array_values($result);
+
+        $todayDate = Carbon\Carbon::now();
+
+        $l_createdDate = str_replace('-', '/', $large['created_at']);
+        $l_hourInterval = $todayDate->diffInHours($l_createdDate);
+
+        $l_carbonCreated_dt = Carbon\Carbon::parse($l_createdDate);
+        $large['new_news'] = 0;
+        if($l_hourInterval <= 36)
+        {
+        $large['new_news'] = 1;
+        $large['date_only'] = $l_carbonCreated_dt->month.'/'.$l_carbonCreated_dt->day;
+        }
+        $hour = $l_carbonCreated_dt->hour;
+        $hour = $hour < 10 ? '0'.$hour : $hour;
+        $minute = $l_carbonCreated_dt->minute;
+        $minute = $minute < 10 ? '0'.$minute : $minute;
+
+        $large['created_at'] = $l_carbonCreated_dt->month.'/'.$l_carbonCreated_dt->day.' '.$hour.':'.$minute;
+
+        foreach($result as $aryPosts){ 
+            
+            $createdDate = str_replace('-', '/', $aryPosts['created_at']);
+            $hourInterval = $todayDate->diffInHours($createdDate);
+
+            $carbonCreated_dt = Carbon\Carbon::parse($createdDate);
+            $aryPosts['new_news'] = 0;
+            if($hourInterval <= 36)
+            {
+            $aryPosts['new_news'] = 1;
+            $aryPosts['date_only'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+            }
+            $hour = $carbonCreated_dt->hour;
+            $hour = $hour < 10 ? '0'.$hour : $hour;
+            $minute = $carbonCreated_dt->minute;
+            $minute = $minute < 10 ? '0'.$minute : $minute;
+
+            $aryPosts['created_at'] = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
+            $aryNewsMobile[] = $aryPosts;
+        }  
+        return response()->json(["large" => $large , "aryNewsMobile" => $aryNewsMobile]);
+      
     }
 }

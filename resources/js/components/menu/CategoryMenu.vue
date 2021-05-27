@@ -44,7 +44,7 @@ export default {
         }
     },
     updated:function(){
-        if(this.$route.path === '/'){
+        if(this.$route.path === '/' && this.cats[0]){
             this.bgColor = this.cats[0].color_code ? this.cats[0].color_code : "#287db4";
         }else if(this.$route.path.includes('/newscategory')){
             eventBus.$on('gotColor', color => {

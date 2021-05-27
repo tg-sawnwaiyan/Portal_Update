@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 cat_title">
-        <h4 class="profile-tit" :style="useStyle">{{cat_name}}
+        <h4 class="profile-tit " :style="useStyle">{{cat_name}}
         </h4>
     </div>       
     <div v-if="norecord_msg">
@@ -1029,7 +1029,7 @@
 
     <div v-else-if="block && w_width <= 480" class="col-12 m-lr-0 p-0 moblie">
         <div  class="slick-news m-lr-0 bordertop-color">
-            <slick  :options="slickOptions" class="news-slider-width" >
+            <!-- <slick  :options="slickOptions" class="news-slider-width" > -->
                 <div v-for="(value,index) in big_news" :key="index" class="txt_align news-3-card">
                     <router-link :to="'/newsdetails/'+value.id" >
                         <div class="col-6  single-news-box single-news-slide">
@@ -1059,12 +1059,12 @@
                             
                         </div>
                     </router-link>
-                    <div class="txt_date01">
+                    <div class="txt_date01 txt_date01_sp">
                         <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                         <p v-else class="second_para">{{value.created_at}}</p>
                     </div>
                 </div>
-            </slick>
+            <!-- </slick> -->
         </div>
         <div v-for="(group,index) in news" :key="index" class="slick-news row m-lr-0 bordertop-color tp_small_5">
             <!-- small block -->
@@ -1504,11 +1504,18 @@ export default{
         }
     },
     mounted(){
-        //this.getAllCat();
+         $(".footer").css("display","none");
+         $(".category_margin").css("display","none");
+         $(".main-content").css("background","#f4f4f2");
     },
     created(){
+        this.$loading(true);
+       
         if($(window).width() > 480){
              this.axios.get(`/api/newscategory/${this.$route.params.id}`).then(response =>{
+                this.$loading(false);
+                $(".category_margin").css("display","block");
+                $(".footer").css("display","block");
                 this.news = response.data.newslist;
                 this.more_news = response.data.moreNews;
                 if(response.data.newslist.length == 0)
@@ -1529,6 +1536,9 @@ export default{
           });
         }else{
             this.axios.get(`/api/newscategorymobile/${this.$route.params.id}`).then(response =>{
+                this.$loading(false);
+                $(".category_margin").css("display","block");
+                $(".footer").css("display","block");
                 this.news = response.data.newslist;
                 this.big_news = response.data.bigNews;
                 this.more_news = response.data.moreNews;
@@ -2073,6 +2083,7 @@ export default{
     }
     .cat_title{ 
         padding: 0 5px;
+        display: none;
     }
     .cat-nav{
         padding-left: 0 !important;
@@ -2135,8 +2146,12 @@ export default{
     }
     .txt_align.news-3-card{
         margin-bottom: 5px;
-        width: 96% !important;
+        width: 49% !important;
         border: 1px solid #f3efef;
+        display: inline-block;
+    }
+    .txt_align.news-3-card:last-child{
+        float: right;
     }
     .slick-active .txt_align.news-3-card:first-child{
         width: 96% !important;
@@ -2184,18 +2199,25 @@ export default{
         margin-bottom: 10px;
     }
     .square-medium .single-news-box .wrapper-3{
-        border: 1px solid #f3efef;
+        border: 1px solid #fff;
         background-color: #fff;
         max-height: 150px;
+        margin: 0;
+        padding-bottom: 0;
     }
     .square-medium .single-news-box .wrapper-3 img{
         max-height: 150px;
         min-height: 150px;
+        padding-bottom: 0;
     }
     .square-medium .single-news-box p{
         padding: 0 5px;
         line-height: 1.7em;
         max-height: 50px;
+        
+    }
+    .square-medium .txt_date01 {
+        margin-right: 5px;
     }
     .square-small{
         float: right;
@@ -2292,6 +2314,10 @@ export default{
         max-height: 45px;
         line-height: 1.3rem;
     }
+    .txt_date01_sp {
+        margin-right: 5px;
+    }
+
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px){
