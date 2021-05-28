@@ -1164,29 +1164,29 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-5" v-if="index === 3">
+                   <!--  <div class="square-small news-3-card m-b-5" v-if="index === 3">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
-                    </div> 
-                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
+                    </div>  -->
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 3">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new "> 
                             <p class="first_para">{{value.title}}</p>
                             <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                             <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>
-                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 5">
+                    <div class="rectangle-small news-3-card m-b-8" v-if="index === 4">
                         <router-link  :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                             <p class="first_para">{{value.title}}</p>
                             <p v-if="value.new_news == '1'" class="second_para">{{value.date_only}}<span class="small_new">New</span></p>
                             <p v-else class="second_para">{{value.created_at}}</p>
                         </router-link>
                     </div>                    
-                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 6">
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 5">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate">
                            {{value.title}}
@@ -1194,7 +1194,7 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 8">
+                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 7">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                            {{value.title}}
@@ -1202,15 +1202,15 @@
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 9">
+                    <!-- <div class="square-small news-3-card m-b-5 square-small-left" v-if="index === 8">
                         <router-link :to="'/newsdetails/'+value.id" style="color:#333;" class="col-md-6 col-sm-6 col-lg-3 pad-new"> 
                         <p class="text-truncate ">
                            {{value.title}}
                         </p>
                         <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
-                    </div>
-                    <div class="square-medium news-3-card square-medium-right m-b-5" v-if="index === 7"  >
+                    </div> -->
+                    <div class="square-medium news-3-card square-medium-right m-b-5" v-if="index === 6"  >
                         <router-link :to="'/newsdetails/'+value.id" >
                             <div class="col-6  single-news-box single-news-slide">
                                 <clazy-load class="wrapper-3" @load="log" src="/images/noimage.jpg" :key="index" >
@@ -1240,7 +1240,7 @@
                             <div class="txt_date01"><span>{{value.created_at}}</span></div>
                         </router-link>
                     </div>
-                    <div class="rectangle-medium" v-if="index === 10"  >
+                    <div class="rectangle-medium" v-if="index === 9"  >
                         <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
                             <div class="col-md-12 row adslist-card news-3-card m-0">
                              
@@ -1272,7 +1272,7 @@
                             </div> 
                         </router-link>
                     </div>
-                    <div class="rectangle-medium" v-if="index === 11"  >
+                    <div class="rectangle-medium" v-if="index === 10"  >
                         <router-link  :to="'/newsdetails/'+value.id" class="col-md-6 col-sm-6 col-lg-3 m-b-8 pad-new">
                             <div class="col-md-12 row adslist-card news-3-card m-0">
 
@@ -2023,6 +2023,12 @@ export default{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.pattern-txt-box p{
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .txt_align{
     position: relative;
 }
@@ -2133,6 +2139,7 @@ export default{
     #more .pad-new{
         width: 100%;
         display: inline-block;
+        min-height: 100%;
     }
     .pad-new{
         width: 100%;
@@ -2222,17 +2229,26 @@ export default{
     .square-small{
         float: right;
         width: 49%;
-        height:70px;
+        height:107px;
     }
     .square-small p{
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
     }
      .square-small .text-truncate{margin-top: 7px;} 
+     .square-small .txt_date01{
+        margin-top: 4px;
+        bottom: 0px !important;
+        position: absolute;
+        text-align: right !important;
+        display: block;
+        width: 100%;
+        padding-right: 10px;
+    } 
 
     .rectangle-small{
         display: inline-block;
