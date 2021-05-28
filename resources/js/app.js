@@ -123,7 +123,7 @@ Vue.use(require('vue-moment'));
 import VueLoading from 'vuejs-loading-plugin'
 // import { Button } from 'iview'
 Vue.use(VueLoading, {
-    text: '送信中'
+    text: ''
 })
 
 window.events = new Vue();
@@ -133,7 +133,7 @@ Vue.use(VueAxios, axios);
 
 Vue.use(VueGoogleMaps, {
     load: {
-        key: "key",
+        key: "AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw",
     }
 });
 

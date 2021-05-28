@@ -67,7 +67,7 @@
                             <div class="row mt-2 mb-2">
                             <div class="col-lg-9 col-md-8 col-sm-12 m-b-8">
                             <select id="selectCity" class="form-control custom-select" v-model="id" @change="ChangeTownship();search();">
-                                <option value="-1" >▼市区町村</option>
+                                <option value="-1" >▼都道府県</option>
                                 <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                             </select>
                             </div>
@@ -296,16 +296,40 @@
                                                     <th>土</th>
                                                     <th>日</th>
                                                 </tr>
+
                                                 <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.hos_id" class="text-center">
-                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</th>
-                                                    <th class="second-hos-row" style="width:8%;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.mon}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.tue}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.wed}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.thu}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.fri}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sat}}</th>
-                                                    <th style="width:10%;" v-if="hos.hos_id == time.profile_id">{{time.sun}}</th>
+                                                  <p style="display: none;">
+                                                  {{$mon = time.mon.split("-")}}
+                                                  {{$tue = time.tue.split("-")}}
+                                                  {{$wed = time.wed.split("-")}}
+                                                  {{$thu = time.thu.split("-")}}
+                                                  {{$fri = time.fri.split("-")}}
+                                                  {{$sat = time.sat.split("-")}}
+                                                  {{$sun = time.sun.split("-")}}
+                                                  </p>
+                                                  <td class="second-hos-row" style="width:8%; font-weight: bold;" v-if="(hos.hos_id == time.profile_id && time.part == 'am' )">午前</td>
+                                                  <td class="second-hos-row" style="width:8%; font-weight: bold;" v-if="(hos.hos_id == time.profile_id && time.part == 'pm' )">午後</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                 
+                                                  {{$mon[0]}}-<br>{{$mon[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                   
+                                                  {{$tue[0]}}-<br>{{$tue[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id"> 
+                                                   
+                                                  {{$wed[0]}}-<br>{{$wed[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                   
+                                                  {{$thu[0]}}-<br>{{$thu[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                   
+                                                  {{$fri[0]}}-<br>{{$fri[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                   
+                                                  {{$sat[0]}}-<br>{{$sat[1]}}</td>
+                                                  <td style="font-weight: bold;" v-if="hos.hos_id == time.profile_id">
+                                                    <p style="display: none;"></p>
+                                                  {{$sun[0]}}-<br>{{$sun[1]}}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -473,6 +497,7 @@ import bulcomponent from './bulcomponent.vue'
             $('#navtab').addClass('hospital-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('hospital-borderColor margin-none');
+            $('.google_search_div').addClass('google_search_all');
             $('#headerbar').addClass('headerbarblock');
             $('.google_search_div').addClass('google_search_all');
         },
@@ -1009,6 +1034,13 @@ import bulcomponent from './bulcomponent.vue'
   };
 </script>
 <style type="text/css">
+.profile_header{
+  background: #fff;
+}
+#hos_search .table-bordered,
+#job_detail{
+  background: #f8fafc;
+}
 @media only screen and (max-width: 560px){
   #hos_search {
       display: block;

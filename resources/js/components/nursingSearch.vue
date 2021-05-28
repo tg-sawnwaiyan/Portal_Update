@@ -69,13 +69,13 @@
                                     <div class="card-body">
                                         <div class="row">
                                         <div class="col-lg-6"> 
-                                        <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #fff;" v-model="id">
-                                        <option value="-1" disabled>▼市区町村</option>
+                                        <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #f4f4f2;" v-model="id">
+                                        <option value="-1" disabled>▼都道府県</option>
                                         <option  :value="city.id" v-for="(city,index) in cities" :key="index" >{{city.city_name}} </option>
                                         </select>
                                         </div>
                                         <div class="col-lg-6">
-                                        <select id="selectTownship" class="form-control custom-select nus-town-m-t" style="background-color: #fff;" @change="nursingSearchData(2);" v-model="township_id">
+                                        <select id="selectTownship" class="form-control custom-select nus-town-m-t" style="background-color: #f4f4f2;" @change="nursingSearchData(2);" v-model="township_id">
                                         <option value="-1" >▼市区町村</option>
                                         <option  :value="selectTownship.id"  v-for="(selectTownship,index) in getTownships" :key="index">{{selectTownship.township_name}}</option>
                                         </select>
@@ -90,7 +90,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                    <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData()" v-model="moving_in">
+                                    <select name="" id="" class="form-control custom-select" style="background-color: #f4f4f2;" @change="nursingSearchData()" v-model="moving_in">
                                         <option data-price-type="" value="-1" >▼入居一時金</option>
                                         <!-- <option data-price-type="" value="0">一時金なし</option> -->
                                         <option data-price-type="" value="500000">50万円以下</option>
@@ -110,7 +110,7 @@
                                     </select>
                                         </div>
                                         <div class="col-lg-6">
-                                    <select name="" id="" class="form-control custom-select nus-town-m-t" style="background-color: #fff;" @change="nursingSearchData()" v-model="per_month">
+                                    <select name="" id="" class="form-control custom-select nus-town-m-t" style="background-color: #f4f4f2;" @change="nursingSearchData()" v-model="per_month">
                                         <option data-price-type="" value="-1" >▼月額利用料</option>
                                         <option data-price-type="" value="100000">10万円以下</option>
                                         <option data-price-type="" value="120000">12万円以下</option>
@@ -1967,15 +1967,36 @@ div#holder {
   width: 500px !important;
   margin: 20px auto;
 }
+.profile_header{
+    background: #fff;
+}
 @media only screen and (max-width: 767px){
-.select {
-    display: block;
+    .select {
+        display: block;
+    }
+    .profile_header, #searchMap {
+        display: none;
+    }
+    #map-responsive {
+        display: none;
+    }
 }
-.profile_header, #searchMap {
-    display: none;
-}
-#map-responsive {
-    display: none;
-}
-}
+</style>
+
+<style>
+    /*.google_search_all .slider_div{
+        display: inline-block !important;
+    }
+    #headerbar{
+        display: block;
+    }
+    .google_search_all .google_search_div{
+        background: none;
+        text-align: left;
+    }
+    .google_search_all .google_div{
+        padding: 0;
+        width: 30%;
+        background: #eee;
+    }*/
 </style>
