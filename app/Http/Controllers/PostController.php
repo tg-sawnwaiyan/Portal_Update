@@ -260,7 +260,7 @@ class PostController extends Controller
             } 
         } 
         if(array_filter($moreNews)){            
-            $moreNews = array_chunk($moreNews, 12);
+            $moreNews = array_chunk($moreNews, 11);
         }else{
             $moreNews = [];
         }
