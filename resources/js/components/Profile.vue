@@ -29,8 +29,7 @@
         </li>
 
       </ul>
-
-      <div class="tab-content tab-content1 tabs" :class="type == 'nursing'? 'nursing-borderColor': 'hospital-borderColor'">
+      <div class="tab-content tab-content1 tabs margin-none" :class="type == 'nursing'? 'nursing-borderColor': 'hospital-borderColor'" style="background: #ffff; margin-top: 0 !important;">
         <form class="col-md-12 pad-free" autocomplete="off">
           <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
             <nursingProfile v-if="type == 'nursing'"></nursingProfile>
@@ -110,6 +109,14 @@ export default {
     var fixed_width = new_width - 49.5;
     this.width = fixed_width + "px";
 
+  },
+  mounted() {
+    $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+    $('#navtab').addClass('hospital-tabColor');
+    $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+    $('#upper-tab').addClass('hospital-borderColor margin-none');
+    $('.google_search_div').addClass('google_search_all');
+    $('#headerbar').addClass('headerbarblock');
   },
   methods: {
     loginView(response){   
