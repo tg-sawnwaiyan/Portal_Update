@@ -651,14 +651,14 @@
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year" v-for="(year_arr, index) in yeararr" :key="index">
-        <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button>
+    <div class="button-year" v-bind="c_year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{c_year}}年</button>
     </div>
 
     <div class="scroll-year">
         <div class="year-2020">
             <div v-for="linked_news in linkednews" :key="linked_news.id">
-                <div v-if="(linked_news.post_date.includes(c_year))">
+                <div>
                     <article class="row text-body">
                         <div class="new-1">
                             <div class="day">
@@ -717,8 +717,7 @@
             })
             /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
-                this.linkednews = response.data.linkednews,
-                this.yeararr = response.data.yeararr;
+                this.linkednews = response.data.linkednews
             });
             /**end of added by maythirihtet */
             window.addEventListener('resize', this.handleResize)
@@ -762,7 +761,6 @@
             else if (this.window.width >= 1440 && this.window.width < 1800) {
                 this.windowSize = 3;
                 this.paginationFactor=340;
-                console.log(this.window.width);
             }
              else if (this.window.width >= 1800 && this.window.width < 1880) {
                 this.windowSize = 4;
@@ -823,11 +821,6 @@
         },
 
         methods: {
-            /**added by maythirihtet */
-            showDataByYear(year) {
-                this.c_year = year;
-            },
-            /**end of added by maythirihtet */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
