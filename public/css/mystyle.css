@@ -14676,7 +14676,7 @@ input.gsc-input {
 #headerbar {
     display: none;
     position: fixed;
-    top: 2% !important;
+    top: 20px !important;
     right: 3%;
     /*z-index: 9999;*/
     width: auto;
@@ -14685,6 +14685,7 @@ input.gsc-input {
 /*#headerbar .fav-item {
     font-size: 16px;
 }*/
+
 
 #headerbar .router-link-exact-active {
     font-weight: bold;
@@ -14755,7 +14756,13 @@ input.gsc-input {
     max-width: 1598px !important;
 }
 
-
+#headerbar.addcssforheaderbar{
+    top: 193px !important;
+    right: 3.5%;
+}
+#holder{
+    width: 83%;
+}
 @media only screen and (min-width: 991px) and (max-width: 1245px){
     .spanclass{
         font-size: 1vw;
@@ -14779,7 +14786,16 @@ input.gsc-input {
     /*.map-header{
         bottom: 40%;
     }*/
+    #headerbar.addcssforheaderbar{
+        top: 210px !important;
+    }
 }
+@media only screen and (min-width: 991px) and (max-width: 1080px){
+    #holder{
+        width: 78%;
+    }
+}
+
 
 
 @media only screen and (max-width: 990px){
@@ -15172,4 +15188,8 @@ table.gsc-search-box td.gsc-input{
     }
 }
 /*end of aboutus*/
+
+
+
+
 
