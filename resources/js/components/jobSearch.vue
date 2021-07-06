@@ -404,14 +404,14 @@
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year" v-for="(year_arr, index) in yeararr" :key="index">
-        <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button>
+    <div class="button-year" v-bind="c_year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{c_year}}年</button>
     </div>
 
     <div class="scroll-year">
         <div class="year-2020">
           <div v-for="linked_news in linkednews" :key="linked_news.id">
-            <div v-if="(linked_news.post_date.includes(c_year))">
+            <div>
               <article class="row text-body">
                 <div class="new-1">
                     <div class="day">
@@ -456,7 +456,6 @@ export default {
         c_year:new Date().getFullYear(),
         vactive:true,
         linkednews: [],
-        yeararr: [],
         /**end of added by maythirihtet */
         id:-1, townshipID:[], township_id:[], cities:'', getCity:[], township_id:-1, moving_in:-1, per_month:-1, getTownships:[], special_features:[], fac_types:[], fac_id:[], medical_acceptance:[], subjects:[], occupationID:[], occupations:[], occupation:[], toggleCheck: true, toggleCheck_1: false, empstatus:[], job_data:[], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, locast:'', company:[], open:false, norecord_msg: false, window:{ width: 0, height: 0 }, w_width: $(window).width(), testclass:'', array_len: 0, searchword:'', stateclick:false, count:false, clicksearch: false, ci: false, isActive: true, isActivePreNext:true,
       }
@@ -477,8 +476,7 @@ export default {
 
         /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+3).then((response) => { 
-                this.linkednews = response.data.linkednews,
-                this.yeararr = response.data.yeararr;
+                this.linkednews = response.data.linkednews;
             });
         /**end of added by maythirihtet */
 

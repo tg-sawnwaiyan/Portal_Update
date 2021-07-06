@@ -651,15 +651,14 @@
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year" v-bind="current_year">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{current_year}}年</button>
-        <!-- <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button> -->
+    <div class="button-year" v-bind="c_year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{c_year}}年</button>
     </div>
 
     <div class="scroll-year">
         <div class="year-2020">
             <div v-for="linked_news in linkednews" :key="linked_news.id">
-                <div v-if="(linked_news.post_date.includes(c_year))">
+                <div>
                     <article class="row text-body">
                         <div class="new-1">
                             <div class="day">
@@ -707,7 +706,6 @@
                 vactive:true,
                 linkednews: [],
                 yeararr: [],
-                current_year: '',
                 /**end of added by maythirihtet */
                 cityid:[], listid : '', map: null, markers: [], searchmarkers:[], marker:[], selectedLocation: null, infoBoxOpen: false, places: [], id: '-1', townshipID:[], township_id:-1, moving_in:-1, per_month:-1, cities: '', getCity: [], getTownships: [], special_features: [], fac_types: [], fac_id: [], medical_acceptance: [], show: false, showOne: true, currentOffset: 0, windowSize: 4, paginationFactor: 328, window:{ width: 0, height: 0 }, nursingList: [], alphabet: [], markerHover:[], SpecialFeatureID:[], MedicalAcceptanceID:[], FacTypeID:[], MoveID:[], nus_data:[], specialfeature:[], medicalacceptance:[], factype:[], selectedcity:'', citylatlng:[], view_pro_id: [], currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, onchangeid:0, localst:'', selected: undefined, toggleCheck: true, loading: false, coordinate:[], norecord_msg: false, ci : false, window:{ width: 0, height: 0 }, w_width:$(window).width(), cityArray: [], allCity: [], citynewArray:[], boundsval: 'no marker', searchword:'', index:'', clicksearch: false, isActive: true,
             }
@@ -719,9 +717,7 @@
             })
             /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
-                this.linkednews = response.data.linkednews,
-                this.yeararr = response.data.yeararr;
-                this.current_year = this.yeararr[0];
+                this.linkednews = response.data.linkednews
             });
             /**end of added by maythirihtet */
             window.addEventListener('resize', this.handleResize)
@@ -825,11 +821,6 @@
         },
 
         methods: {
-            /**added by maythirihtet */
-            showDataByYear(year) {
-                this.c_year = year;
-            },
-            /**end of added by maythirihtet */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
