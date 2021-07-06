@@ -4,7 +4,7 @@
   
  
    <!-- <div class="col-md-12" style="border-bottom: 1px dashed #828282;padding-bottom: 10px; margin-bottom: 20px; display:none;"> -->
-    <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
+    <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px; display: none;">
      <h5 class="font-weight-bold"><!-- <i class="fas fa-map" style="color:#828282;"></i> --><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索  
 
         <span v-if="count == false  && searchword != '' && searchword == 'all' && job_data.length && !stateclick "> 「<span class="result-span">全国</span>の求人 <span class="result-span"> {{job_data.length}} </span>件」 </span>

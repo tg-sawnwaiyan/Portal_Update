@@ -4952,7 +4952,7 @@ ul.hospital-subject>li:before {
     font-size: 288%;
     line-height: 1.4;
     position: absolute;
-    bottom: 35%;
+    bottom: 155px;
 }
 
 .nursing-map-header {
@@ -14776,9 +14776,9 @@ input.gsc-input {
     .map-wrap .col-lg-7 {
         max-width: 52%;
     }
-    .map-header{
+    /*.map-header{
         bottom: 40%;
-    }
+    }*/
 }
 
 
