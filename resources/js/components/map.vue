@@ -16,7 +16,7 @@
                 </div>
                 </div>
             </div>
-            <div class="col-sm-2 tohoku-box">
+            <div class="col-sm-3 tohoku-box">
                 <div class="mb-3">
                 <div class="division-box">
                     <ul class="multiple-boxa">
@@ -179,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3 chugoku-box">
+            <div class="col-sm-2 chugoku-box">
                 <div class="mb-3">
                 <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
                 <div class="division-box">
