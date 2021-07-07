@@ -147,8 +147,8 @@
                         <div class="row" >
                             <div class="col-sm-12 col-md-12" style="height: auto;">
                                 
-                                <div class="m-t-10 m-b-10">
-                                    <div v-if="loading" class=" m-t-10 m-b-10" style="background-color:#000;opacity:0.5;position:absolute;z-index:10;width: 97.5%;margin-top: 0px !important;">
+                                <div class="m-t-10 m-b-10" style="position: relative;">
+                                    <div v-if="loading" class=" m-t-10 m-b-10" style="background-color:#000;opacity:0.5;position:absolute;z-index:10;width: 100%;margin-top: 0px !important;">
                                         <div class="lds-ripple m-t-10 m-b-10" style="width:100%;heigth:100%" >
                                             <div>
                                                 <div></div><div></div>

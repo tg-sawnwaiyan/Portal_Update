@@ -3294,7 +3294,7 @@ textarea {
     font-size: 16px;
     border: 1px solid #53c000;
     z-index: 4;
-    min-width: 160px;
+    /* min-width: 160px; */
 }
 
 .bottom-fav-btn {
@@ -7101,6 +7101,7 @@ color: #fff !important;
     position: relative;
 }
 
+
 /*admin_pagination*/
 
 .page-item.active .page-link {
@@ -7138,9 +7139,13 @@ color: #fff !important;
     .bottom-mail-btn {
         width: 152px;
         margin-right: 3px;
+        font-size: 14.4px;
+        min-width: 0;
     }
     .bottom-fav-btn {
         width: 165px;
+        min-width: 0;
+        font-size: 14.4px;
     }
     .pagination-prev-nav,
     .pagination-next-nav {
@@ -14792,6 +14797,12 @@ input.gsc-input {
 @media only screen and (min-width: 991px) and (max-width: 1080px){
     #holder{
         width: 78%;
+    }
+}
+
+@media only screen and (max-width: 990px){
+    #holder{
+        width: 100%;
     }
 }
 
