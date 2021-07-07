@@ -14796,6 +14796,12 @@ input.gsc-input {
     }
 }
 
+@media only screen and (max-width: 990px){
+    #holder{
+        width: 100%;
+    }
+}
+
 
 
 @media only screen and (max-width: 990px){
