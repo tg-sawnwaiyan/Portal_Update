@@ -1,7 +1,8 @@
+
 <template>
 <layout>
 <div class="tab_pane_02">
-    <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
+    <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px; display: none;">
         <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索 
             <span v-if="nus_data.length && !ci &&  MoveID == 0 &&  SpecialFeatureID ==0  && FacTypeID == 0 && MedicalAcceptanceID == 0 && township_id == -1 && moving_in == -1  && per_month == -1">「<span class="result-span">{{nus_data[0].city_name}}</span>の介護施設 <span class="result-span">{{nus_data.length}}</span> 件」</span>
             <span v-if="nus_data.length && ci && searchword != 'all' && searchword != '' && MoveID ==0  && SpecialFeatureID == 0 && FacTypeID == 0 && MedicalAcceptanceID == 0 && township_id == -1 && moving_in == -1  && per_month == -1" >「<span class="result-span">{{searchword}}</span>の介護施設 <span class="result-span">{{nus_data.length}}</span> 件」</span>
@@ -144,10 +145,10 @@
 
                     <section id="holder">
                         <div class="row" >
-                            <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12" style="height: auto;">
                                 
                                 <div class="m-t-10 m-b-10">
-                                    <div v-if="loading" class=" m-t-10 m-b-10" style="background-color:#000;opacity:0.5;position:absolute;z-index:10;width: 98%;margin-top: 0px !important;">
+                                    <div v-if="loading" class=" m-t-10 m-b-10" style="background-color:#000;opacity:0.5;position:absolute;z-index:10;width: 97.5%;margin-top: 0px !important;">
                                         <div class="lds-ripple m-t-10 m-b-10" style="width:100%;heigth:100%" >
                                             <div>
                                                 <div></div><div></div>
@@ -650,14 +651,14 @@
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year" v-for="(year_arr, index) in yeararr" :key="index">
-        <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button>
+    <div class="button-year" v-bind="c_year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{c_year}}年</button>
     </div>
 
     <div class="scroll-year">
         <div class="year-2020">
             <div v-for="linked_news in linkednews" :key="linked_news.id">
-                <div v-if="(linked_news.post_date.includes(c_year))">
+                <div>
                     <article class="row text-body">
                         <div class="new-1">
                             <div class="day">
@@ -716,8 +717,7 @@
             })
             /**added by maythirihtet*/
             this.axios.get('/api/getLinkedNews/'+1).then((response) => { 
-                this.linkednews = response.data.linkednews,
-                this.yeararr = response.data.yeararr;
+                this.linkednews = response.data.linkednews
             });
             /**end of added by maythirihtet */
             window.addEventListener('resize', this.handleResize)
@@ -761,7 +761,6 @@
             else if (this.window.width >= 1440 && this.window.width < 1800) {
                 this.windowSize = 3;
                 this.paginationFactor=340;
-                console.log(this.window.width);
             }
              else if (this.window.width >= 1800 && this.window.width < 1880) {
                 this.windowSize = 4;
@@ -822,11 +821,6 @@
         },
 
         methods: {
-            /**added by maythirihtet */
-            showDataByYear(year) {
-                this.c_year = year;
-            },
-            /**end of added by maythirihtet */
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
@@ -982,6 +976,7 @@
                 $("#mymap").css({'display' : 'block','height' : '400px','width':'100%'});
                 $('.select').removeClass('select');
                 $('#searchMap').addClass('select');
+                $('#headerbar').addClass('addcssforheaderbar');
                 $('#showSearchMap').removeClass('select');
                 $('#filter').removeClass('select');
                 // this.$loading(true);

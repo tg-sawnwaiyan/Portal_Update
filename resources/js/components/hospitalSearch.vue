@@ -1,7 +1,7 @@
 <template>
   <layout>
 <div class="tab_pane_02">
-  <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px;">
+  <div class="col-md-12" style="border-bottom: 1px dashed #2980b9;padding-bottom: 10px; margin-bottom: 20px; display: none;">
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#2980b9;"></i>&nbsp;地図検索 
         <span v-if="count == false  && searchword != '' && searchword == 'all' && hos_data.length && !stateclick "> 「<span class="result-span">全国</span>の病院 <span class="result-span"> {{hos_data.length}} </span>件」 </span>
         <span v-if="count == false && searchword != '' && searchword != 'all' && hos_data.length && !stateclick "> 「<span class="result-span">{{searchword}}</span>の病院 <span class="result-span"> {{hos_data.length}} </span>件」 </span>
@@ -400,14 +400,14 @@
     <div class="text-new">
         <span>News</span>
     </div>
-    <div class="button-year" v-for="(year_arr, index) in yeararr" :key="index">
-        <button type="button" :class="{ 'active' : year_arr == c_year}" class="btn btn-outline-dark btn-lg btn-2020" @click="showDataByYear(year_arr)" v-bind:id="year_arr">{{year_arr}}年</button>
+    <div class="button-year" v-bind="c_year">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-2020 active">{{c_year}}年</button>
     </div>
 
     <div class="scroll-year">
         <div class="year-2020">
             <div v-for="linked_news in linkednews" :key="linked_news.id">
-                <div v-if="(linked_news.post_date.includes(c_year))">
+                <div>
                     <article class="row text-body">
                         <div class="new-1">
                             <div class="day">
@@ -452,7 +452,6 @@ import bulcomponent from './bulcomponent.vue'
         c_year:new Date().getFullYear(),
         vactive:true,
         linkednews: [],
-        yeararr: [],
         /**end of added by maythirihtet */
         id: -1, timetable:[], hos_data:[], townshipID: [], township_id: [], cities: '', getCity: [], getTownships: [], specialfeatureID:[], special_features: [], specialfeatures:[], fac_types: [], fac_id: [], medical_acceptance: [], subjectID:[], subjects: [], sub_child:[], subject:[], company:[], toggleCheck: true, toggleCheck_1: false, currentPage: 0, size: 20, pageRange: 5, items: [], show_paginate: false, selected: undefined, localst:'', norecord_msg: false, int:0, array_len: 0, window:{ width: 0, height: 0 }, w_width: $(window).width(), showOne:true, count:false, stateclick:false, clicksearch: false, ci: false, isActive: true,
       }
@@ -499,14 +498,8 @@ import bulcomponent from './bulcomponent.vue'
             $('#upper-tab').addClass('hospital-borderColor margin-none');
             $('.google_search_div').addClass('google_search_all');
             $('#headerbar').addClass('headerbarblock');
-            $('.google_search_div').addClass('google_search_all');
         },
     methods: {
-    /**added by maythirihtet */
-    showDataByYear(year) {
-        this.c_year = year;
-    },
-    /**end of added by maythirihtet */
     stopTheEvent:function(e){
         $('.dropdown-menu').on('click', function(e) {
 
@@ -1050,4 +1043,5 @@ import bulcomponent from './bulcomponent.vue'
   }
 
 }
+
 </style>
