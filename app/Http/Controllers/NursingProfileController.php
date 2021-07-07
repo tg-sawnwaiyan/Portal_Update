@@ -37,7 +37,7 @@ class NursingProfileController extends Controller
         foreach ($request as $file){
             $imageName = $file->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
-            // $imageName = strtolower($imageName);
+            $imageName = strtolower($imageName);
             $destination = 'upload/nursing_profile/Imagepanorama/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
 
@@ -53,7 +53,7 @@ class NursingProfileController extends Controller
         foreach ($request as $file){
             $imageName = $file->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
-            // $imageName = strtolower($imageName);
+            $imageName = strtolower($imageName);
             $destination = 'upload/nursing_profile/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
         }        
@@ -63,7 +63,7 @@ class NursingProfileController extends Controller
         $request = $request->all();
         $imageName = $request['logo']->getClientOriginalName();
         $imageName = str_replace(' ', '', $imageName);
-        // $imageName = strtolower($imageName);
+        $imageName = strtolower($imageName);
         $destination = 'upload/nursing_profile/'.$imageName;
         $upload_img = move_uploaded_file($request['logo'], $destination);   
     }
