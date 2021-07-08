@@ -152,7 +152,8 @@
                                     <!-- two show () aaaaaaaaa-->  
                                    
                                     <div v-if="(w_width >= 1280) || (w_width <= 768 && w_width >= 480)" class="row col-sm-12 p-lr-0 m-0">
-                                        <div class="col-sm-6 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(0, 8)"  :key="item.id">
+                                        <!-- <div class="col-sm-6 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(0, 8)"  :key="item.id"> -->
+                                        <div class="col-sm-6 m-b-8 pad-new" v-for="item in latest_post_all_cats.slice(0, 6)"  :key="item.id">
                                             <div class="col-md-12 row adslist-card news-3-card m-0" :class="item.category_id == 26?'break-news':''">
                                                 
 
@@ -199,15 +200,16 @@
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
+                                                        <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="35" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
                                                         <span>{{item.cname}}</span>
                                                         
                                                     </span>
                                                     <span class="tab_title_date tab_title_d">
-                                                        <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-if="item.new_news == '1'" class="second_para"><span class="small_new">New</span>{{item.created_at}}<!-- {{item.date_only}} --></p>
                                                         <p v-else class="second_para">{{item.created_at}}</p>
                                                     </span>
                                                 </div>
@@ -262,10 +264,11 @@
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
+                                                        <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
+                                                        <read-more more-str="" less-str="read less"  :max-chars="30" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>                                                
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color"><span>{{item.cname}}</span></span>                                                
                                                     <span class="tab_title_date tab_title_d">{{item.created_at}}
                                                     </span>
                                                 </div>
@@ -329,14 +332,15 @@
                                         
                                         <router-link :to="'/newsdetails/'+item.id">
                                             <!-- <span> {{item.title}} </span> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
+                                            <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
+                                            <read-more more-str="" less-str="read less"  :max-chars="35" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more">
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
                                             <span>{{item.cname}}</span>
                                         </span>
                                         <span class="tab_title_date tab_title_d">
-                                            <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                            <p v-if="item.new_news == '1'" class="second_para"><span class="small_new">New</span>{{item.created_at}}<!-- {{item.date_only}} --></p>
                                             <p v-else class="second_para">{{item.created_at}}</p>
                                         </span>
                                     </div>
@@ -1059,6 +1063,16 @@
  </script>
 
 <style scoped>
+.black_color{
+    background: none !important;
+    border: 1.5px solid #000000;
+    color: #000000;
+    min-width: 100px !important;
+    text-align: center;
+}
+.black_color span{
+    color: #000000 !important;
+}
 .fit-image {
     padding: 0;
 }
@@ -1233,7 +1247,7 @@
 .tab_title_date {
     font-size: 12px;
     float: right;
-    margin-top: 16px;
+    /*margin-top: 16px;*/
 }
 .tab_title_d {
     color: #969798!important;
@@ -1384,7 +1398,8 @@
 }
 .tab_title_color{
     border-radius: 3px;
-    padding: 2px 4px 0px 4px;
+    /*padding: 2px 4px 0px 4px;*/
+    padding:  2px 10px 0px 10px;
     font-size: 13px;
     background-color: var(--bkgColor);
 }
@@ -1475,9 +1490,13 @@
     border-radius: 1px;
     padding: 0px 6px 0px 6px;
     font-size: 10px;
-    background-color: #FE2E2E;
-    color: white;
-    font-style: normal;
+    /*background-color: #FE2E2E;
+    color: white;*/
+    color: #FE2E2E;
+    /*font-style: normal;*/
+    font-weight: bold;
+    text-align: left;
+    margin-right: 10px;
 }
 .sm_news_date {
     font-size: 12px;
