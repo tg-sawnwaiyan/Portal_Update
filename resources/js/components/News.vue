@@ -169,7 +169,6 @@
 
 
                                                             </transition>
-
                                                             <!-- <div v-if="item.new_news == '1'" class="m_top_left"><span>New</span></div> -->
 
                                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
@@ -191,7 +190,11 @@
                                                         </clazy-load>
 
                                                     </router-link>
-
+                                                    <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
+                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
+                                                        <span>{{item.cname}}</span>
+                                                        
+                                                    </span>
                                                 </div>
                                                 
 
@@ -200,13 +203,9 @@
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more>
+                                                        <!-- <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more> -->
+                                                        <p class="medium_text">{{item.title}}</p>
                                                     </router-link>
-                                                    <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
-                                                        <span>{{item.cname}}</span>
-                                                        
-                                                    </span>
                                                     <span class="tab_title_date tab_title_d">
                                                         <p v-if="item.new_news == '1'" class="second_para"><span class="small_new">New</span>{{item.created_at}}<!-- {{item.date_only}} --></p>
                                                         <p v-else class="second_para">{{item.created_at}}</p>
@@ -322,7 +321,10 @@
 
                                         </router-link>
                                         
-
+                                        <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
+                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
+                                            <span>{{item.cname}}</span>
+                                        </span>
                                     </div>
 
 
@@ -331,12 +333,9 @@
                                         
                                         <router-link :to="'/newsdetails/'+item.id">
                                             <!-- <span> {{item.title}} </span> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more>
+                                            <!-- <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more> -->
+                                            <p class="medium_text">{{item.title}}</p>
                                         </router-link>
-                                        <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                        <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
-                                            <span>{{item.cname}}</span>
-                                        </span>
                                         <span class="tab_title_date tab_title_d">
                                             <p v-if="item.new_news == '1'" class="second_para"><span class="small_new">New</span>{{item.created_at}}<!-- {{item.date_only}} --></p>
                                             <p v-else class="second_para">{{item.created_at}}</p>
@@ -1069,9 +1068,6 @@
 }
 .black_color span{
     color: #000000 !important;
-}
-.medium-img{
-    padding-bottom: 110px;
 }
 .fit-image {
     padding: 0;
