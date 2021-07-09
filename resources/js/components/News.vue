@@ -1063,7 +1063,7 @@
 <style scoped>
 .black_color{
     background: #ffffff !important;
-    border: 1.5px solid #000000;
+    border: 1.5px solid var(--bkgColor);
     color: #000000;
     text-align: center;
 }

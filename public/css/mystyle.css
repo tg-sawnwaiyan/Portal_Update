@@ -1017,11 +1017,8 @@ input::-ms-clear {
 /********************************** News **********************************/
 
 .for-read-more {
-    /*position: absolute;
-    bottom: -1px;*/
     position: absolute;
-    bottom: 25px;
-    right: 15px;
+    bottom: -1px;
 }
 
 .backbtn {
