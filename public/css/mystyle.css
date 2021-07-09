@@ -1,5 +1,4 @@
 /* style for individual page and overall */
-
 .for-ie-browser {
     font-size: 24px;
     text-align: center;
@@ -32,7 +31,6 @@ dd {
 
 body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
-    /* background: #dfdfde; */
     background: #fff;
     scrollbar-width: thin;
     font-display:swap;
@@ -47,7 +45,6 @@ samp {
 }
 
 body.all-bg {
-    /*background: #f8f8f8;*/
     background: #f4f4f2;
 }
 
@@ -70,28 +67,22 @@ img{
 }
 
 .txt-box p {
-    /*line-height: 1.4em!important;*/
-    /*height: 40px;*/
     line-height: 2em!important;
     height: 85px;
     overflow: hidden;
 }
 
 .main-wrapper {
-    /*max-width: 1600px;*/
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 .footer-margin {
-    margin-bottom: 46px!important;
+    margin-bottom: 46px !important;
 }
 
 .form1 {
-    /* border:1px solid#118063; */
     padding: 30px;
     border-radius: 5px;
     border: 1px solid #eee;
@@ -123,7 +114,6 @@ img{
 
 .choose-btn {
     color: #a93f0c!important;
-    /* margin-left: 10px; */
     background: #eee;
     border-radius: 0px 5px 5px 0px;
     font-weight: bold;
@@ -163,7 +153,6 @@ img{
 }
 
 #content {
-    /* height: 800px; */
     overflow: auto;
 }
 
@@ -172,8 +161,6 @@ img{
 }
 
 .img_2 {
-    /* margin-left: 10%; */
-    /* border:1px solid black; */
     font-size: 17px;
     font-weight: bold;
 }
@@ -221,9 +208,7 @@ input[placeholder] {
     text-overflow: ellipsis;
 }
 
-
 /* firefox 19+ */
-
 input:-moz-placeholder {
     text-overflow: ellipsis;
 }
@@ -246,18 +231,11 @@ input:-moz-placeholder {
 }
 
 .scrolldiv {
-    /* height: 550px;
-overflow-y: auto;
-scrollbar-width: thin;*/
     background: white;
     padding-top: 15px;
 }
 
 .scrolldiv2 {
-    /* height: 700px;
-overflow-y: auto;
-scrollbar-width: thin;*/
-    /*background: white;*/
     padding-top: 15px;
 }
 
@@ -292,9 +270,7 @@ scrollbar-width: thin;*/
 }
 
 .stepper-success-form {
-    /* width: 40%; */
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px auto 0 auto;
     display: block;
     line-height: 3.2px;
     text-align: left;
@@ -335,9 +311,7 @@ label {
     display: block;
 }
 
-
 /* nursing and hospital accountlist */
-
 .img_title {
     height: 200px;
     margin-bottom: 10px;
@@ -354,8 +328,6 @@ label {
     padding: 5px;
     margin-bottom: 5px;
 }
-
-
 /* end nursing and hospital accountlist */
 
 .lastblock {
@@ -538,14 +510,6 @@ textarea:disabled::placeholder {
     font-size: 12px;
 }
 
-.posting-firstwrap {
-    /* width: 160px; */
-}
-
-.posting-secondwrap {
-    /* width: 116px; */
-}
-
 .posting-per th {
     padding: 0px 5px 0px 0px;
     color: #777;
@@ -554,13 +518,8 @@ textarea:disabled::placeholder {
     vertical-align: middle;
 }
 
-table.posting-per {
-    /* float: right; */
-}
-
 .table.posting-per tr td:first-child {
     text-align: left;
-    /* float: right; */
     width: auto;
     padding: 0px;
 }
@@ -599,9 +558,7 @@ table.posting-per {
     cursor: not-allowed;
     min-width: 85px;
     display: inline-block;
-    margin-left:5px;
-    /* pointer-events: none; */
-    
+    margin-left:5px;    
 }
 .disabledlink:hover{
     text-decoration: none;
@@ -617,29 +574,22 @@ table.posting-per {
     min-width: 85px;
     display: inline-block;
     margin-left:5px;
-    
 }
-
 /********************************** End Common **********************************/
 
 
 /********************************** Profile & Profile publish**********************************/
-
-
 /* Nursing & Hospital Profile */
-
 .span-height {
     line-height: 34px;
 }
 
 .detail_profile_right {
-    padding-left: 10px;
-    padding-right: 0px;
+    padding: 0 0 0 10px;
 }
 
 .detail_profile_left {
-    padding-left: 0px;
-    padding-right: 10px;
+    padding: 0 10px 0 0;
 }
 
 .displayFlex {
@@ -674,16 +624,9 @@ table.posting-per {
 .nursing_table {
     width: 17%;
 }
-
-
 /* End Nursing & Hospital Profile */
 
 .typelabel {
-    /* background: #118063;
-padding: 8px 15px;
-border-radius: 5px;
-color: white;
-width: 100px; */
     margin-bottom: 0px;
     cursor: pointer;
     text-align: center;
@@ -746,7 +689,6 @@ width: 100px; */
 
 .toggle-div {
     display: block;
-    /* margin-top: 15px; */
 }
 
 .fac-toggle-div {
@@ -779,8 +721,6 @@ width: 100px; */
 }
 
 .hos-fac-toggle-div {
-    /* padding-top: 15px;
-border: 1px solid #eee; */
     border-radius: 5px;
     margin-top: 10px;
 }
@@ -813,8 +753,7 @@ border: 1px solid #eee; */
 
 .gallery-area-payment {
     border: 1px dashed #a1cce8;
-    margin-left: 3px;
-    margin-top: 15px;
+    margin: 15px 0 0 3px;
     padding-top: 10px;
     background: #f5f5f5;
 }
@@ -828,15 +767,9 @@ border: 1px solid #eee; */
     letter-spacing: 1px;
 }
 
-
 /* lightbox */
-
 .lightbox {
     z-index: 99999 !important;
-}
-
-.lightbox-image {
-    /* background-size: unset !important; */
 }
 
 .lightbox-main {
@@ -887,19 +820,13 @@ span.video_txt {
     margin-top: 20px;
     display: block;
 }
-
-
 /*End lightbox */
-
 
 /********************************** End Profile & Profile publish**********************************/
 
-
 /********************************** Common Admin And User Panel **********************************/
-
 .admin-user-title {
     font-size: 36px;
-    /* padding: 20px; */
     color: #3490dc;
 }
 
@@ -919,8 +846,6 @@ span.video_txt {
 
 .img-close-btn {
     position: absolute;
-    /* top: 0px;
-    right: 0px; */
     font-weight: bold;
     cursor: pointer;
     border: 2px solid #aaa;
@@ -956,12 +881,10 @@ span.video_txt {
 }
 
 .show-flag {
-    padding-left: 2px;
-    padding-right: 15px;
+    padding: 0 15px 0 2px;
 }
 
 #image_preview {
-    /* border: 1px solid #ccc; */
     border-radius: 5px;
     padding: 10px 0px;
 }
@@ -986,8 +909,6 @@ span.video_txt {
 }
 
 .p_3 {
-    /* padding: 22px; */
-    /* margin-top: 22px; */
     font-size: 12px;
     letter-spacing: 2px;
     text-align: justify;
@@ -999,8 +920,6 @@ span.video_txt {
 .h_4 {
     width: 100%;
     text-align: center;
-    padding: 10px;
-    /* text-align: center; */
     padding: 12px 0px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -1009,16 +928,11 @@ span.video_txt {
 input::-ms-clear {
     display: none;
 }
-
-
 /********************************** End Common Admin Panel **********************************/
 
 
 /********************************** News **********************************/
-
 .for-read-more {
-    /*position: absolute;
-    bottom: -1px;*/
     position: absolute;
     bottom: 25px;
     right: 15px;
@@ -1030,14 +944,6 @@ input::-ms-clear {
     top: 30%;
 }
 
-
-/* .break-news {
-    border-top: 2px solid #bdb4b4 !important;
-    border-left: 1px solid #bdb4b4 !important;
-    border-right: 1px solid #bdb4b4 !important;
-    border-bottom: 1px solid #bdb4b4 !important;
-} */
-
 .breaking-tip {
     background-color: #595959;
     border-radius: 3px;
@@ -1045,12 +951,9 @@ input::-ms-clear {
     color: #fff !important;
     display: inline-block;
     font-size: 13px;
-    /* line-height: 15px; */
     margin-left: 0;
     padding: 1px 4px 0px 4px;
-    /* margin: 0 4px 0 0; */
     background: #595959;
-    /* vertical-align: middle; */
 }
 
 .breaking-news-tip {
@@ -1067,12 +970,10 @@ input::-ms-clear {
 }
 
 .category_news_title {
-    /* text-align: center; */
     padding: 0px 15px 15px 0px;
 }
 
 .category_news_title span {
-    /* border-left: 5px solid #ff9563; */
     padding-left: 10px;
     font-weight: bold;
 }
@@ -1083,16 +984,10 @@ input::-ms-clear {
     margin-top: 20px;
 }
 
-
-/* .img-box img {
-border-radius: 3px;
-} */
-
 .pattern-txt-box {
     color: #333;
     overflow: hidden;
     position: relative;
-    /*height: 75px;*/
     height: 60px;
     padding-left: 0px;
 }
@@ -1104,7 +999,6 @@ border-radius: 3px;
 .txt-box {
     color: #333;
     position: relative;
-    /*height: 75px;*/
     height: 110px;
     padding-left: 0px;
 }
@@ -1205,8 +1099,6 @@ border-radius: 3px;
 .title5 span {
     background-color: #63b7ff;
     color: #fff;
-    /* padding: 2px 10px;
-    border-radius: 5px; */
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
@@ -1215,8 +1107,6 @@ border-radius: 3px;
 .title4 span {
     background-color: #d1291d;
     color: #fff;
-    /* padding: 2px 10px;
-    border-radius: 5px; */
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
@@ -1225,8 +1115,6 @@ border-radius: 3px;
 .title3 span {
     background-color: #21d1de;
     color: #fff;
-    /* padding: 2px 10px;
-    border-radius: 5px; */
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
@@ -1235,8 +1123,6 @@ border-radius: 3px;
 .title2 span {
     background-color: #9579ef;
     color: #fff;
-    /* padding: 2px 10px;
-    border-radius: 5px; */
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
@@ -1245,8 +1131,6 @@ border-radius: 3px;
 .title1 span {
     background-color: #a3774a;
     color: #fff;
-    /* padding: 2px 10px;
-    border-radius: 5px; */
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
@@ -1261,16 +1145,6 @@ border-radius: 3px;
     border: 1px solid #2c3e505c;
     color: #fff;
 }
-
-
-/* 
-.title22 span {
-    background-color: #63b7ff;
-    color: #fff;
-    padding: 2px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-} */
 
 .hovereffect {
     height: 100%;
@@ -1347,15 +1221,10 @@ border-radius: 3px;
     object-fit: contain;
     height: 214px;
     padding: 10px 0;
-    /* only if you want fixed height */
 }
-
-
 /********************************** End News **********************************/
 
-
 /********************************** Login And Register **********************************/
-
 .loginwrapper {
     display: -ms-flexbox;
     display: flex;
@@ -1528,7 +1397,6 @@ border-radius: 3px;
 
 .login_txt {
     display: block;
-    /* margin: 20px 0 0 0; */
     color: #2C3E50 !important;
     font-weight: bold;
     text-align: center;
@@ -1566,12 +1434,6 @@ border-radius: 3px;
 #register.loginwrapper .form-group {
     margin: 0 0 35px 0;
 }
-
-
-/* #register.loginwrapper .input-group {
-    margin-bottom: 0;
-}
-*/
 
 .loginwrapper .error {
     position: absolute;
@@ -1638,7 +1500,6 @@ border-radius: 3px;
 
 .login_btn:hover {
     opacity: 0.9;
-    /* background: #F3773C !important; */
 }
 
 .login_btn:focus {
@@ -1667,9 +1528,7 @@ border-radius: 3px;
     color: #D2CFCF !important;
 }
 
-
 /*login*/
-
 .login_1 {
     top: -39px;
     margin-right: 10px;
@@ -1691,8 +1550,6 @@ border-radius: 3px;
     margin-left: 16px;
     position: absolute;
 }
-
-
 /*login*/
 
 .user_card .links a {
@@ -1702,7 +1559,6 @@ border-radius: 3px;
 
 .text {
     color: #fff !important;
-    /* padding: 0px 0px 0px 240px; */
     position: relative;
     float: right;
 }
@@ -1729,7 +1585,6 @@ border-radius: 3px;
 
 .collapse.show {
     display: block;
-    /* background: rgba(199, 220, 217, 1); */
 }
 
 .admin-list-wrapper {
@@ -1780,11 +1635,6 @@ border-radius: 3px;
     cursor: pointer;
 }
 
-
-/* ::-webkit-file-upload-button:after{
-    content: "Testing";
-} */
-
 .register_btn {
     color: white !important;
     width: 150px;
@@ -1818,13 +1668,9 @@ border-radius: 3px;
     outline: none;
     box-shadow: none;
 }
-
-
 /********************************** End Login And Register **********************************/
 
-
 /****************************** no search data *************************/
-
 .nosearch-icon {
     border: 1px solid #b0abab;
     width: 60px;
@@ -1883,13 +1729,10 @@ border-radius: 3px;
     padding: 10px;
     text-align: center;
 }
-
-
 /******************************** end no search data ****************************************/
 
 
 /******************************** JOB, NURSING, HOSPITAL SEARCH *****************************/
-
 .wd-in p {
     min-height: 25px;
     font-size: 16px;
@@ -1937,24 +1780,7 @@ border-radius: 3px;
     }
 }
 
-@media only screen and (max-width:1024px) {
-    /* table>tbody>tr th {
-        width: 100px !important;
-    } */
-}
-
 @media only screen and (max-width: 480px) {
-    /*for backup when necessary*/
-    /* table>tbody>tr th {
-        padding: 25px 5px;
-    }
-    table th,
-    table td {
-        vertical-align: middle !important;
-        width: 50px !important;
-        padding: 5px !important;
-    } */
-    /*end for backup when necessary*/
     .dropdown-toggle::after {
         position: absolute;
         right: 12px;
@@ -1975,7 +1801,6 @@ border-radius: 3px;
 }
 
 .enabled {
-    /* display:block; */
     cursor: pointer;
 }
 
@@ -1999,13 +1824,10 @@ border-radius: 3px;
         display: none;
     }
 }
-
-
 /*************************************END JOB, NURSING, HOSPITAL **************************/
 
 
 /*************************************Nursing Search **************************************/
-
 .gm-style .gm-style-iw-d {
     overflow: auto !important;
     width: 259px !important;
@@ -2037,7 +1859,6 @@ border-radius: 3px;
 #nursing-search .card-carousel {
     display: flex;
     justify-content: center;
-    /* width: 1320px; */
     width: 1318px;
     overflow: auto;
 }
@@ -2182,19 +2003,24 @@ border-radius: 3px;
     .bottom-mail-btn {
         width: 113px !important;
     }
+
     .bottom-fav-btn {
         width: 160px !important;
     }
+
     #nursing-search .card-carousel {
         width: 200px!important;
     }
+
     #nursing-search .card-carousel {
         overflow: visible;
     }
+
     #nursing-search .nav-content {
         border: none;
         width: 0px;
     }
+
     #nursing-search .nav-box[disabled] .nav-content {
         border: none;
         background: #fff;
@@ -2205,17 +2031,21 @@ border-radius: 3px;
     #nursing-search .card-carousel {
         width: 278px!important;
     }
+
     #nursing-search .card-carousel {
         overflow: visible;
     }
+
     #nursing-search .nav-content {
         border: none;
         width: 0px;
     }
+
     #nursing-search .nav-box[disabled] .nav-content {
         border: none;
         background: #fff;
     }
+
     #nursing-search .card-carousel--nav__left,
     #nursing-search .card-carousel--nav__right {
         margin-left: -7px;
@@ -2226,42 +2056,36 @@ border-radius: 3px;
     #nursing-search .card-carousel {
         width: 280px !important;
     }
+
     #nursing-search .card-carousel {
         overflow: visible;
     }
+
     #nursing-search .nav-content {
         border: none;
         width: 0px;
     }
+
     #nursing-search .nav-box[disabled] .nav-content {
         border: none;
         background: #fff;
     }
+
     #nursing-search .card-carousel--nav__left,
     #nursing-search .card-carousel--nav__right {
         margin-left: -7px;
     }
+
     .wd-in .carousel-img {
         width: 100px;
     }
 }
 
 
-/* @media only screen and (max-width: 768px) {
-    #nursing-search .card-carousel {
-        width: 564px!important;
-    }
-} */
-
-
 /* Medium devices (landscape tablets, 768px and up) */
-
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
     #nursing-search .card-carousel {
         width: 415px!important;
-    }
-    .wd-in .carousel-img {
-        /* width: 140px; */
     }
 }
 
@@ -2275,6 +2099,7 @@ border-radius: 3px;
     #nursing-search .card-carousel {
         width: 564px!important;
     }
+
     .wd-in {
         width: 320px;
     }
@@ -2293,6 +2118,7 @@ border-radius: 3px;
     #nursing-search .card-carousel {
         width: 827px!important;
     }
+
     .wd-in {
         width: 250px !important;
     }
@@ -2300,7 +2126,6 @@ border-radius: 3px;
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-
 @media only screen and (max-width: 1440px) and (min-width: 1201px) {
     #nursing-search .card-carousel {
         width: 988px!important;
@@ -2318,13 +2143,10 @@ border-radius: 3px;
         width: 319px !important;
     }
 }
-
-
 /*************************************end Nursing Search **********************************/
 
 
 /***************************************** Job Search *****************************************/
-
 .arrow_icon {
     color: #828282 !important;
     font-size: 16px;
@@ -2370,7 +2192,6 @@ border-radius: 3px;
 }
 
 .nursing-map-addicon:before {
-    /* color: #ff9563!important; */
     color: #63b7ff!important;
 }
 
@@ -2388,8 +2209,6 @@ border-radius: 3px;
 
 #map-responsive {
     background-color: rgba(255, 255, 255, 0.8);
-    /* border-radius: 10px;
-box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     margin-bottom: 30px;
     overflow: hidden;
 }
@@ -2429,7 +2248,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 .map-fa-icon {
     width: 101px;
     height: 91px;
-    /* background: url(../images/map-responsive1.png); */
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
@@ -2453,8 +2271,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     top: 0;
     right: 0;
 }
-
-
 /************************************  End Job Search ************************************************/
 
 #hospitalView .profile_header {
@@ -2463,7 +2279,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 }
 
 #nursingView .profile_header {
-    /* border-left: 5px solid #ff9563; */
     border-left: 5px solid #63b7ff;
     background: #fff;
 }
@@ -2507,7 +2322,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 }
 
 #nursingView .profile_subtit:after {
-    /* background: #ff9563; */
     background: #63b7ff;
 }
 
@@ -2537,8 +2351,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     font-size: 1.5rem;
     border-radius: 1px;
     min-height: 40px;
-    /* color: #ff9563;
-    border-bottom: 1px dashed #ff9563; */
     color: #2981cc;
     min-height: 40px;
 }
@@ -2558,20 +2370,17 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
 }
 
 #nursingView .header {
-    /* color: #ec7338; */
     color: #2981cc;
     background: none;
 }
 
 .public-nurheader {
-    /* border-bottom: 3px solid #ff9563; */
     border-bottom: 3px solid #2981cc;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
 .public-nurheader .fa-user-md {
-    /* color: #ff9563; */
     color: #2981cc;
 }
 
@@ -2589,7 +2398,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     font-weight: bold;
     display: inline-block;
     position: relative;
-    /*background: #fff;*/
     border-radius: 1px;
     border-bottom: 1px dashed #2980b9;
     width: 100%;
@@ -2620,14 +2428,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     height: 1px;
     bottom: 0;
     left: 42%;
-    /* border-bottom: 1px solid #42b698; */
 }
-
-
-/* .admin_header h5 {
-    margin-bottom: -50px;
-    line-height: 2.5;
-} */
 
 .admin_header h5 {
     font-weight: bold;
@@ -2637,7 +2438,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     width: 350px;
     object-fit: contain;
     height: 300px;
-    /* only if you want fixed height */
 }
 
 .fit-image-profile {
@@ -2648,9 +2448,7 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     display: none;
 }
 
-
 /******************************* Main Header ******************************/
-
 .admin-header {
     position: fixed;
     width: 100%;
@@ -2664,14 +2462,12 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     line-height: 50px;
     vertical-align: middle;
     z-index: 99;
-    /* overflow: hidden;  */
 }
 
 .admin-header .nav-warp {
     width: 100%;
     max-width: 97%;
     align-items: center;
-    /* margin-left: 270px; */
 }
 
 .admin-header .userprofile-name {
@@ -2709,9 +2505,6 @@ box-shadow: 0px 0px 5px rgb(212, 201, 201); */
     height: 80px;
     left: 0px;
     padding: 10px 0;
-    /* background-color: #eee;
-border-top: 5px solid #e66527; */
-    /*background: #fff;*/
     background: #f4f4f2;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
@@ -2723,23 +2516,6 @@ border-top: 5px solid #e66527; */
 .gSecondNav li {
     list-style: none;
     float: left;
-}
-
-
-/* .gSecondNav li {
-    float: left;
-    list-style: none;
-    background: #ecf1f5;
-    border: solid 1px #a7b7c7;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #000;
-    margin: 5px;
-    font-size: 12px;
-} */
-
-.gNav {
-    /* margin-left: 2%; */
 }
 
 .gNav li {
@@ -2812,7 +2588,6 @@ border-top: 5px solid #e66527; */
     padding: 10px 0 0 0;
     line-height: 1.1;
     font-size: 16px;
-    /* font-weight: bold; */
     color: #444;
 }
 
@@ -2851,10 +2626,6 @@ border-top: 5px solid #e66527; */
     font-size: 16px;
 }
 
-.main-header .navbar-nav .nav-link span {
-    /* text-decoration: underline; */
-}
-
 .social-link a {
     display: inline-block;
     width: 20px;
@@ -2887,10 +2658,6 @@ border-top: 5px solid #e66527; */
     width: 80%;
 }
 
-/* .menu_tab_category {
-    width: 78.8% !important;
-} */
-
 #app .logo-text {
     padding: 0;
     margin-right: 0px;
@@ -2904,11 +2671,9 @@ border-top: 5px solid #e66527; */
 .logo_subtitle {
     font-size: 13px;
     letter-spacing: 1.5px;
-    /* font-weight: bold; */
 }
 
 .main-content {
-    /* padding: 0px;*/
     width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
@@ -2932,14 +2697,11 @@ border-top: 5px solid #e66527; */
 }
 
 .main-wrap {
-    /* height: 700px; */
     overflow-y: auto;
     scrollbar-width: thin;
 }
 
-
 /*no data*/
-
 .nosearch-icon {
     border: 1px solid #b0abab;
     width: 60px;
@@ -2958,17 +2720,12 @@ border-top: 5px solid #e66527; */
     padding-top: 10%;
     padding-bottom: 10%;
 }
-
-
 /*end no data*/
 
-
 /* Create News */
-
 .error {
     color: #ff0000;
     font-size: 16px;
-    /* margin-bottom: 18px; */
 }
 
 .show-news-img {
@@ -3084,16 +2841,6 @@ border-top: 5px solid #e66527; */
     padding: 20px;
 }
 
-
-/*
-.newsList_txt h5 a {
-    display: block;
-}
-.newsList_txt h5 a,
-.newsList_txt p {
-    width: 90%;
-} */
-
 .related-card {
     margin-bottom: 20px;
     background: #f5f5f5;
@@ -3148,13 +2895,9 @@ border-top: 5px solid #e66527; */
 .related_post_box .control {
     margin-left: 0;
 }
-
-
 /* End Create News */
 
-
 /*Job Apply Form*/
-
 textarea.form-control,
 textarea {
     height: 100px !important;
@@ -3271,13 +3014,10 @@ textarea {
         transform: rotate(360deg);
     }
 }
-
-
 /* End Job Apply Form*/
 
 
 /* News Tab */
-
 .news-wrapper {
     height: 290px;
     overflow-y: auto;
@@ -3301,7 +3041,6 @@ textarea {
     font-size: 16px;
     border: 1px solid #53c000;
     z-index: 4;
-    /* min-width: 160px; */
 }
 
 .bottom-fav-btn {
@@ -3318,21 +3057,6 @@ textarea {
     z-index: 4;
     min-width: 175px;
 }
-
-
-/* .news-wrapper>ul>li.list-group-item {
-background-color: red !important;
-} */
-
-
-/* .news-wrapper >a:first-child{
-display: inline-block;
-margin-left: 0;
-margin-right: 2.1rem;
-padding: 0;
-vertical-align: top;
-width: 30rem;
-} */
 
 .news-wrapper>a:first-child>img {
     height: 19.4rem;
@@ -3367,13 +3091,9 @@ width: 30rem;
     font-size: 16px;
     color: #000000;
 }
-
-
 /*End News Tab*/
 
-
 /* Jobs Offer Detail */
-
 .btns {
     display: block;
     zoom: 1;
@@ -3466,19 +3186,10 @@ div.b {
     text-align: left;
     padding: 0px 10px;
 }
-
-
 /* End Job Offer Detail */
 
 
 /*For Ads */
-
-
-/* .ads-card,
-.ads-card2 {
-width: 18rem;
-} */
-
 .ads-card2 .card-body {
     padding: 5px 0px !important;
 }
@@ -3516,7 +3227,6 @@ width: 18rem;
 }
 
 .adslist-card {
-    /* height: 71px; */
     width: 188px;
     background: #eee;
 }
@@ -3539,25 +3249,16 @@ width: 18rem;
 
 .ads-img {
     float: left;
-    /* width: 128px; */
     width: 80px;
     margin-right: 19.2px;
     width:65px;
 }
-
-/*.ads-slider {
-    position: relative;
-    top: 10px;
-    width: 46%;
-    margin: 0 auto 20px;
-}*/
 
 .ads-slider .slick-slide {
     margin-left: 3px;
 }
 
 .ads-slider h3 {
-    /* width: 100px; */
     width: auto;
     height: 65px;
     display: -webkit-box;
@@ -3566,11 +3267,6 @@ width: 18rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-/*.ads-slider .ads-img {
-    width: auto;
-    max-width: 90px;
-}*/
 
 .source-img {
     width: 1.6rem;
@@ -3583,9 +3279,7 @@ width: 18rem;
     text-decoration: underline;
 }
 
-
 .source-wrapper {
-    /* bottom: 17.6px; */
     bottom: 4px;
     position: absolute;
 }
@@ -3607,13 +3301,10 @@ width: 18rem;
     position: relative;
     max-height: 80px;
 }
-
-
 /*End Ad*/
 
 
 /*For Terms & conditions */
-
 .title h5 {
     padding-left: 5px;
     margin-bottom: 15px;
@@ -3654,11 +3345,6 @@ ul.sub-ul li {
     background: transparent !important;
 }
 
-
-/* .joboffer-salary-type {
-    margin-left: 15px;
-} */
-
 .joboffer-salary {
     margin-left: 5px;
 }
@@ -3686,13 +3372,6 @@ ul.sub-ul li {
     top: 7px;
 }
 
-
-/* .autocomplete__icon {
-    height: 14px;
-    width: 14px;
-    display: none;
-} */
-
 .site_header {
     position: relative;
     margin: 30px 0;
@@ -3718,13 +3397,10 @@ ul.sub-ul li {
 .privacy {
     padding-left: 20px;
 }
-
-
 /*End Terms & conditions */
 
 
 /*for search for,*/
-
 .toggle-input {
     display: block;
     width: 100%;
@@ -3746,7 +3422,6 @@ ul.sub-ul li {
 
 
 /* setup class */
-
 .green {
     color: green;
 }
@@ -4044,12 +3719,7 @@ ul.sub-ul li {
     background-color: #2980b9 !important;
 }
 
-.white-bg-color {
-    /*background-color: #fff !important;*/
-}
-
 .custom-bg-color {
-    /*background-color: #f0f0f0 !important;*/
     background: #fff;
 }
 
@@ -4131,7 +3801,6 @@ ul.sub-ul li {
 
 .btn:hover {
     cursor: pointer;
-    /* opacity: 0.9; */
 }
 
 .confirm-borderbtn {
@@ -4167,7 +3836,6 @@ ul.sub-ul li {
     color: #000 !important;
     border: none;
     font-weight: bold;
-    /* width: 125px; */
     font-size: 12px;
 }
 
@@ -4193,11 +3861,6 @@ ul.sub-ul li {
     font-size: 75%;
 }
 
-/*.fav-item {
-    font-size: 12px;
-    padding: 5px 10px;
-}*/
-
 .box-searchmap {
     position: relative;
     padding: 16px;
@@ -4205,10 +3868,6 @@ ul.sub-ul li {
     background: #fff;
     margin: 10px 0px 0px 0px;
     border-radius: 0.25rem;
-    /* min-height: 350px !important; */
-    /* max-height: 252px;
-min-height: 252px; */
-    /* width: 49%; */
 }
 
 li.userprofile-name {
@@ -4225,20 +3884,12 @@ li.userprofile-name>a {
 
 .tab-content {
     padding: 13px !important;
-    /*for no scroll*/
-    /*background: white;*/
     border: 1px solid #ccc;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .tab-content1 {
     min-height: 350px;
-    /* max-height: 900px; */
-    /* margin-top: -1px; */
-}
-
-.tab-content2 {
-    /* height: 320px !important; */
 }
 
 .tab-card-header {
@@ -4263,37 +3914,13 @@ li.userprofile-name>a {
 }
 
 .nav-tabs .nav-link:hover {
-    /* background-color: #ffa77d; */
     color: #000 !important;
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
 }
 
-
-/* .router-link-active{
-color: #fff !important;
-} */
-
-
-/* .nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-border-color: transparent !important;
-} */
-
 a:hover {
     color: #000;
-}
-
-.nav-tabs .nav-item {
-    /* margin-bottom: -3px !important; */
-    /* border-left: 1px solid #fff !important; */
-}
-
-.nav-tabs .nav-link.active {
-    /* border-top: 3px solid #ff9563 !important;
-    border-right: 0px solid #ff9563 !important;
-    border-bottom: 0px solid #ff9563 !important;
-    border-left: 0px solid #ff9563 !important; */
 }
 
 div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
@@ -4324,8 +3951,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 .card-head-tabs {
     margin-bottom: 0rem !important;
-    /* background-color: #ff9563 !important; */
-    /* background-color: #f9793c  !important; */
     color: #fff !important;
     border-bottom: 0;
     border-left-style: solid;
@@ -4337,9 +3962,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     margin-right: 10px;
 }
 
-
 /*for sidebar*/
-
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     background-color: rgba(0, 0, 0, 0.1);
@@ -4363,9 +3986,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     color: #fff !important;
 }
 
-
 /*user view sidebar*/
-
 .userview-sidebar {
     background-color: #f5f5f5;
     padding-top: 180px;
@@ -4426,16 +4047,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     margin-top: 4px;
 }
 
-
-/* .adminview-sidebar {
-position: fixed;
-top: 90px;
-left: 10px;
-height: calc(100% - 100px);
-background: transparent;
-overflow-y: auto;
-} */
-
 #menu-overlay {
     display: none;
     width: 100%;
@@ -4458,9 +4069,7 @@ overflow-y: auto;
     margin-right: 10px;
 }
 
-
 /* profilepublish css start */
-
 #datepickerbox .mx-calendar-icon {
     height: auto !important;
 }
@@ -4610,14 +4219,11 @@ overflow-y: auto;
     border-left: 1px solid #63b7ff !important;
     border-right: 1px solid #63b7ff !important;
 }
-
-
 /* profilepublish css end */
 
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
     color: #23a2f5 !important;
-    /* color: #2980b9 !important; */
 }
 
 .nav-pills .nav-link {
@@ -4628,38 +4234,9 @@ overflow-y: auto;
     color: #fff !important;
     background-color: #828282 !important;
     border: none !important; 
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    /*border-left-color: #ff9563;
-    font-weight: bold;
-    border-radius: 0px !important;*/
-    /* color: #fff !important; */
-    /*color: #23a2f5 !important;*/
-    /* color: #2980b9 !important; */
-    /*font-weight: bold;*/
-    /* height: 36px; */
-
-    /* old css */
-    /* border-left-color: #ff9563;
-     font-weight: bold;
-     border-radius: 0px !important;
-     color: #23a2f5 !important;
-     font-weight: bold;*/
-     /* color: #fff !important; */
-     /* color: #2980b9 !important; */
 }
 
-
-
-
-
-
 /*for main tab*/
-
-
-/* .tab{
-height:743px;
-} */
-
 .main-tab {
     margin: 0 auto;
 }
@@ -4700,37 +4277,11 @@ ul.main-tab li:after {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
-
-
-/* .tablink{
-color: #fff !important;
-} */
-
-
-/* .subtab1{
-background: #00b09b;
-}
-.subtab2{
-background: #ffdde1;
-}
-.subtab3{
-background: #4eb3de ;
-}
-.subtab4{
-background: #7586c6 ;
-}
-.subtab5{
-background: #ff9b53;  /
-} */
-
-
 /* end for main tab*/
 
 
 /*related news*/
-
 .next-title {
-    /* border-top: 2px dotted #118063; */
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -4739,33 +4290,6 @@ background: #ff9b53;  /
     color: #000;
     text-align: left;
 }
-
-
-/* #news_details .related_wrap .next-title {
-    width: 100%;
-    margin-bottom: 20px;
-}
-#news_details .related_wrap {
-    width: 100%;
-    border-top: 2px dashed #eee;
-}
-#news_details .related_wrap .next-title {
-    display: inline-block;
-    border-left: 5px solid #ffa500;
-    letter-spacing: 3px;
-}
-#news_details .related_content {
-    margin: 0 auto;
-}
-#news_details .related_box {
-    display: inline-block;
-    width: 250px;
-    margin: 0 10px 15px 0;
-}
-#news_details .related_box a {
-    display: block;
-    width: 100%;
-} */
 
 #news_details .related_content {
     width: 100%;
@@ -4791,13 +4315,7 @@ background: #ff9b53;  /
     padding-right: 0;
 }
 
-
-/* #news_details .hovereffect img {
-    width: 250px;
-} */
-
 #news_details .info p {
-    /* max-width: 250px; */
     color: #fff;
     padding: 0px 15px;
 }
@@ -4808,7 +4326,6 @@ background: #ff9b53;  /
 
 
 /* Hospital Search */
-
 .table-innertitle {
     position: relative;
 }
@@ -4828,7 +4345,6 @@ background: #ff9b53;  /
 
 .first-row {
     color: #fff !important;
-    /* background-color: #a2a7a1; */
     background-color: #80919a;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -4838,13 +4354,10 @@ background: #ff9b53;  /
 }
 
 .second-row {
-    /* background-color: #eff7ec; */
     background-color: #ecf8ff;
 }
 
 .innerwrapper {
-    /* padding-left: 0px;
-padding-right: 0px;     */
     margin-left: 0px;
     display: table;
     padding: 0px 5px;
@@ -4853,9 +4366,6 @@ padding-right: 0px;     */
 
 .item-compare {
     display: table-cell;
-    /* background-color: rgb(245, 245, 245);
-padding: 12px;
-width: 33.33%; */
 }
 
 ul.item-compare li {
@@ -4894,13 +4404,10 @@ ul.hospital-subject>li:before {
     padding: 5px 10px;
     margin: 0 0 10px 3px;
     font-size: 13px;
-    /* color: #ff9563; */
     color: #63b7ff;
     text-align: center;
     border-radius: 20px;
-    /* border: 1px solid #ff9563; */
     border: 1px solid #63b7ff;
-    /*background: #fff;*/
 }
 
 .hos_feature_list {
@@ -4917,7 +4424,6 @@ ul.hospital-subject>li:before {
 .link-span {
     cursor: pointer;
 }
-
 
 /********************************* Map *****************************/
 .search-map {
@@ -4939,22 +4445,14 @@ ul.hospital-subject>li:before {
     display: inline-block;
     width: 100%;
     max-width: 670px;
-    /* background: url(/images/img_map1.png) center top no-repeat; */
-    /* width: 850px;*/
-    /* min-width: 936px; */
-    /* height: 532px; */
 }
 
 .align-center{
     text-align: center;
     padding: 0;
 }
-/*.map-leftwrapper {
-    padding-left: 75px;
-}*/
 
 .map-header {
-    /* color: #2c3e50; */
     font-weight: bold;
     font-size: 286%;
     line-height: 1.4;
@@ -4963,7 +4461,6 @@ ul.hospital-subject>li:before {
 }
 
 .nursing-map-header {
-    /* color: #9e3d0e!important; */
     color: #2c3e50 !important
 }
 
@@ -4972,7 +4469,6 @@ ul.hospital-subject>li:before {
 }
 
 .job-map-header {
-    /*color: #332f2f!important;*/
     color: #2c3e50!important;
 }
 
@@ -5001,7 +4497,6 @@ ul.hospital-subject>li:before {
 }
 
 .nursing-search-box .searchTerm {
-    /* border: 3px solid rgb(255, 149, 99); */
     border: 3px solid rgb(99, 183, 255);
 }
 
@@ -5044,8 +4539,6 @@ ul.hospital-subject>li:before {
     font-size: 16px;
     width: 85px;
     height: 40px;
-    /* border: 1px solid #2980b9;
-    background: #2980b9; */
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -5057,8 +4550,6 @@ ul.hospital-subject>li:before {
 }
 
 .nursing-search-box .searchButton {
-    /* border: 1px solid rgb(255, 149, 99);
-    background: rgb(255, 149, 99); */
     border: 1px solid rgb(99, 183, 255);
     background: rgb(99, 183, 255);
 }
@@ -5083,13 +4574,7 @@ ul.hospital-subject>li:before {
     position: absolute;
     overflow: hidden;
     color: #fff;
-    /* background: #f7f0ed; */
-    /* border: 1.5px solid #331d12; */
-    /* border-radius: 10px; */
     -moz-border-radius: 10px;
-    /* -webkit-border-radius: 10px; */
-    /* box-shadow: 1px 1px 2px #868181;
-    /* box-shadow: 1px 1px 2px #868181; */
     width: 68%;
     max-width: 72px;
 }
@@ -5220,30 +4705,26 @@ ul.hokkaido-wrap {
     z-index: 2;
 }
 
-#myTab .nav-tabs .nav-item .nav-link:focus{
-    /* background-color: yellow !important; */
-}
-
 @media print,
 screen and (min-width: 750px) {
     #nursingView .top-fixed-btn:hover {
-        /* background: #fff9cb; */
         background: #cbf3ff;
         color: #000;
     }
+
     #hospitalView .top-fixed-btn.active:hover {
         background: #cbf3ff;
         color: #000;
     }
+
     #hospitalView .top-fixed-btn:hover {
         background: #cbf3ff;
         color: #000;
     }
+
     .spanclass {
         letter-spacing: normal;
-        /* width: 50%; */
         display: inline-block;
-        /* margin-bottom: 5px; */
         font-weight: bold;
         text-align: center;
         padding: 5px;
@@ -5251,12 +4732,15 @@ screen and (min-width: 750px) {
         margin-top: 1px;
         margin-left: 3px;
     }
+
     .spanclass a {
         position: relative;
     }
+
     .map-text a {
         color: #000 !important;
     }
+
     .map-text a:after {
         content: "";
         width: 6px;
@@ -5270,11 +4754,13 @@ screen and (min-width: 750px) {
         left: 40px;
         margin-top: -3px;
     }
+
     .map-text a.Wakayama:after,
     .map-text a.Kagoshima:after,
     .map-text a.Kanagawa:after {
         left: 50px;
     }
+
     .info-box {
         display: none;
         position: absolute;
@@ -5289,22 +4775,26 @@ screen and (min-width: 750px) {
         font-family: arial;
         font-display:swap;
     }
+
     /* End Hospital Search */
+
     /* Newdetails */
     .p5 {
         font-size: 18px;
         letter-spacing: 2px;
     }
+
     .news_photo {
         height: 250px;
         width: 80%;
         margin-bottom: 24px;
         border-radius: 3px;
     }
+
     .related-area span {
         color: rgb(255, 72, 0);
         font-size: 14px;
-    }
+    }    
     /*End Newdetails */
     /* Scrollbar */
     .news-wrapper::-webkit-scrollbar,
@@ -5317,6 +4807,7 @@ screen and (min-width: 750px) {
         width: 6px !important;
         background: #f7f7f7 !important;
     }
+
     .news-wrapper::-webkit-scrollbar-track,
     .ql-editor::-webkit-scrollbar-track,
     body::-webkit-scrollbar-track,
@@ -5327,6 +4818,7 @@ screen and (min-width: 750px) {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
         border-radius: 0px !important;
     }
+
     .news-wrapper::-webkit-scrollbar-thumb,
     .ql-editor::-webkit-scrollbar-thumb,
     .main-wrap::-webkit-scrollbar-thumb,
@@ -5339,26 +4831,31 @@ screen and (min-width: 750px) {
         border-radius: 0px !important;
     }
     /* End Scrollbar */
+
     /* Newdetails */
     .p5 {
         font-size: 18px;
         letter-spacing: 2px;
     }
+
     .news_photo {
         width: 100%;
         margin-bottom: 24px;
         border-radius: 3px;
     }
+
     .related-area span {
         color: #6c757d;
         font-size: 14px;
     }
+
     .set-date {
         float: right;
         text-indent: 2em;
         margin-bottom: 2px;
     }
     /*End Newdetails */
+
     /*jssor slider*/
     /*jssor slider loading skin spin css*/
     .jssorl-009-spin {
@@ -5370,6 +4867,7 @@ screen and (min-width: 750px) {
         text-align: center;
         background-color: rgba(0, 0, 0, 0.7);
     }
+
     .jssorl-009-spin img {
         animation-name: jssorl-009-spin;
         animation-duration: 1.6s;
@@ -5381,6 +4879,7 @@ screen and (min-width: 750px) {
         width: 38px;
         height: 38px;
     }
+
     .jssor-slider {
         position: relative;
         top: 0px;
@@ -5390,6 +4889,7 @@ screen and (min-width: 750px) {
         visibility: hidden;
         margin: 0 auto 10px;
     }
+
     .top-ad-slider {
         position: relative;
         top: 0px;
@@ -5399,25 +4899,31 @@ screen and (min-width: 750px) {
         margin: 0 auto;
         overflow: hidden;
     }
+
     .top-ad-slider .slide-img {
         width: 100px;
         margin: 10px 0 5px 10px;
     }
+
     .top-ad-slider .slide-img img {
         width: auto;
         max-width: 100px;
     }
+
     .top-ad-slider .list-group-item {
         padding: 2px;
         height: 120px;
     }
+
     /*job search*/
     ul.hokkaido-wrap {
         left: 0px;
     }
+
     .divisions span {
         margin-right: 10px;
     }
+
     .hokkaido-box {
         position: absolute;
         top: 11%;
@@ -5425,6 +4931,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .tohoku-box {
         position: absolute;
         top: 28%;
@@ -5432,19 +4939,23 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .multiple-box {
         width: 140% !important;
         max-width: 156px !important;
     }
+
     .multiple-boxa {
         width: 95% !important;
         max-width: 156px !important;
     }
+
     .hokkaido-box .spanclass,
     .kanto-box .spanclass,
     .okinawa-box .spanclass {
         margin-right: 1px;
     }
+
     .kanto-box {
         position: absolute;
         top: 56%;
@@ -5452,6 +4963,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .hokuriku-box {
         position: absolute;
         top: 26%;
@@ -5459,6 +4971,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .tokai-box {
         position: absolute;
         bottom: 28%;
@@ -5466,6 +4979,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .kinki-box {
         position: absolute;
         top: 40%;
@@ -5473,6 +4987,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .chugoku-box {
         position: absolute;
         top: 30%;
@@ -5480,6 +4995,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .shikoku-box {
         position: absolute;
         left: 18%;
@@ -5487,6 +5003,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .kyushu-box {
         position: absolute;
         top: 31%;
@@ -5494,6 +5011,7 @@ screen and (min-width: 750px) {
         z-index: 2;
         padding: 0;
     }
+
     .okinawa-box {
         position: absolute;
         bottom: 5%;
@@ -5505,9 +5023,7 @@ screen and (min-width: 750px) {
     /*register form*/
 }
 
-
 /* Create News */
-
 .show-news-img {
     height: 100px;
     margin: 15px 0px;
@@ -5580,13 +5096,10 @@ screen and (min-width: 750px) {
 .caret {
     margin-left: 15px;
 }
-
-
 /* End Create News */
 
 
 /* News Tab */
-
 .news-wrapper {
     height: 375px;
     overflow-y: auto;
@@ -5596,20 +5109,6 @@ screen and (min-width: 750px) {
 .news-wrapper a:hover {
     text-decoration: none;
 }
-
-.news-wrapper>ul>li.list-group-item {
-    /* background-color: red !important; */
-}
-
-
-/* .news-wrapper >a:first-child{
-display: inline-block;
-margin-left: 0;
-margin-right: 2.1rem;
-padding: 0;
-vertical-align: top;
-width: 30rem;
-} */
 
 .news-wrapper>a:first-child>img {
     height: 19.4rem;
@@ -5647,13 +5146,10 @@ width: 30rem;
     font-weight: normal;
     color: #444;
 }
-
-
 /*End News Tab*/
 
 
 /* Jobs Offer Detail */
-
 .btns {
     display: block;
     zoom: 1;
@@ -5746,13 +5242,9 @@ div.b {
     text-align: left;
     padding: 0px 10px;
 }
-
-
 /* End Job Offer Detail */
 
-
 /* job offer list */
-
 .joboffer-header {
     margin-bottom: 20px;
 }
@@ -5780,16 +5272,11 @@ div.b {
 }
 
 #joboffer_list .all-btn {
-    /* min-width: 65px; */
     font-size: 13px;
 }
-
-
 /* End job offer list */
 
-
 /*For Ads */
-
 .fixed-ads {
     position: fixed;
     z-index: 5;
@@ -5800,16 +5287,6 @@ div.b {
 
 .fixed-ads-fluid {
     position: relative;
-    /* z-index: 5;
-overflow: hidden;
-background: #fff;
-width: 79%;
-top: 66px; */
-}
-
-.ads-card,
-.ads-card2 {
-    /* width: 18rem; */
 }
 
 .ads-card2 .card-body {
@@ -5877,7 +5354,6 @@ top: 66px; */
 
 .ads-img {
     float: left;
-    /* width: 128px; */
     width: 80px;
     margin-right: 19.2px;
 }
@@ -5890,7 +5366,6 @@ top: 66px; */
 }
 
 .source-wrapper {
-    /* bottom: 17.6px; */
     bottom: 4px;
     position: absolute;
 }
@@ -5912,8 +5387,6 @@ top: 66px; */
     position: relative;
     max-height: 80px;
 }
-
-
 /*End Ad*/
 
 .pl-pr {
@@ -5921,26 +5394,14 @@ top: 66px; */
     padding-right: 0px !important;
 }
 
-
 /* Media Queries*/
-
 @media (max-width: 720px) and (min-width: 450px) {
-    .pad-free-75 {
-        /* margin-left: -14px; */
-        /* background-color: red; */
-    }
     .pad-free-74 {
         margin-left: -14px;
-        /* background-color: red; */
     }
     .compare-wrap {
         max-width: 100%;
     }
-    /* .fav-update-wrap2 {
-        max-width: 100% !important;
-        flex: none !important;
-    }
-  */
 }
 
 @media (max-width:515px) and (min-width:470px) {
@@ -5973,14 +5434,10 @@ top: 66px; */
 }
 
 @media (max-width: 1024px) and (min-width: 320px) {
-    /* .loginwrapper {
-        position: fixed;
-        width: 100%;
-        background: #fbfbfb;
-    } */
     .adminview-sidebar {
         height: auto;
     }
+
     .customer-sidebar {
         display: none;
     }
@@ -5990,17 +5447,17 @@ top: 66px; */
     .source-img-small {
         width: 500px;
     }
+
     .ads-card {
         width: 120px;
     }
+
     .adminview-sidebar {
         height: auto;
     }
 }
 
-
 /*for search for,*/
-
 .toggle-input {
     display: block;
     width: 100%;
@@ -6017,9 +5474,7 @@ top: 66px; */
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-
 /* setup class */
-
 .green {
     color: green;
 }
@@ -6167,11 +5622,6 @@ top: 66px; */
     margin-left: 14px;
 }
 
-
-/* .m-r-2per{
-margin-right: 2% !important;
-} */
-
 .p-t-0 {
     padding-top: 0px;
 }
@@ -6240,15 +5690,11 @@ margin-right: 2% !important;
     margin-bottom: 5px !important;
 }
 
-
 /*comment*/
-
 .cmt-1 {
     margin-bottom: 10px;
     left: 8px;
 }
-
-
 /*comment*/
 
 .secondary-bg-color {
@@ -6331,7 +5777,6 @@ margin-right: 2% !important;
 }
 
 .is-nur {
-    /* color: #ff9967; */
     color: #2981cc;
 }
 
@@ -6364,10 +5809,6 @@ margin-right: 2% !important;
     background: #fff;
     margin: 10px 0px 0px 0px;
     border-radius: 0.25rem;
-    /* min-height: 350px !important; */
-    /* max-height: 252px;
-min-height: 252px; */
-    /* width: 49%; */
 }
 
 li.userprofile-name {
@@ -6397,17 +5838,11 @@ li.userprofile-name>a {
 
 .maintab-content {
     padding: 7px;
-    /*for no scroll*/
     margin: 75px 0 0 0;
 }
 
 .tab-content1 {
     min-height: 350px;
-    /* max-height: 900px; */
-}
-
-.tab-content2 {
-    /* height: 320px !important; */
 }
 
 .tab-card-header {
@@ -6445,18 +5880,8 @@ li.userprofile-name>a {
     color: #095c5f;
 }
 
-
-/* .router-link-active{
-color: #fff !important;
-} */
-
 a:hover {
     color: #000;
-}
-
-.nav-tabs .nav-item {
-    /* margin-bottom: -3px !important; */
-    /* border-left: 1px solid #fff !important; */
 }
 
 .nav-tabs .nav-link {
@@ -6480,9 +5905,7 @@ a:hover {
     margin-right: 10px;
 }
 
-
 /*for sidebar*/
-
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     background-color: rgba(0, 0, 0, 0.1);
@@ -6506,9 +5929,7 @@ a:hover {
     color: #fff !important;
 }
 
-
 /*user view sidebar*/
-
 .userview-sidebar {
     background-color: #f5f5f5;
     padding-top: 180px;
@@ -6518,9 +5939,7 @@ a:hover {
     margin-top: 4px;
 }
 
-
 /* profilepublish css start */
-
 .schedule_header,
 .schedule_body {
     font-weight: bold;
@@ -6610,7 +6029,6 @@ a:hover {
 
 #navtab .nav-link:focus,
 #navtab .nav-link:hover {
-    /* border-color: transparent !important; */
     border-color: inherit #fff transparent transparent !important;
 }
 
@@ -6624,7 +6042,6 @@ a:hover {
 
 #navtab .nav-item {
     margin-bottom: -3px !important;
-    /* border-left: 1px solid #fff !important; */
 }
 
 #profile-nav .subtab1 {
@@ -6640,10 +6057,7 @@ a:hover {
     color: #63b7ff !important;
     font-weight: bold;
     background: #fff !important;
-    /* border-top: 3px solid #ff9563;
-    border-color: #ff9563 #fff #fff #fff !important; */
     border-top: 3px solid #63b7ff;
-    /* border-color: #63b7ff #fff #fff #fff !important; */
     border-color: #63b7ff #63b7ff #fff #63b7ff !important;
 }
 
@@ -6711,15 +6125,12 @@ a:hover {
 }
 
 .cash-lbl {
-    /* color: #ff6117; */
     color: #fd0e0e;
     font-weight: bold;
     font-size: 1.4em;
 }
 
-
 /*for sidebar*/
-
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     background-color: rgba(0, 0, 0, 0.1);
@@ -6743,9 +6154,7 @@ a:hover {
     color: #fff !important;
 }
 
-
 /* profilepublish css start */
-
 #header {
     padding: 30px 0;
     height: 92px;
@@ -6890,13 +6299,10 @@ a:hover {
     width: 500px;
     font-weight: normal;
 }
-
-
 /* profilepublish css end */
 
 
 /*for main tab*/
-
 .nav_menu ul li a {
     padding: 10px 10px 10px 10px;
     font: normal 1em / normal "Open Sans Condensed", sans-serif;
@@ -6926,18 +6332,10 @@ a:hover {
     background: #666;
     color: #eee;
 }
-
-
 /* profilepublish css end */
 
 
 /*for main tab*/
-
-
-/* .tab{
-height:743px;
-} */
-
 .main-tab {
     margin: 0 auto;
 }
@@ -6978,18 +6376,10 @@ ul.main-tab li:after {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
-
-
-/* .tablink{
-color: #fff !important;
-} */
-
-
 /* end for main tab*/
 
 
 /*for breadcrumb*/
-
 .breadcrumb {
     padding: 0px 1rem !important;
     margin-bottom: 8px !important;
@@ -7009,7 +6399,6 @@ color: #fff !important;
 
 .breadcrumb-item.active>a {
     color: #f16c00;
-    /* font-weight: bold; */
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
@@ -7018,15 +6407,11 @@ color: #fff !important;
     padding: 0 4px;
     font-display:swap;
 }
-
-
 /*end for breadcrumb*/
 
 
 /*related news*/
-
 .next-title {
-    /* border-top: 2px dotted #118063; */
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -7036,13 +6421,9 @@ color: #fff !important;
     text-align: left;
 }
 
-
 /*footer*/
-
 .footer {
     font-size: 16px;
-    /* padding-top: 15px;
-    padding-bottom: 15px; */
     background: transparent;
     text-align: center;
     line-height: 20px;
@@ -7054,9 +6435,7 @@ color: #fff !important;
     padding-bottom: 100px;
 }
 
-
 /* listadmin .pagination */
-
 .page-item:first-child .spanclass,
 .page-item:last-child .spanclass,
 .page-item:nth-child(2) .spanclass,
@@ -7078,9 +6457,7 @@ color: #fff !important;
 
 .spanclass {
     letter-spacing: normal;
-    /* width: 50%; */
     display: inline-block;
-    /* margin-bottom: 5px; */
     font-weight: bold;
     text-align: center;
     padding: 7%;
@@ -7108,9 +6485,7 @@ color: #fff !important;
     position: relative;
 }
 
-
 /*admin_pagination*/
-
 .page-item.active .page-link {
     z-index: 3;
     /* color: #fff; */
@@ -7149,91 +6524,63 @@ color: #fff !important;
         font-size: 14.4px;
         min-width: 0;
     }
+
     .bottom-fav-btn {
         width: 165px;
         min-width: 0;
         font-size: 14.4px;
     }
+
     .pagination-prev-nav,
     .pagination-next-nav {
         display: none !important;
     }
+
     table.jobapp-tb th,
     table.jobapp-tb td {
         vertical-align: top !important;
     }
+
     .admin-list-container .admin_registercard {
         width: auto;
-        /* padding: 10px 0px; */
     }
+
     .searchButtonNews {
         width: 25%;
     }
     .pagination li.page-item {
-        /* display: block; */
         padding: 1px;
     }
+
     .page-item:first-child,
     .page-item:nth-child( 2),
-    /* .page-item:nth-child( 1 ), */
     .page-item:nth-last-child( 2),
     .page-item:last-child,
     .page-item.active,
     .page-item.disabled {
         display: block;
     }
+
     .upper-tab {
         border: none !important;
     }
+
     .slick-prev {
         left: -15px;
         transform: rotate(-135deg);
         z-index: 1000;
     }
 }
-
-
 /*end_admin_pagination*/
-
-
 /* end listadmin .pagination */
 
-
 /* Hospital Search */
-
 @media print,
 screen and (min-width: 750px) {
-    /* .page-item:first-child .spanclass,
-.page-item:last-child .spanclass,
-.page-item:nth-child(2) .spanclass,
-.page-item:nth-last-child(2) .spanclass {
-width: 60px;
-height: 30px;
-transition: background-color .3s;
-}
-.page-item .spanclass {
-width: 30px;
-height: 30px;
-background-image: none;
-}
-.spanclass {
-width: 60px;
-height: 30px;
-background-color: #fff;
-background-image: linear-gradient(to bottom, #ffffff, #f1f1f1);
-float: left;
-text-align: center;
-overflow: hidden; */
-    /* margin-top: 1px; */
-    /* border: 1px solid #8e3c15;
-border-radius: 2px;
-}
-.spanclass a {
-position: relative;
-} */
     .map-text a {
         color: #000 !important;
     }
+
     .map-text a:after {
         content: "";
         width: 6px;
@@ -7247,11 +6594,13 @@ position: relative;
         left: 40px;
         margin-top: -3px;
     }
+
     .map-text a.Wakayama:after,
     .map-text a.Kagoshima:after,
     .map-text a.Kanagawa:after {
         left: 50px;
     }
+
     .info-box {
         display: none;
         position: absolute;
@@ -7267,24 +6616,29 @@ position: relative;
         font-display:swap;
     }
     /* End Hospital Search */
+
     /* Newdetails */
     .p5 {
         font-size: 18px;
         letter-spacing: 2px;
     }
+
     .news_photo {
         height: 250px;
         width: 80%;
         margin-bottom: 24px;
         border-radius: 3px;
     }
+
     .related-area span {
         color: rgb(255, 72, 0);
         font-size: 14px;
     }
+
     .detail-subwrapper {
         font-size: 20px;
     }
+
     .detail-img {
         border-radius: 13px;
         border: 3px solid rgba(255, 255, 255, .9);
@@ -7294,33 +6648,38 @@ position: relative;
         max-width: 500px;
         filter: sepia(50%);
     }
+
     .overview-text {
         letter-spacing: 1px;
         line-height: 1.3rem;
         padding: 0 0 0 10px;
-        /* white-space: pre-line; */
     }
     /*End Newdetails */
+
     /* Newdetails */
     .p5 {
         font-size: 18px;
         letter-spacing: 2px;
     }
+
     .news_photo {
         width: 100%;
         margin-bottom: 24px;
         border-radius: 3px;
     }
+
     .related-area span {
         color: #6c757d;
         font-size: 14px;
     }
+
     .set-date {
         float: right;
         text-indent: 2em;
         margin-bottom: 2px;
     }
     /*End Newdetails */
+
     /*jssor slider*/
     /*jssor slider loading skin spin css*/
     .jssorl-009-spin {
@@ -7332,6 +6691,7 @@ position: relative;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.7);
     }
+
     .jssorl-009-spin img {
         animation-name: jssorl-009-spin;
         animation-duration: 1.6s;
@@ -7343,6 +6703,7 @@ position: relative;
         width: 38px;
         height: 38px;
     }
+
     .jssor-slider {
         position: relative;
         top: 0px;
@@ -7352,6 +6713,7 @@ position: relative;
         visibility: hidden;
         margin: 0 auto 10px;
     }
+
     .top-ad-slider {
         position: relative;
         top: 0px;
@@ -7361,29 +6723,25 @@ position: relative;
         margin: 0 auto;
         overflow: hidden;
     }
+
     .top-ad-slider .slide-img {
         width: 100px;
         margin: 10px 0 5px 10px;
     }
+
     .top-ad-slider .slide-img img {
         width: auto;
         max-width: 100px;
     }
+
     .top-ad-slider .list-group-item {
         padding: 2px;
         height: 120px;
     }
-    /* .top-ad-slider .ads-img {
-font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-}  */
 }
-
-
 /* End Hospital Search */
 
-
 /* Newdetails */
-
 .p5 {
     font-size: 18px;
     letter-spacing: 2px;
@@ -7417,13 +6775,10 @@ font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "�
     border-bottom: 1px dashed #2980b9;
     color: #2980b9;
 }
-
-
 /*End Newdetails */
 
 
 /* Scrollbar */
-
 .news-wrapper::-webkit-scrollbar,
 .ql-editor::-webkit-scrollbar,
 body::-webkit-scrollbar,
@@ -7457,13 +6812,10 @@ body::-webkit-scrollbar-thumb {
     background-color: #d7d7d7 !important;
     border-radius: 0px !important;
 }
-
-
 /* End Scrollbar */
 
 
 /* Newdetails */
-
 .p5 {
     font-size: 20px;
     letter-spacing: 2px;
@@ -7485,13 +6837,10 @@ body::-webkit-scrollbar-thumb {
     text-indent: 0em;
     margin-bottom: 2px;
 }
-
-
 /*End Newdetails */
 
 
 /*jssor slider*/
-
 
 /*jssor slider loading skin spin css*/
 
@@ -7554,12 +6903,6 @@ body::-webkit-scrollbar-thumb {
     height: 120px;
 }
 
-
-/* .top-ad-slider .ads-img {
-width: auto;
-margin-right: 13.2px;
-} */
-
 .top-ad-slider .list-group-item a {
     display: flex;
 }
@@ -7580,7 +6923,6 @@ margin-right: 13.2px;
     }
 }
 
-
 /*view*/
 
 .m-t-l {
@@ -7598,7 +6940,6 @@ margin-right: 13.2px;
 .am-l-10 {
     margin-left: 20px;
 }
-
 
 /*view*/
 
@@ -7668,7 +7009,6 @@ margin-right: 13.2px;
     border-color: #3ca512;
 }
 
-
 /* Hospital History */
 
 .fac_container>li {
@@ -7695,7 +7035,6 @@ margin-right: 13.2px;
     list-style: none;
 }
 
-
 /*for clinical subject*/
 
 .sub_container>li {
@@ -7707,13 +7046,7 @@ margin-right: 13.2px;
     text-align: center;
 }
 
-
 /*end for clinical subject*/
-
-
-/* .fac_container>li:first-child {
-margin: 0;
-} */
 
 .hos-tit {
     font-size: 20px;
@@ -7794,7 +7127,6 @@ margin: 0;
 .schedule-toggle-div table td:first-child {
     width: 8%;
     padding: 10px 0 0 30px;
-    /* background: #f5f5f5; */
     font-size: 15px;
 }
 
@@ -7803,9 +7135,7 @@ margin: 0;
     width: 40%;
 }
 
-
 /* End for Hospital History */
-
 
 /* Summernote */
 
@@ -7820,15 +7150,12 @@ margin: 0;
     padding: 5px 0 10px 10px !important;
 }
 
-
 /* End Summernote */
-
 
 /* Google Map  */
 
 #googlemap {
     min-height: 300px;
-    /* border: 3px solid #ccc; */
     border-radius: 4px;
 }
 
@@ -7836,18 +7163,11 @@ margin: 0;
     color: #000;
 }
 
-
 /* End Google Map  */
-
-
-/* .pc {
-display: block !important;
-} */
 
 .sp {
     display: none !important;
 }
-
 
 /*  Start CommentList */
 
@@ -7863,9 +7183,7 @@ display: block !important;
     margin-right: 4px;
     font-size: 12px;
     color: #777;
-    /* margin-top: -20px; */
 }
-
 
 /*comment*/
 
@@ -7905,7 +7223,6 @@ button.confirmed {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.0125), 0 1px 1px rgba(0, 0, 0, 0.05);
     border-bottom-width: 4.2px;
     position: relative;
-    /* top: 23px; */
 }
 
 .comment-btn:link,
@@ -7913,7 +7230,6 @@ button.confirmed {
     -webkit-transition: all .1s ease-in;
     transition: all .1s ease-in;
 }
-
 
 /* End Commentlist */
 
@@ -7937,7 +7253,6 @@ button.confirmed {
     transition: box-shadow .3s ease-out;
 }
 
-
 /* start one page */
 
 .page {
@@ -7952,10 +7267,8 @@ button.confirmed {
     padding: 5px 10px;
     font-size: 13px;
     color: #63b7ff;
-    /* color: #ff9563; */
     text-align: center;
     border-radius: 20px;
-    /* border: 2px solid #ff9563; */
     border: 2px solid #63b7ff;
     background: #fff;
 }
@@ -8016,17 +7329,13 @@ button.confirmed {
     right: 21%;
     top: 10px;
     padding: 0px;
-    /* z-index: 99; */
     font-size: 13px;
     color: #fff;
 }
 
-
 /* end one page */
 
-
 /* modal dialgo*/
-
 
 /*error*/
 
@@ -8056,11 +7365,6 @@ button.confirmed {
     border-color: #eea025 !important;
 }
 
-
-/* .swal2-icon.swal2-success{
-color: green;
-}*/
-
 .swal2-icon.swal2-warning {
     width: 80px !important;
     height: 80px !important;
@@ -8072,7 +7376,6 @@ color: green;
     width: 80px !important;
     height: 80px !important;
     margin: 20px auto 30px !important;
-    /* border: 4px solid #43d24a !important; */
 }
 
 .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
@@ -8096,12 +7399,10 @@ color: green;
 }
 
 .swal2-modal .swal2-styled {
-    /* background: #fff; */
     box-shadow: none !important;
     padding: 8px 20px !important;
     font-size: 14px !important;
 }
-
 
 /*---------------*/
 
@@ -8170,10 +7471,8 @@ color: green;
 }
 
 .card-wrap .create-btn {
-    /* width: 16%; */
     margin: 30px auto;
 }
-
 
 /* start one page */
 
@@ -8230,9 +7529,7 @@ color: green;
     color: #fff;
 }
 
-
 /* end one page */
-
 
 /*required*/
 
@@ -8243,22 +7540,15 @@ color: green;
     color: white;
     content: '必須';
     border-radius: 3px;
-    /* font-weight: normal; */
     font-size: 0.9em;
 }
-
 
 /* start .profile */
 
 .fixed-nav {
-    /* width: 79.9%; */
     margin: 0 auto;
     padding: 0 !important;
     background: transparent;
-    /* -moz-transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; */
-    /* overflow: hidden; */
     z-index: 4;
     left: 0;
     right: 0;
@@ -8271,8 +7561,6 @@ color: green;
 }
 
 #nursingView .top-fixed-btn {
-    /* background: #fbaa84;
-    border: 1px solid #ff9563; */
     background: #85c7ff;
     border: 1px solid #5c95c5;
 }
@@ -8293,17 +7581,13 @@ color: green;
     border: 1px solid #5f97d0;
 }
 
-#nursingView .top-fixed-btn.active {
-    /* background: #d2571c;
-    border: 1px solid #ff9563; */
+#nursingView .top-fixed-btn.active {/
     background: #2981cc;
     border: 1px solid #5f97d0;
 }
 
 .top-fixed-btn.active {
     color: #fff;
-    /* background: #ff9563; */
-    /* background: #2980b9; 5f97d0  */
     width: 145px;
     cursor: pointer;
     padding: 5px;
@@ -8336,9 +7620,7 @@ color: green;
     width: 50%;
 }
 
-
 /* end profile */
-
 
 /* nursingFavouriteMail form */
 
@@ -8422,34 +7704,28 @@ color: green;
     display: block;
     margin: 0 auto;
     color: #fff;
-    /* padding: 0.375rem 1.75rem; */
 }
 
 .carousel-wrap .list-group-item {
     margin-bottom: 0;
 }
 
-
 /* nursing */
 
 #nursing .pseudolink {
-    /* color: #ff9563; */
     color: #63b7ff;
     line-height: 10px;
     font-weight: bold;
 }
 
 #nursing .fac_container li {
-    /* border: 1px solid #ff9563; */
     border: 1px solid #63b7ff;
-    /* color: #ff9563; */
     color: #63b7ff;
     font-weight: bold;
 }
 
 #nursing .res-btn {
     position: relative;
-    /* background: #ff9563; */
     background: #63b7ff;
 }
 
@@ -8515,7 +7791,6 @@ color: green;
 
 #nursing .modal-footer {
     padding: 0.5rem;
-    /* background: #eaeef0; */
     background: #BCDDF3;
     border: 1px solid #ddd;
     max-width: 100%;
@@ -8534,7 +7809,6 @@ color: green;
 .profile_price {
     width: 239px;
     font-size: 16px;
-    /* color: #ff6117; */
     color: #fd0e0e;
     line-height: 1;
 }
@@ -8594,7 +7868,6 @@ color: green;
     width: 400px;
 }
 
-
 /* nursing search */
 
 .nursingSearch-tbl {
@@ -8609,17 +7882,19 @@ color: green;
 
 .nursingSearch-tbl td {
     padding: 0 10px;
-    /* border-left: 1px solid #dee2e6; */
     border-left: 1px solid #2980b9;
     vertical-align: top;
 }
+
 #filtertable .table-bordered{
     background: #f8fafc;
 
 }
+
 #filtertable .table-bordered td{
     background: #f8fafc;
 }
+
 .nursingSearch-list span:first-child {
     display: inline-block;
     width: 65px;
@@ -8627,6 +7902,7 @@ color: green;
     color: #2980b9;
     font-size: 16px;
 }
+
 .wd-in {
     width: 307px;
 }
@@ -8636,7 +7912,6 @@ color: green;
     padding: 3px 10px;
     font-size: 16px;
     background-color: #fff;
-    /*background: #f4f4f2;*/
     border: 1px solid #544e4e;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -8683,17 +7958,13 @@ color: green;
 }
 
 .type-name {
-    /* width: 40%; */
     padding: 2px 10px;
-    /* margin-bottom: 10px; */
     font-size: 16px;
     color: #fff;
     font-weight: bold;
     background: #0cc72c;
-    /* border: 1px solid #ff9563; */
     border-radius: 5px;
     text-align: center;
-    /* margin-bottom: 10px; */
     font-weight: normal;
 }
 
@@ -8701,7 +7972,6 @@ color: green;
     float: left;
     padding: 0 5px;
     margin-right: 20px;
-    /* background: #ff9563; */
     background: #2980b9;
     font-size: 16px;
     color: #fff;
@@ -8737,7 +8007,6 @@ color: green;
 
 .price-tbl td span {
     font-size: 22px;
-    /* color: #ff6117; */
     color: #fd0e0e;
     font-weight: bold;
 }
@@ -8745,11 +8014,6 @@ color: green;
 .box-wrap {
     border: 1px solid #dee2e6;
 }
-
-
-/* table.box-wrap th {
-padding: 12px !important;
-} */
 
 #holder .gm-ui-hover-effect {
     top: -3px !important;
@@ -8761,12 +8025,9 @@ padding: 12px !important;
     border-radius: 50%;
 }
 
-
 /* end nursing search */
 
-
 /*End  nursing */
-
 
 /* hospital */
 
@@ -8790,18 +8051,9 @@ padding: 12px !important;
     border-right: 5px solid #4f97d5 !important;
 }
 
-
 /* End  hospital */
 
-
-/* .active {
-color: red;
-font-weight: bold;
-} */
-
-
 /* end one page */
-
 
 /*required*/
 
@@ -8812,13 +8064,7 @@ font-weight: bold;
     color: white;
     content: '必須';
     border-radius: 3px;
-    /* font-weight: normal; */
     font-size: 0.9em;
-}
-
-.jt1 {
-    /* background-color: #ffe2d5; */
-    /* background-color: #f57e46; */
 }
 
 .eg-txt {
@@ -8852,7 +8098,6 @@ font-weight: bold;
     display: inline-block;
 }
 
-
 /* job-detail */
 
 .job-detail .form-right {
@@ -8860,7 +8105,6 @@ font-weight: bold;
 }
 
 .form-wrap .form-left {
-    /*background: #f5f5f5;*/
     background: #fff;
     padding: 10px 10px 0px 10px;
 }
@@ -8874,11 +8118,9 @@ font-weight: bold;
     margin-bottom: 0px !important;
 }
 
-
 /*feature list*/
 
 .custom-table {
-    /* border: 1px solid #ced4da; */
     border: solid 1px #ccc;
 }
 
@@ -8950,7 +8192,6 @@ dl.favnur dd {
     background: #ccc;
 }
 
-
 /*required*/
 
 .mail-txt {
@@ -8964,7 +8205,6 @@ dl.favnur dd {
 .favnur {
     border: 1px solid #ccc;
     border-radius: 3px;
-    /* border-right:none; */
     padding: 12px;
     background: white;
 }
@@ -8982,7 +8222,6 @@ dl.favnur dd {
 .favnur1 {
     background: #ccc;
 }
-
 
 /* fav_slider */
 
@@ -9014,7 +8253,6 @@ dl.favnur dd {
 #fav-history-page .card-carousel-comment {
     display: flex;
     justify-content: center;
-    /* width: 1145px; */
 }
 
 #fav-history-page .card-carousel-comment .card {
@@ -9043,13 +8281,6 @@ dl.favnur dd {
     margin: 4px 0px;
     transition: transform 150ms linear;
 }
-
-
-/* #fav-history-page .card-carousel--nav__left[disabled],
-.card-carousel--nav__right[disabled] {
-opacity: 0.2;
-border-color: black;
-} */
 
 .nav-box[disabled] {
     opacity: 0.2;
@@ -9105,15 +8336,15 @@ border-color: black;
 
 #fav-history-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
-    /*background-color: #fff;*/
-    /*background: none;*/
     border-radius: 4px;
     z-index: 3;
     margin-bottom: 2px;
 }
+
 #fav-history-page .card-carousel-cards .card-carousel--card .table{
     background-color: #f8fafc;
 }
+
 #fav-history-page .card-carousel-cards .card-carousel--card:first-child {
     margin-left: 0;
 }
@@ -9236,11 +8467,6 @@ border-color: black;
     margin-bottom: 3px;
 }
 
-
-/* .bd {
-border-bottom: none;
-} */
-
 .hh {
     margin-bottom: -14px;
 }
@@ -9256,9 +8482,7 @@ border-bottom: none;
     color: #3490dc;
 }
 
-
 /* fav_slider */
-
 
 /*for see more btn*/
 
@@ -9269,19 +8493,14 @@ border-bottom: none;
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-    /* border: 1px solid #ffc041;
-    background-color: #ffc; */
     border: 1px solid #4d9fd0;
     background-color: #63b7ff;
 }
 
 .seemore-btn:hover {
-    /* color: #f9793c;
-    border: 1px solid #68ec37; */
     color: #fff;
     border: 1px solid #63b7ff;
 }
-
 
 /* job_search */
 
@@ -9322,7 +8541,6 @@ border-bottom: none;
     border-radius: 3px;
     margin: 0 5px 5px 0;
     letter-spacing: normal;
-    /* font-size: 0.857em; */
     font-size: 16px;
 }
 
@@ -9345,7 +8563,6 @@ border-bottom: none;
     font-size: 12px;
     color: #fff;
     border-radius: 3px;
-    /* margin-bottom: 10px; */
     position: relative;
     display: inline-flex;
     margin-top: 7px;
@@ -9362,7 +8579,6 @@ border-bottom: none;
 }
 
 .search_jobid {
-    /* float: right; */
     padding: 2px 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -9375,7 +8591,6 @@ border-bottom: none;
 
 .job_id1 {
     padding: 2px 10px;
-    /* margin-top: -27px; */
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -9391,7 +8606,6 @@ border-bottom: none;
     border: 1px solid #ddd;
     border-radius: 12px;
     font-size: 16px;
-    /* width: 65%; */
     margin-bottom: 11px;
     text-align: center;
 }
@@ -9450,7 +8664,6 @@ border-bottom: none;
     color: #fff;
 }
 
-
 /*hospital search*/
 
 .result-span {
@@ -9470,13 +8683,16 @@ border-bottom: none;
     width: 140px;
     padding: 25px;
 }
+
 table.consultTable >tbody>tr th{  
     background-color: inherit !important;   
     padding:0.75rem !important      
 }
+
 table.consultTable >tbody>tr th.second-hos-row{
     background-color: #ecf8ff !important;
 }
+
 .table-innertitle {
     position: relative;
 }
@@ -9589,7 +8805,6 @@ table.consultTable >tbody>tr th.second-hos-row{
 
 .phone-no a {
     color: #c40000;
-    /* color: #2980b9; */
 }
 
 .circle-phone {
@@ -9616,7 +8831,6 @@ table.consultTable >tbody>tr th.second-hos-row{
 }
 
 .second-hos-row {
-    /* background-color: #eff7ec !important; */
     background-color: #ecf8ff !important;
 }
 
@@ -9631,15 +8845,12 @@ table.consultTable >tbody>tr th.second-hos-row{
     background: #f9f9f9;
 }
 
-
 /*nursing search */
 
 .nur-content {
     position: relative;
-    /* margin-bottom: 20px; */
     padding: 20px;
     height: 100%;
-    /* border: 1px solid #ff9563; */
     border: 1px solid #63b7ff;
     border-radius: 5px;
     background: #f8fafc;
@@ -9652,7 +8863,6 @@ table.consultTable >tbody>tr th.second-hos-row{
 }
 
 .nur-tit a {
-    /* color: #ff9563; */
     color: #3490dc;
     letter-spacing: 1px;
     font-weight: bold;
@@ -9666,7 +8876,6 @@ table.consultTable >tbody>tr th.second-hos-row{
 
 .nur-content .detail-btn .btn {
     width: 100%;
-    /* background: #ff9563; */
     background: #63b7ff;
     color: #fff;
     padding: 10px;
@@ -9674,16 +8883,8 @@ table.consultTable >tbody>tr th.second-hos-row{
 }
 
 .nur_date {
-    /* padding: 2px 10px; */
     font-size: 15px;
 }
-
-
-/* .nur-addbtn {
-background: #fff !important;
-border: 1px solid #212529 !important;
-color: #212529!important;
-} */
 
 ul.nur-caro-card>li.list-group-item {
     padding: 5px !important;
@@ -9698,7 +8899,6 @@ ul.nur-caro-card>li.list-group-item {
     color: #fff;
     border-radius: 3px;
 }
-
 
 /* .slick-slider */
 
@@ -9761,8 +8961,6 @@ ul.nur-caro-card>li.list-group-item {
     top: 0;
     left: 0;
     display: block;
-    /* margin-left: auto;
-margin-right: auto; */
     margin: 0;
 }
 
@@ -9825,7 +9023,6 @@ margin-right: auto; */
 .slick-loading .slick-list {
     background: #fff url('../images/spin.svg') center center no-repeat;
 }
-
 
 /* Arrows */
 
@@ -9937,7 +9134,6 @@ margin-right: auto; */
     content: '';
 }
 
-
 /* Dots */
 
 .slick-dotted.slick-slider {
@@ -10012,7 +9208,6 @@ margin-right: auto; */
     color: black;
 }
 
-
 /*Loading */
 
 .loading-screen {
@@ -10055,7 +9250,6 @@ margin-right: auto; */
     }
 }
 
-
 /*for Job*/
 
 .job-title-color {
@@ -10091,7 +9285,6 @@ margin-right: auto; */
     vertical-align: middle;
 }
 
-
 /* start nursing information */
 
 .nursing-info {
@@ -10107,9 +9300,7 @@ margin-right: auto; */
     letter-spacing: 1px;
 }
 
-
 /* end nursing information */
-
 
 /*for custom checkbox and radio*/
 
@@ -10129,9 +9320,6 @@ margin-right: auto; */
     position: relative;
     padding-left: 20px;
     margin-left: 10px;
-    /* margin-bottom: 15px;
-cursor: pointer;
-font-size: 18px; */
 }
 
 .control input {
@@ -10221,7 +9409,6 @@ font-size: 18px; */
     background: #2980b9;
 }
 
-
 /*for inner checkbox*/
 
 .control {
@@ -10230,9 +9417,6 @@ font-size: 18px; */
     position: relative;
     padding-left: 30px;
     margin-left: 10px;
-    /* margin-bottom: 15px;
-cursor: pointer;
-font-size: 18px; */
 }
 
 .control input {
@@ -10323,18 +9507,14 @@ font-size: 18px; */
     background: #2980b9;
 }
 
-
 /*end for inner checkbox*/
 
-
 /*end for custom checkbox and radio*/
-
 
 /*for date time picker*/
 
 .mx-calendar-content .cell {
     border-radius: 3px;
-    /* background-color: rgba(0, 0, 0, 0.05); */
 }
 
 .mx-panel-date tbody tr:nth-of-type(odd) {
@@ -10376,9 +9556,7 @@ font-size: 18px; */
     background-color: #2980b9 !important;
 }
 
-
 /*end for date time picker*/
-
 
 /* nursingSearch */
 
@@ -10389,7 +9567,6 @@ font-size: 18px; */
 
 .search-border-dash {
     border: 1px dashed #b7dad2;
-    /*background: #f4f1eb;*/
     background: #fff;
 }
 
@@ -10400,7 +9577,6 @@ font-size: 18px; */
 }
 
 /* end nursingSearch */
-
 
 /*commentform*/
 
@@ -10417,7 +9593,6 @@ font-size: 18px; */
     position: relative;
     overflow: visible;
 }
-
 
 /*commentform*/
 
@@ -10445,20 +9620,6 @@ font-size: 18px; */
     color: #2980b9;
 }
 
-
-/* start count profie */
-
-
-/* .profile_count {
-color: #C40000;
-font-weight: bold;
-font-size: 25px;
-} */
-
-
-/* end count profile */
-
-
 /*commentform*/
 
 .news_p {
@@ -10468,38 +9629,18 @@ font-size: 25px;
     font-weight: bold;
 }
 
-
 /*profile_edit*/
 
-.header2 {
-    /* border-bottom: 1px solid #ddd; */
-}
-
 .header2 h5 {
-    /* display: inline-block; */
     padding-left: 5px;
     margin-bottom: 15px;
     border-left: 4px solid #2980B9;
 }
 
-
-/*
-.header2 h5:after {
-height: 2px;
-content: '';
-position: absolute;
-width: 10%;
-bottom: -2px;
-left: 0;
-background-color: #f57e46;
-} */
-
-
 /*pagination */
 
 .offset {
     width: 500px !important;
-    /* margin: 20px auto; */
 }
 
 .page-item.active_page .spanclass {
@@ -10522,23 +9663,19 @@ background-color: #f57e46;
     cursor: pointer;
 }
 
-
 /* end pagination*/
 
 .wrapper-0 {
     flex: 1 0 33.333%;
     position: relative;
-    /*height: 0;*/
     height: 60%;
     padding-bottom: 130px;
-    /*margin: 40px 0;*/
     margin: 0;
 }
 
 .wrapper-0 img {
     position: absolute;
     width: 100%;
-    /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     height: auto;
     max-height: 100%;
     transition: all 250ms ease-out;
@@ -10566,14 +9703,12 @@ background-color: #f57e46;
 }
 
 .wrapper-3 img {
-    /* position: absolute; */
     width: 100%;
     transition: all 250ms ease-out;
 }
 
 .wrapper-3 p {
     position: absolute;
-    /* top: 180px; */
     font-weight: bold;
     overflow: hidden;
     max-height: 70px;
@@ -10583,10 +9718,7 @@ background-color: #f57e46;
     flex: 1 0 33.333%;
     position: relative;
     height: 0;
-    /* width: 100%; */
-    /* height: 75px; */
     padding-bottom: 75px;
-    /* padding-bottom: 70px; */
     overflow: hidden;
 }
 
@@ -10594,7 +9726,6 @@ background-color: #f57e46;
     position: absolute;
     height: 100%;
     width: 100%; 
-    /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
 }
 
@@ -10608,7 +9739,6 @@ background-color: #f57e46;
     position: absolute;
     top: 50%;
     left: 50%;
-    /* margin: -1px 0 0 -1px; */
     width: 30px;
     height: 30px;
     transition: all 10ms ease-in;
@@ -10649,7 +9779,6 @@ background-color: #f57e46;
     }
 }
 
-
 /* start for news_catsearch  admin page */
 
 .news_catsearch {
@@ -10657,21 +9786,9 @@ background-color: #f57e46;
     align-items: flex-end;
 }
 
-
-/* .news_catsearch label {
-width: 20%
-} */
-
-
 /* end for news_catsearch  admin page */
 
-
 /*create_news*/
-
-
-/* .create_nw_p {
-padding: 11px;
-} */
 
 .pc-480 {
     display: block;
@@ -10688,18 +9805,6 @@ padding: 11px;
 .check-resize {
     display: none;
 }
-
-
-/* 419 */
-
-
-/* .container {
-    position: relative;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-} */
 
 .content {
     text-align: center;
@@ -10735,7 +9840,6 @@ padding: 11px;
     text-decoration: none;
     color: #fff;
 }
-
 
 /*--------------------------------------------------------------------------------responsive -----------------------------------------------------------------------*/
 
@@ -10774,12 +9878,15 @@ padding: 11px;
 .pc-9-180 {
     display: none;
 }
+
 .pc-991-1880{
     display: none;
 }
+
 .pc-2000{
     display: none;
 }
+
 .sp-9-180 {
     display: block;
 }
@@ -10851,6 +9958,7 @@ padding: 11px;
         flex: 0 0 13.666667% !important;
         max-width: 13.666667% !important;
     }
+
     .boot-xl .col-xl-11 {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 86.333333% !important;
@@ -10863,32 +9971,39 @@ padding: 11px;
     .card-title-leftwrapper {
         width: 56% !important;
     }
-    /* .card-title-rightwrapper {
-        width: 40% !important;
-    } */
+
     .fit-image-profile {
         height: 165px;
     }
+
     /* hos and nursing account */
+
     .img_title {
         height: 165px;
     }
+
     /* end hos and nursing account */
+
     .hos_lbl {
         width: 165px;
     }
+
     .card_height {
         float: left;
         height: 170px;
         cursor: pointer;
     }
+
     /*login*/
+
     .login_2 {
         margin-left: 18px;
     }
+
     .login_1 {
         margin-right: 18px;
     }
+
     .login_top {
         top: 0px;
     }
@@ -10898,37 +10013,34 @@ padding: 11px;
     .main-content {
         width: 100%;
     }
+
     .nav-warp {
         max-width: 100%;
         width: 97%;
         padding: 0;
     }
-    /*.menu_tab_category {
-        width: 99% !important;
-    }*/
+
     .fixed-ads-fluid {
         width: 100%;
     }
-    /*#headerbar {
-        top: 86px;
-        right: 20px;
-    }*/
-    /*#headerbar li {
-        display: inline-block;
-    }*/
+
     .gNav li a {
         padding: 0px 5px 0px 20px;
     }
+
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 5px;
         padding-left: 5px;
     }
+
     .social-link:nth-child(3) {
         margin-left: 5px;
     }
+
     .adslist-card {
         height: auto;
     }
+
     .ads-img {
         display: block;
         float: none;
@@ -10936,35 +10048,42 @@ padding: 11px;
         width: auto;
         margin: 0 auto;
     }
+
     .fav-profile {
         right: 37px;
     }
+
     .today .adslist-card .smallads-title {
         top: 7px;
     }
+
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
     }
+
     .job-img {
-        /* max-width: 80% !important;*/
         margin: 0 auto 20px;
         flex: unset;
     }
+
     .job-box {
-        /* max-width: 100% !important;*/
         flex: unset;
     }
+
     .compare-wrap {
         max-width: 82%;
     }
+
     .fav-update-wrap {
         max-width: 19%;
         flex: 0 0 18%;
     }
+
     .map-wrap {
         overflow: hidden;
     }
+
     #register.loginwrapper {
         height: auto;
         padding: 30px 0;
@@ -10977,17 +10096,21 @@ padding: 11px;
         position: absolute;
         right: 15px;
     }
+
     .card-title-leftwrapper {
         width: 48% !important;
     }
+
     .card-title-rightwrapper {
         width: 52% !important;
     }
+
     .h-tel {
         padding-left: 12px;
         margin: 10px 0;
         width: 142px;
     }
+
     .gSecondNav li {
         background: transparent;
         border-left: solid 1px #a7b7c7;
@@ -11000,48 +10123,64 @@ padding: 11px;
         margin: 0px;
         font-size: 12px;
     }
+
     .img_title {
         height: 135px;
     }
+
     /* Register */
+
     /* hospital and nursing profile */
+
     .hos_lbl {
         width: 60%;
     }
+
     /* end hospital and nursing profile */
     .card_height {
         float: left;
         height: 170px;
         cursor: pointer;
     }
+
     .t-r {
         margin-right: 59px;
     }
+
     .divisions {
         position: relative;
         z-index: 1;
         /*width: 90%;*/
         max-width: 670px;
     }
+
     .map-leftwrapper {
         padding-left: 1%;
     }
     /*job search*/
+
     ul.hokkaido-wrap {
         left: 0px;
     }
+
     /*end job search*/
+
     /* job apply list */
+
     #job_apply .scroll_responsive {
         overflow: auto;
     }
+
     #job_apply .custom-table {
         width: 1100px;
     }
+
     #job_apply .scroll_responsive .table {
         margin-bottom: 0 !important;
     }
+
     /*End job apply list */
+
     .slick-next, .slick-prev{
         border: 1px solid #807777;
         outline: none;
@@ -11049,7 +10188,8 @@ padding: 11px;
         border-radius: 50%;
         box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
         z-index: 999;
-    } 
+    }
+
     .slick-disabled {
         opacity: 0;
     }
@@ -11059,123 +10199,122 @@ padding: 11px;
     .card-title-leftwrapper {
         width: 60% !important;
     }
+
     .card-title-rightwrapper {
         width: 40% !important;
     }
+
     .comform {
         width: 100%;
         max-width: 100%;
     }
+
     /* common */
     .pc-1024 {
         display: none;
     }
+
     .sp-1024 {
         display: block;
     }
+
     /*end  common */
+
     /* header */
+
     .main-header .nav-item {
         padding: 3px 8px 5px 8px;
     }
+
     .main-header .navbar-nav .nav-link {
         width: 145px;
     }
+
     .main-header .navbar-nav .nav-link span {
         font-size: 14px;
     }
+
     #app .logo-text {
         padding: 0;
     }
+
     .h-tel span {
         display: none;
     }
+
     .h-tel {
         width: auto;
         padding-left: 8px;
         margin-right: 20px;
     }
+
     .tel {
         display: block;
         margin: 0 0 1px;
         cursor: pointer;
     }
+
     /*end header */
-    /* Admin Sidebar  */
+
+    /* Admin Sidebar*/
+
     .custom-sidebar .admin-tit {
         margin: 20px 0 10px 0;
         text-align: center;
     }
+
     .admin-tit span {
         display: none;
     }
+
     .custom-sidebar:hover .admin-tit {
         display: flex;
         margin: 20px 0 10px 40px;
         align-items: center;
     }
+
     .nav-txt {
         display: none;
     }
+
     .custom-sidebar {
         width: 70px;
         z-index: 99;
     }
+
     .custom-sidebar:hover {
         width: 280px !important;
     }
-    /* .content-all {
-padding-left: 70px;
-} */
+
     .custom-sidebar:hover .admin-tit span {
         display: block;
     }
+
     .custom-sidebar:hover .nav-txt {
         display: inline-block;
     }
+
     .custom-sidebar:hover ul.adminview-sidebar li a {
         text-align: left !important;
     }
+
     .custom-sidebar ul.adminview-sidebar li a {
         padding: 0 !important;
         text-align: center;
     }
+
     .custom-sidebar ul.adminview-sidebar li i {
         padding-right: 0;
     }
+
     .custom-sidebar:hover ul.adminview-sidebar li i {
         padding-right: 10px;
     }
+
     .custom-sidebar:hover ul.adminview-sidebar li a {
         padding: 5px 25px !important;
     }
-    /* .custom-sidebar .admin-tit {
-margin: 0;
-}
-.custom-sidebar ul.adminview-sidebar li {
-position: relative;
-margin: 0;
-}
-.nav-pills .nav-link {
-padding: 0 !important;
-}
-.custom-sidebar ul.adminview-sidebar li:hover .nav-txt {
-position: absolute;
-display: block;
-left: 50px;
-top: 0;
-width: 150px;
-border: 1px solid #eee;
-background: #f5f5f5;
-padding: 5px 0;
-text-align: center;
-}
-.custom-sidebar ul.adminview-sidebar li:hover #pageSubmenu i {
-display: none;
-}
-.custom-sidebar ul.adminview-sidebar li:hover #pageSubmenu {
-padding: 0;
-} */
+
     /*End Admin Sidebar  */
 }
 
@@ -11183,54 +10322,63 @@ padding: 0;
     .rightwrap .first_txt {
         display: none;
     }
-    /* .stepper-form>div.form-group:first-child {
-        margin-top: 10px;
-    } */
+    
     .card-title-leftwrapper {
         width: 60% !important;
     }
+
     .card-title-rightwrapper {
         width: 40% !important;
     }
-    /* .cross-btn {
-        right: 80px !important;
-    } */
+    
     .nursing_responsive {
         max-width: 40%;
     }
+
     /* nursing profile */
+
     .heading-lbl {
         font-size: 1.05em;
     }
+
     .heading-lbl1 {
         font-size: 1.05em;
         flex: 0 0 17%;
         max-width: 125px;
     }
+
     .news-post-btn {
         font-size: 13px;
     }
+
     .nursing_map {
         padding-left: 0px;
     }
+
     .nursing_radiobtn {
         float: none !important;
         flex: 0 0 100%;
         max-width: 100%;
     }
+
     .hos_lbl {
         width: 75%;
     }
+
     .hos_lbl1 {
         max-width: 18%;
     }
+
     .hos_toggle {
         max-width: 100%;
     }
+
     .m-l-20 {
         margin-left: 15px !important;
     }
+
     /* end nursing profile */
+
     /* common */
     .col-slg-12 {
         -webkit-box-flex: 0;
@@ -11238,159 +10386,192 @@ padding: 0;
         flex: 0 0 100%;
         max-width: 100%;
     }
+
     .pc-1024 {
         display: none;
     }
+
     .sp-1024 {
         display: block;
     }
+
     /*End common */
+
     /* create news */
+
     .related_post_box {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 49%;
         flex: 0 0 49%;
         max-width: 49%;
     }
+
     /*job search*/
+
     ul.hokkaido-wrap {
         left: 65px;
     }
+
     .divisions span {
         margin-right: 10px;
     }
+
     .hokkaido-box {
         position: absolute;
         right: 6vw;
         z-index: 2;
         top: 28px;
     }
-    /*.multiple-box {
-        max-width: 156px !important;
-        width: 156px !important;
-    }
-    .multiple-boxa {
-        width: 156px !important;
-        max-width: 156px !important;
-    }*/
+    
     .hokkaido-box .spanclass,
     .kanto-box .spanclass,
     .okinawa-box .spanclass {
         margin-right: 1px;
     }
+
     /*end job search*/
+
     /* profile publish */
+
     .gallery-list .gallery-item {
         height: 160px;
     }
+
     .lightbox-arrow svg {
         width: 30px !important;
         height: 30px !important;
         line-height: 30px;
     }
+
     /*End profile publish */
+
     .wd-in {
         width: 249px;
     }
+
     .map-wrap {
         overflow: auto;
         padding: 20px 10px;
     }
+
     .divisions {
         width: 550px;
-        /*height: 425px;*/
     }
+
     /*news_start*/
+
     .t_card {
         max-width: none;
     }
+
     .t_card2 {
         margin-left: 40px;
     }
+
     .t_card4 {
         margin-left: 40px;
     }
+
     .create_nw_p {
         padding: 0px;
     }
+
     /*news_end*/
+
     /*category*/
+
     .t-r {
         margin-right: 45px;
     }
+
     /*subject*/
+
     .o-r1 {
         margin-right: 21px;
         margin-top: 20px;
     }
+
     /*advertisement*/
+
     .a-d1 {
         margin-right: 0px;
     }
+
     .a-d2 {
-        /* margin-left: 48px; */
         margin-top: 20px;
     }
+
     /*create_news*/
+
     .title {
         font-size: 13px;
     }
+
     .unauth-title {
         font-size: 23px;
         padding: 10px;
     }
+
     .card_height {
         float: left;
         height: 170px;
         cursor: pointer;
     }
+
     .fav-update-btn {
         margin: 22px auto;
     }
+
     .divisions {
         width: 90%;
         margin: 0 auto;
-        /*height: 425px;*/
     }
+
     .map-wrap {
         padding: 20px 10px;
     }
+
     .top-fixed-btn,
     .top-fixed-btn.active {
-        /* width: auto;
-        padding: 10px 37px; */
         margin-bottom: 10px;
     }
+
     .top-fixed-btn {
         text-align: center;
         font-size: 12px;
     }
+
     #create_news .title {
         padding: 2px;
         font-size: 11px;
         padding-left: 10px;
         margin-top: -7px;
     }
+
     .related_box {
         width: 33.33%;
     }
+
     .related_box:nth-child(4n) {
         padding-right: 10px;
     }
+
     .related_box:nth-child(3n) {
         padding-right: 0;
     }
+
     .fixed-nav {
         width: 100%;
     }
 }
 
 @media only screen and (max-width: 990px) {
+
     .pc-990{
         display: none;
     }
+
     .job_id4 {
-        /* float: left; */
         padding: 2px 10px;
         margin-top: 5px;
         font-weight: bold;
@@ -11398,14 +10579,17 @@ padding: 0;
         border-radius: 12px;
         font-size: 12px;
         margin-bottom: 10px;
-        /* width: 62%; */
         text-align: center;
     }
+
     /*nursing-search*/
+
     .p-0-990 {
         padding: 0px !important;
     }
+
     /*nursing-search*/
+
     .job_id2 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -11413,11 +10597,11 @@ padding: 0;
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 12px;
-        /* width: 43%; */
         margin-bottom: 11px;
         text-align: center;
         display: inline-block;
     }
+
     .job_id3 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -11427,107 +10611,131 @@ padding: 0;
         font-size: 16px;
         margin-bottom: 10px;
         display: inline-block;
-        /* width: 60%; */
         text-align: center;
     }
+
     /*comment*/
+
     .cmt {
         text-align: left;
         font-size: 12px;
         color: #777;
         margin-top: 3px;
     }
+
     /*comment*/
+
     .form-wrap .mailbox {
         width: 100%;
         margin-left: 0px;
         padding: 0px;
     }
+
     .successful-resetpwd {
         width: 100% !important;
         margin-top: 34px;
         background-color: #f8f8f8;
         border: none;
     }
+
     .card-title-leftwrapper {
         width: 60% !important;
     }
+
     .card-title-rightwrapper {
         width: 40% !important;
     }
+
     .addbtn-right {
         text-align: right;
     }
+
     .nursing_toggle_responsive {
         float: right;
     }
+
     .map-fa-icon {
         float: left;
     }
-    /*.ads-slider {
-        top: 30px;
-    }*/
+
     .tab {
         margin-top: 20px;
     }
+
     #myTabContent {
         margin-bottom: 10px;
     }
+
     /* common */
+
     ul li {
         list-style: none;
         margin-right: 0px !important;
     }
+
     /*end common */
+
     /* header */
+
     .main-header {
         padding: 4px 0;
         height: auto;
     }
+
     .nav-warp .d-flex {
         align-items: center;
         width: 100%;
     }
+
     .h-tel {
         display: none;
     }
+
     .gNav {
         display: none;
     }
+
     .gSecondNav {
         display: none;
     }
+
     .logo_subtitle {
         display: none;
     }
+
     #navbarSupportedContent {
         display: none !important;
     }
-   
     
     .sp_social {
         display: block;
         margin-left: auto;
     }
+
     .sp_social .social-link {
         float: left;
         list-style: none;
     }
+
     .sp_social .social-link a {
         width: 20px;
     }
+
     .sp_social .social-link a i {
         color: #fff;
     }
+
     .social-link:first-child a {
         background: #0080aa;
     }
+
     .menu {
         float: right;
         cursor: pointer;
         width: 100%;
         margin: 0 auto;
     }
+
     ul.menu li.first-submenu {
         float: right;
         position: absolute;
@@ -11535,6 +10743,7 @@ padding: 0;
         top: 18px;
         z-index: 99;
     }
+
     .wt-admin{
         border-right: 1px solid #2980b9;
         padding-right: 10px;
@@ -11544,12 +10753,15 @@ padding: 0;
         font-size: 14px;
         cursor: pointer;
     }
+
     .login_socail {
         margin-top: -20px !important;
     }
+
     .login_nav .sp_nav {
         top: 65px;
     }
+
     .sp_nav {
         display: block;
         position: fixed;
@@ -11562,6 +10774,7 @@ padding: 0;
         overflow-y: auto;
         z-index: 1;
     }
+
     .sp_panonav {
         display: block;
         position: fixed;
@@ -11573,11 +10786,12 @@ padding: 0;
         z-index: 99999999;
         overflow-y: hidden;
     }
+
     ul.menu_list {
         width: 90%;
         margin: 20px auto;
-        /* border: 1px solid #8c9090; */
     }
+
     ul.menu_list>li {
         border-top: 1px solid #8c9090;
         padding: 8px 0 8px 20px;
@@ -11585,48 +10799,59 @@ padding: 0;
         border-right: 1px solid #8c9090;
         background: #fff;
     }
+
     .menu-list_last {
         border-bottom: 1px solid #8c9090;
     }
+
     ul.menu_list li i {
         color: #2980b9 !important;
     }
+
     ul.menu_list li:last-child {
         border: none;
         padding: 20px 0px;
         background: none;
     }
+
     ul.menu_list li:last-child:hover {
         background: transparent;
     }
+
     ul.menu_list .contact_list li:hover {
         background-color: transparent;
     }
+
     ul.menu_list li a {
         display: block;
         width: 100%;
         height: 100%;
         color: #444;
     }
+
     ul.menu_list li a.router-link-exact-active {
         color: #2980b9 !important;
         background-color: transparent;
         border-left-color: transparent;
     }
+
     ul.menu_list li:hover,
     ul.menu_list li.router-link-active,
     ul.menu_list li.router-link-exact-active {
         background-color: #e2e2e2;
         cursor: pointer;
     }
+
     ul.contact_list {
         text-align: center;
     }
+
     ul.contact_list li {
         padding: 10px;
         line-height: 1;
         border: none;
     }
+
     ul.contact_list li:first-child span {
         padding: 10px 0 0 0;
         line-height: 1.1;
@@ -11634,6 +10859,7 @@ padding: 0;
         font-weight: bold;
         vertical-align: middle;
     }
+
     ul.contact_list i {
         width: 25px;
         height: 25px;
@@ -11646,36 +10872,48 @@ padding: 0;
         border-radius: 50%;
         vertical-align: middle;
     }
+
     .d-none-768 {
         display: none;
     }
+
     .sp_social .social-link {
         float: none;
         display: inline-block;
     }
+
     /*end  header */
+
     /* header & menu */
+
     .v-sidebar-menu {
         display: none !important;
     }
+
     .content-all {
         padding-left: 0;
     }
+
     /* sp_adminNav */
+
     .admin_head {
         font-size: 18px;
         background: #2c3b41;
         color: #fff;
     }
+
     .admin_head01 {
         padding-left: 35px;
     }
+
     .admin_head02 {
         padding-left: 50px;
     }
+
     #sp_adminheader {
         display: block;
     }
+
     #sp_adminheader .overlay {
         position: absolute;
         top: 0;
@@ -11688,6 +10926,7 @@ padding: 0;
         background: #000015;
         opacity: 0.5;
     }
+
     .overlay_wrap {
         display: block;
         position: fixed;
@@ -11697,6 +10936,7 @@ padding: 0;
         height: 100%;
         z-index: 2;
     }
+
     .sp_adminNav {
         display: block;
         position: fixed;
@@ -11706,6 +10946,7 @@ padding: 0;
         height: 100%;
         z-index: 3;
     }
+
     .sidebar_brand {
         position: fixed;
         width: 230px;
@@ -11714,6 +10955,7 @@ padding: 0;
         background: #222D32;
         overflow-y: auto;
     }
+
     #sp_adminheader .admin_menu {
         position: absolute;
         display: block;
@@ -11723,9 +10965,11 @@ padding: 0;
         z-index: 99;
         cursor: pointer;
     }
+
     .sp_adminNav ul li {
         position: relative;
     }
+
     .sp_adminNav ul li span {
         display: block;
         width: 100%;
@@ -11733,10 +10977,12 @@ padding: 0;
         color: #fff;
         cursor: pointer;
     }
+
     .sp_adminNav ul li span.active {
         background: #1E282C;
         border-left: 3px solid #2980b9;
     }
+
     .sp_adminNav ul li i:first-child {
         margin-left: 10px;
         height: 30px;
@@ -11747,37 +10993,46 @@ padding: 0;
         color: #fff;
         background-color: #1e1e21;
     }
+
     .sp_adminNav ul li i:nth-child(2) {
         position: absolute;
         right: 15%;
         top: 20px;
     }
+
     .sp_adminNav ul li a {
         display: block;
         width: 100%;
         color: #fff;
         transition: 0.3s all;
     }
+
     .sp_adminNav ul li a:hover {
         background-color: rgba(30, 30, 33, 0.5);
         text-decoration: none;
     }
+
     .sp_adminNav .sub_menu {
         padding: 0 8px;
         background: #2C3B41;
     }
+
     .sp_adminNav .sub_menu a {
         line-height: 40px;
     }
+
     .sp_adminNav ul.sub_menu li i:first-child {
         margin-left: 0;
     }
+
     .sp_adminNav ul.sub_menu li:first-child {
         padding-top: 8px;
     }
+
     .sp_adminNav ul.sub_menu li:last-child {
         padding-bottom: 8px;
     }
+
     .down {
         -ms-transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
@@ -11788,63 +11043,84 @@ padding: 0;
         transition: all .3s linear;
         transform-origin: center;
     }
+
     /*end sp_adminNav */
+
     /*End header & menu */
+
     /* ads slider */
+
     .ads-slider {
         width: 80%;
         margin: 0 auto 20px;
     }
+
     /*end  ads slider */
+
     /*map responsive*/
+
     #map-responsive {
         display: block;
     }
+
     .map-wrap {
         display: none;
     }
+
     .highlight {
         background-color: #ccff60 !important;
         background-image: none;
         border: 1px solid #8e3c15;
         color: #2980b9;
     }
+
     .resHighlight {
         background: #ccff6029 !important;
     }
+
     /* profile publish */
+
     .photocard-carousel-wrapper {
         height: auto;
     }
+
     #Profile-page .accept-box {
         margin: 5px 2px;
         font-size: 14px;
     }
+
     .gallery-list .gallery-item {
         height: 130px;
     }
+
     .lightbox-arrow-left {
         left: -20px !important;
     }
+
     .lightbox-arrow-right {
         right: -20px !important;
     }
+
     .fixed-nav {
         width: 100%;
     }
+
     .top-fixed-btn,
     .top-fixed-btn.active {
         margin-bottom: 10px !important;
         border-radius: 0px;
     }
+
     .top-fixed-btn {
         text-align: center;
         font-size: 12px;
         border-radius: 0px;
     }
+
     .ele {
         margin-top: 0px;
     }
+
     .top-mail-btn-res {
         background: #0cc72c;
         margin-bottom: 10px;
@@ -11853,24 +11129,31 @@ padding: 0;
         font-weight: bold;
         width: 100%;
     }
+
     .displayFlex {
         display: block;
     }
+
     .gallery-area-payment .delete-borderbtn,
     .gallery-area-cooperate .delete-borderbtn {
         background-color: transparent;
         border: none !important;
     }
+
     .gallery-area-payment .delete-borderbtn>i.fa,
     .gallery-area-cooperate .delete-borderbtn>i.fa {
         display: none !important;
     }
+
     /*End  profile publish */
+
     /* job details */
+
     .job_id {
         margin-bottom: 0px;
         text-align: center;
     }
+
     .search_jobid {
         padding: 2px 10px;
         margin-top: 5px;
@@ -11879,11 +11162,13 @@ padding: 0;
         border-radius: 12px;
         font-size: 12px;
     }
+
     .search_jobid1 {
         width: 71%;
         position: relative;
         margin-right: 78px;
     }
+
     .search_jobid3 {
         float: right;
         margin-top: 5px;
@@ -11891,42 +11176,55 @@ padding: 0;
         float: left;
         margin-bottom: 10px;
     }
+
     .job_status {
         margin-top: 7px;
         margin-right: 2%;
     }
+
     .form-wrap .form-left {
         padding: 10px 15px 5px 15px;
-        /* border-bottom: 1px solid #ced4da; */
     }
+
     .form-wrap label {
         display: block;
     }
+
     .form-wrap .form-control,
     .form-wrap .full-wd.form-control {
         width: 85% !important;
     }
+
     .form-group .rightwrap .postal {
         width: 30% !important;
     }
+
     .eg-txt {
         margin-top: 10px;
         width: 100%;
     }
+
     /*End job details */
+
     /* comment list */
+
     .commentWrap .d-flex {
         flex-wrap: wrap;
     }
+
     /*END comment list */
+
     /* customer list */
+
     #customer_list .table.List_tbl td {
         display: block;
         width: 100%;
     }
+
     #customer_list .table.List_tbl td:last-child {
         border-top: 0;
     }
+
     /*End customer list */
 }
 
@@ -11937,6 +11235,7 @@ padding: 0;
     .adminview-sidebar {
         height: auto;
     }
+
     .customer-sidebar {
         display: none;
     }
@@ -11946,9 +11245,11 @@ padding: 0;
     .source-img-small {
         width: 500px;
     }
+
     .ads-card {
         width: 120px;
     }
+
     .adminview-sidebar {
         height: auto;
     }
@@ -11958,9 +11259,7 @@ padding: 0;
     .source-img-small {
         width: 100%;
     }
-    /* .ads-card{
-width: 18rem;
-} */
+
     .smallads-title {
         font-size: 12px;
         line-height: 1.357;
@@ -11971,6 +11270,7 @@ width: 18rem;
         top: -0.2rem;
         max-height: 200px;
     }
+
     .today .adslist-card .smallads-title {
         font-size: 12px;
         line-height: 1.357;
@@ -11981,18 +11281,19 @@ width: 18rem;
         top: -0.2rem;
         max-height: 65px;
     }
+
     .today .smallads-title {
         display: block;
         white-space: normal;
     }
+
     .adslist-card {
-        /* height: 71px; */
         width: 100%;
         padding: 10px 0px 10px 0px;
     }
+
     .userview-sidebar {
         background-color: #f5f5f5;
-        /* height: 91vh; */
         padding-top: 35%;
         padding-left: 25px;
         margin-top: 2px;
@@ -12001,28 +11302,36 @@ width: 18rem;
 
 @media screen and (max-width: 979px) and (max-width:752px) {
     /* create new */
+
     .related_post_box .create_news img {
         max-width: 100px;
     }
+
     .related_post_box .card-body {
         padding: 1rem 0.8rem;
     }
+
     /*end create new */
+
     #news.t_card2 {
         margin-left: 40px;
     }
+
     #news.t_card4 {
         margin-left: 30px;
     }
+
     .tab-pane {
         padding-left: 0px !important;
         padding-right: 0px !important;
         min-height: 78px;
         background: #f4f4f2;
     }
+
     .news_catsearch label {
         width: 30%;
     }
+
     .news_catsearch section {
         width: 265px;
     }
@@ -12030,43 +11339,54 @@ width: 18rem;
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
     /*fav nursing*/
+
     /*comment*/
+
     .cmt {
         font-size: 12px;
         color: #777;
         text-align: right;
         margin-top: 0px;
     }
+
     .test {
         display: none;
     }
+
     /*comment*/
+
     .lbl-size {
         width: 355px;
     }
+
     .lbl-width {
         width: 92px;
     }
+
     dl.favnur dt {
         width: 22%;
     }
+
     #nursing dl dd {
         padding-left: 0px;
     }
-    /*#headerbar {
-        z-index: 999;
-    }*/
+
     /*end fav nursing*/
+
     /*news_start*/
+
     .t_card {
         max-width: none;
     }
+
     .t_card2 {
         margin-left: 40px;
     }
+
     .t_card4 {
         margin-left: 40px;
     }
+
     /*news_end*/
 }
 
@@ -12074,33 +11394,42 @@ width: 18rem;
     .posting-per {
         text-align: unset;
     }
+
     .card-title-rightwrapper {
         width: 100% !important;
     }
+
     .form-wrap .form-right {
         border-left: none !important;
     }
+
     .form-wrap .form-left {
         border-right: 1px solid #ced4da;
     }
+
     .form-wrap .form-left {
         padding: 10px 15px 5px 15px;
     }
+
     .m-t-768 {
         margin-top: 0px;
     }
+
     .m-b-768 {
         margin-bottom: 20px !important;
     }
+
     .successful-resetpwd {
         width: 100% !important;
         margin-top: 34px;
         background-color: #f8f8f8;
         border: none;
     }
+
     .choose-item {
         margin-top: 10px;
     }
+
     .title {
         padding-bottom: 0px;
     }
@@ -12109,6 +11438,7 @@ width: 18rem;
         height: 100vh;
         padding-top: 0;
     }
+
     .user_registercard {
         width: 100%;
         margin: -85px auto 0;
@@ -12117,205 +11447,248 @@ width: 18rem;
     .newsDetail_leftwrapper {
         max-width: 320px;
     }
+
     .img-wrap {
         padding-bottom: 0px;
     }
+
     .set-date {
         margin: 0 auto;
         text-indent: 1em;
     }
+
     .nursing_responsive {
         max-width: 33%;
     }
+
     .p-l-162 {
         padding-left: 200px;
     }
+
     .nus-town-m-t {
         margin-top: 10px;
     }
+
     .pc-768 {
         display: none;
     }
+
     /* start pagination */
+
     .pagination {
         justify-content: center;
         text-align: center;
         margin-bottom: 10px;
     }
+
     .pagination .page-item {
         padding: 1px;
     }
+
     .page-item .spanclass {
         width: 30px;
         height: 30px;
         background-image: none;
     }
+
     .spanclass {
         float: left;
         margin-top: 2px;
         border: 1px solid #2980b9;
         border-radius: 3px;
     }
+
     .spanclass a {
         position: relative;
     }
-    /* .pc-paginate {
-        display: none;
-    } */
+    
     /* end pagination */
     /* nursing profile */
+
     .heading-lbl {
         font-size: 1.05em;
         flex: 0 0 16%;
-        /* max-width: 125px; */
     }
+
     .heading-lbl1 {
         font-size: 1.05em;
         flex: 0 0 20%;
-        /* max-width: 122px; */
     }
+
     .nursing_btn {
         margin-top: 0px;
     }
-    .nursing_btn span {
-        /* margin-left: 121px; */
-        /* margin-top: -45px; */
-    }
+
     .nursing_input {
         flex: 0 0 85%;
     }
+
     .hos_lbl {
         width: 78%;
     }
+
     .hos_map_lbl {
         padding-bottom: 10px;
     }
-    .m-l-20 {
-        /* margin-left: 65px !important; */
-    }
-    /* .postal {
-        width: 100%;
-    } */
+
     /* end nursing profile */
+
     .sp-768 {
         display: block;
     }
+
     .sp-768-block {
         display: block;
         width: 100% !important;
         padding: 5px 10px !important;
     }
+
     .sp-768-block {
         display: block;
         width: 100% !important;
         padding: 5px 10px !important;
     }
+
     .tab {
         max-width: 100% !important;
         flex: 100% !important;
     }
+
     /* create new */
+
     .related_post_box .create_news img {
         max-width: 100px;
     }
+
     .related_post_box .card-body {
         padding: 1rem 0.8rem;
     }
+
     /*end create new */
+
     .map-text-wrapper {
         display: flex;
     }
+
     /* job apply */
+
     .register_box,
     .confirm_box {
         padding: 0;
     }
+
     .register_box .multi-step span,
     .confirm_box .multi-step span {
         display: none;
     }
+
     .multi-step {
         margin-bottom: 20px;
     }
+
     .multi-step li {
         width: 28.73%;
         padding: 5px 10px;
         margin-left: 10px;
         font-size: 12px;
     }
+
     .multi-step li::before {
         border-width: 9px;
         margin-top: -9px;
     }
+
     .multi-step li.no-active::after {
         border-left-color: #fff;
         border-width: 8px;
         margin-top: -8px;
     }
+
     .form-wrap .form-control,
     .form-wrap .full-wd.form-control {
         width: 93% !important;
         margin: 10px;
     }
+
     .eg-txt {
         padding-left: 5px;
         width: 100%;
     }
+
     /*End job apply */
+
     .wd-in {
         width: 256px;
     }
+
     .t_card {
         max-width: none;
     }
+
     .t_card2 {
         margin-left: 40px;
     }
+
     .t_card4 {
         margin-left: 40px;
     }
+
     /*news_end*/
+
     .card_height {
         float: left;
         height: 190px;
         cursor: pointer;
     }
+
     /*category*/
+
     .t-r {
         margin-left: 17px;
         margin-right: 0px;
         margin-top: 20px;
     }
+
     .t-l {
         margin-left: 39px;
     }
+
     /*category*/
     /*occupation*/
+
     .o-r1 {
         margin-right: 0px;
     }
+
     .o-r2 {
         margin-left: 48px;
         margin-top: 20px;
     }
+
     /*occupation*/
     /*advertisement*/
+
     .a-d1 {
         margin-right: 53px;
     }
+
     .a-d2 {
         margin-left: 78px;
         margin-top: 20px;
     }
+
     .map-wrap {
         display: none;
     }
+
     .searchButton {
         width: 20%;
     }
+
     .searchTerm {
         width: 80%;
     }
+
     #pc-hos-fav-local,
     #pc-nus-fav-local,
     #pc-hos-his-local,
@@ -12324,26 +11697,33 @@ width: 18rem;
         font-weight: bold;
         font-size: 16px;
     }
+
     .job-content .detail-btn .btn {
         width: 90%;
     }
+
     .hospital-subject {
         display: table-cell;
     }
+
     .hos-content .detail-btn .btn {
         width: 100%;
     }
+
     .sp_hos_phone {
         padding: 5px;
     }
+
     .circle-phone {
         width: 30px;
         height: 30px;
     }
+
     .phone-no {
         padding: 0px;
         font-size: 20px;
     }
+
     .hos_phone i,
     .sp_hos_phone i {
         width: 30px;
@@ -12351,6 +11731,7 @@ width: 18rem;
         line-height: 30px;
         font-size: 15px;
     }
+
     #job_detail .fav-profile {
         width: 100%;
         padding: 10px !important;
@@ -12361,67 +11742,84 @@ width: 18rem;
     table.consultTable tr > * {
         display: block;
     }
+
     table.consultTable tr {
         display: table-cell;
         vertical-align: top;
     }
+
     .first-row{
         border: none;
         padding: 0px;
     }
+
     table.consultTable th, table.consultTable td{
         width: 100% !important;
+    }
 
-    }   
     .mt-750-10 {
         margin-top: 10px;
     }
+
     .backbtn {
         top: 0px;
     }
+
     .form-group .rightwrap .postal {
         width: 90% !important;
     }
+
     .form-wrap .form-left {
         border-bottom: 1px solid #ced4da;
     }
+
     #register.loginwrapper {
         height: auto;
         padding: 30px 0;
     }
+
     #register .user_registercard {
         width: 90%;
         margin: -85px auto 0;
     }
+
     .login_1,
     .login_2 {
         top: 0px;
     }
+
     .pc-750 {
         display: none;
     }
+
     .sp-750 {
         display: block;
     }
+
     .pad-t-10 {
         padding: 10px 0px 0px 0px;
     }
+
     .pad-0-res {
         padding: 0px;
     }
+
     .profile-tit {
         padding: 0px;
         margin: 0px;
     }
+
     table.timeTable th,
     table.timeTable td {
         vertical-align: middle !important;
         width: 50px !important;
         padding: 5px !important;
     }
+
     .public-nurheader {
         margin-bottom: 10px;
     }
+
     .dropdown {
         display: inline-block;
         width: 100%;
@@ -12437,9 +11835,11 @@ width: 18rem;
         border-radius: 0.25rem;
         -webkit-appearance: none;
     }
+
     .dropdown-men.show {
         display: inline-flex !important;
     }
+
     .dropdown-menu-form {
         padding: 5px 10px 0;
         width: 100%;
@@ -12447,44 +11847,55 @@ width: 18rem;
         overflow-y: scroll;
         transform: translate3d(0px, 33px, 0px) !important;
     }
+
     .btn-sm {
         padding: 2px;
     }
+
     ul.tab-menu-responsive {
         font-size: 10px;
     }
+
     ul.tab-menu-responsive li {
         width: 25%;
         text-align: center;
     }
+
     ul.tab-menu-responsive li a {
         font-size: 12px;
         padding-left: 1px;
         padding-right: 1px;
     }
+
     ul.tab-menu-responsive li a i {
         display: block;
         font-size: 15px;
     }
+
     div.div1 a.router-link-exact-active,
     div.div2 a.router-link-exact-active {
         border-left: 1px solid transparent !important;
     }
+
     .btn-group {
         display: flex;
         flex-direction: row;
     }
+
     .pad-free-750 {
         padding-left: 0px;
         padding-right: 0px;
     }
+
     .margin-free-750 {
         margin-left: 0px;
         margin-right: 0px;
     }
+
     .margin-bottom750 {
         margin-bottom: 0px !important;
     }
+
     .facility_tbl th,
     .cost_table th,
     .map_tbl th {
@@ -12496,60 +11907,80 @@ width: 18rem;
     .choose-item .job-no {
         float: left;
     }
+
     .pagination {
         justify-content: center;
         text-align: center;
         margin-bottom: 10px;
     }
+
     .pagination .page-item {
         padding: 1px;
     }
+
     .page-item .spanclass {
         width: 30px;
         height: 30px;
         background-image: none;
     }
+
     .spanclass {
         float: left;
         margin-top: 2px;
         border: 1px solid #2980b9;
         border-radius: 3px;
     }
+
     .spanclass a {
         position: relative;
     }
+
     /* profile publish */
+
     .gallery-list .gallery-item {
         height: 100px;
     }
+
     /*End  profile publish */
+
     /*job search*/
+
     .job-content {
         margin-bottom: 60px;
         padding: 10px;
     }
+
     .form-wrap .form-right {
         border-left: none;
     }
+
     /*end job search*/
+
     .width17 {
         width: 48%;
     }
+
     .fixed-nav {
         display: none;
         width: 100%;
     }
+
     /* new details */
+
     .related_box {
         width: 50%;
     }
+
     .related_box:nth-child(3n) {
         padding-right: 10px;
     }
+
     .related_box:nth-child(2n) {
         padding-right: 0;
     }
+
     /*End new details */
+
     #myBtn {
         right: 0px;
     }
@@ -12563,66 +11994,84 @@ width: 18rem;
         top: 0px;
         left: 0;
     }
+
     .mt-567-10 {
         margin-top: 10px;
     }
+
     .admin-list-table>table {
         overflow-x: auto;
         white-space: nowrap;
     }
+
     .searchButtonNews {
         width: 20%;
     }
+
     #news_list .select_label {
         width: 25% !important;
     }
+
     .w-sm-65 {
         width: 65% !important;
     }
+
     .w-sm-100 {
         width: 100% !important;
         margin-bottom: 10px;
     }
+
     .sp-576 {
         display: block;
     }
+
     /* create news */
+
     .related-card .cat_box {
         width: 100%;
     }
+
     .related-card .cat_select {
         width: 71%;
         margin-left: auto;
     }
+
     .related-card .search_box {
         width: 100%;
     }
+
     .related_post_box .create_news img {
         max-width: 40%;
     }
+
     #news_list .select_box {
         width: 75%;
     }
+
     .joboffer-salary-type {
         padding: 0;
     }
+
     .joboffer-salary {
         margin: 10px 0 0 0;
         padding: 0;
     }
+
     .tel-input {
         padding: 0;
     }
+
     .tel-button {
         margin-top: 10px;
         padding: 0;
     }
+
     ul.menu li.first-submenu {
         top: 13px;
     }
+
     /*end create news */
 }
-
 
 /*fav_slider*/
 
@@ -12632,59 +12081,76 @@ width: 18rem;
         position: absolute;
         right: 0px;
     }
+
     .cmt2 {
         float: left;
         margin-left: -13px;
     }
+
     .cmt3 {
         display: none;
     }
+
     .search_jobid {
         float: none;
     }
+
     .data-success {
         font-size: 16px;
     }
+
     .successful-resetpwd {
         background-color: #fff;
         margin-top: 0px;
         border: none;
     }
+
     /*news*/
+
     .ads-slider {
         top: 10px;
     }
+
     .news-3-card .img-box {
         padding: 0 5px !important;
     }
+
     .wrapper-4 img {
         left: 0;
         right: 0;
         margin: 0 auto;
     }
+
     .wrapper-4 {
         border: 1px solid #fff;
         background-color: #fff;
     }
+
     .wrapper-3 img.fit-image {
         height: 100%;
     }
+
     .single-news-box p {
         overflow: hidden;
         height: -webkit-fill-available;
     }
+
     .category_box {
         margin-top: 0px;
     }
+
     .category_box h4 {
         font-size: 16px;
         padding-left: 5px;
         padding-right: 5px;
     }
+
     .category_news_title {
         padding: 0px 10px 10px 0px;
     }
+
     /*fav nursing*/
+
     .close-480 {
         display: block;
         line-height: 2px;
@@ -12693,74 +12159,85 @@ width: 18rem;
         width: 35px;
         padding: 0px;
     }
+
     .check-resize {
         display: block;
     }
+
     dl.favnur dt {
         display: block;
         width: auto;
     }
+
     #nursing dl dd {
         padding-left: 0px;
     }
+
     .fav-update-wrap {
         max-width: 100%;
         flex: 0 0 100%;
     }
+
     .fav-update-wrap {
         padding: 0;
         background: #BCDDF3;
         border: 1px solid #ddd;
         text-align: center;
     }
+
     .favnur {
         border-right: 1px solid #ccc !important;
     }
+
     .compare-wrap {
         max-width: 100%;
     }
+
     .fav-update-btn {
         width: 35%;
         line-height: 25px;
         margin: 8px auto;
     }
+
     .fnt-title {
         font-size: 15px;
     }
+
     .fnt-check {
         font-size: 13px;
     }
+
     .pb-4,
     .py-4 {
         padding-bottom: 0px !important;
     }
+
     #nursing .modal-footer {
         padding: 0px;
     }
+
     .modal-hr hr {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
     }
+
     .lbl-size {
         width: auto;
     }
+
     .job_count {
         font-size: 15px;
         padding: 0px 5px 0px;
     }
+
     /*end fav nursing*/
+
     /*pagination*/
-    /* .page-item:first-child .spanclass,
-.page-item:last-child .spanclass,
-.page-item:nth-child(2) .spanclass,
-.page-item:nth-last-child(2) .spanclass {
-width: 60px;
-height: 30px;
-transition: background-color .3s;
-} */
+
     .pc-480 {
         display: none;
     }
+
     .page-item:first-child .spanclass,
     .page-item:last-child .spanclass,
     .page-item:nth-child(2) .spanclass,
@@ -12769,53 +12246,58 @@ transition: background-color .3s;
         height: 30px;
         transition: background-color .3s;
     }
+
     .pagination {
-        /* flex-wrap: wrap; */
         justify-content: center;
         text-align: center;
         margin-bottom: 10px;
-        /* margin-right: 20%; */
     }
+
     .pagination .page-item {
         padding: 1px;
     }
-    /* .page-item .spanclass {
-        width: 28px;
-        height: 25px;
-        background-image: none;
-        } */
+
     .spanclass {
         float: left;
         margin-top: 2px;
         border: 1px solid #2980b9;
         border-radius: 3px;
     }
+
     .spanclass a {
         position: relative;
     }
+
     .pc-paginate {
         display: none;
     }
+
     /*create_news*/
+
     .news_catsearch {
         padding: 15px;
     }
+
     .news_catsearch label {
         display: none;
     }
+
     .admin_page_edit {
         text-align: justify !important;
         padding: 10px;
     }
+
     .admin_page_edit .edit-borderbtn,
     .admin_page_edit .delete-borderbtn {
         min-width: 55px;
         font-size: 12px;
     }
+
     .custom_title {
         position: relative;
         margin: 5px 0;
     }
+
     .custom_title:after {
         content: '';
         position: absolute;
@@ -12827,101 +12309,134 @@ transition: background-color .3s;
         border-radius: 2px;
         background: #2980b9;
     }
+
     #customer_list .custom_title:after {
         left: 15px;
     }
+
     .scroll_responsive {
         overflow-x: auto;
     }
+
     .scroll_responsive .table {
         margin-bottom: 0 !important;
     }
+
     .custom-table {
         width: 555px;
     }
+
     .admin-list .custom-table {
         width: 100%;
     }
+
     .t_card {
         margin-left: 22px;
     }
+
     #create_news .title {
         padding: 14px;
         font-size: 12px;
         padding-left: 10px;
         margin-top: -7px;
     }
+
     .card_height {
         float: left;
         height: 236px;
         cursor: pointer;
     }
+
     .pc-m-0-10 {
         margin: 0px 10px;
     }
+
     .pc-m-r-10 {
         margin-right: 10px;
     }
+
     .mb-10 {
         margin-bottom: 10px;
     }
+
     .related-card .cat_wrap {
         width: 100%;
     }
+
     /* end create news */
+
     /* news list */
+
     .List_tbl tr {
         width: 100%;
     }
+
     .List_tbl tr td {
         display: block;
         width: 100% !important;
     }
+
     .table.List_tbl td:first-child {
         width: 100%;
     }
+
     .List_tbl tr td:first-child div {
         width: 95%;
         height: auto;
         margin: 5px auto;
     }
+
     .table.List_tbl td:nth-child(2) {
         border: none;
     }
+
     #customer_list .table.List_tbl td:last-child {
         border: none;
         text-align: left !important;
     }
+
     /*end news list */
+
     /* new details */
+
     .related_box {
         width: 100%;
         padding: 0 !important;
     }
+
     /*End new details */
+
     /*category*/
     .t-r {
         margin-right: -8px;
     }
+
     .t-l {
         margin-left: 1px;
     }
+
     /*occupation*/
     .o-r1 {
         margin-right: 19px;
     }
+
     .o-r2 {
         margin-left: 29px;
     }
+
     /*occupation*/
+
     /*advertisement*/
+
     .a-d1 {
         margin-right: 0px;
     }
+
     .a-d2 {
         margin-left: 12px;
         margin-top: 20px;
     }
+
     .job-box table tr{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -12934,14 +12449,17 @@ transition: background-color .3s;
         border-bottom: 0;
 
     }
+
     .job-box table th{
         width: 100% !important;
         border: none;
     }
+
     .job-box td{
         width: 100% !important;
         min-height: 45px;  
     }
+
     .info_tbl tr{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -12953,31 +12471,39 @@ transition: background-color .3s;
         flex-wrap: wrap;
         border-bottom: 0;
     }
+
     .info_tbl th {
         width: 100%;
         border: none;
     }
+
     .info_tbl td{
         width: 100%;
         min-height: 45px;    
     }
+
     .cash-lbl {
         font-size: 1.4em;
     }
+
     .facility_tbl th {
         width: 80px;
     }
+
     .main-cost-wrap {
         width: 330px;
         overflow-x: scroll;
     }
+
     .main-cost-table {
         width: 550px !important;
         float: none !important;
     }
+
     .changeLink {
         font-size: 12px;
     }
+
     .staff_tbl tr,
     .moving-in_tbl tr,
     .cost_table tr,
@@ -12992,133 +12518,165 @@ transition: background-color .3s;
         flex-wrap: wrap;
         border-bottom: 0;
     }
+
     .staff_tbl th,
     .moving-in_tbl th {
         width: 100% !important;
         min-height: 40px;
     }
+
     .staff_tbl td,
     .moving-in_tbl td {
-        /* width: calc(100% - 100px); */
         width: 100%;
         min-height: 40px;
     }
+
     .cost_table th,
     .map_tbl th {
-        /* width: 100px; */
         width: 100%;
         min-height: 40px;        
     }
+
     .cost_table td,
     .map_tbl td {
         width: 100%;
         min-height: 40px;
     }
+
     #googlemap {
         min-height: 200px;
     }
+
     .comment-btn-wrapper {
         width: 100%;
     }
+
     .no-data-size {
         font-size: 16px !important;
     }
+
     .nocomment-phone {
         font-size: 25px !important;
     }
+
     .no-comment-title span {
         display: block;
         line-height: 1.2;
     }
+
     .no-comment-title a {
         font-size: 20px;
     }
+
     .phone-color {
         width: 30px !important;
         height: 30px !important;
         font-size: 18px !important;
         line-height: 30px !important;
     }
+
     .fav-profile {
         width: 128px;
         right: 11px;
         padding: 5px 2px !important;
         font-size: 14px;
     }
+
     .top-mail-btn {
         right: 135px !important;
         width: 128px !important;
         font-size: 12px !important;
     }
-    .top-fixed-btn,
-    .top-fixed-btn.active {
-        /* padding: 3.29999%; */
-    }
     /*End  profile publish */
+
     /* Job Detail */
+
     .job-title-color {
         padding-left: 23px;
         font-size: 16px;
         background-size: 22px;
     }
+
     /*End Job Detail */
+
     /* job apply */
+
     .jop-apply-tit-wrap {
         padding: 0;
     }
+
     .job-apply-color {
         padding-left: 23px;
         font-size: 16px;
         background-size: 22px;
     }
+
     /*End job apply */
+
     /* common */
+
     .p0-480 {
         padding: 0 !important;
     }
+
     .breadcrumb {
         padding: 0 !important;
     }
+
     /*End common */
+
     .map-text-wrapper {
         display: block;
     }
+
     .searchButton {
         width: 28%;
     }
+
     .searchTerm {
         width: 80%;
     }
+
     .freeword-responsive h3 {
         padding: 0px;
     }
+
     .map-fa-icon {
         width: 100%;
     }
+
     .freeword-responsive p {
         text-align: center !important;
         font-size: 20px;
     }
+
     .offset {
         width: 100% !important;
     }
+
     /* comment list */
+
     .commentlist_tbl td {
         display: block;
         width: 100% !important;
     }
+
     .commentlist_tbl td:nth-child(2) {
         padding-left: 5px;
     }
+
     /*END comment list */
+
     #customer_list .table.List_tbl .btn {
         display: block;
         width: 100%;
         margin-bottom: 10px;
     }
+
     .admin_header .first_txt {
         display: none;
     }
+
     #news_post .card-body,
     #cat_post .card-body,
     #ads_post .card-body,
@@ -13126,9 +12684,11 @@ transition: background-color .3s;
     #create_subject .card-body {
         padding: 13px;
     }
+
     body.all-bg {
         background: #fff !important;
     }
+
     .admin-create-container>.admin-create-wrapper {
         margin: 0px;
         width: 100%;
@@ -13138,6 +12698,7 @@ transition: background-color .3s;
         transform: none !important;
         box-shadow: none;
     }
+
     .admin-list-container>.admin-list-wrapper {
         margin: 0px;
         width: 100%;
@@ -13159,30 +12720,37 @@ transition: background-color .3s;
     .span-height {
         line-height: 0px;
     }
+
     .sp-t {
         margin-left: 73px !important;
         margin-top: -23px !important;
     }
+
     .sp-t2 {
         margin-left: 114px !important;
         margin-top: -23px !important;
     }
+
     .dateTime {
         display: none;
     }
+
     .date-witdh-410 {
         display: block;
         border: 1px solid #DEE2E6;
     }
+
     .date-label {
         border: 1px solid #DEE2E6;
         padding: 0.50rem;
         font-weight: 700 !important;
         background: #f5f5f5;
     }
+
     .datepicker {
         border: 1px solid #DEE2E6;
     }
+
     /* create news */
     .related_post_box {
         -webkit-box-flex: 0;
@@ -13191,15 +12759,20 @@ transition: background-color .3s;
         max-width: 100%;
         margin: 2%;
     }
+
     /*End create news */
+
     .newsDetail_leftwrapper {
         max-width: 100%;
         margin-right: 0px !important;
     }
+
     .nursing_responsive {
         max-width: 100%;
     }
+
     /*register*/
+
     .login_wp {
         height: 105vh;
         padding: 10px !important;
@@ -13207,169 +12780,197 @@ transition: background-color .3s;
         width: 100%;
         background-color: #fbfbfb;
     }
+
     .registerform_container {
         margin-top: 142px;
     }
+
     .mb-7,
     .my-3 {
         margin-bottom: 2px !important;
     }
+
     #psd_reset .reset_form {
         padding: 90px 15px 0 15px;
     }
+
     #psd_reset_form .form_content {
         padding: 90px 15px 60px 15px;
     }
+
     #psd_reset .reset_txt {
         font-size: 13px;
     }
+
     .links_2 {
         top: 78px;
     }
+
     .p-l-162 {
         padding-left: 0px;
     }
+
     .links {
         position: relative;
     }
+
     .sp-414 {
         display: block !important;
     }
+
     .sp-414-table {
         display: table-cell !important;
     }
+
     .pc-414 {
         display: none !important;
     }
+
     .pc-414-table {
         display: none !important;
     }
+
     .pc-rsp-table {
         display: table-cell;
     }
+
     .pc-414-inline {
         display: none !important;
     }
+
     /*create_news*/
+
     .sp-414-timetable .table th,
     .sp-414-timetable .table td {
         padding: 5px !important;
         vertical-align: middle;
     }
+
     .hos-content {
         padding: 10px;
     }
+
     .m-b-414 {
         margin-bottom: 10px;
     }
+
     div#sp-414-block .nur_date {
         display: inline-block;
         margin-top: 10px;
     }
+
     div#sp-414-block .fac_list {
         padding: 6px;
         display: inline-block;
         width: auto;
     }
+
     /* nursing profile */
-    /* .d-flex {
-        flex-wrap: wrap !important;
-    } */
+   
     .nursing_input {
         flex: 0 0 100%;
         padding: 0;
         margin: 0;
         padding: 0 7px;
     }
+
     .heading-lbl {
         font-size: 1.05em;
         flex: 0 0 100%;
         max-width: 100%;
     }
+
     .heading-lbl1 {
         font-size: 1.05em;
         flex: 0 0 100%;
         max-width: 100%;
     }
+
     .nursing_btn {
         margin-top: 0px;
     }
+
     .nusing_btn1 {
         background-color: #0cc72c !important;
         min-width: 68px;
     }
-    /* .nursing_toggle_responsive {
-        margin-top: -45px;
-        margin-left: 127px;
-    } */
-    /* .nursing_add_responsive {
-        margin-top: -27px;
-    } */
+
     .nursing_table {
         display: block;
         width: 100%;
     }
+
     .nursing_table1 {
         display: block;
     }
+
     .nursing-addbtn {
         margin-top: 10px;
         padding-left: 1px;
     }
-    /* .nursing-gallery {
-        margin-top: 100px;
-    } */
+
     .nursing_cost {
         padding: 0px;
         margin-left: 16px;
     }
+
     .nursing_title_lbl {
         display: block;
-        /* margin-bottom: -20px; */
     }
+
     #gallery-payment table tr>th:first-child {
-        /* width: 35%; */
         width: 100%;
     }
+
     .nursing_table_title th,
     .nursing_table_title td {
         display: block;
         width: 100% !important;
     }
+
     .nursing_p-r-2 {
         padding-right: 2px !important;
     }
+
     .nursing_p-l-2 {
         padding-left: 2px !important;
     }
+
     .nursing-m-b-15 {
         margin-bottom: 10px !important;
     }
+
     .p-t-10 {
         padding-top: 10px !important;
         margin-left: 13px;
     }
+
     .hos-del {
         padding-bottom: 10px;
     }
+
     .m-l-20 {
         margin-left: 5px !important;
         margin-top: 5px;
     }
+
     .postal {
         width: 100%;
     }
+
     /* end nursing profile */
     #news_list .select_box {
         width: 72%;
     }
+
     .related-card .cat_select {
         width: 65%;
     }
+
     #joboffer_list .all-btn {
-        /* min-width: 50px; */
         padding: 10px;
     }
+
     .admin_header div span.dinone {
         display: none;
     }
@@ -13379,108 +12980,120 @@ transition: background-color .3s;
     .searchButtonNews {
         width: 30%;
     }
+
     .wt-admin{      
         right: 45px !important;      
     }
-    /* .loginwrapper {
-        height: 105vh;
-        padding: 10px 40px;
-        position: fixed;
-        background: #fbfbfb;
-    } */
+
     /*register*/
+
     .login_wp {
         height: 105vh;
         padding: 10px;
         position: fixed;
-        /* margin-left: -34px; */
-        /* background-color: #dc3545; */
         top: 22px;
         background-color: #fbfbfb;
     }
+
     .registerform_container {
         margin-top: 60px;
     }
+
     .brand_logo_container {
         height: 150px;
         width: 150px;
     }
+
     .user_card {
         width: 330px;
     }
+
     .form_content {
         padding: 70px 15px 40px 15px;
     }
+
     .brand_logo {
         width: 100px
     }
+
     .mb-7,
     .my-3 {
         margin-bottom: 7px !important;
     }
-    /* .brand_logo_container {
-        position: absolute;
-        height: 170px;
-        width: 170px;
-        top: -80px;
-        margin-left: -1px;
-    } */
+
     /*register*/
+
     .links {
         position: relative;
-        /* top: -55px; */
     }
+
     /* header */
+
     #sp_headerbar .fav_his {
         float: none;
         text-align: center;
     }
+
     ul.menu li.first-submenu {
         position: absolute;
         top: 18px;
         right: 16px;
         font-size: 20px;
     }
+
     .login_nav li.first-submenu {
         top: 18px !important;
     }
+
     ul.menu_list li i.fa-twitter,
     ul.menu_list li i.fa-facebook-f {
         color: inherit !important;
     }
+
     .first-submenu span {
         display: none;
     }
+
     .d-none-380 {
         display: none !important;
     }
+
     .backwrapper {
         padding: 10px;
         background: #f8fdff;
     }
+
     .d-none-768 {
         display: block;
         text-align: center;
     }
+
     .d-none-380 {
         display: none;
     }
+
     /*end header */
+
     /* Profile Publish */
+
     .gallery-list .gallery-item {
         font-size: 12px;
     }
+
     .top-mail-btn {
         right: 125px !important;
         width: 98px !important;
         font-size: 12px !important;
     }
+
     .fav-profile {
         right: 0px;
         font-size: 12px;
         top: 0px !important;
     }
+
     /*End  Profile Publish */
+
     .related-card .cat_lbl {
         font-size: 12px;
     }
@@ -13490,15 +13103,19 @@ transition: background-color .3s;
     .map-box-reponsive {
         display: block;
     }
+
     .fav-update-btn {
         margin: 33px auto;
     }
+
     .form-group .rightwrap>.rightwrap-child {
         margin-top: 25px;
     }
+
     .stepper-result-form {
         padding-top: 20px !important;
     }
+
     .stepper-result-form .label-result {
         padding: 10px 15px 5px 15px !important;
     }
@@ -13513,9 +13130,11 @@ transition: background-color .3s;
         border-radius: 12px;
         font-size: 16px;
     }
+
     .pc-9-180 {
         display: block;
     }
+
     .sp-9-180 {
         display: none;
     }    
@@ -13529,9 +13148,7 @@ transition: background-color .3s;
     .pc-991-1880{
         display: block;
     }
-   /* .profile-tit{
-        display: flex;
-    }*/
+
     .customer-id {
         padding: 0 10px;       
         line-height: 26px;
@@ -13546,6 +13163,7 @@ transition: background-color .3s;
     #fav-history-page .card-carousel-cards .card-carousel--card--footer {
         padding: 0px;
     }
+
     #hospital .nav-content,
     #nursing .nav-content {
         border: none;
@@ -13554,20 +13172,25 @@ transition: background-color .3s;
         margin-left: 0px !important;
         width: 25px !important;
     }
+
     #fav-history-page .nav-box[disabled] .nav-content {
         border: none;
         background: #fff !important;
         width: 25px !important;
     }
+
     .slick-dotted.slick-slider {
         margin-bottom: 0px;
     }
+
     .p5 {
         font-size: 16px;
     }
+
     .news_detail_tit {
         line-height: 1.3;
     }
+
     .details_title {
         margin-bottom: 20px !important;
         line-height: 1.3;
@@ -13578,12 +13201,15 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 263px !important;
     }
+
     #fav-history-page .card-carousel {
         overflow: visible;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 272px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: -16px;
     }
@@ -13593,15 +13219,19 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 261px !important;
     }
+
     #fav-history-page .card-carousel {
         overflow: visible;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 272px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: -34px;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper.m-l-4 {
         margin-left: -4px;
     }
@@ -13611,23 +13241,27 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 261px !important;
     }
+
     #fav-history-page .card-carousel {
         overflow: visible;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 272px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: -18px;
     }
+
     .aboutus .site_header {
         margin: 15px 0 10px;
     }
+
     .aboutus .title {
         padding-top: 0;
     }
 }
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 
@@ -13635,9 +13269,11 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 261px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 272px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: 5px;
     }
@@ -13648,26 +13284,31 @@ transition: background-color .3s;
         padding: 10px 15px 5px 15px;
         margin-top: 25px;
     }
+
     .rightwrap-child span {
         margin-top: 10px !important;
     }
+
     #fav-history-page .card-carousel {
         width: 521px!important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 545px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel-wrapper {
         margin-left: -13px;
     }
+
     #fav-history-page .card-carousel {
         overflow: visible;
     }
+
     .maintab-content {
         margin: 36px 0 0 0;
     }
 }
-
 
 /* Large devices (laptops/desktops, 992px and up) */
 
@@ -13675,14 +13316,17 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 799px!important;
     }
+
     .custom-table>.table th,
     .table td {
         padding: 6px;
     }
+
     .nav-content {
         margin-left: 3px;
         margin-right: -10px;
     }
+
     .profile_wd {
         width: 242px !important;
     }
@@ -13692,6 +13336,7 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 768px !important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 800px !important;
     }
@@ -13707,11 +13352,11 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 783px!important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 814px !important;
     }
 }
-
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
@@ -13719,53 +13364,65 @@ transition: background-color .3s;
     #fav-history-page .card-carousel {
         width: 1503px!important;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 1084px !important;
     }
+
     .map-wrap {
         overflow: hidden;
     }
 }
 
 @media only screen and (min-width: 1440px) and (max-width: 1880px) {
-    
     .main-content {
         width: 100%;
     }
+
     #fav-history-page .card-carousel {
         width: 1046px!important;
         margin-left: 20px;
     }
+
     #fav-hospital-page #fav-history-page .card-carousel {
         width: 1084px !important;
     }
+
     .nav-warp {
         max-width: 100%;
         width: 97%;
         padding: 0;
     }
+
     .menu_tab_category {
         width: 100% !important;
     }
+
     .fixed-ads-fluid {
         width: 100%;
     }
+
     .gNav {
         margin-left: 0%;
     }
+
     .gNav li a {
         padding: 0px 5px 0px 20px;
     }
+
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 5px;
         padding-left: 5px;
     }
+
     .social-link:nth-child(3) {
         margin-left: 5px;
     }
+
     .adslist-card {
         height: auto;
     }
+
     .ads-img {
         display: block;
         float: none;
@@ -13773,28 +13430,33 @@ transition: background-color .3s;
         width: auto;
         margin: 0 auto;
     }
+
     .fav-profile {
         right: 37px;
     }
+
     .today .adslist-card .smallads-title {
         top: 7px;
     }
+
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
     }
+
     .job-img {
-        /* max-width: 80% !important;*/
         margin: 0 auto 20px;
         flex: unset;
     }
+
     .job-box {
-        /* max-width: 100% !important;*/
         flex: unset;
     }
+
     .compare-wrap {
         max-width: 82%;
     }
+
     .fav-update-wrap {
         max-width: 19%;
         flex: 0 0 18%;
@@ -13804,7 +13466,6 @@ transition: background-color .3s;
 #nusNew {
     display: none;
 }
-
 
 /**************end card carousel***********************/
 
@@ -13817,61 +13478,75 @@ strong {
         width: 108px !important;
         margin-right: 0px;
     }
+
     .searchButtonNews {
         width: 30%;
     }
+
     /*comment*/
+
     .comment {
         padding: 13px;
         left: -40px;
-        /* width: 290px; */
     }
+
     .fnumericzip {
         margin-bottom: 10px;
     }
+
     .com-mt {
         margin-top: 44px;
     }
+
     /*comment*/
+
     .set-date {
         text-indent: 0em;
     }
+
     .registerform_container {
         margin-top: 0px;
     }
+
     /*create_news*/
+
     .searchButton {
         width: 35% !important;
     }
+
     .news_catsearch label {
         width: 55%;
     }
-    .nursing_toggle_responsive {
-        /* margin-top: -45px; */
-        /* margin-left: 115px; */
-    }
+
     .nursing_btn span {
         margin-left: 0;
         margin-top: 0;
     }
+
     .postal {
         width: 100%;
     }
+
     #news_list .select_box {
         width: 70%;
     }
+
     #news_list .select_label {
         width: 26% !important;
     }
+
     .infoBox {
         top: 200px !important;
     }
+
     #___gcse_0{
         height: 120px;
     }
+
     #upper-tab{
         margin-top: 30px;
     }
+
     .gsc-control-searchbox-only-ja{
         top: 85% !important;
     }
@@ -13886,20 +13561,25 @@ strong {
         width: 323px;
         left: -7px;
     }
+
     .comform {
         max-width: none;
     }
+
     .fnumericzip {
         margin-bottom: 10px;
     }
+
     .com-mt {
         margin-top: 44px;
     }
+
     .title_comment2 {
         margin-left: -15px;
         margin-right: -15px;
         padding: 12px;
     }
+
     .t-t {
         margin-left: 5px;
         margin-top: -45px;
@@ -13907,55 +13587,51 @@ strong {
 }
 
 @media only screen and (max-width:320px) {
-    /* html {
-        background: #FBFBFB;
-    }
-    .loginwrapper {
-        margin: 30px 0 0 0;
-    } */
     .user_card {
         width: 290px;
     }
+
     .comment {
         padding: 10px;
         width: 288px;
         left: -30px;
     }
+
     .fnumericzip {
         margin-bottom: 10px;
     }
+
     .com-mt {
         margin-top: 44px;
     }
+
     .title_comment2 {
         margin-left: -15px;
         margin-right: -15px;
         padding: 18px;
     }
+
     .t-t {
         margin-left: 5px;
         margin-top: -45px;
     }
 }
 
-
 /*comment*/
-
 
 /*nursing_search_dropdown*/
 
 @media (max-width: 767px) and (min-width: 420px) {
-    .pc-rsp-table {
-        /* display: none !important; */
-    }
     .sp-rsp-block {
         display: block;
         width: 100% !important;
         padding: 5px 10px !important;
     }
+
     .search_wd {
         width: auto;
     }
+
     .search_rsp {
         width: 100%;
         height: auto;
@@ -13963,9 +13639,7 @@ strong {
     }
 }
 
-
 /*nursing_search_dropdown*/
-
 
 /* checkbox */
 
@@ -14063,7 +13737,6 @@ strong {
 
 .model-7 .checkbox:after,
 .model-11 .checkbox:before {
-    /* content: 'ON'; */
     position: absolute;
     right: 7px;
     top: 6px;
@@ -14074,7 +13747,6 @@ strong {
 }
 
 .model-7 .checkbox:before {
-    /* content: 'OFF'; */
     position: absolute;
     left: -1px;
     top: 6px;
@@ -14091,9 +13763,7 @@ strong {
     font-weight: bold;
 }
 
-
 /* checkbox end */
-
 
 /*all_pages_btn_red*/
 
@@ -14113,7 +13783,6 @@ strong {
     background-color: #0cc72c;
     border-color: #0cc72c;
 }
-
 
 /*menu*/
 
@@ -14157,7 +13826,6 @@ strong {
 /*nursing-search*/
 
 @media only screen and (min-width: 320px) {
-    /*nursing-search*/
     .job_id2 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -14201,13 +13869,11 @@ strong {
 }
 
 @media screen and (min-width:1024px) {
-    .choose-item {
-        /* margin-top: 10px; */
-    }
     .search_jobid1 {
         position: relative;
         margin-left: 192px;
     }
+
     .job_id2 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -14218,6 +13884,7 @@ strong {
         margin-bottom: 11px;
         text-align: center;
     }
+
     .job_id3 {
         float: right!important;
         padding: 2px 10px;
@@ -14229,6 +13896,7 @@ strong {
         margin-bottom: 10px;
         text-align: center;
     }
+
     .job_id6 {
         float: left!important;
         padding: 2px 10px;
@@ -14246,9 +13914,9 @@ strong {
 
 @media screen and (min-width: 1280px) {
     .search_jobid1 {
-        /* width: 53%; */
         margin-left: 153px;
     }
+
     .job_id2 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -14256,7 +13924,6 @@ strong {
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 16px;
-        /* width: 31%; */
         margin-bottom: 11px;
         text-align: center;
         background: #fff;
@@ -14268,6 +13935,7 @@ strong {
         width: 53%;
         margin-left: 153px;
     }
+
     .job_id2 {
         padding: 2px 10px;
         margin-top: 5px;
@@ -14275,7 +13943,6 @@ strong {
         border: 1px solid #ddd;
         border-radius: 12px;
         font-size: 12px;
-        /* width: 31%; */
         margin-bottom: 11px;
         text-align: center;
     }
@@ -14296,7 +13963,6 @@ strong {
     }
 }
 
-
 /*hospital-search*/
 
 .job_id4 {
@@ -14307,41 +13973,15 @@ strong {
     border-radius: 12px;
     font-size: 16px;
     margin-bottom: 10px;
-    /* width: 18%; */
     text-align: center;
     display: inline-block;
-    /* float: left; */
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1179px){
-    /*.spanclass{
-        padding: 5px 3px;
-        width: 5vw;
-    }*/
     .map-leftwrapper {
         padding-left: 0;
     }
 }
-
-
-
-/*@media only screen and (min-width: 991px) and (max-width: 1114px){
-    .spanclass{
-        font-size: 1vw;
-    }
-}
-
-@media only screen and (min-width: 1115px) and (max-width: 1179px){
-    .spanclass{
-        font-size: 1vw;
-    }
-}*/
-
-/*.img-fluid {
-    max-width: 670px !important;
-    width: 100% !important;
-}*/
-
 
 @media (min-width: 991px) {
   .navbar-expand-lg {
@@ -14391,21 +14031,27 @@ strong {
 #job_search .profile_header{
     font-size: 20px;
 }
+
 #job_search .table tr{
     font-size: 14px;
 }
+
 #job_search .form-control{
     font-size: 14px;
 }
+
 #job_search .custom-select{
     font-size: .9rem;
 }
+
 #job_search .control{
     font-size: 14px;
 }
+
 #job_search .seemore-btn{
     font-size: 14px !important;
 }
+
 #job_search .create-btn{
     font-size: 14px;
 }
@@ -14418,24 +14064,29 @@ strong {
     text-overflow: ellipsis;
 }
 
-
 /*.container_news*/
+
 .color-1{
     background: #52a2da;
 }
+
 .color-2{
     background: #dcb01c;
 }
+
 .color-3{
     background: #d7787d;
 }
+
 .container_news{
     margin: 0 auto 40px auto;
 }
+
 .container_news .row-2{
     width: 90%;
     margin: 0 auto;
 }
+
 .container_news .text-new{
     width: 100%;
     border-left: 6px #63b7ff solid;
@@ -14443,27 +14094,20 @@ strong {
     padding-left: 10px;
     margin-top: 30px;
 }
-/*.job_container_news .text-new{
-    width: 100%;
-    border-left: 6px #828282 solid;
-    background-color: rgb(236, 236, 236);
-    padding-left: 10px;
-    margin-top: 30px;
-}*/
+
 .container_news .text-new span{
     font-size: 30px;
     color: #63b7ff;
     margin-left: 5px;
     line-height: 50px;
 }
-.job_container_news .text-new span{
-    /*color: #828282;*/
-}
+
 .container_news .button-year{
     margin-top: 20px;
     margin-bottom: 40px;
     display:inline-block;
 }
+
 .container_news .button-year button{
     padding-left: 30px;
     padding-right: 30px;
@@ -14471,25 +14115,30 @@ strong {
     font-size: 18px;
     background: #fff;
 }
+
 .container_news .scroll-year{
     overflow-y: auto;
     height: 320px;
     margin-top: 10px;
 }
+
 .container_news .text-body{
     width: 100%;
     border-bottom: 1px gray solid;
     padding: 20px 0px 10px 10px;
     margin: 0;
 }
+
 .container_news .new-1{
     width: 280px;
     display: flex;
 }
+
 .container_news .day{
     width: 120px;
     font-size: 16px;
 }
+
 .container_news .categories{
     color: #fff;
     padding: 5px 0px;
@@ -14498,38 +14147,46 @@ strong {
     text-align: center;
     font-size: 16px;
 }
+
 .container_news .p-categories{
     width: 150px;
     margin: 0px 8px;
     float: right;
 }
+
 .container_news .new-2{
     width: calc(100% - 280px);
     display: flex;
 }
+
 .container_news .text-body p{
     margin-bottom: 0.1rem;
     font-weight: bold;
     font-size: 16px;
     line-height: 1.5;
 }
+
 .container_news .hidden{
     display: none;
 }
+
 .container_news .btn-outline-dark:hover,
 .container_news .btn-outline-dark.active{
     background-color: #aaa !important;
     color: #000 !important;
     border-color: #aaa !important;
 }
+
 .container_news .btn-outline-dark:not(:disabled):not(.disabled).active:focus{
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+
 @media (max-width: 768px){
     .container_news .new-1{
         margin-bottom: 10px;
     }
+
     .container_news .new-2{
         width: 100%;
     }
@@ -14540,6 +14197,7 @@ strong {
     #myBtn {
         bottom: 64px;
     }
+
     .footer{
         padding: 16px;
     }
@@ -14552,11 +14210,13 @@ strong {
     overflow: hidden;
     width: 100% !important;
 }
+
 #ul_menu_category{
     flex-wrap: nowrap;
     border-bottom: none;
     width: 100%;
 }
+
 #ul_menu_category li{
     text-align: center;
     margin: 0 1px 0 0;
@@ -14564,10 +14224,12 @@ strong {
     border-top-right-radius: 11px;
     align-self: flex-end;
 }
+
 #ul_menu_category li a{
     color: #fff;
     border: none !important;
 }
+
 .tab-color0{
     background-color: #287db4;
 }
@@ -14587,6 +14249,7 @@ strong {
 .tab-color4 {
     background-color: #a3774a;
 }
+
 .menu_category .nav-tabs .router-link-exact-active{
     background-color: transparent !important;
     color: #fff !important;
@@ -14594,26 +14257,33 @@ strong {
     padding: 0.75rem 1rem 0.5rem 1rem;
     font-weight: bold;
 }
+
 .menu_category .nav-tabs .nav-link:hover {
     background-color: transparent !important;
     color: #fff !important;
     border: none !important;
 }
+
 .h-tel{
     display: none;
 }
+
 .gNav{
     border-left: 1px solid #ccc;
 }
+
 .gNav .router-link-exact-active>i.fas{
     color: #2980b9 !important;
 }
+
 .category_margin{
     margin: 5px 0 0 0;
 }
+
 .tab_pane_02{
     margin-top: 10px;
 }
+
 @media only screen and (max-width: 560px){
     .category_margin{
         margin: 0;
@@ -14626,6 +14296,7 @@ strong {
   top: -1px;
   left: 1px;
 } 
+
 .m_top_left span,
 .s_top_left {
     border-radius: 1px;
@@ -14646,6 +14317,7 @@ input.gsc-input {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
+
 @media only screen and (min-width: 768px) and (max-width: 990px){
     .google_div{
         float: none;
@@ -14653,7 +14325,6 @@ input.gsc-input {
         position: relative;
         top: 70px;
         padding: 0;
-        /*background: #fff;*/
         background: #f4f4f2;
         margin-left: auto;
         margin-right: auto;
@@ -14682,21 +14353,15 @@ input.gsc-input {
 }
 /*end of google search*/
 
-
 /*for header bar*/
 #headerbar {
     display: none;
     position: fixed;
     top: 20px !important;
     right: 2%;
-    /*z-index: 9999;*/
     width: auto;
     position: absolute;
 }
-/*#headerbar .fav-item {
-    font-size: 16px;
-}*/
-
 
 #headerbar .router-link-exact-active {
     font-weight: bold;
@@ -14727,14 +14392,17 @@ input.gsc-input {
 .main-content{
     position: relative;
 }
+
 .div1 {
     border-bottom: 1px solid #544e4e;
 }
+
 .div1,
 .div2 {
     background-color: transparent;
     margin: 5px 0px;
 }
+
 .div1:hover,
 .div2:hover {
     background: #eee;
@@ -14759,8 +14427,6 @@ input.gsc-input {
 
 .menu_tab_category{
     top: 200px !important;
-    /*left: 0;
-    right: 0;*/
     margin-right: auto;
     margin-left: auto;
     padding: 0 92px 0 22px;
@@ -14771,6 +14437,7 @@ input.gsc-input {
     top: 193px !important;
     right: 3.5%;
 }
+
 #holder{
     width: 83%;
 }
@@ -14779,24 +14446,26 @@ input.gsc-input {
         font-size: 1vw;
         width: 4vw;
     }
+
     .division-box>ul{
         width: 4.3vw;
     }
+
     .multiple-boxa {
         width: 9vw !important;
     }
+
     .multiple-box .spanclass, .multiple-boxa .spanclass {
         width: 4vw;
     }
+
     .map-wrap .col-lg-7{
         margin-left: 1%;
     }
     .map-wrap .col-lg-7 {
         max-width: 52%;
     }
-    /*.map-header{
-        bottom: 40%;
-    }*/
+
     #headerbar.addcssforheaderbar{
         top: 210px !important;
     }
@@ -14813,14 +14482,13 @@ input.gsc-input {
     }
 }
 
-
-
 @media only screen and (max-width: 990px){
     #headerbar,
     .fav-dropdown{
         /*display: none;*/
         background: #f4f4f2;
     }
+
     #sp_headerbar {
         display: block;
         width: 83%;
@@ -14830,15 +14498,18 @@ input.gsc-input {
         margin-left: 6px;
         font-size: 16px;
     }
+
     #sp_headerbar .fav_his {
         float: left;
         text-align: center;
     }
+
     #sp_headerbar .fav_his li {
         position: relative;
         display: inline-block;
         cursor: pointer;
     }
+
     #sp_headerbar .fav_his li .t-show {
         position: absolute;
         top: 30px;
@@ -14846,14 +14517,17 @@ input.gsc-input {
         width: 100%;
         z-index: 2;
     }
+
     #sp_headerbar .fav_his li p {
         padding: 0 10px;
         border: 1px solid;
         border-radius: 4px;
     }
+
     #sp_headerbar .fav_his li:first-child {
         margin-right: 20px;
     }
+
     #sp_headerbar .count {
         position: absolute;
         top: -12px;
@@ -14870,6 +14544,7 @@ input.gsc-input {
         vertical-align: middle;
         text-align: center;
     }
+
     #sp_headerbar .count2 {
         position: absolute;
         top: -12px;
@@ -14888,21 +14563,24 @@ input.gsc-input {
     }
 }
 
-
 /*end of header bar*/
 
 /*google_search_div*/
+
 #___gcse_0{
     height: 57px;
 }
+
 .homepage_btn{
     position: absolute;
     bottom: 0;
     right: 44px;
 }
+
 .fa-home{
     margin: 0 5px 0 0;
 }
+
 .homepage_btn:hover{
     color: #3490dc;
 }
@@ -14921,11 +14599,13 @@ input.gsc-input {
     border: 2px solid #2980b9 !important;
     border-radius: 8px !important;
 }
+
 .slider_div{
     visibility: hidden;
     height: 0;
     width: 44%;
 }
+
 .google_div{
     width: 70%; 
     display: inline-block;
@@ -14934,6 +14614,7 @@ input.gsc-input {
     position: relative;
     margin: 0;
 }
+
 .gsc-control-searchbox-only-ja{
     position: absolute;
     top: 50%;
@@ -14942,14 +14623,17 @@ input.gsc-input {
     width: 90%;
     left: 50.5%;
 }
+
 .upper-tab {
     margin-top: 43.2px;
     background: #f4f4f2;
     position: relative;
 }
+
 .gsib_a {
     padding: 9px 9px 8px 9px !important;
 }
+
 .ads-slider .adslist-card {
     padding: 6px 10px;
     height: 100px;
@@ -14957,6 +14641,7 @@ input.gsc-input {
     border-radius: 1px;
     margin-left: -2px;
 }
+
 .ads-slider .slide-img {
     float: left;
     height: 84px;
@@ -14964,6 +14649,7 @@ input.gsc-input {
     width: 50%;
     margin-right: 5%;
 }
+
 .img-fluid {
     max-width: 670px;
     width: 100%;
@@ -14984,10 +14670,10 @@ input.gsc-input {
 .google_search_all .google_div{
     padding: 0;
     width: 30%;
-    /*background: #eee;*/
     margin: 0 25px 0 0;
     display: none;
 }
+
 #headerbar.headerbarblock{
     display: block;
 }
@@ -14999,6 +14685,7 @@ input.gsc-input {
 .gsc-search-button svg{
     display: none;
 }
+
 .gsc-search-button-v2{
     font-size: 14px !important;
     color: #fff;
@@ -15026,11 +14713,11 @@ input.gsc-input {
     right: 20px;
 }
 
-
 .startpage .title{
     cursor: pointer;
     margin-bottom: 15px;
 }
+
 .startpage .active{
     background: #f1f3f4;
 }
@@ -15056,9 +14743,11 @@ table.gsc-search-box td.gsc-input{
     .slider_div{
         width: 32%;
     }
+
     .gsc-search-box-tools .gsc-search-box .gsc-input{
         padding-right: 12px !important;
     }
+
     .gsib_a {
         padding: 9px 9px 8px 9px !important;
     }
@@ -15068,77 +14757,94 @@ table.gsc-search-box td.gsc-input{
     .google_search_div{
         margin: 0;
     }
+
     .maintab-content{
         margin: 0;
     }
+
     .google_div{
         width: 100%;
         padding: 0;
         margin: 0;
         height: auto;
     }
+
     #upper-tab {
         margin-top: 38px;
     }
+
     .infoBox{
         top: 148px;
     }
+
     #headerbar.headerbarblock{
         display: none;
     }
+
     .google_search_all .slider_div {
         display: none !important;
     }
+
     .google_search_all .google_div{
         width: 100%;
     }
+
     .gsc-search-button-v2{
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
     }
+
     .gsc-search-box-tools .gsc-search-box .gsc-input{
         padding-right: 0 !important;
     }
+
     .gsib_a {
         padding: 9px 9px 8px 9px !important;
     }
+
     .gsc-input-box {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
     }
+
     .gsc-search-button{
         display: none !important;
     }
+
     .homepage_btn {
         display: none;
     }
+
     .gsc-control-searchbox-only-ja{
         width: 100%;
     }
+
     .google_search_all .google_div{
         background: #fff;
     }
 }
 
-
 @media only screen and (min-width: 561px) and (max-width: 990px){
     .menu_tab_category {
         top: 180px !important;
     }
+
     .upper-tab {
         margin-top: 53px !important;
     }
+
     .ads-slider {
         top: 85px;
     }
+
     .margin-none {
         margin-top: 50px !important;
     }
+
     #___gcse_0 {
         height: 125px;
     }
 }
-
 
 @media only screen and (max-width: 560px){
     .margin-none {
@@ -15168,11 +14874,11 @@ table.gsc-search-box td.gsc-input{
     }
 }
 
-
 /*aboutus*/
 .aboutus table{
     width: 100%;
 }
+
 .aboutus table th,
 .aboutus table td{
     border: 1px solid #e9e9e9;
@@ -15181,32 +14887,32 @@ table.gsc-search-box td.gsc-input{
     padding: 12px 30px;
     vertical-align: middle;
 }
+
 .aboutus table th{
     color: #2980b9;
     background: #f8f9fc;
 }
+
 @media only screen and (max-width: 767px){
     .aboutus table th,
     .aboutus table td{
         display: block;
     }
+
     .aboutus table th,
     .aboutus table td{
         border: none;
         padding-right: 0;
         padding-left: 0;
     }
+
     .aboutus table th{
         background: transparent;
     }
+
     .aboutus table td{
         padding-top: 0;
         padding-bottom: 20px;
     }
 }
 /*end of aboutus*/
-
-
-
-
-
