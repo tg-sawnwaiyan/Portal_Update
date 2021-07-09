@@ -161,7 +161,7 @@
 
                                                     <router-link :to="'/newsdetails/'+item.id">
 
-                                                        <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="item.id" :alt="item.cname+'ニュース画像'">
+                                                        <clazy-load class="wrapper-4 medium-img" @load="log" src="/images/noimage.jpg" :key="item.id" :alt="item.cname+'ニュース画像'">
 
                                                             <transition name="fade">
 
@@ -200,8 +200,7 @@
                                                     
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
-                                                        <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                                        <p class="medium_text">{{item.title}}</p>
+                                                        <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
@@ -294,7 +293,7 @@
 
                                         <router-link :to="'/newsdetails/'+item.id">
 
-                                            <clazy-load class="wrapper-4" @load="log"  src="/images/noimage.jpg" :key="item.id">
+                                            <clazy-load class="wrapper-4 medium-img" @load="log"  src="/images/noimage.jpg" :key="item.id">
 
                                                 <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
 
@@ -332,8 +331,7 @@
                                         
                                         <router-link :to="'/newsdetails/'+item.id">
                                             <!-- <span> {{item.title}} </span> -->
-                                            <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                            <p class="medium_text">{{item.title}}</p>
+                                            <read-more more-str="" less-str="read less"  :max-chars="37" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
@@ -1067,11 +1065,13 @@
     background: #ffffff !important;
     border: 1.5px solid #000000;
     color: #000000;
-    min-width: 100px !important;
     text-align: center;
 }
 .black_color span{
     color: #000000 !important;
+}
+.medium-img{
+    padding-bottom: 110px;
 }
 .fit-image {
     padding: 0;
