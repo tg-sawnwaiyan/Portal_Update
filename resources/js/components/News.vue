@@ -201,7 +201,7 @@
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
                                                         <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="40" :text="item.title"></read-more>
+                                                        <p class="medium_text">{{item.title}}</p>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
@@ -265,7 +265,7 @@
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
                                                         <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="30" :text="item.title"></read-more>
+                                                        <p class="medium_text">{{item.title}}</p>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color"><span>{{item.cname}}</span></span>                                                
@@ -333,7 +333,7 @@
                                         <router-link :to="'/newsdetails/'+item.id">
                                             <!-- <span> {{item.title}} </span> -->
                                             <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="40" :text="item.title"></read-more>
+                                            <p class="medium_text">{{item.title}}</p>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
