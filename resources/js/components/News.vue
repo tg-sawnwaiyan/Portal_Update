@@ -201,7 +201,7 @@
                                                     <router-link :to="'/newsdetails/'+item.id">
                                                         <!-- <span> {{item.title}} </span> -->
                                                         <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                                        <read-more more-str="" less-str="read less"  :max-chars="35" :text="item.title"></read-more>
+                                                        <read-more more-str="" less-str="read less"  :max-chars="40" :text="item.title"></read-more>
                                                     </router-link>
                                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                                     <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
@@ -333,7 +333,7 @@
                                         <router-link :to="'/newsdetails/'+item.id">
                                             <!-- <span> {{item.title}} </span> -->
                                             <!-- <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more> -->
-                                            <read-more more-str="" less-str="read less"  :max-chars="35" :text="item.title"></read-more>
+                                            <read-more more-str="" less-str="read less"  :max-chars="40" :text="item.title"></read-more>
                                         </router-link>
                                         <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
                                         <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color">
@@ -1064,7 +1064,7 @@
 
 <style scoped>
 .black_color{
-    background: none !important;
+    background: #ffffff !important;
     border: 1.5px solid #000000;
     color: #000000;
     min-width: 100px !important;
