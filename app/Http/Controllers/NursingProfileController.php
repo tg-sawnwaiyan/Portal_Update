@@ -22,7 +22,7 @@ class NursingProfileController extends Controller
         return $nursing;
     }
 
-    public function movePanorama(Request $request) {
+    public function movePanorama(Request $request) { 
         $request = $request->all();
         foreach ($request as $file){
             $imageName  = $file->getClientOriginalName();
