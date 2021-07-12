@@ -330,8 +330,8 @@ class PostController extends Controller
 
                 $file       = $post->photo;
                 $filename   = './upload/news/'.$file;
-                $filename_mobile = './upload/news/mobile/'.$file;
-                \File::delete($filename_mobile);
+                // $filename_mobile = './upload/news/mobile/'.$file;
+                // \File::delete($filename_mobile);
                 \File::delete($filename);                
 
                 $image = str_replace('data:image/png;base64,', '', $request->photo);
@@ -339,19 +339,19 @@ class PostController extends Controller
                 $imageName = str_random(10).'.'.'png';
                 $image = base64_decode($image);
                 \File::put('upload/news/' . $imageName, $image);
-                if (!file_exists('upload/news/mobile')) {
-                    mkdir('upload/news/mobile');                    
-                }
-                $resized_image = Image::make($image)->resize(117, 75)->stream('png', 100);                
-                \File::put('upload/news/mobile/' . $imageName, $resized_image);
+                // if (!file_exists('upload/news/mobile')) {
+                //     mkdir('upload/news/mobile');                    
+                // }
+                // $resized_image = Image::make($image)->resize(117, 75)->stream('png', 100);                
+                // \File::put('upload/news/mobile/' . $imageName, $resized_image);
             }else{
                 $imageName = $post->photo;
             }
         }else{
             $file       = $post->photo;
             $filename   = './upload/news/'.$file;
-            $filename_mobile = './upload/news/mobile/'.$file;
-            \File::delete($filename_mobile);
+            // $filename_mobile = './upload/news/mobile/'.$file;
+            // \File::delete($filename_mobile);
             \File::delete($filename);
 
             $imageName = "";
@@ -401,8 +401,8 @@ class PostController extends Controller
         $post = Post::find($id);	
         $file= $post->photo;	
         $filename = './upload/news/'.$file;	
-        $filename_mobile = './upload/news/mobile/'.$file;
-        \File::delete($filename_mobile);
+        // $filename_mobile = './upload/news/mobile/'.$file;
+        // \File::delete($filename_mobile);
         \File::delete($filename);	
         $post->delete();	
         return response()->json('The news successfully deleted');	
