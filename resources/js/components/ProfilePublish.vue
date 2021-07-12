@@ -1020,7 +1020,9 @@
                                     <tbody>
                                     <tr>
                                         <th class="custom-bg-color"> 公式サイト</th>
-                                        <td v-if="m.website">{{m.website}}</td> <td v-else> - </td>
+                                        <td v-if="m.website">
+                                            <a :href="m.website" target="_blank">{{m.website}}</a>
+                                        </td> <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <th class="custom-bg-color"> メールアドレス</th>
