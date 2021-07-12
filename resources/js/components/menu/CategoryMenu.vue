@@ -181,7 +181,7 @@ export default {
     }*/
 
     .hospital-borderColor {
-        border: 1px solid #63b7ff !important;
+        border: 1px solid #f0b700 !important;
     }
 
     .nursing-borderColor {

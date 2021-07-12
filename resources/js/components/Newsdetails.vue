@@ -32,19 +32,19 @@
                     <!-- <span class="breaking-news-tip"> {{news.cat_name}}</span> -->
                     {{news.title}}
                   </h4>  
-                  <div style="text-align: center;margin-bottom: 20px;">
-                    <span v-if="news.created_by_company" style="font-size: 1rem;line-height: 1.384;color: #666;display: inline-block;margin-top: .5rem;">
+                  <div class="detail-block">
+                    <span v-if="news.created_by_company" class="news-create-cmp">
                       {{news.created_by_company}}
                     </span>
+                    <div class="set-date">
+                      <p :class="news.cat_id == 26 ? 'title26': 'title_color'" :style="{'--color': news.color_code ? news.color_code : '#287db4'}">
+                       <span>{{news.cat_name}}</span>
+                       <small style="color:#aaa;"  v-if="news.cat_name != 'PR'" >
+                         <i class="fa fa-calendar-alt"></i>
+                         &nbsp;&nbsp;{{news.created_at}}
+                      </small>
+                      </p>   
                   </div>
-                  <div class="set-date">
-                    <p :class="news.cat_id == 26 ? 'title26': 'title_color'" :style="{'--color': news.color_code ? news.color_code : '#287db4'}">
-                     <span>{{news.cat_name}}</span>
-                     <small style="color:#aaa;"  v-if="news.cat_name != 'PR'" >
-                       <i class="fa fa-calendar-alt"></i>
-                       &nbsp;&nbsp;{{news.created_at}}
-                    </small>
-                    </p>   
                   </div>
                 </div>
                 <div class="col-12">
@@ -204,6 +204,12 @@ export default {
         color: #fff;
         border-right: 1px solid #fff;
 } */
+.margin-none{
+  margin-top: 0px !important;
+}
+.scrolldiv2{
+  padding-top: 0;
+}
 .news-tabColor .nav-link {
         background: #75b777 !important;
         color: #fff;
@@ -227,7 +233,7 @@ export default {
         border: 1px solid #75b777 !important;
 }*/
 .hospital-borderColor {
-        border: 1px solid #63b7ff !important;
+        border: 1px solid #f0b700 !important;
 }
 .nursing-borderColor {
         border: 1px solid #63b7ff !important;
@@ -238,5 +244,24 @@ export default {
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
     font-size: 13px;
+}
+.detail-block{
+  text-align: left;
+  margin-bottom: 20px; 
+  padding: 0 45px; 
+  display: inline-block;
+}
+.set-date{
+  margin-top: 0.5rem;
+}
+.news-create-cmp{
+  font-size: 1rem;
+  line-height: 1.384;
+  color: #666;
+  display: block; 
+  width: 440px ; 
+  text-align: center;
+  margin-top: .5rem; 
+  float: left;
 }
 </style>

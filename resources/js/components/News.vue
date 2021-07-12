@@ -1065,6 +1065,8 @@
     border: 1.5px solid var(--bkgColor);
     color: #000000;
     text-align: center;
+    min-width: 91px;
+    max-width: 91px;
 }
 .black_color span{
     color: #000000 !important;

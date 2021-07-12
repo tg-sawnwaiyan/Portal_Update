@@ -14,15 +14,15 @@
       <div class="col-md-12">
         <div>
           <!-- <div class="info-box"></div> -->
-          <div class="row map-wrap">
+          <div id="hos_map" class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
             <h2 class="map-header hospital-map-header" style="bottom: 155px;">赤ちゃんからおと<br/>なまでみんなで通<br/>える街の名医が見<br/>つかります。</h2>
 
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" id="search-free-word" class="searchTerm" placeholder="地名、病院名、診療科目などを入力" style="border: 3px solid #63b7ff;">
-                    <button type="submit" class="searchButton" style="border: 1px solid #63b7ff;background: #63b7ff;" @click="searchfreeword">
+                    <input type="text" id="search-free-word" class="searchTerm" placeholder="地名、病院名、診療科目などを入力" style="border: 3px solid #f0b700;">
+                    <button type="submit" class="searchButton" style="border: 1px solid #f0b700;background: #f0b700;" @click="searchfreeword">
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
@@ -57,7 +57,7 @@
             <div id="hos_search" class="col-12 hospitalselect pad-free m-b-10">
 
                 <div>
-                    <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
+                    <h5 class="profile_header m-t-10" style="border-left: 5px solid #f0b700;">現在の検索条件</h5>
 
                     <table class="table table-bordered col-12" style="border:none;">
                         <tbody>
@@ -498,6 +498,8 @@ import bulcomponent from './bulcomponent.vue'
             $('#upper-tab').addClass('hospital-borderColor margin-none');
             $('.google_search_div').addClass('google_search_all');
             $('#headerbar').addClass('headerbarblock');
+            $('#sp_headerbar').addClass('headerbarblock');
+            $('.maintab-content').addClass('margin-top-none');
         },
     methods: {
     stopTheEvent:function(e){
