@@ -6821,9 +6821,7 @@ body::-webkit-scrollbar-thumb {
 /*End Newdetails */
 
 /*jssor slider*/
-
 /*jssor slider loading skin spin css*/
-
 .jssorl-009-spin {
     position: absolute;
     top: 0px;
@@ -6922,7 +6920,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*view*/
-
 #myBtn {
     /* display: none; */
     position: fixed;
@@ -6989,7 +6986,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Hospital History */
-
 .fac_container>li {
     display: inline-block;
     padding: 5px 10px;
@@ -7015,7 +7011,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*for clinical subject*/
-
 .sub_container>li {
     display: inline-block;
     padding: 5px 10px;
@@ -7026,7 +7021,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*end for clinical subject*/
-
 .hos-tit {
     font-size: 20px;
 }
@@ -7156,7 +7150,6 @@ body::-webkit-scrollbar-thumb {
 
 
 /*comment*/
-
 .cmt {
     text-align: right;
     margin-right: 4px;
@@ -7165,7 +7158,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*comment*/
-
 button.confirmed {
     opacity: 0.5;
     cursor: not-allowed;
@@ -7208,7 +7200,6 @@ button.confirmed {
     -webkit-transition: all .1s ease-in;
     transition: all .1s ease-in;
 }
-
 /* End Commentlist */
 
 .mailbox {
@@ -7232,7 +7223,6 @@ button.confirmed {
 }
 
 /* start one page */
-
 .page {
     display: block;
     text-align: left;
@@ -7310,13 +7300,11 @@ button.confirmed {
     font-size: 13px;
     color: #fff;
 }
-
 /* end one page */
 
 /* modal dialgo*/
 
 /*error*/
-
 .swal2-icon.swal2-error {
     border-color: #FF5462 !important;
 }
@@ -7453,7 +7441,6 @@ button.confirmed {
 }
 
 /* start one page */
-
 .page {
     display: block;
     text-align: left;
@@ -7510,7 +7497,6 @@ button.confirmed {
 /* end one page */
 
 /*required*/
-
 .sp1 {
     border: none;
     padding: 2px 5px;
@@ -7522,7 +7508,6 @@ button.confirmed {
 }
 
 /* start .profile */
-
 .fixed-nav {
     margin: 0 auto;
     padding: 0 !important;
@@ -7597,11 +7582,9 @@ button.confirmed {
 .postal {
     width: 50%;
 }
-
 /* end profile */
 
 /* nursingFavouriteMail form */
-
 .fav-his-header {
     border-bottom: 3px solid #c40000;
     padding-bottom: 10px;
@@ -7689,7 +7672,6 @@ button.confirmed {
 }
 
 /* nursing */
-
 #nursing .pseudolink {
     color: #63b7ff;
     line-height: 10px;
@@ -7846,7 +7828,6 @@ button.confirmed {
 }
 
 /* nursing search */
-
 .nursingSearch-tbl {
     padding: 20px 0 10px 0;
     border: 1px solid #2980b9;
@@ -8001,13 +7982,10 @@ button.confirmed {
     border: 1px solid;
     border-radius: 50%;
 }
-
 /* end nursing search */
-
 /*End  nursing */
 
 /* hospital */
-
 #hospital .pseudolink {
     color: #63b7ff;
 }
@@ -8027,13 +8005,10 @@ button.confirmed {
     border-top: 5px solid #4f97d5 !important;
     border-right: 5px solid #4f97d5 !important;
 }
-
 /* End  hospital */
-
 /* end one page */
 
 /*required*/
-
 .sp1 {
     border: none;
     padding: 2px 5px;
@@ -8217,7 +8192,6 @@ dl.favnur dd {
 
 
 /*slick carousel*/
-
 #fav-history-page .card-carousel-wrapper {
     display: flex;
     align-items: center;
@@ -8455,7 +8429,6 @@ dl.favnur dd {
 /* fav_slider */
 
 /*for see more btn*/
-
 .seemore-btn {
     font-size: 16px !important;
     color: #fff;
@@ -8473,7 +8446,6 @@ dl.favnur dd {
 }
 
 /* job_search */
-
 .job-content {
     position: relative;
     margin-bottom: 20px;
@@ -8633,7 +8605,6 @@ dl.favnur dd {
 }
 
 /*hospital search*/
-
 .result-span {
     color: #23a2f5;
 }
@@ -8814,7 +8785,6 @@ table.consultTable >tbody>tr th.second-hos-row{
 }
 
 /*nursing search */
-
 .nur-content {
     position: relative;
     padding: 20px;
@@ -8869,7 +8839,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* .slick-slider */
-
 .slick-slider {
     position: relative;
     display: block;
@@ -8993,7 +8962,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* Arrows */
-
 .ads-slider .slick-prev {
     opacity: 0;
 }
@@ -9021,6 +8989,7 @@ ul.nur-caro-card>li.list-group-item {
     outline: none;
     background: transparent;
 }
+
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
@@ -9103,7 +9072,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* Dots */
-
 .slick-dotted.slick-slider {
     margin-bottom: 30px;
 }
@@ -9177,7 +9145,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /*Loading */
-
 .loading-screen {
     display: flex;
     align-items: center;
@@ -9219,7 +9186,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /*for Job*/
-
 .job-title-color {
     padding: 0 0 10px 40px;
     font-size: 20px;
@@ -9252,7 +9218,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* start nursing information */
-
 .nursing-info {
     padding: 0 0 10px 40px;
     font-size: 20px;
@@ -9264,11 +9229,9 @@ ul.nur-caro-card>li.list-group-item {
     font-weight: bolds;
     letter-spacing: 1px;
 }
-
 /* end nursing information */
 
 /*for custom checkbox and radio*/
-
 .control-group {
     display: inline-block;
     vertical-align: top;
@@ -9373,7 +9336,6 @@ ul.nur-caro-card>li.list-group-item {
 .control--radio input:disabled~.control__indicator:after {
     background: #2980b9;
 }
-
 /*for inner checkbox*/
 
 .control {
@@ -9471,13 +9433,11 @@ ul.nur-caro-card>li.list-group-item {
 .controlinner--radio input:disabled~.controlinner__indicator:after {
     background: #2980b9;
 }
-
 /*end for inner checkbox*/
 
 /*end for custom checkbox and radio*/
 
 /*for date time picker*/
-
 .mx-calendar-content .cell {
     border-radius: 3px;
 }
@@ -9624,7 +9584,6 @@ ul.nur-caro-card>li.list-group-item {
 .page-item .spanclass {
     cursor: pointer;
 }
-
 /* end pagination*/
 
 .wrapper-0 {
@@ -9742,12 +9701,10 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* start for news_catsearch  admin page */
-
 .news_catsearch {
     display: flex !important;
     align-items: flex-end;
 }
-
 /* end for news_catsearch  admin page */
 
 /*create_news*/
@@ -9939,11 +9896,9 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* hos and nursing account */
-
     .img_title {
         height: 165px;
     }
-
     /* end hos and nursing account */
 
     .hos_lbl {
@@ -9957,7 +9912,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*login*/
-
     .login_2 {
         margin-left: 18px;
     }
@@ -10088,7 +10042,6 @@ ul.nur-caro-card>li.list-group-item {
     .img_title {
         height: 135px;
     }
-
     /* Register */
 
     /* hospital and nursing profile */
@@ -10123,7 +10076,6 @@ ul.nur-caro-card>li.list-group-item {
     ul.hokkaido-wrap {
         left: 0px;
     }
-
     /*end job search*/
 
     /* job apply list */
@@ -10139,7 +10091,6 @@ ul.nur-caro-card>li.list-group-item {
     #job_apply .scroll_responsive .table {
         margin-bottom: 0 !important;
     }
-
     /*End job apply list */
 
     .slick-next, .slick-prev{
@@ -10178,11 +10129,9 @@ ul.nur-caro-card>li.list-group-item {
     .sp-1024 {
         display: block;
     }
-
     /*end  common */
 
     /* header */
-
     .main-header .nav-item {
         padding: 3px 8px 5px 8px;
     }
@@ -10214,11 +10163,9 @@ ul.nur-caro-card>li.list-group-item {
         margin: 0 0 1px;
         cursor: pointer;
     }
-
     /*end header */
 
     /* Admin Sidebar*/
-
     .custom-sidebar .admin-tit {
         margin: 20px 0 10px 0;
         text-align: center;
@@ -10275,7 +10222,6 @@ ul.nur-caro-card>li.list-group-item {
     .custom-sidebar:hover ul.adminview-sidebar li a {
         padding: 5px 25px !important;
     }
-
     /*End Admin Sidebar  */
 }
 
@@ -10295,7 +10241,6 @@ ul.nur-caro-card>li.list-group-item {
     .nursing_responsive {
         max-width: 40%;
     }
-
     /* nursing profile */
 
     .heading-lbl {
@@ -10337,7 +10282,6 @@ ul.nur-caro-card>li.list-group-item {
     .m-l-20 {
         margin-left: 15px !important;
     }
-
     /* end nursing profile */
 
     /* common */
@@ -10355,11 +10299,9 @@ ul.nur-caro-card>li.list-group-item {
     .sp-1024 {
         display: block;
     }
-
     /*End common */
 
     /* create news */
-
     .related_post_box {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 49%;
@@ -10436,24 +10378,20 @@ ul.nur-caro-card>li.list-group-item {
     .create_nw_p {
         padding: 0px;
     }
-
     /*news_end*/
 
     /*category*/
-
     .t-r {
         margin-right: 45px;
     }
 
     /*subject*/
-
     .o-r1 {
         margin-right: 21px;
         margin-top: 20px;
     }
 
     /*advertisement*/
-
     .a-d1 {
         margin-right: 0px;
     }
@@ -10463,7 +10401,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*create_news*/
-
     .title {
         font-size: 13px;
     }
@@ -10526,7 +10463,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 @media only screen and (max-width: 990px) {
-
     .pc-990{
         display: none;
     }
@@ -10548,7 +10484,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*nursing-search*/
-
     .job_id2 {
         padding: 2px 10px;
         font-weight: bold;
@@ -10572,7 +10507,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*comment*/
-
     .cmt {
         text-align: left;
         font-size: 12px;
@@ -10581,7 +10515,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*comment*/
-
     .form-wrap .mailbox {
         width: 100%;
         margin-left: 0px;
@@ -10624,16 +10557,13 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* common */
-
     ul li {
         list-style: none;
         margin-right: 0px !important;
     }
-
     /*end common */
 
     /* header */
-
     .main-header {
         padding: 4px 0;
         height: auto;
@@ -10838,11 +10768,9 @@ ul.nur-caro-card>li.list-group-item {
         float: none;
         display: inline-block;
     }
-
     /*end  header */
 
     /* header & menu */
-
     .v-sidebar-menu {
         display: none !important;
     }
@@ -10850,7 +10778,6 @@ ul.nur-caro-card>li.list-group-item {
     .content-all {
         padding-left: 0;
     }
-
     /* sp_adminNav */
 
     .admin_head {
@@ -11000,22 +10927,18 @@ ul.nur-caro-card>li.list-group-item {
         transition: all .3s linear;
         transform-origin: center;
     }
-
     /*end sp_adminNav */
 
     /*End header & menu */
 
     /* ads slider */
-
     .ads-slider {
         width: 80%;
         margin: 0 auto 20px;
     }
-
     /*end  ads slider */
 
     /*map responsive*/
-
     #map-responsive {
         display: block;
     }
@@ -11036,7 +10959,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* profile publish */
-
     .photocard-carousel-wrapper {
         height: auto;
     }
@@ -11101,11 +11023,9 @@ ul.nur-caro-card>li.list-group-item {
     .gallery-area-cooperate .delete-borderbtn>i.fa {
         display: none !important;
     }
-
     /*End  profile publish */
 
     /* job details */
-
     .job_id {
         margin-bottom: 0px;
         text-align: center;
@@ -11158,19 +11078,15 @@ ul.nur-caro-card>li.list-group-item {
         margin-top: 10px;
         width: 100%;
     }
-
     /*End job details */
 
     /* comment list */
-
     .commentWrap .d-flex {
         flex-wrap: wrap;
     }
-
     /*END comment list */
 
     /* customer list */
-
     #customer_list .table.List_tbl td {
         display: block;
         width: 100%;
@@ -11179,13 +11095,11 @@ ul.nur-caro-card>li.list-group-item {
     #customer_list .table.List_tbl td:last-child {
         border-top: 0;
     }
-
     /*End customer list */
 }
 
 
 /* Media Queries*/
-
 @media (max-width: 1024px) and (min-width: 320px) {
     .adminview-sidebar {
         height: auto;
@@ -11256,7 +11170,6 @@ ul.nur-caro-card>li.list-group-item {
 
 @media screen and (max-width: 979px) and (max-width:752px) {
     /* create new */
-
     .related_post_box .create_news img {
         max-width: 100px;
     }
@@ -11264,7 +11177,6 @@ ul.nur-caro-card>li.list-group-item {
     .related_post_box .card-body {
         padding: 1rem 0.8rem;
     }
-
     /*end create new */
 
     #news.t_card2 {
@@ -11294,7 +11206,6 @@ ul.nur-caro-card>li.list-group-item {
     /*fav nursing*/
 
     /*comment*/
-
     .cmt {
         font-size: 12px;
         color: #777;
@@ -11323,11 +11234,9 @@ ul.nur-caro-card>li.list-group-item {
     #nursing dl dd {
         padding-left: 0px;
     }
-
     /*end fav nursing*/
 
     /*news_start*/
-
     .t_card {
         max-width: none;
     }
@@ -11339,7 +11248,6 @@ ul.nur-caro-card>li.list-group-item {
     .t_card4 {
         margin-left: 40px;
     }
-
     /*news_end*/
 }
 
@@ -11427,7 +11335,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* start pagination */
-
     .pagination {
         justify-content: center;
         text-align: center;
@@ -11454,10 +11361,9 @@ ul.nur-caro-card>li.list-group-item {
     .spanclass a {
         position: relative;
     }
-    
     /* end pagination */
-    /* nursing profile */
 
+    /* nursing profile */
     .heading-lbl {
         font-size: 1.05em;
         flex: 0 0 16%;
@@ -11485,7 +11391,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* end nursing profile */
-
     .sp-768 {
         display: block;
     }
@@ -11508,7 +11413,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* create new */
-
     .related_post_box .create_news img {
         max-width: 100px;
     }
@@ -11524,7 +11428,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* job apply */
-
     .register_box,
     .confirm_box {
         padding: 0;
@@ -11567,7 +11470,6 @@ ul.nur-caro-card>li.list-group-item {
         padding-left: 5px;
         width: 100%;
     }
-
     /*End job apply */
 
     .wd-in {
@@ -11595,7 +11497,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*category*/
-
     .t-r {
         margin-left: 17px;
         margin-right: 0px;
@@ -11617,10 +11518,9 @@ ul.nur-caro-card>li.list-group-item {
         margin-left: 48px;
         margin-top: 20px;
     }
-
     /*occupation*/
-    /*advertisement*/
 
+    /*advertisement*/
     .a-d1 {
         margin-right: 53px;
     }
@@ -11888,15 +11788,12 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* profile publish */
-
     .gallery-list .gallery-item {
         height: 100px;
     }
-
     /*End  profile publish */
 
     /*job search*/
-
     .job-content {
         margin-bottom: 60px;
         padding: 10px;
@@ -11907,7 +11804,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*end job search*/
-
     .width17 {
         width: 48%;
     }
@@ -11930,7 +11826,6 @@ ul.nur-caro-card>li.list-group-item {
     .related_box:nth-child(2n) {
         padding-right: 0;
     }
-
     /*End new details */
 
     #myBtn {
@@ -12026,7 +11921,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /*fav_slider*/
-
 @media only screen and (max-width:480px) {
     .admin-backbtn {
         min-width: 62px;
@@ -12058,7 +11952,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*news*/
-
     .ads-slider {
         top: 10px;
     }
@@ -12101,7 +11994,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*fav nursing*/
-
     .close-480 {
         display: block;
         line-height: 2px;
@@ -12183,7 +12075,6 @@ ul.nur-caro-card>li.list-group-item {
     /*end fav nursing*/
 
     /*pagination*/
-
     .pc-480 {
         display: none;
     }
@@ -12223,7 +12114,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*create_news*/
-
     .news_catsearch {
         padding: 15px;
     }
@@ -12311,11 +12201,9 @@ ul.nur-caro-card>li.list-group-item {
     .related-card .cat_wrap {
         width: 100%;
     }
-
     /* end create news */
 
     /* news list */
-
     .List_tbl tr {
         width: 100%;
     }
@@ -12343,16 +12231,13 @@ ul.nur-caro-card>li.list-group-item {
         border: none;
         text-align: left !important;
     }
-
     /*end news list */
 
     /* new details */
-
     .related_box {
         width: 100%;
         padding: 0 !important;
     }
-
     /*End new details */
 
     /*category*/
@@ -12376,7 +12261,6 @@ ul.nur-caro-card>li.list-group-item {
     /*occupation*/
 
     /*advertisement*/
-
     .a-d1 {
         margin-right: 0px;
     }
@@ -12539,7 +12423,6 @@ ul.nur-caro-card>li.list-group-item {
     /*End  profile publish */
 
     /* Job Detail */
-
     .job-title-color {
         padding-left: 23px;
         font-size: 16px;
@@ -12549,7 +12432,6 @@ ul.nur-caro-card>li.list-group-item {
     /*End Job Detail */
 
     /* job apply */
-
     .jop-apply-tit-wrap {
         padding: 0;
     }
@@ -12559,11 +12441,9 @@ ul.nur-caro-card>li.list-group-item {
         font-size: 16px;
         background-size: 22px;
     }
-
     /*End job apply */
 
     /* common */
-
     .p0-480 {
         padding: 0 !important;
     }
@@ -12571,7 +12451,6 @@ ul.nur-caro-card>li.list-group-item {
     .breadcrumb {
         padding: 0 !important;
     }
-
     /*End common */
 
     .map-text-wrapper {
@@ -12604,7 +12483,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* comment list */
-
     .commentlist_tbl td {
         display: block;
         width: 100% !important;
@@ -12613,7 +12491,6 @@ ul.nur-caro-card>li.list-group-item {
     .commentlist_tbl td:nth-child(2) {
         padding-left: 5px;
     }
-
     /*END comment list */
 
     #customer_list .table.List_tbl .btn {
@@ -12721,7 +12598,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*register*/
-
     .login_wp {
         height: 105vh;
         padding: 10px !important;
@@ -12788,7 +12664,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*create_news*/
-
     .sp-414-timetable .table th,
     .sp-414-timetable .table td {
         padding: 5px !important;
@@ -12815,7 +12690,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /* nursing profile */
-   
     .nursing_input {
         flex: 0 0 100%;
         margin: 0;
@@ -12934,7 +12808,6 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*register*/
-
     .login_wp {
         height: 105vh;
         padding: 10px;
@@ -12970,13 +12843,11 @@ ul.nur-caro-card>li.list-group-item {
     }
 
     /*register*/
-
     .links {
         position: relative;
     }
 
     /* header */
-
     #sp_headerbar .fav_his {
         float: none;
         text-align: center;
@@ -13023,7 +12894,6 @@ ul.nur-caro-card>li.list-group-item {
     /*end header */
 
     /* Profile Publish */
-
     .gallery-list .gallery-item {
         font-size: 12px;
     }
@@ -13039,7 +12909,6 @@ ul.nur-caro-card>li.list-group-item {
         font-size: 12px;
         top: 0px !important;
     }
-
     /*End  Profile Publish */
 
     .related-card .cat_lbl {
@@ -13087,11 +12956,13 @@ ul.nur-caro-card>li.list-group-item {
         display: none;
     }    
 }
+
 @media only screen and (min-width: 1881px) {
     .pc-2000 {
         display: block;
     }   
 }
+
 @media only screen and (min-width: 991px) and (max-width: 1880px) {
     .pc-991-1880{
         display: block;
@@ -13105,7 +12976,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /**************card carousel***********************/
-
 @media only screen and (max-width:768px) {
     #fav-history-page .card-carousel-cards .card-carousel--card--footer {
         padding: 0px;
@@ -13210,7 +13080,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-
 @media only screen and (min-width: 414px) and (max-width: 768px) {
     #fav-history-page .card-carousel {
         width: 261px !important;
@@ -13257,7 +13126,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-
 @media only screen and (min-width: 992px) and (max-width: 1024px) {
     #fav-history-page .card-carousel {
         width: 799px!important;
@@ -13304,7 +13172,6 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-
 @media only screen and (min-width: 1280px) and (max-width: 1440px) {
     #fav-history-page .card-carousel {
         width: 1503px!important;
@@ -13410,7 +13277,6 @@ ul.nur-caro-card>li.list-group-item {
 #nusNew {
     display: none;
 }
-
 /**************end card carousel***********************/
 
 strong {
@@ -13428,7 +13294,6 @@ strong {
     }
 
     /*comment*/
-
     .comment {
         padding: 13px;
         left: -40px;
@@ -13443,7 +13308,6 @@ strong {
     }
 
     /*comment*/
-
     .set-date {
         text-indent: 0em;
     }
@@ -13495,9 +13359,7 @@ strong {
     }
 }
 
-
 /*comment*/
-
 @media only screen and (max-width:360px) {
     .comment {
         padding: 7px;
@@ -13555,11 +13417,9 @@ strong {
         margin: -45px 0 0 5px;
     }
 }
-
 /*comment*/
 
 /*nursing_search_dropdown*/
-
 @media (max-width: 767px) and (min-width: 420px) {
     .sp-rsp-block {
         display: block;
@@ -13577,11 +13437,9 @@ strong {
         display: contents;
     }
 }
-
 /*nursing_search_dropdown*/
 
 /* checkbox */
-
 .checkbox {
     position: relative;
     display: inline-block;
@@ -13700,11 +13558,9 @@ strong {
     font-size: 15px;
     font-weight: bold;
 }
-
 /* checkbox end */
 
 /*all_pages_btn_red*/
-
 .bt-red {
     color: #fff;
     background-color: #e3342f;
@@ -13723,7 +13579,6 @@ strong {
 }
 
 /*menu*/
-
 .wt-1 {
     width: 98%;
     margin-left: 15px;
@@ -13748,7 +13603,6 @@ strong {
     font-size: 14px;
     cursor: pointer;
 }
-
 /*end_menu*/
 
 .admin_l1 {
@@ -13760,9 +13614,7 @@ strong {
     display: block;
 }
 
-
 /*nursing-search*/
-
 @media only screen and (min-width: 320px) {
     .job_id2 {
         padding: 2px 10px;
@@ -13781,6 +13633,7 @@ strong {
         position: relative;
         margin-right: 96px;
     }
+
     /*nursing-search*/
     .job_id2 {
         padding: 2px 10px;
@@ -13894,7 +13747,6 @@ strong {
 }
 
 /*hospital-search*/
-
 .job_id4 {
     padding: 2px 10px;
     font-weight: bold;
@@ -13994,7 +13846,6 @@ strong {
 }
 
 /*.container_news*/
-
 .color-1{
     background: #52a2da;
 }
@@ -14258,12 +14109,15 @@ input.gsc-input {
         right: 0;
         text-align: center;
     }
+
     .slider_div{
         margin: 0 auto 20px;
     }
+
     .menu_tab_category{
         top: 250px !important;
     }
+
     .slider_div .slick-dotted.slick-slider{
         margin-bottom: 0 !important;
     }
@@ -14273,6 +14127,7 @@ input.gsc-input {
     .ads-slider{
         width: 40%;
     }
+
     .slider_div .slick-dotted.slick-slider{
         margin-bottom: 0 !important;
     }
@@ -14366,6 +14221,7 @@ input.gsc-input {
 #holder{
     width: 83%;
 }
+
 @media only screen and (min-width: 991px) and (max-width: 1245px){
     .spanclass{
         font-size: 1vw;
@@ -14395,6 +14251,7 @@ input.gsc-input {
         top: 210px !important;
     }
 }
+
 @media only screen and (min-width: 991px) and (max-width: 1080px){
     #holder{
         width: 78%;
@@ -14484,11 +14341,9 @@ input.gsc-input {
         text-align: center;
     }
 }
-
 /*end of header bar*/
 
 /*google_search_div*/
-
 #___gcse_0{
     height: 57px;
 }
@@ -14771,16 +14626,20 @@ table.gsc-search-box td.gsc-input{
     .margin-none {
         margin-top: 0 !important;
     }
+
     .infoBox {
         top: 175px;
     }
+
     #___gcse_0{
         height: 100px;
         background: #f4f4f2;
     }
+
     #upper-tab{
         margin-top: 20px;
     }
+
     .gsc-control-searchbox-only-ja{
         top: 60%;
     }
@@ -14835,5 +14694,3 @@ table.gsc-search-box td.gsc-input{
     }
 }
 /*end of aboutus*/
-
-
