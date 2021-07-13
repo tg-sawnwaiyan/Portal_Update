@@ -1,10 +1,10 @@
 <template>
   
         <div class="divisions row " id="divisionswrap">
-           <img src="/images/mapHospital.png" alt="map" v-if="path == 'nursing'"  class="img-fluid" style="margin:0 auto;">
+           <img src="/images/mapNursing.png" alt="map" v-if="path == 'nursing'"  class="img-fluid" style="margin:0 auto;">
             <img src="/images/mapHospital.png" alt="map" v-if="path == 'hospital'" class="img-fluid" style="margin:0 auto;">
             <!-- <img src="/images/mapJob.png" alt="map" v-if="path == 'job'" class="img-fluid" style="margin:0 auto;"> -->
-            <img src="/images/mapHospital.png" alt="map" v-if="path == 'job'" class="img-fluid" style="margin:0 auto;">
+            <img src="/images/mapJob.png" alt="map" v-if="path == 'job'" class="img-fluid" style="margin:0 auto;">
             <div class="col-sm-2 hokkaido-box">
                 <div class="mb-3">
                 <div class="division-box">

@@ -25,7 +25,7 @@
           <!-- <div class="info-box"></div> --> 
           <!--start map-->
           <!-- <div class="row map-wrap" style="background-color:#ececec;"> -->
-          <div class="row map-wrap">
+          <div id="job_map" class="row map-wrap">
           <!-- free word left wrapper--->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left map-leftwrapper">
               <!-- <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2> -->
@@ -36,11 +36,11 @@
                 <div class="wrap">
                   <div class="search">
                       <!-- <input type="text" class="searchTerm" style="border: 3px solid #828282;" id="search-free-word" placeholder="地名、求人タイトルなどを入力"> -->
-                    <input type="text" class="searchTerm" id="search-free-word" placeholder="地名、求人タイトルなどを入力" style="border: 3px solid #63b7ff;">
+                    <input type="text" class="searchTerm" id="search-free-word" placeholder="地名、求人タイトルなどを入力" style="border: 3px solid #ee788e;">
                     <!-- <button type="submit" class="searchButton" style="border: 1px solid #828282;background: #828282;" @click="searchfreeword">
                         <i class="fas fa-search"></i> 検索
                     </button> -->
-                    <button type="submit" class="searchButton" style="border: 1px solid #63b7ff;background: #63b7ff;" @click="searchfreeword">
+                    <button type="submit" class="searchButton" style="border: 1px solid #ee788e;background: #ee788e;" @click="searchfreeword">
                       <i class="fas fa-search"></i> 検索
                     </button>
                   </div>
@@ -91,7 +91,7 @@
               
             <div class="col-12">
             <!-- <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5> -->
-            <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
+            <h5 class="profile_header m-t-10" style="border-left: 5px solid #ee788e;">現在の検索条件</h5>
             <table class="table table-bordered col-12" style="border:none;">
               <tbody>
                 <tr>
@@ -521,6 +521,8 @@ export default {
             $('#upper-tab').addClass('job-borderColor margin-none');
             $('.google_search_div').addClass('google_search_all');
             $('#headerbar').addClass('headerbarblock');
+            $('#sp_headerbar').addClass('headerbarblock');
+            $('.maintab-content').addClass('margin-top-none');
         },
   methods:{
     /**added by maythirihtet */

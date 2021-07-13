@@ -195,10 +195,10 @@ export default {
     }
     .job-borderColor {
         /*border: 1px solid #828282 !important;*/
-        border: 1px solid #63b7ff !important;
+        border: 1px solid #ee788e !important;
     }
     .hospital-borderColor {
-        border: 1px solid #63b7ff !important;
+        border: 1px solid #f0b700 !important;
     }
     .nursing-borderColor {
         /* border: 1px solid #ff9563 !important; */

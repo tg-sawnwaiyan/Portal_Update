@@ -775,6 +775,8 @@
             $('#upper-tab').addClass('nursing-borderColor margin-none');
             $('.google_search_div').addClass('google_search_all');
             $('#headerbar').addClass('headerbarblock');
+            $('#sp_headerbar').addClass('headerbarblock');
+            $('.maintab-content').addClass('margin-top-none');
         },
 
         computed: {
