@@ -47,12 +47,12 @@
                         
                         <!-- Cropper container -->
                         <div v-if="this.imageSrc" class="my-3 d-flex align-items-center justify-content-center mx-auto">
-                            <vue-cropper class="mr-2 w-50" ref="cropper" :guides="true" :src="imageSrc"></vue-cropper>
+                            <vue-cropper class="mr-2 w-50" ref="cropper" viewMode=0 :guides="true" :auto-crop-area="0.6" :src="imageSrc" drag-mode="move" :movable="true" :crop-box-movable="false" :crop-box-resizable="false"></vue-cropper>
                             <!-- Cropped image previewer -->
                             <img class="ml-2 w-50 bg-light" :src="croppedImageSrc" />
                         </div>
                         <div v-if="this.imageSrc" @click="cropImage" class="btn btn-secondary">Crop</div>
-                    </div>      
+                    </div>  
                  
                     <div class="form-group">
                         <label>内容要約 <span class="error sp2">必須</span></label>
@@ -191,8 +191,8 @@ export default {
 
     data(){
             return {
-                imageSrc: "",
-                croppedImageSrc: "",
+                imageSrc: null,
+                croppedImageSrc: null,
                 norecord: 0,
                 lang:{
                     days: ['日', '月', '火', '水', '木', '金', '土'],
@@ -428,6 +428,9 @@ export default {
                         this.news.from_date = null;
                         this.news.to_date = null;
                     }
+                    if(this.croppedImageSrc){
+                        this.news.photo = this.croppedImageSrc;
+                    }
                     fData.append('photo', this.news.photo)
                     fData.append('from_date', this.news.from_date)
                     fData.append('to_date', this.news.to_date)
@@ -619,9 +622,9 @@ export default {
                 }
             },
             cropImage() {
-                this.croppedImageSrc = this.$refs.cropper.getCroppedCanvas().toDataURL();
-                this.news.photo = this.croppedImageSrc;
-            },            
+                this.croppedImageSrc = this.$refs.cropper.getCroppedCanvas().toDataURL();                
+                //this.news.photo = this.croppedImageSrc;
+            },      
         }               
 }
 
