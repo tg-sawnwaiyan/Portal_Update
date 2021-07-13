@@ -395,7 +395,7 @@
                                         <read-more more-str="" less-str="read less"  :max-chars="25" :text="item.title"></read-more>
                                     </router-link>
                                     <span v-if="item.category_id == 26" class="breaking-tip for-read-more" style="bottom:0px;">PR</span>
-                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more"><span>{{item.cname}}</span></span>
+                                    <span v-else :style="{'--bkgColor': item.color_code ? item.color_code : '#287db4'}" class="tab_title_color for-read-more black_color"><span>{{item.cname}}</span></span>
                                     <span class="tab_title_date tab_title_d">
                                         {{item.created_at}}
                                     </span>
