@@ -107,7 +107,7 @@
                                                  </clazy-load>
                                                     <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
                                                     <span class="source-subtitle" v-if="latest_post.created_at"> 
-                                                        <p v-if="latest_post.new_news == '1'" class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.date_only}}<span class="small_new">New</span></p>
+                                                        <p v-if="latest_post.new_news == '1'" class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.created_at}}<span class="small_new">New</span></p>
                                                         <p v-else class="second_para"><img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{latest_post.created_at}}</p>
                                                     </span>
                                                 </router-link>
@@ -129,7 +129,7 @@
                                                                 <span class="sm_news_mp" style="max-width: 65%;">
                                                                     {{ post.title }}
                                                                 </span>
-                                                                <span v-if="post.new_news == '1'" class="sm_news_date">{{post.date_only}}<em class="small_new">New</em></span>
+                                                                <span v-if="post.new_news == '1'" class="sm_news_date">{{post.created_at}}<em class="small_new">New</em></span>
                                                                 <span v-else class="sm_news_date">{{post.created_at}}</span>
                                                             </p>
                                                             <!-- <span class="source-img-small d-inline-block text-truncate top_sm_news">
@@ -469,7 +469,7 @@
                                                 <p class="news_title_large"> {{value[0].title}} </p>
                                             </div>
                                             <div class="txt_date txt_color_pc">
-                                                <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].date_only}}<span class="small_new">New</span></p>
+                                                <p v-if="value[0].new_news == '1'" class="second_para">{{value[0].created_at}}<span class="small_new">New</span></p>
                                                 <p v-else class="second_para">{{value[0].created_at}}</p>
                                             </div>
 
@@ -521,7 +521,7 @@
 
                                                 </div>
                                                 <div class="txt_date txt_color_pc">
-                                                    <p v-if="item.new_news == '1'" class="second_para">{{item.date_only}}<span class="small_new">New</span></p>
+                                                    <p v-if="item.new_news == '1'" class="second_para">{{item.created_at}}<span class="small_new">New</span></p>
                                                     <p v-else class="second_para">{{item.created_at}}</p>
                                                 </div>
 
@@ -539,7 +539,7 @@
                                                 <span class="sm_news_mp">
                                                     {{item.title}}
                                                 </span>
-                                                <span v-if="item.new_news == '1'" class="sm_news_date">{{item.date_only}}<em class="small_new">New</em></span>
+                                                <span v-if="item.new_news == '1'" class="sm_news_date">{{item.created_at}}<em class="small_new">New</em></span>
                                                 <span v-else class="sm_news_date">{{item.created_at}}</span>
                                             </p>
                                         </router-link>
@@ -578,7 +578,7 @@
                                                 <p class="news_title_large"> {{value[1].title}} </p>
                                             </div>
                                             <div class="txt_date txt_color_pc">
-                                                <p v-if="value[1].new_news == '1'" class="second_para">{{value[1].date_only}}<span class="small_new">New</span></p>
+                                                <p v-if="value[1].new_news == '1'" class="second_para">{{value[1].created_at}}<span class="small_new">New</span></p>
                                                 <p v-else class="second_para">{{value[1].created_at}}</p>
                                             </div>
 
@@ -619,7 +619,7 @@
                                                 </span>
                                             </div>
                                             <div class="sm_right_date_large">
-                                                <p v-if="large_new.new_news == '1'" class="">{{large_new.date_only}}<span class="small_new">New</span></p>
+                                                <p v-if="large_new.new_news == '1'" class="">{{large_new.created_at}}<span class="small_new">New</span></p>
                                                 <p v-else class="">{{large_new.created_at}}</p>
                                             </div>
                                         </div>
@@ -661,7 +661,7 @@
                                     </span>
                                 </div>
                                 <div class="sm_right_date">
-                                <p v-if="group.new_news == '1'" class="">{{group.date_only}}<span class="small_new">New</span></p>
+                                <p v-if="group.new_news == '1'" class="">{{group.created_at}}<span class="small_new">New</span></p>
                                 <p v-else class="">{{group.created_at}}</p>
                                 </div>
                             </div>
@@ -1005,30 +1005,34 @@
                     });
             },
             findNewNews: function(posts) {
-                        var current_date = new Date().getTime();
-                        var is_within_48 = false;
+                        var current = new Date();
+                        var current_time = current.getTime();
+                        var current_date = current.getDate();
+                        var current_month = current.getMonth()+1;
                         posts.forEach(function(post){
                             const post_date = new Date(post.created_at.replace(/-/g,"/"));
-                            var msec = (current_date - post_date.getTime());
+                            var msec = (current_time - post_date.getTime());
                             var mins = Math.floor(msec / 60000);
                             var hrs = Math.floor(mins / 60);
                             var min = post_date.getMinutes();
                             var month = post_date.getMonth()+1;
+                            var date = post_date.getDate();
                             min = min < 10 ? '0' + min : min;
-
                             post.new_news = "";
                             if(hrs <= 36) {     
-                                post.date_only = month + '/' +  post_date.getDate();
+                                //post.date_only = month + '/' +  post_date.getDate();
                                 post.new_news = "1";
-                            }   
+                            } 
 
-                           
-                            post.created_at = month + '/' +  post_date.getDate() + ' ' + post_date.getHours () + ':' + min;
+                            if(current_month == month && current_date == date){
+                                post.created_at = month + '/' +  date + ' ' + post_date.getHours () + ':' + min;
+                            }else{
+                                post.created_at = month + '/' +  date;
+                            }                          
                             
                         });
                         return posts;
             },
-
             searchCategory() {
                 this.$loading(true);
                 if ($('#search-free-word').val() == null || $('#search-free-word').val() == '' || $('#search-free-word').val() == 'null') {
