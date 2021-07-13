@@ -4838,6 +4838,13 @@ background: #ff9b53;  /
     left: 15px;
 }
 
+#hos_search .table-innertitle:after {
+    background: #f0b700;
+}
+
+#job_search .table-innertitle:after {
+    background: #ee788e;
+}
 .first-row {
     color: #fff !important;
     /* background-color: #a2a7a1; */
@@ -4920,8 +4927,8 @@ ul.hospital-subject>li:before {
     padding: 5px 10px;
     margin: 0 0 10px 3px;
     font-size: 13px;
-    color: #63b7ff;
-    border: 1px solid #63b7ff;
+    color: #f0b700;
+    border: 1px solid #f0b700;
     text-align: center;
     border-radius: 20px;
 }
@@ -4945,6 +4952,17 @@ ul.hospital-subject>li:before {
     scrollbar-width: thin;
 }
 
+#hos_map.map-wrap{
+    background: #FFFEE9;
+}
+
+#job_map.map-wrap{
+    background: #f3eaec;
+}
+
+#searchMap.map-wrap{
+    background: #edf3f7;
+}
 .divisions {
     position: relative;
     z-index: 1;
@@ -5134,12 +5152,20 @@ ul.hospital-subject>li:before {
 }
 
 .spanclass:hover {
-    background-color: #2980b9 !important;
+    background-color: #2980b9;
     background-image: none;
     border: 1px solid #2c3e50;
     color: #ffffff;
 }
-
+#searchMap .spanclass:hover{
+    background-color: #2980b9;
+}
+#hos_map .spanclass:hover{
+    background-color: #f0b700;
+}
+#job_map .spanclass:hover{
+    background-color: #ee788e;
+}
 .spanclass>a.card-text {
     color: #461e0a;
 }
@@ -5366,7 +5392,7 @@ screen and (min-width: 750px) {
         font-size: 14px;
     }
     .set-date {
-        float: right;
+        /*float: right;*/
         text-indent: 2em;
         margin-bottom: 2px;
     }
@@ -7328,7 +7354,6 @@ position: relative;
         font-size: 14px;
     }
     .set-date {
-        float: right;
         text-indent: 2em;
         margin-bottom: 2px;
     }
@@ -7493,9 +7518,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .set-date {
-    float: right;
     text-indent: 0em;
-    margin-bottom: 2px;
+    margin: 0 0 2px 20px;
 }
 
 
@@ -9294,6 +9318,13 @@ border-bottom: none;
     border: 1px solid #63b7ff;
 }
 
+#hos_search .seemore-btn{
+    background-color: #f0b700;
+}
+
+#hos_search .seemore-btn:hover{
+    border: 1px solid #f0b700;
+}
 
 /* job_search */
 
@@ -9361,6 +9392,14 @@ border-bottom: none;
     position: relative;
     display: inline-flex;
     margin-top: 7px;
+}
+
+#hos_search .job_status{
+    background: #f0b700;
+}
+
+#job_search .job_status{
+    background: #ee788e;
 }
 
 .job_id {
@@ -9489,22 +9528,6 @@ table.consultTable >tbody>tr th{
 table.consultTable >tbody>tr th.second-hos-row{
     background-color: #ecf8ff !important;
 }
-.table-innertitle {
-    position: relative;
-}
-
-.table-innertitle:after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    display: inline-block;
-    width: 18px;
-    height: 2px;
-    left: -30px;
-    border-radius: 2px;
-    background: #2980b9;
-    left: 15px;
-}
 
 .innerwrapper {
     padding-left: 0px;
@@ -9523,7 +9546,8 @@ table.consultTable >tbody>tr th.second-hos-row{
     margin-bottom: 10px;
     padding: 20px 20px 20px 20px;
     height: 100%;
-    border: 1px solid #63b7ff;
+    /*border: 1px solid #63b7ff;*/
+    border: 1px solid #f0b700;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -9534,7 +9558,8 @@ table.consultTable >tbody>tr th.second-hos-row{
 }
 
 .hos-title a {
-    color: #63b7ff;
+    /*color: #63b7ff;*/
+    color: #f0b700 !important;
     letter-spacing: 1px;
     font-weight: bold;
     overflow: hidden;
@@ -9632,9 +9657,14 @@ table.consultTable >tbody>tr th.second-hos-row{
     background-color: #ecf8ff !important;
 }
 
+#hos_search .second-hos-row{
+    background-color: #f3ecd7 !important;
+}
+
 .hos-content .detail-btn .btn {
     width: 16%;
-    background: #63b7ff;
+    /*background: #63b7ff;*/
+    background: #f0b700;
     color: #fff;
     padding: 10px;
 }
@@ -13584,6 +13614,12 @@ transition: background-color .3s;
         margin-bottom: 20px !important;
         line-height: 1.3;
     }
+    .maintab-content.margin-top-30{
+        margin-top: -30px;
+    }
+    .maintab-content.margin-top-none{
+        margin-top: 0;
+    }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 360px) {
@@ -14417,6 +14453,7 @@ strong {
 }
 #job_search .seemore-btn{
     font-size: 14px !important;
+    background-color: #ee788e;
 }
 #job_search .create-btn{
     font-size: 14px;
@@ -14830,8 +14867,11 @@ input.gsc-input {
 @media only screen and (max-width: 990px){
     #headerbar,
     .fav-dropdown{
-        /*display: none;*/
+        display: none;
         background: #f4f4f2;
+    }
+    .headerbarblock .fav-dropdown{
+        display: block;
     }
     #sp_headerbar {
         display: block;

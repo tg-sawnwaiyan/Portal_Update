@@ -1396,9 +1396,8 @@
 }
 .tab_title_color{
     border-radius: 3px;
-    /*padding: 2px 4px 0px 4px;*/
-    padding:  2px 10px 0px 10px;
-    font-size: 13px;
+    padding: 2px 4px 0px 4px;
+    font-size: 10px;
     background-color: var(--bkgColor);
 }
 .tab_title_color span {

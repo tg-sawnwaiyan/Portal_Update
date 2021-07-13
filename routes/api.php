@@ -301,9 +301,9 @@ Route::group(['middleware' => $middleware], function() {
     Route::post('delete-pgallery','GalleryController@deleteGallery');
 
     Route::get('nursing-panorrama-gallery/{id}','GalleryController@getPanoramabyCustomerId');
-    Route::post('nursing/movephoto','NursingProfileController@movePhoto');
-    Route::post('nursing/movelogo','NursingProfileController@moveLogo');
-    Route::post('nursing/movepanorama','NursingProfileController@movePanorama');
+    Route::post('nursing/movephoto/{id}','NursingProfileController@movePhoto');
+    Route::post('nursing/movelogo/{id}','NursingProfileController@moveLogo');
+    Route::post('nursing/movepanorama/{id}','NursingProfileController@movePanorama');
     Route::post('nursing/movelatlng/{id}','ProfileController@movelatlng');
     Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
     Route::post('user/movephoto','UserController@movePhoto');
