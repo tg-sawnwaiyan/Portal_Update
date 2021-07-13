@@ -6,6 +6,8 @@ use App\Post;
 use App\Category;
 use App\PostView;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image; //画像のサイズを変更するように
+
 use DB;
 use Carbon;
 
@@ -31,7 +33,15 @@ class PostController extends Controller
             $image = str_replace('data:image/png;base64,', '', $request->photo);
             $image = str_replace(' ', '+', $image);
             $imageName = str_random(10).'.'.'png';
-            \File::put('upload/news/' . $imageName, base64_decode($image));
+            $image = base64_decode($image);
+            \File::put('upload/news/' . $imageName, $image);
+            /** サイズ小さくした 画像を保存する　20210713　ここから*/
+            if (!file_exists('upload/news/mobile')) {
+                mkdir('upload/news/mobile');                    
+            }
+            $resized_image = Image::make($image)->resize(117, 75)->stream('png', 100);                
+            \File::put('upload/news/mobile/' . $imageName, $resized_image);
+            /** サイズ小さくした 画像を保存する　ここまで*/
         }
 
         $post = new Post() ;
@@ -330,11 +340,23 @@ class PostController extends Controller
                 $file       = $post->photo;
                 $filename   = './upload/news/'.$file;
                 \File::delete($filename);
+                /** サイズ小さくした 画像を削除する　20210713　ここから*/
+                $filename_mobile = './upload/news/mobile/'.$file;
+                \File::delete($filename_mobile);
+                /** サイズ小さくした 画像を削除する　ここまで*/
 
                 $image = str_replace('data:image/png;base64,', '', $request->photo);
                 $image = str_replace(' ', '+', $image);
                 $imageName = str_random(10).'.'.'png';
-                \File::put('upload/news/' . $imageName, base64_decode($image));
+                $image = base64_decode($image);
+                \File::put('upload/news/' . $imageName, $image);
+                /** サイズ小さくした 画像を保存する　20210713　ここから*/
+                if (!file_exists('upload/news/mobile')) {
+                    mkdir('upload/news/mobile');                    
+                }
+                $resized_image = Image::make($image)->resize(117, 75)->stream('png', 100);                
+                \File::put('upload/news/mobile/' . $imageName, $resized_image);
+                /** サイズ小さくした 画像を保存する　ここまで*/
 
             }else{
                 $imageName = $post->photo;
@@ -343,6 +365,10 @@ class PostController extends Controller
             $file       = $post->photo;
             $filename   = './upload/news/'.$file;
             \File::delete($filename);
+            /** サイズ小さくした 画像を削除する　20210713　ここから*/
+            $filename_mobile = './upload/news/mobile/'.$file;
+            \File::delete($filename_mobile);
+            /** サイズ小さくした 画像を削除する　ここまで*/
 
             $imageName = "";
         }
@@ -392,7 +418,11 @@ class PostController extends Controller
         $file= $post->photo;	
         $filename = './upload/news/'.$file;	
         \File::delete($filename);	
+        $filename_mobile = './upload/news/mobile/'.$file;
+        /** サイズ小さくした 画像を削除する　20210713　ここから*/
+        \File::delete($filename_mobile);
         $post->delete();	
+        /** サイズ小さくした 画像を削除する　ここまで*/
         return response()->json('The news successfully deleted');	
     }
 

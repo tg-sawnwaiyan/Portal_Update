@@ -599,7 +599,7 @@
                                         <router-link :to="'/newsdetails/'+large_new.pid">
                                             <clazy-load class="sm_large_new" @load="log"  src="/images/noimage.jpg" :key="large_new.id">
                                                 <transition name="fade"> 
-                                                    <img v-bind:src="'/upload/news/' + large_new.photo" :alt="large_new.name+'ニュース画像'" class="img-responsive"  @error="imgUrlAlt">
+                                                    <img v-bind:src="'/upload/news/mobile/' + large_new.photo" :alt="large_new.name+'ニュース画像'" class="img-responsive"  @error="imgUrlAlt">
                                                 </transition>
                                                 <transition name="fade" slot="placeholder">
                                                     <div class="preloader">
@@ -636,7 +636,7 @@
                                     <div class="col-4 img-box">
                                         <clazy-load class="wrapper-4" @load="log" src="/images/noimage.jpg" :key="inx">
                                             <transition name="fade">
-                                                <img v-bind:src="'/upload/news/' + group.photo" :alt="group.name+'ニュース画像'" class="fit-image-0" @error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/mobile/' + group.photo" :alt="group.name+'ニュース画像'" class="fit-image-0" @error="imgUrlAlt">
                                             </transition>
 
                                             <transition name="fade" slot="placeholder">

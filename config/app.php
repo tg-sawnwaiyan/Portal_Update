@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         // Illuminate\Filesystem\SplFileObject::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
