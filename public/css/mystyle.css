@@ -1033,7 +1033,7 @@ input::-ms-clear {
 
 .for-read-more {
     position: absolute;
-    bottom: -1px;
+    bottom: 5px;
 }
 
 .backbtn {
@@ -10627,7 +10627,7 @@ background-color: #f57e46;
     height: 0;
     /* width: 100%; */
     /* height: 75px; */
-    padding-bottom: 75px;
+    padding-bottom: 90px;
     /* padding-bottom: 70px; */
     overflow: hidden;
 }
