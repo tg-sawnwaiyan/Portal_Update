@@ -246,22 +246,22 @@ export default {
     font-size: 13px;
 }
 .detail-block{
-  text-align: left;
-  margin-bottom: 20px; 
-  padding: 0 45px; 
-  display: inline-block;
+  text-align: center;
+    margin-bottom: 20px;
+    padding: 0 45px;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
 }
 .set-date{
   margin-top: 0.5rem;
+  display: inline-block;
 }
 .news-create-cmp{
   font-size: 1rem;
   line-height: 1.384;
   color: #666;
-  display: block; 
-  width: 440px ; 
   text-align: center;
-  margin-top: .5rem; 
-  float: left;
+  margin-top: .5rem;
 }
 </style>

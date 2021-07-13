@@ -5392,7 +5392,7 @@ screen and (min-width: 750px) {
         font-size: 14px;
     }
     .set-date {
-        float: right;
+        /*float: right;*/
         text-indent: 2em;
         margin-bottom: 2px;
     }
@@ -7354,7 +7354,6 @@ position: relative;
         font-size: 14px;
     }
     .set-date {
-        float: right;
         text-indent: 2em;
         margin-bottom: 2px;
     }
@@ -7519,9 +7518,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .set-date {
-    float: right;
     text-indent: 0em;
-    margin-bottom: 2px;
+    margin: 0 0 2px 20px;
 }
 
 
