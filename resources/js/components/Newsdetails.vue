@@ -247,9 +247,8 @@ export default {
 }
 .detail-block{
   text-align: center;
-    margin-bottom: 20px;
     padding: 0 45px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     width: 100%;
     display: block;
 }
