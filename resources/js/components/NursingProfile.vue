@@ -1155,7 +1155,7 @@ export default {
                 }
             },
             createProfile() {
-                if($('#new_lat').val() == "" || $('#new_lat').val() == 0 || $('#new_long').val() == "" || $('#new_long').val() == 0 || $('#gmaptownship').val() == 0){
+                if($('#new_lat').val() == "" || $('#new_lat').val() == 0 || $('#new_long').val() == "" || $('#new_long').val() == 0 || $('#gmaptownship').val() == 0){ 
                     this.loc = true;
                     this.btn_disable = true;
                     this.nursing_info.townships_id = $('#gmaptownship').val();
@@ -1165,6 +1165,7 @@ export default {
                     this.township_list = JSON.parse(localStorage.getItem("townshiplist"));
                 }
                 else{
+
                     this.loc = false;
                     this.nursing_info.townships_id = $('#gmaptownship').val();
                     this.nursing_info.latitude = $('#new_lat').val();
@@ -1172,6 +1173,7 @@ export default {
                     this.city_id = $('#division').val();
                     this.township_list = JSON.parse(localStorage.getItem("townshiplist"));
                     if(this.mail_focus != true && this.ph_num != true && this.nursing_info.name != '' && this.nursing_info.name != null){
+                        
                         this.btn_disable = false;
                     }
                     else{
@@ -1234,7 +1236,7 @@ export default {
                         }
                     }
 
-                    this.axios.post('/api/nursing/movephoto', pt)
+                    this.axios.post(`/api/nursing/movephoto/${this.pro_id}`, pt)
                         .then(response => {
                         }).catch(error=>{
                             console.log(error);
@@ -1247,8 +1249,9 @@ export default {
                     let lg = new FormData();
                     if(document.getElementsByClassName('customer-logo')[0].files[0]) {
                         var file = document.getElementsByClassName('customer-logo')[0].files[0];
+                        //lg.append('id',this.pro_id);
                         lg.append('logo',file);
-                        this.axios.post('/api/nursing/movelogo', lg)
+                        this.axios.post(`/api/nursing/movelogo/${this.pro_id}`, lg)
                         .then(response => {
                         }).catch(error=>{
                             console.log(error);
@@ -1301,13 +1304,14 @@ export default {
 
                     // Panorama
                     let fd = new FormData();
+                        //fd.append('id',this.pro_id);
                     for(var i = 0; i< this.panorama_arr.length; i++) {
                         if(this.panorama_arr[i]['path']!=''){
                             fd.append(i ,this.panorama_arr[i]["file"] )
                         }
                     }
 
-                    this.axios.post('/api/nursing/movepanorama', fd)
+                    this.axios.post(`/api/nursing/movepanorama/${this.pro_id}`, fd)
                         .then(response => {
                         }).catch(error=>{
                             console.log(error);
