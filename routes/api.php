@@ -305,7 +305,8 @@ Route::group(['middleware' => $middleware], function() {
     Route::post('nursing/movelogo/{id}','NursingProfileController@moveLogo');
     Route::post('nursing/movepanorama/{id}','NursingProfileController@movePanorama');
     Route::post('nursing/movelatlng/{id}','ProfileController@movelatlng');
-    Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
+    Route::post('hospital/movelogo/{id}','HospitalProfileController@moveLogo');
+    Route::post('hospital/movephoto/{id}','HospitalProfileController@movePhoto');
     Route::post('user/movephoto','UserController@movePhoto');
     Route::post('user/password-change','UserController@changePassword');
     Route::post('user/email-change','UserController@changeEmail');

@@ -1197,7 +1197,7 @@ export default {
                   this.hospital_info.logo = logo.name;
                   let fd = new FormData();   
                   fd.append('logo', logo)
-                  this.axios.post('/api/hospital/movephoto', fd)
+                  this.axios.post(`/api/hospital/movelogo/${this.pro_id}`, fd)
                       .then(response => {
                           }).catch(error=>{
 
@@ -1244,7 +1244,7 @@ export default {
                 }
 
             
-                this.axios.post('/api/hospital/movephoto', pt)
+                this.axios.post(`/api/hospital/movephoto/${this.pro_id}`, pt)
                     .then(response => {
                         }).catch(error=>{
 
