@@ -18,7 +18,12 @@
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
      
       <div class="col-12 p0-480">
-        <h4 class="job-title-color">{{jobDetail.title}} </h4>
+        <h4 class="job-title-color">{{jobDetail.title}}
+          <span><router-link v-if="jobDetail.type_id == 2" class="enabledlink-right" :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">施設詳細</router-link>
+          </span>
+          <span><router-link v-if="jobDetail.type_id == 3" class="enabledlink-right" :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">施設詳細</router-link>
+          </span>
+        </h4>
         <label class="job_id" style="color:#000;">求人番号: {{jobDetail.jobid}}</label>
 
       </div>
@@ -105,26 +110,15 @@
               <label><span class="job_ico"><i class="fa fa-building"></i></span>施設名</label>
             </div>
             <div class="col-md-10 col-sm-12 form-right">  
-                 
               <div v-if="jobDetail.type_id == 2">   
-                  <div v-if="jobDetail.activate == 0">
-                    <span>{{jobDetail.cusname}}</span>
-                    <span class="disabledlink">施設詳細</span>
-                  </div>
-                  <div v-else>
-                      <span>{{jobDetail.cusname}}</span>
-                     <router-link  class="enabledlink" :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">施設詳細</router-link>                    
-                  </div>          
+                <div>
+                  <router-link :to="{ path:'/profile/hospital/'+jobDetail.profile_id }">{{jobDetail.cusname}}</router-link> 
+                </div>
               </div>
               <div v-else> 
-                 <div v-if="jobDetail.activate == 0">
-                    <span>{{jobDetail.cusname}}</span>
-                    <span class="disabledlink">施設詳細</span>                     
-                  </div>
-                  <div v-else>
-                    <span>{{jobDetail.cusname}}</span>
-                    <router-link  class="enabledlink" :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">施設詳細</router-link>                    
-                  </div>    
+                <div>
+                  <router-link :to="{ path:'/profile/nursing/'+jobDetail.profile_id }">{{jobDetail.cusname}}</router-link>   
+                </div>
               </div>
               
             </div>
@@ -177,6 +171,8 @@ export default {
       $('#upper-tab').addClass('hospital-borderColor margin-none');
       $('.google_search_div').addClass('google_search_all');
       $('#headerbar').addClass('headerbarblock');
+      $('#sp_headerbar').addClass('headerbarblock');
+      $('.maintab-content').addClass('margin-top-none');
   },
 };
 </script>

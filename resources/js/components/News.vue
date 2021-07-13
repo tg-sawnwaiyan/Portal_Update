@@ -1065,6 +1065,8 @@
     border: 1.5px solid var(--bkgColor);
     color: #000000;
     text-align: center;
+    min-width: 91px;
+    max-width: 91px;
 }
 .black_color span{
     color: #000000 !important;
@@ -1394,9 +1396,8 @@
 }
 .tab_title_color{
     border-radius: 3px;
-    /*padding: 2px 4px 0px 4px;*/
-    padding:  2px 10px 0px 10px;
-    font-size: 13px;
+    padding: 2px 4px 0px 4px;
+    font-size: 10px;
     background-color: var(--bkgColor);
 }
 .tab_title_color span {

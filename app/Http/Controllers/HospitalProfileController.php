@@ -128,15 +128,38 @@ class HospitalProfileController extends Controller
         return response()->json('The successfully deleted');
     }
 
-    public function movePhoto(Request $request) 
+    public function moveLogo($id,Request $request) {
+        $request    = $request->all();
+        $imageName  = $request['logo']->getClientOriginalName();
+        $imageName  = str_replace(' ', '', $imageName);
+        $imageName  = uniqid().$imageName;
+        //$imageName  = strtolower($imageName);
+        $destination= 'upload/hospital_profile/'.$imageName;
+        $upload_img = move_uploaded_file($request['logo'], $destination);
+       
+        HospitalProfile::where('id', $id)->update(['logo' => $imageName]); 
+    }
+
+    public function movePhoto($id,Request $request) 
     {
         $request = $request->all();
         foreach ($request as $file){
+        
             $imageName = $file->getClientOriginalName();
+       
             $imageName = str_replace(' ', '', $imageName);
             $imageName = strtolower($imageName);
             $destination = 'upload/hospital_profile/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
+
+            $gallery = new Gallery;
+            $gallery->profile_id = $id;
+            $gallery->profile_type = 'hospital';
+            $gallery->type = 'photo';
+            $gallery->photo = $imageName;
+            $gallery->title = '';
+            $gallery->description = '';
+            $gallery->save();
         }        
     }
     
@@ -151,7 +174,7 @@ class HospitalProfileController extends Controller
         // Hospital Profile
         $hospital = HospitalProfile::where('id',$id)->first();
         $hospital->name = $request[0]['hospital_info']['name'];
-        $hospital->logo = $request[0]['hospital_info']['logo'];
+        //$hospital->logo = $request[0]['hospital_info']['logo'];
         $hospital->email = $request[0]['hospital_info']['email'];
         $hospital->phone = $request[0]['hospital_info']['phone']; 
         $hospital->address = $request[0]['hospital_info']['address'];  
@@ -223,7 +246,7 @@ class HospitalProfileController extends Controller
                 $gallery->save();
             }
         }
-        $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'hospital'])->delete(); 
+        /*$del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'hospital'])->delete(); 
         if(count($request[0]["image"]) > 0){
             for($i=0; $i<count($request[0]["image"]); $i++) {
                 $gallery = new Gallery;
@@ -235,7 +258,7 @@ class HospitalProfileController extends Controller
                 $gallery->description = $request[0]["image"][$i]['description'];
                 $gallery->save();
             }
-        }
+        }*/
         return response()->json('success');
     }
 }

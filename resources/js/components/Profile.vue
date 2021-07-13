@@ -117,6 +117,8 @@ export default {
     $('#upper-tab').addClass('hospital-borderColor margin-none');
     $('.google_search_div').addClass('google_search_all');
     $('#headerbar').addClass('headerbarblock');
+    $('#sp_headerbar').addClass('headerbarblock');
+    $('.maintab-content').addClass('margin-top-none');
   },
   methods: {
     loginView(response){   
@@ -177,7 +179,7 @@ export default {
         border-right: 1px solid #fff;
 }
 .hospital-borderColor {
-        border: 1px solid #63b7ff !important;
+        border: 1px solid #f0b700 !important;
 }
 .nursing-borderColor {
         /* border: 1px solid #ff9563 !important; */

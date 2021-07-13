@@ -318,6 +318,7 @@
         document.removeEventListener('scroll', this.handleScroll);
     },
     mounted(){
+        $('.maintab-content').addClass('margin-top-30');
         
         if(localStorage.getItem("visit")){
             this.visit = localStorage.getItem("visit");       

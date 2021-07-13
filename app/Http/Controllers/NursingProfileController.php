@@ -22,39 +22,71 @@ class NursingProfileController extends Controller
         return $nursing;
     }
 
-    public function movePanorama(Request $request) { 
+    public function movePanorama($id, Request $request) { 
         $request = $request->all();
+        //$del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'panorama', 'profile_type'=>'nursing'])->delete(); 
+
         foreach ($request as $file){
+
             $imageName  = $file->getClientOriginalName();
             $imageName  = str_replace(' ', '', $imageName);
-            $imageName  = strtolower($imageName);
+            $imageName  = uniqid().$imageName; 
             $destination= 'upload/nursing_profile/Imagepanorama/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
-        }
+
+            $gallery = new Gallery;
+            $gallery->profile_id   = $id;
+            $gallery->profile_type = 'nursing';
+            $gallery->type  = 'panorama';
+            $gallery->photo = $imageName;
+            $gallery->title = '';
+            $gallery->description  = '';
+
+            $gallery->save(); 
+        } 
+         
+               
+
     }
     //test
-    public function movePhoto(Request $request) {
+    public function movePhoto($id,Request $request) {
         $request = $request->all();
+
         foreach ($request as $file){
             $imageName  = $file->getClientOriginalName();
             $imageName  = str_replace(' ', '', $imageName);
-            $imageName  = strtolower($imageName);
+            $imageName  = uniqid().$imageName;
+
+            //$imageName  = strtolower($imageName);
             $destination= 'upload/nursing_profile/'.$imageName;
             $upload_img = move_uploaded_file($file, $destination);
+
+            $gallery = new Gallery;
+            $gallery->profile_id   = $id;
+            $gallery->profile_type = 'nursing';
+            $gallery->type  = 'photo';
+            $gallery->photo = $imageName;
+            $gallery->title = '';
+            $gallery->description  = '';
+
+            $gallery->save();
         }        
     }
 
-    public function moveLogo(Request $request) {
+    public function moveLogo($id,Request $request) {
         $request    = $request->all();
         $imageName  = $request['logo']->getClientOriginalName();
         $imageName  = str_replace(' ', '', $imageName);
-        $imageName  = strtolower($imageName);
+        $imageName  = uniqid().$imageName;
+        //$imageName  = strtolower($imageName);
         $destination= 'upload/nursing_profile/'.$imageName;
-        $upload_img = move_uploaded_file($request['logo'], $destination);   
+        $upload_img = move_uploaded_file($request['logo'], $destination);
+       
+        NursingProfile::where('id', $id)->update(['logo' => $imageName]); 
     }
 
     public function profileupdate($id,Request $request) { 
-        $request = $request->all();
+        $request = $request->all(); 
 
         $nursing = NursingProfile::where('id',$id)->first();
         // Nursing Profile 
@@ -62,7 +94,7 @@ class NursingProfileController extends Controller
         $nursing->email     = $request[0]['nursing_profile']['email'];
         $nursing->phone     = $request[0]['nursing_profile']['phone'];
         $nursing->address   = $request[0]['nursing_profile']['address'];
-        $nursing->logo      = $request[0]['nursing_profile']['logo'];
+        //$nursing->logo      = $request[0]['nursing_profile']['logo'];
 
         $nursing->access    = $request[0]['nursing_profile']['access'];
         $nursing->townships_id  = $request[0]['nursing_profile']['townships_id'];
@@ -205,7 +237,7 @@ class NursingProfileController extends Controller
             }
         }
 
-        $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'nursing'])->delete(); 
+        /*$del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'photo', 'profile_type'=>'nursing'])->delete(); 
         if(count($request[0]["image"]) > 0){
             for($i=0; $i<count($request[0]["image"]); $i++) {
                 $gallery = new Gallery;
@@ -218,9 +250,9 @@ class NursingProfileController extends Controller
     
                 $gallery->save();
             }
-        }
+        }*/
 
-        $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'panorama', 'profile_type'=>'nursing'])->delete(); 
+       /* $del_gallery = Gallery::where(['profile_id'=> $id,'type'=>'panorama', 'profile_type'=>'nursing'])->delete(); 
         if(count($request[0]["panorama"]) > 0){
             for($i=0; $i<count($request[0]["panorama"]); $i++) {
                 $gallery = new Gallery;
@@ -233,7 +265,7 @@ class NursingProfileController extends Controller
     
                 $gallery->save();
             }
-        }
+        }*/
         // End
     }
 
