@@ -247,10 +247,9 @@ export default {
 }
 .detail-block{
   text-align: center;
-    padding: 0 45px;
-    margin: 0 auto 20px auto;
-    width: 100%;
-    display: block;
+  margin: 0 auto 20px auto;
+  width: 100%;
+  display: block;
 }
 .set-date{
   margin-top: 0.5rem;
@@ -262,5 +261,6 @@ export default {
   color: #666;
   text-align: center;
   margin-top: .5rem;
+  display: inline-block;
 }
 </style>

@@ -129,7 +129,7 @@
                                                                 <span class="sm_news_mp" style="max-width: 65%;">
                                                                     {{ post.title }}
                                                                 </span>
-                                                                <span v-if="post.new_news == '1'" class="sm_news_date">{{post.created_at}}<em class="small_new">New</em></span>
+                                                                <span v-if="post.new_news == '1'" class="sm_news_date"><spam class="small_new">New</spam>{{post.created_at}}</span>
                                                                 <span v-else class="sm_news_date">{{post.created_at}}</span>
                                                             </p>
                                                             <!-- <span class="source-img-small d-inline-block text-truncate top_sm_news">
@@ -1274,126 +1274,6 @@
 .top_sm_pc a .news-list-display .sm_news_mp {
     max-width: 69.5%;
 }
-@media only screen and (min-width: 769px) and (max-width: 1200px){
-    #view-1024 .first-child {
-        max-width: 33.33%;
-        flex: 0 0 33.33%;
-    }
-    #view-1024 .last-child {
-        max-width: 33.33%;
-        flex: 0 0 33.33%;
-    }
-    #view-1024-pattern .col-lg-3 {
-        max-width: 33.333333%;
-        flex: 0 0 33.333333%;
-        /* overflow: hidden; */
-    }
-    #view-1024-pattern .col-lg-3:last-child {
-        display: none;
-    }
-    .newssearch-width{
-        max-width: 66.666667%;
-        flex: 0 0 66.666667%;
-    }
-}
-
-@media only screen and (max-width:480px){
-    .p_3 {
-        max-height: 50px;
-        font-weight: bold;
-        line-height: 1.1rem;
-    }
-    .list-label{
-        color: #fff;     
-    }
-    .pattern-txt-box {
-        max-height: 60px;
-    }
-    .txt_date {
-        font-weight: normal;
-        font-size: 12px;
-        color: #969798;
-    }
-    .txt_align a .pattern-txt-box p, .sm_news_mp {
-        font-weight: bold;
-    }
-    .sm_news_mp {
-        max-width: 72%!important;
-    }
-}
-@media only screen and (max-width: 1280px){
-    .news-slider-width{
-        width: 100%;
-    }
-}
-@media only screen and (max-width:1024px){
-    .news-slider-width{
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width:1280px){
-    
-    
-    .news-slider-width{
-       
-        width: 100%;
-    }
-    .slick-next, .slick-prev{
-        border: 1px solid #807777;
-        outline: none;
-        background: #f7f7f7;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-      
-       
-    }  
-    
-    .slick-next::before{
-        
-        border-width: .2rem .2rem 0 0;
-        height: 9px;
-        width: 9px;  
-    }
-    .slick-prev::before{
-        
-        border-width: .2rem .2rem 0 0;
-        height: 9px;
-        width: 9px;
-    }
-    .slick-next{
-     
-        right: 0px
-    }
-    .slick-prev{
-      
-        left: 5px;
-        z-index: 999;       
-    }
-    .button:not(:disabled).slick-next{
-        opacity: 0;
-    }
-    .slick-disabled{
-        opacity: 0;
-    }
-    
-}
-@media only screen and (max-width: 414px){
-    .news-slider-width{
-        width: 100%;
-    }
-}
-@media only screen and (max-width: 560px){
-    .cat-nav {
-        height: auto !important;
-        padding: 0 !important;
-    }
-}
-@media only screen and (min-width: 769px){
-   .slick-arrow{   
-    display: none !important;   
-    } 
-}
 #widthmenu{
     display: inline-block;
 
@@ -1401,7 +1281,7 @@
 .tab_title_color{
     border-radius: 3px;
     padding: 2px 4px 0px 4px;
-    font-size: 10px;
+    font-size: 13px;
     background-color: var(--bkgColor);
 }
 .tab_title_color span {
@@ -1581,5 +1461,128 @@
     font-weight: bold;
     min-height: 72px;
     margin-top: 6px;
+}
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+    #view-1024 .first-child {
+        max-width: 33.33%;
+        flex: 0 0 33.33%;
+    }
+    #view-1024 .last-child {
+        max-width: 33.33%;
+        flex: 0 0 33.33%;
+    }
+    #view-1024-pattern .col-lg-3 {
+        max-width: 33.333333%;
+        flex: 0 0 33.333333%;
+        /* overflow: hidden; */
+    }
+    #view-1024-pattern .col-lg-3:last-child {
+        display: none;
+    }
+    .newssearch-width{
+        max-width: 66.666667%;
+        flex: 0 0 66.666667%;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .p_3 {
+        max-height: 50px;
+        font-weight: bold;
+        line-height: 1.1rem;
+    }
+    .list-label{
+        color: #fff;     
+    }
+    .pattern-txt-box {
+        max-height: 60px;
+    }
+    .txt_date {
+        font-weight: normal;
+        font-size: 12px;
+        color: #969798;
+    }
+    .txt_align a .pattern-txt-box p, .sm_news_mp {
+        font-weight: bold;
+    }
+    .sm_news_mp {
+        max-width: 72%!important;
+    }
+}
+@media only screen and (max-width: 1280px){
+    .news-slider-width{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:1024px){
+    .news-slider-width{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:1280px){
+    
+    
+    .news-slider-width{
+       
+        width: 100%;
+    }
+    .slick-next, .slick-prev{
+        border: 1px solid #807777;
+        outline: none;
+        background: #f7f7f7;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
+      
+       
+    }  
+    
+    .slick-next::before{
+        
+        border-width: .2rem .2rem 0 0;
+        height: 9px;
+        width: 9px;  
+    }
+    .slick-prev::before{
+        
+        border-width: .2rem .2rem 0 0;
+        height: 9px;
+        width: 9px;
+    }
+    .slick-next{
+     
+        right: 0px
+    }
+    .slick-prev{
+      
+        left: 5px;
+        z-index: 999;       
+    }
+    .button:not(:disabled).slick-next{
+        opacity: 0;
+    }
+    .slick-disabled{
+        opacity: 0;
+    }
+    
+}
+@media only screen and (max-width: 414px){
+    .news-slider-width{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 560px){
+    .cat-nav {
+        height: auto !important;
+        padding: 0 !important;
+    }
+}
+@media only screen and (min-width: 769px){
+   .slick-arrow{   
+    display: none !important;   
+    } 
+    .tab_title_color{
+        font-size: 10px;
+    }
 }
 </style>

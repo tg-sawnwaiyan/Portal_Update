@@ -13617,6 +13617,9 @@ transition: background-color .3s;
     .maintab-content.margin-top-30{
         margin-top: -30px;
     }
+    .infoBox.margin-top-30{
+        margin-top: -30px !important;
+    }
     .maintab-content.margin-top-none{
         margin-top: 0;
     }
