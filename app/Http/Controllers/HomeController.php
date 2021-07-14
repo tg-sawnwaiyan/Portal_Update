@@ -145,14 +145,21 @@ class HomeController extends Controller
                 if($hourInterval <= 36)
                 {
                 $aryPosts->new_news = 1;
-                $aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+                //$aryPosts->date_only = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
                 }
                 
                 $hour = $carbonCreated_dt->hour;
                 $hour = $hour < 10 ? '0'.$hour : $hour;
                 $minute = $carbonCreated_dt->minute;
                 $minute = $minute < 10 ? '0'.$minute : $minute;
-                $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
+                $currentDate = $todayDate->day;
+                $currentMonth = $todayDate->month;
+                if($currentMonth == $carbonCreated_dt->month && $currentDate == $carbonCreated_dt->day){
+                    $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day.' '.$hour.':'.$minute;
+                }else{
+                    $aryPosts->created_at = $carbonCreated_dt->month.'/'.$carbonCreated_dt->day;
+                }
+                
                 $tmp[$aryPosts->id.",".$aryPosts->name.",".$color][] = $aryPosts;
             }
             $aryResults = array();

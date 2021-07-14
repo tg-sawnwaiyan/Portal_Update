@@ -47,7 +47,7 @@
                         
                         <!-- Cropper container -->
                         <div v-if="this.imageSrc" class="my-3 d-flex align-items-center justify-content-center mx-auto">
-                            <vue-cropper class="mr-2 w-50" ref="cropper" viewMode=0 :guides="true" :auto-crop-area="0.7" :src="imageSrc" drag-mode="move" :movable="true" :crop-box-movable="false" :crop-box-resizable="false"></vue-cropper>
+                            <vue-cropper class="mr-2 w-50" ref="cropper" viewMode=0 :guides="true" :src="imageSrc" drag-mode="move" :movable="true" :crop-box-movable="false" :crop-box-resizable="false"></vue-cropper>
                             <!-- Cropped image previewer -->
                             <img class="ml-2 w-50 bg-light" :src="croppedImageSrc" />
                         </div>
@@ -491,6 +491,9 @@ export default {
                     allowOutsideClick: false,                         
                     }).then(response => {
                         let fData = new FormData();
+                        if(this.croppedImageSrc){
+                        this.news.photo = this.croppedImageSrc;
+                        }
                         fData.append('photo', this.news.photo)
                         fData.append('from_date', this.news.from_date)
                         fData.append('to_date', this.news.to_date)
