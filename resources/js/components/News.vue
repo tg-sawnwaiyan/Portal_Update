@@ -129,7 +129,7 @@
                                                                 <span class="sm_news_mp" style="max-width: 65%;">
                                                                     {{ post.title }}
                                                                 </span>
-                                                                <span v-if="post.new_news == '1'" class="sm_news_date">{{post.created_at}}<em class="small_new">New</em></span>
+                                                                <span v-if="post.new_news == '1'" class="sm_news_date"><spam class="small_new">New</spam>{{post.created_at}}</span>
                                                                 <span v-else class="sm_news_date">{{post.created_at}}</span>
                                                             </p>
                                                             <!-- <span class="source-img-small d-inline-block text-truncate top_sm_news">
